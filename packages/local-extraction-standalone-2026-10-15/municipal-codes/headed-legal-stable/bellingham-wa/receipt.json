@@ -1,0 +1,69 @@
+{
+  "job": {
+    "slug": "bellingham-wa",
+    "section_url": "https://bellingham.municipal.codes/BMC/1.01.010",
+    "expected_id": "1.01.010",
+    "export_url": "https://bellingham.municipal.codes/BMC/1.01.010/export.html?download=true",
+    "advertised_exports": [
+      {
+        "url": "https://bellingham.municipal.codes/BMC/1.01.010/export.pdf?download=true",
+        "label": "Adobe Reader (PDF)"
+      },
+      {
+        "url": "https://bellingham.municipal.codes/BMC/1.01.010/export.rtf?download=true",
+        "label": "Microsoft Word (RTF)"
+      },
+      {
+        "url": "https://bellingham.municipal.codes/BMC/1.01.010/export.pdf?print=true",
+        "label": "Print"
+      },
+      {
+        "url": "https://bellingham.municipal.codes/BMC/1.01.010/export.html?download=true",
+        "label": "Web Page (HTML)"
+      },
+      {
+        "url": "https://bellingham.municipal.codes/BMC/1.01.010/export.txt?download=true",
+        "label": "Plain Text"
+      }
+    ],
+    "discovery_receipt": "export-discovery/bellingham-wa/share-dialog.receipt.json",
+    "discovery_raw_sha256": "cf4fce81a56801ddc5fdbaea695eb360851f18bc07201c64f3a528ada6ca8a65",
+    "stages": [
+      "page"
+    ]
+  },
+  "transport": "standalone ordinary headed Playwright",
+  "node": "v24.19.0",
+  "playwright": "1.62.1",
+  "browser": "155.0.8059.41",
+  "script_sha256": "c14ea89b46e897c983de1ab205767f9f1ba3d85932176c5bcd652af5f5802571",
+  "started_at": "2026-10-15T19:25:49.084Z",
+  "operator_actions": [],
+  "operator_assisted": false,
+  "stages": [
+    {
+      "kind": "page",
+      "requested_url": "https://bellingham.municipal.codes/BMC/1.01.010",
+      "final_url": "https://bellingham.municipal.codes/BMC/1.01.010",
+      "http_status": 429,
+      "started_at": "2026-10-15T19:25:49.084Z",
+      "finished_at": "2026-10-15T19:25:59.569Z",
+      "error": "TimeoutError: locator.waitFor: Timeout 10000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('article[id=\"1.01.010\"]')\u001b[22m\n",
+      "download_url": null,
+      "download_failure": null,
+      "download_filename": null,
+      "raw_artifact_path": "page.html",
+      "raw_sha256": "6cf9be732f0c06479391222a3f6cff79b51d4593aac387230cb13aec5d7f87d9",
+      "before_sha256": "6cf9be732f0c06479391222a3f6cff79b51d4593aac387230cb13aec5d7f87d9",
+      "after_sha256": "6cf9be732f0c06479391222a3f6cff79b51d4593aac387230cb13aec5d7f87d9",
+      "bytes": 28884,
+      "title": "Just a moment...",
+      "expected_identity_present": false,
+      "access_challenge": true,
+      "accepted": false
+    }
+  ],
+  "whole_corpus_validated": false,
+  "finished_at": "2026-10-15T19:25:59.579Z",
+  "accepted": false
+}

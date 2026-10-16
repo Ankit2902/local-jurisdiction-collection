@@ -1,0 +1,1058 @@
+{
+  "schema_version": 1,
+  "family": "ecode360",
+  "created_at": "2026-10-15T19:33:44.048280+00:00",
+  "phase": "standalone qualification; sealed v1/E2E originals preserved",
+  "summary": {
+    "jurisdictions": 14,
+    "fresh_headless_routes_tested": 13,
+    "fresh_initial403": 12,
+    "fresh_initial429": 1,
+    "fresh_standalone_primary_municipal_code_pass": 0,
+    "fresh_primary_municipal_code_records": 0,
+    "headed_probe_deferred": 1,
+    "publisher_export_acquired": 0,
+    "separate_charter_alternatives_with_bounded_exports": 2,
+    "charter_records_in_this_package_ocr_pilot": 5,
+    "charter_records_in_companion_emeryville_proof": 2,
+    "whole_corpus_imports": 0,
+    "python_tests_passed": 34,
+    "node_checks_passed": 11
+  },
+  "jurisdictions": [
+    {
+      "slug": "burlingame-ca",
+      "jurisdiction": "Burlingame",
+      "discovery_url": "https://ecode360.com/44507298",
+      "route_basis": "retained observed publisher chapter route; current capture independently validates customer/code/date",
+      "best_method_status": "blocked_or_deferred_primary_municipal_code",
+      "source_url": "https://ecode360.com/44507298",
+      "primary_scope": "Municipal Code bounded current chapter URL",
+      "primary_standalone_status": "initial_response_blocked",
+      "primary_source_http_status": 403,
+      "browser": {
+        "mode": "headless",
+        "browser": "155.0.8059.41",
+        "channel": "chrome",
+        "playwright": "1.60.0",
+        "fresh_isolated_context": true
+      },
+      "final_accepted_primary_bytes_acquired_outside_codex": false,
+      "primary_output_records": 0,
+      "export_format": null,
+      "output_records": 0,
+      "output_record_scope": null,
+      "accepted_alternative_bytes_acquired_outside_codex": false,
+      "acquisition_evidence": [
+        {
+          "path": "standalone-live/headless-chrome/burlingame-ca/receipt.json",
+          "sha256": "48e50415b178b75ac376d12c31c5fae8aa0e7a6d00bad50e406233050b703241",
+          "bytes": 2204
+        },
+        {
+          "path": "standalone-live/headless-chrome/burlingame-ca/response.html",
+          "sha256": "4b68a9b51b520026b431600014a141129584c5e555a62853ec4ad0320efc824e",
+          "bytes": 6226
+        },
+        {
+          "path": "standalone-live/headless-chrome/burlingame-ca/rendered-failure.html",
+          "sha256": "0afb97a7e7f94a7121a1e69a160314ff64bd36ec7f8c6504e9eb2c4d8344853a",
+          "bytes": 6224
+        },
+        {
+          "path": "standalone-live/headless-chrome/burlingame-ca/failure.png",
+          "sha256": "3878570f4a62a0d65f57cf1754e0269e56ec797f4e36e26b44c172eb6e800401",
+          "bytes": 4254
+        }
+      ],
+      "report_path": "STANDALONE-VALIDATION.json",
+      "currentness": {
+        "primary_new_legal_body_currentness_verified": false,
+        "baseline_cua": "Prior E2E-VALIDATION.json verifies14 bounded current source captures; not counted as new standalone proof",
+        "official_alternative": "Search-indexed primary page only; live standalone route404 prevents current-route verification."
+      },
+      "coverage": {
+        "full_municipal_code_collected": false,
+        "full_inventory_verified": false,
+        "full_charter_verified": false
+      },
+      "blockers": [
+        "Initial HTTP 403 challenge/access response; stopped before legal content. Passive/headed completion not tested.",
+        "Publisher PDF/Word availability varies by publication and login; documented credentialed API untested"
+      ],
+      "next_action": "Respect host stop and publisher access prerequisites. After authorized resumption, test one normal headed/passive browser or authorized publisher export; preserve fresh acquisition/selection/currentness evidence before parsing. Do not replay CUA bytes as standalone acquisition.",
+      "official_alternative_finding": "Official Codes & Regulations search result delegates MunicipalCode, Title18 and Title25. Current complete city-hosted export not verified; direct discovered city route404.",
+      "partial_alternative": null
+    },
+    {
+      "slug": "emeryville-ca",
+      "jurisdiction": "Emeryville",
+      "discovery_url": "https://ecode360.com/46989352",
+      "route_basis": "retained observed publisher chapter route; current capture independently validates customer/code/date",
+      "best_method_status": "partial_separate_charter_verified",
+      "source_url": "https://ecode360.com/46989352",
+      "primary_scope": "Municipal Code bounded current chapter URL",
+      "primary_standalone_status": "initial_response_blocked",
+      "primary_source_http_status": 403,
+      "browser": {
+        "mode": "headless",
+        "browser": "155.0.8059.41",
+        "channel": "chrome",
+        "playwright": "1.60.0",
+        "fresh_isolated_context": true
+      },
+      "final_accepted_primary_bytes_acquired_outside_codex": false,
+      "primary_output_records": 0,
+      "export_format": "separate Charter official HTML -> bounded JSON/CSV sample, companion package",
+      "output_records": 2,
+      "output_record_scope": "separate Charter only",
+      "accepted_alternative_bytes_acquired_outside_codex": true,
+      "acquisition_evidence": [
+        {
+          "path": "standalone-live/headless-chrome/emeryville-ca/receipt.json",
+          "sha256": "c5ef8ebef5dffa5f8197b0a0781671963399024b784ce8e30baa884c80777c02",
+          "bytes": 2204
+        },
+        {
+          "path": "standalone-live/headless-chrome/emeryville-ca/response.html",
+          "sha256": "304be01e934a2c9465082e8e5be24fda6588dd37f75d41c51639c638c9b7f72c",
+          "bytes": 6226
+        },
+        {
+          "path": "standalone-live/headless-chrome/emeryville-ca/rendered-failure.html",
+          "sha256": "d35d8a21c1fd07602a3f8818bf0d196fb84456aeb7eb31e68399392d858f44b8",
+          "bytes": 6224
+        },
+        {
+          "path": "standalone-live/headless-chrome/emeryville-ca/failure.png",
+          "sha256": "3878570f4a62a0d65f57cf1754e0269e56ec797f4e36e26b44c172eb6e800401",
+          "bytes": 4254
+        }
+      ],
+      "report_path": "STANDALONE-VALIDATION.json",
+      "currentness": {
+        "primary_new_legal_body_currentness_verified": false,
+        "baseline_cua": "Prior E2E-VALIDATION.json verifies14 bounded current source captures; not counted as new standalone proof",
+        "official_alternative": "Charter page states November4,2014 adoption without current-through amendment marker. Historical Title8PDF adopted November15,2022; current BuildingDivision notice says 2025codes effective January1,2026, so PDF must not be treated current merely because still linked."
+      },
+      "coverage": {
+        "full_municipal_code_collected": false,
+        "full_inventory_verified": false,
+        "full_charter_verified": false
+      },
+      "blockers": [
+        "Initial HTTP 403 challenge/access response; stopped before legal content. Passive/headed completion not tested.",
+        "Publisher PDF/Word availability varies by publication and login; documented credentialed API untested"
+      ],
+      "next_action": "Respect host stop and publisher access prerequisites. After authorized resumption, test one normal headed/passive browser or authorized publisher export; preserve fresh acquisition/selection/currentness evidence before parsing. Do not replay CUA bytes as standalone acquisition.",
+      "official_alternative_finding": "First-party page embeds complete eight-section Charter in four articles; standalone bounded two-section export succeeds. BuildingDivision Title8PDF is historical ordinance22-013, not current Title8 or complete code.",
+      "partial_alternative": {
+        "scope": "City Charter only; primary Municipal Code gap remains",
+        "source_url": "https://www.emeryville.org/Government/About-Emeryville/Charter-City",
+        "report_path": "../official-alternatives/final-emeryville-charter/E2E-VALIDATION.json",
+        "records": 2,
+        "outside_codex_accepted_bytes": true,
+        "municipal_code_gap_closed": false,
+        "note": "Verified by companion official-source agent, not rerun/duplicated here"
+      }
+    },
+    {
+      "slug": "half-moon-bay-ca",
+      "jurisdiction": "Half Moon Bay",
+      "discovery_url": "https://ecode360.com/47025425",
+      "route_basis": "retained observed publisher chapter route; current capture independently validates customer/code/date",
+      "best_method_status": "blocked_or_deferred_primary_municipal_code",
+      "source_url": "https://ecode360.com/47025425",
+      "primary_scope": "Municipal Code bounded current chapter URL",
+      "primary_standalone_status": "initial_response_blocked",
+      "primary_source_http_status": 403,
+      "browser": {
+        "mode": "headless",
+        "browser": "155.0.8059.41",
+        "channel": "chrome",
+        "playwright": "1.60.0",
+        "fresh_isolated_context": true
+      },
+      "final_accepted_primary_bytes_acquired_outside_codex": false,
+      "primary_output_records": 0,
+      "export_format": null,
+      "output_records": 0,
+      "output_record_scope": null,
+      "accepted_alternative_bytes_acquired_outside_codex": false,
+      "acquisition_evidence": [
+        {
+          "path": "standalone-live/headless-chrome/half-moon-bay-ca/receipt.json",
+          "sha256": "b69caf7a08659736f55096b0236bba5f7a10b992a2e888de0652b812e10cedfd",
+          "bytes": 2207
+        },
+        {
+          "path": "standalone-live/headless-chrome/half-moon-bay-ca/response.html",
+          "sha256": "ead1f16f550bd4343e0abd7364190a9250958274e485c7cacd51dcaa94367158",
+          "bytes": 6205
+        },
+        {
+          "path": "standalone-live/headless-chrome/half-moon-bay-ca/rendered-failure.html",
+          "sha256": "ead97d6eeab2cbc6f66d654547761cde521c8dd5d80378cf3b84c22f43bc08d7",
+          "bytes": 6203
+        },
+        {
+          "path": "standalone-live/headless-chrome/half-moon-bay-ca/failure.png",
+          "sha256": "3878570f4a62a0d65f57cf1754e0269e56ec797f4e36e26b44c172eb6e800401",
+          "bytes": 4254
+        }
+      ],
+      "report_path": "STANDALONE-VALIDATION.json",
+      "currentness": {
+        "primary_new_legal_body_currentness_verified": false,
+        "baseline_cua": "Prior E2E-VALIDATION.json verifies14 bounded current source captures; not counted as new standalone proof",
+        "official_alternative": "Live discovered city route404; search-indexed primary page insufficient for renewed transport/currentness."
+      },
+      "coverage": {
+        "full_municipal_code_collected": false,
+        "full_inventory_verified": false,
+        "full_charter_verified": false
+      },
+      "blockers": [
+        "Initial HTTP 403 challenge/access response; stopped before legal content. Passive/headed completion not tested.",
+        "Publisher PDF/Word availability varies by publication and login; documented credentialed API untested"
+      ],
+      "next_action": "Respect host stop and publisher access prerequisites. After authorized resumption, test one normal headed/passive browser or authorized publisher export; preserve fresh acquisition/selection/currentness evidence before parsing. Do not replay CUA bytes as standalone acquisition.",
+      "official_alternative_finding": "Official page offers entire municipal code link, not a verified city-hosted downloadable copy. Individual ordinance PDFs are partial and can be historical/draft.",
+      "partial_alternative": null
+    },
+    {
+      "slug": "malibu-ca",
+      "jurisdiction": "Malibu",
+      "discovery_url": "https://ecode360.com/44331146",
+      "route_basis": "retained observed publisher chapter route; current capture independently validates customer/code/date",
+      "best_method_status": "blocked_or_deferred_primary_municipal_code",
+      "source_url": "https://ecode360.com/44331146",
+      "primary_scope": "Municipal Code bounded current chapter URL",
+      "primary_standalone_status": "initial_response_blocked",
+      "primary_source_http_status": 403,
+      "browser": {
+        "mode": "headless",
+        "browser": "155.0.8059.41",
+        "channel": "chrome",
+        "playwright": "1.60.0",
+        "fresh_isolated_context": true
+      },
+      "final_accepted_primary_bytes_acquired_outside_codex": false,
+      "primary_output_records": 0,
+      "export_format": null,
+      "output_records": 0,
+      "output_record_scope": null,
+      "accepted_alternative_bytes_acquired_outside_codex": false,
+      "acquisition_evidence": [
+        {
+          "path": "standalone-live/headless-chrome/malibu-ca/receipt.json",
+          "sha256": "33eb950059085d166af00cd19c70cbab6b18c6fcc631b921375de591f6c164e0",
+          "bytes": 2200
+        },
+        {
+          "path": "standalone-live/headless-chrome/malibu-ca/response.html",
+          "sha256": "a634eb352c71bf5c5e9ac9ab7bc6c9813c6d51416b1006c3283ea9aeef3b9eff",
+          "bytes": 6205
+        },
+        {
+          "path": "standalone-live/headless-chrome/malibu-ca/rendered-failure.html",
+          "sha256": "ffb702f35a696c29718f763f85759a7e823fbc3fb7b32baa9ffe287714221b0d",
+          "bytes": 6203
+        },
+        {
+          "path": "standalone-live/headless-chrome/malibu-ca/failure.png",
+          "sha256": "3878570f4a62a0d65f57cf1754e0269e56ec797f4e36e26b44c172eb6e800401",
+          "bytes": 4254
+        }
+      ],
+      "report_path": "STANDALONE-VALIDATION.json",
+      "currentness": {
+        "primary_new_legal_body_currentness_verified": false,
+        "baseline_cua": "Prior E2E-VALIDATION.json verifies14 bounded current source captures; not counted as new standalone proof",
+        "official_alternative": "Discovered official route404 in standalone request; search-indexed delegation does not qualify current export."
+      },
+      "coverage": {
+        "full_municipal_code_collected": false,
+        "full_inventory_verified": false,
+        "full_charter_verified": false
+      },
+      "blockers": [
+        "Initial HTTP 403 challenge/access response; stopped before legal content. Passive/headed completion not tested.",
+        "Publisher PDF/Word availability varies by publication and login; documented credentialed API untested"
+      ],
+      "next_action": "Respect host stop and publisher access prerequisites. After authorized resumption, test one normal headed/passive browser or authorized publisher export; preserve fresh acquisition/selection/currentness evidence before parsing. Do not replay CUA bytes as standalone acquisition.",
+      "official_alternative_finding": "City council documents page delegates codified ordinances to Municipal Code and advises checking uncodified ordinances separately. No complete current alternate export verified.",
+      "partial_alternative": null
+    },
+    {
+      "slug": "san-leandro-ca",
+      "jurisdiction": "San Leandro",
+      "discovery_url": "https://ecode360.com/44065748",
+      "route_basis": "retained observed publisher chapter route; current capture independently validates customer/code/date",
+      "best_method_status": "blocked_or_deferred_primary_municipal_code",
+      "source_url": "https://ecode360.com/44065748",
+      "primary_scope": "Municipal Code bounded current chapter URL",
+      "primary_standalone_status": "initial_response_blocked",
+      "primary_source_http_status": 403,
+      "browser": {
+        "mode": "headless",
+        "browser": "155.0.8059.41",
+        "channel": "chrome",
+        "playwright": "1.60.0",
+        "fresh_isolated_context": true
+      },
+      "final_accepted_primary_bytes_acquired_outside_codex": false,
+      "primary_output_records": 0,
+      "export_format": null,
+      "output_records": 0,
+      "output_record_scope": null,
+      "accepted_alternative_bytes_acquired_outside_codex": false,
+      "acquisition_evidence": [
+        {
+          "path": "standalone-live/headless-chrome/san-leandro-ca/receipt.json",
+          "sha256": "2fe2ae9df70d334d0ebb0c39ae107d8f82a6bb226a78ad75cf90dac74db4378e",
+          "bytes": 2205
+        },
+        {
+          "path": "standalone-live/headless-chrome/san-leandro-ca/response.html",
+          "sha256": "1c36b88218f2eeafe26546f656d470f103046f36bd51da288ff43526efe383dc",
+          "bytes": 6205
+        },
+        {
+          "path": "standalone-live/headless-chrome/san-leandro-ca/rendered-failure.html",
+          "sha256": "05edd65c249b4910358c810469d680dfbd068563e84addd263a3876ccb1a9e2e",
+          "bytes": 6203
+        },
+        {
+          "path": "standalone-live/headless-chrome/san-leandro-ca/failure.png",
+          "sha256": "3878570f4a62a0d65f57cf1754e0269e56ec797f4e36e26b44c172eb6e800401",
+          "bytes": 4254
+        }
+      ],
+      "report_path": "STANDALONE-VALIDATION.json",
+      "currentness": {
+        "primary_new_legal_body_currentness_verified": false,
+        "baseline_cua": "Prior E2E-VALIDATION.json verifies14 bounded current source captures; not counted as new standalone proof",
+        "official_alternative": "Standalone city page403; no currency inferred from search result or proposed measure."
+      },
+      "coverage": {
+        "full_municipal_code_collected": false,
+        "full_inventory_verified": false,
+        "full_charter_verified": false
+      },
+      "blockers": [
+        "Initial HTTP 403 challenge/access response; stopped before legal content. Passive/headed completion not tested.",
+        "Publisher PDF/Word availability varies by publication and login; documented credentialed API untested"
+      ],
+      "next_action": "Respect host stop and publisher access prerequisites. After authorized resumption, test one normal headed/passive browser or authorized publisher export; preserve fresh acquisition/selection/currentness evidence before parsing. Do not replay CUA bytes as standalone acquisition.",
+      "official_alternative_finding": "Official Government page links MunicipalCode; ballot-measure PDFs are proposed/amending instruments rather than complete code/Charter exports. No complete alternate qualified.",
+      "partial_alternative": null
+    },
+    {
+      "slug": "santa-clara-ca",
+      "jurisdiction": "Santa Clara",
+      "discovery_url": "https://ecode360.com/47543489",
+      "route_basis": "retained observed publisher chapter route; current capture independently validates customer/code/date",
+      "best_method_status": "partial_separate_charter_verified",
+      "source_url": "https://ecode360.com/47543489",
+      "primary_scope": "Municipal Code bounded current chapter URL",
+      "primary_standalone_status": "initial_response_blocked",
+      "primary_source_http_status": 403,
+      "browser": {
+        "mode": "headless",
+        "browser": "155.0.8059.41",
+        "channel": "chrome",
+        "playwright": "1.60.0",
+        "fresh_isolated_context": true
+      },
+      "final_accepted_primary_bytes_acquired_outside_codex": false,
+      "primary_output_records": 0,
+      "export_format": "separate Charter PDF + one-page local OCR;16-column JSON/CSV review sample",
+      "output_records": 5,
+      "output_record_scope": "separate Charter only",
+      "accepted_alternative_bytes_acquired_outside_codex": true,
+      "acquisition_evidence": [
+        {
+          "path": "standalone-live/headless-chrome/santa-clara-ca/receipt.json",
+          "sha256": "b96eeb44710b4328c06268e1b8eb7ec729a6a8bc671a329e01bd88f369ec2b69",
+          "bytes": 2205
+        },
+        {
+          "path": "standalone-live/headless-chrome/santa-clara-ca/response.html",
+          "sha256": "a0ed679b4c4500956ac699d64c95191a4721d0254c2c996755feea86545baafc",
+          "bytes": 6226
+        },
+        {
+          "path": "standalone-live/headless-chrome/santa-clara-ca/rendered-failure.html",
+          "sha256": "160a1da51d0fad4ebbbeb49181cb5452a262a8c443ecb1b07a6a946419759684",
+          "bytes": 6224
+        },
+        {
+          "path": "standalone-live/headless-chrome/santa-clara-ca/failure.png",
+          "sha256": "3878570f4a62a0d65f57cf1754e0269e56ec797f4e36e26b44c172eb6e800401",
+          "bytes": 4254
+        }
+      ],
+      "report_path": "STANDALONE-VALIDATION.json",
+      "currentness": {
+        "primary_new_legal_body_currentness_verified": false,
+        "baseline_cua": "Prior E2E-VALIDATION.json verifies14 bounded current source captures; not counted as new standalone proof",
+        "official_alternative": "Official item June9,2026 labels this current; first rendered page prints FridayJune5,2026. This is a dated current-labelled snapshot, not an independent October15 legal-currentness certificate."
+      },
+      "coverage": {
+        "full_municipal_code_collected": false,
+        "full_inventory_verified": false,
+        "full_charter_verified": false
+      },
+      "blockers": [
+        "Initial HTTP 403 challenge/access response; stopped before legal content. Passive/headed completion not tested.",
+        "Publisher PDF/Word availability varies by publication and login; documented credentialed API untested"
+      ],
+      "next_action": "Respect host stop and publisher access prerequisites. After authorized resumption, test one normal headed/passive browser or authorized publisher export; preserve fresh acquisition/selection/currentness evidence before parsing. Do not replay CUA bytes as standalone acquisition.",
+      "official_alternative_finding": "Official Legistar item26-660 separately labels current Charter and proposed revisions. Current attachment downloaded200/29pages; visual first/last pages show TitleCHA through ArticleXVIII. PDF is raster-only on sampled pages and requires OCR; MunicipalCode remains separate.",
+      "partial_alternative": {
+        "scope": "City Charter only; primary Municipal Code gap remains",
+        "source_url": "https://santaclara.legistar.com/View.ashx?GUID=9FDBDA24-1C91-4A58-859B-2516966A0809&ID=15562338&M=F",
+        "fresh_source_acquisition": "ordinary HTTP200 by companion official-source agent during this phase; copied with exact receipt/hash/origin, not prior CUA source",
+        "source": {
+          "path": "standalone-live/official-alternatives/santa-clara/santa-clara-current-charter.pdf",
+          "sha256": "c732ecd755150ea472f927ab6d4aa61862f6708ffde96183a679d3288961934c",
+          "bytes": 10200857
+        },
+        "receipt": {
+          "path": "standalone-live/official-alternatives/santa-clara/santa-clara-current-charter.pdf.receipt.json",
+          "sha256": "12a3e3ca6464c783dc4ab9d501b4f71ed8a5a93f51ac1808d23425d782ab1e77",
+          "bytes": 601
+        },
+        "render": {
+          "path": "standalone-live/official-alternatives/santa-clara/vision-page1/page.png",
+          "sha256": "98ef0d64533c322e7c34dc46310a86ef2538f0ea873a3785651972368e46bf30",
+          "bytes": 496366
+        },
+        "ocr": {
+          "path": "standalone-live/official-alternatives/santa-clara/vision-page1/ocr.json",
+          "sha256": "4a88fb10879ae653366f7b54f203cf31aa0ace5a03ac58a49e84b1a76377a451",
+          "bytes": 8625
+        },
+        "visual_review": {
+          "path": "standalone-live/official-alternatives/santa-clara/VISUAL-REVIEW.json",
+          "sha256": "58bb26b405844009fa34ee707a658a602e3b3c4b34f98c72bff14c036ffce184",
+          "bytes": 789
+        },
+        "report": {
+          "path": "standalone-live/official-alternatives/santa-clara/final-ocr-review-exports/report.json",
+          "sha256": "2f1847f36f2c734b33bf8c731a6bff8592aef7d082c208c2bf265c0d49afcdbc",
+          "bytes": 1301
+        },
+        "json": {
+          "path": "standalone-live/official-alternatives/santa-clara/final-ocr-review-exports/fulltext.json",
+          "sha256": "68b7f2ba07d978bfedae5a991b6477ba2170288bcdb5b6d1e165cdbe54fb0251",
+          "bytes": 4772
+        },
+        "csv": {
+          "path": "standalone-live/official-alternatives/santa-clara/final-ocr-review-exports/fulltext.csv",
+          "sha256": "8e6669f3afc45f11aab1f7828fd4a1abe76adf51199cb4d2d0de4be7870300f1",
+          "bytes": 2944
+        },
+        "provenance": {
+          "path": "standalone-live/official-alternatives/santa-clara/final-ocr-review-exports/provenance.jsonl",
+          "sha256": "8d7cc783f58e38a94e849df60bd7621530419c48cf7a98435caac85a39017d62",
+          "bytes": 4900
+        },
+        "records": 5,
+        "headers": 6,
+        "unresolved_boundary_headers": 1,
+        "pages_processed": [
+          1
+        ],
+        "total_pdf_pages": 29,
+        "runtime": "native macOS PDFKit/Vision via Swift6.3.3 withSDK26.5; no cloud/Codex OCR",
+        "outside_codex_accepted_bytes": true,
+        "municipal_code_gap_closed": false,
+        "whole_charter_parsed": false
+      }
+    },
+    {
+      "slug": "santa-monica-ca",
+      "jurisdiction": "Santa Monica",
+      "discovery_url": "https://ecode360.com/42718485",
+      "route_basis": "retained observed publisher chapter route; current capture independently validates customer/code/date",
+      "best_method_status": "blocked_or_deferred_primary_municipal_code",
+      "source_url": "https://ecode360.com/42718485",
+      "primary_scope": "Municipal Code bounded current chapter URL",
+      "primary_standalone_status": "initial_response_blocked",
+      "primary_source_http_status": 403,
+      "browser": {
+        "mode": "headless",
+        "browser": "155.0.8059.41",
+        "channel": "chrome",
+        "playwright": "1.60.0",
+        "fresh_isolated_context": true
+      },
+      "final_accepted_primary_bytes_acquired_outside_codex": false,
+      "primary_output_records": 0,
+      "export_format": null,
+      "output_records": 0,
+      "output_record_scope": null,
+      "accepted_alternative_bytes_acquired_outside_codex": false,
+      "acquisition_evidence": [
+        {
+          "path": "standalone-live/headless-chrome/santa-monica-ca/receipt.json",
+          "sha256": "ed7269bb059df5cbb31444b23d4300b53ed597903322d2308293319ed1586e82",
+          "bytes": 2206
+        },
+        {
+          "path": "standalone-live/headless-chrome/santa-monica-ca/response.html",
+          "sha256": "cbeebca707fd2f4cd13948595b6dc62b7a3608f001376d9f89ddbb2be4b6cfe8",
+          "bytes": 6226
+        },
+        {
+          "path": "standalone-live/headless-chrome/santa-monica-ca/rendered-failure.html",
+          "sha256": "368e5d9bba3d89c12527a12e1d1378cd5f1105a0c388a294d7a59758b041ad57",
+          "bytes": 6224
+        },
+        {
+          "path": "standalone-live/headless-chrome/santa-monica-ca/failure.png",
+          "sha256": "3878570f4a62a0d65f57cf1754e0269e56ec797f4e36e26b44c172eb6e800401",
+          "bytes": 4254
+        }
+      ],
+      "report_path": "STANDALONE-VALIDATION.json",
+      "currentness": {
+        "primary_new_legal_body_currentness_verified": false,
+        "baseline_cua": "Prior E2E-VALIDATION.json verifies14 bounded current source captures; not counted as new standalone proof",
+        "official_alternative": "Homepage designation current observation only.1941/1948Charter exhibit is historical, not downloaded as current code."
+      },
+      "coverage": {
+        "full_municipal_code_collected": false,
+        "full_inventory_verified": false,
+        "full_charter_verified": false
+      },
+      "blockers": [
+        "Initial HTTP 403 challenge/access response; stopped before legal content. Passive/headed completion not tested.",
+        "Publisher PDF/Word availability varies by publication and login; documented credentialed API untested"
+      ],
+      "next_action": "Respect host stop and publisher access prerequisites. After authorized resumption, test one normal headed/passive browser or authorized publisher export; preserve fresh acquisition/selection/currentness evidence before parsing. Do not replay CUA bytes as standalone acquisition.",
+      "official_alternative_finding": "Actual official homepage200 links eCodeSA5008. Search surfaced city-hosted litigation exhibits of older Charters/code excerpts; these historical/partial exhibits are not a current complete-code substitute.",
+      "partial_alternative": null
+    },
+    {
+      "slug": "santa-rosa-ca",
+      "jurisdiction": "Santa Rosa",
+      "discovery_url": "https://ecode360.com/42952196",
+      "route_basis": "retained observed publisher chapter route; current capture independently validates customer/code/date",
+      "best_method_status": "blocked_or_deferred_primary_municipal_code",
+      "source_url": "https://ecode360.com/42952196",
+      "primary_scope": "Municipal Code bounded current chapter URL",
+      "primary_standalone_status": "initial_response_blocked",
+      "primary_source_http_status": 429,
+      "browser": {
+        "mode": "headless",
+        "browser": "155.0.8059.41",
+        "channel": "chrome",
+        "playwright": "1.60.0",
+        "fresh_isolated_context": true
+      },
+      "final_accepted_primary_bytes_acquired_outside_codex": false,
+      "primary_output_records": 0,
+      "export_format": null,
+      "output_records": 0,
+      "output_record_scope": null,
+      "accepted_alternative_bytes_acquired_outside_codex": false,
+      "acquisition_evidence": [
+        {
+          "path": "standalone-live/headless-chrome/santa-rosa-ca/receipt.json",
+          "sha256": "77cb8212ebdd4555e15b17d60440d7dc726e65b486497f43918c7d5b098228a3",
+          "bytes": 2204
+        },
+        {
+          "path": "standalone-live/headless-chrome/santa-rosa-ca/response.html",
+          "sha256": "fe9b7858f982d4e2338d89168b06290a5032ef788c357a4704c700e1c842fc04",
+          "bytes": 6205
+        },
+        {
+          "path": "standalone-live/headless-chrome/santa-rosa-ca/rendered-failure.html",
+          "sha256": "a867056f4aca7a1142440ad089df6f478ce5acd7bfe60789e7843df14a1bebe4",
+          "bytes": 6203
+        },
+        {
+          "path": "standalone-live/headless-chrome/santa-rosa-ca/failure.png",
+          "sha256": "3878570f4a62a0d65f57cf1754e0269e56ec797f4e36e26b44c172eb6e800401",
+          "bytes": 4254
+        }
+      ],
+      "report_path": "STANDALONE-VALIDATION.json",
+      "currentness": {
+        "primary_new_legal_body_currentness_verified": false,
+        "baseline_cua": "Prior E2E-VALIDATION.json verifies14 bounded current source captures; not counted as new standalone proof",
+        "official_alternative": "Primary page prints RevisedNovember2022, latest listed amendment effectiveJuly25,2023. No unlisted later amendment inference."
+      },
+      "coverage": {
+        "full_municipal_code_collected": false,
+        "full_inventory_verified": false,
+        "full_charter_verified": false
+      },
+      "blockers": [
+        "Initial HTTP 429 challenge/access response; stopped before legal content. Passive/headed completion not tested.",
+        "Publisher PDF/Word availability varies by publication and login; documented credentialed API untested"
+      ],
+      "next_action": "Respect host stop and publisher access prerequisites. After authorized resumption, test one normal headed/passive browser or authorized publisher export; preserve fresh acquisition/selection/currentness evidence before parsing. Do not replay CUA bytes as standalone acquisition.",
+      "official_alternative_finding": "Official /152/City-Charter presents full CharterHTML. Standalone HTTP403 blocks qualification here; web tool can read it. Separate full municipal-code alternative not verified.",
+      "partial_alternative": null
+    },
+    {
+      "slug": "south-san-francisco-ca",
+      "jurisdiction": "South San Francisco",
+      "discovery_url": "https://ecode360.com/43423522",
+      "route_basis": "retained observed publisher chapter route; current capture independently validates customer/code/date",
+      "best_method_status": "blocked_or_deferred_primary_municipal_code",
+      "source_url": "https://ecode360.com/43423522",
+      "primary_scope": "Municipal Code bounded current chapter URL",
+      "primary_standalone_status": "initial_response_blocked",
+      "primary_source_http_status": 403,
+      "browser": {
+        "mode": "headless",
+        "browser": "155.0.8059.41",
+        "channel": "chrome",
+        "playwright": "1.60.0",
+        "fresh_isolated_context": true
+      },
+      "final_accepted_primary_bytes_acquired_outside_codex": false,
+      "primary_output_records": 0,
+      "export_format": null,
+      "output_records": 0,
+      "output_record_scope": null,
+      "accepted_alternative_bytes_acquired_outside_codex": false,
+      "acquisition_evidence": [
+        {
+          "path": "standalone-live/headless-chrome/south-san-francisco-ca/receipt.json",
+          "sha256": "319d00b23854db431ffbd80c11de18cc22cd0886a4a18e590d90045d8084f5e6",
+          "bytes": 2213
+        },
+        {
+          "path": "standalone-live/headless-chrome/south-san-francisco-ca/response.html",
+          "sha256": "151f3563f28a2b5b711ed76ad16d1277bfa265bbaf34d919bb5081837956b66d",
+          "bytes": 6226
+        },
+        {
+          "path": "standalone-live/headless-chrome/south-san-francisco-ca/rendered-failure.html",
+          "sha256": "3ca3ec8ae94a2c463fd6d75163c1f546bb464cee487321199c9a063e98f18bb4",
+          "bytes": 6224
+        },
+        {
+          "path": "standalone-live/headless-chrome/south-san-francisco-ca/failure.png",
+          "sha256": "3878570f4a62a0d65f57cf1754e0269e56ec797f4e36e26b44c172eb6e800401",
+          "bytes": 4254
+        }
+      ],
+      "report_path": "STANDALONE-VALIDATION.json",
+      "currentness": {
+        "primary_new_legal_body_currentness_verified": false,
+        "baseline_cua": "Prior E2E-VALIDATION.json verifies14 bounded current source captures; not counted as new standalone proof",
+        "official_alternative": "City delegation current observation; no October15 legal-currentness guarantee or printed-code parity claim."
+      },
+      "coverage": {
+        "full_municipal_code_collected": false,
+        "full_inventory_verified": false,
+        "full_charter_verified": false
+      },
+      "blockers": [
+        "Initial HTTP 403 challenge/access response; stopped before legal content. Passive/headed completion not tested.",
+        "Publisher PDF/Word availability varies by publication and login; documented credentialed API untested"
+      ],
+      "next_action": "Respect host stop and publisher access prerequisites. After authorized resumption, test one normal headed/passive browser or authorized publisher export; preserve fresh acquisition/selection/currentness evidence before parsing. Do not replay CUA bytes as standalone acquisition.",
+      "official_alternative_finding": "Actual city MunicipalCode page200 designates eCodeSO5016 and separately links new laws. It states electronic version informational and official legislation definitive. No complete alternate city-hosted download verified.",
+      "partial_alternative": null
+    },
+    {
+      "slug": "sunnyvale-ca",
+      "jurisdiction": "Sunnyvale",
+      "discovery_url": "https://ecode360.com/42709867",
+      "route_basis": "retained observed publisher chapter route; current capture independently validates customer/code/date",
+      "best_method_status": "blocked_or_deferred_primary_municipal_code",
+      "source_url": "https://ecode360.com/42709867",
+      "primary_scope": "Municipal Code bounded current chapter URL",
+      "primary_standalone_status": "initial_response_blocked",
+      "primary_source_http_status": 403,
+      "browser": {
+        "mode": "headless",
+        "browser": "155.0.8059.41",
+        "channel": "chrome",
+        "playwright": "1.60.0",
+        "fresh_isolated_context": true
+      },
+      "final_accepted_primary_bytes_acquired_outside_codex": false,
+      "primary_output_records": 0,
+      "export_format": null,
+      "output_records": 0,
+      "output_record_scope": null,
+      "accepted_alternative_bytes_acquired_outside_codex": false,
+      "acquisition_evidence": [
+        {
+          "path": "standalone-live/headless-chrome/sunnyvale-ca/receipt.json",
+          "sha256": "833036d6892cbe68715ea4fa31e105f4812304c70fce40f658da4ea124b21d96",
+          "bytes": 2203
+        },
+        {
+          "path": "standalone-live/headless-chrome/sunnyvale-ca/response.html",
+          "sha256": "d27cab1c3ff48b130a8c30163dfc443f5d5c1c36a967ef09e3dfecddbde7b3b8",
+          "bytes": 6226
+        },
+        {
+          "path": "standalone-live/headless-chrome/sunnyvale-ca/rendered-failure.html",
+          "sha256": "fed1b75db5a3900bdc9e47347c2d53cd0230bc6695309eb37a89f96a532f6e47",
+          "bytes": 6224
+        },
+        {
+          "path": "standalone-live/headless-chrome/sunnyvale-ca/failure.png",
+          "sha256": "3878570f4a62a0d65f57cf1754e0269e56ec797f4e36e26b44c172eb6e800401",
+          "bytes": 4254
+        }
+      ],
+      "report_path": "STANDALONE-VALIDATION.json",
+      "currentness": {
+        "primary_new_legal_body_currentness_verified": false,
+        "baseline_cua": "Prior E2E-VALIDATION.json verifies14 bounded current source captures; not counted as new standalone proof",
+        "official_alternative": "Primary search excerpts concern November2026proposed measures; current Charter must not be replaced with proposed ballot text. Standalone403."
+      },
+      "coverage": {
+        "full_municipal_code_collected": false,
+        "full_inventory_verified": false,
+        "full_charter_verified": false
+      },
+      "blockers": [
+        "Initial HTTP 403 challenge/access response; stopped before legal content. Passive/headed completion not tested.",
+        "Publisher PDF/Word availability varies by publication and login; documented credentialed API untested"
+      ],
+      "next_action": "Respect host stop and publisher access prerequisites. After authorized resumption, test one normal headed/passive browser or authorized publisher export; preserve fresh acquisition/selection/currentness evidence before parsing. Do not replay CUA bytes as standalone acquisition.",
+      "official_alternative_finding": "Official CharterReview page lists CityCharter and proposed2026ballot materials. No standalone city-hosted complete code/Charter download verified.",
+      "partial_alternative": null
+    },
+    {
+      "slug": "west-hollywood-ca",
+      "jurisdiction": "West Hollywood",
+      "discovery_url": "https://ecode360.com/43902463",
+      "route_basis": "retained observed publisher chapter route; current capture independently validates customer/code/date",
+      "best_method_status": "blocked_or_deferred_primary_municipal_code",
+      "source_url": "https://ecode360.com/43902463",
+      "primary_scope": "Municipal Code bounded current chapter URL",
+      "primary_standalone_status": "initial_response_blocked",
+      "primary_source_http_status": 403,
+      "browser": {
+        "mode": "headless",
+        "browser": "155.0.8059.41",
+        "channel": "chrome",
+        "playwright": "1.60.0",
+        "fresh_isolated_context": true
+      },
+      "final_accepted_primary_bytes_acquired_outside_codex": false,
+      "primary_output_records": 0,
+      "export_format": null,
+      "output_records": 0,
+      "output_record_scope": null,
+      "accepted_alternative_bytes_acquired_outside_codex": false,
+      "acquisition_evidence": [
+        {
+          "path": "standalone-live/headless-chrome/west-hollywood-ca/receipt.json",
+          "sha256": "e669be48d215cdbacf94d93cf80e4e28db3842cff8b43ebaba93c353172c68f8",
+          "bytes": 1964
+        },
+        {
+          "path": "standalone-live/headless-chrome/west-hollywood-ca/response.html",
+          "sha256": "a4b751198167179c1d2b82c39ce3efb6177e96628fe708734d053e16ce0b126c",
+          "bytes": 6205
+        },
+        {
+          "path": "standalone-live/headless-chrome/west-hollywood-ca/rendered-failure.html",
+          "sha256": "4199cf14a3b97ebe194f1b08098bb761be0b96d0f7a8610d96378497797b550c",
+          "bytes": 28789
+        },
+        {
+          "path": "standalone-live/headless-chrome/west-hollywood-ca/failure.png",
+          "sha256": "7ca5cbb286cceb5fea2ee4bd0c474b75e4d2301d316fb439a7c10f8a0ad1ee6a",
+          "bytes": 34173
+        }
+      ],
+      "report_path": "STANDALONE-VALIDATION.json",
+      "currentness": {
+        "primary_new_legal_body_currentness_verified": false,
+        "baseline_cua": "Prior E2E-VALIDATION.json verifies14 bounded current source captures; not counted as new standalone proof",
+        "official_alternative": "Standalone city page403; search-indexed access description does not qualify independent complete download."
+      },
+      "coverage": {
+        "full_municipal_code_collected": false,
+        "full_inventory_verified": false,
+        "full_charter_verified": false
+      },
+      "blockers": [
+        "Initial HTTP 403 challenge/access response; stopped before legal content. Passive/headed completion not tested.",
+        "Publisher PDF/Word availability varies by publication and login; documented credentialed API untested"
+      ],
+      "next_action": "Respect host stop and publisher access prerequisites. After authorized resumption, test one normal headed/passive browser or authorized publisher export; preserve fresh acquisition/selection/currentness evidence before parsing. Do not replay CUA bytes as standalone acquisition.",
+      "official_alternative_finding": "Official CityClerk page offers real-time MunicipalCode access; general DownloadDocuments contains hearing notices and individual documents, not verified full current code export.",
+      "partial_alternative": null
+    },
+    {
+      "slug": "tukwila-wa",
+      "jurisdiction": "Tukwila",
+      "discovery_url": "https://ecode360.com/47209490",
+      "route_basis": "retained observed publisher chapter route; current capture independently validates customer/code/date",
+      "best_method_status": "blocked_or_deferred_primary_municipal_code",
+      "source_url": "https://ecode360.com/47209490",
+      "primary_scope": "Municipal Code bounded current chapter URL",
+      "primary_standalone_status": "initial_response_blocked",
+      "primary_source_http_status": 403,
+      "browser": {
+        "mode": "headless",
+        "browser": "155.0.8059.41",
+        "channel": "chrome",
+        "playwright": "1.60.0",
+        "fresh_isolated_context": true
+      },
+      "final_accepted_primary_bytes_acquired_outside_codex": false,
+      "primary_output_records": 0,
+      "export_format": null,
+      "output_records": 0,
+      "output_record_scope": null,
+      "accepted_alternative_bytes_acquired_outside_codex": false,
+      "acquisition_evidence": [
+        {
+          "path": "standalone-live/headless-chrome/tukwila-wa/receipt.json",
+          "sha256": "7eab75797ce027afa8f65dec651729fb0f34ed35f886cc28adc4f11c60282a32",
+          "bytes": 2201
+        },
+        {
+          "path": "standalone-live/headless-chrome/tukwila-wa/response.html",
+          "sha256": "aee7307a795cdd60610075716a74bf356d756fddde9819040fef356f17b2680c",
+          "bytes": 6226
+        },
+        {
+          "path": "standalone-live/headless-chrome/tukwila-wa/rendered-failure.html",
+          "sha256": "901fe7be20eb5d3d9b7bb8e6c66d8edcb0c2363a1f198aadd3586b90798517e1",
+          "bytes": 6224
+        },
+        {
+          "path": "standalone-live/headless-chrome/tukwila-wa/failure.png",
+          "sha256": "3878570f4a62a0d65f57cf1754e0269e56ec797f4e36e26b44c172eb6e800401",
+          "bytes": 4254
+        }
+      ],
+      "report_path": "STANDALONE-VALIDATION.json",
+      "currentness": {
+        "primary_new_legal_body_currentness_verified": false,
+        "baseline_cua": "Prior E2E-VALIDATION.json verifies14 bounded current source captures; not counted as new standalone proof",
+        "official_alternative": "Search source explicitly oldversion; December2025recodification means historical numbering must not be silently substituted for2026code. No current complete alternative qualified."
+      },
+      "coverage": {
+        "full_municipal_code_collected": false,
+        "full_inventory_verified": false,
+        "full_charter_verified": false
+      },
+      "blockers": [
+        "Initial HTTP 403 challenge/access response; stopped before legal content. Passive/headed completion not tested.",
+        "Publisher PDF/Word availability varies by publication and login; documented credentialed API untested"
+      ],
+      "next_action": "Respect host stop and publisher access prerequisites. After authorized resumption, test one normal headed/passive browser or authorized publisher export; preserve fresh acquisition/selection/currentness evidence before parsing. Do not replay CUA bytes as standalone acquisition.",
+      "official_alternative_finding": "Official city page delegates new code. CityRecords has explicitly old CompleteTukwilaMunicipalCode updatedFebruary2024. Direct oldPDF request returnedHTTP200withzero bytes; repeat after validator correction fails as empty source. Not usable current alternative.",
+      "partial_alternative": null
+    },
+    {
+      "slug": "foster-city-ca",
+      "jurisdiction": "Foster City",
+      "discovery_url": "https://ecode360.com/51404426",
+      "route_basis": "observed current FO4449 root ->Title1 ->chapter1.01",
+      "best_method_status": "blocked_or_deferred_primary_municipal_code",
+      "source_url": "https://ecode360.com/51404426",
+      "primary_scope": "Municipal Code bounded current chapter URL",
+      "primary_standalone_status": "headed_deferred_due_host_throttle",
+      "primary_source_http_status": null,
+      "browser": {
+        "new_headed_probe": "not_run_host_throttle_guard_prevented_launch",
+        "baseline_headless": "prior-phase403 only",
+        "fresh_current_export_metadata": "CUA read-only; no publisher export action"
+      },
+      "final_accepted_primary_bytes_acquired_outside_codex": false,
+      "primary_output_records": 0,
+      "export_format": null,
+      "output_records": 0,
+      "output_record_scope": null,
+      "accepted_alternative_bytes_acquired_outside_codex": false,
+      "acquisition_evidence": [
+        {
+          "path": "standalone-live/HEADED-DEFERRED.txt",
+          "sha256": "9e3a59faf5cc9b7548f8c31b573f5a6f9d9495b34204eccd4bba2cf082b254f4",
+          "bytes": 753
+        },
+        {
+          "path": "live/standalone-browser/foster-city-ca/receipt.json",
+          "sha256": "84010e06c36eb4672433e2ad78645e3b9de1fd9185c6d90af69e84e9ec6cf9e7",
+          "bytes": 747
+        },
+        {
+          "path": "standalone-live/export-metadata/foster-city-ca/metadata.json",
+          "sha256": "d05dcee18b086be5713875e38796fdf50291f6fa24165149c0709b3566ce321d",
+          "bytes": 902
+        }
+      ],
+      "report_path": "STANDALONE-VALIDATION.json",
+      "currentness": {
+        "primary_new_legal_body_currentness_verified": false,
+        "baseline_cua": "Prior E2E-VALIDATION.json verifies14 bounded current source captures; not counted as new standalone proof",
+        "official_alternative": "City link observed live; does not establish current publisher content/version or current eCode designation."
+      },
+      "coverage": {
+        "full_municipal_code_collected": false,
+        "full_inventory_verified": false,
+        "full_charter_verified": false
+      },
+      "blockers": [
+        "New headed probe deferred by host429stop. Prior-phase headless403 retained as baseline. Fresh Foster metadata requires login for PDF; no publisher export acquired.",
+        "Publisher PDF/Word availability varies by publication and login; documented credentialed API untested"
+      ],
+      "next_action": "Respect host stop and publisher access prerequisites. After authorized resumption, test one normal headed/passive browser or authorized publisher export; preserve fresh acquisition/selection/currentness evidence before parsing. Do not replay CUA bytes as standalone acquisition.",
+      "official_alternative_finding": "Actual official homepage200 still links legacy CodePublishing/FosterCity. No complete city-hosted export verified. Legacy link requires migration/redirect reconciliation with current eCode source.",
+      "partial_alternative": null
+    },
+    {
+      "slug": "seatac-wa",
+      "jurisdiction": "SeaTac",
+      "discovery_url": "https://ecode360.com/51196398",
+      "route_basis": "fresh legacy vendor migration notice ->SE4633 root ->Title1 ->chapter1.01",
+      "best_method_status": "blocked_or_deferred_primary_municipal_code",
+      "source_url": "https://ecode360.com/51196398",
+      "primary_scope": "Municipal Code bounded current chapter URL",
+      "primary_standalone_status": "initial_response_blocked",
+      "primary_source_http_status": 403,
+      "browser": {
+        "mode": "headless",
+        "browser": "155.0.8059.41",
+        "channel": "chrome",
+        "playwright": "1.60.0",
+        "fresh_isolated_context": true
+      },
+      "final_accepted_primary_bytes_acquired_outside_codex": false,
+      "primary_output_records": 0,
+      "export_format": null,
+      "output_records": 0,
+      "output_record_scope": null,
+      "accepted_alternative_bytes_acquired_outside_codex": false,
+      "acquisition_evidence": [
+        {
+          "path": "standalone-live/headless-chrome/seatac-wa/receipt.json",
+          "sha256": "344205f190192a68416caaec33299b9d2d19b529cada714c72abcf8386c013c5",
+          "bytes": 1956
+        },
+        {
+          "path": "standalone-live/headless-chrome/seatac-wa/response.html",
+          "sha256": "0656607112ad618dbddfbd123f9ba90a973432391c944692b01a142231b87c4f",
+          "bytes": 6226
+        },
+        {
+          "path": "standalone-live/headless-chrome/seatac-wa/rendered-failure.html",
+          "sha256": "c468f9f417f9043281ea2a3561012a71df484ad82d1758a164be0b7017bae2e4",
+          "bytes": 28659
+        },
+        {
+          "path": "standalone-live/headless-chrome/seatac-wa/failure.png",
+          "sha256": "0a274682900ada368e2f0dbcf88b77659f1a856576ebc137ac6473a099eca008",
+          "bytes": 35443
+        }
+      ],
+      "report_path": "STANDALONE-VALIDATION.json",
+      "currentness": {
+        "primary_new_legal_body_currentness_verified": false,
+        "baseline_cua": "Prior E2E-VALIDATION.json verifies14 bounded current source captures; not counted as new standalone proof",
+        "official_alternative": "PartialPDF search excerpt labels adoptedOrd25-1008; not downloaded/qualified current. Standalone city link403."
+      },
+      "coverage": {
+        "full_municipal_code_collected": false,
+        "full_inventory_verified": false,
+        "full_charter_verified": false
+      },
+      "blockers": [
+        "Initial HTTP 403 challenge/access response; stopped before legal content. Passive/headed completion not tested.",
+        "Publisher PDF/Word availability varies by publication and login; documented credentialed API untested"
+      ],
+      "next_action": "Respect host stop and publisher access prerequisites. After authorized resumption, test one normal headed/passive browser or authorized publisher export; preserve fresh acquisition/selection/currentness evidence before parsing. Do not replay CUA bytes as standalone acquisition.",
+      "official_alternative_finding": "Official court code link remains legacy CodePublishing; a city-hosted SeaTacMunicipalCode PDF search result covers Chapter15.105definitions only. Not a full-code substitute.",
+      "partial_alternative": null
+    }
+  ],
+  "publisher_workflow": {
+    "documentation_package": "../publisher-exports/README.md",
+    "print_help": "https://ecode360.com/help/tools",
+    "faq": "https://ecode360.com/help/faq",
+    "subscription": "https://www.icccodesolutions.org/subscription-services/",
+    "credentialled_api": "https://developer.ecode360.com/",
+    "prerequisites": "Publication/login-specific PDF/Word access or municipality-issued documented API credentials. No keys/accounts/subscriptions were obtained.",
+    "current_foster_flags": {
+      "path": "standalone-live/export-metadata/foster-city-ca/metadata.json",
+      "sha256": "d05dcee18b086be5713875e38796fdf50291f6fa24165149c0709b3566ce321d",
+      "bytes": 902
+    },
+    "other_city_flags": "Unknown when body attrs absent; do not infer denied/allowed from retained legal subtree captures",
+    "current_export_live_qualification": "none; no export click/request after host stop"
+  },
+  "executed_revision": {
+    "path": "standalone-live/standalone-executed-r1.py",
+    "sha256": "6f62e5f4492040a5d86bb21466f3691e482e00e43201d9159baed4fc998b9acd",
+    "bytes": 8101
+  },
+  "final_standalone_code": {
+    "path": "standalone.py",
+    "sha256": "0762ed825332f52bd35508aafe75641a683c7c6888ff1f3eb3f00362e9f677df",
+    "bytes": 8869
+  },
+  "final_standalone_importer": {
+    "path": "ingest_standalone.py",
+    "sha256": "f9c3b0b02e8a4ab190bf0e7e0b5065bd33229d59a26b0f9cc987e58245e8afcf",
+    "bytes": 6312
+  },
+  "final_live_revision_note": "The13actual probes executedr1. Final branch corrections are offline-tested only; no primary accepted live source is claimed.",
+  "host_stop": {
+    "ledger": {
+      "path": "standalone-live/ecode360-host-throttle.json",
+      "sha256": "46719f4422151ff5ff6095110d51455bb6c24a5af59a4a9937c49885673cf386",
+      "bytes": 461
+    },
+    "retry_after": "not recorded by original executed revision; unknown",
+    "original_limit": "Initial revision continued distinct-city queue after429. Preserved, not attributed to corrected final code.",
+    "final_behavior": "Record Retry-After, write host ledger, stop remaining queue, no automatic retry; existing ledger blocks browser launch.",
+    "headed_deferred_evidence": {
+      "path": "standalone-live/HEADED-DEFERRED.txt",
+      "sha256": "9e3a59faf5cc9b7548f8c31b573f5a6f9d9495b34204eccd4bba2cf082b254f4",
+      "bytes": 753
+    }
+  },
+  "tests": {
+    "python_command": "python -m unittest -v test_ecode360.py test_e2e.py test_standalone.py test_ocr_charter.py",
+    "python": {
+      "path": "standalone-live/FINAL-TESTS.txt",
+      "sha256": "da5965381ffad1120a457a06e25c3cc3fb57dd5c2222eab211b6255e4c17de30",
+      "bytes": 2995
+    },
+    "node_command": "node test_capture.mjs",
+    "node": {
+      "path": "standalone-live/FINAL-NODE-TESTS.txt",
+      "sha256": "623c0d60de91d84f7e9cf6410616fb37a7609b25b8ed5876b4c3ed6af3a7dcd2",
+      "bytes": 110
+    },
+    "accepted_standalone_browser_branch_scope": "synthetic source only; no network success claim",
+    "actual_ocr_scope": "one current-labelled official Charter PDFpage,5completeparagraphs and1unresolvedboundaryheading; source receipt/hash validation, lowconfidence refusal and CSV/JSON parity"
+  },
+  "baseline_separation": {
+    "baseline_report": "E2E-VALIDATION.json",
+    "baseline_records": 134,
+    "baseline_runtime": "supported CUA; not fresh standalone acquisition",
+    "old_examples_and_checkpoints": "copied immutable baseline/historical proof; original sealed sibling directory untouched"
+  },
+  "limitations": [
+    "All14primaryMunicipalCode standalone acquisition gaps remain. Initial403 is narrower than permanent browser denial: passive/headed normal completion remains unqualified.",
+    "Host429stops further ecode360.com probing, export actions and headed tests; no retry/bypass performed after stop instruction.",
+    "Official Charter samples are separate publications, dated current-labelled sources with limited currency guarantees. They never replace the Municipal Code or prove October15legalcurrentness.",
+    "SantaClaraOCR is macOS-only onepageproof, not general PDF parsing;303body unresolved outsidepage; no crosspage/table/image semantic certification or wholeChartercollection.",
+    "DefaultSwiftSDK27compiler mismatch failed; compatibleSDK26.5succeeded. Both logs retained. SDK paths are environment-specific prerequisites, not bundled runtimes.",
+    "No cookies/storage state/browser profiles/runtime installs are bundled. Only public source/receipts/review outputs/code.",
+    "34offlinePythonchecks include26baseline,5standalone synthetic/rejection/immutability/throttle checks and3actualboundedOCRchecks. None turns blocked acquisition into pass."
+  ]
+}

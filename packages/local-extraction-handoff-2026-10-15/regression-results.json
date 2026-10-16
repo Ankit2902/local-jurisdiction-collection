@@ -1,0 +1,58 @@
+{
+  "kind": "synthetic_offline_probes",
+  "code_root": "/Users/oliverflint/My Drive/Claude/Projects/CompliSolv 2.00/outputs/local-extraction-handoff-2026-10-15/reference-code",
+  "probes": [
+    {
+      "probe": "bellingham_publication_boundary",
+      "acceptance_criterion": "A /contents discovery URL allows observed section routes under the same publication.",
+      "passes": false,
+      "observed": {
+        "section_allowed": false
+      }
+    },
+    {
+      "probe": "everett_publication_boundary",
+      "acceptance_criterion": "A /contents discovery URL allows observed section routes under the same publication.",
+      "passes": false,
+      "observed": {
+        "section_allowed": false
+      }
+    },
+    {
+      "probe": "municipal_codes_toc_fallback",
+      "acceptance_criterion": "A pure contents page emits no provision.",
+      "passes": false,
+      "observed": {
+        "rows_emitted": 1,
+        "numbers": [
+          "Contents"
+        ]
+      }
+    },
+    {
+      "probe": "ecode360_family_identity",
+      "acceptance_criterion": "Different source nodes/families with the same printed label remain separate.",
+      "passes": false,
+      "observed": {
+        "rows_emitted": 1
+      }
+    },
+    {
+      "probe": "king_county_continuation",
+      "acceptance_criterion": "Full section body includes following paragraphs and tables until the next legal section.",
+      "passes": false,
+      "observed": {
+        "body": "1.02.010 Example."
+      }
+    },
+    {
+      "probe": "gridics_nested_blocks",
+      "acceptance_criterion": "A nested paragraph inside a list item is serialized once.",
+      "passes": false,
+      "observed": {
+        "body": "One obligation.\nOne obligation."
+      }
+    }
+  ],
+  "failed_criteria": 6
+}

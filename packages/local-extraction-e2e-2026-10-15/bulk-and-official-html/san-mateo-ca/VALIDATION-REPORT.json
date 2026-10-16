@@ -1,0 +1,124 @@
+{
+  "jurisdiction": "San Mateo, CA",
+  "method": "publisher_designated_openlaw_xml",
+  "status": "bounded_pilot_validated_full_collection_not_run",
+  "full_corpus_ready": false,
+  "tests": {
+    "command": "python -m unittest discover -s . -p test_methods.py -v",
+    "tests_run": 21,
+    "passed": true,
+    "details": "TEST-RESULTS.txt",
+    "human_review": false
+  },
+  "live_evidence": [
+    {
+      "path": "raw/san-commit.bin",
+      "sha256": "cb06635d545082062ca61075d9896a919a98e47e7f89f4f2d97d12eb254fa8b1",
+      "bytes": 29968
+    },
+    {
+      "path": "raw/san-tree.bin",
+      "sha256": "e883219ddf80386bac27249827a34bbfa5cd1222627e8b9e1743438c3882ef78",
+      "bytes": 81209
+    },
+    {
+      "path": "raw/san-index.bin",
+      "sha256": "52282077381651b919f1bebc8c49b55587f96e108263ac7c061d18c607c6213b",
+      "bytes": 2952
+    },
+    {
+      "path": "raw/san-code-index.bin",
+      "sha256": "b69530fa9480363a86a59ca56c41663e955a70ff0ca5b9b258b34c3750d39c0d",
+      "bytes": 1360
+    },
+    {
+      "path": "raw/san-title1.bin",
+      "sha256": "6b3707233cce0066f9b088687db26c06bdf7d8a5b24ad524933d5dc90be5bb22",
+      "bytes": 53903
+    },
+    {
+      "path": "raw/san-charter.bin",
+      "sha256": "0e8eac3531634614fb6f740bea4bb6fe4c6560edf8b147022ed522be63ee643b",
+      "bytes": 82831
+    },
+    {
+      "path": "raw/san-drafting.bin",
+      "sha256": "629cbf46b566b38829b17ec42459a4c0c49142f567ca4330647db791e8f6ed16",
+      "bytes": 20888
+    }
+  ],
+  "official_repository": "https://github.com/cityofsanmateo/law-xml",
+  "pinned_commit": "16cc1931d1714f5915319dd98d7640207f4ce76b",
+  "commit_time": "2026-09-28T21:44:03Z",
+  "publication_currency": {
+    "current_through": null,
+    "reason": "Commit timestamp is not legal currency; code metadata effective=0001-01-02 is a sentinel and not a current-through date"
+  },
+  "samples": [
+    {
+      "records": 39,
+      "nodes": 44,
+      "csv_json_equal": true,
+      "sample": "san-mateo-ca/samples/municipal-code",
+      "section_nodes": 37,
+      "tag_counts": {
+        "container": 7,
+        "prefix": 7,
+        "num": 139,
+        "heading": 44,
+        "annotation": 68,
+        "cite": 78,
+        "section": 37,
+        "text": 123,
+        "annotations": 37,
+        "para": 95,
+        "table": 1,
+        "thead": 1,
+        "tr": 8,
+        "th": 2,
+        "tbody": 1,
+        "td": 14
+      }
+    },
+    {
+      "records": 96,
+      "nodes": 107,
+      "csv_json_equal": true,
+      "sample": "san-mateo-ca/samples/charter",
+      "section_nodes": 96,
+      "tag_counts": {
+        "document": 1,
+        "heading": 107,
+        "meta": 1,
+        "effective": 1,
+        "container": 10,
+        "prefix": 10,
+        "num": 186,
+        "section": 96,
+        "text": 187,
+        "para": 80,
+        "u": 1,
+        "aftertext": 4,
+        "s": 1
+      }
+    }
+  ],
+  "publication_roots": [
+    "charter",
+    "municipal-code",
+    "drafting-manual",
+    "editorial-actions",
+    "ordinances"
+  ],
+  "include_references": 49,
+  "all_inventory_includes_present": true,
+  "limitations": [
+    "Complete repository archive acquisition command provided but not exercised; frozen recursive Git tree retained instead.",
+    "Only Title 1 and Charter parsed; no full Municipal Code extraction.",
+    "XML-to-official-bulk-HTML comparison at the same commit remains unperformed.",
+    "Includes are inventoried and unresolved includes fail disposition; general cross-file include expansion remains an integration task.",
+    "Images/nested XML sections tested synthetically; no live image-rich XML title qualified."
+  ],
+  "path_base": "bundle_root",
+  "acquisition_log": "raw/ACQUISITION-LOG.json"
+}

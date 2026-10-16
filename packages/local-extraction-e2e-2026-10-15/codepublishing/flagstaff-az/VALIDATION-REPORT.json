@@ -1,0 +1,152 @@
+{
+  "schema_version": 1,
+  "jurisdiction_slug": "flagstaff-az",
+  "jurisdiction": "Flagstaff",
+  "prepared_on": "2026-10-15",
+  "implementation_version": "cp-handoff-1.0",
+  "status": "bounded_implementation_validation_only",
+  "production_ready": false,
+  "current_route": {
+    "slug": "flagstaff-az",
+    "root_url": "https://www.codepublishing.com/AZ/Flagstaff/",
+    "current_route_status": "root_frames_title_chapter_reachable",
+    "profile": "frameset",
+    "families": [
+      {
+        "title": "Charter",
+        "url": "https://www.codepublishing.com/AZ/Flagstaff/html/FlagstaffCH.html",
+        "scope": "unresolved"
+      },
+      {
+        "title": "City Code",
+        "url": "https://www.codepublishing.com/AZ/Flagstaff/html/FlagstaffNT.html",
+        "scope": "bounded chapter tested; full inventory unresolved"
+      },
+      {
+        "title": "Employee Handbook",
+        "url": "https://www.codepublishing.com/AZ/Flagstaff/html/FlagstaffEmployeeHandbookNT.html",
+        "scope": "unresolved"
+      }
+    ],
+    "frames": [
+      {
+        "id": "nav",
+        "src": "nav_bar.html"
+      },
+      {
+        "id": "crumbular",
+        "src": "cgi/versionMenu.pl"
+      },
+      {
+        "id": "toc",
+        "src": "cgi/FlagstaffTOC.pl"
+      },
+      {
+        "id": "doc",
+        "src": "html/FlagstaffNT.html"
+      }
+    ],
+    "currency_raw": "The Flagstaff City Charter and City Code are current through Ordinance 2026-19, passed August 25, 2026.",
+    "title_url": "https://www.codepublishing.com/AZ/Flagstaff/html/Flagstaff01/Flagstaff01.html",
+    "title_1_linked_chapter_count": 23,
+    "title_1_additional_unlinked_status": "1-19 REPEALED.",
+    "chapter_url": "https://www.codepublishing.com/AZ/Flagstaff/html/Flagstaff01/Flagstaff0101000.html#1.01",
+    "chapter_section_count": 5,
+    "first_number": "1-01-001-0001",
+    "first_anchor": "1.01.001.0001",
+    "observed_last_section": "1-01-001-0005 CODE ALTERATION:",
+    "observed_structure": "1-01-001-0004 has P1 paragraphs A and B; last section has two P0 body paragraphs; cross-reference anchors retained in source",
+    "full_dom_retained": false
+  },
+  "current_publisher_currency_raw": "The Flagstaff City Charter and City Code are current through Ordinance 2026-19, passed August 25, 2026.",
+  "current_currency_assigned_to_historical_artifacts": false,
+  "current_representative_text_validation": {
+    "status": "passed_bounded_agent_DOM_comparison",
+    "human_visual_review": false,
+    "evidence_kind": "selected CUA DOM/AX observations; no whole-current-DOM claim"
+  },
+  "historical_parser_validation": {
+    "status": "bounded_replay_passed",
+    "whole_corpus_complete": false,
+    "snapshot_binding": "ff931a3c20162c9b259fafd98d1a51445ee5a137545889d220ad4c5d8fecf12a",
+    "pages": 1,
+    "records": 5,
+    "source_nodes": 6,
+    "unresolved_nodes": 0,
+    "csv_json_equal": true,
+    "limitations": [
+      "bounded cached-page replay; publication inventory, scope and coherent version are not established"
+    ]
+  },
+  "inventory_validation": {
+    "historical_chapters_checked": 1,
+    "chapter_numbered_TOC_nodes": 5,
+    "parsed_numbered_nodes": 5,
+    "chapter_TOC_reconciled": true,
+    "retained_title_observed_links": 26,
+    "current_root_observation_only": true,
+    "whole_publication_inventory_complete": false,
+    "scope_decisions_complete": false
+  },
+  "automated_tests": {
+    "suite": "test_cp_collect.py",
+    "test_count": 27,
+    "passed": true,
+    "evidence": "test-results.txt",
+    "coverage": "synthetic family-sensitive cases plus actual retained DOM for all seven"
+  },
+  "whole_corpus_validation": {
+    "performed": false,
+    "complete": false,
+    "full_collection_run": false
+  },
+  "limitations": [
+    "No complete current independent publication inventory or coherent edition validation.",
+    "Live browser source excerpts/observations are bounded; historical DOM is not current edition proof.",
+    "Real difficult tables/images, all additional families and human visual QA remain unqualified.",
+    "Direct HTTPS roots returned403; use ordinary supported browser route where needed.",
+    "Browser driving remains operator-supported; package imports hash-bound rendered DOM and does not automate the browser.",
+    "Charter and Employee Handbook separately inventoried, not parsed; Title1 unlinked repealed node requires disposition in full inventory."
+  ],
+  "evidence_sha256": {
+    "flagstaff-az/historical/acquisition-plan.json": "61aa82f754ea5b88bad943608b6d70d2a7907e300c3679e040aef9499c842543",
+    "flagstaff-az/historical/historical-collector-receipt.json": "560bb37be7d2be89a7706004827a2edf1069317bf9ed1af64c0739e1ae074695",
+    "flagstaff-az/historical/import-provenance.json": "414ee975a8ccaea60a797003efab17d28474ae062456a6a7ac9a6705cdd0ddbd",
+    "flagstaff-az/historical/observed-title-links.json": "04d568b29f632d4bb3e9eb5eff79a0bf15534cdbe067ff4ae9c4de4e03881a5b",
+    "flagstaff-az/historical/raw/section.html": "a574203f8c6aa9099ffecac757484d3bebcf4201abcd5eab25b827a8efb75100",
+    "flagstaff-az/historical/raw/toc.html": "b8f170dabb76d8fadc6ae5fef807ff1479abdb246f437c064000cd225059ee8d",
+    "flagstaff-az/historical/snapshot.json": "c53b47b59c68f1189373c3692578acf2d3936bffef6bec01a80e32b3e47d84c7",
+    "flagstaff-az/official-route.json": "6b86ab144e15d03d5e234f2330ae13b9fef959a5bd39bf102456de916698a429",
+    "flagstaff-az/raw/official-city.html": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "flagstaff-az/raw/root.html": "e8087ffa4fd0ba4a1375f501e201eec66d067dd3b2a3c1097ad917e270014414",
+    "flagstaff-az/replay/aggregate-fulltext.csv": "81e71dde16a0f27036c0b67d87f4cfc0ae84d4c29de3f409c8667db96be84435",
+    "flagstaff-az/replay/aggregate-fulltext.json": "b8ed2f734a2ce2938d709bcfeae13396b98a5a371566d1f1d939e565baf969ae",
+    "flagstaff-az/replay/aggregate-toc.csv": "6e4ac58344c831ab9d61d99777c6280f8203aaf86464c4b1be754c9c87cd0582",
+    "flagstaff-az/replay/aggregate-toc.json": "169edd47998f12748f6fae5e57c3d7a8bcb11034c8bc43774d7b245631e2b269",
+    "flagstaff-az/replay/exceptions.jsonl": "08dba41e938b6039487b765c7ea8c0e519cbb5679ad23dccde81cf70418f0378",
+    "flagstaff-az/replay/input-snapshot.json": "b4108c3b8074a93bf6a92d64594d35371b9d08641991eac968de7d917961fcb8",
+    "flagstaff-az/replay/node-dispositions.jsonl": "a77ca00a87aaf06bb0d5cae7be1435f767ba9b19fa6e2b5426559cc32258c35b",
+    "flagstaff-az/replay/publications/charter/fulltext.csv": "730014d29307897c8a9127f5ba5ab7755edd5dea8253121ba20e83ddf79957b7",
+    "flagstaff-az/replay/publications/charter/fulltext.json": "1aed4ebbeb61425b99e8839635a793aa88ebcf4e347bffd61c7bc24c2f0656fd",
+    "flagstaff-az/replay/publications/charter/toc.csv": "730014d29307897c8a9127f5ba5ab7755edd5dea8253121ba20e83ddf79957b7",
+    "flagstaff-az/replay/publications/charter/toc.json": "1aed4ebbeb61425b99e8839635a793aa88ebcf4e347bffd61c7bc24c2f0656fd",
+    "flagstaff-az/replay/publications/city-code/fulltext.csv": "81e71dde16a0f27036c0b67d87f4cfc0ae84d4c29de3f409c8667db96be84435",
+    "flagstaff-az/replay/publications/city-code/fulltext.json": "b8ed2f734a2ce2938d709bcfeae13396b98a5a371566d1f1d939e565baf969ae",
+    "flagstaff-az/replay/publications/city-code/toc.csv": "6e4ac58344c831ab9d61d99777c6280f8203aaf86464c4b1be754c9c87cd0582",
+    "flagstaff-az/replay/publications/city-code/toc.json": "169edd47998f12748f6fae5e57c3d7a8bcb11034c8bc43774d7b245631e2b269",
+    "flagstaff-az/replay/publications/employee-handbook/fulltext.csv": "730014d29307897c8a9127f5ba5ab7755edd5dea8253121ba20e83ddf79957b7",
+    "flagstaff-az/replay/publications/employee-handbook/fulltext.json": "1aed4ebbeb61425b99e8839635a793aa88ebcf4e347bffd61c7bc24c2f0656fd",
+    "flagstaff-az/replay/publications/employee-handbook/toc.csv": "730014d29307897c8a9127f5ba5ab7755edd5dea8253121ba20e83ddf79957b7",
+    "flagstaff-az/replay/publications/employee-handbook/toc.json": "1aed4ebbeb61425b99e8839635a793aa88ebcf4e347bffd61c7bc24c2f0656fd",
+    "flagstaff-az/replay/publications.json": "a3cb168b255d5a6afae38f1a53a7a8204037dadcdf963e366c87e98fb4782d7d",
+    "flagstaff-az/replay/raw/section.html": "a574203f8c6aa9099ffecac757484d3bebcf4201abcd5eab25b827a8efb75100",
+    "flagstaff-az/replay/raw/toc.html": "b8f170dabb76d8fadc6ae5fef807ff1479abdb246f437c064000cd225059ee8d",
+    "flagstaff-az/replay/record-provenance.jsonl": "43c89ca7636e7bf80e1191bef10a8710f90d6db47edf48dfa2e54663192522fe",
+    "flagstaff-az/replay/run-manifest.json": "2cbd077427be95daecc3aa36eacdbb60536acb61799c2e04b24b916e2bd190a4",
+    "flagstaff-az/replay/source-nodes.jsonl": "7d91948cbbb7458fbddb7839568ee53296ef5d6bc28471e2d2204439df6b47e5",
+    "flagstaff-az/replay/validation-report.json": "d4e312adfe8ce97dba31c9530b927226e75bba07f61aad014ce1372c98d139fe",
+    "flagstaff-az/root-http.json": "f1fec53a5c504b8682a995896b007ef96e8debc71fe1a3d8bd443631de7e7d60",
+    "live-browser-observations.json": "8606075c429702f9c466154431d362eec1456c31e007b284163f1297f4690814",
+    "test-results.txt": "2ce8cb580838550f82b645db6250d2ba42f500e319d6170ae0853603ead037c2"
+  }
+}

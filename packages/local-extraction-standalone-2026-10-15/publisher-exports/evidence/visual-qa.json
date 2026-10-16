@@ -1,0 +1,37 @@
+{
+  "schema_version": 1,
+  "reviewed_at": "2026-10-15",
+  "reviewer": "Codex agent with PDF skill",
+  "checks": [
+    {
+      "file": "evidence/fremont-visual/source-first-table.png",
+      "result": "PASS",
+      "scope": "First of8 publisher source HTML tables, rendered offline without JavaScript/network. Three columns: row letter, TitleofOfficer, ProvisionofCode. Four data rows(A-D) align with preserved JSON cells; Finance services manager rowmapsChapter5.05; rowBmultipleofficersmapsChapter5.35 and sections5.35.050/5.35.120; CmapsChapter5.45ArticleI; DmapsChapter5.65. Source narrow columns wrap text but no cell values were flattened across rows."
+    },
+    {
+      "file": "evidence/fremont-visual/source-currentness.png",
+      "result": "PASS",
+      "scope": "Rendered notice shows Ordinance02-2026 passedMay5,2026; matches captured currentrootnotice exactly."
+    },
+    {
+      "file": "evidence/docs/user-level-chart-2020.png",
+      "result": "PASS",
+      "scope": "Full onepagePDF visually inspected. Public constituent PDF rowhasavailabilityasterisk, Wordrowonlymunicipal/admin; footnote package-dependent; Modified5/26/2020 visiblyretained. This isoldfeaturedocumentation,notcurrent14citypermissionproof."
+    },
+    {
+      "file": "evidence/berkeley-visual/source-body.png",
+      "result": "PASS",
+      "scope": "Full short section export rendered offline with no JavaScript or network. Section1.01.010 heading, one legalparagraph, GovernmentCode references50022.1-50022.8and50022.10, secondary-codeexceptions and legislativehistory Ord4970-NSsection1,1977 arevisible. Footer8031-NSJuly28,2026 notice and clerk disclaimer separate fromlegalbody. No table in sample; tablelayout notexercised."
+    },
+    {
+      "file": "evidence/everett-visual/source-body.png",
+      "result": "PASS",
+      "scope": "Entire section1.01.010Adoption visible in offline render, RCW35.21.500-through35.21.570 and Ord354-75section1,1975 historyretained. Footer4203-26September16,2026 and disclaimerseparate. Notableselected."
+    }
+  ],
+  "limits": [
+    "No legalPDFcodeexport obtained inthispackage; chartPDFisdocumentation only.",
+    "Only firstFremonttable receivedvisualrowcomparison; all8tables preserved withcells/spans/rawHTML, remainingtablesrequiremanualreview.",
+    "BrowserofflineHTMLscreenshot isvisualQA,notacquisitionorPDFexport."
+  ]
+}

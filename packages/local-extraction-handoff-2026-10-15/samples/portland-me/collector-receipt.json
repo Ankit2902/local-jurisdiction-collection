@@ -1,0 +1,27 @@
+{
+  "status": "live_sample_complete",
+  "jurisdiction": "Portland, Maine",
+  "collector": "adapters.special_collectors.collect_portland_me",
+  "source_type": "official CivicPlus City Code document collection",
+  "requirements_met": [
+    "fresh widget-asset discovery",
+    "cached asset download",
+    "per-document checkpoint",
+    "16-column provision CSV/JSON"
+  ],
+  "test_evidence": "validation/test_special_collectors.py::test_civicplus_collectors_rediscover_documents_each_run",
+  "sample_date": "2026-08-28",
+  "sample_output": {
+    "json": "C:\\Users\\olive\\OneDrive\\Documents\\Claude\\Projects\\CompliSolv 2.00\\municipal-code-batch\\outputs\\live-samples\\special-sources\\portland-me\\outputs\\portland-me-municipal-code.json",
+    "csv": "C:\\Users\\olive\\OneDrive\\Documents\\Claude\\Projects\\CompliSolv 2.00\\municipal-code-batch\\outputs\\live-samples\\special-sources\\portland-me\\outputs\\portland-me-municipal-code.csv",
+    "rows": 10,
+    "full_text_rows": 10
+  },
+  "live_evidence": {
+    "landing_url": "https://portlandmaine.gov/city-code",
+    "source_url": "https://content.civicplus.com/api/assets/b4305bca-b7ef-4d12-b84f-5554626b4b81",
+    "asset_id": "b4305bca-b7ef-4d12-b84f-5554626b4b81",
+    "parsed_provisions": 66
+  },
+  "sample_limit": 10
+}

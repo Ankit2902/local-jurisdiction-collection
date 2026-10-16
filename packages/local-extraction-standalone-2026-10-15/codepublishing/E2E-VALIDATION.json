@@ -1,0 +1,2553 @@
+{
+  "schema_version": 1,
+  "date": "2026-10-15",
+  "scope": "bounded live acquisition and sample export; no full corpus/import",
+  "whole_corpus_complete": false,
+  "current_codepublishing_municipalities": 5,
+  "current_codepublishing_records": 77,
+  "legacy_seatac_records": 12,
+  "current_supported_cua_path_passed": true,
+  "standalone_playwright_live_status": "all6 observed chapter jobs HTTP403 challenge; final guarded Flagstaff trial separate",
+  "tests": {
+    "python": {
+      "path": "test-results-final.txt",
+      "sha256": "7ac60680f065853d01e0a1aeb568cc31f35120576a60b0ab828111a3f3f86a14",
+      "bytes": 3165
+    },
+    "node": {
+      "path": "node-test-results-final.json",
+      "sha256": "366d58a46e221034b9e4d4be191e7dfccc2563c160445fcf4d2ab97eac38a3b2",
+      "bytes": 216
+    },
+    "current_pipeline": {
+      "path": "current-pipeline-results-final.txt",
+      "sha256": "119e43e6f97997d09db565cf04eab965be46442edf4cc4f64c621044c830f311",
+      "bytes": 1000
+    }
+  },
+  "source_freeze": {
+    "path": "CODE-FREEZE.json",
+    "sha256": "bcd4edcefce0384c6f5680e2130ab32e16829cf68799a1ae4da9c4a30c101ae9",
+    "bytes": 1597
+  },
+  "environment": {
+    "python": "3.9.6",
+    "python_dependencies": {
+      "path": "requirements.txt",
+      "sha256": "6552e1cbb8a884f858f3e5b46eb70b929cd8a61855adbe7e8a28dbfe4b16342c",
+      "bytes": 40
+    },
+    "optional_browser_dependencies": {
+      "path": "requirements-browser.txt",
+      "sha256": "19e271c3fd062130440450e812fcec6b8c1abe26b3132e4552319c79f6d9ee04",
+      "bytes": 19
+    },
+    "node_requirement": "Node20+; CUA managed Node host",
+    "recorded_commands": "current-pipeline/<slug>/commands.json"
+  },
+  "results": [
+    {
+      "jurisdiction_slug": "flagstaff-az",
+      "status": "bounded_live_cua_acquisition_parser_export_passed",
+      "current_authoritative_route": "https://www.codepublishing.com/AZ/Flagstaff/",
+      "legacy_migration_notice": false,
+      "whole_corpus_complete": false,
+      "publication_inventory_complete": false,
+      "source_currency": "The Flagstaff City Charter and City Code are current through Ordinance 2026-19, passed August 25, 2026.",
+      "pre_post_currency_equal": true,
+      "version_atomicity": "same publisher label bracketing bounded DOM capture; no publisher snapshot token",
+      "source_receipts": [
+        "current-cua/flagstaff-az/chapter-bracketed.receipt.json",
+        "current-cua/flagstaff-az/currency-after-bracket.receipt.json",
+        "current-cua/flagstaff-az/currency-before.receipt.json",
+        "current-cua/flagstaff-az/root-confirmed.receipt.json",
+        "current-cua/flagstaff-az/root-post.receipt.json",
+        "current-cua/flagstaff-az/title.receipt.json"
+      ],
+      "acquisition_script_sha256": "f108fcec0bffd1dd894e2c6dd34b2add75e2ca514dcbddb2b023ae2609b9b31a",
+      "checksum_module_sha256": "e8838b9e8ac1a54c0b9d116855e020258ea7314b73a6dbb651e48eb260692f78",
+      "parser_sha256": "443081bbcbf7352fb967ddad92c04a9e8349dd7ba9a01e237740ddd7d8e4d4ed",
+      "csv_json_equal": true,
+      "restart_equal": true,
+      "pages": 1,
+      "records": 5,
+      "audits": [
+        {
+          "case": "adoption",
+          "raw_sha256": "e9a7466e8a8f702456fede8111bc28f017c92b336f9709e4a40b0d397e0b5071",
+          "source_sections": 5,
+          "export_records": 5,
+          "p_level_paragraphs": 8,
+          "p_classes": [
+            "P0",
+            "P1"
+          ],
+          "chapter_toc_equals_section_inventory": true,
+          "complete_p_level_bodies": true,
+          "source_section_order_equal": true,
+          "observed_hierarchy_present": true,
+          "structure_counts": {
+            "table": 0,
+            "tr": 0,
+            "td": 0,
+            "th": 0,
+            "ol": 0,
+            "ul": 0,
+            "li": 0,
+            "sup": 0,
+            "sub": 0,
+            "blockquote": 0
+          },
+          "raw_dom_table_count": 0,
+          "excluded_hidden_table_clones": 0
+        }
+      ],
+      "root_inventory_links": [
+        {
+          "href": "../Flagstaff_form.html",
+          "label": "Advanced Search"
+        },
+        {
+          "href": "../mobile/",
+          "label": "Mobile Version"
+        },
+        {
+          "href": "help.html",
+          "label": "Help"
+        },
+        {
+          "href": "#",
+          "label": "Clear all"
+        },
+        {
+          "href": "../html/FlagstaffCH.html",
+          "label": "Charter"
+        },
+        {
+          "href": "../html/FlagstaffNT.html",
+          "label": "City Code"
+        },
+        {
+          "href": "../html/FlagstaffCH.html",
+          "label": "CHARTER"
+        },
+        {
+          "href": "../html/Flagstaff01/Flagstaff01.html",
+          "label": "Title 1 ADMINISTRATIVE"
+        },
+        {
+          "href": "../html/Flagstaff02/Flagstaff02.html",
+          "label": "Title 2 BOARDS AND COMMISSIONS"
+        },
+        {
+          "href": "../html/Flagstaff03/Flagstaff03.html",
+          "label": "Title 3 BUSINESS REGULATIONS"
+        },
+        {
+          "href": "../html/Flagstaff04/Flagstaff04.html",
+          "label": "Title 4 BUILDING REGULATIONS"
+        },
+        {
+          "href": "../html/Flagstaff05/Flagstaff05.html",
+          "label": "Title 5 FIRE CODE"
+        },
+        {
+          "href": "../html/Flagstaff06/Flagstaff06.html",
+          "label": "Title 6 POLICE REGULATIONS"
+        },
+        {
+          "href": "../html/Flagstaff07/Flagstaff07.html",
+          "label": "Title 7 HEALTH AND SANITATION"
+        },
+        {
+          "href": "../html/Flagstaff08/Flagstaff08.html",
+          "label": "Title 8 PUBLIC WAYS AND PROPERTY"
+        },
+        {
+          "href": "../html/Flagstaff09/Flagstaff09.html",
+          "label": "Title 9 TRAFFIC"
+        },
+        {
+          "href": "../html/Flagstaff10/Flagstaff10.html",
+          "label": "Title 10 FLAGSTAFF ZONING CODE"
+        },
+        {
+          "href": "../html/Flagstaff11/Flagstaff11.html",
+          "label": "Title 11 GENERAL PLANS AND SUBDIVISIONS"
+        },
+        {
+          "href": "../html/Flagstaff12/Flagstaff12.html",
+          "label": "Title 12 FLOODPLAINS"
+        },
+        {
+          "href": "../html/Flagstaff13/Flagstaff13.html",
+          "label": "Title 13 ENGINEERING DESIGN STANDARDS AND SPECIFICATIONS FOR NEW INFRASTRUCTURE"
+        },
+        {
+          "href": "../html/Flagstaff14/Flagstaff14.html",
+          "label": "Title 14 HUMAN RELATIONS"
+        },
+        {
+          "href": "../html/Flagstaff15/Flagstaff15.html",
+          "label": "Title 15 LABOR"
+        },
+        {
+          "href": "../html/FlagstaffSR.html",
+          "label": "STATUTORY REFERENCES FOR ARIZONA CITIES AND TOWNS"
+        },
+        {
+          "href": "../html/FlagstaffOT.html",
+          "label": "TITLE 20 SPECIAL ORDINANCES"
+        },
+        {
+          "href": "../html/FlagstaffEmployeeHandbookNT.html",
+          "label": "Employee Handbook"
+        }
+      ],
+      "source_hierarchy": "root/title observed hrefs, legal heading IDs and publisher paragraph levels",
+      "limitations": [
+        "Only listed bounded chapters parsed; other chapters, appendices, supplements, images, incorporated documents and PDF contents are not fully inventoried/extracted.",
+        "Publication label equality is not whole-corpus version atomicity.",
+        "Supported CUA uses connected browser session; standalone transport has separate results."
+      ],
+      "supported_cua": {
+        "status": "bounded_live_acquisition_parser_export_passed",
+        "complete_DOM_integrity": "pureJS UTF8SHA256 before/after equals NodeSHA256 retained raw; joined UTF16 chunk strings written once",
+        "receipts": [
+          {
+            "used_in_final_pipeline": true,
+            "receipt": {
+              "path": "current-cua/flagstaff-az/chapter-bracketed.receipt.json",
+              "sha256": "6c827a60e8f286eef90bcec5d63d575d49bb41fc46ed701395bdc2d9f4299ce4",
+              "bytes": 9084
+            },
+            "raw": {
+              "path": "current-cua/flagstaff-az/chapter-bracketed.html",
+              "sha256": "e9a7466e8a8f702456fede8111bc28f017c92b336f9709e4a40b0d397e0b5071",
+              "bytes": 11381
+            },
+            "accepted": true,
+            "job": {
+              "slug": "flagstaff-az",
+              "id": "chapter-bracketed",
+              "url": "https://www.codepublishing.com/AZ/Flagstaff/html/Flagstaff01/Flagstaff0101000.html#1.01",
+              "root_url": "https://www.codepublishing.com/AZ/Flagstaff/",
+              "kind": "legal",
+              "wait_selector": "#mainContent h3.Cite"
+            },
+            "acquisition_script_sha256": "f108fcec0bffd1dd894e2c6dd34b2add75e2ca514dcbddb2b023ae2609b9b31a",
+            "checksum_module_sha256": "e8838b9e8ac1a54c0b9d116855e020258ea7314b73a6dbb651e48eb260692f78",
+            "before_after_sha256_match": true
+          },
+          {
+            "used_in_final_pipeline": false,
+            "receipt": {
+              "path": "current-cua/flagstaff-az/chapter.receipt.json",
+              "sha256": "2a411af1a7f8afe3272015c1e800db885e40adbe09cc2efa7162ef3dd240500a",
+              "bytes": 9064
+            },
+            "raw": {
+              "path": "current-cua/flagstaff-az/chapter.html",
+              "sha256": "e9a7466e8a8f702456fede8111bc28f017c92b336f9709e4a40b0d397e0b5071",
+              "bytes": 11381
+            },
+            "accepted": true,
+            "job": {
+              "slug": "flagstaff-az",
+              "id": "chapter",
+              "url": "https://www.codepublishing.com/AZ/Flagstaff/html/Flagstaff01/Flagstaff0101000.html#1.01",
+              "root_url": "https://www.codepublishing.com/AZ/Flagstaff/",
+              "kind": "legal",
+              "wait_selector": "#mainContent h3.Cite"
+            },
+            "acquisition_script_sha256": "f108fcec0bffd1dd894e2c6dd34b2add75e2ca514dcbddb2b023ae2609b9b31a",
+            "checksum_module_sha256": "e8838b9e8ac1a54c0b9d116855e020258ea7314b73a6dbb651e48eb260692f78",
+            "before_after_sha256_match": true
+          },
+          {
+            "used_in_final_pipeline": true,
+            "receipt": {
+              "path": "current-cua/flagstaff-az/currency-after-bracket.receipt.json",
+              "sha256": "c7d72a2c00547175e73ee14b24102b416e6894974b244efab4e8798cf5043d4a",
+              "bytes": 2446
+            },
+            "raw": {
+              "path": "current-cua/flagstaff-az/currency-after-bracket.html",
+              "sha256": "d86f92bd63b239add65364c5496f69a9d654fdf1a1da769aa8632156d5c1b5a5",
+              "bytes": 5132
+            },
+            "accepted": true,
+            "job": {
+              "slug": "flagstaff-az",
+              "id": "currency-after-bracket",
+              "url": "https://www.codepublishing.com/AZ/Flagstaff/html/disclaimer.html",
+              "root_url": "https://www.codepublishing.com/AZ/Flagstaff/",
+              "kind": "navigation",
+              "wait_selector": "body"
+            },
+            "acquisition_script_sha256": "f108fcec0bffd1dd894e2c6dd34b2add75e2ca514dcbddb2b023ae2609b9b31a",
+            "checksum_module_sha256": "e8838b9e8ac1a54c0b9d116855e020258ea7314b73a6dbb651e48eb260692f78",
+            "before_after_sha256_match": true
+          },
+          {
+            "used_in_final_pipeline": true,
+            "receipt": {
+              "path": "current-cua/flagstaff-az/currency-before.receipt.json",
+              "sha256": "3f4ff2bb83b7dc9fb5b246de92149c41092b926db17fbf17162aeb81e3f9524a",
+              "bytes": 2432
+            },
+            "raw": {
+              "path": "current-cua/flagstaff-az/currency-before.html",
+              "sha256": "d86f92bd63b239add65364c5496f69a9d654fdf1a1da769aa8632156d5c1b5a5",
+              "bytes": 5132
+            },
+            "accepted": true,
+            "job": {
+              "slug": "flagstaff-az",
+              "id": "currency-before",
+              "url": "https://www.codepublishing.com/AZ/Flagstaff/html/disclaimer.html",
+              "root_url": "https://www.codepublishing.com/AZ/Flagstaff/",
+              "kind": "navigation",
+              "wait_selector": "body"
+            },
+            "acquisition_script_sha256": "f108fcec0bffd1dd894e2c6dd34b2add75e2ca514dcbddb2b023ae2609b9b31a",
+            "checksum_module_sha256": "e8838b9e8ac1a54c0b9d116855e020258ea7314b73a6dbb651e48eb260692f78",
+            "before_after_sha256_match": true
+          },
+          {
+            "used_in_final_pipeline": false,
+            "receipt": {
+              "path": "current-cua/flagstaff-az/currency-post.receipt.json",
+              "sha256": "1797339638540926861a1ef5b8ecf5699fa66035d80167771e3e8588b4bb2f3d",
+              "bytes": 2428
+            },
+            "raw": {
+              "path": "current-cua/flagstaff-az/currency-post.html",
+              "sha256": "d86f92bd63b239add65364c5496f69a9d654fdf1a1da769aa8632156d5c1b5a5",
+              "bytes": 5132
+            },
+            "accepted": true,
+            "job": {
+              "slug": "flagstaff-az",
+              "id": "currency-post",
+              "url": "https://www.codepublishing.com/AZ/Flagstaff/html/disclaimer.html",
+              "root_url": "https://www.codepublishing.com/AZ/Flagstaff/",
+              "kind": "navigation",
+              "wait_selector": "body"
+            },
+            "acquisition_script_sha256": "f108fcec0bffd1dd894e2c6dd34b2add75e2ca514dcbddb2b023ae2609b9b31a",
+            "checksum_module_sha256": "e8838b9e8ac1a54c0b9d116855e020258ea7314b73a6dbb651e48eb260692f78",
+            "before_after_sha256_match": true
+          },
+          {
+            "used_in_final_pipeline": false,
+            "receipt": {
+              "path": "current-cua/flagstaff-az/family-landing.receipt.json",
+              "sha256": "d659a0f7ec2191c340a8cf669ddd713178cc825dbc6f03866f87c94b65241d80",
+              "bytes": 2219
+            },
+            "raw": {
+              "path": "current-cua/flagstaff-az/family-landing.html",
+              "sha256": "35bc1eb94a11808238efa634ff19c29013f8a4da118346903e24c014f7dc7b2a",
+              "bytes": 5969
+            },
+            "accepted": true,
+            "job": {
+              "slug": "flagstaff-az",
+              "id": "family-landing",
+              "url": "https://www.codepublishing.com/AZ/Flagstaff/html/FlagstaffNT.html",
+              "root_url": "https://www.codepublishing.com/AZ/Flagstaff/",
+              "kind": "navigation",
+              "wait_selector": "body"
+            },
+            "acquisition_script_sha256": "f108fcec0bffd1dd894e2c6dd34b2add75e2ca514dcbddb2b023ae2609b9b31a",
+            "checksum_module_sha256": "e8838b9e8ac1a54c0b9d116855e020258ea7314b73a6dbb651e48eb260692f78",
+            "before_after_sha256_match": true
+          },
+          {
+            "used_in_final_pipeline": false,
+            "receipt": {
+              "path": "current-cua/flagstaff-az/family-toc.receipt.json",
+              "sha256": "dcef57a58c7ce617f777f433eb7380a645a5d0f85973f76af030a1ffc5a9d900",
+              "bytes": 4607
+            },
+            "raw": {
+              "path": "current-cua/flagstaff-az/family-toc.html",
+              "sha256": "8244f629f292404df4d075e309df4b13aeccdeef439113d90cc4905f472c34de",
+              "bytes": 13029
+            },
+            "accepted": true,
+            "job": {
+              "slug": "flagstaff-az",
+              "id": "family-toc",
+              "url": "https://www.codepublishing.com/AZ/Flagstaff/cgi/FlagstaffTOC.pl",
+              "root_url": "https://www.codepublishing.com/AZ/Flagstaff/",
+              "kind": "navigation",
+              "wait_selector": "a#Flagstaff01"
+            },
+            "acquisition_script_sha256": "f108fcec0bffd1dd894e2c6dd34b2add75e2ca514dcbddb2b023ae2609b9b31a",
+            "checksum_module_sha256": "e8838b9e8ac1a54c0b9d116855e020258ea7314b73a6dbb651e48eb260692f78",
+            "before_after_sha256_match": true
+          },
+          {
+            "used_in_final_pipeline": false,
+            "receipt": {
+              "path": "current-cua/flagstaff-az/root-before.receipt.json",
+              "sha256": "76e1ed5a302c58bead193274c323fcbca4d29f252e0e3604a041c9e128948e09",
+              "bytes": 1985
+            },
+            "raw": {
+              "path": "current-cua/flagstaff-az/root-before.html",
+              "sha256": "277843e1158d7c52f5e79bee5f0968fbcd509756c2ed7a8502854466cbf213ab",
+              "bytes": 5480
+            },
+            "accepted": true,
+            "job": {
+              "slug": "flagstaff-az",
+              "url": "https://www.codepublishing.com/AZ/Flagstaff/",
+              "id": "root-before",
+              "root_url": "https://www.codepublishing.com/AZ/Flagstaff/",
+              "kind": "root",
+              "wait_selector": "frame#toc"
+            },
+            "acquisition_script_sha256": "bcda921e13ccd1a255a0d057425a47925ff743efbc03fd00d8bf61a58898b550",
+            "checksum_module_sha256": null,
+            "before_after_sha256_match": false
+          },
+          {
+            "used_in_final_pipeline": true,
+            "receipt": {
+              "path": "current-cua/flagstaff-az/root-confirmed.receipt.json",
+              "sha256": "f61997aeb32c2fe3fb5cf7129920f97001f8babbbd9c1b4e7c46b412b8be1907",
+              "bytes": 1979
+            },
+            "raw": {
+              "path": "current-cua/flagstaff-az/root-confirmed.html",
+              "sha256": "277843e1158d7c52f5e79bee5f0968fbcd509756c2ed7a8502854466cbf213ab",
+              "bytes": 5480
+            },
+            "accepted": true,
+            "job": {
+              "slug": "flagstaff-az",
+              "url": "https://www.codepublishing.com/AZ/Flagstaff/",
+              "id": "root-confirmed",
+              "root_url": "https://www.codepublishing.com/AZ/Flagstaff/",
+              "kind": "root",
+              "wait_selector": "frame#toc"
+            },
+            "acquisition_script_sha256": "f108fcec0bffd1dd894e2c6dd34b2add75e2ca514dcbddb2b023ae2609b9b31a",
+            "checksum_module_sha256": "e8838b9e8ac1a54c0b9d116855e020258ea7314b73a6dbb651e48eb260692f78",
+            "before_after_sha256_match": true
+          },
+          {
+            "used_in_final_pipeline": true,
+            "receipt": {
+              "path": "current-cua/flagstaff-az/root-post.receipt.json",
+              "sha256": "c688d524ae5817238a2b1348553c226cb759b1a0bd431b46e2db4a5a221feeab",
+              "bytes": 1975
+            },
+            "raw": {
+              "path": "current-cua/flagstaff-az/root-post.html",
+              "sha256": "277843e1158d7c52f5e79bee5f0968fbcd509756c2ed7a8502854466cbf213ab",
+              "bytes": 5480
+            },
+            "accepted": true,
+            "job": {
+              "slug": "flagstaff-az",
+              "id": "root-post",
+              "url": "https://www.codepublishing.com/AZ/Flagstaff/",
+              "root_url": "https://www.codepublishing.com/AZ/Flagstaff/",
+              "kind": "navigation",
+              "wait_selector": "frame#toc"
+            },
+            "acquisition_script_sha256": "f108fcec0bffd1dd894e2c6dd34b2add75e2ca514dcbddb2b023ae2609b9b31a",
+            "checksum_module_sha256": "e8838b9e8ac1a54c0b9d116855e020258ea7314b73a6dbb651e48eb260692f78",
+            "before_after_sha256_match": true
+          },
+          {
+            "used_in_final_pipeline": true,
+            "receipt": {
+              "path": "current-cua/flagstaff-az/title.receipt.json",
+              "sha256": "509cacdc4da5025e7788a14c4767e58fa3e5e0b9463c5d04904f75df420f7f9a",
+              "bytes": 8716
+            },
+            "raw": {
+              "path": "current-cua/flagstaff-az/title.html",
+              "sha256": "c4dd83044869980ecb24db00f766e2bfb3c0be5b4d130e8c2ababba9f70e8391",
+              "bytes": 9072
+            },
+            "accepted": true,
+            "job": {
+              "slug": "flagstaff-az",
+              "id": "title",
+              "url": "https://www.codepublishing.com/AZ/Flagstaff/html/Flagstaff01/Flagstaff01.html",
+              "root_url": "https://www.codepublishing.com/AZ/Flagstaff/",
+              "kind": "navigation",
+              "wait_selector": "#mainContent h1.Title"
+            },
+            "acquisition_script_sha256": "f108fcec0bffd1dd894e2c6dd34b2add75e2ca514dcbddb2b023ae2609b9b31a",
+            "checksum_module_sha256": "e8838b9e8ac1a54c0b9d116855e020258ea7314b73a6dbb651e48eb260692f78",
+            "before_after_sha256_match": true
+          }
+        ],
+        "final_guarded_module_live_check": {
+          "path": "current-cua/fremont-ca/root-final-table.receipt.json",
+          "sha256": "5781ed7c1d35be9cfa135f17f7201ae96024ef4c4f4b5ca671b8847bb2a571ea",
+          "bytes": 7014
+        },
+        "immutable_target_guard_test": "test_acquire_cua.mjs plus live repeated-target rejection"
+      },
+      "standalone_playwright": {
+        "status": "blocked_http403_challenge",
+        "accepted": false,
+        "receipt": {
+          "path": "current-playwright/flagstaff-az/chapter.receipt.json",
+          "sha256": "705e90642865862a3ffb79547afecfa5f33f18033f3ce6e5eb4c3ade3ff8e4b9",
+          "bytes": 1353
+        },
+        "raw": {
+          "path": "current-playwright/flagstaff-az/chapter.html",
+          "sha256": "6d94db3528523345379f4c7ef37d3f169d54f9f207f9ae3ec921f182869cc34f",
+          "bytes": 4729
+        },
+        "runtime": {
+          "python": "3.9.6",
+          "channel": "chrome",
+          "headed": false,
+          "browser_version": "155.0.8059.41"
+        },
+        "acquisition_script_sha256": "80178262b890f0efe4893875d9f0daf8c1a9c1feb826564c5f740206e92d9574",
+        "archived_script": {
+          "path": "current-playwright/acquisition-script.py",
+          "sha256": "80178262b890f0efe4893875d9f0daf8c1a9c1feb826564c5f740206e92d9574",
+          "bytes": 3763
+        },
+        "blocker": "Vendor returns challenge to isolated standalone Chrome; no accepted legal body. Connected CUA session result is separate.",
+        "final_guarded_revision_trial": {
+          "receipt": {
+            "path": "final-playwright/flagstaff-az/chapter.receipt.json",
+            "sha256": "5160b22ed36b7b555fab0eb0297da56e96ea0b707401fda93f772bdfc4c467f1",
+            "bytes": 1353
+          },
+          "accepted": false,
+          "http_status": 403,
+          "acquisition_script_sha256": "3619c543cd9b157ab264523d461a9d5ad5ce2577cf504fa579cb9434ff505bc2",
+          "matches_frozen_script": true
+        }
+      },
+      "commands": {
+        "path": "current-pipeline/flagstaff-az/commands.json",
+        "sha256": "96e9285f86fe806043e5f19f6f4442c9f972d4b977978dc3bf044b0bed96ac14",
+        "bytes": 5346
+      },
+      "export_manifest": {
+        "path": "current-pipeline/flagstaff-az/export/run-manifest.json",
+        "sha256": "36ffdf2dee5fd214402d842bc32461e89688b9dbf94623fe19bd75dd26d133ac",
+        "bytes": 2505
+      },
+      "tests": {
+        "python_count": 33,
+        "python_passed": true,
+        "node": {
+          "status": "passed",
+          "checks": 10,
+          "sha_vectors": 5,
+          "utf16_chunk_surrogate_preserved": true,
+          "immutable_target_rejected": true,
+          "same_length_mutation_rejected": true,
+          "stale_heading_rejected": true,
+          "scope_escape_rejected": true
+        }
+      },
+      "code_freeze": {
+        "path": "CODE-FREEZE.json",
+        "sha256": "bcd4edcefce0384c6f5680e2130ab32e16829cf68799a1ae4da9c4a30c101ae9",
+        "bytes": 1597
+      },
+      "remaining_blockers": [
+        "Standalone HTTP403 prevents qualifying unattended browser CLI transport here.",
+        "Complete multi-family publication inventory, missing/unlinked status-node reconciliation, scope decisions and whole-corpus version checks remain unperformed.",
+        "Live rowspan/colspan, image and incorporated-PDF handling beyond these samples still require source qualification; synthetic tests cover spans/lists/images."
+      ]
+    },
+    {
+      "jurisdiction_slug": "fremont-ca",
+      "status": "bounded_live_cua_acquisition_parser_export_passed",
+      "current_authoritative_route": "https://www.codepublishing.com/CA/Fremont/",
+      "legacy_migration_notice": false,
+      "whole_corpus_complete": false,
+      "publication_inventory_complete": false,
+      "source_currency": "The Fremont Municipal Code is current through Ordinance 02-2026, passed May 5, 2026.",
+      "pre_post_currency_equal": true,
+      "version_atomicity": "same publisher label bracketing bounded DOM capture; no publisher snapshot token",
+      "source_receipts": [
+        "current-cua/fremont-ca/chapter.receipt.json",
+        "current-cua/fremont-ca/chapter-business.receipt.json",
+        "current-cua/fremont-ca/cross-reference-table.receipt.json",
+        "current-cua/fremont-ca/root-confirmed.receipt.json",
+        "current-cua/fremont-ca/root-final-table.receipt.json",
+        "current-cua/fremont-ca/title.receipt.json",
+        "current-cua/fremont-ca/title-business.receipt.json"
+      ],
+      "acquisition_script_sha256": "f108fcec0bffd1dd894e2c6dd34b2add75e2ca514dcbddb2b023ae2609b9b31a",
+      "checksum_module_sha256": "e8838b9e8ac1a54c0b9d116855e020258ea7314b73a6dbb651e48eb260692f78",
+      "parser_sha256": "443081bbcbf7352fb967ddad92c04a9e8349dd7ba9a01e237740ddd7d8e4d4ed",
+      "csv_json_equal": true,
+      "restart_equal": true,
+      "pages": 3,
+      "records": 55,
+      "audits": [
+        {
+          "case": "adoption",
+          "raw_sha256": "3f8ea0e0afe8f51cd4dbf2ff8474ee5d2e064e6c533088192c20662f3562f9ab",
+          "source_sections": 10,
+          "export_records": 11,
+          "p_level_paragraphs": 10,
+          "p_classes": [
+            "P0"
+          ],
+          "chapter_toc_equals_section_inventory": true,
+          "complete_p_level_bodies": true,
+          "source_section_order_equal": true,
+          "observed_hierarchy_present": true,
+          "structure_counts": {
+            "table": 0,
+            "tr": 0,
+            "td": 0,
+            "th": 0,
+            "ol": 0,
+            "ul": 0,
+            "li": 0,
+            "sup": 0,
+            "sub": 0,
+            "blockquote": 0
+          },
+          "raw_dom_table_count": 0,
+          "excluded_hidden_table_clones": 0
+        },
+        {
+          "case": "business",
+          "raw_sha256": "f92a83e756cf818ecf92c9f729c60332b59dfed96639a9e605042fb12706c9f9",
+          "source_sections": 42,
+          "export_records": 43,
+          "p_level_paragraphs": 147,
+          "p_classes": [
+            "P0",
+            "P1",
+            "P2",
+            "P3"
+          ],
+          "chapter_toc_equals_section_inventory": true,
+          "complete_p_level_bodies": true,
+          "source_section_order_equal": true,
+          "observed_hierarchy_present": true,
+          "structure_counts": {
+            "table": 0,
+            "tr": 0,
+            "td": 0,
+            "th": 0,
+            "ol": 0,
+            "ul": 0,
+            "li": 0,
+            "sup": 0,
+            "sub": 0,
+            "blockquote": 0
+          },
+          "raw_dom_table_count": 0,
+          "excluded_hidden_table_clones": 0
+        },
+        {
+          "case": "cross-reference-table",
+          "raw_sha256": "504f93c961f83963f5c23ea9bf5d85577cc554dfc2e77b36beb1a6dc18015329",
+          "source_sections": 0,
+          "export_records": 1,
+          "p_level_paragraphs": 2,
+          "p_classes": [
+            "P1"
+          ],
+          "chapter_toc_equals_section_inventory": false,
+          "complete_p_level_bodies": true,
+          "source_section_order_equal": true,
+          "observed_hierarchy_present": true,
+          "structure_counts": {
+            "table": 1,
+            "tr": 2212,
+            "td": 4422,
+            "th": 2,
+            "ol": 0,
+            "ul": 0,
+            "li": 0,
+            "sup": 0,
+            "sub": 0,
+            "blockquote": 0
+          },
+          "raw_dom_table_count": 4,
+          "excluded_hidden_table_clones": 3
+        }
+      ],
+      "root_inventory_links": [
+        {
+          "href": "/CA/Fremont/#!/FremontOT.html#newords",
+          "label": "uncodified ordinances"
+        },
+        {
+          "href": "/CA/Fremont/#!/Fremont01/Fremont01.html",
+          "label": "Title 1 GENERAL PROVISIONS"
+        },
+        {
+          "href": "/CA/Fremont/#!/Fremont02/Fremont02.html",
+          "label": "Title 2 ADMINISTRATION AND FINANCE"
+        },
+        {
+          "href": "/CA/Fremont/#!/Fremont03/Fremont03.html",
+          "label": "Title 3 REVENUE AND FINANCE"
+        },
+        {
+          "href": "/CA/Fremont/#!/Fremont04/Fremont04.html",
+          "label": "Title 4 (Reserved)"
+        },
+        {
+          "href": "/CA/Fremont/#!/Fremont05/Fremont05.html",
+          "label": "Title 5 BUSINESS LICENSES AND REGULATIONS"
+        },
+        {
+          "href": "/CA/Fremont/#!/Fremont06/Fremont06.html",
+          "label": "Title 6 ANIMALS"
+        },
+        {
+          "href": "/CA/Fremont/#!/Fremont07/Fremont07.html",
+          "label": "Title 7 (Reserved)"
+        },
+        {
+          "href": "/CA/Fremont/#!/Fremont08/Fremont08.html",
+          "label": "Title 8 HEALTH AND SAFETY"
+        },
+        {
+          "href": "/CA/Fremont/#!/Fremont09/Fremont09.html",
+          "label": "Title 9 PUBLIC PEACE, MORALS AND WELFARE"
+        },
+        {
+          "href": "/CA/Fremont/#!/Fremont10/Fremont10.html",
+          "label": "Title 10 VEHICLES AND TRAFFIC"
+        },
+        {
+          "href": "/CA/Fremont/#!/Fremont11/Fremont11.html",
+          "label": "Title 11 (Reserved)"
+        },
+        {
+          "href": "/CA/Fremont/#!/Fremont12/Fremont12.html",
+          "label": "Title 12 STREETS, SIDEWALKS AND PUBLIC PROPERTY"
+        },
+        {
+          "href": "/CA/Fremont/#!/Fremont13/Fremont13.html",
+          "label": "Title 13 (Reserved)"
+        },
+        {
+          "href": "/CA/Fremont/#!/Fremont14/Fremont14.html",
+          "label": "Title 14 (Reserved)"
+        },
+        {
+          "href": "/CA/Fremont/#!/Fremont15/Fremont15.html",
+          "label": "Title 15 BUILDINGS AND CONSTRUCTION"
+        },
+        {
+          "href": "/CA/Fremont/#!/Fremont16/Fremont16.html",
+          "label": "Title 16 (Reserved)"
+        },
+        {
+          "href": "/CA/Fremont/#!/Fremont17/Fremont17.html",
+          "label": "Title 17 SUBDIVISIONS"
+        },
+        {
+          "href": "/CA/Fremont/#!/Fremont18/Fremont18.html",
+          "label": "Title 18 PLANNING AND ZONING"
+        },
+        {
+          "href": "/CA/Fremont/#!/FremontSR.html",
+          "label": "STATUTORY REFERENCES FOR CALIFORNIA CITIES"
+        },
+        {
+          "href": "/CA/Fremont/#!/FremontCR.html",
+          "label": "CROSS-REFERENCE TABLE"
+        },
+        {
+          "href": "/CA/Fremont/#!/FremontOT.html",
+          "label": "ORDINANCE TABLE"
+        }
+      ],
+      "source_hierarchy": "root/title observed hrefs, legal heading IDs and publisher paragraph levels",
+      "limitations": [
+        "Only listed bounded chapters parsed; other chapters, appendices, supplements, images, incorporated documents and PDF contents are not fully inventoried/extracted.",
+        "Publication label equality is not whole-corpus version atomicity.",
+        "Supported CUA uses connected browser session; standalone transport has separate results."
+      ],
+      "supported_cua": {
+        "status": "bounded_live_acquisition_parser_export_passed",
+        "complete_DOM_integrity": "pureJS UTF8SHA256 before/after equals NodeSHA256 retained raw; joined UTF16 chunk strings written once",
+        "receipts": [
+          {
+            "used_in_final_pipeline": true,
+            "receipt": {
+              "path": "current-cua/fremont-ca/chapter-business.receipt.json",
+              "sha256": "e19b2de84440e622e075556d71405a3b8b2f67231812efcc166f2cc10cbfdab6",
+              "bytes": 40315
+            },
+            "raw": {
+              "path": "current-cua/fremont-ca/chapter-business.html",
+              "sha256": "f92a83e756cf818ecf92c9f729c60332b59dfed96639a9e605042fb12706c9f9",
+              "bytes": 114970
+            },
+            "accepted": true,
+            "job": {
+              "slug": "fremont-ca",
+              "id": "chapter-business",
+              "url": "https://www.codepublishing.com/CA/Fremont/#!/Fremont05/Fremont0505.html#5.05",
+              "root_url": "https://www.codepublishing.com/CA/Fremont/",
+              "kind": "legal",
+              "wait_selector": "#mainContent h3.Cite"
+            },
+            "acquisition_script_sha256": "f108fcec0bffd1dd894e2c6dd34b2add75e2ca514dcbddb2b023ae2609b9b31a",
+            "checksum_module_sha256": "e8838b9e8ac1a54c0b9d116855e020258ea7314b73a6dbb651e48eb260692f78",
+            "before_after_sha256_match": true
+          },
+          {
+            "used_in_final_pipeline": true,
+            "receipt": {
+              "path": "current-cua/fremont-ca/chapter.receipt.json",
+              "sha256": "973c17956534161effd099a0c6a4d6e367e54c99f6dca0d032cd619e2ff58a0a",
+              "bytes": 21287
+            },
+            "raw": {
+              "path": "current-cua/fremont-ca/chapter.html",
+              "sha256": "3f8ea0e0afe8f51cd4dbf2ff8474ee5d2e064e6c533088192c20662f3562f9ab",
+              "bytes": 43064
+            },
+            "accepted": true,
+            "job": {
+              "slug": "fremont-ca",
+              "id": "chapter",
+              "url": "https://www.codepublishing.com/CA/Fremont/#!/Fremont01/Fremont0105.html#1.05",
+              "root_url": "https://www.codepublishing.com/CA/Fremont/",
+              "kind": "legal",
+              "wait_selector": "#mainContent h3.Cite"
+            },
+            "acquisition_script_sha256": "f108fcec0bffd1dd894e2c6dd34b2add75e2ca514dcbddb2b023ae2609b9b31a",
+            "checksum_module_sha256": "e8838b9e8ac1a54c0b9d116855e020258ea7314b73a6dbb651e48eb260692f78",
+            "before_after_sha256_match": true
+          },
+          {
+            "used_in_final_pipeline": true,
+            "receipt": {
+              "path": "current-cua/fremont-ca/cross-reference-table.receipt.json",
+              "sha256": "d22747ab4fe02261c605532f217e6ca44221b140e3ea15141df6bfb7c668ef00",
+              "bytes": 559737
+            },
+            "raw": {
+              "path": "current-cua/fremont-ca/cross-reference-table.html",
+              "sha256": "504f93c961f83963f5c23ea9bf5d85577cc554dfc2e77b36beb1a6dc18015329",
+              "bytes": 581831
+            },
+            "accepted": true,
+            "job": {
+              "slug": "fremont-ca",
+              "id": "cross-reference-table",
+              "url": "https://www.codepublishing.com/CA/Fremont/#!/FremontCR.html",
+              "root_url": "https://www.codepublishing.com/CA/Fremont/",
+              "kind": "navigation",
+              "wait_selector": "#mainContent table"
+            },
+            "acquisition_script_sha256": "f108fcec0bffd1dd894e2c6dd34b2add75e2ca514dcbddb2b023ae2609b9b31a",
+            "checksum_module_sha256": "e8838b9e8ac1a54c0b9d116855e020258ea7314b73a6dbb651e48eb260692f78",
+            "before_after_sha256_match": true
+          },
+          {
+            "used_in_final_pipeline": false,
+            "receipt": {
+              "path": "current-cua/fremont-ca/root-before.receipt.json",
+              "sha256": "99f1af15bbbe0b1d76fdab8e0cea0c23e2a56cd30f7a6ee98c01822609a9d0aa",
+              "bytes": 7021
+            },
+            "raw": {
+              "path": "current-cua/fremont-ca/root-before.html",
+              "sha256": "d74e0c56834186fb481c4212552b4459956d2575e27e861287fd777ab0527c0b",
+              "bytes": 32090
+            },
+            "accepted": true,
+            "job": {
+              "slug": "fremont-ca",
+              "id": "root-before",
+              "url": "https://www.codepublishing.com/CA/Fremont/",
+              "root_url": "https://www.codepublishing.com/CA/Fremont/",
+              "kind": "root",
+              "wait_selector": "#archiveTOC a[id=\"Fremont01\"]"
+            },
+            "acquisition_script_sha256": "bcda921e13ccd1a255a0d057425a47925ff743efbc03fd00d8bf61a58898b550",
+            "checksum_module_sha256": null,
+            "before_after_sha256_match": false
+          },
+          {
+            "used_in_final_pipeline": true,
+            "receipt": {
+              "path": "current-cua/fremont-ca/root-confirmed.receipt.json",
+              "sha256": "c837a426ae4e57358497a017f603043fc12da2604063377ef0a338f9e0c8b213",
+              "bytes": 7004
+            },
+            "raw": {
+              "path": "current-cua/fremont-ca/root-confirmed.html",
+              "sha256": "d74e0c56834186fb481c4212552b4459956d2575e27e861287fd777ab0527c0b",
+              "bytes": 32090
+            },
+            "accepted": true,
+            "job": {
+              "slug": "fremont-ca",
+              "url": "https://www.codepublishing.com/CA/Fremont/",
+              "id": "root-confirmed",
+              "root_url": "https://www.codepublishing.com/CA/Fremont/",
+              "kind": "root",
+              "wait_selector": "a[href*=\"01.html\"]"
+            },
+            "acquisition_script_sha256": "f108fcec0bffd1dd894e2c6dd34b2add75e2ca514dcbddb2b023ae2609b9b31a",
+            "checksum_module_sha256": "e8838b9e8ac1a54c0b9d116855e020258ea7314b73a6dbb651e48eb260692f78",
+            "before_after_sha256_match": true
+          },
+          {
+            "used_in_final_pipeline": true,
+            "receipt": {
+              "path": "current-cua/fremont-ca/root-final-table.receipt.json",
+              "sha256": "5781ed7c1d35be9cfa135f17f7201ae96024ef4c4f4b5ca671b8847bb2a571ea",
+              "bytes": 7014
+            },
+            "raw": {
+              "path": "current-cua/fremont-ca/root-final-table.html",
+              "sha256": "d74e0c56834186fb481c4212552b4459956d2575e27e861287fd777ab0527c0b",
+              "bytes": 32090
+            },
+            "accepted": true,
+            "job": {
+              "slug": "fremont-ca",
+              "id": "root-final-table",
+              "url": "https://www.codepublishing.com/CA/Fremont/",
+              "root_url": "https://www.codepublishing.com/CA/Fremont/",
+              "kind": "navigation",
+              "wait_selector": "a[href*=\"01.html\"]"
+            },
+            "acquisition_script_sha256": "571dc12cdcfdc82766d5e9c8129cbb7e74eec4978473e38d517dadaac264ca47",
+            "checksum_module_sha256": "e8838b9e8ac1a54c0b9d116855e020258ea7314b73a6dbb651e48eb260692f78",
+            "before_after_sha256_match": true
+          },
+          {
+            "used_in_final_pipeline": false,
+            "receipt": {
+              "path": "current-cua/fremont-ca/root-final.receipt.json",
+              "sha256": "69de61c1ca2880db005fac75c04959593e014571528078816910fa8d7bb019f6",
+              "bytes": 7002
+            },
+            "raw": {
+              "path": "current-cua/fremont-ca/root-final.html",
+              "sha256": "d74e0c56834186fb481c4212552b4459956d2575e27e861287fd777ab0527c0b",
+              "bytes": 32090
+            },
+            "accepted": true,
+            "job": {
+              "slug": "fremont-ca",
+              "id": "root-final",
+              "url": "https://www.codepublishing.com/CA/Fremont/",
+              "root_url": "https://www.codepublishing.com/CA/Fremont/",
+              "kind": "navigation",
+              "wait_selector": "a[href*=\"01.html\"]"
+            },
+            "acquisition_script_sha256": "f108fcec0bffd1dd894e2c6dd34b2add75e2ca514dcbddb2b023ae2609b9b31a",
+            "checksum_module_sha256": "e8838b9e8ac1a54c0b9d116855e020258ea7314b73a6dbb651e48eb260692f78",
+            "before_after_sha256_match": true
+          },
+          {
+            "used_in_final_pipeline": false,
+            "receipt": {
+              "path": "current-cua/fremont-ca/root-post.receipt.json",
+              "sha256": "c994b50a081a7d905ce8730acce717426e054e2470a533dc326bbbd80bc64239",
+              "bytes": 7000
+            },
+            "raw": {
+              "path": "current-cua/fremont-ca/root-post.html",
+              "sha256": "d74e0c56834186fb481c4212552b4459956d2575e27e861287fd777ab0527c0b",
+              "bytes": 32090
+            },
+            "accepted": true,
+            "job": {
+              "slug": "fremont-ca",
+              "id": "root-post",
+              "url": "https://www.codepublishing.com/CA/Fremont/",
+              "root_url": "https://www.codepublishing.com/CA/Fremont/",
+              "kind": "navigation",
+              "wait_selector": "a[href*=\"01.html\"]"
+            },
+            "acquisition_script_sha256": "f108fcec0bffd1dd894e2c6dd34b2add75e2ca514dcbddb2b023ae2609b9b31a",
+            "checksum_module_sha256": "e8838b9e8ac1a54c0b9d116855e020258ea7314b73a6dbb651e48eb260692f78",
+            "before_after_sha256_match": true
+          },
+          {
+            "used_in_final_pipeline": true,
+            "receipt": {
+              "path": "current-cua/fremont-ca/title-business.receipt.json",
+              "sha256": "f12c10dbc9d1acc5e5189e9237263dc0f6cc77e3cdeb7b5169c686e784f51e78",
+              "bytes": 14947
+            },
+            "raw": {
+              "path": "current-cua/fremont-ca/title-business.html",
+              "sha256": "d3436b059ee371911a786f142c36c679d64ad8c2d306e500c728d852a81c6fb4",
+              "bytes": 37706
+            },
+            "accepted": true,
+            "job": {
+              "slug": "fremont-ca",
+              "id": "title-business",
+              "url": "https://www.codepublishing.com/CA/Fremont/#!/Fremont05/Fremont05.html",
+              "root_url": "https://www.codepublishing.com/CA/Fremont/",
+              "kind": "navigation",
+              "wait_selector": "#mainContent h1.Title"
+            },
+            "acquisition_script_sha256": "f108fcec0bffd1dd894e2c6dd34b2add75e2ca514dcbddb2b023ae2609b9b31a",
+            "checksum_module_sha256": "e8838b9e8ac1a54c0b9d116855e020258ea7314b73a6dbb651e48eb260692f78",
+            "before_after_sha256_match": true
+          },
+          {
+            "used_in_final_pipeline": true,
+            "receipt": {
+              "path": "current-cua/fremont-ca/title.receipt.json",
+              "sha256": "2d29e999d4b13efd96f9ba835b44cd8346724e6977ebe94be13044e635c5021d",
+              "bytes": 9982
+            },
+            "raw": {
+              "path": "current-cua/fremont-ca/title.html",
+              "sha256": "54b5eae06b8e8b117ecb7efb098d64c24c79548fcc3d796c1f9feb06eca2b2e1",
+              "bytes": 34241
+            },
+            "accepted": true,
+            "job": {
+              "slug": "fremont-ca",
+              "id": "title",
+              "url": "https://www.codepublishing.com/CA/Fremont/#!/Fremont01/Fremont01.html",
+              "root_url": "https://www.codepublishing.com/CA/Fremont/",
+              "kind": "navigation",
+              "wait_selector": "#mainContent h1.Title"
+            },
+            "acquisition_script_sha256": "f108fcec0bffd1dd894e2c6dd34b2add75e2ca514dcbddb2b023ae2609b9b31a",
+            "checksum_module_sha256": "e8838b9e8ac1a54c0b9d116855e020258ea7314b73a6dbb651e48eb260692f78",
+            "before_after_sha256_match": true
+          }
+        ],
+        "final_guarded_module_live_check": {
+          "path": "current-cua/fremont-ca/root-final-table.receipt.json",
+          "sha256": "5781ed7c1d35be9cfa135f17f7201ae96024ef4c4f4b5ca671b8847bb2a571ea",
+          "bytes": 7014
+        },
+        "immutable_target_guard_test": "test_acquire_cua.mjs plus live repeated-target rejection"
+      },
+      "standalone_playwright": {
+        "status": "blocked_http403_challenge",
+        "accepted": false,
+        "receipt": {
+          "path": "current-playwright/fremont-ca/chapter.receipt.json",
+          "sha256": "4486881de016c50a6c1f6cacf651d9bad845a8576433432baa92125646de3bbe",
+          "bytes": 1327
+        },
+        "raw": {
+          "path": "current-playwright/fremont-ca/chapter.html",
+          "sha256": "3e1fa0a94c594c3395a81ce3ea2228e18ab615d98d79bb431a8f80938e6b4d30",
+          "bytes": 4729
+        },
+        "runtime": {
+          "python": "3.9.6",
+          "channel": "chrome",
+          "headed": false,
+          "browser_version": "155.0.8059.41"
+        },
+        "acquisition_script_sha256": "80178262b890f0efe4893875d9f0daf8c1a9c1feb826564c5f740206e92d9574",
+        "archived_script": {
+          "path": "current-playwright/acquisition-script.py",
+          "sha256": "80178262b890f0efe4893875d9f0daf8c1a9c1feb826564c5f740206e92d9574",
+          "bytes": 3763
+        },
+        "blocker": "Vendor returns challenge to isolated standalone Chrome; no accepted legal body. Connected CUA session result is separate."
+      },
+      "commands": {
+        "path": "current-pipeline/fremont-ca/commands.json",
+        "sha256": "cb004226bf28de9df6ae1efd370f40727a89fa1d402e1aa14ddbaa56bb9c85ef",
+        "bytes": 5330
+      },
+      "export_manifest": {
+        "path": "current-pipeline/fremont-ca/export/run-manifest.json",
+        "sha256": "14071a4217b832c5c9985eb5fd80c07e425a3a5b09bd18efd43a4f50464e08d8",
+        "bytes": 2879
+      },
+      "tests": {
+        "python_count": 33,
+        "python_passed": true,
+        "node": {
+          "status": "passed",
+          "checks": 10,
+          "sha_vectors": 5,
+          "utf16_chunk_surrogate_preserved": true,
+          "immutable_target_rejected": true,
+          "same_length_mutation_rejected": true,
+          "stale_heading_rejected": true,
+          "scope_escape_rejected": true
+        }
+      },
+      "code_freeze": {
+        "path": "CODE-FREEZE.json",
+        "sha256": "bcd4edcefce0384c6f5680e2130ab32e16829cf68799a1ae4da9c4a30c101ae9",
+        "bytes": 1597
+      },
+      "remaining_blockers": [
+        "Standalone HTTP403 prevents qualifying unattended browser CLI transport here.",
+        "Complete multi-family publication inventory, missing/unlinked status-node reconciliation, scope decisions and whole-corpus version checks remain unperformed.",
+        "Live rowspan/colspan, image and incorporated-PDF handling beyond these samples still require source qualification; synthetic tests cover spans/lists/images."
+      ]
+    },
+    {
+      "jurisdiction_slug": "san-carlos-ca",
+      "status": "bounded_live_cua_acquisition_parser_export_passed",
+      "current_authoritative_route": "https://www.codepublishing.com/CA/SanCarlos/",
+      "legacy_migration_notice": false,
+      "whole_corpus_complete": false,
+      "publication_inventory_complete": false,
+      "source_currency": "The San Carlos Municipal Code is current through Ordinance 1637, passed June 22, 2026.",
+      "pre_post_currency_equal": true,
+      "version_atomicity": "same publisher label bracketing bounded DOM capture; no publisher snapshot token",
+      "source_receipts": [
+        "current-cua/san-carlos-ca/chapter.receipt.json",
+        "current-cua/san-carlos-ca/root-confirmed.receipt.json",
+        "current-cua/san-carlos-ca/root-post.receipt.json",
+        "current-cua/san-carlos-ca/title.receipt.json"
+      ],
+      "acquisition_script_sha256": "f108fcec0bffd1dd894e2c6dd34b2add75e2ca514dcbddb2b023ae2609b9b31a",
+      "checksum_module_sha256": "e8838b9e8ac1a54c0b9d116855e020258ea7314b73a6dbb651e48eb260692f78",
+      "parser_sha256": "443081bbcbf7352fb967ddad92c04a9e8349dd7ba9a01e237740ddd7d8e4d4ed",
+      "csv_json_equal": true,
+      "restart_equal": true,
+      "pages": 1,
+      "records": 10,
+      "audits": [
+        {
+          "case": "adoption",
+          "raw_sha256": "f41ffaa752ead37d6c8e49fb5107f920b3d4026955257efa5626bdf0e80ee70e",
+          "source_sections": 10,
+          "export_records": 10,
+          "p_level_paragraphs": 10,
+          "p_classes": [
+            "P1"
+          ],
+          "chapter_toc_equals_section_inventory": true,
+          "complete_p_level_bodies": true,
+          "source_section_order_equal": true,
+          "observed_hierarchy_present": true,
+          "structure_counts": {
+            "table": 0,
+            "tr": 0,
+            "td": 0,
+            "th": 0,
+            "ol": 0,
+            "ul": 0,
+            "li": 0,
+            "sup": 0,
+            "sub": 0,
+            "blockquote": 0
+          },
+          "raw_dom_table_count": 0,
+          "excluded_hidden_table_clones": 0
+        }
+      ],
+      "root_inventory_links": [
+        {
+          "href": "/CA/SanCarlos/#!/html/SanCarlos01/SanCarlos01.html",
+          "label": "Title 1 GENERAL PROVISIONS"
+        },
+        {
+          "href": "/CA/SanCarlos/#!/html/SanCarlos02/SanCarlos02.html",
+          "label": "Title 2 ADMINISTRATION AND PERSONNEL"
+        },
+        {
+          "href": "/CA/SanCarlos/#!/html/SanCarlos03/SanCarlos03.html",
+          "label": "Title 3 REVENUE AND FINANCE"
+        },
+        {
+          "href": "/CA/SanCarlos/#!/html/SanCarlos04/SanCarlos04.html",
+          "label": "Title 4   (RESERVED)"
+        },
+        {
+          "href": "/CA/SanCarlos/#!/html/SanCarlos05/SanCarlos05.html",
+          "label": "Title 5 BUSINESS TAXES, LICENSES AND REGULATIONS"
+        },
+        {
+          "href": "/CA/SanCarlos/#!/html/SanCarlos06/SanCarlos06.html",
+          "label": "Title 6  ANIMALS"
+        },
+        {
+          "href": "/CA/SanCarlos/#!/html/SanCarlos07/SanCarlos07.html",
+          "label": "Title 7 (RESERVED)"
+        },
+        {
+          "href": "/CA/SanCarlos/#!/html/SanCarlos08/SanCarlos08.html",
+          "label": "Title 8 HEALTH AND SAFETY"
+        },
+        {
+          "href": "/CA/SanCarlos/#!/html/SanCarlos09/SanCarlos09.html",
+          "label": "Title 9 PUBLIC PEACE AND WELFARE"
+        },
+        {
+          "href": "/CA/SanCarlos/#!/html/SanCarlos10/SanCarlos10.html",
+          "label": "Title 10 VEHICLES AND TRAFFIC"
+        },
+        {
+          "href": "/CA/SanCarlos/#!/html/SanCarlos11/SanCarlos11.html",
+          "label": "Title 11   (RESERVED)"
+        },
+        {
+          "href": "/CA/SanCarlos/#!/html/SanCarlos12/SanCarlos12.html",
+          "label": "Title 12 STREETS, SIDEWALKS AND PUBLIC PLACES"
+        },
+        {
+          "href": "/CA/SanCarlos/#!/html/SanCarlos13/SanCarlos13.html",
+          "label": "Title 13 PUBLIC SERVICES"
+        },
+        {
+          "href": "/CA/SanCarlos/#!/html/SanCarlos14/SanCarlos14.html",
+          "label": "Title 14   (RESERVED)"
+        },
+        {
+          "href": "/CA/SanCarlos/#!/html/SanCarlos15/SanCarlos15.html",
+          "label": "Title 15  BUILDINGS AND CONSTRUCTION"
+        },
+        {
+          "href": "/CA/SanCarlos/#!/html/SanCarlos16/SanCarlos16.html",
+          "label": "Title 16   (RESERVED)"
+        },
+        {
+          "href": "/CA/SanCarlos/#!/html/SanCarlos17/SanCarlos17.html",
+          "label": "Title 17 SUBDIVISIONS"
+        },
+        {
+          "href": "/CA/SanCarlos/#!/html/SanCarlos18/SanCarlos18.html",
+          "label": "Title 18 ZONING"
+        },
+        {
+          "href": "/CA/SanCarlos/#!/html/SanCarlosSR.html",
+          "label": "STATUTORY REFERENCES FOR CALIFORNIA CITIES"
+        },
+        {
+          "href": "/CA/SanCarlos/#!/html/SanCarlosOT.html",
+          "label": "ORDINANCE TABLE"
+        }
+      ],
+      "source_hierarchy": "root/title observed hrefs, legal heading IDs and publisher paragraph levels",
+      "limitations": [
+        "Only listed bounded chapters parsed; other chapters, appendices, supplements, images, incorporated documents and PDF contents are not fully inventoried/extracted.",
+        "Publication label equality is not whole-corpus version atomicity.",
+        "Supported CUA uses connected browser session; standalone transport has separate results."
+      ],
+      "supported_cua": {
+        "status": "bounded_live_acquisition_parser_export_passed",
+        "complete_DOM_integrity": "pureJS UTF8SHA256 before/after equals NodeSHA256 retained raw; joined UTF16 chunk strings written once",
+        "receipts": [
+          {
+            "used_in_final_pipeline": true,
+            "receipt": {
+              "path": "current-cua/san-carlos-ca/chapter.receipt.json",
+              "sha256": "ba963dc511092392a3e572fbf055ac6131fe8abe3cf855533df254ab6c89a3eb",
+              "bytes": 20149
+            },
+            "raw": {
+              "path": "current-cua/san-carlos-ca/chapter.html",
+              "sha256": "f41ffaa752ead37d6c8e49fb5107f920b3d4026955257efa5626bdf0e80ee70e",
+              "bytes": 34205
+            },
+            "accepted": true,
+            "job": {
+              "slug": "san-carlos-ca",
+              "id": "chapter",
+              "url": "https://www.codepublishing.com/CA/SanCarlos/#!/SanCarlos01/SanCarlos0101.html#1.01",
+              "root_url": "https://www.codepublishing.com/CA/SanCarlos/",
+              "kind": "legal",
+              "wait_selector": "#mainContent h3.Cite"
+            },
+            "acquisition_script_sha256": "f108fcec0bffd1dd894e2c6dd34b2add75e2ca514dcbddb2b023ae2609b9b31a",
+            "checksum_module_sha256": "e8838b9e8ac1a54c0b9d116855e020258ea7314b73a6dbb651e48eb260692f78",
+            "before_after_sha256_match": true
+          },
+          {
+            "used_in_final_pipeline": false,
+            "receipt": {
+              "path": "current-cua/san-carlos-ca/root-before.receipt.json",
+              "sha256": "9be2957bde175c7114dd7266015555bd925215ac1178aa595eb4f0b08568f4df",
+              "bytes": 7544
+            },
+            "raw": {
+              "path": "current-cua/san-carlos-ca/root-before.html",
+              "sha256": "708773b94cd910bec5585eee1e064432e84daad63691db7f59fa5ec45b619ff3",
+              "bytes": 24509
+            },
+            "accepted": true,
+            "job": {
+              "slug": "san-carlos-ca",
+              "url": "https://www.codepublishing.com/CA/SanCarlos/",
+              "id": "root-before",
+              "root_url": "https://www.codepublishing.com/CA/SanCarlos/",
+              "kind": "root",
+              "wait_selector": "a[href*=\"01.html\"]"
+            },
+            "acquisition_script_sha256": "bcda921e13ccd1a255a0d057425a47925ff743efbc03fd00d8bf61a58898b550",
+            "checksum_module_sha256": null,
+            "before_after_sha256_match": false
+          },
+          {
+            "used_in_final_pipeline": true,
+            "receipt": {
+              "path": "current-cua/san-carlos-ca/root-confirmed.receipt.json",
+              "sha256": "7ab547407435948e6741b19ddb979f92df3f5d1ab756ba393e0200c12ea73475",
+              "bytes": 7538
+            },
+            "raw": {
+              "path": "current-cua/san-carlos-ca/root-confirmed.html",
+              "sha256": "708773b94cd910bec5585eee1e064432e84daad63691db7f59fa5ec45b619ff3",
+              "bytes": 24509
+            },
+            "accepted": true,
+            "job": {
+              "slug": "san-carlos-ca",
+              "url": "https://www.codepublishing.com/CA/SanCarlos/",
+              "id": "root-confirmed",
+              "root_url": "https://www.codepublishing.com/CA/SanCarlos/",
+              "kind": "root",
+              "wait_selector": "a[href*=\"01.html\"]"
+            },
+            "acquisition_script_sha256": "f108fcec0bffd1dd894e2c6dd34b2add75e2ca514dcbddb2b023ae2609b9b31a",
+            "checksum_module_sha256": "e8838b9e8ac1a54c0b9d116855e020258ea7314b73a6dbb651e48eb260692f78",
+            "before_after_sha256_match": true
+          },
+          {
+            "used_in_final_pipeline": true,
+            "receipt": {
+              "path": "current-cua/san-carlos-ca/root-post.receipt.json",
+              "sha256": "f13923a0ff08803addc4c134de8a6a4786f621a3fa0a64490da08167f218ff9f",
+              "bytes": 7534
+            },
+            "raw": {
+              "path": "current-cua/san-carlos-ca/root-post.html",
+              "sha256": "708773b94cd910bec5585eee1e064432e84daad63691db7f59fa5ec45b619ff3",
+              "bytes": 24509
+            },
+            "accepted": true,
+            "job": {
+              "slug": "san-carlos-ca",
+              "id": "root-post",
+              "url": "https://www.codepublishing.com/CA/SanCarlos/",
+              "root_url": "https://www.codepublishing.com/CA/SanCarlos/",
+              "kind": "navigation",
+              "wait_selector": "a[href*=\"01.html\"]"
+            },
+            "acquisition_script_sha256": "f108fcec0bffd1dd894e2c6dd34b2add75e2ca514dcbddb2b023ae2609b9b31a",
+            "checksum_module_sha256": "e8838b9e8ac1a54c0b9d116855e020258ea7314b73a6dbb651e48eb260692f78",
+            "before_after_sha256_match": true
+          },
+          {
+            "used_in_final_pipeline": true,
+            "receipt": {
+              "path": "current-cua/san-carlos-ca/title.receipt.json",
+              "sha256": "1df272a1064d564bdf85b605228dfa9ead73d4d07eaa597f07991a6514fcde74",
+              "bytes": 10899
+            },
+            "raw": {
+              "path": "current-cua/san-carlos-ca/title.html",
+              "sha256": "b0317b84652fb8d9198cb8e1462ef79ebc68505dec8248e4723e6ef4feedff81",
+              "bytes": 26842
+            },
+            "accepted": true,
+            "job": {
+              "slug": "san-carlos-ca",
+              "id": "title",
+              "url": "https://www.codepublishing.com/CA/SanCarlos/#!/html/SanCarlos01/SanCarlos01.html",
+              "root_url": "https://www.codepublishing.com/CA/SanCarlos/",
+              "kind": "navigation",
+              "wait_selector": "#mainContent h1.Title"
+            },
+            "acquisition_script_sha256": "f108fcec0bffd1dd894e2c6dd34b2add75e2ca514dcbddb2b023ae2609b9b31a",
+            "checksum_module_sha256": "e8838b9e8ac1a54c0b9d116855e020258ea7314b73a6dbb651e48eb260692f78",
+            "before_after_sha256_match": true
+          }
+        ],
+        "final_guarded_module_live_check": {
+          "path": "current-cua/fremont-ca/root-final-table.receipt.json",
+          "sha256": "5781ed7c1d35be9cfa135f17f7201ae96024ef4c4f4b5ca671b8847bb2a571ea",
+          "bytes": 7014
+        },
+        "immutable_target_guard_test": "test_acquire_cua.mjs plus live repeated-target rejection"
+      },
+      "standalone_playwright": {
+        "status": "blocked_http403_challenge",
+        "accepted": false,
+        "receipt": {
+          "path": "current-playwright/san-carlos-ca/chapter.receipt.json",
+          "sha256": "2712a75ed7ad647800b0e5df76184f32b74054d1290463a0b3d24f01c6f147c0",
+          "bytes": 1344
+        },
+        "raw": {
+          "path": "current-playwright/san-carlos-ca/chapter.html",
+          "sha256": "5e73465572227f610cadc1b2218382fb2d84e94f80ed96fdc6ac4858f0570a8e",
+          "bytes": 4729
+        },
+        "runtime": {
+          "python": "3.9.6",
+          "channel": "chrome",
+          "headed": false,
+          "browser_version": "155.0.8059.41"
+        },
+        "acquisition_script_sha256": "80178262b890f0efe4893875d9f0daf8c1a9c1feb826564c5f740206e92d9574",
+        "archived_script": {
+          "path": "current-playwright/acquisition-script.py",
+          "sha256": "80178262b890f0efe4893875d9f0daf8c1a9c1feb826564c5f740206e92d9574",
+          "bytes": 3763
+        },
+        "blocker": "Vendor returns challenge to isolated standalone Chrome; no accepted legal body. Connected CUA session result is separate."
+      },
+      "commands": {
+        "path": "current-pipeline/san-carlos-ca/commands.json",
+        "sha256": "f32b7b9eed4264f5a31a1f6ec20a6e9af117aeb0ffd24f83114b0bef763dcadb",
+        "bytes": 5360
+      },
+      "export_manifest": {
+        "path": "current-pipeline/san-carlos-ca/export/run-manifest.json",
+        "sha256": "64a4e6db42cf67b2399e28830e7a26f5fc3c8d42e665537d64a1cb6b2f296581",
+        "bytes": 2508
+      },
+      "tests": {
+        "python_count": 33,
+        "python_passed": true,
+        "node": {
+          "status": "passed",
+          "checks": 10,
+          "sha_vectors": 5,
+          "utf16_chunk_surrogate_preserved": true,
+          "immutable_target_rejected": true,
+          "same_length_mutation_rejected": true,
+          "stale_heading_rejected": true,
+          "scope_escape_rejected": true
+        }
+      },
+      "code_freeze": {
+        "path": "CODE-FREEZE.json",
+        "sha256": "bcd4edcefce0384c6f5680e2130ab32e16829cf68799a1ae4da9c4a30c101ae9",
+        "bytes": 1597
+      },
+      "remaining_blockers": [
+        "Standalone HTTP403 prevents qualifying unattended browser CLI transport here.",
+        "Complete multi-family publication inventory, missing/unlinked status-node reconciliation, scope decisions and whole-corpus version checks remain unperformed.",
+        "Live rowspan/colspan, image and incorporated-PDF handling beyond these samples still require source qualification; synthetic tests cover spans/lists/images."
+      ]
+    },
+    {
+      "jurisdiction_slug": "burien-wa",
+      "status": "bounded_live_cua_acquisition_parser_export_passed",
+      "current_authoritative_route": "https://www.codepublishing.com/WA/Burien/",
+      "legacy_migration_notice": false,
+      "whole_corpus_complete": false,
+      "publication_inventory_complete": false,
+      "source_currency": "The Burien Municipal Code is current through Ordinance 905, and legislation passed through July 27, 2026.",
+      "pre_post_currency_equal": true,
+      "version_atomicity": "same publisher label bracketing bounded DOM capture; no publisher snapshot token",
+      "source_receipts": [
+        "current-cua/burien-wa/chapter.receipt.json",
+        "current-cua/burien-wa/root-confirmed.receipt.json",
+        "current-cua/burien-wa/root-post.receipt.json",
+        "current-cua/burien-wa/title.receipt.json"
+      ],
+      "acquisition_script_sha256": "f108fcec0bffd1dd894e2c6dd34b2add75e2ca514dcbddb2b023ae2609b9b31a",
+      "checksum_module_sha256": "e8838b9e8ac1a54c0b9d116855e020258ea7314b73a6dbb651e48eb260692f78",
+      "parser_sha256": "443081bbcbf7352fb967ddad92c04a9e8349dd7ba9a01e237740ddd7d8e4d4ed",
+      "csv_json_equal": true,
+      "restart_equal": true,
+      "pages": 1,
+      "records": 6,
+      "audits": [
+        {
+          "case": "adoption",
+          "raw_sha256": "2fbaea9ea4928fe3a273f91a72b38756691e85087de1c0c838891819b1fbea17",
+          "source_sections": 6,
+          "export_records": 6,
+          "p_level_paragraphs": 6,
+          "p_classes": [
+            "P1"
+          ],
+          "chapter_toc_equals_section_inventory": true,
+          "complete_p_level_bodies": true,
+          "source_section_order_equal": true,
+          "observed_hierarchy_present": true,
+          "structure_counts": {
+            "table": 0,
+            "tr": 0,
+            "td": 0,
+            "th": 0,
+            "ol": 0,
+            "ul": 0,
+            "li": 0,
+            "sup": 0,
+            "sub": 0,
+            "blockquote": 0
+          },
+          "raw_dom_table_count": 0,
+          "excluded_hidden_table_clones": 0
+        }
+      ],
+      "root_inventory_links": [
+        {
+          "href": "/WA/Burien/#!/Burien01/Burien01.html",
+          "label": "Title 1 GENERAL PROVISIONS"
+        },
+        {
+          "href": "/WA/Burien/#!/Burien02/Burien02.html",
+          "label": "Title 2 ADMINISTRATION AND PERSONNEL"
+        },
+        {
+          "href": "/WA/Burien/#!/Burien03/Burien03.html",
+          "label": "Title 3 REVENUE AND FINANCE"
+        },
+        {
+          "href": "/WA/Burien/#!/Burien04/Burien04.html",
+          "label": "Title 4 (Reserved)"
+        },
+        {
+          "href": "/WA/Burien/#!/Burien05/Burien05.html",
+          "label": "Title 5 BUSINESS LICENSES AND REGULATIONS"
+        },
+        {
+          "href": "/WA/Burien/#!/Burien06/Burien06.html",
+          "label": "Title 6 ANIMALS"
+        },
+        {
+          "href": "/WA/Burien/#!/Burien07/Burien07.html",
+          "label": "Title 7 CITY PARKS AND RECREATION"
+        },
+        {
+          "href": "/WA/Burien/#!/Burien08/Burien08.html",
+          "label": "Title 8 HEALTH AND SAFETY"
+        },
+        {
+          "href": "/WA/Burien/#!/Burien09/Burien09.html",
+          "label": "Title 9 PUBLIC PEACE, MORALS AND WELFARE"
+        },
+        {
+          "href": "/WA/Burien/#!/Burien10/Burien10.html",
+          "label": "Title 10 VEHICLES AND TRAFFIC"
+        },
+        {
+          "href": "/WA/Burien/#!/Burien11/Burien11.html",
+          "label": "Title 11 (Reserved)"
+        },
+        {
+          "href": "/WA/Burien/#!/Burien12/Burien12.html",
+          "label": "Title 12 STREETS AND SIDEWALKS"
+        },
+        {
+          "href": "/WA/Burien/#!/Burien13/Burien13.html",
+          "label": "Title 13 WATER AND SEWERS"
+        },
+        {
+          "href": "/WA/Burien/#!/Burien14/Burien14.html",
+          "label": "Title 14 ENVIRONMENTAL PROTECTION"
+        },
+        {
+          "href": "/WA/Burien/#!/Burien15/Burien15.html",
+          "label": "Title 15 BUILDINGS AND CONSTRUCTION"
+        },
+        {
+          "href": "/WA/Burien/#!/Burien16/Burien16.html",
+          "label": "Title 16 (Reserved)"
+        },
+        {
+          "href": "/WA/Burien/#!/Burien17/Burien17.html",
+          "label": "Title 17 SUBDIVISIONS"
+        },
+        {
+          "href": "/WA/Burien/#!/Burien18/Burien18.html",
+          "label": "Title 18 INTERIM ZONING CODE"
+        },
+        {
+          "href": "/WA/Burien/#!/Burien19/Burien19.html",
+          "label": "Title 19 ZONING CODE"
+        },
+        {
+          "href": "/WA/Burien/html/images/Burien19-2024-12-31.pdf",
+          "label": "Title 19 Archival Version (PDF)"
+        },
+        {
+          "href": "/WA/Burien/#!/Burien20/Burien20.html",
+          "label": "Title 20 SHORELINE MASTER PROGRAM"
+        },
+        {
+          "href": "/WA/Burien/#!/BurienSR.html",
+          "label": "STATUTORY REFERENCES FOR WASHINGTON CITIES AND TOWNS"
+        },
+        {
+          "href": "/WA/Burien/#!/BurienOT.html",
+          "label": "RESOLUTION AND ORDINANCE TABLES"
+        }
+      ],
+      "source_hierarchy": "root/title observed hrefs, legal heading IDs and publisher paragraph levels",
+      "limitations": [
+        "Only listed bounded chapters parsed; other chapters, appendices, supplements, images, incorporated documents and PDF contents are not fully inventoried/extracted.",
+        "Publication label equality is not whole-corpus version atomicity.",
+        "Supported CUA uses connected browser session; standalone transport has separate results."
+      ],
+      "supported_cua": {
+        "status": "bounded_live_acquisition_parser_export_passed",
+        "complete_DOM_integrity": "pureJS UTF8SHA256 before/after equals NodeSHA256 retained raw; joined UTF16 chunk strings written once",
+        "receipts": [
+          {
+            "used_in_final_pipeline": true,
+            "receipt": {
+              "path": "current-cua/burien-wa/chapter.receipt.json",
+              "sha256": "f61e9460ff5ece47218575de30821bf9deedc6cecb2f10a1464c8fe01ae2be4b",
+              "bytes": 14105
+            },
+            "raw": {
+              "path": "current-cua/burien-wa/chapter.html",
+              "sha256": "2fbaea9ea4928fe3a273f91a72b38756691e85087de1c0c838891819b1fbea17",
+              "bytes": 30593
+            },
+            "accepted": true,
+            "job": {
+              "slug": "burien-wa",
+              "id": "chapter",
+              "url": "https://www.codepublishing.com/WA/Burien/#!/Burien01/Burien0101.html#1.01",
+              "root_url": "https://www.codepublishing.com/WA/Burien/",
+              "kind": "legal",
+              "wait_selector": "#mainContent h3.Cite"
+            },
+            "acquisition_script_sha256": "f108fcec0bffd1dd894e2c6dd34b2add75e2ca514dcbddb2b023ae2609b9b31a",
+            "checksum_module_sha256": "e8838b9e8ac1a54c0b9d116855e020258ea7314b73a6dbb651e48eb260692f78",
+            "before_after_sha256_match": true
+          },
+          {
+            "used_in_final_pipeline": false,
+            "receipt": {
+              "path": "current-cua/burien-wa/root-before.receipt.json",
+              "sha256": "783887a278a919db540c3e532a7020c188d6ca62b21b7174e2bf4e52531da9d3",
+              "bytes": 7400
+            },
+            "raw": {
+              "path": "current-cua/burien-wa/root-before.html",
+              "sha256": "95479c4642e97b06ee123d34d4c0cbe5c1d65de9a1380f692705dcccb7858429",
+              "bytes": 25160
+            },
+            "accepted": false,
+            "job": {
+              "slug": "burien-wa",
+              "url": "https://www.codepublishing.com/WA/Burien/",
+              "id": "root-before",
+              "root_url": "https://www.codepublishing.com/WA/Burien/",
+              "kind": "root",
+              "wait_selector": "a[href*=\"01.html\"]"
+            },
+            "acquisition_script_sha256": "bcda921e13ccd1a255a0d057425a47925ff743efbc03fd00d8bf61a58898b550",
+            "checksum_module_sha256": null,
+            "before_after_sha256_match": false
+          },
+          {
+            "used_in_final_pipeline": true,
+            "receipt": {
+              "path": "current-cua/burien-wa/root-confirmed.receipt.json",
+              "sha256": "69612210243185fa43cdbe5801bc9fbdd92549b32bcd2900170e2f7ae9a11bf1",
+              "bytes": 7393
+            },
+            "raw": {
+              "path": "current-cua/burien-wa/root-confirmed.html",
+              "sha256": "95479c4642e97b06ee123d34d4c0cbe5c1d65de9a1380f692705dcccb7858429",
+              "bytes": 25160
+            },
+            "accepted": true,
+            "job": {
+              "slug": "burien-wa",
+              "url": "https://www.codepublishing.com/WA/Burien/",
+              "id": "root-confirmed",
+              "root_url": "https://www.codepublishing.com/WA/Burien/",
+              "kind": "root",
+              "wait_selector": "a[href*=\"01.html\"]"
+            },
+            "acquisition_script_sha256": "f108fcec0bffd1dd894e2c6dd34b2add75e2ca514dcbddb2b023ae2609b9b31a",
+            "checksum_module_sha256": "e8838b9e8ac1a54c0b9d116855e020258ea7314b73a6dbb651e48eb260692f78",
+            "before_after_sha256_match": true
+          },
+          {
+            "used_in_final_pipeline": true,
+            "receipt": {
+              "path": "current-cua/burien-wa/root-post.receipt.json",
+              "sha256": "916d061e8d4b56906a71f953aced37f610b64b03ad8737d6b9c87b77300c5604",
+              "bytes": 7389
+            },
+            "raw": {
+              "path": "current-cua/burien-wa/root-post.html",
+              "sha256": "95479c4642e97b06ee123d34d4c0cbe5c1d65de9a1380f692705dcccb7858429",
+              "bytes": 25160
+            },
+            "accepted": true,
+            "job": {
+              "slug": "burien-wa",
+              "id": "root-post",
+              "url": "https://www.codepublishing.com/WA/Burien/",
+              "root_url": "https://www.codepublishing.com/WA/Burien/",
+              "kind": "navigation",
+              "wait_selector": "a[href*=\"01.html\"]"
+            },
+            "acquisition_script_sha256": "f108fcec0bffd1dd894e2c6dd34b2add75e2ca514dcbddb2b023ae2609b9b31a",
+            "checksum_module_sha256": "e8838b9e8ac1a54c0b9d116855e020258ea7314b73a6dbb651e48eb260692f78",
+            "before_after_sha256_match": true
+          },
+          {
+            "used_in_final_pipeline": true,
+            "receipt": {
+              "path": "current-cua/burien-wa/title.receipt.json",
+              "sha256": "d612cc5c877a6f16e136c441878377e3cf91cba5c0202e2826e3f910c0951fb4",
+              "bytes": 9158
+            },
+            "raw": {
+              "path": "current-cua/burien-wa/title.html",
+              "sha256": "062330c8bc3313289c102f3fbdcd55291b87ee2eefd922abad50e18a56c3ccdd",
+              "bytes": 26300
+            },
+            "accepted": true,
+            "job": {
+              "slug": "burien-wa",
+              "id": "title",
+              "url": "https://www.codepublishing.com/WA/Burien/#!/Burien01/Burien01.html",
+              "root_url": "https://www.codepublishing.com/WA/Burien/",
+              "kind": "navigation",
+              "wait_selector": "#mainContent h1.Title"
+            },
+            "acquisition_script_sha256": "f108fcec0bffd1dd894e2c6dd34b2add75e2ca514dcbddb2b023ae2609b9b31a",
+            "checksum_module_sha256": "e8838b9e8ac1a54c0b9d116855e020258ea7314b73a6dbb651e48eb260692f78",
+            "before_after_sha256_match": true
+          }
+        ],
+        "final_guarded_module_live_check": {
+          "path": "current-cua/fremont-ca/root-final-table.receipt.json",
+          "sha256": "5781ed7c1d35be9cfa135f17f7201ae96024ef4c4f4b5ca671b8847bb2a571ea",
+          "bytes": 7014
+        },
+        "immutable_target_guard_test": "test_acquire_cua.mjs plus live repeated-target rejection"
+      },
+      "standalone_playwright": {
+        "status": "blocked_http403_challenge",
+        "accepted": false,
+        "receipt": {
+          "path": "current-playwright/burien-wa/chapter.receipt.json",
+          "sha256": "78e2fda75d47d3866ef2fc31965ae61a1cc17f5d37d614ffa4cc86802a19a67e",
+          "bytes": 1319
+        },
+        "raw": {
+          "path": "current-playwright/burien-wa/chapter.html",
+          "sha256": "4434f5663a333a9382cda357063850401e03e878016b3d38232a0b7b0e5ffcf4",
+          "bytes": 4729
+        },
+        "runtime": {
+          "python": "3.9.6",
+          "channel": "chrome",
+          "headed": false,
+          "browser_version": "155.0.8059.41"
+        },
+        "acquisition_script_sha256": "80178262b890f0efe4893875d9f0daf8c1a9c1feb826564c5f740206e92d9574",
+        "archived_script": {
+          "path": "current-playwright/acquisition-script.py",
+          "sha256": "80178262b890f0efe4893875d9f0daf8c1a9c1feb826564c5f740206e92d9574",
+          "bytes": 3763
+        },
+        "blocker": "Vendor returns challenge to isolated standalone Chrome; no accepted legal body. Connected CUA session result is separate."
+      },
+      "commands": {
+        "path": "current-pipeline/burien-wa/commands.json",
+        "sha256": "f384a96d1039b497ad349810ac1159698f2942f9ac64cab258e848365d220968",
+        "bytes": 5316
+      },
+      "export_manifest": {
+        "path": "current-pipeline/burien-wa/export/run-manifest.json",
+        "sha256": "da35e528ad870319bdb09c1dfdb87bfd4e356faea98292ca2e2c1ac8fa8a35b4",
+        "bytes": 2502
+      },
+      "tests": {
+        "python_count": 33,
+        "python_passed": true,
+        "node": {
+          "status": "passed",
+          "checks": 10,
+          "sha_vectors": 5,
+          "utf16_chunk_surrogate_preserved": true,
+          "immutable_target_rejected": true,
+          "same_length_mutation_rejected": true,
+          "stale_heading_rejected": true,
+          "scope_escape_rejected": true
+        }
+      },
+      "code_freeze": {
+        "path": "CODE-FREEZE.json",
+        "sha256": "bcd4edcefce0384c6f5680e2130ab32e16829cf68799a1ae4da9c4a30c101ae9",
+        "bytes": 1597
+      },
+      "remaining_blockers": [
+        "Standalone HTTP403 prevents qualifying unattended browser CLI transport here.",
+        "Complete multi-family publication inventory, missing/unlinked status-node reconciliation, scope decisions and whole-corpus version checks remain unperformed.",
+        "Live rowspan/colspan, image and incorporated-PDF handling beyond these samples still require source qualification; synthetic tests cover spans/lists/images."
+      ]
+    },
+    {
+      "jurisdiction_slug": "renton-wa",
+      "status": "bounded_live_cua_acquisition_parser_export_passed",
+      "current_authoritative_route": "https://www.codepublishing.com/WA/Renton/",
+      "legacy_migration_notice": false,
+      "whole_corpus_complete": false,
+      "publication_inventory_complete": false,
+      "source_currency": "The Renton Municipal Code is current through Ordinance 6197, passed August 10, 2026.",
+      "pre_post_currency_equal": true,
+      "version_atomicity": "same publisher label bracketing bounded DOM capture; no publisher snapshot token",
+      "source_receipts": [
+        "current-cua/renton-wa/chapter.receipt.json",
+        "current-cua/renton-wa/root-confirmed.receipt.json",
+        "current-cua/renton-wa/root-post.receipt.json",
+        "current-cua/renton-wa/title.receipt.json"
+      ],
+      "acquisition_script_sha256": "f108fcec0bffd1dd894e2c6dd34b2add75e2ca514dcbddb2b023ae2609b9b31a",
+      "checksum_module_sha256": "e8838b9e8ac1a54c0b9d116855e020258ea7314b73a6dbb651e48eb260692f78",
+      "parser_sha256": "443081bbcbf7352fb967ddad92c04a9e8349dd7ba9a01e237740ddd7d8e4d4ed",
+      "csv_json_equal": true,
+      "restart_equal": true,
+      "pages": 1,
+      "records": 1,
+      "audits": [
+        {
+          "case": "adoption",
+          "raw_sha256": "206473d2f0fef2da7ad81eb9567c9d534d4095ab92bc15ed683744e353100279",
+          "source_sections": 1,
+          "export_records": 1,
+          "p_level_paragraphs": 1,
+          "p_classes": [
+            "P0"
+          ],
+          "chapter_toc_equals_section_inventory": true,
+          "complete_p_level_bodies": true,
+          "source_section_order_equal": true,
+          "observed_hierarchy_present": true,
+          "structure_counts": {
+            "table": 0,
+            "tr": 0,
+            "td": 0,
+            "th": 0,
+            "ol": 0,
+            "ul": 0,
+            "li": 0,
+            "sup": 0,
+            "sub": 0,
+            "blockquote": 0
+          },
+          "raw_dom_table_count": 0,
+          "excluded_hidden_table_clones": 0
+        }
+      ],
+      "root_inventory_links": [
+        {
+          "href": "/WA/Renton/#!/Renton01/Renton01.html",
+          "label": "Title I ADMINISTRATIVE"
+        },
+        {
+          "href": "/WA/Renton/#!/Renton02/Renton02.html",
+          "label": "Title II COMMISSIONS AND BOARDS"
+        },
+        {
+          "href": "/WA/Renton/#!/Renton03/Renton03.html",
+          "label": "Title III DEPARTMENTS AND OFFICERS"
+        },
+        {
+          "href": "/WA/Renton/#!/Renton04/Renton04.html",
+          "label": "Title IV DEVELOPMENT REGULATIONS"
+        },
+        {
+          "href": "/WA/Renton/#!/Renton05/Renton05.html",
+          "label": "Title V FINANCE AND BUSINESS REGULATIONS"
+        },
+        {
+          "href": "/WA/Renton/#!/Renton06/Renton06.html",
+          "label": "Title VI POLICE REGULATIONS"
+        },
+        {
+          "href": "/WA/Renton/#!/Renton07/Renton07.html",
+          "label": "Title VII FIRE REGULATIONS"
+        },
+        {
+          "href": "/WA/Renton/#!/Renton08/Renton08.html",
+          "label": "Title VIII HEALTH AND SANITATION"
+        },
+        {
+          "href": "/WA/Renton/#!/Renton09/Renton09.html",
+          "label": "Title IX PUBLIC WAYS AND PROPERTY"
+        },
+        {
+          "href": "/WA/Renton/#!/Renton10/Renton10.html",
+          "label": "Title X TRAFFIC"
+        },
+        {
+          "href": "/WA/Renton/#!/RentonSR.html",
+          "label": "Statutory References for Washington Cities and Towns"
+        },
+        {
+          "href": "/WA/Renton/#!/RentonAX.html",
+          "label": "Annexations"
+        },
+        {
+          "href": "/WA/Renton/#!/RentonFR.html",
+          "label": "Franchise List"
+        },
+        {
+          "href": "/WA/Renton/#!/RentonLID.html",
+          "label": "Local Improvement District"
+        },
+        {
+          "href": "/WA/Renton/#!/RentonOT.html",
+          "label": "Ordinance Table"
+        }
+      ],
+      "source_hierarchy": "root/title observed hrefs, legal heading IDs and publisher paragraph levels",
+      "limitations": [
+        "Only listed bounded chapters parsed; other chapters, appendices, supplements, images, incorporated documents and PDF contents are not fully inventoried/extracted.",
+        "Publication label equality is not whole-corpus version atomicity.",
+        "Supported CUA uses connected browser session; standalone transport has separate results."
+      ],
+      "supported_cua": {
+        "status": "bounded_live_acquisition_parser_export_passed",
+        "complete_DOM_integrity": "pureJS UTF8SHA256 before/after equals NodeSHA256 retained raw; joined UTF16 chunk strings written once",
+        "receipts": [
+          {
+            "used_in_final_pipeline": true,
+            "receipt": {
+              "path": "current-cua/renton-wa/chapter.receipt.json",
+              "sha256": "7b9578fdb910d3c5de5f6a520291b7b194fed89ec661a7bec8b9ebc2d95e6fd2",
+              "bytes": 6869
+            },
+            "raw": {
+              "path": "current-cua/renton-wa/chapter.html",
+              "sha256": "206473d2f0fef2da7ad81eb9567c9d534d4095ab92bc15ed683744e353100279",
+              "bytes": 21954
+            },
+            "accepted": true,
+            "job": {
+              "slug": "renton-wa",
+              "id": "chapter",
+              "url": "https://www.codepublishing.com/WA/Renton/#!/Renton01/Renton0101.html",
+              "root_url": "https://www.codepublishing.com/WA/Renton/",
+              "kind": "legal",
+              "wait_selector": "#mainContent h3.Cite"
+            },
+            "acquisition_script_sha256": "f108fcec0bffd1dd894e2c6dd34b2add75e2ca514dcbddb2b023ae2609b9b31a",
+            "checksum_module_sha256": "e8838b9e8ac1a54c0b9d116855e020258ea7314b73a6dbb651e48eb260692f78",
+            "before_after_sha256_match": true
+          },
+          {
+            "used_in_final_pipeline": false,
+            "receipt": {
+              "path": "current-cua/renton-wa/root-before.receipt.json",
+              "sha256": "29ddb01d32ca3630353540a29d8250c361cfc603b637a38a407388173fece82c",
+              "bytes": 5765
+            },
+            "raw": {
+              "path": "current-cua/renton-wa/root-before.html",
+              "sha256": "12ba75dfd92a92ab10f856cd45c899518bd4861ea49098c401da8e249f644552",
+              "bytes": 21059
+            },
+            "accepted": true,
+            "job": {
+              "slug": "renton-wa",
+              "url": "https://www.codepublishing.com/WA/Renton/",
+              "id": "root-before",
+              "root_url": "https://www.codepublishing.com/WA/Renton/",
+              "kind": "root",
+              "wait_selector": "a[href*=\"01.html\"]"
+            },
+            "acquisition_script_sha256": "bcda921e13ccd1a255a0d057425a47925ff743efbc03fd00d8bf61a58898b550",
+            "checksum_module_sha256": null,
+            "before_after_sha256_match": false
+          },
+          {
+            "used_in_final_pipeline": true,
+            "receipt": {
+              "path": "current-cua/renton-wa/root-confirmed.receipt.json",
+              "sha256": "1444d3f2bc6063c8da4e90c44ec61dc0f174628a367a003699d27c8d30f7ff1e",
+              "bytes": 5759
+            },
+            "raw": {
+              "path": "current-cua/renton-wa/root-confirmed.html",
+              "sha256": "12ba75dfd92a92ab10f856cd45c899518bd4861ea49098c401da8e249f644552",
+              "bytes": 21059
+            },
+            "accepted": true,
+            "job": {
+              "slug": "renton-wa",
+              "url": "https://www.codepublishing.com/WA/Renton/",
+              "id": "root-confirmed",
+              "root_url": "https://www.codepublishing.com/WA/Renton/",
+              "kind": "root",
+              "wait_selector": "a[href*=\"01.html\"]"
+            },
+            "acquisition_script_sha256": "f108fcec0bffd1dd894e2c6dd34b2add75e2ca514dcbddb2b023ae2609b9b31a",
+            "checksum_module_sha256": "e8838b9e8ac1a54c0b9d116855e020258ea7314b73a6dbb651e48eb260692f78",
+            "before_after_sha256_match": true
+          },
+          {
+            "used_in_final_pipeline": true,
+            "receipt": {
+              "path": "current-cua/renton-wa/root-post.receipt.json",
+              "sha256": "8b24acd2c2fe32f75d732d547cd24c4e862139474764c0dc13b6e17eab6828fe",
+              "bytes": 5755
+            },
+            "raw": {
+              "path": "current-cua/renton-wa/root-post.html",
+              "sha256": "12ba75dfd92a92ab10f856cd45c899518bd4861ea49098c401da8e249f644552",
+              "bytes": 21059
+            },
+            "accepted": true,
+            "job": {
+              "slug": "renton-wa",
+              "id": "root-post",
+              "url": "https://www.codepublishing.com/WA/Renton/",
+              "root_url": "https://www.codepublishing.com/WA/Renton/",
+              "kind": "navigation",
+              "wait_selector": "a[href*=\"01.html\"]"
+            },
+            "acquisition_script_sha256": "f108fcec0bffd1dd894e2c6dd34b2add75e2ca514dcbddb2b023ae2609b9b31a",
+            "checksum_module_sha256": "e8838b9e8ac1a54c0b9d116855e020258ea7314b73a6dbb651e48eb260692f78",
+            "before_after_sha256_match": true
+          },
+          {
+            "used_in_final_pipeline": true,
+            "receipt": {
+              "path": "current-cua/renton-wa/title.receipt.json",
+              "sha256": "d34bf9cce5a76d2cf522e21a3404621daa92908d72a5dc76aee9a56738664a45",
+              "bytes": 8966
+            },
+            "raw": {
+              "path": "current-cua/renton-wa/title.html",
+              "sha256": "a33afa19ddfa408fab3996cf4e0134b659bcb038301a79d5800bfc011f1cf61d",
+              "bytes": 27174
+            },
+            "accepted": true,
+            "job": {
+              "slug": "renton-wa",
+              "id": "title",
+              "url": "https://www.codepublishing.com/WA/Renton/#!/Renton01/Renton01.html",
+              "root_url": "https://www.codepublishing.com/WA/Renton/",
+              "kind": "navigation",
+              "wait_selector": "#mainContent h1.Title"
+            },
+            "acquisition_script_sha256": "f108fcec0bffd1dd894e2c6dd34b2add75e2ca514dcbddb2b023ae2609b9b31a",
+            "checksum_module_sha256": "e8838b9e8ac1a54c0b9d116855e020258ea7314b73a6dbb651e48eb260692f78",
+            "before_after_sha256_match": true
+          }
+        ],
+        "final_guarded_module_live_check": {
+          "path": "current-cua/fremont-ca/root-final-table.receipt.json",
+          "sha256": "5781ed7c1d35be9cfa135f17f7201ae96024ef4c4f4b5ca671b8847bb2a571ea",
+          "bytes": 7014
+        },
+        "immutable_target_guard_test": "test_acquire_cua.mjs plus live repeated-target rejection"
+      },
+      "standalone_playwright": {
+        "status": "blocked_http403_challenge",
+        "accepted": false,
+        "receipt": {
+          "path": "current-playwright/renton-wa/chapter.receipt.json",
+          "sha256": "0feee304c68602578e8f30825861c80bbb4792d562b5e27817da9455de175b32",
+          "bytes": 1309
+        },
+        "raw": {
+          "path": "current-playwright/renton-wa/chapter.html",
+          "sha256": "848cf77cdcbe25fc01780a3f02b4288259d08a24c90c078f042851f4b754d806",
+          "bytes": 4729
+        },
+        "runtime": {
+          "python": "3.9.6",
+          "channel": "chrome",
+          "headed": false,
+          "browser_version": "155.0.8059.41"
+        },
+        "acquisition_script_sha256": "80178262b890f0efe4893875d9f0daf8c1a9c1feb826564c5f740206e92d9574",
+        "archived_script": {
+          "path": "current-playwright/acquisition-script.py",
+          "sha256": "80178262b890f0efe4893875d9f0daf8c1a9c1feb826564c5f740206e92d9574",
+          "bytes": 3763
+        },
+        "blocker": "Vendor returns challenge to isolated standalone Chrome; no accepted legal body. Connected CUA session result is separate."
+      },
+      "commands": {
+        "path": "current-pipeline/renton-wa/commands.json",
+        "sha256": "109fd27dd135fe73b0ccb6613488d0620a09fc4057b0787a40c54913ba37cf3e",
+        "bytes": 5316
+      },
+      "export_manifest": {
+        "path": "current-pipeline/renton-wa/export/run-manifest.json",
+        "sha256": "6774e889d098ca944aa46a836ec501daf1c762c558bee1d303e44274222153de",
+        "bytes": 2502
+      },
+      "tests": {
+        "python_count": 33,
+        "python_passed": true,
+        "node": {
+          "status": "passed",
+          "checks": 10,
+          "sha_vectors": 5,
+          "utf16_chunk_surrogate_preserved": true,
+          "immutable_target_rejected": true,
+          "same_length_mutation_rejected": true,
+          "stale_heading_rejected": true,
+          "scope_escape_rejected": true
+        }
+      },
+      "code_freeze": {
+        "path": "CODE-FREEZE.json",
+        "sha256": "bcd4edcefce0384c6f5680e2130ab32e16829cf68799a1ae4da9c4a30c101ae9",
+        "bytes": 1597
+      },
+      "remaining_blockers": [
+        "Standalone HTTP403 prevents qualifying unattended browser CLI transport here.",
+        "Complete multi-family publication inventory, missing/unlinked status-node reconciliation, scope decisions and whole-corpus version checks remain unperformed.",
+        "Live rowspan/colspan, image and incorporated-PDF handling beyond these samples still require source qualification; synthetic tests cover spans/lists/images."
+      ]
+    },
+    {
+      "jurisdiction_slug": "seatac-wa",
+      "status": "legacy_migrated_vendor_sample_passed",
+      "current_authoritative_route": "https://ecode360.com/SE4633",
+      "legacy_migration_notice": true,
+      "whole_corpus_complete": false,
+      "publication_inventory_complete": false,
+      "source_currency": "The SeaTac Municipal Code is current through Ordinance 26-1008, passed March 24, 2026.",
+      "pre_post_currency_equal": true,
+      "version_atomicity": "same publisher label bracketing bounded DOM capture; no publisher snapshot token",
+      "source_receipts": [
+        "current-cua/seatac-wa/chapter.receipt.json",
+        "current-cua/seatac-wa/root-confirmed.receipt.json",
+        "current-cua/seatac-wa/root-post.receipt.json",
+        "current-cua/seatac-wa/title.receipt.json"
+      ],
+      "acquisition_script_sha256": "f108fcec0bffd1dd894e2c6dd34b2add75e2ca514dcbddb2b023ae2609b9b31a",
+      "checksum_module_sha256": "e8838b9e8ac1a54c0b9d116855e020258ea7314b73a6dbb651e48eb260692f78",
+      "parser_sha256": "443081bbcbf7352fb967ddad92c04a9e8349dd7ba9a01e237740ddd7d8e4d4ed",
+      "csv_json_equal": true,
+      "restart_equal": true,
+      "pages": 1,
+      "records": 12,
+      "audits": [
+        {
+          "case": "adoption",
+          "raw_sha256": "adb195c663d57fb68e9ded0c0205515485fed0523ee727ee3e9786fc773d1ec9",
+          "source_sections": 12,
+          "export_records": 12,
+          "p_level_paragraphs": 37,
+          "p_classes": [
+            "P1"
+          ],
+          "chapter_toc_equals_section_inventory": true,
+          "complete_p_level_bodies": true,
+          "source_section_order_equal": true,
+          "observed_hierarchy_present": true,
+          "structure_counts": {
+            "table": 0,
+            "tr": 0,
+            "td": 0,
+            "th": 0,
+            "ol": 0,
+            "ul": 0,
+            "li": 0,
+            "sup": 0,
+            "sub": 0,
+            "blockquote": 0
+          },
+          "raw_dom_table_count": 0,
+          "excluded_hidden_table_clones": 0
+        }
+      ],
+      "root_inventory_links": [
+        {
+          "href": "/WA/SeaTac/#!/SeaTac01/SeaTac01.html",
+          "label": "Title 1 GENERAL PROVISIONS"
+        },
+        {
+          "href": "/WA/SeaTac/#!/SeaTac02/SeaTac02.html",
+          "label": "Title 2 ADMINISTRATION AND PERSONNEL"
+        },
+        {
+          "href": "/WA/SeaTac/#!/SeaTac03/SeaTac03.html",
+          "label": "Title 3 REVENUE AND FINANCE"
+        },
+        {
+          "href": "/WA/SeaTac/#!/SeaTac04/SeaTac04.html",
+          "label": "Title 4 RENTAL HOUSING"
+        },
+        {
+          "href": "/WA/SeaTac/#!/SeaTac05/SeaTac05.html",
+          "label": "Title 5 BUSINESS LICENSES AND REGULATIONS"
+        },
+        {
+          "href": "/WA/SeaTac/#!/SeaTac06/SeaTac06.html",
+          "label": "Title 6 ANIMALS"
+        },
+        {
+          "href": "/WA/SeaTac/#!/SeaTac07/SeaTac07.html",
+          "label": "Title 7 HEALTH AND SAFETY"
+        },
+        {
+          "href": "/WA/SeaTac/#!/SeaTac08/SeaTac08.html",
+          "label": "Title 8 PUBLIC PEACE, MORALS AND WELFARE"
+        },
+        {
+          "href": "/WA/SeaTac/#!/SeaTac09/SeaTac09.html",
+          "label": "Title 9 VEHICLES AND TRAFFIC"
+        },
+        {
+          "href": "/WA/SeaTac/#!/SeaTac10/SeaTac10.html",
+          "label": "Title 10 CODE COMPLIANCE"
+        },
+        {
+          "href": "/WA/SeaTac/#!/SeaTac11/SeaTac11.html",
+          "label": "Title 11 STREETS, SIDEWALKS, AND PUBLIC THOROUGHFARES"
+        },
+        {
+          "href": "/WA/SeaTac/#!/SeaTac12/SeaTac12.html",
+          "label": "Title 12 PUBLIC UTILITIES"
+        },
+        {
+          "href": "/WA/SeaTac/#!/SeaTac13/SeaTac13.html",
+          "label": "Title 13 BUILDINGS AND CONSTRUCTION"
+        },
+        {
+          "href": "/WA/SeaTac/#!/SeaTac14/SeaTac14.html",
+          "label": "Title 14 SUBDIVISIONS"
+        },
+        {
+          "href": "/WA/SeaTac/#!/SeaTac15/SeaTac15.html",
+          "label": "Title 15 ZONING CODE"
+        },
+        {
+          "href": "/WA/SeaTac/#!/SeaTac16A/SeaTac16A.html",
+          "label": "Title 16A DEVELOPMENT REVIEW CODE"
+        },
+        {
+          "href": "/WA/SeaTac/#!/SeaTac17/SeaTac17.html",
+          "label": "Title 17 CRIME PREVENTION THROUGH ENVIRONMENTAL DESIGN (CPTED)"
+        },
+        {
+          "href": "/WA/SeaTac/#!/SeaTac18/SeaTac18.html",
+          "label": "Title 18 ENVIRONMENTAL CODE"
+        },
+        {
+          "href": "/WA/SeaTac/#!/SeaTacSR.html",
+          "label": "STATUTORY REFERENCES FOR WASHINGTON CITIES AND TOWNS"
+        },
+        {
+          "href": "/WA/SeaTac/#!/SeaTacOT.html",
+          "label": "ORDINANCE TABLE"
+        },
+        {
+          "href": "/WA/SeaTac/#!/SeaTacRCW.html",
+          "label": "TABLE OF STATE STATUTES ADOPTED BY REFERENCE"
+        }
+      ],
+      "source_hierarchy": "root/title observed hrefs, legal heading IDs and publisher paragraph levels",
+      "limitations": [
+        "Only listed bounded chapters parsed; other chapters, appendices, supplements, images, incorporated documents and PDF contents are not fully inventoried/extracted.",
+        "Publication label equality is not whole-corpus version atomicity.",
+        "Supported CUA uses connected browser session; standalone transport has separate results."
+      ],
+      "supported_cua": {
+        "status": "bounded_live_acquisition_parser_export_passed",
+        "complete_DOM_integrity": "pureJS UTF8SHA256 before/after equals NodeSHA256 retained raw; joined UTF16 chunk strings written once",
+        "receipts": [
+          {
+            "used_in_final_pipeline": true,
+            "receipt": {
+              "path": "current-cua/seatac-wa/chapter.receipt.json",
+              "sha256": "580e73b33556e47e29d1f670eef932831ae36794b934143bdf86ccf4897bfa5d",
+              "bytes": 21708
+            },
+            "raw": {
+              "path": "current-cua/seatac-wa/chapter.html",
+              "sha256": "adb195c663d57fb68e9ded0c0205515485fed0523ee727ee3e9786fc773d1ec9",
+              "bytes": 48026
+            },
+            "accepted": true,
+            "job": {
+              "slug": "seatac-wa",
+              "id": "chapter",
+              "url": "https://www.codepublishing.com/WA/SeaTac/#!/SeaTac01/SeaTac0101.html#1.01",
+              "root_url": "https://www.codepublishing.com/WA/SeaTac/",
+              "kind": "legal",
+              "wait_selector": "#mainContent h3.Cite"
+            },
+            "acquisition_script_sha256": "f108fcec0bffd1dd894e2c6dd34b2add75e2ca514dcbddb2b023ae2609b9b31a",
+            "checksum_module_sha256": "e8838b9e8ac1a54c0b9d116855e020258ea7314b73a6dbb651e48eb260692f78",
+            "before_after_sha256_match": true
+          },
+          {
+            "used_in_final_pipeline": false,
+            "receipt": {
+              "path": "current-cua/seatac-wa/root-before.receipt.json",
+              "sha256": "9037df3f03884188507de4d9a5972d116975d65d18b9ae483eefc7462c34493d",
+              "bytes": 7221
+            },
+            "raw": {
+              "path": "current-cua/seatac-wa/root-before.html",
+              "sha256": "487005ca5ba37036f6423ea5d305043c65d71295be9c059e6a1f6187d0eeb6e9",
+              "bytes": 30020
+            },
+            "accepted": false,
+            "job": {
+              "slug": "seatac-wa",
+              "url": "https://www.codepublishing.com/WA/SeaTac/",
+              "id": "root-before",
+              "root_url": "https://www.codepublishing.com/WA/SeaTac/",
+              "kind": "root",
+              "wait_selector": "a[href*=\"01.html\"]"
+            },
+            "acquisition_script_sha256": "bcda921e13ccd1a255a0d057425a47925ff743efbc03fd00d8bf61a58898b550",
+            "checksum_module_sha256": null,
+            "before_after_sha256_match": false
+          },
+          {
+            "used_in_final_pipeline": true,
+            "receipt": {
+              "path": "current-cua/seatac-wa/root-confirmed.receipt.json",
+              "sha256": "ac384ca58d09a76e1c8bb46c063577b7ba9a0ccabb7e2eda71bba9cc506dceca",
+              "bytes": 7213
+            },
+            "raw": {
+              "path": "current-cua/seatac-wa/root-confirmed.html",
+              "sha256": "e9ec1cd4eb66f8edbc8ee5596c5fe727d655d222453d22d582fa68dc2067ce8c",
+              "bytes": 33625
+            },
+            "accepted": true,
+            "job": {
+              "slug": "seatac-wa",
+              "url": "https://www.codepublishing.com/WA/SeaTac/",
+              "id": "root-confirmed",
+              "root_url": "https://www.codepublishing.com/WA/SeaTac/",
+              "kind": "root",
+              "wait_selector": "a[href*=\"01.html\"]"
+            },
+            "acquisition_script_sha256": "f108fcec0bffd1dd894e2c6dd34b2add75e2ca514dcbddb2b023ae2609b9b31a",
+            "checksum_module_sha256": "e8838b9e8ac1a54c0b9d116855e020258ea7314b73a6dbb651e48eb260692f78",
+            "before_after_sha256_match": true
+          },
+          {
+            "used_in_final_pipeline": true,
+            "receipt": {
+              "path": "current-cua/seatac-wa/root-post.receipt.json",
+              "sha256": "ad58afe93dea6b3689f0de636c5e1d7bb8293df3a75abb1753d9b078e1b7181c",
+              "bytes": 7209
+            },
+            "raw": {
+              "path": "current-cua/seatac-wa/root-post.html",
+              "sha256": "e9ec1cd4eb66f8edbc8ee5596c5fe727d655d222453d22d582fa68dc2067ce8c",
+              "bytes": 33625
+            },
+            "accepted": true,
+            "job": {
+              "slug": "seatac-wa",
+              "id": "root-post",
+              "url": "https://www.codepublishing.com/WA/SeaTac/",
+              "root_url": "https://www.codepublishing.com/WA/SeaTac/",
+              "kind": "navigation",
+              "wait_selector": "a[href*=\"01.html\"]"
+            },
+            "acquisition_script_sha256": "f108fcec0bffd1dd894e2c6dd34b2add75e2ca514dcbddb2b023ae2609b9b31a",
+            "checksum_module_sha256": "e8838b9e8ac1a54c0b9d116855e020258ea7314b73a6dbb651e48eb260692f78",
+            "before_after_sha256_match": true
+          },
+          {
+            "used_in_final_pipeline": true,
+            "receipt": {
+              "path": "current-cua/seatac-wa/title.receipt.json",
+              "sha256": "034e888c9482195d3a9de7824b818aa817d5290694afa8489ad46ae7d9ace8d1",
+              "bytes": 10011
+            },
+            "raw": {
+              "path": "current-cua/seatac-wa/title.html",
+              "sha256": "638c8eb60b51353c006061c45e9cd2be6b9c0e83a77dabe2751c862917bc4fd8",
+              "bytes": 35387
+            },
+            "accepted": true,
+            "job": {
+              "slug": "seatac-wa",
+              "id": "title",
+              "url": "https://www.codepublishing.com/WA/SeaTac/#!/SeaTac01/SeaTac01.html",
+              "root_url": "https://www.codepublishing.com/WA/SeaTac/",
+              "kind": "navigation",
+              "wait_selector": "#mainContent h1.Title"
+            },
+            "acquisition_script_sha256": "f108fcec0bffd1dd894e2c6dd34b2add75e2ca514dcbddb2b023ae2609b9b31a",
+            "checksum_module_sha256": "e8838b9e8ac1a54c0b9d116855e020258ea7314b73a6dbb651e48eb260692f78",
+            "before_after_sha256_match": true
+          }
+        ],
+        "final_guarded_module_live_check": {
+          "path": "current-cua/fremont-ca/root-final-table.receipt.json",
+          "sha256": "5781ed7c1d35be9cfa135f17f7201ae96024ef4c4f4b5ca671b8847bb2a571ea",
+          "bytes": 7014
+        },
+        "immutable_target_guard_test": "test_acquire_cua.mjs plus live repeated-target rejection"
+      },
+      "standalone_playwright": {
+        "status": "blocked_http403_challenge",
+        "accepted": false,
+        "receipt": {
+          "path": "current-playwright/seatac-wa/chapter.receipt.json",
+          "sha256": "5986ecdb166c90b15cd5ff2c37e436df7c60023db34f45974410862c8122e4c5",
+          "bytes": 1319
+        },
+        "raw": {
+          "path": "current-playwright/seatac-wa/chapter.html",
+          "sha256": "e9dba19a78e1cb1aa7a2e07a4d7cbed2989dbcdf0ff768f73b4bf40607aba5af",
+          "bytes": 4729
+        },
+        "runtime": {
+          "python": "3.9.6",
+          "channel": "chrome",
+          "headed": false,
+          "browser_version": "155.0.8059.41"
+        },
+        "acquisition_script_sha256": "80178262b890f0efe4893875d9f0daf8c1a9c1feb826564c5f740206e92d9574",
+        "archived_script": {
+          "path": "current-playwright/acquisition-script.py",
+          "sha256": "80178262b890f0efe4893875d9f0daf8c1a9c1feb826564c5f740206e92d9574",
+          "bytes": 3763
+        },
+        "blocker": "Vendor returns challenge to isolated standalone Chrome; no accepted legal body. Connected CUA session result is separate."
+      },
+      "commands": {
+        "path": "current-pipeline/seatac-wa/commands.json",
+        "sha256": "af580e0d683cdf31168bf030884d12a6d1ccc53e8bf071d4dd95bcc3010b3589",
+        "bytes": 5320
+      },
+      "export_manifest": {
+        "path": "current-pipeline/seatac-wa/export/run-manifest.json",
+        "sha256": "089bbbd4b43865036433a257b3bab4949338afdbf63bbb522c2587a999976172",
+        "bytes": 2504
+      },
+      "tests": {
+        "python_count": 33,
+        "python_passed": true,
+        "node": {
+          "status": "passed",
+          "checks": 10,
+          "sha_vectors": 5,
+          "utf16_chunk_surrogate_preserved": true,
+          "immutable_target_rejected": true,
+          "same_length_mutation_rejected": true,
+          "stale_heading_rejected": true,
+          "scope_escape_rejected": true
+        }
+      },
+      "code_freeze": {
+        "path": "CODE-FREEZE.json",
+        "sha256": "bcd4edcefce0384c6f5680e2130ab32e16829cf68799a1ae4da9c4a30c101ae9",
+        "bytes": 1597
+      },
+      "remaining_blockers": [
+        "Legacy source announces eCode360 SE4633; current municipal edition is outside this legacy adapter.",
+        "Standalone HTTP403 prevents qualifying unattended browser CLI transport here.",
+        "Complete multi-family publication inventory, missing/unlinked status-node reconciliation, scope decisions and whole-corpus version checks remain unperformed.",
+        "Live rowspan/colspan, image and incorporated-PDF handling beyond these samples still require source qualification; synthetic tests cover spans/lists/images."
+      ],
+      "current_ecode_report": "../ecode360/E2E-VALIDATION.json"
+    },
+    {
+      "jurisdiction_slug": "foster-city-ca",
+      "status": "municipal_migrated_ecode360_district_scope_discovery_only",
+      "current_authoritative_route": "https://ecode360.com/FO4449",
+      "current_ecode_report": "../ecode360/E2E-VALIDATION.json",
+      "whole_corpus_complete": false,
+      "municipal_extracted": false,
+      "district_extracted": false,
+      "district": {
+        "name": "Estero Municipal Improvement District Code",
+        "observed_url": "https://www.codepublishing.com/CA/FosterCity/EsteroMIDC/EsteroNT.html",
+        "currency": "The Estero Municipal Improvement District Code is current through Ordinance 139, passed August 5, 2024, and Foster City Ordinance 603, passed October 17, 2016.",
+        "inventory": "Source TOC exposes enabling act,9titles including reserved3/7,annexations,disposition table; scope must be decided separately."
+      },
+      "evidence": [
+        {
+          "receipt": {
+            "path": "current-cua/foster-city-ca/root-scope-confirmed.receipt.json",
+            "sha256": "156a6e2e1a3321d0773871a06728d1a717c3f5c312be01f8e85052b1ddd075a3",
+            "bytes": 1938
+          },
+          "raw": {
+            "path": "current-cua/foster-city-ca/root-scope-confirmed.html",
+            "sha256": "875b71751b83d92a61e348bf4ac81b40062ff56dce99579ad55185117321a748",
+            "bytes": 5287
+          },
+          "source_url": "https://www.codepublishing.com/CA/FosterCity/"
+        },
+        {
+          "receipt": {
+            "path": "current-cua/foster-city-ca/scope-toc.receipt.json",
+            "sha256": "a37967a9a81cfba0b63beea887a885e1174329a86fb2e30fd4cf2d11a52c6fb8",
+            "bytes": 6451
+          },
+          "raw": {
+            "path": "current-cua/foster-city-ca/scope-toc.html",
+            "sha256": "f69fa59d3a36072e6046f547c54e05db6d5002d28d057ddd8faf0de3067cc835",
+            "bytes": 16920
+          },
+          "source_url": "https://www.codepublishing.com/CA/FosterCity/cgi/FosterCityTOC.pl?archive=html"
+        },
+        {
+          "receipt": {
+            "path": "current-cua/foster-city-ca/municipal-migration.receipt.json",
+            "sha256": "7045dc3fab88729362ac604ea42a72052569dca67b9e8e430b080ffd93b17c6c",
+            "bytes": 2582
+          },
+          "raw": {
+            "path": "current-cua/foster-city-ca/municipal-migration.html",
+            "sha256": "35a33ba0102ce8e8e75d9818a5a7cf93065c8e8d2dbf0fcc85d1b6359498fb9a",
+            "bytes": 6081
+          },
+          "source_url": "https://www.codepublishing.com/CA/FosterCity/html/FosterCityNT.html"
+        },
+        {
+          "receipt": {
+            "path": "current-cua/foster-city-ca/district-landing.receipt.json",
+            "sha256": "b71607dbf8651b4ae8aba453098e5aa3a7afea2e44349242c8632681df6ccb67",
+            "bytes": 2135
+          },
+          "raw": {
+            "path": "current-cua/foster-city-ca/district-landing.html",
+            "sha256": "87845deda59e0d339a9d8859e61999a5b9b3d6c6cd84df06e67d2222c865f90b",
+            "bytes": 5699
+          },
+          "source_url": "https://www.codepublishing.com/CA/FosterCity/EsteroMIDC/EsteroNT.html"
+        },
+        {
+          "receipt": {
+            "path": "current-cua/foster-city-ca/district-currency.receipt.json",
+            "sha256": "60ce05db04e5c372830cd99862984bc89fa816697e25ee986f7e82eb1dee1089",
+            "bytes": 2610
+          },
+          "raw": {
+            "path": "current-cua/foster-city-ca/district-currency.html",
+            "sha256": "08980429a65e88174fef3b0cb5e86a0c1ef22a10c57baf4349991ebccf1e453e",
+            "bytes": 5143
+          },
+          "source_url": "https://www.codepublishing.com/CA/FosterCity/EsteroMIDC/disclaimer.html"
+        }
+      ],
+      "remaining_blockers": [
+        "Municipal code current route reassigned to eCode360.",
+        "District inclusion/scope decision required before extracting; no district legal bodies parsed."
+      ]
+    }
+  ]
+}

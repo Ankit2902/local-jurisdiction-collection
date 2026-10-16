@@ -1,0 +1,23 @@
+test_discovery (unittest.loader._FailedTest.test_discovery) ... ERROR
+
+======================================================================
+ERROR: test_discovery (unittest.loader._FailedTest.test_discovery)
+----------------------------------------------------------------------
+ImportError: Failed to import test module: test_discovery
+Traceback (most recent call last):
+  File "/Users/oliverflint/.cache/codex-runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/unittest/loader.py", line 396, in _find_test_path
+    module = self._get_module_from_name(name)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/oliverflint/.cache/codex-runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/unittest/loader.py", line 339, in _get_module_from_name
+    __import__(name)
+  File "/Users/oliverflint/My Drive/Claude/Projects/CompliSolv 2.00/outputs/local-extraction-standalone-2026-10-15/official-alternatives/test_discovery.py", line 5, in <module>
+    from inspect_pdf import inspect
+  File "/Users/oliverflint/My Drive/Claude/Projects/CompliSolv 2.00/outputs/local-extraction-standalone-2026-10-15/official-alternatives/inspect_pdf.py", line 4, in <module>
+    from pypdf import PdfReader
+ModuleNotFoundError: No module named 'pypdf'
+
+
+----------------------------------------------------------------------
+Ran 1 test in 0.000s
+
+FAILED (errors=1)

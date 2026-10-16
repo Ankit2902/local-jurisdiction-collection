@@ -1,0 +1,1181 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8" lang="en"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9" lang="en"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js" lang="en-US">
+<!--<![endif]-->
+<head>
+	<!-- Published by OpenCities, 1.38.0.1 -->
+
+    
+        
+    
+    
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="theme-color" content="#002448"/>
+    <title>Permit Services | City of Renton</title>
+	<meta name="generator" content="OpenCities - https://granicus.com/product/opencities" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Using mobile-web-app-capable for now to enable full-screen experience on supported platforms -->
+    <!-- Note: This tag works mainly on Android Chrome. It does NOT enable full-screen mode on iOS Safari. -->
+    <!-- For iOS, the correct tag is: <meta name="apple-mobile-web-app-capable" content="yes"> -->
+    <!-- TODO: Monitor for updated meta tag standards from Apple or other browser vendors -->
+    <meta name="mobile-web-app-capable" content="yes" />
+        <meta name="description" content="Explore how Renton streamlines the permitting process for your projects. Find resources, guidelines, and support to help you navigate the permits process." />
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://www.rentonwa.gov/City-Services/Permit-Services" />
+    <meta property="og:title" content="Permit Services" />
+    <meta property="og:description" content="Explore how Renton streamlines the permitting process for your projects. Find resources, guidelines, and support to help you navigate the permits process." />
+    <meta property="og:image" content="https://www.rentonwa.gov/files/assets/city/v/1/finance/budget-amp-accounting/images/hyatt-construction-from-coulon_ql.jpg?w=1200" />
+    <meta property="twitter:card" content="summary" />
+    <meta property="twitter:title" content="Permit Services" />
+    <meta property="twitter:description" content="Explore how Renton streamlines the permitting process for your projects. Find resources, guidelines, and support to help you navigate the permits process." />
+    <meta property="twitter:image" content="https://www.rentonwa.gov/files/assets/city/v/1/finance/budget-amp-accounting/images/hyatt-construction-from-coulon_ql.jpg?w=1080" />
+    <meta name="City of Renton" content="Permit Services" />
+    <meta property="fb:app_id" content="1254388999790018" />
+    <link rel="canonical" href="https://www.rentonwa.gov/City-Services/Permit-Services" />
+
+    
+    <link rel="apple-touch-icon" sizes="180x180" href="/files/ocfavicon/City/apple-touch-icon.png?V=638579244766011268">
+<link rel="icon" type="image/png" sizes="32x32" href="/files/ocfavicon/City/favicon-32x32.png?V=638579244766011268">
+<link rel="icon" type="image/png" sizes="16x16" href="/files/ocfavicon/City/favicon-16x16.png?V=638579244766011268">
+<link rel="manifest" href="/files/ocfavicon/City/site.webmanifest?V=638579244766011268">
+<link rel="shortcut icon" href="/files/ocfavicon/City/favicon.ico?V=638579244766011268">
+<meta name="msapplication-TileColor" content="#000000">
+<meta name="msapplication-config" content="/files/ocfavicon/City/browserconfig.xml?V=638579244766011268">
+    <script>
+        (function () {
+            if (window.__UNLOAD_LAZY_PATCH__) return;
+            window.__UNLOAD_LAZY_PATCH__ = true;
+
+            var supportsPageHide = ("onpagehide" in window);
+            var mappedType = supportsPageHide ? "pagehide" : "beforeunload";
+            var nativeAdd = window.addEventListener;
+            var nativeRemove = window.removeEventListener;
+            var unloadMap = null;
+            var patched = false;
+
+            function ensurePatched() {
+                if (patched) return;
+                unloadMap = new WeakMap();
+
+                window.addEventListener = function (type, listener, options) {
+                    if (type === "unload") {
+                        var wrapped = function (evt) {
+                            if (supportsPageHide && evt.persisted) return;
+                            listener.call(this, evt);
+                        };
+                        unloadMap.set(listener, wrapped);
+                        return nativeAdd.call(this, mappedType, wrapped, options);
+                    }
+                    return nativeAdd.call(this, type, listener, options);
+                };
+
+                window.removeEventListener = function (type, listener, options) {
+                    if (type === "unload") {
+                        var wrapped = unloadMap.get(listener);
+                        if (wrapped) {
+                            nativeRemove.call(this, mappedType, wrapped, options);
+                            unloadMap.delete(listener);
+                        }
+                        return;
+                    }
+                    return nativeRemove.call(this, type, listener, options);
+                };
+
+                var orig = null;
+                Object.defineProperty(window, "onunload", {
+                    configurable: true, enumerable: true,
+                    get: function () { return orig; },
+                    set: function (h) {
+                        orig = h;
+                        if (typeof h === "function") window.addEventListener("unload", h);
+                    }
+                });
+                patched = true;
+            }
+
+            window.addEventListener = function (type, listener, options) {
+                if (type === "unload") {
+                    ensurePatched();
+                    return window.addEventListener(type, listener, options);
+                }
+                return nativeAdd.call(this, type, listener, options);
+            };
+
+            window.removeEventListener = function (type, listener, options) {
+                if (type === "unload" && !patched) {
+                    return;
+                }
+                return nativeRemove.call(this, type, listener, options);
+            };
+
+            function patchTelerik() {
+                ensurePatched();
+                var ns = window.RadAjaxNamespace;
+                if (!ns || !ns.EventManager || !ns.EventManager.Add || ns.EventManager.__UnloadPatched) return;
+                var origAdd = ns.EventManager.Add;
+                ns.EventManager.Add = function (el, evtName, handler, clientId) {
+                    if (el === window && evtName === "unload") {
+                        return window.addEventListener("unload", handler);
+                    }
+                    return origAdd.call(this, el, evtName, handler, clientId);
+                };
+                ns.EventManager.__UnloadPatched = true;
+            }
+
+            if (window.RadAjaxNamespace)
+                patchTelerik();
+            else (window.requestIdleCallback || function (cb)
+            {
+                setTimeout(cb, 120);
+            })(patchTelerik);
+        })();
+    </script>
+    <!-- Preconnecting to Google Fonts servers -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <!-- Defer Roboto font loading to avoid render-blocking -->
+    <script>
+        window.addEventListener('DOMContentLoaded', () => {
+            const robotoLink = document.createElement('link');
+            robotoLink.rel = 'stylesheet';
+            robotoLink.href = 'https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap';
+            document.head.appendChild(robotoLink);
+        });
+    </script>
+
+    <style>
+        .gm-style, .gm-style * {
+            font-family: 'Roboto', system-ui, -apple-system, "Segoe UI", Arial, sans-serif !important;
+        }
+    </style>
+
+    <script>
+        document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, "js");
+    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Figtree:ital,wght@0,300..900;1,300..900&display=swap" rel="stylesheet">
+    
+        
+            <script type="text/javascript">
+                window.__oc_flags_ImprovedBreakpointEventHandling = true;
+            </script>
+            
+        
+    
+    
+    
+        <script type="text/javascript">
+            var __metaQueryBreakpoints = {
+                'sc-size-4': '(max-width: 480px)',
+                'sc-size-3': '(min-width: 480px) and (max-width: 768px)',
+                'sc-size-2': '(min-width: 768px) and (max-width: 992px)',
+                'sc-size-1': '(min-width: 992px)'
+            }
+
+            var __ocSizePoints = [
+                { min: 0, name: 'sc-size-4' },
+                { min: 480, name: 'sc-size-3' },
+                { min: 768, name: 'sc-size-2' },
+                { min: 992, name: 'sc-size-1' }
+            ];
+
+        </script>
+    
+
+    <!-- Framework Section -->
+    
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script>window.jQuery || document.write('<script src="/files/templates/00000000-0000-0000-0000-000000000000/b94d253b-abed-4b58-8caa-72b864310021/v/261/jquery-3.7.1.min.js?seamlessts=639263253349531762" ><\/script>')</script>
+
+    <!--Google Maps API Loader – Improved Version to avoid Warning
+    This script loads the Google Maps JavaScript API using a dynamic and async method.
+    It replaces the old static <script> tag to avoid performance warnings from Google.
+
+    Dynamically creates the <script> tag with loading = async for better performance
+    Builds the API URL with required libraries(places, geometry, marker, geocoding)
+    Uses a Promise and callback(google.maps.__ib__) to confirm when the script is ready
+
+    It Avoids Google’s warning about direct script loading
+    Improves page load speed by loading the API asynchronously-->
+
+    
+        <script>
+            (function (root) {
+                root.OpenCities = root.OpenCities || {};
+                if (!root.OpenCities.GoogleMapsLoader) {
+                    root.OpenCities.GoogleMapsLoader = {
+                        _cbs: [],
+                        _ready: false,
+                        onReady: function (cb) {
+                            if (this._ready) { try { cb(); } catch (e) { console.error(e); } }
+                            else if (typeof cb === 'function') this._cbs.push(cb);
+                        },
+                        _fire: function () {
+                            if (this._ready) return;
+                            this._ready = true;
+                            var q = this._cbs.splice(0);
+                            for (var i = 0; i < q.length; i++) {
+                                try { q[i](); } catch (e) { console.error(e); }
+                            }
+                        }
+                    };
+                }
+            })(window);
+
+            (g => {
+                var h, a, k, p = "The Google Maps JavaScript API", c = "google", l = "importLibrary", q = "__ib__",
+                    m = document, b = window;
+                b = b[c] || (b[c] = {});
+                var d = b.maps || (b.maps = {}), r = new Set, e = new URLSearchParams,
+                    u = () => h || (h = new Promise(async (resolve, reject) => {
+                        a = m.createElement("script");
+                        e.set("libraries", [...r] + "");
+                        for (k in g) e.set(k.replace(/[A-Z]/g, t => "_" + t[0].toLowerCase()), g[k]);
+                        e.set("callback", c + ".maps." + q);
+                        a.src = "https://maps." + c + "apis.com/maps/api/js?" + e.toString();
+                        a.loading = "async";
+                        a.async = true;
+                        a.defer = true;
+                        d[q] = resolve;
+                        a.onerror = () => reject(Error(p + " could not load."));
+                        a.nonce = m.querySelector("script[nonce]")?.nonce || "";
+                        m.head.append(a);
+                    }));
+                if (d[l]) {
+                    console.warn(p + " only loads once. Ignoring duplicate load.");
+                } else {
+                    d[l] = (f, ...n) => (r.add(f), u().then(() => d[l](f, ...n)));
+                }
+            })({
+                key: "AIzaSyDS4y7Nzv9WyGb4QbdOypHIePJhiJuRObE",
+                v: "3.65"
+            });
+
+            (async () => {
+                try {
+                    if (!google?.maps?.importLibrary) return;
+
+                    if (!window.OpenCities.__mapsLibsPromise) {
+                        window.OpenCities.__mapsLibsPromise = Promise.all([
+                            google.maps.importLibrary('maps'),
+                            google.maps.importLibrary('places'),
+                            google.maps.importLibrary('geocoding'),
+                            google.maps.importLibrary('marker'),
+                            google.maps.importLibrary('geometry')
+                        ]);
+                    }
+                    await window.OpenCities.__mapsLibsPromise;
+
+                    if (window.OpenCities?.GoogleMapsLoader) {
+                        window.OpenCities.GoogleMapsLoader._fire();
+                    }
+                } catch (err) {
+                    console.error('Google Maps failed to initialise', err);
+                }
+            })();
+        </script>
+    
+    <script src="/files/templates/00000000-0000-0000-0000-000000000000/b94d253b-abed-4b58-8caa-72b864310021/v/261/modernizr.custom.710f3bf.js?seamlessts=639263253349531762" defer></script>
+    
+    <!--// End Framework Section -->
+    <!-- OpenCities Section -->
+    <script>
+        var OpenCities = OpenCities || {};
+        OpenCities.Paths = {
+            SiteTemplate: '/files/templates/00000000-0000-0000-0000-000000000000/b94d253b-abed-4b58-8caa-72b864310021/v/261/',
+            ThemePath: '/files/templates/00000000-0000-0000-0000-000000000000/b94d253b-abed-4b58-8caa-72b864310021/v/261/'
+        };
+    </script>
+    <script src='/ocapi/7eb13ea3-80cb-4a52-b3a3-da2cf48598de/en-US/websitesettings.js'></script>
+    <script src="/files/templates/00000000-0000-0000-0000-000000000000/b94d253b-abed-4b58-8caa-72b864310021/v/261/oc_head.js?applied=20250408070654"></script>
+    <!-- Script Combine. To enter debug mode for this browser session, enter OcScriptCombineDebug=true as a querystring -->
+<link href="/files/oc-templates/00000000-0000-0000-0000-000000000000/b94d253b-abed-4b58-8caa-72b864310021/v/261/oc_grid.css~oc_style.css~oc_wizard_style.css~oc_main.css~oc_forms.css~oc_wizard.css~oc_wizard_menu.css~oc_main_s1.css~oc_wizard_s1.css~oc_wizard_menu_s1.css~oc_grid_s1.css~OcScriptCombine_Minify0?uniqueid=20250408070654" rel="stylesheet" type="text/css">
+    <!-- Script Combine. To enter debug mode for this browser session, enter OcScriptCombineDebug=true as a querystring -->
+<link href="/files/oc-templates/00000000-0000-0000-0000-000000000000/b94d253b-abed-4b58-8caa-72b864310021/v/261/client_style.css~client.css~client_menu.css~client_s1.css~client_menu_s1.css~client_forms.css~OcScriptCombine_Minify0?uniqueid=20250408070654" rel="stylesheet" type="text/css">
+    <script>
+(function (BackgroundSettings, $, undefined) {
+    BackgroundSettings.initialise = function () {
+        this.Application = {"CSSSelector":".background-container","EnableFade":false,"MediaType":"image"};
+    };
+} (OpenCities.BackgroundSettings = OpenCities.BackgroundSettings || {}, jQuery));
+OpenCities.BackgroundSettings.initialise();
+</script>
+    
+    <!-- Script Combine. To enter debug mode for this browser session, enter OcScriptCombineDebug=true as a querystring -->
+<link href="/files/oc-templates/00000000-0000-0000-0000-000000000000/b94d253b-abed-4b58-8caa-72b864310021/v/261/oc_print.css~client_print.css~OcScriptCombine_Minify0?uniqueid=20250408070654" rel="stylesheet" type="text/css" media="print">
+    <!-- Script Combine. To enter debug mode for this browser session, enter OcScriptCombineDebug=true as a querystring -->
+<script src="/files/oc-templates/00000000-0000-0000-0000-000000000000/b94d253b-abed-4b58-8caa-72b864310021/v/261/external_plugins.js~oc_form_helper.js~oc_main.js~plugins.js~oc_main_init.js~OcScriptCombine_Minify0?uniqueid=20250408070654" defer="true"></script>
+    
+    
+
+                                <script>!function(e){var n="https://s.go-mpulse.net/boomerang/";if("False"=="True")e.BOOMR_config=e.BOOMR_config||{},e.BOOMR_config.PageParams=e.BOOMR_config.PageParams||{},e.BOOMR_config.PageParams.pci=!0,n="https://s2.go-mpulse.net/boomerang/";if(window.BOOMR_API_key="DYTCK-JM9C8-ED4EP-C3GGK-Z575H",function(){function e(){if(!r){var e=document.createElement("script");e.id="boomr-scr-as",e.src=window.BOOMR.url,e.async=!0,o.appendChild(e),r=!0}}function t(e){r=!0;var n,t,a,i,d=document,O=window;if(window.BOOMR.snippetMethod=e?"if":"i",t=function(e,n){var t=d.createElement("script");t.id=n||"boomr-if-as",t.src=window.BOOMR.url,BOOMR_lstart=(new Date).getTime(),e=e||d.body,e.appendChild(t)},!window.addEventListener&&window.attachEvent&&navigator.userAgent.match(/MSIE [67]\./))return window.BOOMR.snippetMethod="s",void t(o,"boomr-async");a=document.createElement("IFRAME"),a.src="about:blank",a.title="",a.role="presentation",a.loading="eager",i=(a.frameElement||a).style,i.width=0,i.height=0,i.border=0,i.display="none",o.appendChild(a);try{O=a.contentWindow,d=O.document.open()}catch(_){n=document.domain,a.src="javascript:var d=document.open();d.domain='"+n+"';void 0;",O=a.contentWindow,d=O.document.open()}if(n)d._boomrl=function(){this.domain=n,t()},d.write("<bo"+"dy onload='document._boomrl();'>");else if(O._boomrl=function(){t()},O.addEventListener)O.addEventListener("load",O._boomrl,!1);else if(O.attachEvent)O.attachEvent("onload",O._boomrl);d.close()}function a(e){window.BOOMR_onload=e&&e.timeStamp||(new Date).getTime()}if(!window.BOOMR||!window.BOOMR.version&&!window.BOOMR.snippetExecuted){window.BOOMR=window.BOOMR||{},window.BOOMR.snippetStart=(new Date).getTime(),window.BOOMR.snippetExecuted=!0,window.BOOMR.snippetVersion=14,window.BOOMR.url=n+"DYTCK-JM9C8-ED4EP-C3GGK-Z575H";var i=document.currentScript||document.getElementsByTagName("script")[0],o=i.parentNode,r=!1,d=document.createElement("link");if(d.relList&&"function"==typeof d.relList.supports&&d.relList.supports("preload")&&"as"in d)window.BOOMR.snippetMethod="p",d.href=window.BOOMR.url,d.rel="preload",d.as="script",d.addEventListener("load",e),d.addEventListener("error",function(){t(!0)}),setTimeout(function(){if(!r)t(!0)},3e3),BOOMR_lstart=(new Date).getTime(),o.appendChild(d);else t(!1);if(window.addEventListener)window.addEventListener("load",a,!1);else if(window.attachEvent)window.attachEvent("onload",a)}}(),"".length>0)if(e&&"performance"in e&&e.performance&&"function"==typeof e.performance.setResourceTimingBufferSize)e.performance.setResourceTimingBufferSize();!function(){if(BOOMR=e.BOOMR||{},BOOMR.plugins=BOOMR.plugins||{},!BOOMR.plugins.AK){var n=""=="true"?1:0,t="",a="eyaqesmsaa3wajqacqd6qaaadfvncj2l-f-538a118f7-clienttons-s.akamaihd.net",i="false"=="true"?2:1,o={"ak.v":"41","ak.cp":"1766636","ak.ai":parseInt("1075935",10),"ak.ol":"0","ak.cr":18,"ak.ipv":6,"ak.proto":"http/1.1","ak.rid":"3cf54a3","ak.r":39715,"ak.a2":n,"ak.m":"dscb","ak.n":"essl","ak.cport":57610,"ak.gh":"184.30.41.157","ak.quicv":"","ak.tlsv":"tls1.2","ak.0rtt":"","ak.0rtt.ed":"","ak.csrc":"-","ak.acc":"bbr","ak.t":"1792091979","ak.ak":"hOBiQwZUYzCg5VSAfCLimQ==h+tPANZc677xHmMhhBBO/T3n+atGzO8Kv12T6ZIHOpwF6ujfqt0D4pcBfwJsfIDc1B50lFVrKwxJG1EUseadWf+o2/edn+enb73H8bdcflVyfGA9BYz/9gJELLzD0HriGM0+sTE+YBAcaPKrmWSksQumz/lsDoOAxJ9OOiwo+Wgm2gPYP8UkatnpVwcLg9JlKWR+tJtnxggYUaxd1YmpuFxJcD3IMBu+FIxloxDIcOauVmNJElGdc6W1h0e1bYGhQ858AYlYAR5mHImTkTzSWL87xJNqLVJhaM5VwfMinL37sG1WJNi+aMkDDlm9YzP094B7xTMY/OX5VfJKpN0RVjppZNIruFgNRtzV9TAxdHBJCXoIr3dicsQbxkecs6cecUJiBaExodnAhbEFukdydfGgACRoXOPBZniuXWKE1d8=","ak.pv":"354","ak.dpoabenc":"","ak.tf":i};if(""!==t)o["ak.ruds"]=t;var r={i:!1,av:function(n){var t="http.initiator";if(n&&(!n[t]||"spa_hard"===n[t]))o["ak.feo"]=void 0!==e.aFeoApplied?1:0,BOOMR.addVar(o)},rv:function(){var e=["ak.cport","ak.cr","ak.csrc","ak.gh","ak.ipv","ak.m","ak.n","ak.ol","ak.proto","ak.quicv","ak.tlsv","ak.0rtt","ak.0rtt.ed","ak.r","ak.acc","ak.t","ak.tf"];BOOMR.removeVar(e)}};BOOMR.plugins.AK={akVars:o,akDNSPreFetchDomain:a,init:function(){if(!r.i){var e=BOOMR.subscribe;e("before_beacon",r.av,null,null),e("onbeacon",r.rv,null,null),r.i=!0}return this},is_complete:function(){return!0}}}}()}(window);</script></head>
+<body class="body layout-modern  site-search-always-visble  content-type-oc-general content-template-oc-full-width-without-image group-template-oc-full-width-with-default-header page-name-permit-services page-sequence-8 page-depth-2 page-section-3 website-type-primary device-desktop " id="body-top">
+    <div id="skip-to-content-container">
+        <a href="#main-content" class="visuallyhidden focusable" id="skip-to-content-link">Skip to main content</a>
+    </div>
+    <script>
+        // OCNOW-11988 (Cursor): Proactively focus skip link when returning from browser chrome.
+        // Must run inline (not deferred oc_main.js) so focus is intercepted before NVDA speaks footer.
+        (function () {
+            var awaitingReentry = false;
+            var inertSupported = 'inert' in HTMLElement.prototype;
+
+            function isExplicitlyOutsideDocument(node) {
+                return node != null && !document.documentElement.contains(node);
+            }
+
+            function getSkipContainer() {
+                return document.getElementById('skip-to-content-container');
+            }
+
+            function getSkipLink() {
+                return document.getElementById('skip-to-content-link');
+            }
+
+            function applyGuard() {
+                awaitingReentry = true;
+                if (!inertSupported) {
+                    return;
+                }
+                var skipContainer = getSkipContainer();
+                var children = document.body.children;
+                for (var i = 0; i < children.length; i++) {
+                    if (children[i] !== skipContainer) {
+                        children[i].setAttribute('inert', '');
+                    }
+                }
+            }
+
+            function clearGuard() {
+                awaitingReentry = false;
+                if (!inertSupported) {
+                    return;
+                }
+                var children = document.body.children;
+                for (var i = 0; i < children.length; i++) {
+                    children[i].removeAttribute('inert');
+                }
+            }
+
+            function isSkipLinkElement(target) {
+                if (!target) {
+                    return false;
+                }
+                var skipContainer = getSkipContainer();
+                return target.id === 'skip-to-content-link' ||
+                    (skipContainer && skipContainer.contains(target));
+            }
+
+            function focusSkipLink() {
+                var skipLink = getSkipLink();
+                if (!skipLink) {
+                    return;
+                }
+                if (window.scrollY > 0) {
+                    window.scrollTo(0, 0);
+                }
+                skipLink.focus({ preventScroll: true });
+            }
+
+            function scheduleGuardIfDocumentLostFocus() {
+                window.setTimeout(function () {
+                    if (!document.hasFocus()) {
+                        applyGuard();
+                    }
+                }, 0);
+            }
+
+            document.addEventListener('focusout', function (e) {
+                if (isExplicitlyOutsideDocument(e.relatedTarget)) {
+                    applyGuard();
+                }
+            }, true);
+
+            document.addEventListener('keydown', function (e) {
+                if (e.key === 'Tab') {
+                    scheduleGuardIfDocumentLostFocus();
+                } else if (e.key === 'F6' || (e.key === 'l' && e.ctrlKey)) {
+                    scheduleGuardIfDocumentLostFocus();
+                }
+            }, true);
+
+            window.addEventListener('focus', function () {
+                if (!awaitingReentry) {
+                    return;
+                }
+                applyGuard();
+                focusSkipLink();
+            }, true);
+
+            document.addEventListener('focusin', function (e) {
+                var reentryFromChrome = awaitingReentry || isExplicitlyOutsideDocument(e.relatedTarget);
+                if (!reentryFromChrome) {
+                    return;
+                }
+                if (isSkipLinkElement(e.target)) {
+                    clearGuard();
+                    return;
+                }
+                applyGuard();
+                focusSkipLink();
+                clearGuard();
+            }, true);
+        })();
+    </script>
+    <form name="mainForm" method="post" action="/City-Services/Permit-Services" id="mainForm">
+<input type="hidden" name="ctl04_seamless_script_manager_TSM" id="ctl04_seamless_script_manager_TSM" value="" />
+<input type="hidden" name="__SEAMLESSVIEWSTATE" id="__SEAMLESSVIEWSTATE" value="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" />
+<input type="hidden" name="__VIEWSTATE" id="__VIEWSTATE" value="" />
+
+
+<script src="/Telerik.Web.UI.WebResource.axd?_TSM_HiddenField_=ctl04_seamless_script_manager_TSM&amp;compress=1&amp;_TSM_CombinedScripts_=%3b%3bSystem.Web.Extensions%2c+Version%3d4.0.0.0%2c+Culture%3dneutral%2c+PublicKeyToken%3d31bf3856ad364e35%3aen-GB%3add3ac3d5-1e29-4112-8fed-529caffa8f24%3aea597d4b%3bOpenCities.CustomControls%3aen-GB%3a7197b077-b068-4a69-9481-a6cf2e7718f9%3a8e1d32bf" type="text/javascript"></script>
+<script src="/ScriptResource.axd?d=EYVjNsQ7oYmzBqCI0dkEyYe0LYmPcVFL4WPcQCXhKfQwUqkAT7lLra0za-OLMuUUcCyPINdTVMHIWti96-8R_oN-trjXUUZnJRzckxTjid4ecctwwEJyNI-05jZYvXHBRiEKL0MUQMEyEJ2FXanyE1uBk88RxZ1wVK6AUn9D4v8rW-LNx2OOtB8vE3hC8P0jk4XZt7GAPiCeYQolxUlwFZA8cuOfgd4u08OASxFdh8mChz3A0YHhuwRrXGVlulfs9SJVkAvulhjdHYIIp1SRohDxt9acTwxUQrOlxuxC847b00zOOWg9SlpwD_iBuQQ1rOK9WH9O_wN9c2TXm4GeXaQHHT4yQ9IlzZXw6th8ch3f-k_n1yYeeurDMbwChXW1Vh_7rpu00kgmegsg9w2J3ququXIPfy2Gq8IscVTmtwouupfmUzAOicU_yESgQ-dG0" type="text/javascript"></script>
+    
+<script type="text/javascript">
+    try{
+        function SeamlessEndRequestHandler(sender, args) {
+            try {
+                var dataItems = args.get_dataItems();
+                if(dataItems.ctl04_seamless_script_manager)
+                    document.getElementById('__SEAMLESSVIEWSTATE').value = dataItems.ctl04_seamless_script_manager;
+            }
+            catch (e) { }
+        }
+
+        Sys.WebForms.PageRequestManager.getInstance().add_endRequest(SeamlessEndRequestHandler);
+    }
+    catch (e) { }
+</script>
+
+    <div class="unsupported-browser-warning js-element"></div>
+    
+    <div hidden>
+        <span id="new-window-0">opens in new tab or window </span>
+    </div>
+    <div class="overlay-container"></div>
+    
+    <div class="background-container">
+        <div class="page-container">
+            <!-- OC Layout Element GROUP TEMPLATE -->
+            <!--groupTemplateStart--><header><div class="print-header-outer-container print-element">
+<img src="/files/templates/00000000-0000-0000-0000-000000000000/b94d253b-abed-4b58-8caa-72b864310021/v/260/print-logo.svg" alt="City of Renton - Logo" />
+</div>
+            <div class="toolbar-outer-container">
+  <div class="toolbar-inner-container clearfix">
+    <div class="toolbar-item toolbar-quicklinks toolbar-display-dropdown">
+	<button type="button" aria-controls="toolbar-quicklinks-drop-down" aria-expanded="false" class="toolbar-button toolbar-button-quicklinks js-element"><span>Quick Links</span><i aria-hidden="true"></i></button>	
+	<div id="toolbar-quicklinks-drop-down" class="toolbar-drop-down toolbar-quicklinks-drop-down clearfix">
+		<ul>
+		  <li><a href="https://www.facebook.com/CityofRenton/" class="oc-icon-b oc-i-facebook link-type-external" target="_blank"><span>Facebook</span></a></li><li><a href="https://x.com/CityofRenton" class="oc-icon-b oc-i-x link-type-external" target="_blank"><span>X</span></a></li><li><a href="https://www.instagram.com/cityofrenton/" class="oc-icon-b oc-i-instagram link-type-external" target="_blank"><span>Instagram</span></a></li><li><a href="https://nextdoor.com/agency-detail/wa/renton/city-of-renton/" class="oc-icon-b oc-i-nextdoor link-type-external" target="_blank"><span>Nextdoor</span></a></li><li><a href="https://www.youtube.com/channel/UCuYPL89Peh3oH_TIGWtzbvg/videos" class="oc-icon-b oc-i-youtube link-type-external" target="_blank"><span>YouTube</span></a></li><li><a href="https://www.linkedin.com/company/city-of-renton" class="oc-icon-b oc-i-linkedin link-type-external" target="_blank"><span>LinkedIn</span></a></li>
+		</ul>
+	</div>
+</div><div class="toolbar-item toolbar-language notranslate toolbar-display-dropdown"><div class="no-js-element">
+		  <ul>
+		    <li id="toolbar-language-option-en-us-noscript"><a href="https://www.rentonwa.gov/City-Services/Permit-Services?oc_lang=en-US" class="lang-item lang-en-us" data-translate-to="en-us" lang="en-US">English<span class="visuallyhidden"> Select this as your preferred language</span></a></li><li id="toolbar-language-option-es-noscript"><a href="https://www.rentonwa.gov/City-Services/Permit-Services?oc_lang=es" class="lang-item lang-es" data-translate-to="es" lang="en">Spanish<span class="visuallyhidden"> Select this as your preferred language</span></a></li><li id="toolbar-language-option-zh-cn-noscript"><a href="https://www.rentonwa.gov/City-Services/Permit-Services?oc_lang=zh-CN" class="lang-item lang-zh-cn" data-translate-to="zh-cn" lang="en">Chinese (Simplified)<span class="visuallyhidden"> Select this as your preferred language</span></a></li><li id="toolbar-language-option-vi-noscript"><a href="https://www.rentonwa.gov/City-Services/Permit-Services?oc_lang=vi" class="lang-item lang-vi" data-translate-to="vi" lang="en">Vietnamese<span class="visuallyhidden"> Select this as your preferred language</span></a></li><li id="toolbar-language-option-tl-noscript"><a href="https://www.rentonwa.gov/City-Services/Permit-Services?oc_lang=tl" class="lang-item lang-tl" data-translate-to="tl" lang="en">Tagalog (Filipino)<span class="visuallyhidden"> Select this as your preferred language</span></a></li><li id="toolbar-language-option-ru-noscript"><a href="https://www.rentonwa.gov/City-Services/Permit-Services?oc_lang=ru" class="lang-item lang-ru" data-translate-to="ru" lang="en">Russian<span class="visuallyhidden"> Select this as your preferred language</span></a></li><li id="toolbar-language-option-uk-noscript"><a href="https://www.rentonwa.gov/City-Services/Permit-Services?oc_lang=uk" class="lang-item lang-uk" data-translate-to="uk" lang="en">Ukrainian<span class="visuallyhidden"> Select this as your preferred language</span></a></li><li id="toolbar-language-option-ko-noscript"><a href="https://www.rentonwa.gov/City-Services/Permit-Services?oc_lang=ko" class="lang-item lang-ko" data-translate-to="ko" lang="en">Korean<span class="visuallyhidden"> Select this as your preferred language</span></a></li><li id="toolbar-language-option-pa-noscript"><a href="https://www.rentonwa.gov/City-Services/Permit-Services?oc_lang=pa" class="lang-item lang-pa" data-translate-to="pa" lang="en">Punjabi<span class="visuallyhidden"> Select this as your preferred language</span></a></li><li id="toolbar-language-option-hi-noscript"><a href="https://www.rentonwa.gov/City-Services/Permit-Services?oc_lang=hi" class="lang-item lang-hi" data-translate-to="hi" lang="en">Hindi<span class="visuallyhidden"> Select this as your preferred language</span></a></li><li id="toolbar-language-option-so-noscript"><a href="https://www.rentonwa.gov/City-Services/Permit-Services?oc_lang=so" class="lang-item lang-so" data-translate-to="so" lang="en">Somali<span class="visuallyhidden"> Select this as your preferred language</span></a></li><li id="toolbar-language-option-ja-noscript"><a href="https://www.rentonwa.gov/City-Services/Permit-Services?oc_lang=ja" class="lang-item lang-ja" data-translate-to="ja" lang="en">Japanese<span class="visuallyhidden"> Select this as your preferred language</span></a></li><li id="toolbar-language-option-ar-noscript"><a href="https://www.rentonwa.gov/City-Services/Permit-Services?oc_lang=ar" class="lang-item lang-ar" data-translate-to="ar" lang="en">Arabic<span class="visuallyhidden"> Select this as your preferred language</span></a></li><li id="toolbar-language-option-id-noscript"><a href="https://www.rentonwa.gov/City-Services/Permit-Services?oc_lang=id" class="lang-item lang-id" data-translate-to="id" lang="en">Indonesian<span class="visuallyhidden"> Select this as your preferred language</span></a></li><li id="toolbar-language-option-fr-noscript"><a href="https://www.rentonwa.gov/City-Services/Permit-Services?oc_lang=fr" class="lang-item lang-fr" data-translate-to="fr" lang="en">French<span class="visuallyhidden"> Select this as your preferred language</span></a></li><li id="toolbar-language-option-it-noscript"><a href="https://www.rentonwa.gov/City-Services/Permit-Services?oc_lang=it" class="lang-item lang-it" data-translate-to="it" lang="en">Italian<span class="visuallyhidden"> Select this as your preferred language</span></a></li><li id="toolbar-language-option-ne-noscript"><a href="https://www.rentonwa.gov/City-Services/Permit-Services?oc_lang=ne" class="lang-item lang-ne" data-translate-to="ne" lang="en">Nepali<span class="visuallyhidden"> Select this as your preferred language</span></a></li><li id="toolbar-language-option-pt-noscript"><a href="https://www.rentonwa.gov/City-Services/Permit-Services?oc_lang=pt" class="lang-item lang-pt" data-translate-to="pt" lang="en">Portuguese<span class="visuallyhidden"> Select this as your preferred language</span></a></li>
+          </ul>
+		</div>
+	<button type="button" role="combobox" aria-controls="toolbar-language-drop-down" aria-expanded="false" aria-haspopup="listbox" aria-autocomplete="none" aria-labelledby="toolbar-language-label" class="toolbar-button toolbar-button-language js-element">  
+        <span class="toolbar-language-globe-icon" aria-hidden="true"></span>
+        <span id="toolbar-language-label" class="current-language">
+            Select a language to translate to
+		</span>
+		<i aria-hidden="true"></i>
+	</button>
+	<div id="toolbar-language-drop-down" role="listbox" aria-label="Available languages" class="toolbar-drop-down toolbar-language-drop-down js-element clearfix">
+		<ul role="group">
+		    <li role="presentation"><a id="toolbar-language-option-en-us" role="option" aria-selected="true" href="https://www.rentonwa.gov/City-Services/Permit-Services?oc_lang=en-US" class="lang-item lang-en-us" data-translate-to="en-us" lang="en-US">English<span class="visuallyhidden"> Select this as your preferred language</span></a></li><li role="presentation"><a id="toolbar-language-option-es" role="option" aria-selected="false" href="https://www.rentonwa.gov/City-Services/Permit-Services?oc_lang=es" class="lang-item lang-es" data-translate-to="es" lang="en">Spanish<span class="visuallyhidden"> Select this as your preferred language</span></a></li><li role="presentation"><a id="toolbar-language-option-zh-cn" role="option" aria-selected="false" href="https://www.rentonwa.gov/City-Services/Permit-Services?oc_lang=zh-CN" class="lang-item lang-zh-cn" data-translate-to="zh-cn" lang="en">Chinese (Simplified)<span class="visuallyhidden"> Select this as your preferred language</span></a></li><li role="presentation"><a id="toolbar-language-option-vi" role="option" aria-selected="false" href="https://www.rentonwa.gov/City-Services/Permit-Services?oc_lang=vi" class="lang-item lang-vi" data-translate-to="vi" lang="en">Vietnamese<span class="visuallyhidden"> Select this as your preferred language</span></a></li><li role="presentation"><a id="toolbar-language-option-tl" role="option" aria-selected="false" href="https://www.rentonwa.gov/City-Services/Permit-Services?oc_lang=tl" class="lang-item lang-tl" data-translate-to="tl" lang="en">Tagalog (Filipino)<span class="visuallyhidden"> Select this as your preferred language</span></a></li><li role="presentation"><a id="toolbar-language-option-ru" role="option" aria-selected="false" href="https://www.rentonwa.gov/City-Services/Permit-Services?oc_lang=ru" class="lang-item lang-ru" data-translate-to="ru" lang="en">Russian<span class="visuallyhidden"> Select this as your preferred language</span></a></li><li role="presentation"><a id="toolbar-language-option-uk" role="option" aria-selected="false" href="https://www.rentonwa.gov/City-Services/Permit-Services?oc_lang=uk" class="lang-item lang-uk" data-translate-to="uk" lang="en">Ukrainian<span class="visuallyhidden"> Select this as your preferred language</span></a></li><li role="presentation"><a id="toolbar-language-option-ko" role="option" aria-selected="false" href="https://www.rentonwa.gov/City-Services/Permit-Services?oc_lang=ko" class="lang-item lang-ko" data-translate-to="ko" lang="en">Korean<span class="visuallyhidden"> Select this as your preferred language</span></a></li><li role="presentation"><a id="toolbar-language-option-pa" role="option" aria-selected="false" href="https://www.rentonwa.gov/City-Services/Permit-Services?oc_lang=pa" class="lang-item lang-pa" data-translate-to="pa" lang="en">Punjabi<span class="visuallyhidden"> Select this as your preferred language</span></a></li><li role="presentation"><a id="toolbar-language-option-hi" role="option" aria-selected="false" href="https://www.rentonwa.gov/City-Services/Permit-Services?oc_lang=hi" class="lang-item lang-hi" data-translate-to="hi" lang="en">Hindi<span class="visuallyhidden"> Select this as your preferred language</span></a></li><li role="presentation"><a id="toolbar-language-option-so" role="option" aria-selected="false" href="https://www.rentonwa.gov/City-Services/Permit-Services?oc_lang=so" class="lang-item lang-so" data-translate-to="so" lang="en">Somali<span class="visuallyhidden"> Select this as your preferred language</span></a></li><li role="presentation"><a id="toolbar-language-option-ja" role="option" aria-selected="false" href="https://www.rentonwa.gov/City-Services/Permit-Services?oc_lang=ja" class="lang-item lang-ja" data-translate-to="ja" lang="en">Japanese<span class="visuallyhidden"> Select this as your preferred language</span></a></li><li role="presentation"><a id="toolbar-language-option-ar" role="option" aria-selected="false" href="https://www.rentonwa.gov/City-Services/Permit-Services?oc_lang=ar" class="lang-item lang-ar" data-translate-to="ar" lang="en">Arabic<span class="visuallyhidden"> Select this as your preferred language</span></a></li><li role="presentation"><a id="toolbar-language-option-id" role="option" aria-selected="false" href="https://www.rentonwa.gov/City-Services/Permit-Services?oc_lang=id" class="lang-item lang-id" data-translate-to="id" lang="en">Indonesian<span class="visuallyhidden"> Select this as your preferred language</span></a></li><li role="presentation"><a id="toolbar-language-option-fr" role="option" aria-selected="false" href="https://www.rentonwa.gov/City-Services/Permit-Services?oc_lang=fr" class="lang-item lang-fr" data-translate-to="fr" lang="en">French<span class="visuallyhidden"> Select this as your preferred language</span></a></li><li role="presentation"><a id="toolbar-language-option-it" role="option" aria-selected="false" href="https://www.rentonwa.gov/City-Services/Permit-Services?oc_lang=it" class="lang-item lang-it" data-translate-to="it" lang="en">Italian<span class="visuallyhidden"> Select this as your preferred language</span></a></li><li role="presentation"><a id="toolbar-language-option-ne" role="option" aria-selected="false" href="https://www.rentonwa.gov/City-Services/Permit-Services?oc_lang=ne" class="lang-item lang-ne" data-translate-to="ne" lang="en">Nepali<span class="visuallyhidden"> Select this as your preferred language</span></a></li><li role="presentation"><a id="toolbar-language-option-pt" role="option" aria-selected="false" href="https://www.rentonwa.gov/City-Services/Permit-Services?oc_lang=pt" class="lang-item lang-pt" data-translate-to="pt" lang="en">Portuguese<span class="visuallyhidden"> Select this as your preferred language</span></a></li>
+        </ul>
+	</div></div>
+  </div>
+</div>
+            <div class="header-outer-container">
+    <div class="header-container header-layout-4  clearfix">
+			<div class="header-site-logo">
+				<a href="https://www.rentonwa.gov/Home" lang="en-US" aria-label="City of Renton - Home - Logo">
+				</a>
+			</div>
+      
+		    <div class="mobile-search-btn js-element">
+		        <button><i aria-hidden="true"></i><span class="mobile-search-btn-text"><span class="visuallyhidden">Open </span>Search</span></button>
+		    </div>
+		    <div class="header-website-settings">
+                <button id="btn-mob-nav" type="button" aria-expanded="false" aria-controls="nav">
+                    <i aria-hidden="true"></i><span class="side-menu-btn-text">Menu</span>
+                </button>
+        	</div>
+          <div class="navigation-outer-container">
+	<div id="nav" role="navigation" class="navigation-container  navigation-container-option-8" data-menu-type="horizontal" aria-label="primary">
+        <div class="grid">
+            <div class="col-xs-12">              
+                <ul class="sf-menu mega-menu" id="sc-main-menu"><li class="nav-section-quarters-1   first-item nav-item-seq-1">
+<a href="https://www.rentonwa.gov/Government" class="nav-level-1 nav-has-children"  target="">
+	<i class="item-icon" aria-hidden="true"></i><span class="item-text">Government</span>
+</a>
+<button aria-label="Expand" aria-controls="sc-menu-second-level-nav-item-seq-1" aria-haspopup="true" class="mobnav-subarrow" ><i aria-hidden="true"></i></button>
+<ul id="sc-menu-second-level-nav-item-seq-1" class="second-level-container ch-6">
+
+          
+            <li class="second-level-item  "><a href="https://www.rentonwa.gov/Government/Mayor-Armondo-Pavone" class=""  target="_self">Mayor Armondo Pavone</a></li><li class="second-level-item  "><a href="https://www.rentonwa.gov/Government/City-Council" class="nav-has-children"  target="">City Council</a><button aria-label="Expand" aria-controls="sc-menu-third-level-nav-item-seq-1-nav-item-seq-2" class="mobnav-subarrow-child"><i aria-hidden="true"></i>
+              </button>
+<ul  id="sc-menu-third-level-nav-item-seq-1-nav-item-seq-2" class="third-level-container">
+          
+            <li  class="third-level-item  "><a href="https://www.rentonwa.gov/Government/City-Council/Council-explained"  target="">Renton City Council explained</a></li><li  class="third-level-item  "><a href="https://www.rentonwa.gov/Government/City-Council/Public-meeting-rules"  target="">Public meeting rules</a></li><li  class="third-level-item  "><a href="https://www.rentonwa.gov/Government/City-Council/Watch-council-meetings"  target="">Watch council meetings</a></li><li  class="third-level-item  "><a href="https://www.rentonwa.gov/Government/City-Council/City-council-agendas"  target="">City council agendas</a></li><li  class="third-level-item  "><a href="https://www.rentonwa.gov/Government/City-Council/Council-Committees"  target="">Council Committees</a></li></ul></li><li class="second-level-item  "><a href="https://www.rentonwa.gov/Government/Boards-Committees-Commissions" class="nav-has-children"  target="">Boards, Committees, and Commissions</a><button aria-label="Expand" aria-controls="sc-menu-third-level-nav-item-seq-1-nav-item-seq-3" class="mobnav-subarrow-child"><i aria-hidden="true"></i>
+              </button>
+<ul  id="sc-menu-third-level-nav-item-seq-1-nav-item-seq-3" class="third-level-container">
+          
+            <li  class="third-level-item  "><a href="https://www.rentonwa.gov/Government/Boards-Committees-Commissions/Boards-Committees-Commissions-Calendar"  target="">Boards Committees Commissions Calendar</a></li><li  class="third-level-item  "><a href="https://www.rentonwa.gov/Government/Boards-Committees-Commissions/BoardsCommissionsCommittees-Application"  target="">Boards/Commissions/Committees Application</a></li><li  class="third-level-item  "><a href="https://www.rentonwa.gov/Government/Boards-Committees-Commissions/MembersVacancies"  target="">Members/Vacancies</a></li></ul></li><li class="second-level-item  "><a href="https://www.rentonwa.gov/Government/Departments-and-Offices" class="nav-has-children"  target="">Departments and Offices</a><button aria-label="Expand" aria-controls="sc-menu-third-level-nav-item-seq-1-nav-item-seq-4" class="mobnav-subarrow-child"><i aria-hidden="true"></i>
+              </button>
+<ul  id="sc-menu-third-level-nav-item-seq-1-nav-item-seq-4" class="third-level-container">
+          
+            <li  class="third-level-item  "><a href="https://www.rentonwa.gov/Government/Departments-and-Offices/Community-and-Economic-Development"  target="">Community and Economic Development</a></li><li  class="third-level-item  "><a href="https://www.rentonwa.gov/Government/Departments-and-Offices/City-Attorney"  target="">City Attorney</a></li><li  class="third-level-item  "><a href="https://www.rentonwa.gov/Government/Departments-and-Offices/City-Clerk"  target="">City Clerk</a></li><li  class="third-level-item  "><a href="https://www.rentonwa.gov/Government/Departments-and-Offices/Executive-Services"  target="">Executive Services</a></li><li  class="third-level-item  "><a href="https://www.rentonwa.gov/Government/Departments-and-Offices/Finance"  target="">Finance</a></li><li  class="third-level-item  "><a href="https://www.rentonwa.gov/Government/Departments-and-Offices/Human-Resources-and-Risk-Management"  target="">Human Resources and Risk Management</a></li><li  class="third-level-item  "><a href="https://www.rentonwa.gov/Government/Departments-and-Offices/Municipal-Court"  target="_self">Municipal Court</a></li><li  class="third-level-item  "><a href="https://www.rentonwa.gov/Government/Departments-and-Offices/Parks-and-Recreation"  target="">Parks and Recreation</a></li><li  class="third-level-item  "><a href="https://www.rentonwa.gov/Government/Departments-and-Offices/Police"  target="">Police</a></li><li  class="third-level-item  "><a href="https://www.rentonwa.gov/Government/Departments-and-Offices/Public-Works"  target="">Public Works</a></li></ul></li><li class="second-level-item  "><a href="https://www.rentonwa.gov/Government/Newsroom" class="nav-has-children"  target="">Newsroom</a><button aria-label="Expand" aria-controls="sc-menu-third-level-nav-item-seq-1-nav-item-seq-5" class="mobnav-subarrow-child"><i aria-hidden="true"></i>
+              </button>
+<ul  id="sc-menu-third-level-nav-item-seq-1-nav-item-seq-5" class="third-level-container">
+          
+            <li  class="third-level-item  "><a href="https://www.rentonwa.gov/Government/Newsroom/ICYMI"  target="">In Case You Missed It: Council Meeting Recap</a></li><li  class="third-level-item  "><a href="https://www.rentonwa.gov/Government/Newsroom/Press-Releases"  target="">Press Releases</a></li><li  class="third-level-item  "><a href="https://www.rentonwa.gov/Government/Newsroom/This-Month-in-Renton"  target="">This Month in Renton</a></li><li  class="third-level-item  "><a href="https://www.rentonwa.gov/Government/Newsroom/Our-Renton"  target="">Our Renton</a></li><li  class="third-level-item  "><a href="https://www.rentonwa.gov/Government/Newsroom/City-Publications"  target="">City Publications</a></li><li  class="third-level-item  "><a href="https://www.rentonwa.gov/Government/Newsroom/Channel-21"  target="">Channel 21</a></li><li  class="third-level-item  "><a href="https://www.rentonwa.gov/Government/Newsroom/Mayor-in-a-Minute"  target="_self">Mayor in a Minute</a></li></ul></li><li class="second-level-item  "><a href="https://www.rentonwa.gov/Government/Career-Center" class="nav-has-children"  target="_self">Career Center</a><button aria-label="Expand" aria-controls="sc-menu-third-level-nav-item-seq-1-nav-item-seq-6" class="mobnav-subarrow-child"><i aria-hidden="true"></i>
+              </button>
+<ul  id="sc-menu-third-level-nav-item-seq-1-nav-item-seq-6" class="third-level-container">
+          
+            <li  class="third-level-item  "><a href="https://www.rentonwa.gov/Government/Career-Center/Benefits"  target="">Employee benefits</a></li><li  class="third-level-item  "><a href="https://www.rentonwa.gov/Government/Career-Center/Union-Contracts"  target="">Union Contracts</a></li></ul></li></ul></li>
+          
+            <li class="nav-section-quarters-2 nav-active-path  nav-item-seq-2">
+<a href="https://www.rentonwa.gov/City-Services" class="nav-level-1 nav-has-children"  target="">City Services</a>
+<button aria-label="Expand" aria-controls="sc-menu-second-level-nav-item-seq-2" aria-haspopup="true" class="mobnav-subarrow" ><i aria-hidden="true"></i></button>
+<ul id="sc-menu-second-level-nav-item-seq-2" class="second-level-container ch-13">
+
+          
+            <li class="second-level-item  "><a href="https://www.rentonwa.gov/City-Services/Animal-Control-and-Licenses" class=""  target="_self">Animal Control and Licenses</a></li><li class="second-level-item  "><a href="https://www.rentonwa.gov/City-Services/Code-Compliance" class=""  target="">Code Compliance</a></li><li class="second-level-item  "><a href="https://www.rentonwa.gov/City-Services/Emergency-Management" class="nav-has-children"  target="">Emergency Management</a><button aria-label="Expand" aria-controls="sc-menu-third-level-nav-item-seq-2-nav-item-seq-3" class="mobnav-subarrow-child"><i aria-hidden="true"></i>
+              </button>
+<ul  id="sc-menu-third-level-nav-item-seq-2-nav-item-seq-3" class="third-level-container">
+          
+            <li  class="third-level-item  "><a href="https://www.rentonwa.gov/City-Services/Emergency-Management/Emergency-Information-and-Alerts"  target="">Emergency Information and Alerts</a></li><li  class="third-level-item  "><a href="https://www.rentonwa.gov/City-Services/Emergency-Management/Preparedness-Education-and-Outreach"  target="">Preparedness Education and Outreach</a></li><li  class="third-level-item  "><a href="https://www.rentonwa.gov/City-Services/Emergency-Management/Emergency-Training-and-Exercises"  target="">Emergency Training and Exercises</a></li><li  class="third-level-item  "><a href="https://www.rentonwa.gov/City-Services/Emergency-Management/Disaster-Recovery"  target="">Disaster Recovery</a></li></ul></li><li class="second-level-item  "><a href="https://www.rentonwa.gov/City-Services/Fee-schedule" class=""  target="_blank">City of Renton Fee Schedule</a></li><li class="second-level-item  "><a href="https://www.rentonwa.gov/City-Services/Housing" class="nav-has-children"  target="">Housing</a><button aria-label="Expand" aria-controls="sc-menu-third-level-nav-item-seq-2-nav-item-seq-5" class="mobnav-subarrow-child"><i aria-hidden="true"></i>
+              </button>
+<ul  id="sc-menu-third-level-nav-item-seq-2-nav-item-seq-5" class="third-level-container">
+          
+            <li  class="third-level-item  "><a href="https://www.rentonwa.gov/City-Services/Housing/Housing-Incentives"  target="">Affordable Housing Incentives</a></li><li  class="third-level-item  "><a href="https://www.rentonwa.gov/City-Services/Housing/Housing-Repair-Assistance"  target="_self">Housing Repair Assistance</a></li><li  class="third-level-item  "><a href="https://www.rentonwa.gov/City-Services/Housing/Rental-Registration"  target="">Rental Registration Program</a></li><li  class="third-level-item  "><a href="https://www.rentonwa.gov/City-Services/Housing/Short-term-property-rentals"  target="">Short-term property rentals</a></li></ul></li><li class="second-level-item  "><a href="https://www.rentonwa.gov/City-Services/Municipal-Court" class="nav-has-children"  target="">Municipal Court</a><button aria-label="Expand" aria-controls="sc-menu-third-level-nav-item-seq-2-nav-item-seq-6" class="mobnav-subarrow-child"><i aria-hidden="true"></i>
+              </button>
+<ul  id="sc-menu-third-level-nav-item-seq-2-nav-item-seq-6" class="third-level-container">
+          
+            <li  class="third-level-item  "><a href="https://www.rentonwa.gov/City-Services/Municipal-Court/Find-My-Court-Date"  target="_blank">Find My Court Date</a></li><li  class="third-level-item  "><a href="https://www.rentonwa.gov/City-Services/Municipal-Court/Forms"  target="">Find a Form</a></li><li  class="third-level-item  "><a href="https://www.rentonwa.gov/City-Services/Municipal-Court/Request-a-Hearing"  target="_blank">Request a Hearing</a></li><li  class="third-level-item  "><a href="https://www.rentonwa.gov/City-Services/Municipal-Court/Payments"  target="">Pay a Court Fine</a></li></ul></li><li class="second-level-item nav-active-path nav-active-page"><a href="https://www.rentonwa.gov/City-Services/Permit-Services" class="nav-has-children"  target="">Permit Services</a><button aria-label="Expand" aria-controls="sc-menu-third-level-nav-item-seq-2-nav-item-seq-7" class="mobnav-subarrow-child"><i aria-hidden="true"></i>
+              </button>
+<ul  id="sc-menu-third-level-nav-item-seq-2-nav-item-seq-7" class="third-level-container">
+          
+            <li  class="third-level-item  "><a href="https://www.rentonwa.gov/City-Services/Permit-Services/Online-Permit-Portal"  target="_blank">Online Permit Portal</a></li><li  class="third-level-item  "><a href="https://www.rentonwa.gov/City-Services/Permit-Services/Online-Permit-Portal-Help"  target="">Online Permit Portal Help</a></li></ul></li><li class="second-level-item  "><a href="https://www.rentonwa.gov/City-Services/Public-Safety-Services" class="nav-has-children"  target="_self">Public Safety Services</a><button aria-label="Expand" aria-controls="sc-menu-third-level-nav-item-seq-2-nav-item-seq-8" class="mobnav-subarrow-child"><i aria-hidden="true"></i>
+              </button>
+<ul  id="sc-menu-third-level-nav-item-seq-2-nav-item-seq-8" class="third-level-container">
+          
+            <li  class="third-level-item  "><a href="https://www.rentonwa.gov/City-Services/Public-Safety-Services/Police-report"  target="_self">File a Police Report</a></li></ul></li><li class="second-level-item  "><a href="https://www.rentonwa.gov/City-Services/Records" class="nav-has-children"  target="_self">Records</a><button aria-label="Expand" aria-controls="sc-menu-third-level-nav-item-seq-2-nav-item-seq-9" class="mobnav-subarrow-child"><i aria-hidden="true"></i>
+              </button>
+<ul  id="sc-menu-third-level-nav-item-seq-2-nav-item-seq-9" class="third-level-container">
+          
+            <li  class="third-level-item  "><a href="https://www.rentonwa.gov/City-Services/Records/Public-Records-Request"  target="">Public Records Request</a></li><li  class="third-level-item  "><a href="https://www.rentonwa.gov/City-Services/Records/Digital-Records-Library"  target="">Digital Records Library</a></li><li  class="third-level-item  "><a href="https://www.rentonwa.gov/City-Services/Records/Renton-Municipal-Code"  target="_blank">Renton Municipal Code</a></li></ul></li><li class="second-level-item  "><a href="https://www.rentonwa.gov/City-Services/Sustainability-and-Solid-Waste" class=""  target="">Sustainability and Solid Waste Services</a></li><li class="second-level-item  "><a href="https://www.rentonwa.gov/City-Services/Tax-and-Licensing" class="nav-has-children"  target="">Tax and Licensing</a><button aria-label="Expand" aria-controls="sc-menu-third-level-nav-item-seq-2-nav-item-seq-11" class="mobnav-subarrow-child"><i aria-hidden="true"></i>
+              </button>
+<ul  id="sc-menu-third-level-nav-item-seq-2-nav-item-seq-11" class="third-level-container">
+          
+            <li  class="third-level-item  "><a href="https://www.rentonwa.gov/City-Services/Tax-and-Licensing/Business-Licenses"  target="">Business Licenses</a></li><li  class="third-level-item  "><a href="https://www.rentonwa.gov/City-Services/Tax-and-Licensing/Business-and-Occupation-Tax"  target="">Business and Occupation Tax</a></li><li  class="third-level-item  "><a href="https://www.rentonwa.gov/City-Services/Tax-and-Licensing/Other-Taxes"  target="">Other Taxes</a></li><li  class="third-level-item  "><a href="https://www.rentonwa.gov/City-Services/Tax-and-Licensing/Other-Licenses"  target="">Other Licenses</a></li><li  class="third-level-item  "><a href="https://www.rentonwa.gov/City-Services/Tax-and-Licensing/FAQs"  target="">Tax and Licensing FAQs</a></li></ul></li><li class="second-level-item  "><a href="https://www.rentonwa.gov/City-Services/Utilities" class="nav-has-children"  target="">Utilities</a><button aria-label="Expand" aria-controls="sc-menu-third-level-nav-item-seq-2-nav-item-seq-12" class="mobnav-subarrow-child"><i aria-hidden="true"></i>
+              </button>
+<ul  id="sc-menu-third-level-nav-item-seq-2-nav-item-seq-12" class="third-level-container">
+          
+            <li  class="third-level-item  "><a href="https://www.rentonwa.gov/City-Services/Utilities/Utility-Billing"  target="">Utility Billing</a></li></ul></li><li class="second-level-item  "><a href="https://www.rentonwa.gov/City-Services/Report-an-Issue" class=""  target="">Report an Issue</a></li></ul></li>
+          
+            <li class="nav-section-quarters-3   nav-item-seq-3">
+<a href="https://www.rentonwa.gov/Projects-Development" class="nav-level-1 nav-has-children"  target="">Projects & Development</a>
+<button aria-label="Expand" aria-controls="sc-menu-second-level-nav-item-seq-3" aria-haspopup="true" class="mobnav-subarrow" ><i aria-hidden="true"></i></button>
+<ul id="sc-menu-second-level-nav-item-seq-3" class="second-level-container ch-6">
+
+          
+            <li class="second-level-item  "><a href="https://www.rentonwa.gov/Projects-Development/Community-and-Economic-Development-Projects" class="nav-has-children"  target="">Community and Economic Development Projects</a><button aria-label="Expand" aria-controls="sc-menu-third-level-nav-item-seq-3-nav-item-seq-1" class="mobnav-subarrow-child"><i aria-hidden="true"></i>
+              </button>
+<ul  id="sc-menu-third-level-nav-item-seq-3-nav-item-seq-1" class="third-level-container">
+          
+            <li  class="third-level-item  "><a href="https://www.rentonwa.gov/Projects-Development/Community-and-Economic-Development-Projects/Projects-and-Programs"  target="">Projects and Programs</a></li><li  class="third-level-item  "><a href="https://www.rentonwa.gov/Projects-Development/Community-and-Economic-Development-Projects/Long-Term-Planning-and-Programming"  target="">Long Term Planning and Programming</a></li></ul></li><li class="second-level-item  "><a href="https://www.rentonwa.gov/Projects-Development/Parks-Projects" class="nav-has-children"  target="">Parks Projects</a><button aria-label="Expand" aria-controls="sc-menu-third-level-nav-item-seq-3-nav-item-seq-2" class="mobnav-subarrow-child"><i aria-hidden="true"></i>
+              </button>
+<ul  id="sc-menu-third-level-nav-item-seq-3-nav-item-seq-2" class="third-level-container">
+          
+            <li  class="third-level-item  "><a href="https://www.rentonwa.gov/Projects-Development/Parks-Projects/Parks-Projects-and-Plans"  target="">Parks Projects and Plans</a></li></ul></li><li class="second-level-item  "><a href="https://www.rentonwa.gov/Projects-Development/Public-Works-Projects" class="nav-has-children"  target="">Public Works Projects</a><button aria-label="Expand" aria-controls="sc-menu-third-level-nav-item-seq-3-nav-item-seq-3" class="mobnav-subarrow-child"><i aria-hidden="true"></i>
+              </button>
+<ul  id="sc-menu-third-level-nav-item-seq-3-nav-item-seq-3" class="third-level-container">
+          
+            <li  class="third-level-item  "><a href="https://www.rentonwa.gov/Projects-Development/Public-Works-Projects/Current-Projects-and-Programs"  target="">Current Projects and Programs</a></li><li  class="third-level-item  "><a href="https://www.rentonwa.gov/Projects-Development/Public-Works-Projects/Completed-Projects-and-Programs"  target="">Completed Projects and Programs</a></li><li  class="third-level-item  "><a href="https://www.rentonwa.gov/Projects-Development/Public-Works-Projects/Transportation-Planning-Programming-and-Traffic-Operations"  target="">Transportation Planning, Programming, and Traffic Operations</a></li><li  class="third-level-item  "><a href="https://www.rentonwa.gov/Projects-Development/Public-Works-Projects/Regional-Transportation-Projects"  target="">Regional Transportation Projects</a></li></ul></li><li class="second-level-item  "><a href="https://www.rentonwa.gov/Projects-Development/Bids-Proposals-Qualifications-and-Other-Procurement-Solicitations" class=""  target="">Bids, Proposals, Qualifications & Other Procurement Solicitations</a></li><li class="second-level-item  "><a href="https://www.rentonwa.gov/Projects-Development/Maps-and-GIS-Data" class=""  target="">Maps and GIS Data</a></li><li class="second-level-item  "><a href="https://www.rentonwa.gov/Projects-Development/Traffic-Alerts" class=""  target="">Traffic Alerts</a></li></ul></li>
+          
+            <li class="nav-section-quarters-4   nav-item-seq-4">
+<a href="https://www.rentonwa.gov/Activities-Events" class="nav-level-1 nav-has-children"  target="">Activities & Events</a>
+<button aria-label="Expand" aria-controls="sc-menu-second-level-nav-item-seq-4" aria-haspopup="true" class="mobnav-subarrow" ><i aria-hidden="true"></i></button>
+<ul id="sc-menu-second-level-nav-item-seq-4" class="second-level-container ch-6">
+
+          
+            <li class="second-level-item  "><a href="https://www.rentonwa.gov/Activities-Events/Activities" class="nav-has-children"  target="">Activities</a><button aria-label="Expand" aria-controls="sc-menu-third-level-nav-item-seq-4-nav-item-seq-1" class="mobnav-subarrow-child"><i aria-hidden="true"></i>
+              </button>
+<ul  id="sc-menu-third-level-nav-item-seq-4-nav-item-seq-1" class="third-level-container">
+          
+            <li  class="third-level-item  "><a href="https://www.rentonwa.gov/Activities-Events/Activities/Recreation-Guide"  target="">Recreation Guide</a></li><li  class="third-level-item  "><a href="https://www.rentonwa.gov/Activities-Events/Activities/Adaptive-Recreation"  target="">Adaptive Recreation</a></li><li  class="third-level-item  "><a href="https://www.rentonwa.gov/Activities-Events/Activities/Arts-and-Culture"  target="">Arts and Culture</a></li><li  class="third-level-item  "><a href="https://www.rentonwa.gov/Activities-Events/Activities/Youth-and-Family-Programs"  target="">Youth and Family Programs</a></li></ul></li><li class="second-level-item  "><a href="https://www.rentonwa.gov/Activities-Events/Events" class=""  target="_self">Events</a></li><li class="second-level-item  "><a href="https://www.rentonwa.gov/Activities-Events/Maplewood-Golf-Course" class=""  target="">Maplewood Golf Course</a></li><li class="second-level-item  "><a href="https://www.rentonwa.gov/Activities-Events/Park-and-Facility-Rentals-and-Reservations" class=""  target="">Park and Facility Rentals and Reservations</a></li><li class="second-level-item  "><a href="https://www.rentonwa.gov/Activities-Events/Volunteer-Opportunities" class=""  target="">Volunteer Opportunities</a></li><li class="second-level-item  "><a href="https://www.rentonwa.gov/Activities-Events/Museum" class=""  target="">Renton History Museum</a></li></ul></li>
+          
+            </ul>
+            </div>
+        </div>
+    </div>
+</div>
+			
+			<div class="header-search-control-container" id="header-search">
+				<div class="search-inner-container">
+					<div class="sc-search-panel">
+	<label for="ctl08_txtSearch" id="ctl08_lblSearch" class="sc-search-label">Search</label><input name="ctl08$txtSearch" type="text" id="ctl08_txtSearch" class="sc-search-text" placeholder="What are you looking for?" /><input type="submit" name="ctl08$btnSearch" value="Search" id="ctl08_btnSearch" class="sc-search-button" />
+</div>
+					<div role="status" id="predictiveResults"></div>
+				</div>
+			</div>
+    </div>
+</div>
+
+            
+            </header>
+            <div class="content-outer-container">
+                <div id="main" role="main" class="main-outer-container clearfix">
+                        
+                        <div class="content-main-container">
+                            <div class="grid">
+					            <div class="col-xs-12">
+						            <nav id="breadcrumbs-container" aria-label="You Are Here :">
+							            <span role="list">
+<span role="listitem">
+	<a href="https://www.rentonwa.gov/Home"  lang="en-US">Home</a>
+	<span class="nav-separator" aria-hidden="true" role="presentation">/</span>
+</span>
+          <span role="listitem"><a href="https://www.rentonwa.gov/City-Services" >City Services</a><span class='nav-separator' aria-hidden="true" role="presentation">/</span></span><span class="current-page" role="listitem" aria-current="page" >Permit Services</span></span>
+						            </nav>
+					            </div>
+                      
+					            <div class="col-xs-12">
+						            <div class="main-inner-container">
+							            <div id="main-content" class="main-container clearfix">
+							              
+                            <!-- OC Layout Element Conent Template -->
+							              <!--normalTemplateStart--><div class="grid">
+    <div class="col-xs-12 col-m-8">
+        <h1 class='oc-page-title '>Permit Services</h1>
+        
+      
+        <p><strong><span class="emphasis-box-2">As of 10/5/26 at 11:35, our Permit Portal is now accepting permit applications and scheduling inspections. Thank you for your patience.&nbsp;</span></strong></p>
+<p>Whether you are building a structure, developing a site, working on utilities, or exploring land use options, we have the resources to guide you through every step of the process. Browse below for step-by-step instructions and supporting information to help you with your project!</p>
+<div data-type="0" data-title-level="2" class="oc-wysiwyg-container">
+<div class="oc-wysiwyg-container-panel">
+<h2>Do I need a permit?</h2>
+<div class="oc-wysiwyg-container-panel-content">
+<div ltr="" scxw215983234="">
+<h3><strong style="">Building Permits</strong></h3>
+<p>A permit is required if you plan to: construct, enlarge, alter, repair, move, demolish, convert, replace, install, or change the occupancy of a building structure, or electric, gas, mechanical or plumbing system, and is regulated by the Construction Codes and the Construction Administrative Code.</p>
+<ul>
+<li><strong>Sheds</strong>: Sheds under 200 square feet do not require a building permit. See the <a href="https://edocs.rentonwa.gov/Documents/DocView.aspx?id=10600004&amp;dbid=0&amp;repo=CityofRenton" target="_blank">Shed Handout</a> for more information on other requirements.</li>
+<li><strong>Deck</strong>: A building permit is required if the deck is more than 30 inches above grade including a 5 foot perimeter around the deck.</li>
+<li><strong>Retaining Walls:</strong>&nbsp;A building permit is required if a retaining wall is 4 feet or taller measured from the bottom of the footing to the top of the wall, unless there is a slope above the wall. See the <a href="https://edocs.rentonwa.gov/Documents/DocView.aspx?id=10588754" target="_blank">Retaining Wall Handout</a> for more information.</li>
+</ul>
+<hr />
+<h3><strong style="">Tree Permits</strong></h3>
+<p>A Routine Vegetation Management Permit is required for:</p>
+<ul>
+<li>The removal of landmark trees.</li>
+<li>The removal of more than two (2) significant trees within a calendar year.</li>
+<li>Removing/Trimming trees, mowing/cutting of ground cover, or any vegetation management on a vacant property.</li>
+</ul>
+<p>Refer to the <a href="https://edocs.rentonwa.gov/Documents/DocView.aspx?id=10126691" target="_blank">Tree Cutting and Land Clearing Handout</a> for more details, or visit our <a href="https://www.rentonwa.gov/City-Services/Permit-Center/Land-Use-Development/Tree-Removal-Routine-Vegetation-Management-Permit-RVMP" target="_blank">Tree Removal&nbsp;page</a> for step-by-step instructions.</p>
+<hr />
+<h3><strong style="">Site Work, Utility, and Right-of-Way Permits</strong></h3>
+<ul>
+<li><strong>Civil Construction Permit</strong> (including clearing and grading)&nbsp;is required for&nbsp;<strong>site work</strong>&nbsp;involving more than 50 cubic yards of grading, more than 500 square feet of area cleared or disturbed, more than 500 square feet of new or replaced hard surface, or if the work includes utility main extensions or occurs within the right-of-way.</li>
+<li><strong>Utility Permits</strong> are required prior to connecting or disconnecting a property to or from the public or private utility (storm, sewer, and water) systems, alterations, repairs, or expansions to existing utility systems.&nbsp;</li>
+<li>A <strong>Right-of-Way Permi</strong>t is required for any activity or private use of the public right of way, including but not limited to: construction, excavation, sidewalk cafes, street eateries, other similar activities or uses.</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="oc-wysiwyg-container-panel">
+<h2>Do I need a pre-application meeting?</h2>
+<div class="oc-wysiwyg-container-panel-content">
+<p>Pre-application meetings are only required for the following permit types:</p>
+<ul>
+<li>Critical Areas Permit [including Residential Development and Accessory Dwelling Units (ADU)]</li>
+<li>Changing the Use of a Building or Property [4000 sq ft or more]</li>
+<li>Conditional Use Permit [Administrative and Hearing Examiner]</li>
+<li>Commercial or Industrial Building Addition</li>
+<li>Environmental Review&nbsp;</li>
+<li>Grade and Fill Permit</li>
+<li>Home Occupation Permit</li>
+<li>Land Division [Short Plat or Preliminary Plat, Binding Site Plan]</li>
+<li>Master Site Plan [Overall and Individual Phases]</li>
+<li>New Multifamily, Commercial, or Industrial Development</li>
+<li>Planning Urban Development [PUD]</li>
+<li>Preliminary Mobile Home Park</li>
+<li>Rezones</li>
+<li>Shoreline Permits</li>
+<li>Site Plan</li>
+<li>Small Cell Permit [aka Conditional Use Permit for Wireless Facilities]</li>
+<li>Special Fence</li>
+<li>Temporary Use Permit (Tier II)</li>
+<li>Variances</li>
+</ul>
+<p><strong><strong>Not sure if your project requires a pre-application meeting?<br /></strong></strong>Please email&nbsp;<a href="mailto:planningcustomerservice@rentonwa.gov" title="planningcustomerservice@rentonwa.go">planningcustomerservice@rentonwa.gov</a>&nbsp;or call&nbsp;<a href="tel:4254307294">425-430-7294</a>&nbsp;to discuss your proposal with a planner.</p>
+<table border="0" cellpadding="0" cellspacing="0" class="" style="width: 90%;">
+<tbody>
+<tr height="20">
+<td height="20" width="175" style="width: 32%; height: 51px;" class=""><a href="https://www.rentonwa.gov/City-Services/Permit-Center/Land-Use-Development/Pre-Application-Meeting" target="_blank" title="Apply for Pre-Application Meeting Here?" class="styled-button">Step-by-Step Guidance</a></td>
+<td style="width: 6%;" class=""></td>
+<td width="91" class="" style="width: 15%;"><a href="https://permitting.rentonwa.gov/#/applicationAssistant?sectionName=All&amp;moduleId=3&amp;categoryName=All&amp;showTemplates=false" target="_blank" class="styled-button">Ready to Apply</a></td>
+<td width="64" style="width: 6%;" class="">&nbsp;</td>
+<td width="137" class="" style="width: 100%;"><a href="https://edocs.rentonwa.gov/Documents/DocView.aspx?id=11472325&amp;dbid=0&amp;repo=CityofRenton" target="_blank" re_target="blank" class="styled-button">How to Register</a></td>
+</tr>
+<tr height="20">
+<td height="20" width="175" style="width: 32%; height: 15px;" class="" colspan="5">&nbsp;</td>
+</tr>
+<tr height="20">
+<td height="20" width="175" style="width: 32%; height: 15px;" class="" colspan="2">&nbsp;</td>
+<td height="20" width="175" style="width: 25%; height: 15px;" class="">&nbsp;</td>
+<td height="20" width="175" style="width: 32%; height: 15px;" class="" colspan="2">&nbsp;</td>
+</tr>
+<tr>
+<td height="20" width="175" style="width: 47%; height: 25px; background-color: rgb(0,74,143); color: white;" class="" colspan="4">
+<h6 class="" style="text-align: left;">&nbsp; &nbsp;&nbsp;<a href="https://edocs.rentonwa.gov/Documents/DocView.aspx?id=8464202&amp;dbid=0&amp;repo=CityofRenton" style="font-family: inherit; font-size: 1.125em; color: white;" target="_blank">Pre-Application Submittal Requirements</a></h6>
+</td>
+<td height="20" width="175" style="width: 32%; height: 60px; color: white;" class="">&nbsp;</td>
+</tr>
+</tbody>
+</table>
+<table class="" style="width: 100%;"></table>
+</div>
+</div>
+</div>
+<hr />
+<h2>Online Permits &amp; Requests</h2>
+<p>The following are permits and requests that are available online.&nbsp;</p>
+<div data-layout="3" data-title-level="2" class="featured-links featured-links-option-3">
+<div class="featured-links-body clearfix">
+<ul class="clearfix">
+<li><a class="featured-link" href="https://permitting.rentonwa.gov" target="_blank">Online Self-Service Portal</a></li>
+<li><a class="featured-link" href="https://www.rentonwa.gov/City-Services/Permit-Services/Online-Permit-Portal-Help" target="_blank">Online Portal HELP!</a></li>
+</ul>
+</div>
+</div>
+<table cellpadding="3">
+<tbody>
+<tr>
+<td>
+<ul>
+<li><a href="https://permitting.rentonwa.gov/#/applicationAssistant?sectionName=All&amp;showTemplates=false" target="_blank">Electrical / Mechanical / Plumbing</a></li>
+<li><a href="https://permitting.rentonwa.gov/#/applicationAssistant?sectionName=All&amp;showTemplates=false" target="_blank">Re-roof Permit</a></li>
+<li><a href="https://permitting.rentonwa.gov/#/applicationAssistant?sectionName=All&amp;showTemplates=false" target="_blank">Hydrant Meter Rental</a></li>
+<li><a href="https://www.rentonwa.gov/City-Services/Permit-Center/Land-Use-Development/Pre-Application-Meeting" target="_blank">Pre-Application Meeting</a></li>
+<li><a href="https://www.rentonwa.gov/City-Services/Permit-Services/Land-Use-Development/Permit-Ready-Accessory-Dwelling-Units-PRADUs" target="_blank">Permit Ready ADU (PRADU)</a></li>
+<li><a href="https://permitting.rentonwa.gov/#/permit/apply/159/0/0" target="_blank">Residential Photovoltaic (Solar Panels</a>)</li>
+</ul>
+</td>
+<td>
+<ul>
+<li><a href="https://permitting.rentonwa.gov/#/applicationAssistant?sectionName=All&amp;showTemplates=false" target="_blank">Right-of-Way Permit</a></li>
+<li><a href="https://permitting.rentonwa.gov/#/applicationAssistant?sectionName=All&amp;showTemplates=false" target="_blank">Stormwater Permit</a></li>
+<li><a href="https://forms.rentonwa.gov/Forms/WaterSewerAvailability" target="_blank">Sewer Availability Request</a></li>
+<li><a href="https://forms.rentonwa.gov/Forms/WaterSewerAvailability" target="_blank">Water Availability Request</a></li>
+<li><a href="https://permitting.rentonwa.gov/#/applicationAssistant?sectionName=All&amp;showTemplates=false" target="_blank">Zoning Compliance Letter</a></li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2><a href="https://www.rentonwa.gov/City-Services/Permit-Services/Building-Fire-and-Signs" target="_blank">Building, Fire, and Sign Permits</a></h2>
+<p><span style="font-size: 100%;">This section covers building-related processes and permits.&nbsp;</span></p>
+<p><span style="font-size: 100%;">Please refer to the&nbsp;<a href="https://www.rentonwa.gov/City-Services/Permit-Services/Building-Fire-and-Signs/Building-Permits-FAQ" target="_blank">Building Permits FAQ</a>&nbsp;page for further details.</span></p>
+<table>
+<tbody>
+<tr>
+<td><strong>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;Residential</strong><br />
+<ul>
+<li><a href="https://www.rentonwa.gov/City-Services/Permit-Center/Residential-Interior-Remodels?transfer=33235ef3-2137-4c12-8eab-310906f2a958" target="_blank" title="Residential Interior Remodel">Interior Remodel</a></li>
+<li><a href="https://www.rentonwa.gov/City-Services/Permit-Services/Building-Fire-and-Signs/Residential-NewAddition" target="_blank" title="Residential New or Addition">New/Addition</a></li>
+<li><a href="https://www.rentonwa.gov/City-Services/Permit-Center/Retaining-Walls" target="_blank" title="Residential Retaining Wall">Retaining Wall</a></li>
+<li><a href="https://www.rentonwa.gov/City-Services/Permit-Center/Demolition-Permit" target="_blank" title="Residential Demolition">Demolition</a></li>
+<li><a href="https://edocs.rentonwa.gov/Documents/DocView.aspx?id=10590322" target="_blank" title="Residential Fence Information">Fence Permit</a></li>
+<li><a href="https://www.rentonwa.gov/City-Services/Permit-Center/Fire-Alarm-Permit" target="_blank" title="Residential Fire Alarm">Fire Alarm</a></li>
+<li><a href="https://www.rentonwa.gov/City-Services/Permit-Center/Fire-Sprinkler-Permit" target="_blank" title="Residential Fire Sprinkler">Fire Sprinkler</a></li>
+<li><a href="https://edocs.rentonwa.gov/Documents/DocView.aspx?id=10600004" target="_blank" title="Can I build a shed or garage in my backyard informational handout">Sheds/Garages</a></li>
+<li><a href="https://edocs.rentonwa.gov/Documents/DocView.aspx?id=8462185" target="_blank" title="Submittal Requirements for Mobile and Manufactured Homes">Mobile/Manufactured Homes&nbsp;</a> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</li>
+</ul>
+</td>
+<td><strong>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;Commercial</strong><br />
+<ul>
+<li><a href="https://www.rentonwa.gov/City-Services/Permit-Services/Building-Fire-and-Signs/Commercial-Interior-Remodels" target="_blank" title="Commercial Interior Remodel or Tenant Improvement">Interior Remodel</a></li>
+<li><a href="https://www.rentonwa.gov/City-Services/Permit-Services/Building-Fire-and-Signs/Commercial-NewAddition" target="_blank" title="Commercial New or Addition">New/Addition</a></li>
+<li><a href="https://www.rentonwa.gov/City-Services/Permit-Services/Building-Fire-and-Signs/Retaining-Walls" target="_blank" title="Commercial Retaining Wall">Retaining Wall</a></li>
+<li><a href="https://www.rentonwa.gov/City-Services/Permit-Services/Building-Fire-and-Signs/Demolition-Permit" target="_blank" title="Commercial Demolition">Demolition</a></li>
+<li><a href="https://www.rentonwa.gov/City-Services/Permit-Services/Building-Fire-and-Signs/Sign-Permit-Permanent" target="_blank" title="Commercial Permanent Sign">Sign (Permanently)</a></li>
+<li><a href="https://www.rentonwa.gov/City-Services/Permit-Services/Building-Fire-and-Signs/Sign-Permit-Temporary" target="_blank" title="Commercial Sign Temporary">Sign (Temporary)</a></li>
+<li><a href="https://www.rentonwa.gov/City-Services/Permit-Services/Building-Fire-and-Signs/Fire-Alarm-Permit" target="_blank" title="Commercial Fire Alarm">Fire Alarm</a></li>
+<li><a href="https://www.rentonwa.gov/City-Services/Permit-Services/Building-Fire-and-Signs/Fire-Sprinkler-Permit" target="_blank" title="Commercial Fire Sprinkler or Suppression">Fire Sprinkler</a></li>
+<li><a href="https://rentonrfa.com/permits/#com-con-perm" target="_blank" title="Commercial Other Fire">Fire (Other)</a></li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<table align="left" cellspacing="1" cellpadding="1" class="" style="width: 100%;"></table>
+<table align="left" cellspacing="1" cellpadding="1" class="" style="width: 100%;"></table>
+<table cellpadding="3" class="" style="width: 100%;"></table>
+<hr />
+<h2><a href="https://www.rentonwa.gov/City-Services/Permit-Center/Land-Use-Development" target="_blank">Land Use Development</a></h2>
+<p>This section includes permits and processes that involve management and modification of the natural and built environment.</p>
+<p><strong>Available to Apply Online</strong></p>
+<ul>
+<li><a href="https://www.rentonwa.gov/City-Services/Permit-Services/Land-Use-Development/Permit-Ready-Accessory-Dwelling-Units-PRADUs" target="_blank">Permit Ready ADU (PRADU) Meeting</a></li>
+<li><a href="https://www.rentonwa.gov/City-Services/Permit-Center/Land-Use-Development/Pre-Application-Meeting" target="_blank">Pre-Application Meeting</a></li>
+<li><a target="_blank" href="https://permitting.rentonwa.gov/#/applicationAssistant?sectionName=All&amp;moduleId=3&amp;categoryName=All&amp;showTemplates=false">Zoning Compliance Letter</a></li>
+</ul>
+<p><strong>All Other Permits</strong></p>
+<table cellpadding="0">
+<tbody>
+<tr>
+<td>
+<ul>
+<li><a href="https://www.rentonwa.gov/City-Services/Permit-Services/Land-Use-Development/Divide-Property" target="_blank">Divide Property</a></li>
+<li><a href="https://www.rentonwa.gov/City-Services/Permit-Services/Land-Use-Development/Environmental-Action" target="_blank">Environmental Action</a></li>
+<li><a href="https://edocs.rentonwa.gov/Documents/DocView.aspx?id=8462006&amp;dbid=0&amp;repo=CityofRenton" target="_blank">Grade and Fill Permit</a></li>
+<li><a href="https://edocs.rentonwa.gov/Documents/DocView.aspx?id=8464248&amp;dbid=0&amp;repo=CityofRenton" target="_blank">Fence Permit</a>&nbsp;(Special)</li>
+</ul>
+</td>
+<td>
+<ul>
+<li><a href="https://www.rentonwa.gov/City-Services/Permit-Services/Land-Use-Development/New-Site-Development" target="_blank">New Site Development</a></li>
+<li><a href="https://edocs.rentonwa.gov/Documents/DocView.aspx?id=11493837&amp;dbid=0&amp;repo=CityofRenton" target="_blank" style="font-size: 1em;">Noise Variance</a></li>
+<li><a href="https://www.rentonwa.gov/City-Services/Permit-Center/Land-Use-Development/Tree-Removal-Routine-Vegetation-Management-Permit-RVMP" target="_blank">Tree Removal</a></li>
+<li><a href="https://edocs.rentonwa.gov/Documents/Browse.aspx?id=11484305&amp;dbid=0&amp;repo=CityofRenton" target="_blank">Additional Permits</a></li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2>Site Work, Utility, &amp; Right-of-Way Permits</h2>
+<p>This section covers civil-related processes and permits.</p>
+<p><strong>Available to Apply Online</strong><br />
+Hydrant Meter Rental, Stormwater, and Right-of-Way Permits are available on our&nbsp;<a href="https://permitting.rentonwa.gov/#/home" target="_blank" title="https://permitting.rentonwa.gov/#/home">online permit portal.</a></p>
+<p>Water and Sewer Availability Certificate can be requested by completing our <a href="https://forms.rentonwa.gov/Forms/WaterSewerAvailability" target="_blank">online request form</a>.</p>
+<table cellpadding="3" class="" style="width: 100%;">
+<tbody>
+<tr>
+<td class="" style="width: 75%;">
+<p><strong>All Other Permits:</strong></p>
+<ul>
+<li><a href="https://www.rentonwa.gov/City-Services/Permit-Services/Site-Work-Right-of-Way-and-Utilities/Civil-Construction-Permit" target="_blank">Civil Construction Permit (Site Work)</a></li>
+<li><a href="https://www.rentonwa.gov/City-Services/Permit-Services/Site-Work-Right-of-Way-and-Utilities/Utility-Permits" target="_blank">Utility Permit</a></li>
+<li><a href="https://www.rentonwa.gov/City-Services/Permit-Services/Site-Work-Right-of-Way-and-Utilities/Right-of-Way-Permit" target="_blank">Right-of-Way Permit</a></li>
+<li><a href="https://www.rentonwa.gov/City-Services/Permit-Services/Site-Work-Right-of-Way-and-Utilities/Traffic-Control-Plan" target="_blank">Traffic Control Plan</a></li>
+</ul>
+</td>
+<td>&nbsp;</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<div data-type="0" data-title-level="2" class="oc-wysiwyg-container">
+<div class="oc-wysiwyg-container-panel">
+<h2>Scheduling an Inspection Guidance</h2>
+<div class="oc-wysiwyg-container-panel-content">
+<div data-layout="2" data-title-level="2" class="featured-links featured-links-option-2">
+<div class="featured-links-body clearfix">
+<ul class="clearfix">
+<li><a class="featured-link" href="https://permitting.rentonwa.gov/#/search" target="_blank">Schedule Inspection Online</a></li>
+</ul>
+</div>
+</div>
+<p><strong>By Telephone:</strong></p>
+<p>- For permits that start with <strong>M, E, P, or B</strong> call: <a href="tel:4254307202" target="_blank">425-430-7202</a></p>
+<p>- For permits that start with <strong>SS, SW, C, MFP or U</strong> call: <a href="tel:4254307203" target="_blank">425-430-7203</a></p>
+<p>- For permits that start with <strong>F</strong> call:&nbsp;<a href="tel:4252769580" target="_blank">425-276-9580</a></p>
+<p>Inspections may be scheduled as late as 11:59 p.m. on the day prior to the requested inspection. This benefit prevents us from offering time windows in advance. On the day of your inspection, visit the&nbsp;<a href="https://permitting.rentonwa.gov/#/inspection/todaysinspections" target="_blank" title="Today's Inspections Online Permit Portal">Online Permit Portal</a>&nbsp;and select "Today's Inspections". You may use your inspector's contact information to coordinate a time window. For additional preparation guidance, view our helpful handout, "<a title="Explains steps to prepare for a successful inspection for beginners and experts" href="/files/assets/city/v/1/ced/development-services/documents/what-to-expect-from-your-inspection-01-24-25.pdf" target="_blank" class="document ext-pdf"><i aria-hidden="true"></i>What to Expect from your Inspection<span class="file-info">(PDF,&nbsp;957KB)</span></a>".</p>
+</div>
+</div>
+</div>
+<div data-layout="4" data-title-level="2" class="featured-links featured-links-option-4">
+<div class="featured-links-body clearfix">
+<ul class="clearfix">
+<li><a class="featured-link" href="https://permitting.rentonwa.gov/#/home" target="_blank">Online Permit Portal (CASSP)</a></li>
+<li><a class="featured-link" href="https://permitting.rentonwa.gov/#/home" target="_blank">Schedule an Inspection Online</a></li>
+<li><a class="featured-link" href="https://permitting.rentonwa.gov/#/payinvoice" target="_blank">Pay Invoice</a></li>
+<li><a class="featured-link" href="https://edocs.rentonwa.gov/Documents/Browse.aspx?id=8217302" target="_blank">Renton Fee Schedule</a></li>
+<li><a class="featured-link" href="https://www.rentonwa.gov/City-Services/Tax-and-Licensing/Business-Licenses" target="_blank">Apply for Business Licenses</a></li>
+<li><a class="featured-link" href="https://www.rentonwa.gov/City-Services/Records/Digital-Records-Library" target="_blank">Search Public Records</a></li>
+</ul>
+</div>
+</div>
+
+
+      
+        
+    </div>
+    
+        <div class="col-xs-12 col-m-4">
+            <div class="side-box consultation-snapshot">
+		
+			<h2 class="side-box-title">
+				Contact Us
+			</h2>
+		
+		
+		<div class="side-box-content">
+			<div class="side-box-section body-content">
+				<div data-layout="2" data-title-level="2" class="featured-links featured-links-option-2">
+<div class="featured-links-body clearfix">
+<ul class="clearfix">
+<li><a class="featured-link" href="https://outlook.office365.com/book/PermitCenter@rentonwa.gov/s/MxmyvMk6IUaX3RK4TwQSJg2" target="_blank">Schedule Virtual Meeting</a></li>
+</ul>
+</div>
+</div>
+<h4><strong>Reception</strong></h4>
+<p><a href="tel:4254307200" target="_blank">425-430-7200</a></p>
+<h4><strong>Building Permits</strong></h4>
+<p>Phone:&nbsp;<a href="tel:4254307215" target="_blank">425-430-7215</a><strong><a href="tel:4254307215" target="_blank" style="color: blue;"></a><br /></strong>Email:<strong>&nbsp;<a href="mailto:permittech@rentonwa.gov" title="permittech@rentonwa.gov" target="_blank" style="color: blue;"></a></strong><a href="mailto:permittech@rentonwa.gov" title="permittech@rentonwa.gov" target="_blank"><span style="text-decoration: underline;">Building Customer Service</span></a></p>
+<h4><strong>Planning &amp; Land Use</strong></h4>
+<p>Phone:&nbsp;<a href="tel:4254307294" target="_blank">425-430-7294</a><br />
+Email:&nbsp;<a href="mailto:planningcustomerservice@rentonwa.gov" title="planningcustomerservice@rentonwa.gov" target="_blank"><span style="text-decoration: underline;">Planning Customer Service</span></a></p>
+<h4><strong>Site Work, Utility, R.O.W.</strong></h4>
+<p>Phone:&nbsp;<a href="tel:4254307240" target="_blank">425-430-7240</a><strong><br /></strong>Email:&nbsp;<a href="mailto:developmentengineering@rentonwa.gov" title="developmentengineering@rentonwa.gov" target="_blank"><span style="text-decoration: underline;">Development Engineering</span></a></p>
+
+
+			</div>
+		</div>
+		
+	</div><div class="side-box consultation-snapshot">
+		
+			<h2 class="side-box-title">
+				Hours & Location
+			</h2>
+		
+		
+		<div class="side-box-content">
+			<div class="side-box-section body-content">
+				<h4><strong>Phone &amp; Email</strong></h4>
+<p>Monday - Friday<br />
+8 a.m. - 4 p.m.</p>
+<h4><strong>Virtual</strong></h4>
+<p>Monday - Friday<br />
+by Appointment</p>
+<h4><strong>In-Person</strong></h4>
+<p>Monday, Wednesday, Thursday<br />
+9 a.m. - 11:30 a.m.<br />
+1 p.m. - 4 p.m.</p>
+<h4>Renton City Hall&nbsp;</h4>
+<p>1st Floor Customer Service<br />
+1055 South Grady Way<br />
+Renton, WA 98057</p>
+
+
+			</div>
+		</div>
+		
+	</div><div class="side-box consultation-snapshot">
+		
+			<h2 class="side-box-title">
+				Resources
+			</h2>
+		
+		
+		<div class="side-box-content">
+			<div class="side-box-section body-content">
+				<p><a href="https://edocs.rentonwa.gov/Documents/Browse.aspx?id=8461808" target="_blank"><span style="text-decoration: underline;">Forms / Applications</span></a></p>
+<p><span style="text-decoration: underline;"><a href="https://edocs.rentonwa.gov/Documents/Browse.aspx?id=8461809" target="_blank">Informational Handouts</a></span></p>
+<p><span style="text-decoration: underline;"><a href="https://www.codepublishing.com/WA/Renton/" target="_blank">Renton Municipal Code (RMC)</a></span></p>
+<p><a href="https://maps.rentonwa.gov/Html5viewer/Index.html?viewer=CORmaps" target="_blank"><span style="text-decoration: underline;">GIS - City of Renton (COR)Maps</span></a></p>
+
+
+			</div>
+		</div>
+		
+	</div>
+            
+        </div>
+    
+    
+</div><!--normalTemplateEnd-->
+                            
+                            
+                            
+							            </div>
+						            </div>
+					            </div>
+                        <div class="col-xs-12">
+					            	<div class="share-page-container share-page-link-right share-page-link-small share-page-link-rounded share-page-link-no-labels" data-item-id="7eb13ea3-80cb-4a52-b3a3-da2cf48598de" id="share-page-container clearfix">
+                                        <section aria-labelledby="share-page-info-label">
+                                            <span id="share-page-info-label" class="share-page-info">Share</span><ul class="share-page-links no-translate"><li><a href="https://www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fwww.rentonwa.gov%2fCity-Services%2fPermit-Services" target="{ShareTarget}" class="share-page-link share-page-link-facebook" data-channel="facebook" data-channel-id="1"><i aria-hidden="true"></i><span class="share-page-link-name share-page-link-name-facebook">Facebook</span></a></li><li><a href="https://twitter.com/share?url=https%3a%2f%2fwww.rentonwa.gov%2fCity-Services%2fPermit-Services" target="_blank" class="share-page-link share-page-link-x" data-channel="x" data-channel-id="2"><i aria-hidden="true"></i><span class="share-page-link-name share-page-link-name-x">X</span></a></li><li><a href="mailto:?Body=https%3a%2f%2fwww.rentonwa.gov%2fCity-Services%2fPermit-Services" target="_self" class="share-page-link share-page-link-email" data-channel="email" data-channel-id="3"><i aria-hidden="true"></i><span class="share-page-link-name share-page-link-name-email">Email</span></a></li><li><a href="#" target="_self" class="share-page-link share-page-link-print" data-channel="print" data-channel-id="5"><i aria-hidden="true"></i><span class="share-page-link-name share-page-link-name-print">Print</span></a></li></ul>
+                                        </section>
+                                    </div></div>
+                            </div>
+                        </div>
+                        <div class="back-to-top-container text-center">
+                            <a href="#body-top" id="back-to-top"><i aria-hidden="true"></i><span class="js-visuallyhidden">Back to top</span></a>
+                        </div>
+                </div>
+            </div><!--groupTemplateEnd-->
+            <footer>
+                
+                    <div class="footer-outer-container footer-first-row">
+                        <div class="footer-container clearfix">
+                            <div class="grid grid-pad">
+                                <div class="col-xs-12 col-s-6 col-m-3 col-lg-3 footer-contact-us" >
+	
+			<h2 class="visuallyhidden">Site Footer</h2>
+			<h3 class="footer-title">Contact Us</h3>
+			
+	<p>City of Renton</p>
+<p>1055 S. Grady Way</p>
+<p>Renton, WA 98057</p>
+<p><a href="https://maps.app.goo.gl/bgvBuGCAfmJ69dwp7" target="_blank">View on Map</a></p>
+<p>P <a href="tel:4254306400">(425) 430-6400</a></p>
+
+
+	
+	
+</div><div class="col-xs-12 col-s-6 col-m-3 col-lg-3 share-connect" >
+	
+			<h2 class="visuallyhidden">Site Footer</h2>
+			<h3 class="footer-title">Share &amp; Connect</h3>
+			
+	
+	<ul class="footer-links with-icons social-media-links">  <li class="footer-link-facebook">
+	<a href="https://www.facebook.com/CityofRenton/" target="_blank"  >
+<i aria-hidden="true"></i>Like us on Facebook
+</a>
+</li>
+          <li class="footer-link-twitter">
+	<a href="https://x.com/CityofRenton" target="_blank"  >
+<i aria-hidden="true"></i>Follow us on X
+</a>
+</li>
+          <li class="footer-link-instagram">
+	<a href="https://www.instagram.com/cityofrenton/" target="_blank"  >
+<i aria-hidden="true"></i>Follow us on Instagram
+</a>
+</li>
+          <li class="footer-link-nextdoor">
+	<a href="https://nextdoor.com/agency-detail/wa/renton/city-of-renton/" target="_blank"  >
+<i aria-hidden="true"></i>Follow us on Nextdoor
+</a>
+</li>
+          <li class="footer-link-youtube">
+	<a href="https://www.youtube.com/channel/UCuYPL89Peh3oH_TIGWtzbvg/videos" target="_blank"  >
+<i aria-hidden="true"></i>Watch us on YouTube
+</a>
+</li>
+          <li class="footer-link-linkedin">
+	<a href="https://www.linkedin.com/company/city-of-renton" target="_blank"  >
+<i aria-hidden="true"></i>Follow us on LinkedIn
+</a>
+</li>
+           </ul>
+	
+</div><div class="col-xs-12 col-s-6 col-m-3 col-lg-3 get-involved" >
+	
+			<h2 class="visuallyhidden">Site Footer</h2>
+			<h3 class="footer-title">Get Involved</h3>
+			
+	
+	<ul class="footer-links without-icons ">  <li>
+<a href="https://rentonwa.prelive.opencities.com/Government/Boards-Committees-Commissions/BoardsCommissionsCommittees-Application" target="_self"  >Boards and Commissions</a>
+</li>
+          <li>
+<a href="https://rentonwa.prelive.opencities.com/Government/Departments-and-Offices/Human-Resources-and-Risk-Management/Career-Center" target="_self"  >Careers</a>
+</li>
+          <li>
+<a href="https://rentonwa.prelive.opencities.com/Activities-Events/Volunteer" target="_self"  >Volunteering</a>
+</li>
+          <li>
+<a href="https://yourvoice.rentonwa.gov/" target="_blank"  >Stay Connected</a>
+</li>
+           </ul>
+	
+</div><div class="col-xs-12 col-s-6 col-m-3 col-lg-3 quick-links-widget" >
+	
+			<h2 class="visuallyhidden">Site Footer</h2>
+			<h3 class="footer-title">Quick Links</h3>
+			
+	
+	<ul class="footer-links without-icons ">  <li>
+<a href="https://www.rentonwa.gov/Government/Departments-and-Offices/Community-and-Economic-Development/Economic-Development/City-Demographics" target="_self"  >City demographics</a>
+</li>
+          <li>
+<a href="https://rentonwa.prelive.opencities.com/Government/Departments-and-Offices/Finance/Online-Payments" target="_self"  >Make a payment</a>
+</li>
+          <li>
+<a href="https://www.rentonwa.gov/photolibrary" target="_blank"  >City of Renton Photo Library</a>
+</li>
+          <li>
+<a href="https://rentonwa.prelive.opencities.com/City-Services/Report-an-Issue" target="_self"  >Report an issue</a>
+</li>
+          <li>
+<a href="https://www.rentonwa.gov/Events-Meetings" target="_self"  >Upcoming events</a>
+</li>
+          <li>
+<a href="https://visitrentonwa.com/" target="_blank"  >Visit Renton</a>
+</li>
+           </ul>
+	
+</div>
+                            </div>
+                        </div>
+                    </div>
+                
+                <div class="footer-outer-container footer-second-row">
+                    <div class="footer-container clearfix">
+                        <div class="grid grid-pad footer-secondary-links">
+                            <div class="col-xs-12 col-m-7">
+                                
+                                    <div><a href="https://www.rentonwa.gov/Site-Footer/Sub-Footer-Links/Internet-Policies" target="_self"  >Disclaimer & Copyright</a>&nbsp;| <a href="https://www.rentonwa.gov/Government/Departments-and-Offices/Human-Resources-and-Risk-Management/Accessibility" target="_self"  >Accessibility</a>&nbsp;| </div>
+                                
+                            </div>
+                            <div class="col-xs-12 col-m-5 powered-by">
+                                <div class="right">
+                                    &copy; 2026 City of Renton&nbsp;|&nbsp;<span class="powered-by">Powered by <a href="https://granicus.com/solution/govaccess/opencities/" target="_blank">Granicus</a></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </footer>
+        </div>
+    </div>
+
+    <script src="/files/oc-resources/0138abea-210d-440c-9ad4-a0e7ae373576/JsTextSnippets.js?ocsvclang=en-US" type="text/javascript"></script><script></script>
+    
+    
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-6FVG06LKFJ"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-6FVG06LKFJ');
+</script>
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-PGF9FSL');</script>
+<!-- End Google Tag Manager -->
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PGF9FSL"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+    
+    
+
+<script type="text/javascript">
+//<![CDATA[
+window.__TsmHiddenField = $get('ctl04_seamless_script_manager_TSM');//]]>
+</script>
+</form>
+</body>
+</html>

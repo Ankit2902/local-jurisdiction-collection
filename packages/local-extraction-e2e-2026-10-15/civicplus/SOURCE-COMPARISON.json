@@ -1,0 +1,128 @@
+{
+  "manual_review_kind": "agent visual inspection; not human signoff",
+  "coverage": "listed source pages only",
+  "comparisons": [
+    {
+      "jurisdiction": "portland-me",
+      "document": "Chapter 13",
+      "pages": [
+        2,
+        3
+      ],
+      "result": "pass_bounded_spotcheck",
+      "checks": [
+        "Page 2 bold Sec.13-2 Definitions is emitted once, despite page3 Sec.13-2/Rev running header.",
+        "Applicant definition continues from page2 ending if he to page3 is receiving general assistance at the time of application; both belong to one 13-2 record.",
+        "Application form, Back bills, Basic necessities and Dwelling unit remain in definition body; header removal did not remove definitions."
+      ],
+      "limits": "Full p2-p7 definition transcription was not manually compared character by character.",
+      "reviewer": "Codex agent visual inspection of Poppler page renderings and extracted records",
+      "reviewed_at": "2026-10-15",
+      "rendered_evidence": [
+        {
+          "path": "evidence/rendered/portland-ch13-p2.png",
+          "sha256": "dd1ec2e5442682bb4915c86e905776f6dc1da831c8bfdf7080b6bc8701269b34"
+        },
+        {
+          "path": "evidence/rendered/portland-ch13-p3.png",
+          "sha256": "ffa883a80fa4e04028fede48e9b9974a9e2478710999e23cdc8a876871205592"
+        }
+      ]
+    },
+    {
+      "jurisdiction": "portland-me",
+      "document": "Chapter 13",
+      "pages": [
+        37
+      ],
+      "result": "pass_layout_spotcheck_requires_semantic_review",
+      "checks": [
+        "Rent table has Bedrooms, Unheated Weekly/Monthly and Heated Weekly/Monthly. Row0 values 100/431/112/481 match retained cells.",
+        "Food table starts Household1, Daily $3.70, Weekly $26.00, Monthly $111.00.",
+        "Exported table preserves grouped cells using fixed-spacing pre blocks; table body lines are not emitted twice."
+      ],
+      "limits": "Grouped subcolumn semantics and table continuation onto following pages remain unresolved.",
+      "reviewer": "Codex agent visual inspection of Poppler page renderings and extracted records",
+      "reviewed_at": "2026-10-15",
+      "rendered_evidence": [
+        {
+          "path": "evidence/rendered/portland-ch13-p37.png",
+          "sha256": "750414a6aaf2740312124ee5996977b46984f27a0ae4185394473342e221addd"
+        }
+      ]
+    },
+    {
+      "jurisdiction": "portland-me",
+      "document": "Chapter 13",
+      "pages": [
+        48
+      ],
+      "result": "manual_review_required",
+      "checks": [
+        "Image/mask present in source; visible property-tax clause includes abatement process language not completely represented by native extraction.",
+        "Image box and ordered IMAGE placeholder retained; mixed_text_image explicitly unresolved."
+      ],
+      "limits": "OCR/transcription was not performed. No page48 completion claim.",
+      "reviewer": "Codex agent visual inspection of Poppler page renderings and extracted records",
+      "reviewed_at": "2026-10-15",
+      "rendered_evidence": [
+        {
+          "path": "evidence/rendered/portland-ch13-p48.png",
+          "sha256": "121cce1ba6a6ad4a810707d20285a96ea9c02fd9fd7f67ccbb4dbc956f2bf1bd"
+        }
+      ]
+    },
+    {
+      "jurisdiction": "rockland-me",
+      "document": "Chapter 1",
+      "pages": [
+        2,
+        3
+      ],
+      "result": "pass_bounded_spotcheck_markers_require_review",
+      "checks": [
+        "Adopting ordinance introductory text retained.",
+        "Headings Adoption of Code and Official Copies Kept by City Clerk have no trailing1 in section_name.",
+        "Raw native 0.67pt glyph1 occurs near both headings; retained as source text/coordinates and flagged for review.",
+        "Definition sequence continues from Q. Statutes on page2 to R. Street through W. Year on page3 within one section1-102.",
+        "Bottom-right Ch.1,Sec.1-101/1-103 running locators removed by position and retained in ledger."
+      ],
+      "limits": "Microscopic glyph significance is unresolved; no guessed footnote deletion/normalization.",
+      "reviewer": "Codex agent visual inspection of Poppler page renderings and extracted records",
+      "reviewed_at": "2026-10-15",
+      "rendered_evidence": [
+        {
+          "path": "evidence/rendered/rockland-ch1-p2.png",
+          "sha256": "f571a9885fb88b32d575e36ffd9e5e6eb774edb4c4adc21a3596af7d7d53f156"
+        },
+        {
+          "path": "evidence/rendered/rockland-ch1-p3.png",
+          "sha256": "38a6a545dd1934dab20bedad792fa02e2964c079cc4ce22a74c1058b34944c86"
+        }
+      ]
+    },
+    {
+      "jurisdiction": "rockland-me",
+      "document": "City Charter",
+      "pages": [
+        3
+      ],
+      "result": "source_overlap_review_required",
+      "checks": [
+        "Charter uses numbers101/102/103 then201 onward, independent publication identity and printed TOC.",
+        "White boxed Sec.101 running locator visibly overlays part of final Mayor paragraph.",
+        "Precise baseline extraction separates locator glyphs from underlying mayor who text; locator removal is recorded.",
+        "Source overlap remains unresolved even though native text can be recovered."
+      ],
+      "limits": "Only page3 was visually reviewed; other flagged overlapping/off-page locator positions were detected automatically.",
+      "reviewer": "Codex agent visual inspection of Poppler page renderings and extracted records",
+      "reviewed_at": "2026-10-15",
+      "rendered_evidence": [
+        {
+          "path": "evidence/rendered/rockland-charter-p3.png",
+          "sha256": "97a643b704a9e1558b5d2ef8e022822b9561a530f8c779f34fb75cf603bd939b"
+        }
+      ]
+    }
+  ]
+}

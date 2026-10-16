@@ -1,0 +1,38 @@
+{
+  "generated_at": "2026-10-15T19:42:20.178888+00:00",
+  "classification_counts": {
+    "bounded_standalone_pass": 4,
+    "operator_export_local_import_pass": 5,
+    "partial_standalone_endcheck_missing": 1,
+    "primary_unqualified": 14
+  },
+  "primary_sample_records": 87,
+  "municipal_codes_records": 44,
+  "codepublishing_records": 43,
+  "separate_charter_sample_records": 7,
+  "whole_corpus_validated": false,
+  "independent_python_tests": 143,
+  "independent_node_checks": 37,
+  "verified_child_manifest_references": 3828,
+  "authoritative_report_sha256": {
+    "ecode360/STANDALONE-VALIDATION.json": "a47ceb247c3960c50653064891b714f2599dfe63539ac66eda9ece3dc7770557",
+    "codepublishing/STANDALONE-VALIDATION.json": "66e80c94b651a0c6d3ed47ba9327ab99ff76e0fe9d202ee77516b2036070aab4",
+    "municipal-codes/STANDALONE-VALIDATION.json": "7b3f842c2742e3f805af4a6bdee41fde4feabc0b95fd4ca309c40990c5712e6b",
+    "publisher-exports/EXPORT-FINDINGS.json": "e55337b5c3466f9f9c40f56f685b0b8eb346fa073d4ddaa3d5b4ce6fb5575269",
+    "official-alternatives/OFFICIAL-ALTERNATIVES.json": "7524c08f0eb263f83cdc40bc8342a1b416ccc9cbc3b5de29055eebc59b6f1278",
+    "integration/runtime-diagnostics/RUNTIME-FINDINGS.json": "3370a9e2a33472fd4acedd05daad842dd62e2a03956137cf29b6d591e09901db",
+    "integration/independent-review/RESULTS.json": "9b15ab767388e56b0001801b78c2e86048ec5ecacb03948432ba7350c8795012",
+    "integration/independent-review/NODE-REVIEW.json": "a2d77f8515f269ce11ff9fe702208054ba357f4aacb7f9f3f37cac3e4f413449",
+    "integration/independent-review/MANIFEST-REVIEW.json": "f9a671b0eeb25446c47ad9b78e524731ac329f267ad251f4342fc3a1b4869976",
+    "SOURCE-MATRIX.json": "921b7329bc0568cab8f690849f23c84486ccba604e1476048d6792c20dc79f93"
+  },
+  "limits": [
+    "No full collection, database query or import performed.",
+    "Municipal.codes fresh body acquisition reuses prior CUA inventory; new standalone inventory unqualified.",
+    "Bellingham final consistency check incomplete after 429. Everett selected export has no fresh repeated endcheck.",
+    "CodePublishing downloads were operated with CUA during validation; documented manual browser workflow and standalone importer require no Codex. Unattended acquisition remains blocked here.",
+    "eCode360 initial 403/429 results do not prove ordinary passive/headed browsers can never succeed. Accepted standalone branch has synthetic-only proof.",
+    "Live executed revisions are retained separately from final offline-tested transport hardening.",
+    "Only macOS browser runtime was exercised. Santa Clara OCR uses macOS Vision/PDFKit and compatible SDK."
+  ]
+}

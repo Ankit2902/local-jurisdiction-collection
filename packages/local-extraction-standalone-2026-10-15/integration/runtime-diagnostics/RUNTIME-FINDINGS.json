@@ -1,0 +1,359 @@
+{
+  "generated_at": "2026-10-15T19:33:19.902951+00:00",
+  "status": "bounded_runtime_diagnostics_complete_no_bypass",
+  "scope": "Three distinct ordinary browser experiments plus read-only prior-receipt/environment comparisons. No ecode360.com or municipal-code requests were sent by this diagnostic work. No sealed package changed.",
+  "tests": {
+    "passed": 4,
+    "failed": 0,
+    "command": "python build_findings.py",
+    "log": "test-results.txt",
+    "python": "3.12.14"
+  },
+  "source": {
+    "current_script": "runtime_diagnostics.py",
+    "current_script_sha256": "4b5c50d16121a345e40e0e30ea23f5cda499cb0b66c52f9f84b4c9562ec50cba",
+    "executed_live_revision": "executed-runtime_diagnostics-v1.py",
+    "executed_live_revision_sha256": "c8d36ddff15e94924417c78763350388822b13ca944d1a64103e66dc57cea354",
+    "current_vs_executed_difference": "Final script redacts metadata URL query values. Browser launch/navigation/readiness/stop behavior unchanged; current offline tests cover redaction and stop policy. No additional live requests were made for that metadata adjustment."
+  },
+  "live_experiments": {
+    "flagstaff-chromium148-headed": {
+      "receipt": "probes/flagstaff-chromium148-headed/receipt.json",
+      "receipt_sha256": "22da24f78400721727e2843817446bc4391169db01742d9bd1b2a7de06744f44",
+      "http_status": 403,
+      "result": "stopped_challenge_or_denial_document",
+      "engine": "chromium",
+      "headed": true,
+      "python": "3.9.6",
+      "playwright": "1.60.0",
+      "browser": "148.0.7778.96",
+      "title": "Just a moment...",
+      "exact_error": null,
+      "cookies_before": 0,
+      "cookies_after": 0,
+      "expected_selector_found": null,
+      "response_headers_allowlist": {
+        "cf-mitigated": "challenge",
+        "content-type": "text/html; charset=UTF-8",
+        "server": "cloudflare"
+      },
+      "metadata_redaction": {
+        "field": "final_url query values",
+        "reason": "Transient publisher challenge state is unnecessary for runtime diagnosis",
+        "original_receipt_sha256": "29c6dbff532c917f06d053ef4b428c113960f629a2b3a13f40c71b223f6c6bac"
+      }
+    },
+    "gridics-chrome155-headless": {
+      "receipt": "probes/gridics-chrome155-headless/receipt.json",
+      "receipt_sha256": "2e0974c37b0142fc33c16e37997747bc13436d6afb8cc63cef85c2b825842163",
+      "http_status": 200,
+      "result": "public_document_observed",
+      "engine": "chrome",
+      "headed": false,
+      "python": "3.9.6",
+      "playwright": "1.60.0",
+      "browser": "155.0.8059.41",
+      "title": "City of Cupertino CA Municipal Code Search | Gridics",
+      "exact_error": null,
+      "cookies_before": 0,
+      "cookies_after": 4,
+      "expected_selector_found": true,
+      "response_headers_allowlist": {
+        "content-type": "text/html; charset=UTF-8",
+        "server": "nginx/1.28.1"
+      },
+      "metadata_redaction": null
+    },
+    "gridics-chromium148-headless": {
+      "receipt": "probes/gridics-chromium148-headless/receipt.json",
+      "receipt_sha256": "ce8941633b53d5e7c86c578359e13cb620fa6909b9e20dda6717424e0a348712",
+      "http_status": 200,
+      "result": "public_document_observed",
+      "engine": "chromium",
+      "headed": false,
+      "python": "3.9.6",
+      "playwright": "1.60.0",
+      "browser": "148.0.7778.96",
+      "title": "City of Cupertino CA Municipal Code Search | Gridics",
+      "exact_error": null,
+      "cookies_before": 0,
+      "cookies_after": 4,
+      "expected_selector_found": true,
+      "response_headers_allowlist": {
+        "content-type": "text/html; charset=UTF-8",
+        "server": "nginx/1.28.1"
+      },
+      "metadata_redaction": null
+    }
+  },
+  "exact_execution_commands": "experiment-commands.json",
+  "environment_inventory": [
+    "environment-python39.json",
+    "environment-python312.json"
+  ],
+  "environment_findings": {
+    "older_environment": "Python3.9.6 LibreSSL2.8.3 Playwright1.60.0; bundledChromium148 and installedChrome155 both actually reached Gridics200",
+    "current_review_environment": "Python3.12.14 OpenSSL3.5.8 Playwright1.64.0; package metadata requiresPython>=3.10. Prior CivicPlus receipt showsChrome155/Playwright1.64 public200; no new live test repeated here.",
+    "proxy_ca_presence": "No environment-discovered proxy or enabled scutil proxy flags and no custom CA override variables detected in either inspected environment; no environment TLS validation disable flag. No proxy URLs/credentials/CA paths recorded. This does not exclude transparent network policy or uninspected browser enterprise policy.",
+    "tls_scope": "The browser probes completed HTTPS and received HTTP responses; no TLS or launch error was observed in these three experiments. Python ssl backend differences do not by themselves explain Chromium HTTP403 responses; direct Python HTTP is a separate transport."
+  },
+  "conclusions": [
+    {
+      "finding": "No universal standalone-browser failure",
+      "evidence": [
+        "probes/gridics-chromium148-headless/receipt.json",
+        "probes/gridics-chrome155-headless/receipt.json"
+      ],
+      "meaning": "Both ordinary engines reached the same expected public legal containers without prior cookies/operator initialization."
+    },
+    {
+      "finding": "Prior directHTTP403 is not universal public-source denial",
+      "evidence": [
+        "prior-evidence/gridics-direct-http.json",
+        "probes/gridics-chromium148-headless/receipt.json"
+      ],
+      "meaning": "Same publisher source has retained directHTTP403 and successful ordinary standalone browser200; do not generalize transport-specific failures."
+    },
+    {
+      "finding": "CodePublishing requester-conditional challenge still blocks this distinct standard configuration",
+      "evidence": [
+        "prior-evidence/cp-chrome155-headless.json",
+        "probes/flagstaff-chromium148-headed/receipt.json"
+      ],
+      "meaning": "InstalledChrome155 headless prior403 and bundledChromium148 headed fresh403 both rejected legal content. The contrast changes engine and mode together; it does not isolate cause or prove every normal browser/session is blocked."
+    },
+    {
+      "finding": "Family evidence shows normal headed/browser UI can close some gaps",
+      "evidence": [
+        "prior-evidence/municipal-headed-berkeley-ca.json",
+        "prior-evidence/municipal-headed-petaluma-ca.json",
+        "prior-evidence/municipal-headed-sonoma-ca.json",
+        "prior-evidence/municipal-headed-bellingham-wa.json",
+        "prior-evidence/municipal-headed-stable-bellingham-wa.json",
+        "prior-evidence/municipal-ui-download-berkeley-ca.json",
+        "prior-evidence/municipal-ui-download-everett-wa.json"
+      ],
+      "meaning": "Four initial ordinary headed legal captures accepted expected nodes; later Bellingham429 stops that host. Berkeley/Everett normal UI initiated actual export downloads without operator actions; download-related page.goto errors are not equivalent to publisher403. These are agent-retained source receipts, not repeated diagnostics."
+    },
+    {
+      "finding": "HTTP200 alone is insufficient",
+      "evidence": [
+        "prior-evidence/municipal-headed-everett-wa.json"
+      ],
+      "meaning": "Everett legal navigation initially200 but challenge/nonmatching identity was rejected; expected source identity or parsed downloaded payload remains necessary."
+    }
+  ],
+  "host_stop_policy": {
+    "ledger": "probes/HOST-STOP.json",
+    "stopped_hosts": {
+      "ecode360.com": {
+        "status": 429,
+        "evidence_source": "outputs/local-extraction-standalone-2026-10-15/ecode360/standalone-live/headless-chrome/santa-rosa-ca/receipt.json",
+        "source_sha256": "77cb8212ebdd4555e15b17d60440d7dc726e65b486497f43918c7d5b098228a3",
+        "retry_after": null,
+        "retry_after_status": "not recorded by original family probe; no request made to recover it",
+        "policy": "stop host-wide jobs; no automatic retry; explicit operator review required"
+      },
+      "bellingham.municipal.codes": {
+        "status": 429,
+        "evidence_summary": "prior-evidence/municipal-headed-stable-bellingham-wa.json",
+        "source_receipt_sha256": "eaa9506edd372071bf0ee406a5f2d1c1c4bbd53a24d52c1f719c57f35f974b0b",
+        "retry_after": null,
+        "retry_after_status": "not retained by original stage; no new request sent to recover it",
+        "policy": "stop host-wide jobs; no automatic retry; operator review required"
+      },
+      "sonoma.municipal.codes": {
+        "status": 429,
+        "evidence_summary": "prior-evidence/municipal-headed-sonoma-ca.json",
+        "source_receipt_sha256": "d929ff69f6f5b8daba63c68b511d3945ac28a7fede7bd7a9406cbe35938b7186",
+        "retry_after": null,
+        "retry_after_status": "not retained by original stage; no new request sent to recover it",
+        "policy": "stop host-wide jobs; no automatic retry; operator review required"
+      }
+    },
+    "retry_after": "Record exact header when available; stop all later jobs on that requested hostname; no automatic retries even after Retry-After. Missing prior header values stay unknown.",
+    "repeated_experiment": "Same URL/engine/mode is refused across output directories sharing the ledger.",
+    "actual_scope": "Diagnostic sent zeroecode requests; only mocked429 exercised newly implemented stop behavior. Family actual429 receipts seed the stop ledger."
+  },
+  "operator_assisted_initialization": {
+    "needed_for_successful_controls": false,
+    "persistent_profile_implemented": false,
+    "user_cookie_profile_imported": false,
+    "manual_challenge_initialization": "not attempted or validated; no challenge interaction, authentication or CAPTCHA solving performed",
+    "limits": "Immediate-denial negative probes do not establish permanent access policy or that eventual passive site behavior can never differ. Managed CUA success does not prove a portable clean-profile initialization path."
+  },
+  "portable_dependencies": {
+    "inventory_and_offline_tests": "Python standard library; actual offline testsPython3.12",
+    "live_probe": "Install pinned Playwright1.64.0 withPython>=3.10 and its matching official browser binary, or an installed branded Chrome channel. Older control1.60/Chromium148 was retained without changing sealed runtimes.",
+    "cross_platform_status": "Only macOS arm64 actual execution; Windows/Linux are vendor-documented provisioning paths, not tested here. Headed requires a GUI/display.",
+    "package_exclusions": [
+      "__pycache__/",
+      ".venv/",
+      ".browsers/",
+      "node_modules/",
+      "browser caches",
+      "profiles",
+      "storage-state/cookie exports"
+    ],
+    "runtime_installs_in_this_folder": false
+  },
+  "primary_documentation": [
+    {
+      "url": "https://playwright.dev/python/docs/browsers",
+      "used_for": "matched browser binaries, channel/headless implementation differences and platform dependency provisioning"
+    },
+    {
+      "url": "https://playwright.dev/python/docs/intro#system-requirements",
+      "used_for": "vendor platform support reference; installed package metadata governs precise Python release minimum"
+    },
+    {
+      "url": "https://playwright.dev/python/docs/ci",
+      "used_for": "OS/CI browser dependencies and display provisioning"
+    },
+    {
+      "url": "https://playwright.dev/python/docs/downloads",
+      "used_for": "normal UI download event/save handling before closing context"
+    }
+  ],
+  "prior_evidence": {
+    "civicplus-chrome155": {
+      "summary_path": "prior-evidence/civicplus-chrome155.json",
+      "summary_sha256": "7dcd4f96c2403688fe1047c6df823c7400a3b1538d473f14aa080e8e8e594347",
+      "source_receipt_path": "outputs/local-extraction-e2e-2026-10-15/civicplus/live-e2e/final-portland-playwright-v2/capture/capture-receipt.json",
+      "source_receipt_sha256": "fed61485c31b76dec6987e53e463662543157850cbf0ce4973a6dfd16dce8c94"
+    },
+    "cp-chrome155-headless": {
+      "summary_path": "prior-evidence/cp-chrome155-headless.json",
+      "summary_sha256": "4eca0b5a9792303f91a448b8ce8a02fa1f0daa1f32c5284b91f005d9b7b93d11",
+      "source_receipt_path": "outputs/local-extraction-e2e-2026-10-15/codepublishing/final-playwright/flagstaff-az/chapter.receipt.json",
+      "source_receipt_sha256": "5160b22ed36b7b555fab0eb0297da56e96ea0b707401fda93f772bdfc4c467f1"
+    },
+    "ecode-foster-headless": {
+      "summary_path": "prior-evidence/ecode-foster-headless.json",
+      "summary_sha256": "0179950c19e3952e09fa94e4853cca861f20f9e6e07e0912c002d8c5e46047a1",
+      "source_receipt_path": "outputs/local-extraction-e2e-2026-10-15/ecode360/live/standalone-browser/foster-city-ca/receipt.json",
+      "source_receipt_sha256": "84010e06c36eb4672433e2ad78645e3b9de1fd9185c6d90af69e84e9ec6cf9e7"
+    },
+    "ecode-host429": {
+      "summary_path": "prior-evidence/ecode-host429.json",
+      "summary_sha256": "89eb953ff9dd085e342181ce002cc95012232660cc934915e085825a2fb959be",
+      "source_receipt_path": "outputs/local-extraction-standalone-2026-10-15/ecode360/standalone-live/headless-chrome/santa-rosa-ca/receipt.json",
+      "source_receipt_sha256": "77cb8212ebdd4555e15b17d60440d7dc726e65b486497f43918c7d5b098228a3"
+    },
+    "gridics-direct-http": {
+      "summary_path": "prior-evidence/gridics-direct-http.json",
+      "summary_sha256": "e09e38f8f99223f8a7be355ce101338f438601b75c80898c15b5155986679ed8",
+      "source_receipt_path": "outputs/local-extraction-e2e-2026-10-15/gridics/evidence/landing-response.json",
+      "source_receipt_sha256": "221c606481b0807cbdc9e05c478da7b9041b40bbf6f4679a4dba85df774e2139"
+    },
+    "municipal-headed-bellingham-wa": {
+      "summary_path": "prior-evidence/municipal-headed-bellingham-wa.json",
+      "summary_sha256": "dbb690a35256ce4329be76f51b0cc369229047b2da09774a3de1010bf4e8f8bc",
+      "source_receipt_path": "outputs/local-extraction-standalone-2026-10-15/municipal-codes/headed-pilot/bellingham-wa/receipt.json",
+      "source_receipt_sha256": "29264f901e6db8ce2e5991363cacbc6c0893b3e4b596f3d8070f10a51b7a60eb"
+    },
+    "municipal-headed-berkeley-ca": {
+      "summary_path": "prior-evidence/municipal-headed-berkeley-ca.json",
+      "summary_sha256": "56355b168480ee9950c96aedb17cd19a4a640a10404c55bf1efc1cc8a8f396ae",
+      "source_receipt_path": "outputs/local-extraction-standalone-2026-10-15/municipal-codes/headed-pilot/berkeley-ca/receipt.json",
+      "source_receipt_sha256": "61b2e0e5315f5dbc9d89ce20e7a52b29c17f234ceb263a4d0c189c98bc380fc2"
+    },
+    "municipal-headed-everett-wa": {
+      "summary_path": "prior-evidence/municipal-headed-everett-wa.json",
+      "summary_sha256": "a9cc400cf543780303c41476e139089f6f765ad147364ab32a09c6f6cc0783eb",
+      "source_receipt_path": "outputs/local-extraction-standalone-2026-10-15/municipal-codes/headed-pilot/everett-wa/receipt.json",
+      "source_receipt_sha256": "8c13fe49a6845cdd8a9b3a6bbb6f3947e80157f11c988f4f011fdecfb03cfa75"
+    },
+    "municipal-headed-petaluma-ca": {
+      "summary_path": "prior-evidence/municipal-headed-petaluma-ca.json",
+      "summary_sha256": "04c21776aa655128df8471494d5d4ddc5229cf1f6bb03520223fcf8ec93e6946",
+      "source_receipt_path": "outputs/local-extraction-standalone-2026-10-15/municipal-codes/headed-pilot/petaluma-ca/receipt.json",
+      "source_receipt_sha256": "8fcce46684fceae0ef7a2aa4ab748dc37a3795c0993ba230f32c283bb0b86d34"
+    },
+    "municipal-headed-sonoma-ca": {
+      "summary_path": "prior-evidence/municipal-headed-sonoma-ca.json",
+      "summary_sha256": "ac06697b78fbe069704dc08df0b6127544a1c41aac56065730c41453004b832a",
+      "source_receipt_path": "outputs/local-extraction-standalone-2026-10-15/municipal-codes/headed-pilot/sonoma-ca/receipt.json",
+      "source_receipt_sha256": "d929ff69f6f5b8daba63c68b511d3945ac28a7fede7bd7a9406cbe35938b7186"
+    },
+    "municipal-headed-stable-bellingham-wa": {
+      "summary_path": "prior-evidence/municipal-headed-stable-bellingham-wa.json",
+      "summary_sha256": "109735c3fb532ddaaf7cb4ca9c87a49407eb736b063e3f6264bcc08d7e95cffb",
+      "source_receipt_path": "outputs/local-extraction-standalone-2026-10-15/municipal-codes/headed-legal-stable/bellingham-wa/receipt.json",
+      "source_receipt_sha256": "eaa9506edd372071bf0ee406a5f2d1c1c4bbd53a24d52c1f719c57f35f974b0b"
+    },
+    "municipal-headed-stable-berkeley-ca": {
+      "summary_path": "prior-evidence/municipal-headed-stable-berkeley-ca.json",
+      "summary_sha256": "64017de0b3b8362ed226b72207e3d58d6e585ef441d0e7328d0ddd120feccd81",
+      "source_receipt_path": "outputs/local-extraction-standalone-2026-10-15/municipal-codes/headed-legal-stable/berkeley-ca/receipt.json",
+      "source_receipt_sha256": "5ca0f021426d7e6239323d3c20051083efe2b636319781b2c727ed5f5dc18290"
+    },
+    "municipal-headed-stable-petaluma-ca": {
+      "summary_path": "prior-evidence/municipal-headed-stable-petaluma-ca.json",
+      "summary_sha256": "e1d44e700ff22e0dd82484fb619c40f35dd6fede5fe9f57ebb2b120f3633f077",
+      "source_receipt_path": "outputs/local-extraction-standalone-2026-10-15/municipal-codes/headed-legal-stable/petaluma-ca/receipt.json",
+      "source_receipt_sha256": "24ee57ba35f4f2527732c1488ba9234c9e005a1cdefdb8d1045a1d8562bcab3d"
+    },
+    "municipal-headed-stable-sonoma-ca": {
+      "summary_path": "prior-evidence/municipal-headed-stable-sonoma-ca.json",
+      "summary_sha256": "a422106b636b862f0be6bd559a2ad26884356f1db540d9664d0cf173c360a624",
+      "source_receipt_path": "outputs/local-extraction-standalone-2026-10-15/municipal-codes/headed-legal-stable/sonoma-ca/receipt.json",
+      "source_receipt_sha256": "0a41720dae99d1717d31eae6468a63d80c4802638d15c2d87e03755300ffd643"
+    },
+    "municipal-ui-download-berkeley-ca": {
+      "summary_path": "prior-evidence/municipal-ui-download-berkeley-ca.json",
+      "summary_sha256": "75b97921ca073b10ab2f82d1d3a794be76664adc88acc7ef1e4cdb235bba455d",
+      "source_receipt_path": "outputs/local-extraction-standalone-2026-10-15/municipal-codes/headed-ui-export/berkeley-ca/receipt.json",
+      "source_receipt_sha256": "5eb7f5a0eb672324f64c8cccbd0b61bf2b3f4e068ccfea26f51130de239c1002"
+    },
+    "municipal-ui-download-everett-wa": {
+      "summary_path": "prior-evidence/municipal-ui-download-everett-wa.json",
+      "summary_sha256": "eac97599059700816ef77638f89ae3216497c09683843e741b3d6015103c3572",
+      "source_receipt_path": "outputs/local-extraction-standalone-2026-10-15/municipal-codes/headed-ui-export/everett-wa/receipt.json",
+      "source_receipt_sha256": "43369f48e36f7fa1a9eccabcb0d150aa9cc43299d5a94916850b78d6d7ffca1c"
+    }
+  },
+  "limitations": [
+    "No browser fingerprint/UA/proxy/TLS/credential workaround was applied; no cause-specific anti-bot conclusion can be established from this bounded sample.",
+    "Browser versions/modes are recorded per receipt; package/library/engine differences are not a complete factorial experiment.",
+    "No publisher totals, current legal version or corpus completeness is qualified by runtime diagnostics.",
+    "Prior summaries preserve source receipt hashes; family packages own legal/download parse/export acceptance and any later evidence updates."
+  ],
+  "artifact_hashes": {
+    "README.md": "854e217cc7612f13a0bac9f294d0c21eb8bbfc8ee4d052dd790e840f73780390",
+    "build_findings.py": "f12bad2249cd6bce1bcc649329537d44994d1e969030f92dc1bdab7fa9fb33c3",
+    "environment-python312.json": "39b70c8db1393b832d0e365473874ae12ded651bd09c33ed7ee8d3b515e09432",
+    "environment-python39.json": "7f3d59253353bcdae38a90c706212920d385b463a4e8482a8a3613cdada000c9",
+    "executed-runtime_diagnostics-v1.py": "c8d36ddff15e94924417c78763350388822b13ca944d1a64103e66dc57cea354",
+    "experiment-commands.json": "30fa1da8c8da0e9c9d015b9ccc6c329a6b403e8fd82f466f87099fdee3aa5fad",
+    "prior-evidence/civicplus-chrome155.json": "7dcd4f96c2403688fe1047c6df823c7400a3b1538d473f14aa080e8e8e594347",
+    "prior-evidence/cp-chrome155-headless.json": "4eca0b5a9792303f91a448b8ce8a02fa1f0daa1f32c5284b91f005d9b7b93d11",
+    "prior-evidence/ecode-foster-headless.json": "0179950c19e3952e09fa94e4853cca861f20f9e6e07e0912c002d8c5e46047a1",
+    "prior-evidence/ecode-host429.json": "89eb953ff9dd085e342181ce002cc95012232660cc934915e085825a2fb959be",
+    "prior-evidence/gridics-direct-http.json": "e09e38f8f99223f8a7be355ce101338f438601b75c80898c15b5155986679ed8",
+    "prior-evidence/municipal-headed-bellingham-wa.json": "dbb690a35256ce4329be76f51b0cc369229047b2da09774a3de1010bf4e8f8bc",
+    "prior-evidence/municipal-headed-berkeley-ca.json": "56355b168480ee9950c96aedb17cd19a4a640a10404c55bf1efc1cc8a8f396ae",
+    "prior-evidence/municipal-headed-everett-wa.json": "a9cc400cf543780303c41476e139089f6f765ad147364ab32a09c6f6cc0783eb",
+    "prior-evidence/municipal-headed-petaluma-ca.json": "04c21776aa655128df8471494d5d4ddc5229cf1f6bb03520223fcf8ec93e6946",
+    "prior-evidence/municipal-headed-sonoma-ca.json": "ac06697b78fbe069704dc08df0b6127544a1c41aac56065730c41453004b832a",
+    "prior-evidence/municipal-headed-stable-bellingham-wa.json": "109735c3fb532ddaaf7cb4ca9c87a49407eb736b063e3f6264bcc08d7e95cffb",
+    "prior-evidence/municipal-headed-stable-berkeley-ca.json": "64017de0b3b8362ed226b72207e3d58d6e585ef441d0e7328d0ddd120feccd81",
+    "prior-evidence/municipal-headed-stable-petaluma-ca.json": "e1d44e700ff22e0dd82484fb619c40f35dd6fede5fe9f57ebb2b120f3633f077",
+    "prior-evidence/municipal-headed-stable-sonoma-ca.json": "a422106b636b862f0be6bd559a2ad26884356f1db540d9664d0cf173c360a624",
+    "prior-evidence/municipal-ui-download-berkeley-ca.json": "75b97921ca073b10ab2f82d1d3a794be76664adc88acc7ef1e4cdb235bba455d",
+    "prior-evidence/municipal-ui-download-everett-wa.json": "eac97599059700816ef77638f89ae3216497c09683843e741b3d6015103c3572",
+    "probes/HOST-STOP.json": "9198ab558384d0e6846ed28a378f4547273330f1b1941f38102c7bfdc43e5e1c",
+    "probes/flagstaff-chromium148-headed/page.html": "049bd7ab499aa41e6c58c20af97cb3aa6352698950b95d79c328314333cec29c",
+    "probes/flagstaff-chromium148-headed/page.png": "3878570f4a62a0d65f57cf1754e0269e56ec797f4e36e26b44c172eb6e800401",
+    "probes/flagstaff-chromium148-headed/receipt.json": "22da24f78400721727e2843817446bc4391169db01742d9bd1b2a7de06744f44",
+    "probes/gridics-chrome155-headless/page.html": "409ffc5a1f6e7870a2c33da6de2118e147f765dd4c9a7e2f5f7d7300270cd544",
+    "probes/gridics-chrome155-headless/receipt.json": "2e0974c37b0142fc33c16e37997747bc13436d6afb8cc63cef85c2b825842163",
+    "probes/gridics-chromium148-headless/page.html": "fea4c49e7be6666631a1e2ba768fab9e56d8090ac9b1fa9ab94e6dc29b8a586e",
+    "probes/gridics-chromium148-headless/receipt.json": "ce8941633b53d5e7c86c578359e13cb620fa6909b9e20dda6717424e0a348712",
+    "requirements.txt": "d4d9a59e0d740ab98d85cf6aec6277b875547f4cf0892ccae48da3a4adcfcf05",
+    "runtime_diagnostics.py": "4b5c50d16121a345e40e0e30ea23f5cda499cb0b66c52f9f84b4c9562ec50cba",
+    "test-results-command.txt": "78ab16eef8538ab08d08fef0cef56c989999e98147e5b0247ce633130db39006",
+    "test-results.txt": "17a95fabd9664e503c3f5bcfb39fa96e1b7dcdcaa2589939beca8ce774f8dce4",
+    "test_runtime_diagnostics.py": "36a26ed49aece8d861a0fbbf681fcc35330846d64d6f5d51e268984a34102982"
+  }
+}

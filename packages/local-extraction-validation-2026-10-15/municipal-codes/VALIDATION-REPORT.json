@@ -1,0 +1,1071 @@
+{
+  "schema_version": 1,
+  "prepared_on": "2026-10-15",
+  "source_type": "municipal_codes",
+  "scope": "bounded source validation; no full corpus or import",
+  "parser_version": "municipal-codes-validation-1.0",
+  "parser_sha256": "568adf3a24ed296b8c69a331ffedcd9527b14c4f0672a7c2291fc5575593f1bd",
+  "whole_corpus_validated": false,
+  "status": "bounded_parser_and_primary_inventory_validated_full_scope_pending",
+  "runtime": {
+    "python": "3.9.6",
+    "requests": "2.32.5",
+    "beautifulsoup4": "4.15.0",
+    "optional_node_requirement": "20+",
+    "playwright_acquisition_runtime": "syntax checked only; live acquisition performed via supported CUA/IAB"
+  },
+  "tests": {
+    "command": "python -m unittest -v test_municipal_codes validate_retained validate_live_snapshots",
+    "count": 24,
+    "passed": true,
+    "evidence": "evidence/tests.log",
+    "coverage": {
+      "synthetic_regressions": 16,
+      "retained_real_source_checks": 4,
+      "current_live_snapshot_checks": 4
+    },
+    "human_visual_comparison": "Berkeley representative source inspected through CUA accessibility state; other live source checks automate DOM/header/body comparison, no whole-corpus human review"
+  },
+  "jurisdictions": [
+    {
+      "slug": "berkeley-ca",
+      "jurisdiction": "Berkeley",
+      "discovery_url": "https://berkeley.municipal.codes/",
+      "publication_base": "https://berkeley.municipal.codes/BMC",
+      "route_validation": {
+        "direct_http": "blocked_403",
+        "supported_browser": "live_chapter_and_contents_reached",
+        "official_link_status": "confirmed",
+        "official_evidence": "evidence/berkeley-ca/official.json"
+      },
+      "parser_validation": {
+        "status": "pass_bounded_live_and_retained_replay",
+        "current_section_cards": 10,
+        "parent_bodies": 0,
+        "retained_sample_date": "2026-08-28",
+        "live_dom_sha256": "54d4d3e226d7b52899eb492edd1c69a06006eac3cd7a797351fae6e6331647cc",
+        "raw_currency_text": "",
+        "source_version_coherence": "unresolved_full_publication"
+      },
+      "inventory_validation": {
+        "status": "primary_code_full_dom_captured_and_link_count_reconciled",
+        "nodes": 5238,
+        "pending_controls": 0,
+        "families_complete": false,
+        "complete_scope_qualification": false,
+        "raw_sha256": "982a1215388573d1320e1b3256519754864e0f022085b6aec0f4427c124d6884",
+        "source_inventory_path": "evidence/berkeley-ca/inventory.json"
+      },
+      "discovered_publications": [
+        {
+          "publication_id": "municipal-code",
+          "raw_artifact_path": "live-publications.html",
+          "raw_sha256": "2141fe204d9725ed3bf70efa17874056b9181527395644bd137b710ad52bd796",
+          "path": "/BMC",
+          "title": "Municipal Code",
+          "source_url": "https://berkeley.municipal.codes/BMC",
+          "scope_disposition": "unresolved",
+          "evidence": "live-publications.html",
+          "reason": "Observed family retained; complete family inventory and substantive qualification pending"
+        },
+        {
+          "publication_id": "publisher:Charter",
+          "raw_artifact_path": "live-publications.html",
+          "raw_sha256": "2141fe204d9725ed3bf70efa17874056b9181527395644bd137b710ad52bd796",
+          "path": "/Charter",
+          "title": "Charter",
+          "source_url": "https://berkeley.municipal.codes/Charter",
+          "scope_disposition": "unresolved",
+          "evidence": "live-publications.html",
+          "reason": "Observed family retained; complete family inventory and substantive qualification pending"
+        }
+      ],
+      "whole_corpus_validation": {
+        "status": "not_run",
+        "validated": false,
+        "example_included_records": 10,
+        "unresolved_dispositions": 5228,
+        "exceptions": 0
+      },
+      "evidence": [
+        {
+          "path": "evidence/berkeley-ca/inventory.json",
+          "sha256": "09728dfeabbcf886bf594889433d00243b9695407ada557cb34f2ae8c178115a",
+          "bytes": 4273698
+        },
+        {
+          "path": "evidence/berkeley-ca/live-chapter-receipt.json",
+          "sha256": "a896b7c35c9e4db6975084f342ae678794f17623b41c7dbb6ffcb804c3055ab5",
+          "bytes": 392
+        },
+        {
+          "path": "evidence/berkeley-ca/live-chapter.html",
+          "sha256": "54d4d3e226d7b52899eb492edd1c69a06006eac3cd7a797351fae6e6331647cc",
+          "bytes": 73015
+        },
+        {
+          "path": "evidence/berkeley-ca/live-contents-full.html",
+          "sha256": "982a1215388573d1320e1b3256519754864e0f022085b6aec0f4427c124d6884",
+          "bytes": 1461006
+        },
+        {
+          "path": "evidence/berkeley-ca/live-contents-full.json",
+          "sha256": "9350485c8e413aaf14323cd23e0016f0b0455299816056e22e9e144fb38df543",
+          "bytes": 148
+        },
+        {
+          "path": "evidence/berkeley-ca/live-contents.html",
+          "sha256": "b7826993c082aee09b9dd6b8d878e245ebc493f2ba1d7df72fc2f738d523fdc9",
+          "bytes": 201499
+        },
+        {
+          "path": "evidence/berkeley-ca/live-contents.json",
+          "sha256": "c7a4a2ea6cbb6647e450b8fbd49c407b9dda000ef57a66ac863b2989d6687e41",
+          "bytes": 211
+        },
+        {
+          "path": "evidence/berkeley-ca/live-parsed.json",
+          "sha256": "c2d3a6f1620de625f5a5ebb17af739edfbaebf507a9f59a83b2af475ad20339a",
+          "bytes": 27705
+        },
+        {
+          "path": "evidence/berkeley-ca/live-publications.html",
+          "sha256": "2141fe204d9725ed3bf70efa17874056b9181527395644bd137b710ad52bd796",
+          "bytes": 37499
+        },
+        {
+          "path": "evidence/berkeley-ca/official.html",
+          "sha256": "4b7ae9fdf1ac8510a9a7677012c3f7c553bd8695cd32cc6064d69a9899140d88",
+          "bytes": 152831
+        },
+        {
+          "path": "evidence/berkeley-ca/official.json",
+          "sha256": "e9d510dda76486cdec950e66bf643f4006c955fcf8269407fb61aff12d9c964f",
+          "bytes": 615
+        },
+        {
+          "path": "evidence/berkeley-ca/publications-discovery.json",
+          "sha256": "9d62fd2f1c8660db635e5cbc97c434b843250982a06b3c5defaa39800ecc3c64",
+          "bytes": 971
+        },
+        {
+          "path": "evidence/berkeley-ca/replay-manifest.json",
+          "sha256": "815efe4bffe533d8a6595abd8da4f8d5669b7b330e66b20c3495a456d2495c3c",
+          "bytes": 2026
+        },
+        {
+          "path": "evidence/berkeley-ca/route.html",
+          "sha256": "316bbe760dbcedbc192b70ce46cb0bab7619d64b5137f05bf62f1c59c6006354",
+          "bytes": 5511
+        },
+        {
+          "path": "evidence/berkeley-ca/route.json",
+          "sha256": "62e93ff0ef37907efe38f073cb72954d8abe342d7ca6a5c95ab4db60a629cca8",
+          "bytes": 2675
+        }
+      ],
+      "next_steps": [
+        "Confirm official city publisher redirect chain as applicable.",
+        "Qualify/disposition every discovered family and freeze its independent complete source tree.",
+        "Acquire remaining substantive nodes only in separately authorized full-corpus run; preserve parent/editorial status evidence.",
+        "Review representative difficult real structures and close source revision/inventory checks."
+      ]
+    },
+    {
+      "slug": "petaluma-ca",
+      "jurisdiction": "Petaluma",
+      "discovery_url": "https://petaluma.municipal.codes/Code",
+      "publication_base": "https://petaluma.municipal.codes/Code",
+      "route_validation": {
+        "direct_http": "blocked_403",
+        "supported_browser": "live_chapter_and_contents_reached",
+        "official_link_status": "unconfirmed_city_landing_403",
+        "official_evidence": "evidence/petaluma-ca/official.json"
+      },
+      "parser_validation": {
+        "status": "pass_bounded_live_and_retained_replay",
+        "current_section_cards": 9,
+        "parent_bodies": 1,
+        "retained_sample_date": "2026-08-28",
+        "live_dom_sha256": "33396a763c303a2a9a85f340c9c9203661acb8f7062d32421125f9d3469b4f6f",
+        "raw_currency_text": "",
+        "source_version_coherence": "unresolved_full_publication"
+      },
+      "inventory_validation": {
+        "status": "primary_code_full_dom_captured_and_link_count_reconciled",
+        "nodes": 2860,
+        "pending_controls": 0,
+        "families_complete": false,
+        "complete_scope_qualification": false,
+        "raw_sha256": "e78b06f2ecaebe30a3af7a56625ae9b930c8aee18a20e35e7ea88263e1dd87cd",
+        "source_inventory_path": "evidence/petaluma-ca/inventory.json"
+      },
+      "discovered_publications": [
+        {
+          "publication_id": "municipal-code",
+          "raw_artifact_path": "live-publications.html",
+          "raw_sha256": "110f718999d614fe1c5938d1caa627d18bc17176eaf57ebc0b8b04bdcd679b57",
+          "path": "/Code",
+          "title": "Municipal Code",
+          "source_url": "https://petaluma.municipal.codes/Code",
+          "scope_disposition": "unresolved",
+          "evidence": "live-publications.html",
+          "reason": "Observed family retained; complete family inventory and substantive qualification pending"
+        },
+        {
+          "publication_id": "publisher:ZoningOrds",
+          "raw_artifact_path": "live-publications.html",
+          "raw_sha256": "110f718999d614fe1c5938d1caa627d18bc17176eaf57ebc0b8b04bdcd679b57",
+          "path": "/ZoningOrds",
+          "title": "Zoning Code",
+          "source_url": "https://petaluma.municipal.codes/ZoningOrds",
+          "scope_disposition": "unresolved",
+          "evidence": "live-publications.html",
+          "reason": "Observed family retained; complete family inventory and substantive qualification pending"
+        },
+        {
+          "publication_id": "publisher:SmartCode",
+          "raw_artifact_path": "live-publications.html",
+          "raw_sha256": "110f718999d614fe1c5938d1caa627d18bc17176eaf57ebc0b8b04bdcd679b57",
+          "path": "/SmartCode",
+          "title": "SmartCode",
+          "source_url": "https://petaluma.municipal.codes/SmartCode",
+          "scope_disposition": "unresolved",
+          "evidence": "live-publications.html",
+          "reason": "Observed family retained; complete family inventory and substantive qualification pending"
+        },
+        {
+          "publication_id": "publisher:Charter",
+          "raw_artifact_path": "live-publications.html",
+          "raw_sha256": "110f718999d614fe1c5938d1caa627d18bc17176eaf57ebc0b8b04bdcd679b57",
+          "path": "/Charter",
+          "title": "Charter",
+          "source_url": "https://petaluma.municipal.codes/Charter",
+          "scope_disposition": "unresolved",
+          "evidence": "live-publications.html",
+          "reason": "Observed family retained; complete family inventory and substantive qualification pending"
+        }
+      ],
+      "whole_corpus_validation": {
+        "status": "not_run",
+        "validated": false,
+        "example_included_records": 10,
+        "unresolved_dispositions": 2850,
+        "exceptions": 0
+      },
+      "evidence": [
+        {
+          "path": "evidence/petaluma-ca/inventory.json",
+          "sha256": "7356d5421b2ff5efcec7e0ebbe937c05e6963c0fc4c57f566bf1b52a11c23a29",
+          "bytes": 2335996
+        },
+        {
+          "path": "evidence/petaluma-ca/live-chapter-ready.html",
+          "sha256": "33396a763c303a2a9a85f340c9c9203661acb8f7062d32421125f9d3469b4f6f",
+          "bytes": 65298
+        },
+        {
+          "path": "evidence/petaluma-ca/live-chapter-receipt.json",
+          "sha256": "e67ef36a32a9cc16de66cb0bebf1eed3057dc27a72cc41249ada6b2ecd09346f",
+          "bytes": 392
+        },
+        {
+          "path": "evidence/petaluma-ca/live-chapter.html",
+          "sha256": "47a68f96f8e34a28740dd6ae6a0fcbc2ee85f9d60325a7870eb18eaf2249b1a9",
+          "bytes": 1998
+        },
+        {
+          "path": "evidence/petaluma-ca/live-chapter.json",
+          "sha256": "d0efbf3f4b175d10bbafb475327667958b92facabe4668f064323a1a30c9f6e3",
+          "bytes": 222
+        },
+        {
+          "path": "evidence/petaluma-ca/live-contents-full.html",
+          "sha256": "e78b06f2ecaebe30a3af7a56625ae9b930c8aee18a20e35e7ea88263e1dd87cd",
+          "bytes": 807356
+        },
+        {
+          "path": "evidence/petaluma-ca/live-contents-full.json",
+          "sha256": "57bcda657bdd2cd032d3151c6f5769590d279032c85fbe997897cd4c5edb4793",
+          "bytes": 148
+        },
+        {
+          "path": "evidence/petaluma-ca/live-contents-ready.html",
+          "sha256": "3d148672ae08d6a9bd109da6dccc1707d36031a48ad32dbbf83a1ae1c9dc355b",
+          "bytes": 201625
+        },
+        {
+          "path": "evidence/petaluma-ca/live-contents.html",
+          "sha256": "d06034d747bb93cb4f795b3d2dc850e882e791f8303bd6efca6cdb69169212d3",
+          "bytes": 1709
+        },
+        {
+          "path": "evidence/petaluma-ca/live-contents.json",
+          "sha256": "7d004181c62e4fdc2f78511ab21cb3d2162cde2631501f3e55429575b14d9420",
+          "bytes": 209
+        },
+        {
+          "path": "evidence/petaluma-ca/live-parsed.json",
+          "sha256": "c5893128d0618ba626eb6c490ba062b128179701898e2acd6280dd6537060936",
+          "bytes": 22133
+        },
+        {
+          "path": "evidence/petaluma-ca/live-publications.html",
+          "sha256": "110f718999d614fe1c5938d1caa627d18bc17176eaf57ebc0b8b04bdcd679b57",
+          "bytes": 50377
+        },
+        {
+          "path": "evidence/petaluma-ca/official.html",
+          "sha256": "04d6dc9745dea4bfce7aba6fa3326fe2c0309637ec49acf658d8879c73b34434",
+          "bytes": 4578
+        },
+        {
+          "path": "evidence/petaluma-ca/official.json",
+          "sha256": "b546581823b18cac6532b134f94afe214c92c897e32f6f40bc36d0212ec2c18e",
+          "bytes": 323
+        },
+        {
+          "path": "evidence/petaluma-ca/publications-discovery.json",
+          "sha256": "f65192d53076d59427a776c9b3e7b76c9ee8391024ec2ccad6858839fcfda847",
+          "bytes": 1966
+        },
+        {
+          "path": "evidence/petaluma-ca/replay-manifest.json",
+          "sha256": "b5516bba3f84e317c9509372da540353d188ab5858ef15d81867ae77216f968d",
+          "bytes": 3073
+        },
+        {
+          "path": "evidence/petaluma-ca/route.html",
+          "sha256": "7137a874111fb08f8fe35db7d60d8c78f45790d88bbd511a1b1276225b487a94",
+          "bytes": 5523
+        },
+        {
+          "path": "evidence/petaluma-ca/route.json",
+          "sha256": "77ac429a138c677b27ff47fc7c01b1080241fd904c510f54c66d5c4a3cff2178",
+          "bytes": 2691
+        }
+      ],
+      "next_steps": [
+        "Confirm official city publisher redirect chain as applicable.",
+        "Qualify/disposition every discovered family and freeze its independent complete source tree.",
+        "Acquire remaining substantive nodes only in separately authorized full-corpus run; preserve parent/editorial status evidence.",
+        "Review representative difficult real structures and close source revision/inventory checks."
+      ]
+    },
+    {
+      "slug": "sonoma-ca",
+      "jurisdiction": "Sonoma",
+      "discovery_url": "https://sonoma.municipal.codes/SMC",
+      "publication_base": "https://sonoma.municipal.codes/SMC",
+      "route_validation": {
+        "direct_http": "blocked_403",
+        "supported_browser": "live_chapter_and_contents_reached",
+        "official_link_status": "legacy_city_link_retained_redirect_unconfirmed",
+        "official_evidence": "evidence/sonoma-ca/official.json"
+      },
+      "parser_validation": {
+        "status": "pass_bounded_live_and_retained_replay",
+        "current_section_cards": 10,
+        "parent_bodies": 0,
+        "retained_sample_date": "2026-08-28",
+        "live_dom_sha256": "37aa3bc683a8c83dd35085815763cf9b2dfd157629392375c26dae7e73b1caed",
+        "raw_currency_text": "",
+        "source_version_coherence": "unresolved_full_publication"
+      },
+      "inventory_validation": {
+        "status": "primary_code_full_dom_captured_and_link_count_reconciled",
+        "nodes": 2177,
+        "pending_controls": 0,
+        "families_complete": false,
+        "complete_scope_qualification": false,
+        "raw_sha256": "57f7732cbcfd30b8047596e9e2ca9a5b4f5439df3661321dfabde1514dab475a",
+        "source_inventory_path": "evidence/sonoma-ca/inventory.json"
+      },
+      "discovered_publications": [
+        {
+          "publication_id": "municipal-code",
+          "raw_artifact_path": "live-publications.html",
+          "raw_sha256": "0e110f1adfa0d87507eafc0ad2f172d757e81c2f4d238e2b10f361dfeb9a09ea",
+          "path": "/SMC",
+          "title": "Municipal Code",
+          "source_url": "https://sonoma.municipal.codes/SMC",
+          "scope_disposition": "unresolved",
+          "evidence": "live-publications.html",
+          "reason": "Observed family retained; complete family inventory and substantive qualification pending"
+        }
+      ],
+      "whole_corpus_validation": {
+        "status": "not_run",
+        "validated": false,
+        "example_included_records": 10,
+        "unresolved_dispositions": 2167,
+        "exceptions": 0
+      },
+      "evidence": [
+        {
+          "path": "evidence/sonoma-ca/inventory.json",
+          "sha256": "9947fbce40b70a5757edc9ef7a2fb059f9309dda68e9dd9fd583d7b5fb0b8176",
+          "bytes": 1745570
+        },
+        {
+          "path": "evidence/sonoma-ca/live-chapter-ready.html",
+          "sha256": "37aa3bc683a8c83dd35085815763cf9b2dfd157629392375c26dae7e73b1caed",
+          "bytes": 67582
+        },
+        {
+          "path": "evidence/sonoma-ca/live-chapter-receipt.json",
+          "sha256": "8d9cb459f4315bf8d5ecee279a8be7f6c0488f2197f176420f55d4fce7575b82",
+          "bytes": 390
+        },
+        {
+          "path": "evidence/sonoma-ca/live-chapter.html",
+          "sha256": "ebae16d6fd0d066fc5d665cace563ded34e51f798420895249eb947d9f3ca2ca",
+          "bytes": 1987
+        },
+        {
+          "path": "evidence/sonoma-ca/live-chapter.json",
+          "sha256": "c4f50846e18bf701089fc267364853362ebbbd3a3309af8d773c3a5e0165201e",
+          "bytes": 217
+        },
+        {
+          "path": "evidence/sonoma-ca/live-contents-full.html",
+          "sha256": "57f7732cbcfd30b8047596e9e2ca9a5b4f5439df3661321dfabde1514dab475a",
+          "bytes": 616360
+        },
+        {
+          "path": "evidence/sonoma-ca/live-contents-full.json",
+          "sha256": "69a78e57173d17a25fefd9da45d8a8f772842208d7cbc24fb36569b1ef1f551b",
+          "bytes": 143
+        },
+        {
+          "path": "evidence/sonoma-ca/live-contents-ready.html",
+          "sha256": "0ab1ff3dbdaceae7b5f334163d9ec8ef79b32dd70ede83ff5968ba760931fc3a",
+          "bytes": 201625
+        },
+        {
+          "path": "evidence/sonoma-ca/live-contents.html",
+          "sha256": "35b1058124ca63a3b7ccb6815fda87e45c18f56baa7c26b95c5f6e251e72777c",
+          "bytes": 6342
+        },
+        {
+          "path": "evidence/sonoma-ca/live-contents.json",
+          "sha256": "5570b013c09024425dd8c201be95f9e2b5e34d6e4011ebda1111d6d38e42071a",
+          "bytes": 309
+        },
+        {
+          "path": "evidence/sonoma-ca/live-parsed.json",
+          "sha256": "e3872a65769528f1caaefd58f45662adf0e8f3f9be7509b28401478bd748c126",
+          "bytes": 23932
+        },
+        {
+          "path": "evidence/sonoma-ca/live-publications.html",
+          "sha256": "0e110f1adfa0d87507eafc0ad2f172d757e81c2f4d238e2b10f361dfeb9a09ea",
+          "bytes": 27710
+        },
+        {
+          "path": "evidence/sonoma-ca/official-vendor-redirect.html",
+          "sha256": "dda65ca149dcf70b9ae942e375374469bac674d0c3b02717bfe82db741d8a80d",
+          "bytes": 5581
+        },
+        {
+          "path": "evidence/sonoma-ca/official-vendor-redirect.json",
+          "sha256": "77e5db5ed1e56ffbd4e3e7022ec39fa49019254fb7d840dff8115d19c3103685",
+          "bytes": 242
+        },
+        {
+          "path": "evidence/sonoma-ca/official.html",
+          "sha256": "3c74eaeecdf393a5138e8e5f1e7b51f20eee19b5b03ff4e3d90cd9e0ef8ff0aa",
+          "bytes": 579242
+        },
+        {
+          "path": "evidence/sonoma-ca/official.json",
+          "sha256": "554051dd9fbcd92d166526f9e3e0968b89afd5063a935b67a035839e32f08979",
+          "bytes": 456
+        },
+        {
+          "path": "evidence/sonoma-ca/publications-discovery.json",
+          "sha256": "47a8ef1d8dd8c43125790f2128f149df5752ad2c2bfdd73e4840198dbf1df6a4",
+          "bytes": 483
+        },
+        {
+          "path": "evidence/sonoma-ca/replay-manifest.json",
+          "sha256": "f55dccf7688cc9fad4c34a1b05d96724ce6fd596af1da9256f5ebdd5651cd57c",
+          "bytes": 1512
+        },
+        {
+          "path": "evidence/sonoma-ca/route.html",
+          "sha256": "558338543ddf23a0c38f63fadd35a76d14eeb5bd44ad8586f9d1c4c59a0a8234",
+          "bytes": 5518
+        },
+        {
+          "path": "evidence/sonoma-ca/route.json",
+          "sha256": "9fa78bdfbfb0f932943621695c19872a9bdd3303dcab694b0f834e80b80a9863",
+          "bytes": 2681
+        }
+      ],
+      "next_steps": [
+        "Confirm official city publisher redirect chain as applicable.",
+        "Qualify/disposition every discovered family and freeze its independent complete source tree.",
+        "Acquire remaining substantive nodes only in separately authorized full-corpus run; preserve parent/editorial status evidence.",
+        "Review representative difficult real structures and close source revision/inventory checks."
+      ]
+    },
+    {
+      "slug": "bellingham-wa",
+      "jurisdiction": "Bellingham",
+      "discovery_url": "https://bellingham.municipal.codes/BMC/contents",
+      "publication_base": "https://bellingham.municipal.codes/BMC",
+      "route_validation": {
+        "direct_http": "blocked_403",
+        "supported_browser": "live_chapter_and_contents_reached",
+        "official_link_status": "unconfirmed_city_landing_403",
+        "official_evidence": "evidence/bellingham-wa/official.json"
+      },
+      "parser_validation": {
+        "status": "pass_bounded_live_and_retained_replay",
+        "current_section_cards": 13,
+        "parent_bodies": 0,
+        "retained_sample_date": "2026-08-28",
+        "live_dom_sha256": "71d92c8a74ef300e9aa6e2936f260e00b94a7e0e81a6a963943e253c47bb41c4",
+        "raw_currency_text": "",
+        "source_version_coherence": "unresolved_full_publication"
+      },
+      "inventory_validation": {
+        "status": "primary_code_full_dom_captured_and_link_count_reconciled",
+        "nodes": 2846,
+        "pending_controls": 0,
+        "families_complete": false,
+        "complete_scope_qualification": false,
+        "raw_sha256": "cdfeeacd1c61f889f659b9462b54682c63b1a2ffcd0d32b1ef8313d279cef042",
+        "source_inventory_path": "evidence/bellingham-wa/inventory.json"
+      },
+      "discovered_publications": [
+        {
+          "publication_id": "municipal-code",
+          "raw_artifact_path": "live-publications.html",
+          "raw_sha256": "8623c4f9059c6e86f8d933d1bde0563659b8c98987d97b6649095464ed0c436d",
+          "path": "/BMC",
+          "title": "Municipal Code",
+          "source_url": "https://bellingham.municipal.codes/BMC",
+          "scope_disposition": "unresolved",
+          "evidence": "live-publications.html",
+          "reason": "Observed family retained; complete family inventory and substantive qualification pending"
+        },
+        {
+          "publication_id": "publisher:Charter",
+          "raw_artifact_path": "live-publications.html",
+          "raw_sha256": "8623c4f9059c6e86f8d933d1bde0563659b8c98987d97b6649095464ed0c436d",
+          "path": "/Charter",
+          "title": "Charter",
+          "source_url": "https://bellingham.municipal.codes/Charter",
+          "scope_disposition": "unresolved",
+          "evidence": "live-publications.html",
+          "reason": "Observed family retained; complete family inventory and substantive qualification pending"
+        }
+      ],
+      "whole_corpus_validation": {
+        "status": "not_run",
+        "validated": false,
+        "example_included_records": 13,
+        "unresolved_dispositions": 2833,
+        "exceptions": 0
+      },
+      "evidence": [
+        {
+          "path": "evidence/bellingham-wa/inventory-block.json",
+          "sha256": "f3228fb4c9edb8581e0f3a80fdf31045da725ec58de4c95fb9f524df19e763fd",
+          "bytes": 311
+        },
+        {
+          "path": "evidence/bellingham-wa/inventory.json",
+          "sha256": "3fdce36c09bda90736acdecceaafa25e4464e912cef121e89bdbd71ced367afa",
+          "bytes": 2333081
+        },
+        {
+          "path": "evidence/bellingham-wa/live-chapter-receipt.json",
+          "sha256": "79bab84d6e4c9d1dede371a5c709b3d9e0dd3c9c6199d95db22108ea25b15c7d",
+          "bytes": 394
+        },
+        {
+          "path": "evidence/bellingham-wa/live-chapter.html",
+          "sha256": "71d92c8a74ef300e9aa6e2936f260e00b94a7e0e81a6a963943e253c47bb41c4",
+          "bytes": 81209
+        },
+        {
+          "path": "evidence/bellingham-wa/live-chapter.json",
+          "sha256": "e9e7b5f7ef585560461d71737cc993f4f8956e0d9e171bede22109f0a72372d4",
+          "bytes": 226
+        },
+        {
+          "path": "evidence/bellingham-wa/live-contents-full.html",
+          "sha256": "cdfeeacd1c61f889f659b9462b54682c63b1a2ffcd0d32b1ef8313d279cef042",
+          "bytes": 795816
+        },
+        {
+          "path": "evidence/bellingham-wa/live-contents-full.json",
+          "sha256": "59d2363139888d3b54af6ccd0bd81ad935a8b58927a1f48353d987a2df15d29b",
+          "bytes": 151
+        },
+        {
+          "path": "evidence/bellingham-wa/live-contents-ready.html",
+          "sha256": "6c01ff6e8885192012b5aa6d385e1c42f96b63ffeecc5e8721079664b359f282",
+          "bytes": 1717
+        },
+        {
+          "path": "evidence/bellingham-wa/live-contents.html",
+          "sha256": "3b24caf8565acb80ebdcfebdc41a6d976c8315ec045cc2e44e271945e1a54674",
+          "bytes": 6367
+        },
+        {
+          "path": "evidence/bellingham-wa/live-contents.json",
+          "sha256": "fbf7b953b6bc6fd1a3e8be4fcb4fc1ac0939505b69cc94e835d7566fd055767a",
+          "bytes": 313
+        },
+        {
+          "path": "evidence/bellingham-wa/live-parsed.json",
+          "sha256": "e8b0ecc1d1c6183db8dd6bf7fe5c20c954d331d1c075fb95bf0a41e649a1afb7",
+          "bytes": 34182
+        },
+        {
+          "path": "evidence/bellingham-wa/live-publications.html",
+          "sha256": "8623c4f9059c6e86f8d933d1bde0563659b8c98987d97b6649095464ed0c436d",
+          "bytes": 35766
+        },
+        {
+          "path": "evidence/bellingham-wa/official.html",
+          "sha256": "e2af8d94acc853e860775b8f8dacf4bccc42f7954849e283de99904adf4ab229",
+          "bytes": 1084
+        },
+        {
+          "path": "evidence/bellingham-wa/official.json",
+          "sha256": "15f00eb8a5bc414415dd3dafeb2ff0f6c132516edae3a7b2acd3c5af3e322b14",
+          "bytes": 279
+        },
+        {
+          "path": "evidence/bellingham-wa/publications-discovery.json",
+          "sha256": "b883ae66458aa86a4bb8c1b3a3b40dd406e6fecdbda35d133d6bea876dfbc1c7",
+          "bytes": 975
+        },
+        {
+          "path": "evidence/bellingham-wa/replay-manifest.json",
+          "sha256": "b37cb1ae05b50b1b3bd5a2a026a83e2d186b9552a95012f224df6e58b0071cdc",
+          "bytes": 2040
+        },
+        {
+          "path": "evidence/bellingham-wa/retained-inventory.json",
+          "sha256": "d1ef38ab38f5a29f3b277129eaaac30fe5d7dfc6246be399da38c0f78fca19d6",
+          "bytes": 1358735
+        },
+        {
+          "path": "evidence/bellingham-wa/route.html",
+          "sha256": "d443c951549c58992e99c770d403630b2e02bf799673d6275d104f974e6ad992",
+          "bytes": 5570
+        },
+        {
+          "path": "evidence/bellingham-wa/route.json",
+          "sha256": "3dea0066500e3d2c49b4edd31c956f710148ea1344091b83aaebf27a67870c73",
+          "bytes": 2705
+        }
+      ],
+      "next_steps": [
+        "Confirm official city publisher redirect chain as applicable.",
+        "Qualify/disposition every discovered family and freeze its independent complete source tree.",
+        "Acquire remaining substantive nodes only in separately authorized full-corpus run; preserve parent/editorial status evidence.",
+        "Review representative difficult real structures and close source revision/inventory checks."
+      ]
+    },
+    {
+      "slug": "everett-wa",
+      "jurisdiction": "Everett",
+      "discovery_url": "https://everett.municipal.codes/EMC/contents",
+      "publication_base": "https://everett.municipal.codes/EMC",
+      "route_validation": {
+        "direct_http": "blocked_403",
+        "supported_browser": "live_chapter_and_contents_reached",
+        "official_link_status": "unconfirmed_city_landing_403",
+        "official_evidence": "evidence/everett-wa/official.json"
+      },
+      "parser_validation": {
+        "status": "pass_bounded_live_and_retained_replay",
+        "current_section_cards": 12,
+        "parent_bodies": 1,
+        "retained_sample_date": "2026-08-28",
+        "live_dom_sha256": "f11d6a86e65f02c5de0ccf35826e7f6491f36ac4f75ba190a017eedcfe3c26ee",
+        "raw_currency_text": "",
+        "source_version_coherence": "unresolved_full_publication"
+      },
+      "inventory_validation": {
+        "status": "primary_code_full_dom_captured_and_link_count_reconciled",
+        "nodes": 3742,
+        "pending_controls": 0,
+        "families_complete": false,
+        "complete_scope_qualification": false,
+        "raw_sha256": "c7ea24c40868bcc4ac028bd3987e242da53e8525ea25494389c57ec02da08c40",
+        "source_inventory_path": "evidence/everett-wa/inventory.json"
+      },
+      "discovered_publications": [
+        {
+          "publication_id": "municipal-code",
+          "raw_artifact_path": "live-publications.html",
+          "raw_sha256": "61e039e2c22b101d7dac58415a5f9d896cf5525063a6d7bbcf1c032701eaf4c6",
+          "path": "/EMC",
+          "title": "Municipal Code",
+          "source_url": "https://everett.municipal.codes/EMC",
+          "scope_disposition": "unresolved",
+          "evidence": "live-publications.html",
+          "reason": "Observed family retained; complete family inventory and substantive qualification pending"
+        },
+        {
+          "publication_id": "publisher:Charter",
+          "raw_artifact_path": "live-publications.html",
+          "raw_sha256": "61e039e2c22b101d7dac58415a5f9d896cf5525063a6d7bbcf1c032701eaf4c6",
+          "path": "/Charter",
+          "title": "City Charter",
+          "source_url": "https://everett.municipal.codes/Charter",
+          "scope_disposition": "unresolved",
+          "evidence": "live-publications.html",
+          "reason": "Observed family retained; complete family inventory and substantive qualification pending"
+        }
+      ],
+      "whole_corpus_validation": {
+        "status": "not_run",
+        "validated": false,
+        "example_included_records": 13,
+        "unresolved_dispositions": 3729,
+        "exceptions": 0
+      },
+      "evidence": [
+        {
+          "path": "evidence/everett-wa/inventory.json",
+          "sha256": "b011ac78b94c90a77cae49ce6d1c13e54e7bf85525ed4cd6f3d9a181b2d0b1ee",
+          "bytes": 3022810
+        },
+        {
+          "path": "evidence/everett-wa/live-chapter-ready.html",
+          "sha256": "f11d6a86e65f02c5de0ccf35826e7f6491f36ac4f75ba190a017eedcfe3c26ee",
+          "bytes": 74805
+        },
+        {
+          "path": "evidence/everett-wa/live-chapter-receipt.json",
+          "sha256": "03e652c06610cb245565c4d0685d58b801036379ff9bf90036a70ed624259a49",
+          "bytes": 391
+        },
+        {
+          "path": "evidence/everett-wa/live-chapter.html",
+          "sha256": "f5761622ab3bb2db27d70916c5b5772fe5f5f010f8902a18294637f8afaa9e4f",
+          "bytes": 28838
+        },
+        {
+          "path": "evidence/everett-wa/live-chapter.json",
+          "sha256": "63a4d5bc6ae04fd2c7835a13a58e3411294d8d130dc22750b14a50101bc10d63",
+          "bytes": 188
+        },
+        {
+          "path": "evidence/everett-wa/live-contents-full.html",
+          "sha256": "c7ea24c40868bcc4ac028bd3987e242da53e8525ea25494389c57ec02da08c40",
+          "bytes": 1037625
+        },
+        {
+          "path": "evidence/everett-wa/live-contents-full.json",
+          "sha256": "b031016a71ecfe966fbfb9639b92a115de2f91050c6efe55d4009c3e6f9cccfb",
+          "bytes": 146
+        },
+        {
+          "path": "evidence/everett-wa/live-contents-ready.html",
+          "sha256": "4a23dcf49e8f64af4f673902373c9b8cd5100c38d31c416d5721d6386bd518e7",
+          "bytes": 201779
+        },
+        {
+          "path": "evidence/everett-wa/live-contents.html",
+          "sha256": "8ba1c2f1c19ec66c72cd266a306fde53f935b0b0af3915e20fd01154f49311d0",
+          "bytes": 6364
+        },
+        {
+          "path": "evidence/everett-wa/live-contents.json",
+          "sha256": "0ede20a011ca80f8b0ab66bd6df8ea39de30c484fab7d969e6a4d29d5417750b",
+          "bytes": 310
+        },
+        {
+          "path": "evidence/everett-wa/live-parsed.json",
+          "sha256": "4b0bbac9554f261aa0c7bc910d44500187796338f33120ec3ca8ecfb5eaa3a57",
+          "bytes": 27089
+        },
+        {
+          "path": "evidence/everett-wa/live-publications.html",
+          "sha256": "61e039e2c22b101d7dac58415a5f9d896cf5525063a6d7bbcf1c032701eaf4c6",
+          "bytes": 35734
+        },
+        {
+          "path": "evidence/everett-wa/official.html",
+          "sha256": "f1a190d1d3354494c3c526c8ad86a7f111767dbe7eafd14d2678c4ebd1f477a3",
+          "bytes": 5486
+        },
+        {
+          "path": "evidence/everett-wa/official.json",
+          "sha256": "2947b0ea23c77fcb53eba341eb501b2d9b5b4e33ae4b3c3b6b9fb091302353fc",
+          "bytes": 297
+        },
+        {
+          "path": "evidence/everett-wa/publications-discovery.json",
+          "sha256": "01a1a18022cb957220cf17b33f7e79daf24b410faf22af2141345e03bc15c031",
+          "bytes": 974
+        },
+        {
+          "path": "evidence/everett-wa/replay-manifest.json",
+          "sha256": "22d7a0ab45422f3cae7b363f52874fb5e5b8fd640726242774934ecb5a2372d1",
+          "bytes": 2030
+        },
+        {
+          "path": "evidence/everett-wa/route.html",
+          "sha256": "e1477f23ca8bd52baaa7d8ed28476fda22957b67426fa04bc8d7a0ae4ac9f3c9",
+          "bytes": 5546
+        },
+        {
+          "path": "evidence/everett-wa/route.json",
+          "sha256": "8681c2bbf2a4d59166fd54853b866f71ad1c39a9cdd9c548792ad35e3d6a2156",
+          "bytes": 2695
+        }
+      ],
+      "next_steps": [
+        "Confirm official city publisher redirect chain as applicable.",
+        "Qualify/disposition every discovered family and freeze its independent complete source tree.",
+        "Acquire remaining substantive nodes only in separately authorized full-corpus run; preserve parent/editorial status evidence.",
+        "Review representative difficult real structures and close source revision/inventory checks."
+      ]
+    }
+  ],
+  "limitations": [
+    "Current official city-to-publisher routing confirmed only for Berkeley; remaining city links require ordinary operator follow-up.",
+    "Municipal code primary tree is fully retained at one point; additional family tree/scope validation remains pending.",
+    "One representative chapter per city: 54 section cards total, plus two preserved editorial parent-note bodies; no full-text corpus collected.",
+    "No start/end revision and inventory closure, no full publication currency coherence claim.",
+    "Difficult real tables, appendices, maps and long/nested provisions beyond this chapter remain unqualified; rich semantic regressions are synthetic.",
+    "All example exports explicitly incomplete; unresolved nodes/family scope must be resolved before downstream use."
+  ],
+  "acquisition_notes": [
+    "Direct HTTP discovery returned 403 for all5; immutable responses retained.",
+    "Chrome CUA setup policy failed twice; isolated supported IAB succeeded without access-control/CAPTCHA bypass.",
+    "Early large outerHTML captures were truncated by bridge; corrected with 50000-character chunks and verified against browser UTF16 length/link counts.",
+    "Early challenge/shell/truncated snapshots retained as rejected evidence and excluded from manifests.",
+    "Historical cache index can describe bytes overwritten later; retained fixture SHA256 identifies actual tested bytes."
+  ],
+  "artifact_hashes": {
+    "README.md": "2c4f3e1a5fbfab00890ac3e08e321e0494f401ef4ab419429184ccd0d8a85df6",
+    "browser_capture.mjs": "1da1ee2f2d915610064d53b37f60820dcd97918567b8c5d641c07c5d4ccd8734",
+    "build_examples.py": "726f7c5da9c11d94a9445e0f05e0ea943fb12c506bd90ffa737efc078627e540",
+    "build_validation_report.py": "724d841509ca14577ea06e5d8e94ec4014a00f1b4a767c4936d5eae439068ed3",
+    "evidence/bellingham-wa/inventory-block.json": "f3228fb4c9edb8581e0f3a80fdf31045da725ec58de4c95fb9f524df19e763fd",
+    "evidence/bellingham-wa/inventory.json": "3fdce36c09bda90736acdecceaafa25e4464e912cef121e89bdbd71ced367afa",
+    "evidence/bellingham-wa/live-chapter-receipt.json": "79bab84d6e4c9d1dede371a5c709b3d9e0dd3c9c6199d95db22108ea25b15c7d",
+    "evidence/bellingham-wa/live-chapter.html": "71d92c8a74ef300e9aa6e2936f260e00b94a7e0e81a6a963943e253c47bb41c4",
+    "evidence/bellingham-wa/live-chapter.json": "e9e7b5f7ef585560461d71737cc993f4f8956e0d9e171bede22109f0a72372d4",
+    "evidence/bellingham-wa/live-contents-full.html": "cdfeeacd1c61f889f659b9462b54682c63b1a2ffcd0d32b1ef8313d279cef042",
+    "evidence/bellingham-wa/live-contents-full.json": "59d2363139888d3b54af6ccd0bd81ad935a8b58927a1f48353d987a2df15d29b",
+    "evidence/bellingham-wa/live-contents-ready.html": "6c01ff6e8885192012b5aa6d385e1c42f96b63ffeecc5e8721079664b359f282",
+    "evidence/bellingham-wa/live-contents.html": "3b24caf8565acb80ebdcfebdc41a6d976c8315ec045cc2e44e271945e1a54674",
+    "evidence/bellingham-wa/live-contents.json": "fbf7b953b6bc6fd1a3e8be4fcb4fc1ac0939505b69cc94e835d7566fd055767a",
+    "evidence/bellingham-wa/live-parsed.json": "e8b0ecc1d1c6183db8dd6bf7fe5c20c954d331d1c075fb95bf0a41e649a1afb7",
+    "evidence/bellingham-wa/live-publications.html": "8623c4f9059c6e86f8d933d1bde0563659b8c98987d97b6649095464ed0c436d",
+    "evidence/bellingham-wa/official.html": "e2af8d94acc853e860775b8f8dacf4bccc42f7954849e283de99904adf4ab229",
+    "evidence/bellingham-wa/official.json": "15f00eb8a5bc414415dd3dafeb2ff0f6c132516edae3a7b2acd3c5af3e322b14",
+    "evidence/bellingham-wa/publications-discovery.json": "b883ae66458aa86a4bb8c1b3a3b40dd406e6fecdbda35d133d6bea876dfbc1c7",
+    "evidence/bellingham-wa/replay-manifest.json": "b37cb1ae05b50b1b3bd5a2a026a83e2d186b9552a95012f224df6e58b0071cdc",
+    "evidence/bellingham-wa/retained-inventory.json": "d1ef38ab38f5a29f3b277129eaaac30fe5d7dfc6246be399da38c0f78fca19d6",
+    "evidence/bellingham-wa/route.html": "d443c951549c58992e99c770d403630b2e02bf799673d6275d104f974e6ad992",
+    "evidence/bellingham-wa/route.json": "3dea0066500e3d2c49b4edd31c956f710148ea1344091b83aaebf27a67870c73",
+    "evidence/berkeley-ca/inventory.json": "09728dfeabbcf886bf594889433d00243b9695407ada557cb34f2ae8c178115a",
+    "evidence/berkeley-ca/live-chapter-receipt.json": "a896b7c35c9e4db6975084f342ae678794f17623b41c7dbb6ffcb804c3055ab5",
+    "evidence/berkeley-ca/live-chapter.html": "54d4d3e226d7b52899eb492edd1c69a06006eac3cd7a797351fae6e6331647cc",
+    "evidence/berkeley-ca/live-contents-full.html": "982a1215388573d1320e1b3256519754864e0f022085b6aec0f4427c124d6884",
+    "evidence/berkeley-ca/live-contents-full.json": "9350485c8e413aaf14323cd23e0016f0b0455299816056e22e9e144fb38df543",
+    "evidence/berkeley-ca/live-contents.html": "b7826993c082aee09b9dd6b8d878e245ebc493f2ba1d7df72fc2f738d523fdc9",
+    "evidence/berkeley-ca/live-contents.json": "c7a4a2ea6cbb6647e450b8fbd49c407b9dda000ef57a66ac863b2989d6687e41",
+    "evidence/berkeley-ca/live-parsed.json": "c2d3a6f1620de625f5a5ebb17af739edfbaebf507a9f59a83b2af475ad20339a",
+    "evidence/berkeley-ca/live-publications.html": "2141fe204d9725ed3bf70efa17874056b9181527395644bd137b710ad52bd796",
+    "evidence/berkeley-ca/official.html": "4b7ae9fdf1ac8510a9a7677012c3f7c553bd8695cd32cc6064d69a9899140d88",
+    "evidence/berkeley-ca/official.json": "e9d510dda76486cdec950e66bf643f4006c955fcf8269407fb61aff12d9c964f",
+    "evidence/berkeley-ca/publications-discovery.json": "9d62fd2f1c8660db635e5cbc97c434b843250982a06b3c5defaa39800ecc3c64",
+    "evidence/berkeley-ca/replay-manifest.json": "815efe4bffe533d8a6595abd8da4f8d5669b7b330e66b20c3495a456d2495c3c",
+    "evidence/berkeley-ca/route.html": "316bbe760dbcedbc192b70ce46cb0bab7619d64b5137f05bf62f1c59c6006354",
+    "evidence/berkeley-ca/route.json": "62e93ff0ef37907efe38f073cb72954d8abe342d7ca6a5c95ab4db60a629cca8",
+    "evidence/build.log": "b7a6013f1c9a8cb1c8036967e46bbd6d82df33efe84829c35ab58073ad44ed49",
+    "evidence/everett-wa/inventory.json": "b011ac78b94c90a77cae49ce6d1c13e54e7bf85525ed4cd6f3d9a181b2d0b1ee",
+    "evidence/everett-wa/live-chapter-ready.html": "f11d6a86e65f02c5de0ccf35826e7f6491f36ac4f75ba190a017eedcfe3c26ee",
+    "evidence/everett-wa/live-chapter-receipt.json": "03e652c06610cb245565c4d0685d58b801036379ff9bf90036a70ed624259a49",
+    "evidence/everett-wa/live-chapter.html": "f5761622ab3bb2db27d70916c5b5772fe5f5f010f8902a18294637f8afaa9e4f",
+    "evidence/everett-wa/live-chapter.json": "63a4d5bc6ae04fd2c7835a13a58e3411294d8d130dc22750b14a50101bc10d63",
+    "evidence/everett-wa/live-contents-full.html": "c7ea24c40868bcc4ac028bd3987e242da53e8525ea25494389c57ec02da08c40",
+    "evidence/everett-wa/live-contents-full.json": "b031016a71ecfe966fbfb9639b92a115de2f91050c6efe55d4009c3e6f9cccfb",
+    "evidence/everett-wa/live-contents-ready.html": "4a23dcf49e8f64af4f673902373c9b8cd5100c38d31c416d5721d6386bd518e7",
+    "evidence/everett-wa/live-contents.html": "8ba1c2f1c19ec66c72cd266a306fde53f935b0b0af3915e20fd01154f49311d0",
+    "evidence/everett-wa/live-contents.json": "0ede20a011ca80f8b0ab66bd6df8ea39de30c484fab7d969e6a4d29d5417750b",
+    "evidence/everett-wa/live-parsed.json": "4b0bbac9554f261aa0c7bc910d44500187796338f33120ec3ca8ecfb5eaa3a57",
+    "evidence/everett-wa/live-publications.html": "61e039e2c22b101d7dac58415a5f9d896cf5525063a6d7bbcf1c032701eaf4c6",
+    "evidence/everett-wa/official.html": "f1a190d1d3354494c3c526c8ad86a7f111767dbe7eafd14d2678c4ebd1f477a3",
+    "evidence/everett-wa/official.json": "2947b0ea23c77fcb53eba341eb501b2d9b5b4e33ae4b3c3b6b9fb091302353fc",
+    "evidence/everett-wa/publications-discovery.json": "01a1a18022cb957220cf17b33f7e79daf24b410faf22af2141345e03bc15c031",
+    "evidence/everett-wa/replay-manifest.json": "22d7a0ab45422f3cae7b363f52874fb5e5b8fd640726242774934ecb5a2372d1",
+    "evidence/everett-wa/route.html": "e1477f23ca8bd52baaa7d8ed28476fda22957b67426fa04bc8d7a0ae4ac9f3c9",
+    "evidence/everett-wa/route.json": "8681c2bbf2a4d59166fd54853b866f71ad1c39a9cdd9c548792ad35e3d6a2156",
+    "evidence/petaluma-ca/inventory.json": "7356d5421b2ff5efcec7e0ebbe937c05e6963c0fc4c57f566bf1b52a11c23a29",
+    "evidence/petaluma-ca/live-chapter-ready.html": "33396a763c303a2a9a85f340c9c9203661acb8f7062d32421125f9d3469b4f6f",
+    "evidence/petaluma-ca/live-chapter-receipt.json": "e67ef36a32a9cc16de66cb0bebf1eed3057dc27a72cc41249ada6b2ecd09346f",
+    "evidence/petaluma-ca/live-chapter.html": "47a68f96f8e34a28740dd6ae6a0fcbc2ee85f9d60325a7870eb18eaf2249b1a9",
+    "evidence/petaluma-ca/live-chapter.json": "d0efbf3f4b175d10bbafb475327667958b92facabe4668f064323a1a30c9f6e3",
+    "evidence/petaluma-ca/live-contents-full.html": "e78b06f2ecaebe30a3af7a56625ae9b930c8aee18a20e35e7ea88263e1dd87cd",
+    "evidence/petaluma-ca/live-contents-full.json": "57bcda657bdd2cd032d3151c6f5769590d279032c85fbe997897cd4c5edb4793",
+    "evidence/petaluma-ca/live-contents-ready.html": "3d148672ae08d6a9bd109da6dccc1707d36031a48ad32dbbf83a1ae1c9dc355b",
+    "evidence/petaluma-ca/live-contents.html": "d06034d747bb93cb4f795b3d2dc850e882e791f8303bd6efca6cdb69169212d3",
+    "evidence/petaluma-ca/live-contents.json": "7d004181c62e4fdc2f78511ab21cb3d2162cde2631501f3e55429575b14d9420",
+    "evidence/petaluma-ca/live-parsed.json": "c5893128d0618ba626eb6c490ba062b128179701898e2acd6280dd6537060936",
+    "evidence/petaluma-ca/live-publications.html": "110f718999d614fe1c5938d1caa627d18bc17176eaf57ebc0b8b04bdcd679b57",
+    "evidence/petaluma-ca/official.html": "04d6dc9745dea4bfce7aba6fa3326fe2c0309637ec49acf658d8879c73b34434",
+    "evidence/petaluma-ca/official.json": "b546581823b18cac6532b134f94afe214c92c897e32f6f40bc36d0212ec2c18e",
+    "evidence/petaluma-ca/publications-discovery.json": "f65192d53076d59427a776c9b3e7b76c9ee8391024ec2ccad6858839fcfda847",
+    "evidence/petaluma-ca/replay-manifest.json": "b5516bba3f84e317c9509372da540353d188ab5858ef15d81867ae77216f968d",
+    "evidence/petaluma-ca/route.html": "7137a874111fb08f8fe35db7d60d8c78f45790d88bbd511a1b1276225b487a94",
+    "evidence/petaluma-ca/route.json": "77ac429a138c677b27ff47fc7c01b1080241fd904c510f54c66d5c4a3cff2178",
+    "evidence/sonoma-ca/inventory.json": "9947fbce40b70a5757edc9ef7a2fb059f9309dda68e9dd9fd583d7b5fb0b8176",
+    "evidence/sonoma-ca/live-chapter-ready.html": "37aa3bc683a8c83dd35085815763cf9b2dfd157629392375c26dae7e73b1caed",
+    "evidence/sonoma-ca/live-chapter-receipt.json": "8d9cb459f4315bf8d5ecee279a8be7f6c0488f2197f176420f55d4fce7575b82",
+    "evidence/sonoma-ca/live-chapter.html": "ebae16d6fd0d066fc5d665cace563ded34e51f798420895249eb947d9f3ca2ca",
+    "evidence/sonoma-ca/live-chapter.json": "c4f50846e18bf701089fc267364853362ebbbd3a3309af8d773c3a5e0165201e",
+    "evidence/sonoma-ca/live-contents-full.html": "57f7732cbcfd30b8047596e9e2ca9a5b4f5439df3661321dfabde1514dab475a",
+    "evidence/sonoma-ca/live-contents-full.json": "69a78e57173d17a25fefd9da45d8a8f772842208d7cbc24fb36569b1ef1f551b",
+    "evidence/sonoma-ca/live-contents-ready.html": "0ab1ff3dbdaceae7b5f334163d9ec8ef79b32dd70ede83ff5968ba760931fc3a",
+    "evidence/sonoma-ca/live-contents.html": "35b1058124ca63a3b7ccb6815fda87e45c18f56baa7c26b95c5f6e251e72777c",
+    "evidence/sonoma-ca/live-contents.json": "5570b013c09024425dd8c201be95f9e2b5e34d6e4011ebda1111d6d38e42071a",
+    "evidence/sonoma-ca/live-parsed.json": "e3872a65769528f1caaefd58f45662adf0e8f3f9be7509b28401478bd748c126",
+    "evidence/sonoma-ca/live-publications.html": "0e110f1adfa0d87507eafc0ad2f172d757e81c2f4d238e2b10f361dfeb9a09ea",
+    "evidence/sonoma-ca/official-vendor-redirect.html": "dda65ca149dcf70b9ae942e375374469bac674d0c3b02717bfe82db741d8a80d",
+    "evidence/sonoma-ca/official-vendor-redirect.json": "77e5db5ed1e56ffbd4e3e7022ec39fa49019254fb7d840dff8115d19c3103685",
+    "evidence/sonoma-ca/official.html": "3c74eaeecdf393a5138e8e5f1e7b51f20eee19b5b03ff4e3d90cd9e0ef8ff0aa",
+    "evidence/sonoma-ca/official.json": "554051dd9fbcd92d166526f9e3e0968b89afd5063a935b67a035839e32f08979",
+    "evidence/sonoma-ca/publications-discovery.json": "47a8ef1d8dd8c43125790f2128f149df5752ad2c2bfdd73e4840198dbf1df6a4",
+    "evidence/sonoma-ca/replay-manifest.json": "f55dccf7688cc9fad4c34a1b05d96724ce6fd596af1da9256f5ebdd5651cd57c",
+    "evidence/sonoma-ca/route.html": "558338543ddf23a0c38f63fadd35a76d14eeb5bd44ad8586f9d1c4c59a0a8234",
+    "evidence/sonoma-ca/route.json": "9fa78bdfbfb0f932943621695c19872a9bdd3303dcab694b0f834e80b80a9863",
+    "evidence/tests.log": "75e6e0f19d0cb42d6c46caaada3e36f7d1b0db63fb0196240d773deb08d93d7e",
+    "examples/bellingham-wa/aggregate-fulltext.csv": "e55aec5fbd34acb53c022db2ffbf47a74079191c8d6dd14d2c2fed2fe98634c8",
+    "examples/bellingham-wa/aggregate-fulltext.json": "fd7c93658341deed409c4ab280a9676e45f33ad249444340e0636fd1420fb5f3",
+    "examples/bellingham-wa/aggregate-toc.csv": "69d6d3b1679f1349031cd8dec0c189f94f83d517e0e6ff85e4cf8a22554fd1da",
+    "examples/bellingham-wa/aggregate-toc.json": "bce73217c9df4b675e49fcfd95fadd2d9df12eb21995a2e49b454635c3a15dd5",
+    "examples/bellingham-wa/checkpoint.json": "2101fb2f235be1c8f61f3197c6f0c7641a3b734502b69367b313e5bd24c98667",
+    "examples/bellingham-wa/exceptions.jsonl": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "examples/bellingham-wa/node-dispositions.jsonl": "290e772c7c5c4559bf7a868ceb840da6fafa73efc8f03f3d51c060ad916b39a3",
+    "examples/bellingham-wa/publications/municipal-code/fulltext.csv": "e55aec5fbd34acb53c022db2ffbf47a74079191c8d6dd14d2c2fed2fe98634c8",
+    "examples/bellingham-wa/publications/municipal-code/fulltext.json": "fd7c93658341deed409c4ab280a9676e45f33ad249444340e0636fd1420fb5f3",
+    "examples/bellingham-wa/publications/municipal-code/toc.csv": "69d6d3b1679f1349031cd8dec0c189f94f83d517e0e6ff85e4cf8a22554fd1da",
+    "examples/bellingham-wa/publications/municipal-code/toc.json": "bce73217c9df4b675e49fcfd95fadd2d9df12eb21995a2e49b454635c3a15dd5",
+    "examples/bellingham-wa/publications.json": "b883ae66458aa86a4bb8c1b3a3b40dd406e6fecdbda35d133d6bea876dfbc1c7",
+    "examples/bellingham-wa/raw/71d92c8a74ef300e9aa6e2936f260e00b94a7e0e81a6a963943e253c47bb41c4.html": "71d92c8a74ef300e9aa6e2936f260e00b94a7e0e81a6a963943e253c47bb41c4",
+    "examples/bellingham-wa/raw/inventory-source.html": "cdfeeacd1c61f889f659b9462b54682c63b1a2ffcd0d32b1ef8313d279cef042",
+    "examples/bellingham-wa/raw/inventory.json": "3fdce36c09bda90736acdecceaafa25e4464e912cef121e89bdbd71ced367afa",
+    "examples/bellingham-wa/record-provenance.jsonl": "a3f1855a42f5a5004623ac465883172ec22d7d2a1891db8b7f17bdf60e1872b7",
+    "examples/bellingham-wa/run-manifest.json": "e6ac27fcf1d1c8983e494f153b4fdf842e6490ee31c475e3bac733bef5b880ee",
+    "examples/bellingham-wa/source-nodes.jsonl": "37c19f59a9f2621d051e8502ee83b56ab323998a27667b2bf325de792efb0731",
+    "examples/bellingham-wa/validation-report.json": "4b01a0d01debab93a6e6186097b93007fcc98f465b28ad4c34d8625438d8c26c",
+    "examples/berkeley-ca/aggregate-fulltext.csv": "c51f84850ba9ec8c8678de2ced9f28059cb52664f0e978647c64ba2254230e61",
+    "examples/berkeley-ca/aggregate-fulltext.json": "196c88a0d31514ce56302bac1fc0169809c596b82fc17d06e628849e7637fbad",
+    "examples/berkeley-ca/aggregate-toc.csv": "2638657e1cc3694ffbe464bd4e5035d50bf6a0aed524fe698af303cea017958c",
+    "examples/berkeley-ca/aggregate-toc.json": "2a13c901283c5768477159bd940a8210abcf28a1884d03a2dff757ac0a8ed70c",
+    "examples/berkeley-ca/checkpoint.json": "3ddebdbc56c36bf6c1768c1aeb9e3e9a8665c8b59ff1d2bfc507411f0388ccdb",
+    "examples/berkeley-ca/exceptions.jsonl": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "examples/berkeley-ca/node-dispositions.jsonl": "6a3a55f1af0be8a6cc5c022412991c82747d3975b206713ba007893727ac4374",
+    "examples/berkeley-ca/publications/municipal-code/fulltext.csv": "c51f84850ba9ec8c8678de2ced9f28059cb52664f0e978647c64ba2254230e61",
+    "examples/berkeley-ca/publications/municipal-code/fulltext.json": "196c88a0d31514ce56302bac1fc0169809c596b82fc17d06e628849e7637fbad",
+    "examples/berkeley-ca/publications/municipal-code/toc.csv": "2638657e1cc3694ffbe464bd4e5035d50bf6a0aed524fe698af303cea017958c",
+    "examples/berkeley-ca/publications/municipal-code/toc.json": "2a13c901283c5768477159bd940a8210abcf28a1884d03a2dff757ac0a8ed70c",
+    "examples/berkeley-ca/publications.json": "9d62fd2f1c8660db635e5cbc97c434b843250982a06b3c5defaa39800ecc3c64",
+    "examples/berkeley-ca/raw/54d4d3e226d7b52899eb492edd1c69a06006eac3cd7a797351fae6e6331647cc.html": "54d4d3e226d7b52899eb492edd1c69a06006eac3cd7a797351fae6e6331647cc",
+    "examples/berkeley-ca/raw/inventory-source.html": "982a1215388573d1320e1b3256519754864e0f022085b6aec0f4427c124d6884",
+    "examples/berkeley-ca/raw/inventory.json": "09728dfeabbcf886bf594889433d00243b9695407ada557cb34f2ae8c178115a",
+    "examples/berkeley-ca/record-provenance.jsonl": "8aed9f0368910bb2c1f93a77d27e5f9ea343905a8facb4fa3b18fe3d3c0f17a6",
+    "examples/berkeley-ca/run-manifest.json": "105973ec3f99e9138efa62f18f26b944cce4779af4f27c432f3c55250c2686f5",
+    "examples/berkeley-ca/source-nodes.jsonl": "c213dc89c986487ede0101a5bd471f0b820ef4df70811fceb5ffec865f336f20",
+    "examples/berkeley-ca/validation-report.json": "c989ee3b29231789f16951d0de7bbcb54b3b82cb6ba5f497aec9f67f50c7503e",
+    "examples/everett-wa/aggregate-fulltext.csv": "af78368b31752cce9a59d51ce582c88b43a7b1c1acb2eaba7c79154a3d79e06f",
+    "examples/everett-wa/aggregate-fulltext.json": "3a00f63b5a087ebf7c51e0d049fad6c7fdc41801424e50c7f87ae3d00fbc63ac",
+    "examples/everett-wa/aggregate-toc.csv": "ff342cd01a6815d853cb8bece1eaf27b211d56b02b41b301906c971ea15be276",
+    "examples/everett-wa/aggregate-toc.json": "d6ff55d9014557eb419929c02898cbdb4d70cee60461551c4ed42616919e03b2",
+    "examples/everett-wa/checkpoint.json": "8ff50622151487909e87bb9c5804de168f33d525589afd0ba914594811bef3e1",
+    "examples/everett-wa/exceptions.jsonl": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "examples/everett-wa/node-dispositions.jsonl": "8f1db2ea04089789a340bfe5e9c81762d581333d68239416de6fc98494f2c85c",
+    "examples/everett-wa/publications/municipal-code/fulltext.csv": "af78368b31752cce9a59d51ce582c88b43a7b1c1acb2eaba7c79154a3d79e06f",
+    "examples/everett-wa/publications/municipal-code/fulltext.json": "3a00f63b5a087ebf7c51e0d049fad6c7fdc41801424e50c7f87ae3d00fbc63ac",
+    "examples/everett-wa/publications/municipal-code/toc.csv": "ff342cd01a6815d853cb8bece1eaf27b211d56b02b41b301906c971ea15be276",
+    "examples/everett-wa/publications/municipal-code/toc.json": "d6ff55d9014557eb419929c02898cbdb4d70cee60461551c4ed42616919e03b2",
+    "examples/everett-wa/publications.json": "01a1a18022cb957220cf17b33f7e79daf24b410faf22af2141345e03bc15c031",
+    "examples/everett-wa/raw/f11d6a86e65f02c5de0ccf35826e7f6491f36ac4f75ba190a017eedcfe3c26ee.html": "f11d6a86e65f02c5de0ccf35826e7f6491f36ac4f75ba190a017eedcfe3c26ee",
+    "examples/everett-wa/raw/inventory-source.html": "c7ea24c40868bcc4ac028bd3987e242da53e8525ea25494389c57ec02da08c40",
+    "examples/everett-wa/raw/inventory.json": "b011ac78b94c90a77cae49ce6d1c13e54e7bf85525ed4cd6f3d9a181b2d0b1ee",
+    "examples/everett-wa/record-provenance.jsonl": "58e4b6b78dc17c2016865e6491436fefa10ec330fc2e45f9f328511939a9fc02",
+    "examples/everett-wa/run-manifest.json": "08d883f44a3aaf7da9a43d6cec0ffa24514e2731336d851c382de95ce7870d23",
+    "examples/everett-wa/source-nodes.jsonl": "e943df16f8b440e73980db66ca05ae6c56520969025e711b476b12fb19d7a5c6",
+    "examples/everett-wa/validation-report.json": "d5e89a7d585f432afd933fd6969ec6e16099b9176f9c691a0e7d482ae5e0ec54",
+    "examples/petaluma-ca/aggregate-fulltext.csv": "05dcecda6cff61915ab05f21654f38a97ed7a365c93b04f9f13bf8b48438907f",
+    "examples/petaluma-ca/aggregate-fulltext.json": "f37bb86bf2028ac7869d3a5b235dc4553d2d396f7045e0f27b8a7e082dc7cb0d",
+    "examples/petaluma-ca/aggregate-toc.csv": "4ceadc5c8cdc36ae9fbf055aafc544a272e937dac183b9bd6e49689e1ef9a37d",
+    "examples/petaluma-ca/aggregate-toc.json": "997a87a2963eecaf1d803f03ca8766ba77db18494c10eefe04833be05041cce5",
+    "examples/petaluma-ca/checkpoint.json": "d27df86e9f6fdeb42894ae48a9ff15111e86df5d0893a710d81733b6d837162e",
+    "examples/petaluma-ca/exceptions.jsonl": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "examples/petaluma-ca/node-dispositions.jsonl": "e737271cc545d2dd3f44193482e5f3bad646c411abf6d120777cf5463945e33b",
+    "examples/petaluma-ca/publications/municipal-code/fulltext.csv": "05dcecda6cff61915ab05f21654f38a97ed7a365c93b04f9f13bf8b48438907f",
+    "examples/petaluma-ca/publications/municipal-code/fulltext.json": "f37bb86bf2028ac7869d3a5b235dc4553d2d396f7045e0f27b8a7e082dc7cb0d",
+    "examples/petaluma-ca/publications/municipal-code/toc.csv": "4ceadc5c8cdc36ae9fbf055aafc544a272e937dac183b9bd6e49689e1ef9a37d",
+    "examples/petaluma-ca/publications/municipal-code/toc.json": "997a87a2963eecaf1d803f03ca8766ba77db18494c10eefe04833be05041cce5",
+    "examples/petaluma-ca/publications.json": "f65192d53076d59427a776c9b3e7b76c9ee8391024ec2ccad6858839fcfda847",
+    "examples/petaluma-ca/raw/33396a763c303a2a9a85f340c9c9203661acb8f7062d32421125f9d3469b4f6f.html": "33396a763c303a2a9a85f340c9c9203661acb8f7062d32421125f9d3469b4f6f",
+    "examples/petaluma-ca/raw/inventory-source.html": "e78b06f2ecaebe30a3af7a56625ae9b930c8aee18a20e35e7ea88263e1dd87cd",
+    "examples/petaluma-ca/raw/inventory.json": "7356d5421b2ff5efcec7e0ebbe937c05e6963c0fc4c57f566bf1b52a11c23a29",
+    "examples/petaluma-ca/record-provenance.jsonl": "e347aa8d3d3ba713848700038b856e452343f62f03c3459ad7e1256f799fddd6",
+    "examples/petaluma-ca/run-manifest.json": "10ca0f2d7080a9446c4d6ad194c588aa00dff811611d56953153655e432a4c48",
+    "examples/petaluma-ca/source-nodes.jsonl": "b7bcf68996133ad8f97233d9c9f56b335e42ebc99508b009f0482e90c74d95e2",
+    "examples/petaluma-ca/validation-report.json": "1c7a031d6deaf9529c9edacf03f652ea27a7c889a6a92bb3086c235001b3b653",
+    "examples/sonoma-ca/aggregate-fulltext.csv": "261aef27cd3f54b910b7199f0075689b2a056c205e365e03425a53fce431c4e7",
+    "examples/sonoma-ca/aggregate-fulltext.json": "bf17a480517341937cca029a313427b3acc08a371124a84bc894450735954906",
+    "examples/sonoma-ca/aggregate-toc.csv": "38138f2589bc80851e64b53a7911f6495d4e6ea13be2d02b51b28f88a8c851b5",
+    "examples/sonoma-ca/aggregate-toc.json": "7aa5b17af3f478137c158820c35c0d46161b99a9ced49b37258a3c694d2c938b",
+    "examples/sonoma-ca/checkpoint.json": "f968b3ef1c771ef9005914b3259888f11bab1382aa669d4ab4961d4af1a63952",
+    "examples/sonoma-ca/exceptions.jsonl": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "examples/sonoma-ca/node-dispositions.jsonl": "dc0147eec722910408c26aa75664a187466ea04b3066f80ee799f4d9f27b08e3",
+    "examples/sonoma-ca/publications/municipal-code/fulltext.csv": "261aef27cd3f54b910b7199f0075689b2a056c205e365e03425a53fce431c4e7",
+    "examples/sonoma-ca/publications/municipal-code/fulltext.json": "bf17a480517341937cca029a313427b3acc08a371124a84bc894450735954906",
+    "examples/sonoma-ca/publications/municipal-code/toc.csv": "38138f2589bc80851e64b53a7911f6495d4e6ea13be2d02b51b28f88a8c851b5",
+    "examples/sonoma-ca/publications/municipal-code/toc.json": "7aa5b17af3f478137c158820c35c0d46161b99a9ced49b37258a3c694d2c938b",
+    "examples/sonoma-ca/publications.json": "47a8ef1d8dd8c43125790f2128f149df5752ad2c2bfdd73e4840198dbf1df6a4",
+    "examples/sonoma-ca/raw/37aa3bc683a8c83dd35085815763cf9b2dfd157629392375c26dae7e73b1caed.html": "37aa3bc683a8c83dd35085815763cf9b2dfd157629392375c26dae7e73b1caed",
+    "examples/sonoma-ca/raw/inventory-source.html": "57f7732cbcfd30b8047596e9e2ca9a5b4f5439df3661321dfabde1514dab475a",
+    "examples/sonoma-ca/raw/inventory.json": "9947fbce40b70a5757edc9ef7a2fb059f9309dda68e9dd9fd583d7b5fb0b8176",
+    "examples/sonoma-ca/record-provenance.jsonl": "5491d298b0b77ee237279124798a12b183b3d371dc7194106a1dfa8d2338a0a3",
+    "examples/sonoma-ca/run-manifest.json": "661a5173551b6267fe2bd98c0eda21b76644e3a84fd51ced0ebf0722ea7f6dae",
+    "examples/sonoma-ca/source-nodes.jsonl": "e3bbff2c9a6b47d84e6f173d3a51f36e66617da5307f14e0e09d75133c6824c0",
+    "examples/sonoma-ca/validation-report.json": "367fe556c152cf0c6904a986bb847212624301ed835d574f9d54028802d37ea1",
+    "fixtures/retained-2026-08-28/bellingham-wa/page-0.html": "c7121dae9fc15e3eae1f44570da38bce5110e3c2994aef2290b90e9525096d3f",
+    "fixtures/retained-2026-08-28/bellingham-wa/page-1.html": "dbb16f847c782ee0d8a6fd8c783072f72adb490b685d79357e7b9e5280f82824",
+    "fixtures/retained-2026-08-28/bellingham-wa/parsed-0.json": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570",
+    "fixtures/retained-2026-08-28/bellingham-wa/parsed-1.json": "eb5e178db3626fb545068571445248f4e13276ef8f177dca7f3699741aedadc7",
+    "fixtures/retained-2026-08-28/berkeley-ca/page-0.html": "7ef8f07b7d4e2cd0232110b0b733e1b51f6b5ce3f31485501ce2cba1dc213afd",
+    "fixtures/retained-2026-08-28/berkeley-ca/page-1.html": "c596dac9a67afa09cf21a07d5fa5a77b9db592b5af9afa09157ca61a5a8e7504",
+    "fixtures/retained-2026-08-28/berkeley-ca/parsed-0.json": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570",
+    "fixtures/retained-2026-08-28/berkeley-ca/parsed-1.json": "046726942e45f6c3d0da084892a4450dccca31b99c8d13b27b83bd8081eb2536",
+    "fixtures/retained-2026-08-28/everett-wa/page-0.html": "a86464c5da4316405f3d22cbfa2c74cb57ab1ee155effa1e1d796e3b537600fd",
+    "fixtures/retained-2026-08-28/everett-wa/page-1.html": "2b6504dd52636a86fbbf3b4e755369c5a7565478cc481caab37e15f8875365ef",
+    "fixtures/retained-2026-08-28/everett-wa/parsed-1.json": "478327f93da290f8cc145db384042a56b58678d4f210fafe622b48a38f83ded2",
+    "fixtures/retained-2026-08-28/manifest.json": "0805fe550d14e78b9ccca41627047d00fceee51dbec1f94fc430d0e442a8c63a",
+    "fixtures/retained-2026-08-28/petaluma-ca/page-0.html": "5f3428abd37eccb9d79e3498083885062ff0e3226de2479be0478d85b816e6bb",
+    "fixtures/retained-2026-08-28/petaluma-ca/page-1.html": "46c0fa631ca88669450d1a30563c7d6e33e0724f4d77046962a07d31930090f3",
+    "fixtures/retained-2026-08-28/petaluma-ca/parsed-0.json": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570",
+    "fixtures/retained-2026-08-28/petaluma-ca/parsed-1.json": "8781cc88ec52fca2e5074473416b2d7df10d5c4bccaaf8a683f8ff44441b4c17",
+    "fixtures/retained-2026-08-28/sonoma-ca/page-0.html": "bd7ee010ed91c1300655d93b3f801c9364f0f420de67808ca51b82fdaa819b2c",
+    "fixtures/retained-2026-08-28/sonoma-ca/page-1.html": "c1b0cea4a43d8d041cefbbb7931bae3030778e47b3dde997484c67af89fe2678",
+    "fixtures/retained-2026-08-28/sonoma-ca/parsed-0.json": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570",
+    "fixtures/retained-2026-08-28/sonoma-ca/parsed-1.json": "bef7cf0648d5997a5201a577dc713ad47b0a633cfa6807b59803dcaffb44c239",
+    "municipal_codes_cli.py": "568adf3a24ed296b8c69a331ffedcd9527b14c4f0672a7c2291fc5575593f1bd",
+    "requirements.txt": "f00328ba43fe8eca5a8f8765b4997657517cf0e25d0b1989da253d6153c54699",
+    "test_municipal_codes.py": "2d19cdb2da9b52833f394f2607146a866f91f9c42383faef8760af2401b27ba9",
+    "validate_live_snapshots.py": "d13614678c27f02965805adcc6f8aa806ef79888087d22956d5ba70c8fba52fc",
+    "validate_retained.py": "a0eb8d15a5e0738da166f8cfbd81f50d8d7cef8f28d9a5790b85e511a4c7f6dd",
+    "verify_package.py": "b0c5774c3e7bcdd05bf0c0d1f0e8d04f5a469b65f5ed9769681cc81b392ea56b"
+  }
+}

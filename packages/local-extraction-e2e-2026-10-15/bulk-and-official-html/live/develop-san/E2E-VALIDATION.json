@@ -1,0 +1,758 @@
+{
+  "jurisdiction": "san-mateo",
+  "started_at": "2026-10-15T18:53:03.063715+00:00",
+  "status": "passed_bounded_live_pilot",
+  "scope": "bounded_live_pilot",
+  "full_corpus_extracted": false,
+  "environment": {
+    "python": "3.9.6 (default, May 22 2026, 11:13:45) \n[Clang 21.0.0 (clang-2100.1.1.101)]",
+    "executable": "/private/tmp/complisolv-handoff-review-venv/bin/python",
+    "platform": "macOS-26.6.2-arm64-arm-64bit",
+    "requests_ca_bundle": null,
+    "certificate_verification": true
+  },
+  "code_hashes": {
+    "archive_includes.py": "3a8109bf8e2d7e57af2b6393501fad799c69d6d8889adb1970e51fc078c4d586",
+    "browser_capture.py": "2918f232672091b12196f8ac169f2d64c173ab176b486ba1ef8a14d0bddb6283",
+    "common.py": "573e724a1ee54a74cc808498989f40f7deeface9982b7c6243c7c19c7eae7ac2",
+    "daly_city.py": "e9de38741ca85b4dbdf737262da902a7ba9948c44a4233131783afb99b505469",
+    "e2e.py": "24c6d77b2473bb6f20a5c9881a556467f111bc3d7a5b7fe3789d7c3a723ba3fc",
+    "king_county.py": "53089bb24da8afad4e314dada501376d7915b22e58370574c8f4584385eed8c3",
+    "san_mateo.py": "a0007e2d753a4e00a9cd1bc0186227cdda3174f40c1ecf4012cdef76d4d3ae35",
+    "test_methods.py": "a2dd96c3998477bcdcb497dac5a7b0c7446bf856bfce018ec1886c08b12783a8",
+    "validate.py": "07100adb3793e46c6566549ab7f3cf688c1cf325d2356512c1297f3b21922bb6",
+    "verify_hashes.py": "c97439aed3404b992cb7079e82a0640c746054d0cc4897b86fcfbe13aff7a974"
+  },
+  "commands": [
+    {
+      "argv": [
+        "/private/tmp/complisolv-handoff-review-venv/bin/python",
+        "/Users/oliverflint/My Drive/Claude/Projects/CompliSolv 2.00/outputs/local-extraction-e2e-2026-10-15/bulk-and-official-html/san_mateo.py",
+        "acquire",
+        "--commit",
+        "16cc1931d1714f5915319dd98d7640207f4ce76b",
+        "--archive",
+        "--out",
+        "/Users/oliverflint/My Drive/Claude/Projects/CompliSolv 2.00/outputs/local-extraction-e2e-2026-10-15/bulk-and-official-html/live/develop-san/source/pinned"
+      ],
+      "started_at": "2026-10-15T18:53:03.478363+00:00",
+      "ended_at": "2026-10-15T18:53:06.413613+00:00",
+      "exit_code": 0,
+      "stdout": "command-0.stdout.txt",
+      "stderr": "command-0.stderr.txt"
+    },
+    {
+      "argv": [
+        "/private/tmp/complisolv-handoff-review-venv/bin/python",
+        "/Users/oliverflint/My Drive/Claude/Projects/CompliSolv 2.00/outputs/local-extraction-e2e-2026-10-15/bulk-and-official-html/san_mateo.py",
+        "parse",
+        "--input",
+        "/Users/oliverflint/My Drive/Claude/Projects/CompliSolv 2.00/outputs/local-extraction-e2e-2026-10-15/bulk-and-official-html/live/develop-san/source/selected/us/ca/cities/san-mateo/charter/index.xml",
+        "--source-url",
+        "https://raw.githubusercontent.com/cityofsanmateo/law-xml/16cc1931d1714f5915319dd98d7640207f4ce76b/us/ca/cities/san-mateo/charter/index.xml",
+        "--commit",
+        "16cc1931d1714f5915319dd98d7640207f4ce76b",
+        "--publication",
+        "charter",
+        "--out",
+        "/Users/oliverflint/My Drive/Claude/Projects/CompliSolv 2.00/outputs/local-extraction-e2e-2026-10-15/bulk-and-official-html/live/develop-san/output/charter",
+        "--scrape-date",
+        "2026-10-15"
+      ],
+      "started_at": "2026-10-15T18:53:06.560322+00:00",
+      "ended_at": "2026-10-15T18:53:06.793060+00:00",
+      "exit_code": 0,
+      "stdout": "command-1.stdout.txt",
+      "stderr": "command-1.stderr.txt"
+    },
+    {
+      "argv": [
+        "/private/tmp/complisolv-handoff-review-venv/bin/python",
+        "/Users/oliverflint/My Drive/Claude/Projects/CompliSolv 2.00/outputs/local-extraction-e2e-2026-10-15/bulk-and-official-html/san_mateo.py",
+        "parse",
+        "--input",
+        "/Users/oliverflint/My Drive/Claude/Projects/CompliSolv 2.00/outputs/local-extraction-e2e-2026-10-15/bulk-and-official-html/live/develop-san/source/selected/us/ca/cities/san-mateo/code/1.xml",
+        "--source-url",
+        "https://raw.githubusercontent.com/cityofsanmateo/law-xml/16cc1931d1714f5915319dd98d7640207f4ce76b/us/ca/cities/san-mateo/code/1.xml",
+        "--commit",
+        "16cc1931d1714f5915319dd98d7640207f4ce76b",
+        "--publication",
+        "municipal-code",
+        "--out",
+        "/Users/oliverflint/My Drive/Claude/Projects/CompliSolv 2.00/outputs/local-extraction-e2e-2026-10-15/bulk-and-official-html/live/develop-san/output/municipal-code",
+        "--scrape-date",
+        "2026-10-15"
+      ],
+      "started_at": "2026-10-15T18:53:06.793162+00:00",
+      "ended_at": "2026-10-15T18:53:07.010436+00:00",
+      "exit_code": 0,
+      "stdout": "command-2.stdout.txt",
+      "stderr": "command-2.stderr.txt"
+    }
+  ],
+  "checks": {
+    "git_blob_members_verified": 291,
+    "git_tree_untruncated": true,
+    "bounded_include_resolution": {
+      "units": [
+        {
+          "path": "us/ca/cities/san-mateo/charter/index.xml",
+          "sha256": "0e8eac3531634614fb6f740bea4bb6fe4c6560edf8b147022ed522be63ee643b",
+          "root_tag": "{https://open.law/schemas/library}document"
+        },
+        {
+          "path": "us/ca/cities/san-mateo/code/1.xml",
+          "sha256": "6b3707233cce0066f9b088687db26c06bdf7d8a5b24ad524933d5dc90be5bb22",
+          "root_tag": "{https://open.law/schemas/library}container"
+        }
+      ],
+      "include_edges": [
+        {
+          "from": "index.xml",
+          "href": "./us/ca/cities/san-mateo/charter/index.xml",
+          "target": "us/ca/cities/san-mateo/charter/index.xml",
+          "exists_in_archive": true,
+          "disposition": "included_sample"
+        },
+        {
+          "from": "index.xml",
+          "href": "./us/ca/cities/san-mateo/code/index.xml",
+          "target": "us/ca/cities/san-mateo/code/index.xml",
+          "exists_in_archive": true,
+          "disposition": "included_sample"
+        },
+        {
+          "from": "us/ca/cities/san-mateo/code/index.xml",
+          "href": "./1.xml",
+          "target": "us/ca/cities/san-mateo/code/1.xml",
+          "exists_in_archive": true,
+          "disposition": "included_sample"
+        },
+        {
+          "from": "us/ca/cities/san-mateo/code/index.xml",
+          "href": "./2.xml",
+          "target": "us/ca/cities/san-mateo/code/2.xml",
+          "exists_in_archive": true,
+          "disposition": "excluded_validation_scope"
+        },
+        {
+          "from": "us/ca/cities/san-mateo/code/index.xml",
+          "href": "./3.xml",
+          "target": "us/ca/cities/san-mateo/code/3.xml",
+          "exists_in_archive": true,
+          "disposition": "excluded_validation_scope"
+        },
+        {
+          "from": "us/ca/cities/san-mateo/code/index.xml",
+          "href": "./4.xml",
+          "target": "us/ca/cities/san-mateo/code/4.xml",
+          "exists_in_archive": true,
+          "disposition": "excluded_validation_scope"
+        },
+        {
+          "from": "us/ca/cities/san-mateo/code/index.xml",
+          "href": "./5.xml",
+          "target": "us/ca/cities/san-mateo/code/5.xml",
+          "exists_in_archive": true,
+          "disposition": "excluded_validation_scope"
+        },
+        {
+          "from": "us/ca/cities/san-mateo/code/index.xml",
+          "href": "./6.xml",
+          "target": "us/ca/cities/san-mateo/code/6.xml",
+          "exists_in_archive": true,
+          "disposition": "excluded_validation_scope"
+        },
+        {
+          "from": "us/ca/cities/san-mateo/code/index.xml",
+          "href": "./7.xml",
+          "target": "us/ca/cities/san-mateo/code/7.xml",
+          "exists_in_archive": true,
+          "disposition": "excluded_validation_scope"
+        },
+        {
+          "from": "us/ca/cities/san-mateo/code/index.xml",
+          "href": "./8.xml",
+          "target": "us/ca/cities/san-mateo/code/8.xml",
+          "exists_in_archive": true,
+          "disposition": "excluded_validation_scope"
+        },
+        {
+          "from": "us/ca/cities/san-mateo/code/index.xml",
+          "href": "./9.xml",
+          "target": "us/ca/cities/san-mateo/code/9.xml",
+          "exists_in_archive": true,
+          "disposition": "excluded_validation_scope"
+        },
+        {
+          "from": "us/ca/cities/san-mateo/code/index.xml",
+          "href": "./10.xml",
+          "target": "us/ca/cities/san-mateo/code/10.xml",
+          "exists_in_archive": true,
+          "disposition": "excluded_validation_scope"
+        },
+        {
+          "from": "us/ca/cities/san-mateo/code/index.xml",
+          "href": "./11.xml",
+          "target": "us/ca/cities/san-mateo/code/11.xml",
+          "exists_in_archive": true,
+          "disposition": "excluded_validation_scope"
+        },
+        {
+          "from": "us/ca/cities/san-mateo/code/index.xml",
+          "href": "./12.xml",
+          "target": "us/ca/cities/san-mateo/code/12.xml",
+          "exists_in_archive": true,
+          "disposition": "excluded_validation_scope"
+        },
+        {
+          "from": "us/ca/cities/san-mateo/code/index.xml",
+          "href": "./13.xml",
+          "target": "us/ca/cities/san-mateo/code/13.xml",
+          "exists_in_archive": true,
+          "disposition": "excluded_validation_scope"
+        },
+        {
+          "from": "us/ca/cities/san-mateo/code/index.xml",
+          "href": "./14.xml",
+          "target": "us/ca/cities/san-mateo/code/14.xml",
+          "exists_in_archive": true,
+          "disposition": "excluded_validation_scope"
+        },
+        {
+          "from": "us/ca/cities/san-mateo/code/index.xml",
+          "href": "./15.xml",
+          "target": "us/ca/cities/san-mateo/code/15.xml",
+          "exists_in_archive": true,
+          "disposition": "excluded_validation_scope"
+        },
+        {
+          "from": "us/ca/cities/san-mateo/code/index.xml",
+          "href": "./16.xml",
+          "target": "us/ca/cities/san-mateo/code/16.xml",
+          "exists_in_archive": true,
+          "disposition": "excluded_validation_scope"
+        },
+        {
+          "from": "us/ca/cities/san-mateo/code/index.xml",
+          "href": "./17.xml",
+          "target": "us/ca/cities/san-mateo/code/17.xml",
+          "exists_in_archive": true,
+          "disposition": "excluded_validation_scope"
+        },
+        {
+          "from": "us/ca/cities/san-mateo/code/index.xml",
+          "href": "./18.xml",
+          "target": "us/ca/cities/san-mateo/code/18.xml",
+          "exists_in_archive": true,
+          "disposition": "excluded_validation_scope"
+        },
+        {
+          "from": "us/ca/cities/san-mateo/code/index.xml",
+          "href": "./19.xml",
+          "target": "us/ca/cities/san-mateo/code/19.xml",
+          "exists_in_archive": true,
+          "disposition": "excluded_validation_scope"
+        },
+        {
+          "from": "us/ca/cities/san-mateo/code/index.xml",
+          "href": "./20.xml",
+          "target": "us/ca/cities/san-mateo/code/20.xml",
+          "exists_in_archive": true,
+          "disposition": "excluded_validation_scope"
+        },
+        {
+          "from": "us/ca/cities/san-mateo/code/index.xml",
+          "href": "./21.xml",
+          "target": "us/ca/cities/san-mateo/code/21.xml",
+          "exists_in_archive": true,
+          "disposition": "excluded_validation_scope"
+        },
+        {
+          "from": "us/ca/cities/san-mateo/code/index.xml",
+          "href": "./22.xml",
+          "target": "us/ca/cities/san-mateo/code/22.xml",
+          "exists_in_archive": true,
+          "disposition": "excluded_validation_scope"
+        },
+        {
+          "from": "us/ca/cities/san-mateo/code/index.xml",
+          "href": "./23.xml",
+          "target": "us/ca/cities/san-mateo/code/23.xml",
+          "exists_in_archive": true,
+          "disposition": "excluded_validation_scope"
+        },
+        {
+          "from": "us/ca/cities/san-mateo/code/index.xml",
+          "href": "./24.xml",
+          "target": "us/ca/cities/san-mateo/code/24.xml",
+          "exists_in_archive": true,
+          "disposition": "excluded_validation_scope"
+        },
+        {
+          "from": "us/ca/cities/san-mateo/code/index.xml",
+          "href": "./25.xml",
+          "target": "us/ca/cities/san-mateo/code/25.xml",
+          "exists_in_archive": true,
+          "disposition": "excluded_validation_scope"
+        },
+        {
+          "from": "us/ca/cities/san-mateo/code/index.xml",
+          "href": "./26.xml",
+          "target": "us/ca/cities/san-mateo/code/26.xml",
+          "exists_in_archive": true,
+          "disposition": "excluded_validation_scope"
+        },
+        {
+          "from": "us/ca/cities/san-mateo/code/index.xml",
+          "href": "./27.xml",
+          "target": "us/ca/cities/san-mateo/code/27.xml",
+          "exists_in_archive": true,
+          "disposition": "excluded_validation_scope"
+        },
+        {
+          "from": "index.xml",
+          "href": "./us/ca/cities/san-mateo/ordinances/2026/index.xml",
+          "target": "us/ca/cities/san-mateo/ordinances/2026/index.xml",
+          "exists_in_archive": true,
+          "disposition": "excluded_validation_scope"
+        },
+        {
+          "from": "index.xml",
+          "href": "./us/ca/cities/san-mateo/ordinances/2025/index.xml",
+          "target": "us/ca/cities/san-mateo/ordinances/2025/index.xml",
+          "exists_in_archive": true,
+          "disposition": "excluded_validation_scope"
+        },
+        {
+          "from": "index.xml",
+          "href": "./us/ca/cities/san-mateo/ordinances/2024/index.xml",
+          "target": "us/ca/cities/san-mateo/ordinances/2024/index.xml",
+          "exists_in_archive": true,
+          "disposition": "excluded_validation_scope"
+        },
+        {
+          "from": "index.xml",
+          "href": "./us/ca/cities/san-mateo/ordinances/2023/index.xml",
+          "target": "us/ca/cities/san-mateo/ordinances/2023/index.xml",
+          "exists_in_archive": true,
+          "disposition": "excluded_validation_scope"
+        },
+        {
+          "from": "index.xml",
+          "href": "./us/ca/cities/san-mateo/ordinances/2022/index.xml",
+          "target": "us/ca/cities/san-mateo/ordinances/2022/index.xml",
+          "exists_in_archive": true,
+          "disposition": "excluded_validation_scope"
+        },
+        {
+          "from": "index.xml",
+          "href": "./us/ca/cities/san-mateo/ordinances/2021/index.xml",
+          "target": "us/ca/cities/san-mateo/ordinances/2021/index.xml",
+          "exists_in_archive": true,
+          "disposition": "excluded_validation_scope"
+        },
+        {
+          "from": "index.xml",
+          "href": "./us/ca/cities/san-mateo/ordinances/2020/index.xml",
+          "target": "us/ca/cities/san-mateo/ordinances/2020/index.xml",
+          "exists_in_archive": true,
+          "disposition": "excluded_validation_scope"
+        },
+        {
+          "from": "index.xml",
+          "href": "./us/ca/cities/san-mateo/ordinances/2019/index.xml",
+          "target": "us/ca/cities/san-mateo/ordinances/2019/index.xml",
+          "exists_in_archive": true,
+          "disposition": "excluded_validation_scope"
+        },
+        {
+          "from": "index.xml",
+          "href": "./us/ca/cities/san-mateo/ordinances/2018/index.xml",
+          "target": "us/ca/cities/san-mateo/ordinances/2018/index.xml",
+          "exists_in_archive": true,
+          "disposition": "excluded_validation_scope"
+        },
+        {
+          "from": "index.xml",
+          "href": "./us/ca/cities/san-mateo/ordinances/2017/index.xml",
+          "target": "us/ca/cities/san-mateo/ordinances/2017/index.xml",
+          "exists_in_archive": true,
+          "disposition": "excluded_validation_scope"
+        },
+        {
+          "from": "index.xml",
+          "href": "./us/ca/cities/san-mateo/ordinances/2016/index.xml",
+          "target": "us/ca/cities/san-mateo/ordinances/2016/index.xml",
+          "exists_in_archive": true,
+          "disposition": "excluded_validation_scope"
+        },
+        {
+          "from": "index.xml",
+          "href": "./us/ca/cities/san-mateo/ordinances/2015/index.xml",
+          "target": "us/ca/cities/san-mateo/ordinances/2015/index.xml",
+          "exists_in_archive": true,
+          "disposition": "excluded_validation_scope"
+        },
+        {
+          "from": "index.xml",
+          "href": "./us/ca/cities/san-mateo/ordinances/2014/index.xml",
+          "target": "us/ca/cities/san-mateo/ordinances/2014/index.xml",
+          "exists_in_archive": true,
+          "disposition": "excluded_validation_scope"
+        },
+        {
+          "from": "index.xml",
+          "href": "./us/ca/cities/san-mateo/ordinances/2013/index.xml",
+          "target": "us/ca/cities/san-mateo/ordinances/2013/index.xml",
+          "exists_in_archive": true,
+          "disposition": "excluded_validation_scope"
+        },
+        {
+          "from": "index.xml",
+          "href": "./us/ca/cities/san-mateo/ordinances/2012/index.xml",
+          "target": "us/ca/cities/san-mateo/ordinances/2012/index.xml",
+          "exists_in_archive": true,
+          "disposition": "excluded_validation_scope"
+        },
+        {
+          "from": "index.xml",
+          "href": "./us/ca/cities/san-mateo/ordinances/2011/index.xml",
+          "target": "us/ca/cities/san-mateo/ordinances/2011/index.xml",
+          "exists_in_archive": true,
+          "disposition": "excluded_validation_scope"
+        },
+        {
+          "from": "index.xml",
+          "href": "./us/ca/cities/san-mateo/ordinances/2010/index.xml",
+          "target": "us/ca/cities/san-mateo/ordinances/2010/index.xml",
+          "exists_in_archive": true,
+          "disposition": "excluded_validation_scope"
+        },
+        {
+          "from": "index.xml",
+          "href": "./us/ca/cities/san-mateo/drafting-manual/index.xml",
+          "target": "us/ca/cities/san-mateo/drafting-manual/index.xml",
+          "exists_in_archive": true,
+          "disposition": "excluded_validation_scope"
+        },
+        {
+          "from": "index.xml",
+          "href": "./us/ca/cities/san-mateo/editorial-actions/2025-06-05.xml",
+          "target": "us/ca/cities/san-mateo/editorial-actions/2025-06-05.xml",
+          "exists_in_archive": true,
+          "disposition": "excluded_validation_scope"
+        },
+        {
+          "from": "index.xml",
+          "href": "./us/ca/cities/san-mateo/editorial-actions/2026-02-03.xml",
+          "target": "us/ca/cities/san-mateo/editorial-actions/2026-02-03.xml",
+          "exists_in_archive": true,
+          "disposition": "excluded_validation_scope"
+        }
+      ],
+      "visited_files": [
+        "index.xml",
+        "us/ca/cities/san-mateo/charter/index.xml",
+        "us/ca/cities/san-mateo/code/1.xml",
+        "us/ca/cities/san-mateo/code/index.xml"
+      ]
+    },
+    "sample_manifests": 2,
+    "cli_exit_codes_zero": true,
+    "csv_json_equal": true
+  },
+  "limitations": [
+    "Repository HEAD pins a reproducible source version, not legal current-through currency.",
+    "Only selected Title 1 and Charter parsed; every other include explicitly excluded from validation scope.",
+    "Archive file membership and Git blob hashes verified for all files, without full corpus XML parsing."
+  ],
+  "resolved_commit": "16cc1931d1714f5915319dd98d7640207f4ce76b",
+  "outputs": [
+    {
+      "jurisdiction": "San Mateo, CA",
+      "parser_version": "bulk-official-html-1",
+      "scope": "bounded_validation_sample",
+      "complete": false,
+      "source_version": "16cc1931d1714f5915319dd98d7640207f4ce76b",
+      "records": 96,
+      "nodes": 107,
+      "raw_artifacts": [
+        {
+          "path": "raw/0e8eac3531634614_index.xml",
+          "sha256": "0e8eac3531634614fb6f740bea4bb6fe4c6560edf8b147022ed522be63ee643b"
+        }
+      ],
+      "path": "output/charter/run-manifest.json"
+    },
+    {
+      "jurisdiction": "San Mateo, CA",
+      "parser_version": "bulk-official-html-1",
+      "scope": "bounded_validation_sample",
+      "complete": false,
+      "source_version": "16cc1931d1714f5915319dd98d7640207f4ce76b",
+      "records": 39,
+      "nodes": 44,
+      "raw_artifacts": [
+        {
+          "path": "raw/6b3707233cce0066_1.xml",
+          "sha256": "6b3707233cce0066f9b088687db26c06bdf7d8a5b24ad524933d5dc90be5bb22"
+        }
+      ],
+      "path": "output/municipal-code/run-manifest.json"
+    }
+  ],
+  "ended_at": "2026-10-15T18:53:07.011610+00:00",
+  "artifacts": [
+    {
+      "path": "command-0.stderr.txt",
+      "sha256": "3effe2faf73a7810f4dd1055d73dbc879ad28f3462560fdd7683282931ba726d",
+      "bytes": 287
+    },
+    {
+      "path": "command-0.stdout.txt",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "path": "command-1.stderr.txt",
+      "sha256": "3effe2faf73a7810f4dd1055d73dbc879ad28f3462560fdd7683282931ba726d",
+      "bytes": 287
+    },
+    {
+      "path": "command-1.stdout.txt",
+      "sha256": "0bb8d36d35a970361d09e7f37398b720a6cb4220b56c71392790ad44523a3bad",
+      "bytes": 54
+    },
+    {
+      "path": "command-2.stderr.txt",
+      "sha256": "3effe2faf73a7810f4dd1055d73dbc879ad28f3462560fdd7683282931ba726d",
+      "bytes": 287
+    },
+    {
+      "path": "command-2.stdout.txt",
+      "sha256": "e37fa4946f50f84e6804ad75b2f6b938f7dc29ef10a049220e15c8424a556a1c",
+      "bytes": 53
+    },
+    {
+      "path": "includes.json",
+      "sha256": "40a5ba7499fb8662f6b6f1121f28e03c4358cedc7a19b004428c1c4efc89dbf7",
+      "bytes": 12479
+    },
+    {
+      "path": "output/charter/aggregate-fulltext.csv",
+      "sha256": "5a5763b42c8dcd98a5bb8cedccd5c4b6c4f7add5823c0b903ea396c0ba5fcdea",
+      "bytes": 90667
+    },
+    {
+      "path": "output/charter/aggregate-fulltext.json",
+      "sha256": "8b2163a3f409932882da2c863058d3bbda9acb0041bd5a6c400efdef48660139",
+      "bytes": 125210
+    },
+    {
+      "path": "output/charter/aggregate-toc.csv",
+      "sha256": "0f8ca7053340a43899ac282651ae720a0ad1d8fb583b8e168bf455ca615d4d39",
+      "bytes": 27009
+    },
+    {
+      "path": "output/charter/aggregate-toc.json",
+      "sha256": "8248304c16a62693727048f19a591444203f21dacc416eeb90183b48712d4214",
+      "bytes": 61367
+    },
+    {
+      "path": "output/charter/exceptions.jsonl",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "path": "output/charter/node-dispositions.jsonl",
+      "sha256": "81d32e997c84fa288db598b493724b6b4dfc099fd0cf30c594d0f72a443c2987",
+      "bytes": 36037
+    },
+    {
+      "path": "output/charter/publications/charter/fulltext.csv",
+      "sha256": "5a5763b42c8dcd98a5bb8cedccd5c4b6c4f7add5823c0b903ea396c0ba5fcdea",
+      "bytes": 90667
+    },
+    {
+      "path": "output/charter/publications/charter/fulltext.json",
+      "sha256": "8b2163a3f409932882da2c863058d3bbda9acb0041bd5a6c400efdef48660139",
+      "bytes": 125210
+    },
+    {
+      "path": "output/charter/publications/charter/toc.csv",
+      "sha256": "0f8ca7053340a43899ac282651ae720a0ad1d8fb583b8e168bf455ca615d4d39",
+      "bytes": 27009
+    },
+    {
+      "path": "output/charter/publications/charter/toc.json",
+      "sha256": "8248304c16a62693727048f19a591444203f21dacc416eeb90183b48712d4214",
+      "bytes": 61367
+    },
+    {
+      "path": "output/charter/publications.json",
+      "sha256": "b7176572c86628e623f3db038fa8644cb3a79183fa7d03c183489594189dc1b3",
+      "bytes": 138
+    },
+    {
+      "path": "output/charter/raw/0e8eac3531634614_index.xml",
+      "sha256": "0e8eac3531634614fb6f740bea4bb6fe4c6560edf8b147022ed522be63ee643b",
+      "bytes": 82831
+    },
+    {
+      "path": "output/charter/record-provenance.jsonl",
+      "sha256": "11486e4cace55ff5fa2dadb0e6a214da60d97d07287f243ca13c0f8653560cc3",
+      "bytes": 212955
+    },
+    {
+      "path": "output/charter/run-manifest.json",
+      "sha256": "2b3f954582baa49b24b8f69d35d12551615932db7014ef6b69ab3d59d48207fe",
+      "bytes": 409
+    },
+    {
+      "path": "output/charter/source-nodes.jsonl",
+      "sha256": "9c7e912307108f35d94ebd3623e51cd0b87a9ca1eba15b65fa711bbf4bba2693",
+      "bytes": 120201
+    },
+    {
+      "path": "output/municipal-code/aggregate-fulltext.csv",
+      "sha256": "ab33aa5dbe22c3fa98be70c9a2f6b03364f183fe3bd074bf4100e619a3aed894",
+      "bytes": 47495
+    },
+    {
+      "path": "output/municipal-code/aggregate-fulltext.json",
+      "sha256": "29560a2e63777244c8e1aa76eccee20a69128a6fd2327544bc3b6695ee879dff",
+      "bytes": 61922
+    },
+    {
+      "path": "output/municipal-code/aggregate-toc.csv",
+      "sha256": "aaffffeb30f049b520009e3d089e6936b05ca93c7983e316053a243a82b9f6a7",
+      "bytes": 12504
+    },
+    {
+      "path": "output/municipal-code/aggregate-toc.json",
+      "sha256": "0732ce3a834807f29e1428d19294b5e86ef615b36c05b0b871d5fcde6bd78043",
+      "bytes": 26478
+    },
+    {
+      "path": "output/municipal-code/exceptions.jsonl",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "path": "output/municipal-code/node-dispositions.jsonl",
+      "sha256": "a8dc89a7118abeac8762a413c9d9a3bec16aff66ea07b7334ecafdd872b9ac63",
+      "bytes": 14457
+    },
+    {
+      "path": "output/municipal-code/publications/municipal-code/fulltext.csv",
+      "sha256": "ab33aa5dbe22c3fa98be70c9a2f6b03364f183fe3bd074bf4100e619a3aed894",
+      "bytes": 47495
+    },
+    {
+      "path": "output/municipal-code/publications/municipal-code/fulltext.json",
+      "sha256": "29560a2e63777244c8e1aa76eccee20a69128a6fd2327544bc3b6695ee879dff",
+      "bytes": 61922
+    },
+    {
+      "path": "output/municipal-code/publications/municipal-code/toc.csv",
+      "sha256": "aaffffeb30f049b520009e3d089e6936b05ca93c7983e316053a243a82b9f6a7",
+      "bytes": 12504
+    },
+    {
+      "path": "output/municipal-code/publications/municipal-code/toc.json",
+      "sha256": "0732ce3a834807f29e1428d19294b5e86ef615b36c05b0b871d5fcde6bd78043",
+      "bytes": 26478
+    },
+    {
+      "path": "output/municipal-code/publications.json",
+      "sha256": "e7280e9b836abf00af4a245a82ee6e6f889bbb854f895ea162e8ff5765b6adb4",
+      "bytes": 145
+    },
+    {
+      "path": "output/municipal-code/raw/6b3707233cce0066_1.xml",
+      "sha256": "6b3707233cce0066f9b088687db26c06bdf7d8a5b24ad524933d5dc90be5bb22",
+      "bytes": 53903
+    },
+    {
+      "path": "output/municipal-code/record-provenance.jsonl",
+      "sha256": "10ad5a7457b54e48a34632c8f64288c8fd44b6dfb93d49dc83b62f581ce4a8d6",
+      "bytes": 130439
+    },
+    {
+      "path": "output/municipal-code/run-manifest.json",
+      "sha256": "537e08798ffe1314551ecfe49b16657890d73d3237b19f073f0bccfbadc70116",
+      "bytes": 404
+    },
+    {
+      "path": "output/municipal-code/source-nodes.jsonl",
+      "sha256": "5e2be64883548f970fd585c43f1f80eef3947e63abe258f87221def0cf5582ee",
+      "bytes": 49221
+    },
+    {
+      "path": "source/head.json",
+      "sha256": "cb06635d545082062ca61075d9896a919a98e47e7f89f4f2d97d12eb254fa8b1",
+      "bytes": 29968
+    },
+    {
+      "path": "source/head.json.http.json",
+      "sha256": "6173b8de02ebc92524db6399d65ec7f7af769228121e034b7a58abee3e3cd555",
+      "bytes": 1929
+    },
+    {
+      "path": "source/pinned/commit.json",
+      "sha256": "cb06635d545082062ca61075d9896a919a98e47e7f89f4f2d97d12eb254fa8b1",
+      "bytes": 29968
+    },
+    {
+      "path": "source/pinned/commit.json.http.json",
+      "sha256": "e1039a19179bebe362e596b5192e60aa0bab48b08349b4578f2cdb131d5d0cf5",
+      "bytes": 2001
+    },
+    {
+      "path": "source/pinned/publications.json",
+      "sha256": "a27ac7015775360051bdc1e2c68fbce425a130ed0c4b642dcbde4e6d7a7144de",
+      "bytes": 96182
+    },
+    {
+      "path": "source/pinned/repository.zip",
+      "sha256": "c8ac0b3ae6fe4e60d00e561b90dc049b08408125b7128737aa9eed075ae857f4",
+      "bytes": 16864514
+    },
+    {
+      "path": "source/pinned/repository.zip.http.json",
+      "sha256": "0ecf97450ab2df780cb5dddfceb48c2e1818ab675cc7514269bdc4e772fd7239",
+      "bytes": 1379
+    },
+    {
+      "path": "source/pinned/tree.json",
+      "sha256": "e883219ddf80386bac27249827a34bbfa5cd1222627e8b9e1743438c3882ef78",
+      "bytes": 81209
+    },
+    {
+      "path": "source/pinned/tree.json.http.json",
+      "sha256": "4db14f2002480bf310116cc3858f7f810482a4fc1d0034df4f297bd151648ba3",
+      "bytes": 2035
+    },
+    {
+      "path": "source/selected/index.xml",
+      "sha256": "52282077381651b919f1bebc8c49b55587f96e108263ac7c061d18c607c6213b",
+      "bytes": 2952
+    },
+    {
+      "path": "source/selected/us/ca/cities/san-mateo/charter/index.xml",
+      "sha256": "0e8eac3531634614fb6f740bea4bb6fe4c6560edf8b147022ed522be63ee643b",
+      "bytes": 82831
+    },
+    {
+      "path": "source/selected/us/ca/cities/san-mateo/code/1.xml",
+      "sha256": "6b3707233cce0066f9b088687db26c06bdf7d8a5b24ad524933d5dc90be5bb22",
+      "bytes": 53903
+    },
+    {
+      "path": "source/selected/us/ca/cities/san-mateo/code/index.xml",
+      "sha256": "b69530fa9480363a86a59ca56c41663e955a70ff0ca5b9b258b34c3750d39c0d",
+      "bytes": 1360
+    }
+  ]
+}

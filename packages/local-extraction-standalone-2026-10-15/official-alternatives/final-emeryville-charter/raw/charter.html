@@ -1,0 +1,980 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8" lang="en"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9" lang="en"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js" lang="en-US">
+<!--<![endif]-->
+<head>
+	<!-- Published by OpenCities, 1.38.0.1 -->
+
+    
+        
+    
+    
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="theme-color" content="#FFFFFF"/>
+    <title>Charter City - City of Emeryville, CA</title>
+	<meta name="generator" content="OpenCities - https://granicus.com/product/opencities" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Using mobile-web-app-capable for now to enable full-screen experience on supported platforms -->
+    <!-- Note: This tag works mainly on Android Chrome. It does NOT enable full-screen mode on iOS Safari. -->
+    <!-- For iOS, the correct tag is: <meta name="apple-mobile-web-app-capable" content="yes"> -->
+    <!-- TODO: Monitor for updated meta tag standards from Apple or other browser vendors -->
+    <meta name="mobile-web-app-capable" content="yes" />
+        <meta name="description" content="On November 4, 2014, the voters of Emeryville passed Measure U which established the City of Emeryville as a charter city." />
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://www.emeryville.org/Government/About-Emeryville/Charter-City" />
+    <meta property="og:title" content="Charter City" />
+    <meta property="og:description" content="On November 4, 2014, the voters of Emeryville passed Measure U which established the City of Emeryville as a charter city." />
+    <meta property="og:image" content="https://www.emeryville.org/files/ocwebsite/City/HeroImage/emeryville%20symbol_1.png?w=1200" />
+    <meta property="twitter:card" content="summary" />
+    <meta property="twitter:title" content="Charter City" />
+    <meta property="twitter:description" content="On November 4, 2014, the voters of Emeryville passed Measure U which established the City of Emeryville as a charter city." />
+    <meta property="twitter:image" content="https://www.emeryville.org/files/ocwebsite/City/HeroImage/emeryville%20symbol_1.png?w=1080" />
+    <link rel="canonical" href="https://www.emeryville.org/Government/About-Emeryville/Charter-City" />
+
+    
+    <link rel="apple-touch-icon" sizes="180x180" href="/files/ocfavicon/City/apple-touch-icon.png?V=638591367205919142">
+<link rel="icon" type="image/png" sizes="32x32" href="/files/ocfavicon/City/favicon-32x32.png?V=638591367205919142">
+<link rel="icon" type="image/png" sizes="16x16" href="/files/ocfavicon/City/favicon-16x16.png?V=638591367205919142">
+<link rel="manifest" href="/files/ocfavicon/City/site.webmanifest?V=638591367205919142">
+<link rel="shortcut icon" href="/files/ocfavicon/City/favicon.ico?V=638591367205919142">
+<meta name="msapplication-TileColor" content="#000000">
+<meta name="msapplication-config" content="/files/ocfavicon/City/browserconfig.xml?V=638591367205919142">
+    <script>
+        (function () {
+            if (window.__UNLOAD_LAZY_PATCH__) return;
+            window.__UNLOAD_LAZY_PATCH__ = true;
+
+            var supportsPageHide = ("onpagehide" in window);
+            var mappedType = supportsPageHide ? "pagehide" : "beforeunload";
+            var nativeAdd = window.addEventListener;
+            var nativeRemove = window.removeEventListener;
+            var unloadMap = null;
+            var patched = false;
+
+            function ensurePatched() {
+                if (patched) return;
+                unloadMap = new WeakMap();
+
+                window.addEventListener = function (type, listener, options) {
+                    if (type === "unload") {
+                        var wrapped = function (evt) {
+                            if (supportsPageHide && evt.persisted) return;
+                            listener.call(this, evt);
+                        };
+                        unloadMap.set(listener, wrapped);
+                        return nativeAdd.call(this, mappedType, wrapped, options);
+                    }
+                    return nativeAdd.call(this, type, listener, options);
+                };
+
+                window.removeEventListener = function (type, listener, options) {
+                    if (type === "unload") {
+                        var wrapped = unloadMap.get(listener);
+                        if (wrapped) {
+                            nativeRemove.call(this, mappedType, wrapped, options);
+                            unloadMap.delete(listener);
+                        }
+                        return;
+                    }
+                    return nativeRemove.call(this, type, listener, options);
+                };
+
+                var orig = null;
+                Object.defineProperty(window, "onunload", {
+                    configurable: true, enumerable: true,
+                    get: function () { return orig; },
+                    set: function (h) {
+                        orig = h;
+                        if (typeof h === "function") window.addEventListener("unload", h);
+                    }
+                });
+                patched = true;
+            }
+
+            window.addEventListener = function (type, listener, options) {
+                if (type === "unload") {
+                    ensurePatched();
+                    return window.addEventListener(type, listener, options);
+                }
+                return nativeAdd.call(this, type, listener, options);
+            };
+
+            window.removeEventListener = function (type, listener, options) {
+                if (type === "unload" && !patched) {
+                    return;
+                }
+                return nativeRemove.call(this, type, listener, options);
+            };
+
+            function patchTelerik() {
+                ensurePatched();
+                var ns = window.RadAjaxNamespace;
+                if (!ns || !ns.EventManager || !ns.EventManager.Add || ns.EventManager.__UnloadPatched) return;
+                var origAdd = ns.EventManager.Add;
+                ns.EventManager.Add = function (el, evtName, handler, clientId) {
+                    if (el === window && evtName === "unload") {
+                        return window.addEventListener("unload", handler);
+                    }
+                    return origAdd.call(this, el, evtName, handler, clientId);
+                };
+                ns.EventManager.__UnloadPatched = true;
+            }
+
+            if (window.RadAjaxNamespace)
+                patchTelerik();
+            else (window.requestIdleCallback || function (cb)
+            {
+                setTimeout(cb, 120);
+            })(patchTelerik);
+        })();
+    </script>
+    <!-- Preconnecting to Google Fonts servers -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <!-- Defer Roboto font loading to avoid render-blocking -->
+    <script>
+        window.addEventListener('DOMContentLoaded', () => {
+            const robotoLink = document.createElement('link');
+            robotoLink.rel = 'stylesheet';
+            robotoLink.href = 'https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap';
+            document.head.appendChild(robotoLink);
+        });
+    </script>
+
+    <style>
+        .gm-style, .gm-style * {
+            font-family: 'Roboto', system-ui, -apple-system, "Segoe UI", Arial, sans-serif !important;
+        }
+    </style>
+
+    <script>
+        document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, "js");
+    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Figtree:ital,wght@0,300..900;1,300..900&display=swap" rel="stylesheet">
+    
+        
+            <script type="text/javascript">
+                window.__oc_flags_ImprovedBreakpointEventHandling = true;
+            </script>
+            
+        
+    
+    
+    
+        <script type="text/javascript">
+            var __metaQueryBreakpoints = {
+                'sc-size-4': '(max-width: 480px)',
+                'sc-size-3': '(min-width: 480px) and (max-width: 768px)',
+                'sc-size-2': '(min-width: 768px) and (max-width: 992px)',
+                'sc-size-1': '(min-width: 992px)'
+            }
+
+            var __ocSizePoints = [
+                { min: 0, name: 'sc-size-4' },
+                { min: 480, name: 'sc-size-3' },
+                { min: 768, name: 'sc-size-2' },
+                { min: 992, name: 'sc-size-1' }
+            ];
+
+        </script>
+    
+
+    <!-- Framework Section -->
+    
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script>window.jQuery || document.write('<script src="/files/templates/00000000-0000-0000-0000-000000000000/63e99f01-f92e-4ece-af49-b74dfba49a65/v/185/jquery-3.7.1.min.js?seamlessts=639263243723511292" ><\/script>')</script>
+
+    <!--Google Maps API Loader – Improved Version to avoid Warning
+    This script loads the Google Maps JavaScript API using a dynamic and async method.
+    It replaces the old static <script> tag to avoid performance warnings from Google.
+
+    Dynamically creates the <script> tag with loading = async for better performance
+    Builds the API URL with required libraries(places, geometry, marker, geocoding)
+    Uses a Promise and callback(google.maps.__ib__) to confirm when the script is ready
+
+    It Avoids Google’s warning about direct script loading
+    Improves page load speed by loading the API asynchronously-->
+
+    
+        <script>
+            (function (root) {
+                root.OpenCities = root.OpenCities || {};
+                if (!root.OpenCities.GoogleMapsLoader) {
+                    root.OpenCities.GoogleMapsLoader = {
+                        _cbs: [],
+                        _ready: false,
+                        onReady: function (cb) {
+                            if (this._ready) { try { cb(); } catch (e) { console.error(e); } }
+                            else if (typeof cb === 'function') this._cbs.push(cb);
+                        },
+                        _fire: function () {
+                            if (this._ready) return;
+                            this._ready = true;
+                            var q = this._cbs.splice(0);
+                            for (var i = 0; i < q.length; i++) {
+                                try { q[i](); } catch (e) { console.error(e); }
+                            }
+                        }
+                    };
+                }
+            })(window);
+
+            (g => {
+                var h, a, k, p = "The Google Maps JavaScript API", c = "google", l = "importLibrary", q = "__ib__",
+                    m = document, b = window;
+                b = b[c] || (b[c] = {});
+                var d = b.maps || (b.maps = {}), r = new Set, e = new URLSearchParams,
+                    u = () => h || (h = new Promise(async (resolve, reject) => {
+                        a = m.createElement("script");
+                        e.set("libraries", [...r] + "");
+                        for (k in g) e.set(k.replace(/[A-Z]/g, t => "_" + t[0].toLowerCase()), g[k]);
+                        e.set("callback", c + ".maps." + q);
+                        a.src = "https://maps." + c + "apis.com/maps/api/js?" + e.toString();
+                        a.loading = "async";
+                        a.async = true;
+                        a.defer = true;
+                        d[q] = resolve;
+                        a.onerror = () => reject(Error(p + " could not load."));
+                        a.nonce = m.querySelector("script[nonce]")?.nonce || "";
+                        m.head.append(a);
+                    }));
+                if (d[l]) {
+                    console.warn(p + " only loads once. Ignoring duplicate load.");
+                } else {
+                    d[l] = (f, ...n) => (r.add(f), u().then(() => d[l](f, ...n)));
+                }
+            })({
+                key: "AIzaSyAPJ0ZyGu16JVRHwGSOBXUBGTE54ZkwTWk ",
+                v: "3.65"
+            });
+
+            (async () => {
+                try {
+                    if (!google?.maps?.importLibrary) return;
+
+                    if (!window.OpenCities.__mapsLibsPromise) {
+                        window.OpenCities.__mapsLibsPromise = Promise.all([
+                            google.maps.importLibrary('maps'),
+                            google.maps.importLibrary('places'),
+                            google.maps.importLibrary('geocoding'),
+                            google.maps.importLibrary('marker'),
+                            google.maps.importLibrary('geometry')
+                        ]);
+                    }
+                    await window.OpenCities.__mapsLibsPromise;
+
+                    if (window.OpenCities?.GoogleMapsLoader) {
+                        window.OpenCities.GoogleMapsLoader._fire();
+                    }
+                } catch (err) {
+                    console.error('Google Maps failed to initialise', err);
+                }
+            })();
+        </script>
+    
+    <script src="/files/templates/00000000-0000-0000-0000-000000000000/63e99f01-f92e-4ece-af49-b74dfba49a65/v/185/modernizr.custom.710f3bf.js?seamlessts=639263243723511292" defer></script>
+    
+    <!--// End Framework Section -->
+    <!-- OpenCities Section -->
+    <script>
+        var OpenCities = OpenCities || {};
+        OpenCities.Paths = {
+            SiteTemplate: '/files/templates/00000000-0000-0000-0000-000000000000/63e99f01-f92e-4ece-af49-b74dfba49a65/v/185/',
+            ThemePath: '/files/templates/00000000-0000-0000-0000-000000000000/63e99f01-f92e-4ece-af49-b74dfba49a65/v/185/'
+        };
+    </script>
+    <script src='/ocapi/828174b3-e971-440e-8916-0a8a5edc7b89/en-US/websitesettings.js'></script>
+    <script src="/files/templates/00000000-0000-0000-0000-000000000000/63e99f01-f92e-4ece-af49-b74dfba49a65/v/185/oc_head.js?applied=20250731023152"></script>
+    <!-- Script Combine. To enter debug mode for this browser session, enter OcScriptCombineDebug=true as a querystring -->
+<link href="/files/oc-templates/00000000-0000-0000-0000-000000000000/63e99f01-f92e-4ece-af49-b74dfba49a65/v/185/oc_grid.css~oc_style.css~oc_wizard_style.css~oc_main.css~oc_forms.css~oc_wizard.css~oc_wizard_menu.css~oc_main_s1.css~oc_wizard_s1.css~oc_wizard_menu_s1.css~oc_grid_s1.css~OcScriptCombine_Minify0?uniqueid=20250731023152" rel="stylesheet" type="text/css">
+    <!-- Script Combine. To enter debug mode for this browser session, enter OcScriptCombineDebug=true as a querystring -->
+<link href="/files/oc-templates/00000000-0000-0000-0000-000000000000/63e99f01-f92e-4ece-af49-b74dfba49a65/v/185/client_style.css~client.css~client_menu.css~client_s1.css~client_menu_s1.css~client_forms.css~OcScriptCombine_Minify0?uniqueid=20250731023152" rel="stylesheet" type="text/css">
+    <script>
+(function (BackgroundSettings, $, undefined) {
+    BackgroundSettings.initialise = function () {
+        this.Application = {"CSSSelector":".background-container","EnableFade":false,"MediaType":"image"};
+    };
+} (OpenCities.BackgroundSettings = OpenCities.BackgroundSettings || {}, jQuery));
+OpenCities.BackgroundSettings.initialise();
+</script>
+    
+    <!-- Script Combine. To enter debug mode for this browser session, enter OcScriptCombineDebug=true as a querystring -->
+<link href="/files/oc-templates/00000000-0000-0000-0000-000000000000/63e99f01-f92e-4ece-af49-b74dfba49a65/v/185/oc_print.css~client_print.css~OcScriptCombine_Minify0?uniqueid=20250731023152" rel="stylesheet" type="text/css" media="print">
+    <!-- Script Combine. To enter debug mode for this browser session, enter OcScriptCombineDebug=true as a querystring -->
+<script src="/files/oc-templates/00000000-0000-0000-0000-000000000000/63e99f01-f92e-4ece-af49-b74dfba49a65/v/185/external_plugins.js~oc_form_helper.js~oc_main.js~plugins.js~oc_main_init.js~OcScriptCombine_Minify0?uniqueid=20250731023152" defer="true"></script>
+    
+    
+
+                                <script>!function(e){var n="https://s.go-mpulse.net/boomerang/";if("False"=="True")e.BOOMR_config=e.BOOMR_config||{},e.BOOMR_config.PageParams=e.BOOMR_config.PageParams||{},e.BOOMR_config.PageParams.pci=!0,n="https://s2.go-mpulse.net/boomerang/";if(window.BOOMR_API_key="DYTCK-JM9C8-ED4EP-C3GGK-Z575H",function(){function e(){if(!r){var e=document.createElement("script");e.id="boomr-scr-as",e.src=window.BOOMR.url,e.async=!0,o.appendChild(e),r=!0}}function t(e){r=!0;var n,t,a,i,d=document,O=window;if(window.BOOMR.snippetMethod=e?"if":"i",t=function(e,n){var t=d.createElement("script");t.id=n||"boomr-if-as",t.src=window.BOOMR.url,BOOMR_lstart=(new Date).getTime(),e=e||d.body,e.appendChild(t)},!window.addEventListener&&window.attachEvent&&navigator.userAgent.match(/MSIE [67]\./))return window.BOOMR.snippetMethod="s",void t(o,"boomr-async");a=document.createElement("IFRAME"),a.src="about:blank",a.title="",a.role="presentation",a.loading="eager",i=(a.frameElement||a).style,i.width=0,i.height=0,i.border=0,i.display="none",o.appendChild(a);try{O=a.contentWindow,d=O.document.open()}catch(_){n=document.domain,a.src="javascript:var d=document.open();d.domain='"+n+"';void 0;",O=a.contentWindow,d=O.document.open()}if(n)d._boomrl=function(){this.domain=n,t()},d.write("<bo"+"dy onload='document._boomrl();'>");else if(O._boomrl=function(){t()},O.addEventListener)O.addEventListener("load",O._boomrl,!1);else if(O.attachEvent)O.attachEvent("onload",O._boomrl);d.close()}function a(e){window.BOOMR_onload=e&&e.timeStamp||(new Date).getTime()}if(!window.BOOMR||!window.BOOMR.version&&!window.BOOMR.snippetExecuted){window.BOOMR=window.BOOMR||{},window.BOOMR.snippetStart=(new Date).getTime(),window.BOOMR.snippetExecuted=!0,window.BOOMR.snippetVersion=14,window.BOOMR.url=n+"DYTCK-JM9C8-ED4EP-C3GGK-Z575H";var i=document.currentScript||document.getElementsByTagName("script")[0],o=i.parentNode,r=!1,d=document.createElement("link");if(d.relList&&"function"==typeof d.relList.supports&&d.relList.supports("preload")&&"as"in d)window.BOOMR.snippetMethod="p",d.href=window.BOOMR.url,d.rel="preload",d.as="script",d.addEventListener("load",e),d.addEventListener("error",function(){t(!0)}),setTimeout(function(){if(!r)t(!0)},3e3),BOOMR_lstart=(new Date).getTime(),o.appendChild(d);else t(!1);if(window.addEventListener)window.addEventListener("load",a,!1);else if(window.attachEvent)window.attachEvent("onload",a)}}(),"".length>0)if(e&&"performance"in e&&e.performance&&"function"==typeof e.performance.setResourceTimingBufferSize)e.performance.setResourceTimingBufferSize();!function(){if(BOOMR=e.BOOMR||{},BOOMR.plugins=BOOMR.plugins||{},!BOOMR.plugins.AK){var n=""=="true"?1:0,t="",a="eyaqesmsaa3wajqacqd6qaaadfvnckjw-f-b4718a111-clienttons-s.akamaihd.net",i="false"=="true"?2:1,o={"ak.v":"41","ak.cp":"1865612","ak.ai":parseInt("1075935",10),"ak.ol":"0","ak.cr":18,"ak.ipv":6,"ak.proto":"http/1.1","ak.rid":"3f57363","ak.r":39715,"ak.a2":n,"ak.m":"dscb","ak.n":"essl","ak.cport":58365,"ak.gh":"184.30.41.168","ak.quicv":"","ak.tlsv":"tls1.2","ak.0rtt":"","ak.0rtt.ed":"","ak.csrc":"-","ak.acc":"bbr","ak.t":"1792092470","ak.ak":"hOBiQwZUYzCg5VSAfCLimQ==mr9amPeFbtFrIHAE/Abf+5om17P+DLNzobdirsg3JkifGFJeMu0k/x7rCK6iKTGRZ+9k0u4USgd97cHXZtmACOGuhrkHleRse2hBTyVBtUAhMiMfLf751iiHzyKzu91qczXPwdMNgdACBsnC0QFvNh6x9k7cu8H1J+rnl2fLTuCBtIEwp/icw9g3P6l8hDmFB/EXUnI0tktVuUSlTmKkOTPDRvK7RufRn66nNtq2bXwxbkrYFd3y4PcnaRzooIPfhOUrJvnCpU/zxSEjGULenGSQZPsmJYnUm5qLe1bGCBXt6GsK4V9AXJ8buzgE63GCUC5J3V9vIa46PlhwUvraQByCdWbnV47Dgd9uygAUzbU9zB3+Dk4aqB7NxrmFb6vlaZYz65/neEvIahNEK6C91VO5ZAdgx8BB/kvuD4CaSQ8=","ak.pv":"354","ak.dpoabenc":"","ak.tf":i};if(""!==t)o["ak.ruds"]=t;var r={i:!1,av:function(n){var t="http.initiator";if(n&&(!n[t]||"spa_hard"===n[t]))o["ak.feo"]=void 0!==e.aFeoApplied?1:0,BOOMR.addVar(o)},rv:function(){var e=["ak.cport","ak.cr","ak.csrc","ak.gh","ak.ipv","ak.m","ak.n","ak.ol","ak.proto","ak.quicv","ak.tlsv","ak.0rtt","ak.0rtt.ed","ak.r","ak.acc","ak.t","ak.tf"];BOOMR.removeVar(e)}};BOOMR.plugins.AK={akVars:o,akDNSPreFetchDomain:a,init:function(){if(!r.i){var e=BOOMR.subscribe;e("before_beacon",r.av,null,null),e("onbeacon",r.rv,null,null),r.i=!0}return this},is_complete:function(){return!0}}}}()}(window);</script></head>
+<body class="body layout-modern  site-search-always-visble  content-type-oc-general content-template-oc-2-column-without-image group-template-oc-2-column-with-default-header page-name-charter-city page-sequence-6 page-depth-3 page-section-2 website-type-primary device-desktop " id="body-top">
+    <div id="skip-to-content-container">
+        <a href="#main-content" class="visuallyhidden focusable" id="skip-to-content-link">Skip to main content</a>
+    </div>
+    <script>
+        // OCNOW-11988 (Cursor): Proactively focus skip link when returning from browser chrome.
+        // Must run inline (not deferred oc_main.js) so focus is intercepted before NVDA speaks footer.
+        (function () {
+            var awaitingReentry = false;
+            var inertSupported = 'inert' in HTMLElement.prototype;
+
+            function isExplicitlyOutsideDocument(node) {
+                return node != null && !document.documentElement.contains(node);
+            }
+
+            function getSkipContainer() {
+                return document.getElementById('skip-to-content-container');
+            }
+
+            function getSkipLink() {
+                return document.getElementById('skip-to-content-link');
+            }
+
+            function applyGuard() {
+                awaitingReentry = true;
+                if (!inertSupported) {
+                    return;
+                }
+                var skipContainer = getSkipContainer();
+                var children = document.body.children;
+                for (var i = 0; i < children.length; i++) {
+                    if (children[i] !== skipContainer) {
+                        children[i].setAttribute('inert', '');
+                    }
+                }
+            }
+
+            function clearGuard() {
+                awaitingReentry = false;
+                if (!inertSupported) {
+                    return;
+                }
+                var children = document.body.children;
+                for (var i = 0; i < children.length; i++) {
+                    children[i].removeAttribute('inert');
+                }
+            }
+
+            function isSkipLinkElement(target) {
+                if (!target) {
+                    return false;
+                }
+                var skipContainer = getSkipContainer();
+                return target.id === 'skip-to-content-link' ||
+                    (skipContainer && skipContainer.contains(target));
+            }
+
+            function focusSkipLink() {
+                var skipLink = getSkipLink();
+                if (!skipLink) {
+                    return;
+                }
+                if (window.scrollY > 0) {
+                    window.scrollTo(0, 0);
+                }
+                skipLink.focus({ preventScroll: true });
+            }
+
+            function scheduleGuardIfDocumentLostFocus() {
+                window.setTimeout(function () {
+                    if (!document.hasFocus()) {
+                        applyGuard();
+                    }
+                }, 0);
+            }
+
+            document.addEventListener('focusout', function (e) {
+                if (isExplicitlyOutsideDocument(e.relatedTarget)) {
+                    applyGuard();
+                }
+            }, true);
+
+            document.addEventListener('keydown', function (e) {
+                if (e.key === 'Tab') {
+                    scheduleGuardIfDocumentLostFocus();
+                } else if (e.key === 'F6' || (e.key === 'l' && e.ctrlKey)) {
+                    scheduleGuardIfDocumentLostFocus();
+                }
+            }, true);
+
+            window.addEventListener('focus', function () {
+                if (!awaitingReentry) {
+                    return;
+                }
+                applyGuard();
+                focusSkipLink();
+            }, true);
+
+            document.addEventListener('focusin', function (e) {
+                var reentryFromChrome = awaitingReentry || isExplicitlyOutsideDocument(e.relatedTarget);
+                if (!reentryFromChrome) {
+                    return;
+                }
+                if (isSkipLinkElement(e.target)) {
+                    clearGuard();
+                    return;
+                }
+                applyGuard();
+                focusSkipLink();
+                clearGuard();
+            }, true);
+        })();
+    </script>
+    <form name="mainForm" method="post" action="/Government/About-Emeryville/Charter-City" id="mainForm">
+<input type="hidden" name="ctl04_seamless_script_manager_TSM" id="ctl04_seamless_script_manager_TSM" value="" />
+<input type="hidden" name="__SEAMLESSVIEWSTATE" id="__SEAMLESSVIEWSTATE" value="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" />
+<input type="hidden" name="__VIEWSTATE" id="__VIEWSTATE" value="" />
+
+
+<script src="/Telerik.Web.UI.WebResource.axd?_TSM_HiddenField_=ctl04_seamless_script_manager_TSM&amp;compress=1&amp;_TSM_CombinedScripts_=%3b%3bSystem.Web.Extensions%2c+Version%3d4.0.0.0%2c+Culture%3dneutral%2c+PublicKeyToken%3d31bf3856ad364e35%3aen-GB%3add3ac3d5-1e29-4112-8fed-529caffa8f24%3aea597d4b%3bOpenCities.CustomControls%3aen-GB%3a7197b077-b068-4a69-9481-a6cf2e7718f9%3a8e1d32bf" type="text/javascript"></script>
+<script src="/ScriptResource.axd?d=EYVjNsQ7oYmzBqCI0dkEyYe0LYmPcVFL4WPcQCXhKfQwUqkAT7lLra0za-OLMuUUcCyPINdTVMHIWti96-8R_oN-trjXUUZnJRzckxTjid4ecctwwEJyNI-05jZYvXHBRiEKL0MUQMEyEJ2FXanyE1uBk88RxZ1wVK6AUn9D4v8rW-LNx2OOtB8vE3hC8P0jk4XZt7GAPiCeYQolxUlwFZA8cuOfgd4u08OASxFdh8mChz3A0YHhuwRrXGVlulfs9SJVkAvulhjdHYIIp1SRohDxt9acTwxUQrOlxuxC847b00zOOWg9SlpwD_iBuQQ1rOK9WH9O_wN9c2TXm4GeXaQHHT4yQ9IlzZXw6th8ch3f-k_n1yYeeurDMbwChXW1Vh_7rpu00kgmegsg9w2J3ququXIPfy2Gq8IscVTmtwouupfmUzAOicU_yESgQ-dG0" type="text/javascript"></script>
+    
+<script type="text/javascript">
+    try{
+        function SeamlessEndRequestHandler(sender, args) {
+            try {
+                var dataItems = args.get_dataItems();
+                if(dataItems.ctl04_seamless_script_manager)
+                    document.getElementById('__SEAMLESSVIEWSTATE').value = dataItems.ctl04_seamless_script_manager;
+            }
+            catch (e) { }
+        }
+
+        Sys.WebForms.PageRequestManager.getInstance().add_endRequest(SeamlessEndRequestHandler);
+    }
+    catch (e) { }
+</script>
+
+    <div class="unsupported-browser-warning js-element"></div>
+    
+    <div hidden>
+        <span id="new-window-0">opens in new tab or window </span>
+    </div>
+    <div class="overlay-container"></div>
+    
+    <div class="background-container">
+        <div class="page-container">
+            <!-- OC Layout Element GROUP TEMPLATE -->
+            <!--groupTemplateStart--><header>
+            <div class="toolbar-outer-container">
+  <div class="toolbar-inner-container clearfix">
+    <div class="toolbar-item toolbar-quicklinks toolbar-display-dropdown">
+	<button type="button" aria-controls="toolbar-quicklinks-drop-down" aria-expanded="false" class="toolbar-button toolbar-button-quicklinks js-element"><span>Quick Links</span><i aria-hidden="true"></i></button>	
+	<div id="toolbar-quicklinks-drop-down" class="toolbar-drop-down toolbar-quicklinks-drop-down clearfix">
+		<ul>
+		  <li><a href="https://www.facebook.com/profile.php?id=100087325997219" class="oc-icon-b oc-i-facebook link-type-external link-hide-text" target="_blank"><span>Facebook</span></a></li><li><a href="https://www.instagram.com/cityofemeryville/" class="oc-icon-b oc-i-instagram link-type-external link-hide-text" target="_blank"><span>Instagram</span></a></li><li><a href="www.x.com/EmeryvilleCA" class="oc-icon-b oc-i-x link-type-external link-hide-text" target="_blank"><span>X</span></a></li>
+		</ul>
+	</div>
+</div><div class="toolbar-item toolbar-language notranslate toolbar-display-dropdown"><div class="no-js-element">
+		  <ul>
+		    <li id="toolbar-language-option-en-us-noscript"><a href="https://www.emeryville.org/Government/About-Emeryville/Charter-City?oc_lang=en-US" class="lang-item lang-en-us" data-translate-to="en-us" lang="en-US">English<span class="visuallyhidden"> Select this as your preferred language</span></a></li><li id="toolbar-language-option-ar-noscript"><a href="https://www.emeryville.org/Government/About-Emeryville/Charter-City?oc_lang=ar" class="lang-item lang-ar" data-translate-to="ar" lang="en">Arabic<span class="visuallyhidden"> Select this as your preferred language</span></a></li><li id="toolbar-language-option-zh-tw-noscript"><a href="https://www.emeryville.org/Government/About-Emeryville/Charter-City?oc_lang=zh-TW" class="lang-item lang-zh-tw" data-translate-to="zh-tw" lang="en">Chinese (Traditional)<span class="visuallyhidden"> Select this as your preferred language</span></a></li><li id="toolbar-language-option-es-noscript"><a href="https://www.emeryville.org/Government/About-Emeryville/Charter-City?oc_lang=es" class="lang-item lang-es" data-translate-to="es" lang="en">Spanish<span class="visuallyhidden"> Select this as your preferred language</span></a></li><li id="toolbar-language-option-tl-noscript"><a href="https://www.emeryville.org/Government/About-Emeryville/Charter-City?oc_lang=tl" class="lang-item lang-tl" data-translate-to="tl" lang="en">Tagalog (Filipino)<span class="visuallyhidden"> Select this as your preferred language</span></a></li><li id="toolbar-language-option-vi-noscript"><a href="https://www.emeryville.org/Government/About-Emeryville/Charter-City?oc_lang=vi" class="lang-item lang-vi" data-translate-to="vi" lang="en">Vietnamese<span class="visuallyhidden"> Select this as your preferred language</span></a></li>
+          </ul>
+		</div>
+	<button type="button" role="combobox" aria-controls="toolbar-language-drop-down" aria-expanded="false" aria-haspopup="listbox" aria-autocomplete="none" aria-labelledby="toolbar-language-label" class="toolbar-button toolbar-button-language js-element">  
+        <span class="toolbar-language-globe-icon" aria-hidden="true"></span>
+        <span id="toolbar-language-label" class="current-language">
+            Select a language to translate to
+		</span>
+		<i aria-hidden="true"></i>
+	</button>
+	<div id="toolbar-language-drop-down" role="listbox" aria-label="Available languages" class="toolbar-drop-down toolbar-language-drop-down js-element clearfix">
+		<ul role="group">
+		    <li role="presentation"><a id="toolbar-language-option-en-us" role="option" aria-selected="true" href="https://www.emeryville.org/Government/About-Emeryville/Charter-City?oc_lang=en-US" class="lang-item lang-en-us" data-translate-to="en-us" lang="en-US">English<span class="visuallyhidden"> Select this as your preferred language</span></a></li><li role="presentation"><a id="toolbar-language-option-ar" role="option" aria-selected="false" href="https://www.emeryville.org/Government/About-Emeryville/Charter-City?oc_lang=ar" class="lang-item lang-ar" data-translate-to="ar" lang="en">Arabic<span class="visuallyhidden"> Select this as your preferred language</span></a></li><li role="presentation"><a id="toolbar-language-option-zh-tw" role="option" aria-selected="false" href="https://www.emeryville.org/Government/About-Emeryville/Charter-City?oc_lang=zh-TW" class="lang-item lang-zh-tw" data-translate-to="zh-tw" lang="en">Chinese (Traditional)<span class="visuallyhidden"> Select this as your preferred language</span></a></li><li role="presentation"><a id="toolbar-language-option-es" role="option" aria-selected="false" href="https://www.emeryville.org/Government/About-Emeryville/Charter-City?oc_lang=es" class="lang-item lang-es" data-translate-to="es" lang="en">Spanish<span class="visuallyhidden"> Select this as your preferred language</span></a></li><li role="presentation"><a id="toolbar-language-option-tl" role="option" aria-selected="false" href="https://www.emeryville.org/Government/About-Emeryville/Charter-City?oc_lang=tl" class="lang-item lang-tl" data-translate-to="tl" lang="en">Tagalog (Filipino)<span class="visuallyhidden"> Select this as your preferred language</span></a></li><li role="presentation"><a id="toolbar-language-option-vi" role="option" aria-selected="false" href="https://www.emeryville.org/Government/About-Emeryville/Charter-City?oc_lang=vi" class="lang-item lang-vi" data-translate-to="vi" lang="en">Vietnamese<span class="visuallyhidden"> Select this as your preferred language</span></a></li>
+        </ul>
+	</div></div>
+  </div>
+</div>
+            <div class="header-outer-container">
+    <div class="header-container header-layout-3  clearfix">
+			<div class="header-site-logo">
+				<a href="https://www.emeryville.org/Home" lang="en-US" aria-label="City of Emeryville, CA - Home - Logo">
+				</a>
+			</div>
+      
+		    <div class="mobile-search-btn js-element">
+		        <button><i aria-hidden="true"></i><span class="mobile-search-btn-text"><span class="visuallyhidden">Open </span>Search</span></button>
+		    </div>
+		    <div class="header-website-settings">
+                <button id="btn-mob-nav" type="button" aria-expanded="false" aria-controls="nav">
+                    <i aria-hidden="true"></i><span class="side-menu-btn-text">Menu</span>
+                </button>
+        	</div>
+          <div class="navigation-outer-container">
+	<div id="nav" role="navigation" class="navigation-container  navigation-container-option-7" data-menu-type="horizontal" aria-label="primary">
+        <div class="grid">
+            <div class="col-xs-12">              
+                <ul class="sf-menu" id="sc-main-menu"><li class="nav-section-quarters-1 nav-active-path  first-item nav-item-seq-1">
+<a href="https://www.emeryville.org/Government" class="nav-level-1 nav-has-children"  target="">
+	<i class="item-icon" aria-hidden="true"></i><span class="item-text">Government</span>
+</a>
+<button aria-label="Expand" aria-haspopup="true" class="mobnav-subarrow" aria-controls="sc-menu-second-level-nav-item-seq-1">
+              <i aria-hidden="true"></i>
+              </button>
+<ul id="sc-menu-second-level-nav-item-seq-1">
+
+          
+            <li class=" "><a  href="https://www.emeryville.org/Government/City-Council" class="nav-has-children"  target="">City Council</a><button aria-label="Expand" aria-haspopup="true" class="mobnav-subarrow-child" aria-controls="sc-menu-third-level-nav-item-seq-1-nav-item-seq-1"><i aria-hidden="true"></i>
+              </button>
+<ul id="sc-menu-third-level-nav-item-seq-1-nav-item-seq-1">
+          
+            <li  class=" "><a href="https://www.emeryville.org/Government/City-Council/Council-Members"  target="">Council Members</a></li><li  class=" "><a href="https://www.emeryville.org/Government/City-Council/Strategic-Plan"  target="">Strategic Plan</a></li><li  class=" "><a href="https://www.emeryville.org/Government/City-Council/Meeting-Agendas-and-Minutes"  target="">Meeting Agendas and Minutes</a></li><li  class=" "><a href="https://www.emeryville.org/Government/City-Council/Boards-Commissions-and-Committees"  target="">Boards, Commissions, and Committees</a></li><li  class=" "><a href="https://www.emeryville.org/Government/City-Council/Municipal-Code"  target="_blank">Municipal Code</a></li></ul></li><li class=" "><a  href="https://www.emeryville.org/Government/November-3-2026-General-Election" class="nav-has-children"  target="">November 3, 2026 General Election</a><button aria-label="Expand" aria-haspopup="true" class="mobnav-subarrow-child" aria-controls="sc-menu-third-level-nav-item-seq-1-nav-item-seq-2"><i aria-hidden="true"></i>
+              </button>
+<ul id="sc-menu-third-level-nav-item-seq-1-nav-item-seq-2">
+          
+            <li  class=" "><a href="https://www.emeryville.org/Government/November-3-2026-General-Election/Candidates-and-Campaign-Statements"  target="">Candidates and Campaign Statements</a></li><li  class=" "><a href="https://www.emeryville.org/Government/November-3-2026-General-Election/Measure-BB-Business-License-Tax-Reform"  target="">Measure BB - Business License Tax Reform</a></li><li  class=" "><a href="https://www.emeryville.org/Government/November-3-2026-General-Election/Basic-Steps-in-Running-for-Office"  target="">Basic Steps in Running for Office</a></li><li  class=" "><a href="https://www.emeryville.org/Government/November-3-2026-General-Election/Election-Resources"  target="">Election Resources</a></li><li  class=" "><a href="https://www.emeryville.org/Government/November-3-2026-General-Election/Placement-of-Political-Signs"  target="">Placement of Political Signs</a></li></ul></li><li class=" "><a  href="https://www.emeryville.org/Government/Departments" class="nav-has-children"  target="">Departments</a><button aria-label="Expand" aria-haspopup="true" class="mobnav-subarrow-child" aria-controls="sc-menu-third-level-nav-item-seq-1-nav-item-seq-3"><i aria-hidden="true"></i>
+              </button>
+<ul id="sc-menu-third-level-nav-item-seq-1-nav-item-seq-3">
+          
+            <li  class=" "><a href="https://www.emeryville.org/Government/Departments/City-Attorney"  target="">City Attorney</a></li><li  class=" "><a href="https://www.emeryville.org/Government/Departments/City-Clerk"  target="">City Clerk</a></li><li  class=" "><a href="https://www.emeryville.org/Government/Departments/City-Managers-Office"  target="">City Manager's Office</a></li><li  class=" "><a href="https://www.emeryville.org/Government/Departments/Community-Development"  target="">Community Development</a></li><li  class=" "><a href="https://www.emeryville.org/Government/Departments/Community-Services"  target="">Community Services</a></li><li  class=" "><a href="https://www.emeryville.org/Government/Departments/Finance"  target="">Finance</a></li><li  class=" "><a href="https://www.emeryville.org/Government/Departments/Human-Resources"  target="">Human Resources</a></li><li  class=" "><a href="https://www.emeryville.org/Government/Departments/Information-Technology-IT"  target="">Information Technology</a></li><li  class=" "><a href="https://www.emeryville.org/Government/Departments/Police"  target="">Police</a></li><li  class=" "><a href="https://www.emeryville.org/Government/Departments/Public-Works"  target="">Public Works</a></li><li  class=" "><a href="https://www.emeryville.org/Government/Departments/ADA-Coordinator"  target="">ADA Coordinator</a></li><li  class=" "><a href="https://www.emeryville.org/Government/Departments/Fire-Services"  target="">Fire Services</a></li></ul></li><li class=" "><a  href="https://www.emeryville.org/Government/Volunteer-Opportunities" class=""  target="">Volunteer Opportunities</a></li><li class="nav-active-path "><a  href="https://www.emeryville.org/Government/About-Emeryville" class="nav-has-children"  target="">About Emeryville</a><button aria-label="Expand" aria-haspopup="true" class="mobnav-subarrow-child" aria-controls="sc-menu-third-level-nav-item-seq-1-nav-item-seq-5"><i aria-hidden="true"></i>
+              </button>
+<ul id="sc-menu-third-level-nav-item-seq-1-nav-item-seq-5">
+          
+            <li  class=" "><a href="https://www.emeryville.org/Government/About-Emeryville/History"  target="">History</a></li><li  class=" "><a href="https://www.emeryville.org/Government/About-Emeryville/Location"  target="">Location</a></li><li  class=" "><a href="https://www.emeryville.org/Government/About-Emeryville/Demographics"  target="">Demographics</a></li><li  class=" "><a href="https://www.emeryville.org/Government/About-Emeryville/Major-Employers"  target="">Major Employers</a></li><li  class=" "><a href="https://www.emeryville.org/Government/About-Emeryville/News"  target="">News</a></li><li  class="nav-active-path nav-active-page"><a href="https://www.emeryville.org/Government/About-Emeryville/Charter-City"  target="">Charter City</a></li><li  class=" "><a href="https://www.emeryville.org/Government/About-Emeryville/Contact-Us"  target="">Contact Us</a></li></ul></li></ul></li>
+          
+            <li class="nav-section-quarters-2   nav-item-seq-2">
+<a href="https://www.emeryville.org/Services" class="nav-level-1 nav-has-children"  target="">Services</a>
+<button aria-label="Expand" aria-haspopup="true" class="mobnav-subarrow" aria-controls="sc-menu-second-level-nav-item-seq-2">
+              <i aria-hidden="true"></i>
+              </button>
+<ul id="sc-menu-second-level-nav-item-seq-2">
+
+          
+            <li class=" "><a  href="https://www.emeryville.org/Services/Business" class="nav-has-children"  target="">Business</a><button aria-label="Expand" aria-haspopup="true" class="mobnav-subarrow-child" aria-controls="sc-menu-third-level-nav-item-seq-2-nav-item-seq-1"><i aria-hidden="true"></i>
+              </button>
+<ul id="sc-menu-third-level-nav-item-seq-2-nav-item-seq-1">
+          
+            <li  class=" "><a href="https://www.emeryville.org/Services/Business/Why-Emeryville"  target="">Why Emeryville?</a></li><li  class=" "><a href="https://www.emeryville.org/Services/Business/Start-or-Locate-a-Business"  target="">Start or Locate a Business</a></li><li  class=" "><a href="https://www.emeryville.org/Services/Business/Business-Licensing"  target="">Business Licensing</a></li><li  class=" "><a href="https://www.emeryville.org/Services/Business/Permits-Regulations"  target="">Permits & Regulations</a></li><li  class=" "><a href="https://www.emeryville.org/Services/Business/Labor-Standards"  target="">Labor Standards</a></li><li  class=" "><a href="https://www.emeryville.org/Services/Business/Economic-Development-Incentives"  target="">Economic Development & Incentives</a></li><li  class=" "><a href="https://www.emeryville.org/Services/Business/Resources-Training"  target="">Resources & Training</a></li><li  class=" "><a href="https://www.emeryville.org/Services/Business/Data-Maps-and-Reports"  target="">Data, Maps and Reports</a></li><li  class=" "><a href="https://www.emeryville.org/Services/Business/Contact-Help-Center"  target="">Contact & Help Center</a></li></ul></li><li class=" "><a  href="https://www.emeryville.org/Services/Emeryville-Child-Development-Center-ECDC" class=""  target="_blank">Emeryville Child Development Center (ECDC)</a></li><li class=" "><a  href="https://www.emeryville.org/Services/Environmental-Services" class="nav-has-children"  target="">Environmental Services</a><button aria-label="Expand" aria-haspopup="true" class="mobnav-subarrow-child" aria-controls="sc-menu-third-level-nav-item-seq-2-nav-item-seq-3"><i aria-hidden="true"></i>
+              </button>
+<ul id="sc-menu-third-level-nav-item-seq-2-nav-item-seq-3">
+          
+            <li  class=" "><a href="https://www.emeryville.org/Services/Environmental-Services/Waste-Recycling-Compost"  target="">Waste, Recycling & Compost</a></li><li  class=" "><a href="https://www.emeryville.org/Services/Environmental-Services/Water-Stormwater-Services"  target="">Water & Stormwater Services</a></li><li  class=" "><a href="https://www.emeryville.org/Services/Environmental-Services/Energy"  target="">Energy</a></li><li  class=" "><a href="https://www.emeryville.org/Services/Environmental-Services/Urban-Forestry"  target="">Urban Forestry</a></li><li  class=" "><a href="https://www.emeryville.org/Services/Environmental-Services/Sea-Level-Rise-Adaptation-Planning"  target="">Sea Level Rise Adaptation Planning</a></li><li  class=" "><a href="https://www.emeryville.org/Services/Environmental-Services/Climate-Action-Adaptation"  target="">Climate Action & Adaptation</a></li><li  class=" "><a href="https://www.emeryville.org/Services/Environmental-Services/Money-Saving-Measures"  target="">Money Saving Measures</a></li><li  class=" "><a href="https://www.emeryville.org/Services/Environmental-Services/Get-Involved"  target="">Get Involved!</a></li></ul></li><li class=" "><a  href="https://www.emeryville.org/Services/Housing" class="nav-has-children"  target="">Housing</a><button aria-label="Expand" aria-haspopup="true" class="mobnav-subarrow-child" aria-controls="sc-menu-third-level-nav-item-seq-2-nav-item-seq-4"><i aria-hidden="true"></i>
+              </button>
+<ul id="sc-menu-third-level-nav-item-seq-2-nav-item-seq-4">
+          
+            <li  class=" "><a href="https://www.emeryville.org/Services/Housing/Homebuyers-Homeowners-Resources"  target="">Homebuyers & Homeowners Resources</a></li><li  class=" "><a href="https://www.emeryville.org/Services/Housing/Tenant-Resources"  target="">Tenant Resources</a></li><li  class=" "><a href="https://www.emeryville.org/Services/Housing/Developer-Landlord-Housing-Resources"  target="">Developer & Landlord Housing Resources</a></li><li  class=" "><a href="https://www.emeryville.org/Services/Housing/Housing-Policy-Initiatives"  target="">Housing Policy Initiatives</a></li><li  class=" "><a href="https://www.emeryville.org/Services/Housing/Housing-Element"  target="">Housing Element</a></li><li  class=" "><a href="https://www.emeryville.org/Services/Housing/Unhoused-Resident-Support"  target="">Unhoused Resident Support</a></li><li  class=" "><a href="https://www.emeryville.org/Services/Housing/Community-Housing-Resources"  target="">Community Housing Resources</a></li><li  class=" "><a href="https://www.emeryville.org/Services/Housing/Fair-Equal-Housing"  target="">Fair & Equal Housing</a></li></ul></li><li class=" "><a  href="https://www.emeryville.org/Services/Getting-Around-Emeryville" class="nav-has-children"  target="">Getting Around Emeryville</a><button aria-label="Expand" aria-haspopup="true" class="mobnav-subarrow-child" aria-controls="sc-menu-third-level-nav-item-seq-2-nav-item-seq-5"><i aria-hidden="true"></i>
+              </button>
+<ul id="sc-menu-third-level-nav-item-seq-2-nav-item-seq-5">
+          
+            <li  class=" "><a href="https://www.emeryville.org/Services/Getting-Around-Emeryville/Paid-Parking"  target="">Paid Parking</a></li><li  class=" "><a href="https://www.emeryville.org/Services/Getting-Around-Emeryville/Public-Transit"  target="">Public Transit</a></li><li  class=" "><a href="https://www.emeryville.org/Services/Getting-Around-Emeryville/Emery-Go-Round"  target="">Emery Go-Round</a></li><li  class=" "><a href="https://www.emeryville.org/Services/Getting-Around-Emeryville/Bike-Pedestrian"  target="">Bike & Pedestrian</a></li><li  class=" "><a href="https://www.emeryville.org/Services/Getting-Around-Emeryville/Shared-Mobility"  target="">Shared Mobility</a></li><li  class=" "><a href="https://www.emeryville.org/Services/Getting-Around-Emeryville/Title-VI-Information"  target="">Title VI Information</a></li></ul></li><li class=" "><a  href="https://www.emeryville.org/Services/Permits" class="nav-has-children"  target="">Permits</a><button aria-label="Expand" aria-haspopup="true" class="mobnav-subarrow-child" aria-controls="sc-menu-third-level-nav-item-seq-2-nav-item-seq-6"><i aria-hidden="true"></i>
+              </button>
+<ul id="sc-menu-third-level-nav-item-seq-2-nav-item-seq-6">
+          
+            <li  class=" "><a href="https://www.emeryville.org/Services/Permits/Planning-Permits"  target="_self">Planning Permits</a></li><li  class=" "><a href="https://www.emeryville.org/Services/Permits/Building-Fire-Permits"  target="_self">Building & Fire Permits</a></li><li  class=" "><a href="https://www.emeryville.org/Services/Permits/Encroachment-Permit"  target="">Encroachment Permit</a></li><li  class=" "><a href="https://www.emeryville.org/Services/Permits/Sewer-Lateral-Permit"  target="">Sewer Lateral Permit</a></li><li  class=" "><a href="https://www.emeryville.org/Services/Permits/Stormwater-Permit"  target="">Stormwater Permit</a></li><li  class=" "><a href="https://www.emeryville.org/Services/Permits/Signs-in-Public-Right-of-Way-Permitting"  target="">Signs in Public Right of Way Permitting</a></li><li  class=" "><a href="https://www.emeryville.org/Services/Permits/Parking-Permits"  target="">Parking Permits</a></li><li  class=" "><a href="https://www.emeryville.org/Services/Permits/Food-Truck-Permit"  target="">Food Truck Permit</a></li><li  class=" "><a href="https://www.emeryville.org/Services/Permits/Taxi-and-Vehicle-for-Hire-Permits"  target="">Taxi and Vehicle for Hire Permits</a></li><li  class=" "><a href="https://www.emeryville.org/Services/Permits/Dog-License"  target="">Dog License</a></li><li  class=" "><a href="https://www.emeryville.org/Services/Permits/Concealed-Carry-Permit"  target="">Concealed Carry Permit</a></li><li  class=" "><a href="https://www.emeryville.org/Services/Permits/Card-Room-Employee-Permit"  target="">Card Room Employee Permit</a></li><li  class=" "><a href="https://www.emeryville.org/Services/Permits/Commercial-Alarm-System-Permit"  target="">Commercial Alarm System Permit</a></li><li  class=" "><a href="https://www.emeryville.org/Services/Permits/Cabaret-Permit"  target="">Cabaret Permit</a></li><li  class=" "><a href="https://www.emeryville.org/Services/Permits/Cannabis-Marijuana-Operating-Permit"  target="">Cannabis (Marijuana) Operating Permit</a></li><li  class=" "><a href="https://www.emeryville.org/Services/Permits/Massage-Establishment-Permit"  target="">Massage Establishment Permit</a></li><li  class=" "><a href="https://www.emeryville.org/Services/Permits/Free-Little-Library-Program"  target="">Free Little Library Program</a></li><li  class=" "><a href="https://www.emeryville.org/Services/Permits/Color-Curb-Request"  target="">Request a Curb Color</a></li></ul></li><li class=" "><a  href="https://www.emeryville.org/Services/Report-A-Concern" class=""  target="">Report A Concern</a></li><li class=" "><a  href="https://www.emeryville.org/Services/Residents" class="nav-has-children"  target="">Residents</a><button aria-label="Expand" aria-haspopup="true" class="mobnav-subarrow-child" aria-controls="sc-menu-third-level-nav-item-seq-2-nav-item-seq-8"><i aria-hidden="true"></i>
+              </button>
+<ul id="sc-menu-third-level-nav-item-seq-2-nav-item-seq-8">
+          
+            <li  class=" "><a href="https://www.emeryville.org/Services/Residents/New-Resident-Information"  target="">New Resident Information</a></li><li  class=" "><a href="https://www.emeryville.org/Services/Residents/Know-Your-Rights-Immigration"  target="">Know Your Rights - Immigration</a></li><li  class=" "><a href="https://www.emeryville.org/Services/Residents/Disaster-Preparedness"  target="">Disaster Preparedness</a></li><li  class=" "><a href="https://www.emeryville.org/Services/Residents/Local-Hazard-Mitigation-Plan-LHMP"  target="">Local Hazard Mitigation Plan (LHMP)</a></li><li  class=" "><a href="https://www.emeryville.org/Services/Residents/Emeryville-SNAP-Relief-Food-Drive"  target="">Emeryville SNAP Relief Food Drive</a></li></ul></li></ul></li>
+          
+            <li class="nav-section-quarters-3   nav-item-seq-3">
+<a href="https://www.emeryville.org/Development" class="nav-level-1 nav-has-children"  target="">Development</a>
+<button aria-label="Expand" aria-haspopup="true" class="mobnav-subarrow" aria-controls="sc-menu-second-level-nav-item-seq-3">
+              <i aria-hidden="true"></i>
+              </button>
+<ul id="sc-menu-second-level-nav-item-seq-3">
+
+          
+            <li class=" "><a  href="https://www.emeryville.org/Development/Planning-Division" class="nav-has-children"  target="">Planning Division</a><button aria-label="Expand" aria-haspopup="true" class="mobnav-subarrow-child" aria-controls="sc-menu-third-level-nav-item-seq-3-nav-item-seq-1"><i aria-hidden="true"></i>
+              </button>
+<ul id="sc-menu-third-level-nav-item-seq-3-nav-item-seq-1">
+          
+            <li  class=" "><a href="https://www.emeryville.org/Development/Planning-Division/General-Plan"  target="">General Plan</a></li><li  class=" "><a href="https://www.emeryville.org/Development/Planning-Division/Planning-Regulations-Maps"  target="">Planning Regulations & Maps</a></li><li  class=" "><a href="https://www.emeryville.org/Development/Planning-Division/Planning-Forms-Fees"  target="">Planning Forms & Fees</a></li><li  class=" "><a href="https://www.emeryville.org/Development/Planning-Division/Plans-Guidelines"  target="">Plans & Guidelines</a></li><li  class=" "><a href="https://www.emeryville.org/Development/Planning-Division/Projects-Permitting"  target="_self">Projects & Permitting</a></li><li  class=" "><a href="https://www.emeryville.org/Development/Planning-Division/Development-Impact-Fees"  target="">Development Impact Fees (Nexus Studies, Annual Fee Updates & Reports)</a></li></ul></li><li class=" "><a  href="https://www.emeryville.org/Development/Building-Division" class="nav-has-children"  target="">Building Division</a><button aria-label="Expand" aria-haspopup="true" class="mobnav-subarrow-child" aria-controls="sc-menu-third-level-nav-item-seq-3-nav-item-seq-2"><i aria-hidden="true"></i>
+              </button>
+<ul id="sc-menu-third-level-nav-item-seq-3-nav-item-seq-2">
+          
+            <li  class=" "><a href="https://www.emeryville.org/Development/Building-Division/Building-Permits-and-Programs"  target="">Building & Fire Permits & Programs</a></li><li  class=" "><a href="https://www.emeryville.org/Development/Building-Division/Code-Enforcement"  target="">Code Enforcement</a></li><li  class=" "><a href="https://www.emeryville.org/Development/Building-Division/Smoke-Free-Multi-Unit-Housing"  target="">Smoke-Free Multi-Unit Housing</a></li></ul></li><li class=" "><a  href="https://www.emeryville.org/Development/Economic-Development-Housing" class="nav-has-children"  target="">Economic Development & Housing</a><button aria-label="Expand" aria-haspopup="true" class="mobnav-subarrow-child" aria-controls="sc-menu-third-level-nav-item-seq-3-nav-item-seq-3"><i aria-hidden="true"></i>
+              </button>
+<ul id="sc-menu-third-level-nav-item-seq-3-nav-item-seq-3">
+          
+            <li  class=" "><a href="https://www.emeryville.org/Development/Economic-Development-Housing/Economic-Development"  target="_self">Economic Development</a></li><li  class=" "><a href="https://www.emeryville.org/Development/Economic-Development-Housing/Housing"  target="_self">Housing</a></li><li  class=" "><a href="https://www.emeryville.org/Development/Economic-Development-Housing/Public-Art"  target="_self">Public Art</a></li><li  class=" "><a href="https://www.emeryville.org/Development/Economic-Development-Housing/Labor-Standards"  target="_self">Labor Standards</a></li><li  class=" "><a href="https://www.emeryville.org/Development/Economic-Development-Housing/EDH-Special-Initiatives"  target="">Special Initiatives</a></li><li  class=" "><a href="https://www.emeryville.org/Development/Economic-Development-Housing/Dissolution-of-Redevelopment"  target="_self">Dissolution of Redevelopment</a></li></ul></li><li class=" "><a  href="https://www.emeryville.org/Development/Projects-Permitting" class="nav-has-children"  target="">Projects & Permitting</a><button aria-label="Expand" aria-haspopup="true" class="mobnav-subarrow-child" aria-controls="sc-menu-third-level-nav-item-seq-3-nav-item-seq-4"><i aria-hidden="true"></i>
+              </button>
+<ul id="sc-menu-third-level-nav-item-seq-3-nav-item-seq-4">
+          
+            <li  class=" "><a href="https://www.emeryville.org/Development/Projects-Permitting/Major-Development-Projects"  target="">Major Development Projects</a></li><li  class=" "><a href="https://www.emeryville.org/Development/Projects-Permitting/Policy-Projects"  target="">Policy Projects</a></li><li  class=" "><a href="https://www.emeryville.org/Development/Projects-Permitting/Permits"  target="_self">Permits</a></li><li  class=" "><a href="https://www.emeryville.org/Development/Projects-Permitting/Public-Works-Projects"  target="_self">Public Works Projects</a></li><li  class=" "><a href="https://www.emeryville.org/Development/Projects-Permitting/Active-Construction-Projects"  target="">Active Construction Projects</a></li></ul></li><li class=" "><a  href="https://www.emeryville.org/Development/RFPs-and-Bids" class="nav-has-children"  target="">RFPs and Bids</a><button aria-label="Expand" aria-haspopup="true" class="mobnav-subarrow-child" aria-controls="sc-menu-third-level-nav-item-seq-3-nav-item-seq-5"><i aria-hidden="true"></i>
+              </button>
+<ul id="sc-menu-third-level-nav-item-seq-3-nav-item-seq-5">
+          
+            <li  class=" "><a href="https://www.emeryville.org/Development/RFPs-and-Bids/PW-RFP"  target="_self">Public Works RFPs</a></li><li  class=" "><a href="https://www.emeryville.org/Development/RFPs-and-Bids/Housing-RFQP"  target="">Housing RFQ/P</a></li><li  class=" "><a href="https://www.emeryville.org/Development/RFPs-and-Bids/Artist-Funding"  target="">Artist Funding</a></li><li  class=" "><a href="https://www.emeryville.org/Development/RFPs-and-Bids/Finance-RFP"  target="">Finance RFP</a></li><li  class=" "><a href="https://www.emeryville.org/Development/RFPs-and-Bids/Human-Resources-RFPs"  target="">Human Resources RFPs</a></li><li  class=" "><a href="https://www.emeryville.org/Development/RFPs-and-Bids/RFP-To-Provide-Towing-Services"  target="">Police RFP To Provide Towing Services</a></li><li  class=" "><a href="https://www.emeryville.org/Development/RFPs-and-Bids/Community-Services-Department-Paratransit-Services"  target="">Community Services Department - Paratransit Services</a></li></ul></li><li class=" "><a  href="https://www.emeryville.org/Development/Municipal-Code" class=""  target="_self">Municipal Code</a></li></ul></li>
+          
+            <li class="nav-section-quarters-4   nav-item-seq-4">
+<a href="https://www.emeryville.org/Recreation" class="nav-level-1 nav-has-children"  target="">Recreation</a>
+<button aria-label="Expand" aria-haspopup="true" class="mobnav-subarrow" aria-controls="sc-menu-second-level-nav-item-seq-4">
+              <i aria-hidden="true"></i>
+              </button>
+<ul id="sc-menu-second-level-nav-item-seq-4">
+
+          
+            <li class=" "><a  href="https://www.emeryville.org/Recreation/City-News-and-Activity-Guide" class=""  target="">City News and Activity Guide</a></li><li class=" "><a  href="https://www.emeryville.org/Recreation/Community-Services-Department-Information" class=""  target="_self">Community Services Department Information</a></li><li class=" "><a  href="https://www.emeryville.org/Recreation/Fitness" class="nav-has-children"  target="">Fitness</a><button aria-label="Expand" aria-haspopup="true" class="mobnav-subarrow-child" aria-controls="sc-menu-third-level-nav-item-seq-4-nav-item-seq-3"><i aria-hidden="true"></i>
+              </button>
+<ul id="sc-menu-third-level-nav-item-seq-4-nav-item-seq-3">
+          
+            <li  class=" "><a href="https://www.emeryville.org/Recreation/Fitness/Aquatics"  target="">Aquatics</a></li><li  class=" "><a href="https://www.emeryville.org/Recreation/Fitness/Fitness-Center-Open-Gym-Sports"  target="">Fitness Center & Open Gym Sports</a></li><li  class=" "><a href="https://www.emeryville.org/Recreation/Fitness/50-Adults-Classes"  target="_self">50+ Adults Classes</a></li></ul></li><li class=" "><a  href="https://www.emeryville.org/Recreation/Contract-Classes" class="nav-has-children"  target="">Contract Classes</a><button aria-label="Expand" aria-haspopup="true" class="mobnav-subarrow-child" aria-controls="sc-menu-third-level-nav-item-seq-4-nav-item-seq-4"><i aria-hidden="true"></i>
+              </button>
+<ul id="sc-menu-third-level-nav-item-seq-4-nav-item-seq-4">
+          
+            <li  class=" "><a href="https://www.emeryville.org/Recreation/Contract-Classes/Aikido-Kokikai"  target="">Aikido Kokikai</a></li><li  class=" "><a href="https://www.emeryville.org/Recreation/Contract-Classes/Iaido"  target="">Iaido</a></li><li  class=" "><a href="https://www.emeryville.org/Recreation/Contract-Classes/Taiko"  target="">Taiko</a></li><li  class=" "><a href="https://www.emeryville.org/Recreation/Contract-Classes/Zumba-All-Ages"  target="">Zumba (All Ages)</a></li></ul></li><li class=" "><a  href="https://www.emeryville.org/Recreation/Senior-Center" class="nav-has-children"  target="">Senior Center</a><button aria-label="Expand" aria-haspopup="true" class="mobnav-subarrow-child" aria-controls="sc-menu-third-level-nav-item-seq-4-nav-item-seq-5"><i aria-hidden="true"></i>
+              </button>
+<ul id="sc-menu-third-level-nav-item-seq-4-nav-item-seq-5">
+          
+            <li  class=" "><a href="https://www.emeryville.org/Recreation/Senior-Center/Social-Services"  target="">Social Services</a></li><li  class=" "><a href="https://www.emeryville.org/Recreation/Senior-Center/Senior-Center-Classes"  target="">Senior Center Classes</a></li></ul></li><li class=" "><a  href="https://www.emeryville.org/Recreation/Emeryville-Child-Development-Center" class="nav-has-children"  target="">Emeryville Child Development Center</a><button aria-label="Expand" aria-haspopup="true" class="mobnav-subarrow-child" aria-controls="sc-menu-third-level-nav-item-seq-4-nav-item-seq-6"><i aria-hidden="true"></i>
+              </button>
+<ul id="sc-menu-third-level-nav-item-seq-4-nav-item-seq-6">
+          
+            <li  class=" "><a href="https://www.emeryville.org/Recreation/Emeryville-Child-Development-Center/Fees-Assistance"  target="">Fees & Assistance</a></li><li  class=" "><a href="https://www.emeryville.org/Recreation/Emeryville-Child-Development-Center/Enrollment"  target="">Enrollment</a></li><li  class=" "><a href="https://www.emeryville.org/Recreation/Emeryville-Child-Development-Center/Education-Program"  target="">Education Program</a></li><li  class=" "><a href="https://www.emeryville.org/Recreation/Emeryville-Child-Development-Center/Additional-Information"  target="">Additional Information</a></li></ul></li><li class=" "><a  href="https://www.emeryville.org/Recreation/Youth-Services" class="nav-has-children"  target="">Youth Services</a><button aria-label="Expand" aria-haspopup="true" class="mobnav-subarrow-child" aria-controls="sc-menu-third-level-nav-item-seq-4-nav-item-seq-7"><i aria-hidden="true"></i>
+              </button>
+<ul id="sc-menu-third-level-nav-item-seq-4-nav-item-seq-7">
+          
+            <li  class=" "><a href="https://www.emeryville.org/Recreation/Youth-Services/Day-Camps"  target="">Day Camps</a></li><li  class=" "><a href="https://www.emeryville.org/Recreation/Youth-Services/2026-27-Expanded-Learning-Program"  target="">2026-27 Expanded Learning Program</a></li><li  class=" "><a href="https://www.emeryville.org/Recreation/Youth-Services/High-School-Programs"  target="">High School Programs</a></li><li  class=" "><a href="https://www.emeryville.org/Recreation/Youth-Services/Middle-School-Programs-6th-8th-Grade"  target="">Middle School Programs (6th-8th Grade)</a></li><li  class=" "><a href="https://www.emeryville.org/Recreation/Youth-Services/School-Age-Programing-TK-5th-Grade"  target="">School-Age Programing (TK-5th Grade)</a></li><li  class=" "><a href="https://www.emeryville.org/Recreation/Youth-Services/Instructors"  target="">Instructors</a></li><li  class=" "><a href="https://www.emeryville.org/Recreation/Youth-Services/Emeryville-Teen-Center-and-Programs"  target="">Emeryville Teen Center</a></li></ul></li><li class=" "><a  href="https://www.emeryville.org/Recreation/Rentals" class="nav-has-children"  target="">Rentals</a><button aria-label="Expand" aria-haspopup="true" class="mobnav-subarrow-child" aria-controls="sc-menu-third-level-nav-item-seq-4-nav-item-seq-8"><i aria-hidden="true"></i>
+              </button>
+<ul id="sc-menu-third-level-nav-item-seq-4-nav-item-seq-8">
+          
+            <li  class=" "><a href="https://www.emeryville.org/Recreation/Rentals/Park-Rentals"  target="">Park Rentals</a></li><li  class=" "><a href="https://www.emeryville.org/Recreation/Rentals/Indoor-Facility-Rentals"  target="">Indoor Facility Rentals</a></li><li  class=" "><a href="https://www.emeryville.org/Recreation/Rentals/Community-Event-Permits"  target="">Community Event Permits</a></li></ul></li><li class=" "><a  href="https://www.emeryville.org/Recreation/Public-Art" class="nav-has-children"  target="">Public Art</a><button aria-label="Expand" aria-haspopup="true" class="mobnav-subarrow-child" aria-controls="sc-menu-third-level-nav-item-seq-4-nav-item-seq-9"><i aria-hidden="true"></i>
+              </button>
+<ul id="sc-menu-third-level-nav-item-seq-4-nav-item-seq-9">
+          
+            <li  class=" "><a href="https://www.emeryville.org/Recreation/Public-Art/Whats-Coming"  target="">What's Coming?</a></li><li  class=" "><a href="https://www.emeryville.org/Recreation/Public-Art/Art-Maps-and-Walking-Guides"  target="">Art Maps and Walking Guides</a></li><li  class=" "><a href="https://www.emeryville.org/Recreation/Public-Art/Developers-Public-Art-Requirements"  target="">Developer's Public Art Requirements</a></li><li  class=" "><a href="https://www.emeryville.org/Recreation/Public-Art/Art-Center-For-Emeryville"  target="">Art Center For Emeryville</a></li><li  class=" "><a href="https://www.emeryville.org/Recreation/Public-Art/Rotten-City-Cultural-District"  target="">Rotten City Cultural District</a></li></ul></li><li class=" "><a  href="https://www.emeryville.org/Recreation/City-Parks" class="nav-has-children"  target="">City Parks</a><button aria-label="Expand" aria-haspopup="true" class="mobnav-subarrow-child" aria-controls="sc-menu-third-level-nav-item-seq-4-nav-item-seq-10"><i aria-hidden="true"></i>
+              </button>
+<ul id="sc-menu-third-level-nav-item-seq-4-nav-item-seq-10">
+          
+            <li  class=" "><a href="https://www.emeryville.org/Recreation/City-Parks/Community-Organic-Gardens-and-Compost"  target="">Community Organic Gardens and Compost</a></li><li  class=" "><a href="https://www.emeryville.org/Recreation/City-Parks/61st-Street-Mini-Park"  target="">61st Street Mini-Park</a></li><li  class=" "><a href="https://www.emeryville.org/Recreation/City-Parks/Christie-Avenue-Park"  target="">Christie Avenue Park</a></li><li  class=" "><a href="https://www.emeryville.org/Recreation/City-Parks/Davenport-Park"  target="">Davenport Park</a></li><li  class=" "><a href="https://www.emeryville.org/Recreation/City-Parks/Doyle-Hollis-Park"  target="">Doyle Hollis Park</a></li><li  class=" "><a href="https://www.emeryville.org/Recreation/City-Parks/Point-Emery"  target="">Point Emery</a></li><li  class=" "><a href="https://www.emeryville.org/Recreation/City-Parks/Shorebird-Park"  target="">Shorebird Park</a></li><li  class=" "><a href="https://www.emeryville.org/Recreation/City-Parks/Marina-Park"  target="">Marina Park</a></li><li  class=" "><a href="https://www.emeryville.org/Recreation/City-Parks/Stanford-Avenue-Park"  target="">Stanford Avenue Park</a></li><li  class=" "><a href="https://www.emeryville.org/Recreation/City-Parks/Temescal-Creek"  target="">Temescal Creek</a></li><li  class=" "><a href="https://www.emeryville.org/Recreation/City-Parks/Emeryville-Greenway"  target="">Emeryville Greenway</a></li><li  class=" "><a href="https://www.emeryville.org/Recreation/City-Parks/Peladeau-Park"  target="">Peladeau Park</a></li><li  class=" "><a href="https://www.emeryville.org/Recreation/City-Parks/Joseph-Emery-Skate-Park"  target="">Joseph Emery Skate Park</a></li><li  class=" "><a href="https://www.emeryville.org/Recreation/City-Parks/Horton-Landing-Park"  target="">Horton Landing Park</a></li><li  class=" "><a href="https://www.emeryville.org/Recreation/City-Parks/Huchiun-Park"  target="">Huchiun Park</a></li><li  class=" "><a href="https://www.emeryville.org/Recreation/City-Parks/Memorial-Plaque-Bench-Program"  target="">Memorial Plaque Bench Program</a></li><li  class=" "><a href="https://www.emeryville.org/Recreation/City-Parks/Childrens-Outdoor-Bill-of-Rights"  target="">Emeryville Children's Outdoor Bill of Rights</a></li></ul></li><li class=" "><a  href="https://www.emeryville.org/Recreation/Community-Promotions-Grant" class=""  target="">Community Promotions Grant</a></li><li class=" "><a  href="https://www.emeryville.org/Recreation/Community-Annual-Events" class="nav-has-children"  target="">Community Annual Events</a><button aria-label="Expand" aria-haspopup="true" class="mobnav-subarrow-child" aria-controls="sc-menu-third-level-nav-item-seq-4-nav-item-seq-12"><i aria-hidden="true"></i>
+              </button>
+<ul id="sc-menu-third-level-nav-item-seq-4-nav-item-seq-12">
+          
+            <li  class=" "><a href="https://www.emeryville.org/Recreation/Community-Annual-Events/Earth-Day-Shoreline-Cleanup"  target="">Earth Day Shoreline Cleanup</a></li><li  class=" "><a href="https://www.emeryville.org/Recreation/Community-Annual-Events/Water-Safety-Day"  target="">Water Safety Day</a></li><li  class=" "><a href="https://www.emeryville.org/Recreation/Community-Annual-Events/Bike-to-Wherever-Day"  target="">Bike to Wherever Day</a></li><li  class=" "><a href="https://www.emeryville.org/Recreation/Community-Annual-Events/Tree-Lighting-and-Holiday-Parade"  target="">Tree Lighting and Holiday Parade</a></li><li  class=" "><a href="https://www.emeryville.org/Recreation/Community-Annual-Events/Coastal-Cleanup"  target="">Coastal Cleanup 2026</a></li><li  class=" "><a href="https://www.emeryville.org/Recreation/Community-Annual-Events/Harvest-Festival"  target="">Harvest Festival</a></li><li  class=" "><a href="https://www.emeryville.org/Recreation/Community-Annual-Events/Movies-in-the-Park"  target="">Movies in the Park</a></li><li  class=" "><a href="https://www.emeryville.org/Recreation/Community-Annual-Events/Rotten-City-Cultural-District"  target="_blank">Rotten City Cultural District</a></li></ul></li></ul></li>
+          
+            </ul>
+            </div>
+        </div>
+    </div>
+</div>
+			
+			<div class="header-search-control-container" id="header-search">
+				<div class="search-inner-container">
+					<div class="sc-search-panel">
+	<label for="ctl08_txtSearch" id="ctl08_lblSearch" class="sc-search-label">Search</label><input name="ctl08$txtSearch" type="text" id="ctl08_txtSearch" class="sc-search-text" placeholder="What are you looking for?" /><input type="submit" name="ctl08$btnSearch" value="Search" id="ctl08_btnSearch" class="sc-search-button" />
+</div>
+					<div role="status" id="predictiveResults"></div>
+				</div>
+			</div>
+    </div>
+</div>
+
+            </header>
+            <div class="content-outer-container">
+                <div id="main" role="main" class="main-outer-container clearfix">
+                        
+                        <div class="content-main-container">
+                            <div class="grid">
+					            <div class="col-xs-12">
+						            <nav id="breadcrumbs-container" aria-label="You Are Here :">
+							            <span role="list">
+<span role="listitem">
+	<a href="https://www.emeryville.org/Home"  lang="en-US">Home</a>
+	<span class="nav-separator" aria-hidden="true" role="presentation">/</span>
+</span>
+          <span role="listitem"><a href="https://www.emeryville.org/Government" >Government</a><span class='nav-separator' aria-hidden="true" role="presentation">/</span></span><span role="listitem">
+	<a href="https://www.emeryville.org/Government/About-Emeryville" >
+		About Emeryville
+	</a>
+	<span class='nav-separator' aria-hidden="true" role="presentation">/</span>
+</span>
+<span class="current-page" role="listitem" aria-current="page" >Charter City</span>
+          </span>
+						            </nav>
+					            </div>
+                      
+					            <div class="col-xs-12">
+						            <div class="main-inner-container">
+                                        <div class="grid">							
+								            <div class="col-lg-4">								
+									            <div id="sub-navigation-outter-container" role="navigation" aria-label="Section Navigation">
+									            &nbsp;
+									            <div id="sub-navigation-container">
+                                <p class="sub-nav-header" role="heading" aria-level="2" id="in-this-section" >
+	In This Section
+</p>
+<ul><li class='nav-level-1   nav-has-children'>
+	<a href="https://www.emeryville.org/Government/City-Council"  target="">City Council</a>
+	
+</li><li class='nav-level-1   nav-has-children'>
+	<a href="https://www.emeryville.org/Government/November-3-2026-General-Election"  target="">November 3, 2026 General Election</a>
+	
+</li><li class='nav-level-1   nav-has-children'>
+	<a href="https://www.emeryville.org/Government/Departments"  target="">Departments</a>
+	
+</li><li class='nav-level-1   '>
+	<a href="https://www.emeryville.org/Government/Volunteer-Opportunities"  target="">Volunteer Opportunities</a>
+	
+</li><li class='nav-level-1 nav-active-path  nav-has-children'>
+	<a href="https://www.emeryville.org/Government/About-Emeryville"  target="">About Emeryville</a>
+	<ul><li class='nav-level-2   nav-has-children'>
+	<a href="https://www.emeryville.org/Government/About-Emeryville/History"  target="">History</a>
+	
+</li><li class='nav-level-2   '>
+	<a href="https://www.emeryville.org/Government/About-Emeryville/Location"  target="">Location</a>
+	
+</li><li class='nav-level-2   '>
+	<a href="https://www.emeryville.org/Government/About-Emeryville/Demographics"  target="">Demographics</a>
+	
+</li><li class='nav-level-2   '>
+	<a href="https://www.emeryville.org/Government/About-Emeryville/Major-Employers"  target="">Major Employers</a>
+	
+</li><li class='nav-level-2   '>
+	<a href="https://www.emeryville.org/Government/About-Emeryville/News"  target="">News</a>
+	
+</li><li class='nav-level-2 nav-active-path nav-active-page '>
+	<a href="https://www.emeryville.org/Government/About-Emeryville/Charter-City"  target="">Charter City</a>
+	
+</li><li class='nav-level-2   '>
+	<a href="https://www.emeryville.org/Government/About-Emeryville/Contact-Us"  target="">Contact Us</a>
+	
+</li></ul>
+</li></ul>
+									            </div>
+									            </div>
+								            </div>
+								            <div class="col-xs-12 col-lg-8">
+							                <div id="main-content" class="main-container clearfix">
+							                  
+                                <!-- OC Layout Element Conent Template -->
+							                  <!--normalTemplateStart--><h1 class='oc-page-title '>Charter City</h1>
+
+<h3>Charter City</h3>
+<p>On November 4, 2014, the voters of Emeryville passed Measure U which established the City of Emeryville as a charter city. The City was originally founded in 1896 as a general law city.</p>
+<p>Charter cities, unlike general law cities, are authorized by the State Constitution to govern themselves in matters considered to be municipal affairs. When a city is incorporated as or later becomes a charter city, the electorate essentially adopts a municipal &ldquo;constitution&rdquo; or charter that grants and/or limits the city&rsquo;s powers related to municipal affairs, such as but not limited to, certain taxation authority, local elections, local campaign financing, and contracting. General law cities do not have the authority to establish any powers relating to municipal affairs that are different than what is granted by the laws of the State of California.</p>
+<p>The Emeryville City Charter approved by the voters of Emeryville specifically establishes that the City&rsquo;s new powers over municipal affairs will be limited solely to municipal revenue, including taxation and assessment, and a system for a real property transfer tax. These powers have historically been found by the State courts to be municipal affairs. The Emeryville Charter states that in all other respects, the powers of the City shall remain as they were previously and therefore shall be constrained by, subject to, and governed by the general laws of the State of California</p>
+<hr role="none">
+<h3>City of Emeryville Charter</h3>
+<p>
+<div data-type="0" data-title-level="2" class="oc-wysiwyg-container">
+<div class="oc-wysiwyg-container-panel">
+<h2>Article I. Name and Boundaries</h2>
+<div class="oc-wysiwyg-container-panel-content">
+<p><strong>Section 100. Name and Boundaries</strong><br>
+The municipal corporation now existing and known as the City of Emeryville, hereafter referred to as &ldquo;the City&rdquo;, shall remain and continue to be a municipal body corporate and politic, as at present, in name, in fact, and in law.</p>
+<p>&nbsp;</p>
+</div>
+</div>
+<div class="oc-wysiwyg-container-panel">
+<h2>Article II. Powers of City</h2>
+<div class="oc-wysiwyg-container-panel-content">
+<p><strong>Section 200. Exercise of Constitutional Power of Taxation</strong><br>
+The City of Emeryville adopts this Charter to exercise all constitutional powers conferred on cities under Article XI Sections 7 and 5 of the California Constitution solely with respect to the powers over municipal affairs in relation to municipal revenues including taxation and assessment, and a system for the imposition, levy and collection of a tax on the conveyance of real property based on the value of the real property in addition to the amount authorized by California Revenue and Taxation Code Section 11911.</p>
+<p><strong>Section 201. Subject to General Laws</strong><br>
+Except as provided in this Charter with respect to the power of the City over municipal affairs in relation to municipal revenues including taxation and assessment, the power to the City shall otherwise be constrained by, subject to, and governed by the general laws of the State as now and hereafter existing relating to cities organized under said general laws.</p>
+<p><strong>Section 202. Severability</strong><br>
+If any provision of this Charter is found by a court of competent jurisdiction to be invalid, the remaining provisions of the Charter shall remain in full force and effect.</p>
+</div>
+</div>
+<div class="oc-wysiwyg-container-panel">
+<h2>Article III. Succession</h2>
+<div class="oc-wysiwyg-container-panel-content">
+<p><strong>Section 300. Rights and Liabilities</strong><br>
+The City shall remain vested with and continue to have, hold , and enjoy all property, rights of property, and rights of action of ever nature and description now pertaining to this municipality, and is hereby declared to be the successor of same. It shall be subject to all the obligations, contracts, liabilities, debt, and duties that now exist against or with the City.</p>
+<p><strong>Section 301. Ordinances, Codes, and Other Regulations</strong><br>
+All ordinances, codes, resolutions, regulations, rules, and portions thereof, in force at the time this Charter takes effect, and not in conflict or inconsistent herewith, shall continue in force until repealed, amended, changed, or superseded in the manner provided by this Charter and any other applicable laws.</p>
+<p><strong>Section 302. Pending Actions and Proceedings</strong><br>
+No action or proceeding, civil or criminal, pending at the time this Charter takes effect, brought by or against the City or any officer, office, or department thereof, shall be affected or abated by the adoption of this Charter, or by anything herein contained.</p>
+</div>
+</div>
+<div class="oc-wysiwyg-container-panel">
+<h2>Article IV. Form of Government</h2>
+<div class="oc-wysiwyg-container-panel-content">
+<p><strong>Section 400. Form of Government</strong><br>
+The form of government shall be that commonly known as the Council-Manager form of government. The City Council, consisting of five councilmembers elected at large for four year staggered terms, in the manner in effect when this Charter was adopted, shall establish the policy of the City and the City Manager shall carry out that policy.</p>
+</div>
+</div>
+</div>
+
+<h2>
+<p>
+</p>
+</h2>
+<hr>
+<h2>
+<p></p>
+</h2>
+<p>&nbsp;</p>
+<h2>
+</h2>
+      
+
+
+<!--normalTemplateEnd-->
+                                
+                                
+                                
+							                </div>
+							                </div>
+							             </div>
+						            </div>
+						            </div>
+                        
+					                  </div>
+                        </div>
+                        <div class="back-to-top-container text-center">
+                            <a href="#body-top" id="back-to-top"><i aria-hidden="true"></i><span class="js-visuallyhidden">Back to top</span></a>
+                        </div>
+                </div>
+            </div><!--groupTemplateEnd-->
+            <footer>
+                
+                    <div class="footer-outer-container footer-first-row">
+                        <div class="footer-container clearfix">
+                            <div class="grid grid-pad">
+                                <div class="col-xs-12 col-s-12 col-m-6 col-lg-3" >
+	
+			<h2 class="visuallyhidden">Site Footer</h2>
+			<h3 class="footer-title">Contact Us</h3>
+			
+	
+	<ul class="footer-links with-icons ">   </ul>
+	<p><strong>City of Emeryville</strong><br />
+1333 Park Ave<br />
+Emeryville, CA 94608<br />
+<a href="https://www.bing.com/maps?q=1333+park+ave+emeryville&amp;FORM=HDRSC6&amp;cp=37.831069%7E-122.285026&amp;lvl=18.0">View on Map</a></p>
+<p>Phone: <a href="tel:510-596-4300">510-596-4300</a></p>
+<p>Monday - Thursday<br />
+9:00 AM to 12:00 PM<br />
+1:00 PM to 5:00 PM</p>
+<p>Friday: Appointment Only<br />
+<em><a href="https://www.emeryville.org/Government/About-Emeryville/Contact-Us" target="_blank">More information</a></em></p>
+
+
+</div><div class="col-xs-12 col-s-12 col-m-6 col-lg-3" >
+	
+			<h2 class="visuallyhidden">Site Footer</h2>
+			<h3 class="footer-title">Share &amp; Connect</h3>
+			
+	
+	<ul class="footer-links with-icons social-media-links">  <li class="footer-link-facebook">
+	<a href="https://www.facebook.com/profile.php?id=100087325997219" target="_blank"  >
+<i aria-hidden="true"></i>Like us on Facebook
+</a>
+</li>
+          <li class="footer-link-instagram">
+	<a href="https://www.instagram.com/cityofemeryville" target="_blank"  >
+<i aria-hidden="true"></i>Follow us on Instagram
+</a>
+</li>
+          <li class="footer-link-">
+	<a href="https://public.govdelivery.com/accounts/CAEMERYVILLE/subscriber/new?preferences=true" target="_blank"  >
+<i aria-hidden="true"></i>Subscribe to City News
+</a>
+</li>
+          <li class="footer-link-">
+	<a href="https://emeryvilleca.prelive.opencities.com/Government/About-Emeryville/Contact-Us" target="_blank"  >
+<i aria-hidden="true"></i>Other platforms
+</a>
+</li>
+           </ul>
+	
+</div><div class="col-xs-12 col-s-12 col-m-6 col-lg-3" >
+	
+			<h2 class="visuallyhidden">Site Footer</h2>
+			<h3 class="footer-title">Get Involved</h3>
+			
+	
+	<ul class="footer-links with-icons ">  <li class="footer-link-">
+	<a href="https://www.governmentjobs.com/careers/emeryville" target="_blank"  >
+<i aria-hidden="true"></i>Careers
+</a>
+</li>
+          <li class="footer-link-">
+	<a href="https://emeryvilleca.prelive.opencities.com/Services/Permits" target="_self"  >
+<i aria-hidden="true"></i>Permits
+</a>
+</li>
+          <li class="footer-link-">
+	<a href="https://emeryvilleca.prelive.opencities.com/Government/Volunteer-Opportunities?transfer=df85e799-2121-4f3d-a37a-dc12352b21fe" target="_self"  >
+<i aria-hidden="true"></i>Volunteering
+</a>
+</li>
+          <li class="footer-link-">
+	<a href="https://emeryvilleca.prelive.opencities.com/Services/Report-A-Concern" target="_self"  >
+<i aria-hidden="true"></i>Report a Concern
+</a>
+</li>
+           </ul>
+	
+</div><div class="col-xs-12 col-s-12 col-m-6 col-lg-3" >
+	
+			<h2 class="visuallyhidden">Site Footer</h2>
+			<h3 class="footer-title">Quick Links</h3>
+			
+	
+	<ul class="footer-links with-icons ">  <li class="footer-link-">
+	<a href="https://emeryvilleca.prelive.opencities.com/Recreation" target="_self"  >
+<i aria-hidden="true"></i>Recreation
+</a>
+</li>
+          <li class="footer-link-">
+	<a href="https://emeryvilleca.prelive.opencities.com/Services/New-Resident-Information" target="_self"  >
+<i aria-hidden="true"></i>New Residents
+</a>
+</li>
+          <li class="footer-link-">
+	<a href="https://ecode360.com/EM4426" target="_blank"  >
+<i aria-hidden="true"></i>Municipal Code
+</a>
+</li>
+          <li class="footer-link-">
+	<a href="https://emeryvilleca.prelive.opencities.com/Government/About-Emeryville/Contact-Us?transfer=fe03bb68-71df-41b2-bc8b-ea2bf15b563c" target="_self"  >
+<i aria-hidden="true"></i>Contact the City
+</a>
+</li>
+           </ul>
+	
+</div>
+                            </div>
+                        </div>
+                    </div>
+                
+                <div class="footer-outer-container footer-second-row">
+                    <div class="footer-container clearfix">
+                        <div class="grid grid-pad footer-secondary-links">
+                            <div class="col-xs-12 col-m-7">
+                                
+                                    <div><a href="https://emeryvilleca.prelive.opencities.com/Home" target="_self"  >Disclaimer & Copyright</a>&nbsp;| <a href="https://emeryvilleca.prelive.opencities.com/Home" target="_self"  >Privacy Statement</a>&nbsp;| <a href="https://www.emeryville.org/Site-Footer/Sitemap" target="_self"  >Sitemap</a></div>
+                                
+                            </div>
+                            <div class="col-xs-12 col-m-5 powered-by">
+                                <div class="right">
+                                    &copy; 2026 City of Emeryville, CA&nbsp;|&nbsp;<span class="powered-by">Powered by <a href="https://granicus.com/solution/govaccess/opencities/" target="_blank">Granicus</a></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </footer>
+        </div>
+    </div>
+
+    <script src="/files/oc-resources/f035e7a0-67b8-4ee3-b8da-89a17320c71c/JsTextSnippets.js?ocsvclang=en-US" type="text/javascript"></script><script></script>
+    
+    
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-ZYQTHK3STZ"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+
+gtag('config', 'G-ZYQTHK3STZ');
+</script>
+    
+    
+
+<script type="text/javascript">
+//<![CDATA[
+window.__TsmHiddenField = $get('ctl04_seamless_script_manager_TSM');//]]>
+</script>
+</form>
+</body>
+</html>

@@ -1,0 +1,64 @@
+[
+  {
+    "argv": [
+      "/private/tmp/complisolv-codepublishing-e2e-venv/bin/python",
+      "/Users/oliverflint/My Drive/Claude/Projects/CompliSolv 2.00/outputs/local-extraction-e2e-2026-10-15/codepublishing/cp_collect.py",
+      "acquire",
+      "--plan",
+      "/Users/oliverflint/My Drive/Claude/Projects/CompliSolv 2.00/outputs/local-extraction-e2e-2026-10-15/codepublishing/current-pipeline/flagstaff-az/acquisition-plan.json",
+      "--out",
+      "/Users/oliverflint/My Drive/Claude/Projects/CompliSolv 2.00/outputs/local-extraction-e2e-2026-10-15/codepublishing/current-pipeline/flagstaff-az/acquired"
+    ],
+    "returncode": 0,
+    "stdout": "{\n  \"status\": \"bounded_acquisition_complete\",\n  \"pages\": 1,\n  \"whole_corpus_complete\": false\n}\n",
+    "stderr": "/private/tmp/complisolv-codepublishing-e2e-venv/lib/python3.9/site-packages/urllib3/__init__.py:35: NotOpenSSLWarning: urllib3 v2 only supports OpenSSL 1.1.1+, currently the 'ssl' module is compiled with 'LibreSSL 2.8.3'. See: https://github.com/urllib3/urllib3/issues/3020\n  warnings.warn(\n"
+  },
+  {
+    "argv": [
+      "/private/tmp/complisolv-codepublishing-e2e-venv/bin/python",
+      "/Users/oliverflint/My Drive/Claude/Projects/CompliSolv 2.00/outputs/local-extraction-e2e-2026-10-15/codepublishing/cp_collect.py",
+      "replay",
+      "--snapshot",
+      "/Users/oliverflint/My Drive/Claude/Projects/CompliSolv 2.00/outputs/local-extraction-e2e-2026-10-15/codepublishing/current-pipeline/flagstaff-az/acquired/snapshot.json",
+      "--out",
+      "/Users/oliverflint/My Drive/Claude/Projects/CompliSolv 2.00/outputs/local-extraction-e2e-2026-10-15/codepublishing/current-pipeline/flagstaff-az/resumed",
+      "--checkpoint",
+      "/Users/oliverflint/My Drive/Claude/Projects/CompliSolv 2.00/outputs/local-extraction-e2e-2026-10-15/codepublishing/current-pipeline/flagstaff-az/checkpoint.json",
+      "--stop-after",
+      "1"
+    ],
+    "returncode": 0,
+    "stdout": "{\n  \"status\": \"interrupted\",\n  \"pages_processed\": 1\n}\n",
+    "stderr": "/private/tmp/complisolv-codepublishing-e2e-venv/lib/python3.9/site-packages/urllib3/__init__.py:35: NotOpenSSLWarning: urllib3 v2 only supports OpenSSL 1.1.1+, currently the 'ssl' module is compiled with 'LibreSSL 2.8.3'. See: https://github.com/urllib3/urllib3/issues/3020\n  warnings.warn(\n"
+  },
+  {
+    "argv": [
+      "/private/tmp/complisolv-codepublishing-e2e-venv/bin/python",
+      "/Users/oliverflint/My Drive/Claude/Projects/CompliSolv 2.00/outputs/local-extraction-e2e-2026-10-15/codepublishing/cp_collect.py",
+      "replay",
+      "--snapshot",
+      "/Users/oliverflint/My Drive/Claude/Projects/CompliSolv 2.00/outputs/local-extraction-e2e-2026-10-15/codepublishing/current-pipeline/flagstaff-az/acquired/snapshot.json",
+      "--out",
+      "/Users/oliverflint/My Drive/Claude/Projects/CompliSolv 2.00/outputs/local-extraction-e2e-2026-10-15/codepublishing/current-pipeline/flagstaff-az/resumed",
+      "--checkpoint",
+      "/Users/oliverflint/My Drive/Claude/Projects/CompliSolv 2.00/outputs/local-extraction-e2e-2026-10-15/codepublishing/current-pipeline/flagstaff-az/checkpoint.json"
+    ],
+    "returncode": 0,
+    "stdout": "{\n  \"status\": \"bounded_replay_passed\",\n  \"whole_corpus_complete\": false,\n  \"snapshot_binding\": \"d11349d46d1003d2e7088eef7fa970d5d9d9d658738db802566de5f7a61489c7\",\n  \"pages\": 1,\n  \"records\": 5,\n  \"source_nodes\": 6,\n  \"unresolved_nodes\": 0,\n  \"csv_json_equal\": true,\n  \"limitations\": [\n    \"bounded cached-page replay; publication inventory, scope and coherent version are not established\"\n  ]\n}\n",
+    "stderr": "/private/tmp/complisolv-codepublishing-e2e-venv/lib/python3.9/site-packages/urllib3/__init__.py:35: NotOpenSSLWarning: urllib3 v2 only supports OpenSSL 1.1.1+, currently the 'ssl' module is compiled with 'LibreSSL 2.8.3'. See: https://github.com/urllib3/urllib3/issues/3020\n  warnings.warn(\n"
+  },
+  {
+    "argv": [
+      "/private/tmp/complisolv-codepublishing-e2e-venv/bin/python",
+      "/Users/oliverflint/My Drive/Claude/Projects/CompliSolv 2.00/outputs/local-extraction-e2e-2026-10-15/codepublishing/cp_collect.py",
+      "replay",
+      "--snapshot",
+      "/Users/oliverflint/My Drive/Claude/Projects/CompliSolv 2.00/outputs/local-extraction-e2e-2026-10-15/codepublishing/current-pipeline/flagstaff-az/acquired/snapshot.json",
+      "--out",
+      "/Users/oliverflint/My Drive/Claude/Projects/CompliSolv 2.00/outputs/local-extraction-e2e-2026-10-15/codepublishing/current-pipeline/flagstaff-az/export"
+    ],
+    "returncode": 0,
+    "stdout": "{\n  \"status\": \"bounded_replay_passed\",\n  \"whole_corpus_complete\": false,\n  \"snapshot_binding\": \"d11349d46d1003d2e7088eef7fa970d5d9d9d658738db802566de5f7a61489c7\",\n  \"pages\": 1,\n  \"records\": 5,\n  \"source_nodes\": 6,\n  \"unresolved_nodes\": 0,\n  \"csv_json_equal\": true,\n  \"limitations\": [\n    \"bounded cached-page replay; publication inventory, scope and coherent version are not established\"\n  ]\n}\n",
+    "stderr": "/private/tmp/complisolv-codepublishing-e2e-venv/lib/python3.9/site-packages/urllib3/__init__.py:35: NotOpenSSLWarning: urllib3 v2 only supports OpenSSL 1.1.1+, currently the 'ssl' module is compiled with 'LibreSSL 2.8.3'. See: https://github.com/urllib3/urllib3/issues/3020\n  warnings.warn(\n"
+  }
+]

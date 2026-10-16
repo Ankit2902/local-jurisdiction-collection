@@ -1,0 +1,121 @@
+{
+  "jurisdiction": "Daly City, CA",
+  "method": "current_official_municode_replacement",
+  "status": "bounded_replacement_pilot_validated_historical_elaws_deauthorized",
+  "full_corpus_ready": false,
+  "tests": {
+    "command": "python -m unittest discover -s . -p test_methods.py -v",
+    "tests_run": 21,
+    "passed": true,
+    "details": "TEST-RESULTS.txt",
+    "human_review": false
+  },
+  "live_evidence": [
+    {
+      "path": "raw/daly-city.dom.html",
+      "sha256": "19fb12d44bf665e288ba73fd068b6628156066100852bd9ed1cef2edcc2f1939",
+      "bytes": 224722
+    },
+    {
+      "path": "raw/daly-municode-ordinances.dom.html",
+      "sha256": "a8a6b0779d1f073a82faa19bbadd49aeb9fc9c0911dfe8b55e483da183847ca0",
+      "bytes": 135344
+    },
+    {
+      "path": "raw/daly-municode-code.dom.html",
+      "sha256": "e9ac8aed5ef1acd25e75660d4ace3da928e01bb3f1a69cb185339df5cf4f289f",
+      "bytes": 172720
+    },
+    {
+      "path": "raw/daly-clients.json",
+      "sha256": "d014fbb72de5bb71ce655276f51fc372dbadea13f11f7ae03dc4f9d8d7b06c9d",
+      "bytes": 406
+    },
+    {
+      "path": "raw/daly-publications.json",
+      "sha256": "cf11af4834776e332c3f48472e12c1b9ac16bca56579721a5ee9fa421cb9cebc",
+      "bytes": 647
+    },
+    {
+      "path": "raw/daly-toc.json",
+      "sha256": "02cc4df8bab10b240290e77bdb77a9d924b3fa2fb4921e410bea63b17ddf39c4",
+      "bytes": 1003878
+    },
+    {
+      "path": "raw/daly-content-0.json",
+      "sha256": "35793726dc78b235108507c72cc6711be820336b331c32fa8e6097a3c03c5809",
+      "bytes": 43340
+    },
+    {
+      "path": "raw/daly-content-1.json",
+      "sha256": "317a5f23ca120b80e53ef91d31926bb3e1f97ba9df895f89c247f139846e17f4",
+      "bytes": 20742
+    },
+    {
+      "path": "raw/daly-content-2.json",
+      "sha256": "1ac9603d954ea79cd5ce74f129d04ff4908fbc1753da04e9019c2c0e7629c986",
+      "bytes": 109792
+    },
+    {
+      "path": "raw/daly-content-3.json",
+      "sha256": "e0e8c9fe992dd4673aa43838906b83a98b2c777e3e03bb8ab0de80d9de0d5f8b",
+      "bytes": 3838
+    }
+  ],
+  "official_routing": {
+    "city_homepage_link": "https://library.municode.com/ca/daly_city/ordinances/code_of_ordinances",
+    "observed_browse_codes_link": "https://library.municode.com/ca/daly_city/codes/code_of_ordinances",
+    "elaws_current_official_link_confirmed": false,
+    "elaws_http_probe": "Requests timed out after 40 seconds; not retried/bypassed"
+  },
+  "client_id": 1857,
+  "product_id": 16311,
+  "publication_currency": {
+    "raw": "DALY MUNICIPAL CODE Codified through Ordinance No. 1488, passed March 9, 2026. (Supp. No. 38)",
+    "normalized_current_through": "2026-03-09",
+    "online_content_updated": "2026-05-21",
+    "distinction": "Four adopted ordinances not yet codified are listed separately; no updates collected."
+  },
+  "inventory_nodes": 2506,
+  "section_shaped_nodes": 2187,
+  "sample": {
+    "records": 4,
+    "nodes": 4,
+    "csv_json_equal": true
+  },
+  "representative_checks": [
+    {
+      "number": "1.01.010",
+      "heading": "Adoption.",
+      "text_length": 466,
+      "tables": 0
+    },
+    {
+      "number": "1.04.020",
+      "heading": "Definitions—Rules of construction.",
+      "text_length": 4124,
+      "tables": 0
+    },
+    {
+      "number": "15.08.080",
+      "heading": "Table 1505.1 Minimum Roof Covering Classifications for Types of Construction—Amended.",
+      "text_length": 970,
+      "tables": 1
+    },
+    {
+      "number": "15.32.210",
+      "heading": "Appendix D—Section D101.2—Added.",
+      "text_length": 390,
+      "tables": 0
+    }
+  ],
+  "limitations": [
+    "Municode API latest version is moving; final full-tree/version-marker comparison is required before full collection.",
+    "Four bounded requests only; exact selected nodes emitted from chapter bundles; most inventory nodes not acquired.",
+    "No standalone Charter or appendix family appeared at root; section amendments referring to Appendix D were sampled, not imported external model-code appendices.",
+    "Historical eLaws identity/error-shell tests are synthetic offline checks; current source authority is Municode.",
+    "Live browser-to-API representative body parity beyond publication currency remains to be reviewed."
+  ],
+  "path_base": "bundle_root",
+  "acquisition_log": "raw/ACQUISITION-LOG.json"
+}

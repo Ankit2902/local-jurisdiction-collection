@@ -1,0 +1,79 @@
+{
+  "job": {
+    "slug": "berkeley-ca",
+    "section_url": "https://berkeley.municipal.codes/BMC/1.01.010",
+    "expected_id": "1.01.010",
+    "export_url": "https://berkeley.municipal.codes/BMC/1.01.010/export.html?download=true",
+    "advertised_exports": [
+      {
+        "url": "https://berkeley.municipal.codes/BMC/1.01.010/export.pdf?download=true",
+        "label": "Adobe Reader (PDF)"
+      },
+      {
+        "url": "https://berkeley.municipal.codes/BMC/1.01.010/export.rtf?download=true",
+        "label": "Microsoft Word (RTF)"
+      },
+      {
+        "url": "https://berkeley.municipal.codes/BMC/1.01.010/export.pdf?print=true",
+        "label": "Print"
+      },
+      {
+        "url": "https://berkeley.municipal.codes/BMC/1.01.010/export.html?download=true",
+        "label": "Web Page (HTML)"
+      },
+      {
+        "url": "https://berkeley.municipal.codes/BMC/1.01.010/export.txt?download=true",
+        "label": "Plain Text"
+      }
+    ],
+    "discovery_receipt": "export-discovery/berkeley-ca/share-dialog.receipt.json",
+    "discovery_raw_sha256": "d2bc81f52b2e582b025a9a5fb53473754e85b54937eb8cec64636c8a8bd5f1ef"
+  },
+  "transport": "standalone ordinary headed Playwright",
+  "node": "v24.19.0",
+  "playwright": "1.62.1",
+  "browser": "155.0.8059.41",
+  "script_sha256": "1c6d10db6ee85085661611af0e54fa8150f1c04f40a474b6b2a67dd571c83cad",
+  "started_at": "2026-10-15T19:21:38.834Z",
+  "operator_actions": [],
+  "operator_assisted": false,
+  "stages": [
+    {
+      "kind": "page",
+      "requested_url": "https://berkeley.municipal.codes/BMC/1.01.010",
+      "final_url": "https://berkeley.municipal.codes/BMC/1.01.010",
+      "http_status": 200,
+      "started_at": "2026-10-15T19:21:38.894Z",
+      "finished_at": "2026-10-15T19:21:42.370Z",
+      "error": null,
+      "download_filename": null,
+      "raw_artifact_path": "page.html",
+      "raw_sha256": "53bebcafe08f251a2fc6b6e1d67143ab4217cb7b55ef485c22b1f82a068672e1",
+      "bytes": 65742,
+      "title": "Ch. 1.01 Code Adoption | Berkeley Municipal Code",
+      "expected_identity_present": true,
+      "access_challenge": false,
+      "accepted": true
+    },
+    {
+      "kind": "html-export",
+      "requested_url": "https://berkeley.municipal.codes/BMC/1.01.010/export.html?download=true",
+      "final_url": "chrome-error://chromewebdata/",
+      "http_status": null,
+      "started_at": "2026-10-15T19:21:42.408Z",
+      "finished_at": "2026-10-15T19:21:52.583Z",
+      "error": "Error: page.goto: Download is starting\nCall log:\n\u001b[2m  - navigating to \"https://berkeley.municipal.codes/BMC/1.01.010/export.html?download=true\", waiting until \"domcontentloaded\"\u001b[22m\n",
+      "download_filename": null,
+      "raw_artifact_path": "html-export.html",
+      "raw_sha256": "dcd887db09eaa1195bcd8351d43e64f6813c36285ef43c78e714bc911e89b6dd",
+      "bytes": 185440,
+      "title": "berkeley.municipal.codes",
+      "expected_identity_present": false,
+      "access_challenge": false,
+      "accepted": false
+    }
+  ],
+  "whole_corpus_validated": false,
+  "finished_at": "2026-10-15T19:21:52.592Z",
+  "accepted": true
+}

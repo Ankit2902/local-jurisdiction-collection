@@ -1,0 +1,40 @@
+{
+  "status": "validated_browser_capable",
+  "adapter": "codepublishing_legacy",
+  "root_url": "https://www.codepublishing.com/AZ/Flagstaff/",
+  "toc_url": "https://www.codepublishing.com/AZ/Flagstaff/html/Flagstaff01/Flagstaff01.html",
+  "section_url": "https://www.codepublishing.com/AZ/Flagstaff/html/Flagstaff01/Flagstaff0101000.html",
+  "toc_count_or_sample": "15 City Code titles visible in the live frameset TOC; Title 1 has 23 chapter entries",
+  "section_text_length": 2800,
+  "checks": [
+    {
+      "name": "live_root",
+      "value": "Browser inspected the official Code Publishing frameset; its TOC frame distinguishes Charter, City Code, and Employee Handbook, and exposes City Code Titles 1–15."
+    },
+    {
+      "name": "live_currency",
+      "value": "The official version-menu frame lists Current and Jul 2026 as the current code version."
+    },
+    {
+      "name": "live_toc",
+      "value": "Title 1 Administrative -> Chapter 1-01 Official City Code."
+    },
+    {
+      "name": "live_section",
+      "value": "Chapter 1-01 exposes five sections; 1-01-001-0001 TITLE contains substantive enacted text."
+    },
+    {
+      "name": "numbering_variant",
+      "value": "Pilot supports Flagstaff's four-part hyphenated section identifiers, e.g. 1-01-001-0001."
+    },
+    {
+      "name": "transport",
+      "value": "Browser-capable transport handles the root frameset; the resolved title and chapter documents are ordinary HTML."
+    },
+    {
+      "name": "fixture",
+      "value": "fixtures/flagstaff-{root,title,chapter}.html parsed by test_codepublishing_legacy.py."
+    }
+  ],
+  "errors": []
+}

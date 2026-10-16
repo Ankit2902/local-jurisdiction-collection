@@ -1,0 +1,79 @@
+{
+  "reviewed_at": "2026-10-15T19:12:37.491980+00:00",
+  "node_version": "v24.19.0",
+  "node_suites": [
+    {
+      "package": "ecode360",
+      "command": "node test_capture.mjs",
+      "exit_code": 0,
+      "checks": 11,
+      "passed": true,
+      "source_sha256": "bf958239b2099e9cf710fad923472bc9713b5bf125007b979961d50b407e68fe",
+      "log": "integration/independent-review/ecode360-node.txt"
+    },
+    {
+      "package": "codepublishing",
+      "command": "node test_acquire_cua.mjs",
+      "exit_code": 0,
+      "checks": 10,
+      "passed": true,
+      "source_sha256": "934d4a56aa885c42bb041eff53ec3ada3a0f7586b9b53327f379823dd0ccfaa7",
+      "log": "integration/independent-review/codepublishing-node.txt"
+    },
+    {
+      "package": "municipal-codes",
+      "command": "node test_checksum.mjs",
+      "exit_code": 0,
+      "checks": 6,
+      "passed": true,
+      "source_sha256": "b72684b4d36dca9f7997fc2dd422f6e0672fc09d213fa41b4e4b63a3682f16db",
+      "log": "integration/independent-review/municipal-codes-node.txt"
+    }
+  ],
+  "node_checks": 27,
+  "package_manifests": [
+    {
+      "package": "ecode360",
+      "manifest": "ecode360/BUNDLE-MANIFEST.json",
+      "checked": 1190,
+      "passed": true,
+      "errors": []
+    },
+    {
+      "package": "codepublishing",
+      "manifest": "codepublishing/PACKAGE-SHA256.json",
+      "checked": 727,
+      "passed": true,
+      "errors": []
+    },
+    {
+      "package": "municipal-codes",
+      "manifest": "municipal-codes/VALIDATION-REPORT.json",
+      "checked": 584,
+      "passed": true,
+      "errors": []
+    },
+    {
+      "package": "gridics",
+      "manifest": "gridics/E2E-VALIDATION.json",
+      "checked": 257,
+      "passed": true,
+      "errors": []
+    },
+    {
+      "package": "civicplus",
+      "manifest": "civicplus/E2E-ARTIFACT-HASHES.json",
+      "checked": 454,
+      "passed": true,
+      "errors": []
+    },
+    {
+      "package": "bulk-and-official-html",
+      "manifest": "bulk-and-official-html/ARTIFACT-HASHES.json",
+      "checked": 685,
+      "passed": true,
+      "errors": []
+    }
+  ],
+  "all_passed": true
+}

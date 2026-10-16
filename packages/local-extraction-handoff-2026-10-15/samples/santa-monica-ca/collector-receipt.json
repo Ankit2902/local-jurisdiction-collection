@@ -1,0 +1,32 @@
+{
+  "status": "live_sample_complete",
+  "created": "2026-08-28",
+  "slug": "santa-monica-ca",
+  "jurisdiction": "Santa Monica",
+  "track_registry": "california-validation-registry.json",
+  "root_url": "https://ecode360.com/42781804",
+  "validation_manifest": "validation/santa-monica-ca.json",
+  "registry_adapter": "ecode360",
+  "collector_adapter": "ecode360",
+  "transport": "ChromeRenderedTransport (visible Chromium/CDP; cached/checkpointed)",
+  "output_schema": "municipal 16-column TOC/full-text CSV + JSON",
+  "implementation": "adapters/browser_vendor_collectors.py",
+  "end_to_end_fixture_test": "test_browser_vendor_collectors.BrowserVendorCollectorTests.test_ecode360",
+  "production_gate": "Run a bounded live collection and review section count/text coverage before batch enablement.",
+  "updated": "2026-08-28",
+  "live_sample": {
+    "toc_url": "https://ecode360.com/42718484",
+    "section_url": "https://ecode360.com/42718486",
+    "effective_adapter": "ecode360",
+    "provisions": 9,
+    "full_text_rows": 9,
+    "output_json": "C:\\Users\\olive\\OneDrive\\Documents\\Claude\\Projects\\CompliSolv 2.00\\municipal-code-batch\\outputs\\live-samples\\browser-vendors\\santa-monica-ca\\santa-monica-ca-municipal-fulltext.json",
+    "output_csv": "C:\\Users\\olive\\OneDrive\\Documents\\Claude\\Projects\\CompliSolv 2.00\\municipal-code-batch\\outputs\\live-samples\\browser-vendors\\santa-monica-ca\\santa-monica-ca-municipal-fulltext.csv",
+    "transport_stats": {
+      "network_fetches": 8,
+      "cached_fetches": 22,
+      "browser_fetches": 8,
+      "browser_reused_tab_fetches": 18
+    }
+  }
+}

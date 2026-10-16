@@ -1,0 +1,44 @@
+{
+  "generated_at": "2026-10-15T19:31:20.352767+00:00",
+  "sealed_baseline_unmodified": true,
+  "affected_slug": "everett-wa",
+  "affected_baseline_report": "outputs/local-extraction-e2e-2026-10-15/municipal-codes/E2E-VALIDATION.json",
+  "baseline_report_sha256": "f238152b6a2088a67334b0577a3fbace606272ed3857f2543e180886cd10e4f0",
+  "wrong_selector": "#site-footer, .site-footer, footer selects first matching footer in document order",
+  "baseline_fields": {
+    "currency_before": "1 For statutory provisions authorizing cities to codify their ordinances, see RCW 35.21.500 — 35.21.570 . For the Charter provisions requiring the mayor to cause the annual codification of ordinances, see § 15.6 .",
+    "currency_after": "1 For statutory provisions authorizing cities to codify their ordinances, see RCW 35.21.500 — 35.21.570 . For the Charter provisions requiring the mayor to cause the annual codification of ordinances, see § 15.6 .",
+    "currency_stable": true,
+    "source_stability_passed": true
+  },
+  "correction": "Prefer explicit #site-footer; require displayed current-through text, never substitute an article footnote footer.",
+  "evidence": [
+    {
+      "label": "chapter",
+      "path": "live-final/everett-wa/chapter.html",
+      "raw_sha256": "2026231800da47b12aa80ddfa99f205848c47a611de7e4aec54a2e8d75b31677",
+      "selector": "#site-footer",
+      "raw_currency_text": "The Everett Municipal Code is current through Ordinance 4203-26, passed September 16, 2026.",
+      "acquisition_receipt": "live-final/everett-wa/chapter.receipt.json"
+    },
+    {
+      "label": "version-after",
+      "path": "live-final/everett-wa/version-after.html",
+      "raw_sha256": "7409d3d486c6180afabbcf1eb979f3260f1ea3d1a050814ac559bce12d0b2907",
+      "selector": "#site-footer",
+      "raw_currency_text": "The Everett Municipal Code is current through Ordinance 4203-26, passed September 16, 2026.",
+      "acquisition_receipt": "live-final/everett-wa/version-after.receipt.json"
+    },
+    {
+      "label": "new_standalone_export",
+      "path": "headed-ui-export/everett-wa/download.html",
+      "raw_sha256": "68072312db8eb594a55b15f73f6f746bbaeac0fba3a121ed7760f5b5705c51df",
+      "selector": "#site-footer",
+      "raw_currency_text": "The Everett Municipal Code is current through Ordinance 4203-26, passed September 16, 2026.",
+      "acquisition_receipt": "headed-ui-export/everett-wa/receipt.json"
+    }
+  ],
+  "corrected_before_after_equal": true,
+  "new_export_matches_retained_notices": true,
+  "scope": "Actual retained before/after publication notices establish equality for sampled chapter; full corpus/source version remains unvalidated"
+}

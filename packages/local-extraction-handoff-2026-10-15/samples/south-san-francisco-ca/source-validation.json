@@ -1,0 +1,36 @@
+{
+  "status": "provider_validated_browser_transport",
+  "root_url": "https://www.codepublishing.com/CA/SouthSanFrancisco/",
+  "toc_url": "https://ecode360.com/43423521",
+  "section_url": "https://ecode360.com/43423522",
+  "toc_count_or_sample": "Code Titles 1-20; Title 1 exposes chapter and section TOC",
+  "section_text_length": 1000,
+  "checks": [
+    {
+      "name": "legacy_root",
+      "status": "404"
+    },
+    {
+      "name": "validation_method",
+      "value": "Chrome rendered-DOM, 2026-08-28"
+    },
+    {
+      "name": "root_toc",
+      "value": "current through Ord. 1684-2026, May 13 2026"
+    },
+    {
+      "name": "representative_section",
+      "value": "Chapter 1.01 includes substantive §§ 1.01.060-1.01.090 text"
+    },
+    {
+      "name": "transport_requirement",
+      "value": "Use browser-capable rendering for eCode360 validation/crawl; numeric page URLs are stable once observed."
+    },
+    {
+      "name": "parser_fixture",
+      "status": "passed",
+      "test": "validation/test_ecode360.py"
+    }
+  ],
+  "errors": []
+}

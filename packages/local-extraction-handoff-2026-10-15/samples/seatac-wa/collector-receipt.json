@@ -1,0 +1,31 @@
+{
+  "status": "live_sample_complete",
+  "created": "2026-08-28",
+  "slug": "seatac-wa",
+  "jurisdiction": "SeaTac",
+  "track_registry": "washington-arizona-validation-registry.json",
+  "root_url": "https://www.codepublishing.com/WA/SeaTac/",
+  "validation_manifest": "validation/washington-arizona/seatac-wa.json",
+  "registry_adapter": "codepublishing_legacy",
+  "collector_adapter": "codepublishing_legacy",
+  "transport": "ChromeRenderedTransport (visible Chromium/CDP; cached/checkpointed)",
+  "output_schema": "municipal 16-column TOC/full-text CSV + JSON",
+  "implementation": "adapters/browser_vendor_collectors.py",
+  "end_to_end_fixture_test": "test_browser_vendor_collectors.BrowserVendorCollectorTests.test_codepublishing_and_legacy",
+  "production_gate": "Run a bounded live collection and review section count/text coverage before batch enablement.",
+  "updated": "2026-08-28",
+  "live_sample": {
+    "toc_url": "https://www.codepublishing.com/WA/SeaTac/#!/SeaTac01/SeaTac01.html",
+    "section_url": "https://www.codepublishing.com/WA/SeaTac/#!/SeaTac01/SeaTac0101.html",
+    "effective_adapter": "codepublishing_legacy",
+    "provisions": 12,
+    "full_text_rows": 12,
+    "output_json": "C:\\Users\\olive\\OneDrive\\Documents\\Claude\\Projects\\CompliSolv 2.00\\municipal-code-batch\\outputs\\live-samples\\browser-vendors\\seatac-wa\\seatac-wa-municipal-fulltext.json",
+    "output_csv": "C:\\Users\\olive\\OneDrive\\Documents\\Claude\\Projects\\CompliSolv 2.00\\municipal-code-batch\\outputs\\live-samples\\browser-vendors\\seatac-wa\\seatac-wa-municipal-fulltext.csv",
+    "transport_stats": {
+      "live_browser_rendered_snapshot": true,
+      "snapshot_pages": 2,
+      "collector_fixture_fetches": 0
+    }
+  }
+}

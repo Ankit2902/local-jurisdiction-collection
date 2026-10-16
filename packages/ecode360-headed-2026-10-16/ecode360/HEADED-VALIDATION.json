@@ -1,0 +1,1245 @@
+{
+  "schema_version": 1,
+  "created_at": "2026-10-16T03:52:37.950193+00:00",
+  "phase": "2026-10-16 ordinary headed standalone qualification",
+  "authoritative_report": "HEADED-VALIDATION.json; copied baseline reports are explicitly historical",
+  "status": "PASS_BOUNDED_PRIMARY_DOM_ACQUISITION_PARSER_EXPORT_ALL14",
+  "jurisdiction_count": 14,
+  "unique_city_output_records": 134,
+  "fresh_accepted_dom_captures": 23,
+  "publisher_pdf_files_acquired": 13,
+  "publisher_download_unavailable": [
+    "santa-clara-ca"
+  ],
+  "full_collection_verified": false,
+  "publication_inventory_verified": false,
+  "fresh_host429_observed": false,
+  "host_stop_ledger": "headed-live/CURRENT-HOST-STOP.json (absent: no new429; prior ledger preserved separately)",
+  "authorization_records": [
+    "headed-live/RESUMPTION.json",
+    "headed-live/FOLLOWUP-AUTHORIZATION.json"
+  ],
+  "prior_stop_ledger": "standalone-live/ecode360-host-throttle.json",
+  "clearance_claim": "Successful observed fresh jobs only. Elapsed time and sentinel success are not perpetual host clearance; any future429 is an immediate host stop.",
+  "executed_revisions": [
+    "headed-live/executed-r1",
+    "headed-live/executed-r2",
+    "headed-live/executed-r3",
+    "headed-live/executed-r4"
+  ],
+  "final_code_freeze": "SOURCE-FREEZE.json",
+  "post_live_changes": "Final launcher-only safety/argument/exit changes and disabled historical direct CLIs are offline tested; exact live executed revisions remain archived, no claim all live captures used final launcher revision. Acquisition probe remains live-tested r4.",
+  "tests": {
+    "python": {
+      "command": "python -m unittest -v",
+      "count": 38,
+      "log": "headed-live/TESTS-PYTHON.txt"
+    },
+    "node": {
+      "command": "node --test test_capture.mjs",
+      "count": 11,
+      "log": "headed-live/TESTS-NODE.txt"
+    },
+    "offline_evidence_verifier": {
+      "command": "python verify_headed.py"
+    },
+    "independent_parser_review": "../independent-review/REVIEW.json",
+    "independent_parser_scope": "14fresh source134bodies,8tables309crossrefs,5negativecontrols16receiptcontrols27coreE2E tests",
+    "independent_runtime_review": "../runtime-review/RUNTIME-REVIEW.json",
+    "independent_runtime_guards": 15,
+    "publisher_file_review": "../publisher-downloads/DOWNLOAD-VALIDATION.json",
+    "independent_parser_review_sha256": "3b890e6bb5345c88c7850f987eae403537ba6977cf2c0abd77a9c8d68653b4b6",
+    "independent_runtime_review_sha256": "f6c9b6a49daa4e81f10c8c458cb87694b9d37d9dd8b7e09105f01d3dab4462ba",
+    "executed_dependency_bindings": {
+      "status": "PASS",
+      "receipts": 23,
+      "report": "headed-live/DEPENDENCY-REVISIONS-VERIFY.json"
+    },
+    "publisher_file_review_sha256": "6a2144baa274fe3e530c89fd91050e11e2158ac7793a75849253f71d7d32bc59",
+    "publisher_file_tests": {
+      "count": 29,
+      "result": "PASS",
+      "report": "../publisher-downloads/DOWNLOAD-VALIDATION.json"
+    }
+  },
+  "limitations": [
+    "Samples only: no publication-wide inventory, complete collection, import, or release validation.",
+    "PDF footer download date is not an immutable publication edition; currentness is bound to same-session source customer/code/date before/after.",
+    "Publisher PDF permission/login body flags did not predict actual PDF availability; actual observed UI/download is decisive.",
+    "Santa Clara publisher PDF Download control unavailable in current page; primary standalone DOM pipeline passes.",
+    "Ordinary manual UI workflow documented; no fresh CUA/operator acquisition claimed in this phase.",
+    "Fresh headed Chrome success does not establish headless or HTTP success, nor a permanent access guarantee.",
+    "San Leandro publisher PDF includes an incorporated district map: original file/page image and image region are preserved, text matches, but map semantics/OCR/GIS interpretation is not qualified. All13 selected PDFs were onepage with no detectedtables; do not infer multipage/table support."
+  ],
+  "jurisdictions": [
+    {
+      "slug": "burlingame-ca",
+      "jurisdiction": "Burlingame",
+      "best_method_status": "PASS_BOUNDED_STANDALONE_HEADED_DOM_TO_CSV_JSON",
+      "source_url": "https://ecode360.com/44507298",
+      "browser_mode": "ordinary installed Chrome headed, fresh isolated context",
+      "browser_version": "155.0.8059.84",
+      "fully_standalone_bytes": true,
+      "codex_browser_runtime_required": false,
+      "operator_assisted": false,
+      "route_verified": true,
+      "parser_verified": true,
+      "bounded_inventory_verified": true,
+      "publication_inventory_verified": false,
+      "full_collection_verified": false,
+      "coverage": "One bounded current chapter/section and independently observed on-page TOC only; no publication-wide inventory or import",
+      "output_records": 1,
+      "pipeline_acquisition_receipt": "headed-live/export-qualification-r4/burlingame-ca/receipt.json",
+      "pipeline_acquisition_receipt_sha256": "8e504a3b2b759a6a1afb3ea6bc8d87615c0e52e8ce6ad35ed86c44c6cc70af03",
+      "source_sha256": "67a3a3aed21915d7bba5312d8f2e4f1387ecc56e11aa0573f306094b11135dd0",
+      "pipeline_report_path": "publisher-method-exports/burlingame-ca/e2e-result.json",
+      "pipeline_report_sha256": "c75f60c8d0d31f91104320a8228e11b98dbbf9a358d0c57aebc04be9ca71f718",
+      "edition": {
+        "customer_id": "BU4910",
+        "code_id": "332192",
+        "currency_raw": "2026-04-20"
+      },
+      "edition_end": {
+        "customer_id": "BU4910",
+        "code_id": "332192",
+        "currency_raw": "2026-04-20"
+      },
+      "retrieved_at": "2026-10-16T03:46:11.301515+00:00",
+      "currentness": {
+        "publisher_customer_code_date_and_requested_node_verified": true,
+        "edition_stable_start_end": true,
+        "official_city_link_revalidated_this_phase": false,
+        "official_route_basis": "Reviewed current-route assignments retained from prior evidence; this phase verifies the current publisher document, not a new city-portal link crawl",
+        "future_edition": "Fail closed on unreviewed customer/code; review observed new edition before changing route registry"
+      },
+      "standalone_headed_status": "PASS",
+      "direct_http_status": "NOT_RERUN_THIS_PHASE; prior results baseline only",
+      "headless_status": "NOT_RERUN_THIS_PHASE; prior403/429 are historical, not permanent denial",
+      "cua_current_phase": "NOT_RUN; copied prior CUA proofs historical",
+      "export_format": "CSV/JSON DOM pipeline; publisher PDF acquired",
+      "publisher_download": {
+        "status": "ACQUIRED_PUBLISHER_PDF",
+        "file_acquired": true,
+        "format": "PDF",
+        "observation_path": "headed-live/export-qualification-r4/burlingame-ca/download-observation.json",
+        "selected_ids": [
+          "44507299"
+        ],
+        "selected_citations": "\u00a7\u00a01.04.010\nDefinitions.",
+        "edition_before": {
+          "customer_id": "BU4910",
+          "code_id": "332192",
+          "currency_raw": "2026-04-20"
+        },
+        "edition_after": {
+          "customer_id": "BU4910",
+          "code_id": "332192",
+          "currency_raw": "2026-04-20"
+        },
+        "independent_intake_report": "../publisher-downloads/DOWNLOAD-VALIDATION.json",
+        "independent_intake_status": "PASS_BOUNDED_DOWNLOADED_FILE_CHECKS",
+        "path": "headed-live/export-qualification-r4/burlingame-ca/publisher-download-0.pdf",
+        "sha256": "f71cbd28c78dbfde9df04ab06dd9af6c6a3f1ac06130ee85d7ff1026dd6b7905",
+        "bytes": 53143,
+        "download_url": "https://ecode360.com/output/get/754331103",
+        "complete_pdf_operative_text_match": true,
+        "pdf_title_match": true,
+        "pdf_semantic_text_status": "PASS_BOUNDED_SELECTED_SECTION_TEXT",
+        "pages": 1,
+        "image_count": 0,
+        "pdf_native_section_json": "../publisher-downloads/final-section-exports/burlingame-ca/section.json",
+        "pdf_native_section_csv": "../publisher-downloads/final-section-exports/burlingame-ca/section.csv",
+        "independent_source_comparison": "../publisher-downloads/final-section-exports/burlingame-ca/source-comparison.json"
+      },
+      "blockers": [],
+      "next_action": "Use supported headed runner for bounded acquisition; review full publication inventory before any complete collection claim; companion PDF intake checks selected section only",
+      "primary_acquisition_report_path": "headed-exports/burlingame-ca/e2e-result.json",
+      "latest_source_bytes_match_independently_reviewed_primary_source": true
+    },
+    {
+      "slug": "emeryville-ca",
+      "jurisdiction": "Emeryville",
+      "best_method_status": "PASS_BOUNDED_STANDALONE_HEADED_DOM_TO_CSV_JSON",
+      "source_url": "https://ecode360.com/46989352",
+      "browser_mode": "ordinary installed Chrome headed, fresh isolated context",
+      "browser_version": "155.0.8059.84",
+      "fully_standalone_bytes": true,
+      "codex_browser_runtime_required": false,
+      "operator_assisted": false,
+      "route_verified": true,
+      "parser_verified": true,
+      "bounded_inventory_verified": true,
+      "publication_inventory_verified": false,
+      "full_collection_verified": false,
+      "coverage": "One bounded current chapter/section and independently observed on-page TOC only; no publication-wide inventory or import",
+      "output_records": 7,
+      "pipeline_acquisition_receipt": "headed-live/export-qualification-r4/emeryville-ca/receipt.json",
+      "pipeline_acquisition_receipt_sha256": "ba6647fe6af128f8d867db8dafac02cb4306965c665367f3b18938214fcbe867",
+      "source_sha256": "df7d870e9112de2a2c45c957eb78863a175e9ae91b40d745cccbd28fe43c04fb",
+      "pipeline_report_path": "publisher-method-exports/emeryville-ca/e2e-result.json",
+      "pipeline_report_sha256": "9a07d8f4f56f86348c9e255f3811cb27869ab92845a1bd7a02b283806d0a38dd",
+      "edition": {
+        "customer_id": "EM4426",
+        "code_id": "336039",
+        "currency_raw": "2026-06-02"
+      },
+      "edition_end": {
+        "customer_id": "EM4426",
+        "code_id": "336039",
+        "currency_raw": "2026-06-02"
+      },
+      "retrieved_at": "2026-10-16T03:46:34.615142+00:00",
+      "currentness": {
+        "publisher_customer_code_date_and_requested_node_verified": true,
+        "edition_stable_start_end": true,
+        "official_city_link_revalidated_this_phase": false,
+        "official_route_basis": "Reviewed current-route assignments retained from prior evidence; this phase verifies the current publisher document, not a new city-portal link crawl",
+        "future_edition": "Fail closed on unreviewed customer/code; review observed new edition before changing route registry"
+      },
+      "standalone_headed_status": "PASS",
+      "direct_http_status": "NOT_RERUN_THIS_PHASE; prior results baseline only",
+      "headless_status": "NOT_RERUN_THIS_PHASE; prior403/429 are historical, not permanent denial",
+      "cua_current_phase": "NOT_RUN; copied prior CUA proofs historical",
+      "export_format": "CSV/JSON DOM pipeline; publisher PDF acquired",
+      "publisher_download": {
+        "status": "ACQUIRED_PUBLISHER_PDF",
+        "file_acquired": true,
+        "format": "PDF",
+        "observation_path": "headed-live/export-qualification-r4/emeryville-ca/download-observation.json",
+        "selected_ids": [
+          "46989380"
+        ],
+        "selected_citations": "1-1.05\nHeadings.",
+        "edition_before": {
+          "customer_id": "EM4426",
+          "code_id": "336039",
+          "currency_raw": "2026-06-02"
+        },
+        "edition_after": {
+          "customer_id": "EM4426",
+          "code_id": "336039",
+          "currency_raw": "2026-06-02"
+        },
+        "independent_intake_report": "../publisher-downloads/DOWNLOAD-VALIDATION.json",
+        "independent_intake_status": "PASS_BOUNDED_DOWNLOADED_FILE_CHECKS",
+        "path": "headed-live/export-qualification-r4/emeryville-ca/publisher-download-0.pdf",
+        "sha256": "4dc5b6f19064b3424a7773f54bfdcb133c80982a5262499a024fbb3be19417b9",
+        "bytes": 46799,
+        "download_url": "https://ecode360.com/output/get/754331104",
+        "complete_pdf_operative_text_match": true,
+        "pdf_title_match": true,
+        "pdf_semantic_text_status": "PASS_BOUNDED_SELECTED_SECTION_TEXT",
+        "pages": 1,
+        "image_count": 0,
+        "pdf_native_section_json": "../publisher-downloads/final-section-exports/emeryville-ca/section.json",
+        "pdf_native_section_csv": "../publisher-downloads/final-section-exports/emeryville-ca/section.csv",
+        "independent_source_comparison": "../publisher-downloads/final-section-exports/emeryville-ca/source-comparison.json"
+      },
+      "blockers": [],
+      "next_action": "Use supported headed runner for bounded acquisition; review full publication inventory before any complete collection claim; companion PDF intake checks selected section only",
+      "primary_acquisition_report_path": "headed-exports/emeryville-ca/e2e-result.json",
+      "latest_source_bytes_match_independently_reviewed_primary_source": true
+    },
+    {
+      "slug": "half-moon-bay-ca",
+      "jurisdiction": "Half Moon Bay",
+      "best_method_status": "PASS_BOUNDED_STANDALONE_HEADED_DOM_TO_CSV_JSON",
+      "source_url": "https://ecode360.com/47025425",
+      "browser_mode": "ordinary installed Chrome headed, fresh isolated context",
+      "browser_version": "155.0.8059.84",
+      "fully_standalone_bytes": true,
+      "codex_browser_runtime_required": false,
+      "operator_assisted": false,
+      "route_verified": true,
+      "parser_verified": true,
+      "bounded_inventory_verified": true,
+      "publication_inventory_verified": false,
+      "full_collection_verified": false,
+      "coverage": "One bounded current chapter/section and independently observed on-page TOC only; no publication-wide inventory or import",
+      "output_records": 10,
+      "pipeline_acquisition_receipt": "headed-live/export-qualification-r4/half-moon-bay-ca/receipt.json",
+      "pipeline_acquisition_receipt_sha256": "8663e603625b66ab20c204e316054860e17ee22bb3a0b6952519e10e68a43676",
+      "source_sha256": "d3db7047f47b518aa5a2a3e874d518f5957be806a69ad525d7326aa7c8462736",
+      "pipeline_report_path": "publisher-method-exports/half-moon-bay-ca/e2e-result.json",
+      "pipeline_report_sha256": "763d574c2ec5b1f7ba426b62082e19f7181883a7f9f925ffa081871bcc7edace",
+      "edition": {
+        "customer_id": "HA4470",
+        "code_id": "336191",
+        "currency_raw": "2026-05-05"
+      },
+      "edition_end": {
+        "customer_id": "HA4470",
+        "code_id": "336191",
+        "currency_raw": "2026-05-05"
+      },
+      "retrieved_at": "2026-10-16T03:46:58.859042+00:00",
+      "currentness": {
+        "publisher_customer_code_date_and_requested_node_verified": true,
+        "edition_stable_start_end": true,
+        "official_city_link_revalidated_this_phase": false,
+        "official_route_basis": "Reviewed current-route assignments retained from prior evidence; this phase verifies the current publisher document, not a new city-portal link crawl",
+        "future_edition": "Fail closed on unreviewed customer/code; review observed new edition before changing route registry"
+      },
+      "standalone_headed_status": "PASS",
+      "direct_http_status": "NOT_RERUN_THIS_PHASE; prior results baseline only",
+      "headless_status": "NOT_RERUN_THIS_PHASE; prior403/429 are historical, not permanent denial",
+      "cua_current_phase": "NOT_RUN; copied prior CUA proofs historical",
+      "export_format": "CSV/JSON DOM pipeline; publisher PDF acquired",
+      "publisher_download": {
+        "status": "ACQUIRED_PUBLISHER_PDF",
+        "file_acquired": true,
+        "format": "PDF",
+        "observation_path": "headed-live/export-qualification-r4/half-moon-bay-ca/download-observation.json",
+        "selected_ids": [
+          "47025435"
+        ],
+        "selected_citations": "\u00a7\u00a01.01.100\nEffective date.",
+        "edition_before": {
+          "customer_id": "HA4470",
+          "code_id": "336191",
+          "currency_raw": "2026-05-05"
+        },
+        "edition_after": {
+          "customer_id": "HA4470",
+          "code_id": "336191",
+          "currency_raw": "2026-05-05"
+        },
+        "independent_intake_report": "../publisher-downloads/DOWNLOAD-VALIDATION.json",
+        "independent_intake_status": "PASS_BOUNDED_DOWNLOADED_FILE_CHECKS",
+        "path": "headed-live/export-qualification-r4/half-moon-bay-ca/publisher-download-0.pdf",
+        "sha256": "793667081d294cf668764db463e488a615e6d386c57c546ab7cca9910ba12abc",
+        "bytes": 47289,
+        "download_url": "https://ecode360.com/output/get/754331105",
+        "complete_pdf_operative_text_match": true,
+        "pdf_title_match": true,
+        "pdf_semantic_text_status": "PASS_BOUNDED_SELECTED_SECTION_TEXT",
+        "pages": 1,
+        "image_count": 0,
+        "pdf_native_section_json": "../publisher-downloads/final-section-exports/half-moon-bay-ca/section.json",
+        "pdf_native_section_csv": "../publisher-downloads/final-section-exports/half-moon-bay-ca/section.csv",
+        "independent_source_comparison": "../publisher-downloads/final-section-exports/half-moon-bay-ca/source-comparison.json"
+      },
+      "blockers": [],
+      "next_action": "Use supported headed runner for bounded acquisition; review full publication inventory before any complete collection claim; companion PDF intake checks selected section only",
+      "primary_acquisition_report_path": "headed-exports/half-moon-bay-ca/e2e-result.json",
+      "latest_source_bytes_match_independently_reviewed_primary_source": true
+    },
+    {
+      "slug": "malibu-ca",
+      "jurisdiction": "Malibu",
+      "best_method_status": "PASS_BOUNDED_STANDALONE_HEADED_DOM_TO_CSV_JSON",
+      "source_url": "https://ecode360.com/44331146",
+      "browser_mode": "ordinary installed Chrome headed, fresh isolated context",
+      "browser_version": "155.0.8059.84",
+      "fully_standalone_bytes": true,
+      "codex_browser_runtime_required": false,
+      "operator_assisted": false,
+      "route_verified": true,
+      "parser_verified": true,
+      "bounded_inventory_verified": true,
+      "publication_inventory_verified": false,
+      "full_collection_verified": false,
+      "coverage": "One bounded current chapter/section and independently observed on-page TOC only; no publication-wide inventory or import",
+      "output_records": 28,
+      "pipeline_acquisition_receipt": "headed-live/export-qualification-r4/malibu-ca/receipt.json",
+      "pipeline_acquisition_receipt_sha256": "4d7f3c7b52624b275afba15561ac2f0cd5f522ce7bf862d0a20be7eb9beddbd7",
+      "source_sha256": "52c8e6aa69c5a1843fc686cf27c385910ad245884ab5a3670b8f9d4c3820a34e",
+      "pipeline_report_path": "publisher-method-exports/malibu-ca/e2e-result.json",
+      "pipeline_report_sha256": "e7119fa3899e551d6bc63ef7caacdf17293372aad14617255f0a511d67a41a1f",
+      "edition": {
+        "customer_id": "MA5043",
+        "code_id": "336335",
+        "currency_raw": "2026-06-22"
+      },
+      "edition_end": {
+        "customer_id": "MA5043",
+        "code_id": "336335",
+        "currency_raw": "2026-06-22"
+      },
+      "retrieved_at": "2026-10-16T03:47:21.647342+00:00",
+      "currentness": {
+        "publisher_customer_code_date_and_requested_node_verified": true,
+        "edition_stable_start_end": true,
+        "official_city_link_revalidated_this_phase": false,
+        "official_route_basis": "Reviewed current-route assignments retained from prior evidence; this phase verifies the current publisher document, not a new city-portal link crawl",
+        "future_edition": "Fail closed on unreviewed customer/code; review observed new edition before changing route registry"
+      },
+      "standalone_headed_status": "PASS",
+      "direct_http_status": "NOT_RERUN_THIS_PHASE; prior results baseline only",
+      "headless_status": "NOT_RERUN_THIS_PHASE; prior403/429 are historical, not permanent denial",
+      "cua_current_phase": "NOT_RUN; copied prior CUA proofs historical",
+      "export_format": "CSV/JSON DOM pipeline; publisher PDF acquired",
+      "publisher_download": {
+        "status": "ACQUIRED_PUBLISHER_PDF",
+        "file_acquired": true,
+        "format": "PDF",
+        "observation_path": "headed-live/export-qualification-r4/malibu-ca/download-observation.json",
+        "selected_ids": [
+          "44331160"
+        ],
+        "selected_citations": "\u00a7\u00a01.04.140\nOath.",
+        "edition_before": {
+          "customer_id": "MA5043",
+          "code_id": "336335",
+          "currency_raw": "2026-06-22"
+        },
+        "edition_after": {
+          "customer_id": "MA5043",
+          "code_id": "336335",
+          "currency_raw": "2026-06-22"
+        },
+        "independent_intake_report": "../publisher-downloads/DOWNLOAD-VALIDATION.json",
+        "independent_intake_status": "PASS_BOUNDED_DOWNLOADED_FILE_CHECKS",
+        "path": "headed-live/export-qualification-r4/malibu-ca/publisher-download-0.pdf",
+        "sha256": "59c662aa04545e047f99e6250c686fe30642a8e2276065f8f314837e0c886bd6",
+        "bytes": 42737,
+        "download_url": "https://ecode360.com/output/get/754331106",
+        "complete_pdf_operative_text_match": true,
+        "pdf_title_match": true,
+        "pdf_semantic_text_status": "PASS_BOUNDED_SELECTED_SECTION_TEXT",
+        "pages": 1,
+        "image_count": 0,
+        "pdf_native_section_json": "../publisher-downloads/final-section-exports/malibu-ca/section.json",
+        "pdf_native_section_csv": "../publisher-downloads/final-section-exports/malibu-ca/section.csv",
+        "independent_source_comparison": "../publisher-downloads/final-section-exports/malibu-ca/source-comparison.json"
+      },
+      "blockers": [],
+      "next_action": "Use supported headed runner for bounded acquisition; review full publication inventory before any complete collection claim; companion PDF intake checks selected section only",
+      "primary_acquisition_report_path": "headed-exports/malibu-ca/e2e-result.json",
+      "latest_source_bytes_match_independently_reviewed_primary_source": true
+    },
+    {
+      "slug": "san-leandro-ca",
+      "jurisdiction": "San Leandro",
+      "best_method_status": "PASS_BOUNDED_STANDALONE_HEADED_DOM_TO_CSV_JSON",
+      "source_url": "https://ecode360.com/44065748",
+      "browser_mode": "ordinary installed Chrome headed, fresh isolated context",
+      "browser_version": "155.0.8059.84",
+      "fully_standalone_bytes": true,
+      "codex_browser_runtime_required": false,
+      "operator_assisted": false,
+      "route_verified": true,
+      "parser_verified": true,
+      "bounded_inventory_verified": true,
+      "publication_inventory_verified": false,
+      "full_collection_verified": false,
+      "coverage": "One bounded current chapter/section and independently observed on-page TOC only; no publication-wide inventory or import",
+      "output_records": 1,
+      "pipeline_acquisition_receipt": "headed-live/export-qualification-r4/san-leandro-ca/receipt.json",
+      "pipeline_acquisition_receipt_sha256": "04a6c9fd463bf176526dddb4aa58d9dac435c52f30fd69b640e66a9f438db7cc",
+      "source_sha256": "7590f0c31ca380eee5c99462ad07f14ec8c2b33dfeeb5583cdf2d47f3623257a",
+      "pipeline_report_path": "publisher-method-exports/san-leandro-ca/e2e-result.json",
+      "pipeline_report_sha256": "0ad63ee274deb0fbd48b132c19948b91bd667a948123113c5aeb31ca050569df",
+      "edition": {
+        "customer_id": "SA5044",
+        "code_id": "337882",
+        "currency_raw": "2026-07-20"
+      },
+      "edition_end": {
+        "customer_id": "SA5044",
+        "code_id": "337882",
+        "currency_raw": "2026-07-20"
+      },
+      "retrieved_at": "2026-10-16T03:47:47.628503+00:00",
+      "currentness": {
+        "publisher_customer_code_date_and_requested_node_verified": true,
+        "edition_stable_start_end": true,
+        "official_city_link_revalidated_this_phase": false,
+        "official_route_basis": "Reviewed current-route assignments retained from prior evidence; this phase verifies the current publisher document, not a new city-portal link crawl",
+        "future_edition": "Fail closed on unreviewed customer/code; review observed new edition before changing route registry"
+      },
+      "standalone_headed_status": "PASS",
+      "direct_http_status": "NOT_RERUN_THIS_PHASE; prior results baseline only",
+      "headless_status": "NOT_RERUN_THIS_PHASE; prior403/429 are historical, not permanent denial",
+      "cua_current_phase": "NOT_RUN; copied prior CUA proofs historical",
+      "export_format": "CSV/JSON DOM pipeline; publisher PDF acquired",
+      "publisher_download": {
+        "status": "ACQUIRED_PUBLISHER_PDF",
+        "file_acquired": true,
+        "format": "PDF",
+        "observation_path": "headed-live/export-qualification-r4/san-leandro-ca/download-observation.json",
+        "selected_ids": [
+          "44065749"
+        ],
+        "selected_citations": "\u00a7\u00a01-1-100\nDIVISION OF CITY.",
+        "edition_before": {
+          "customer_id": "SA5044",
+          "code_id": "337882",
+          "currency_raw": "2026-07-20"
+        },
+        "edition_after": {
+          "customer_id": "SA5044",
+          "code_id": "337882",
+          "currency_raw": "2026-07-20"
+        },
+        "independent_intake_report": "../publisher-downloads/DOWNLOAD-VALIDATION.json",
+        "independent_intake_status": "PASS_BOUNDED_DOWNLOADED_FILE_CHECKS",
+        "path": "headed-live/export-qualification-r4/san-leandro-ca/publisher-download-0.pdf",
+        "sha256": "faf9c07fed8cd98e61c7626a02372db9395c92743b3f8a8a6c02d1689602a7ae",
+        "bytes": 720725,
+        "download_url": "https://ecode360.com/output/get/754331107",
+        "complete_pdf_operative_text_match": true,
+        "pdf_title_match": true,
+        "pdf_semantic_text_status": "REVIEW_REQUIRED_NON_TEXT_OR_TABLE_LAYOUT",
+        "pages": 1,
+        "image_count": 1,
+        "pdf_native_section_json": "../publisher-downloads/final-section-exports/san-leandro-ca/section.json",
+        "pdf_native_section_csv": "../publisher-downloads/final-section-exports/san-leandro-ca/section.csv",
+        "independent_source_comparison": "../publisher-downloads/final-section-exports/san-leandro-ca/source-comparison.json"
+      },
+      "blockers": [],
+      "next_action": "Use supported headed runner for bounded acquisition; review full publication inventory before any complete collection claim; companion PDF intake checks selected section only",
+      "primary_acquisition_report_path": "headed-exports/san-leandro-ca/e2e-result.json",
+      "latest_source_bytes_match_independently_reviewed_primary_source": true
+    },
+    {
+      "slug": "santa-clara-ca",
+      "jurisdiction": "Santa Clara",
+      "best_method_status": "PASS_BOUNDED_STANDALONE_HEADED_DOM_TO_CSV_JSON",
+      "source_url": "https://ecode360.com/47543489",
+      "browser_mode": "ordinary installed Chrome headed, fresh isolated context",
+      "browser_version": "155.0.8059.84",
+      "fully_standalone_bytes": true,
+      "codex_browser_runtime_required": false,
+      "operator_assisted": false,
+      "route_verified": true,
+      "parser_verified": true,
+      "bounded_inventory_verified": true,
+      "publication_inventory_verified": false,
+      "full_collection_verified": false,
+      "coverage": "One bounded current chapter/section and independently observed on-page TOC only; no publication-wide inventory or import",
+      "output_records": 4,
+      "pipeline_acquisition_receipt": "headed-live/export-qualification-r4/santa-clara-ca/receipt.json",
+      "pipeline_acquisition_receipt_sha256": "980c5f498444bfa5060dda58049a92b2a8f0852c63449cdb33255debddd7f2f4",
+      "source_sha256": "001840690a6adc91ae9efd450482e39d09e6b5705f882ff4cc1278af889a47c0",
+      "pipeline_report_path": "publisher-method-exports/santa-clara-ca/e2e-result.json",
+      "pipeline_report_sha256": "79f4f97f2dd0994fa0bbe7dcb7e46553d77127ed955018afa2af17d34ae9d392",
+      "edition": {
+        "customer_id": "SA4626",
+        "code_id": "329535",
+        "currency_raw": "2026-01-27"
+      },
+      "edition_end": {
+        "customer_id": "SA4626",
+        "code_id": "329535",
+        "currency_raw": "2026-01-27"
+      },
+      "retrieved_at": "2026-10-16T03:48:16.512424+00:00",
+      "currentness": {
+        "publisher_customer_code_date_and_requested_node_verified": true,
+        "edition_stable_start_end": true,
+        "official_city_link_revalidated_this_phase": false,
+        "official_route_basis": "Reviewed current-route assignments retained from prior evidence; this phase verifies the current publisher document, not a new city-portal link crawl",
+        "future_edition": "Fail closed on unreviewed customer/code; review observed new edition before changing route registry"
+      },
+      "standalone_headed_status": "PASS",
+      "direct_http_status": "NOT_RERUN_THIS_PHASE; prior results baseline only",
+      "headless_status": "NOT_RERUN_THIS_PHASE; prior403/429 are historical, not permanent denial",
+      "cua_current_phase": "NOT_RUN; copied prior CUA proofs historical",
+      "export_format": "CSV/JSON DOM pipeline",
+      "publisher_download": {
+        "status": "UNAVAILABLE_DOWNLOAD_CONTROL",
+        "file_acquired": false,
+        "format": null,
+        "observation_path": "headed-live/export-qualification-r4/santa-clara-ca/download-observation.json",
+        "selected_ids": [
+          "47543493"
+        ],
+        "selected_citations": "\u00a7\u00a01.01.040\nEnforcement.",
+        "edition_before": {
+          "customer_id": "SA4626",
+          "code_id": "329535",
+          "currency_raw": "2026-01-27"
+        },
+        "edition_after": null,
+        "independent_intake_report": "../publisher-downloads/DOWNLOAD-VALIDATION.json",
+        "independent_intake_status": "NOT_APPLICABLE_NO_DOWNLOAD_CONTROL",
+        "blocker": "Current Santa Clara legal page has no Download selected content control; all PDF/Word/export permission flags false; bounded10second observed-control wait failed. DOM acquisition/parser/export passes."
+      },
+      "blockers": [
+        "Current Santa Clara legal page has no Download selected content control; all PDF/Word/export permission flags false; bounded10second observed-control wait failed. DOM acquisition/parser/export passes."
+      ],
+      "next_action": "Use supported headed runner for bounded acquisition; review full publication inventory before any complete collection claim; use current DOM pipeline because no publisher Download control observed",
+      "primary_acquisition_report_path": "headed-exports/santa-clara-ca/e2e-result.json",
+      "latest_source_bytes_match_independently_reviewed_primary_source": true
+    },
+    {
+      "slug": "santa-monica-ca",
+      "jurisdiction": "Santa Monica",
+      "best_method_status": "PASS_BOUNDED_STANDALONE_HEADED_DOM_TO_CSV_JSON",
+      "source_url": "https://ecode360.com/42718485",
+      "browser_mode": "ordinary installed Chrome headed, fresh isolated context",
+      "browser_version": "155.0.8059.84",
+      "fully_standalone_bytes": true,
+      "codex_browser_runtime_required": false,
+      "operator_assisted": false,
+      "route_verified": true,
+      "parser_verified": true,
+      "bounded_inventory_verified": true,
+      "publication_inventory_verified": false,
+      "full_collection_verified": false,
+      "coverage": "One bounded current chapter/section and independently observed on-page TOC only; no publication-wide inventory or import",
+      "output_records": 9,
+      "pipeline_acquisition_receipt": "headed-live/export-qualification-r4/santa-monica-ca/receipt.json",
+      "pipeline_acquisition_receipt_sha256": "8726542df32dbe20ec65f6a4c6e8fe39690be7c1c8490c06f240b6c48499f59f",
+      "source_sha256": "c0202059f5873321471413361481eda23bfd45797f31ff919c671b421d3be22b",
+      "pipeline_report_path": "publisher-method-exports/santa-monica-ca/e2e-result.json",
+      "pipeline_report_sha256": "6de1698074be89baab6d19c68ecf44b980e9e8bcf5dd43b5bb1e5545ff11a80f",
+      "edition": {
+        "customer_id": "SA5008",
+        "code_id": "336847",
+        "currency_raw": "2026-07-28"
+      },
+      "edition_end": {
+        "customer_id": "SA5008",
+        "code_id": "336847",
+        "currency_raw": "2026-07-28"
+      },
+      "retrieved_at": "2026-10-16T03:48:41.079186+00:00",
+      "currentness": {
+        "publisher_customer_code_date_and_requested_node_verified": true,
+        "edition_stable_start_end": true,
+        "official_city_link_revalidated_this_phase": false,
+        "official_route_basis": "Reviewed current-route assignments retained from prior evidence; this phase verifies the current publisher document, not a new city-portal link crawl",
+        "future_edition": "Fail closed on unreviewed customer/code; review observed new edition before changing route registry"
+      },
+      "standalone_headed_status": "PASS",
+      "direct_http_status": "NOT_RERUN_THIS_PHASE; prior results baseline only",
+      "headless_status": "NOT_RERUN_THIS_PHASE; prior403/429 are historical, not permanent denial",
+      "cua_current_phase": "NOT_RUN; copied prior CUA proofs historical",
+      "export_format": "CSV/JSON DOM pipeline; publisher PDF acquired",
+      "publisher_download": {
+        "status": "ACQUIRED_PUBLISHER_PDF",
+        "file_acquired": true,
+        "format": "PDF",
+        "observation_path": "headed-live/export-qualification-r4/santa-monica-ca/download-observation.json",
+        "selected_ids": [
+          "42718493"
+        ],
+        "selected_citations": "\u00a7\u00a01.01.080\nRepeal.",
+        "edition_before": {
+          "customer_id": "SA5008",
+          "code_id": "336847",
+          "currency_raw": "2026-07-28"
+        },
+        "edition_after": {
+          "customer_id": "SA5008",
+          "code_id": "336847",
+          "currency_raw": "2026-07-28"
+        },
+        "independent_intake_report": "../publisher-downloads/DOWNLOAD-VALIDATION.json",
+        "independent_intake_status": "PASS_BOUNDED_DOWNLOADED_FILE_CHECKS",
+        "path": "headed-live/export-qualification-r4/santa-monica-ca/publisher-download-0.pdf",
+        "sha256": "177781567034c20f9b6c447cae43a2f992fb80ccd08c0e4f20f7a0479f6f0885",
+        "bytes": 43884,
+        "download_url": "https://ecode360.com/output/get/754331108",
+        "complete_pdf_operative_text_match": true,
+        "pdf_title_match": true,
+        "pdf_semantic_text_status": "PASS_BOUNDED_SELECTED_SECTION_TEXT",
+        "pages": 1,
+        "image_count": 0,
+        "pdf_native_section_json": "../publisher-downloads/final-section-exports/santa-monica-ca/section.json",
+        "pdf_native_section_csv": "../publisher-downloads/final-section-exports/santa-monica-ca/section.csv",
+        "independent_source_comparison": "../publisher-downloads/final-section-exports/santa-monica-ca/source-comparison.json"
+      },
+      "blockers": [],
+      "next_action": "Use supported headed runner for bounded acquisition; review full publication inventory before any complete collection claim; companion PDF intake checks selected section only",
+      "primary_acquisition_report_path": "headed-exports/santa-monica-ca/e2e-result.json",
+      "latest_source_bytes_match_independently_reviewed_primary_source": true
+    },
+    {
+      "slug": "santa-rosa-ca",
+      "jurisdiction": "Santa Rosa",
+      "best_method_status": "PASS_BOUNDED_STANDALONE_HEADED_DOM_TO_CSV_JSON",
+      "source_url": "https://ecode360.com/42952196",
+      "browser_mode": "ordinary installed Chrome headed, fresh isolated context",
+      "browser_version": "155.0.8059.84",
+      "fully_standalone_bytes": true,
+      "codex_browser_runtime_required": false,
+      "operator_assisted": false,
+      "route_verified": true,
+      "parser_verified": true,
+      "bounded_inventory_verified": true,
+      "publication_inventory_verified": false,
+      "full_collection_verified": false,
+      "coverage": "One bounded current chapter/section and independently observed on-page TOC only; no publication-wide inventory or import",
+      "output_records": 13,
+      "pipeline_acquisition_receipt": "headed-live/export-qualification-r4/santa-rosa-ca/receipt.json",
+      "pipeline_acquisition_receipt_sha256": "595f16f28935991a5e94551143a05e99784b9b31df5a67466c39a645b0c4e4fb",
+      "source_sha256": "656df88b76a0319efb44779b9acd3694372d8b80d2cf748f2b5b697e2d20392e",
+      "pipeline_report_path": "publisher-method-exports/santa-rosa-ca/e2e-result.json",
+      "pipeline_report_sha256": "0a91485a04e5bd9474943b88eca9f96dc31077b094d074cc2027ddfd90f0d75c",
+      "edition": {
+        "customer_id": "SA5009",
+        "code_id": "337811",
+        "currency_raw": "2026-09-15"
+      },
+      "edition_end": {
+        "customer_id": "SA5009",
+        "code_id": "337811",
+        "currency_raw": "2026-09-15"
+      },
+      "retrieved_at": "2026-10-16T03:49:04.767729+00:00",
+      "currentness": {
+        "publisher_customer_code_date_and_requested_node_verified": true,
+        "edition_stable_start_end": true,
+        "official_city_link_revalidated_this_phase": false,
+        "official_route_basis": "Reviewed current-route assignments retained from prior evidence; this phase verifies the current publisher document, not a new city-portal link crawl",
+        "future_edition": "Fail closed on unreviewed customer/code; review observed new edition before changing route registry"
+      },
+      "standalone_headed_status": "PASS",
+      "direct_http_status": "NOT_RERUN_THIS_PHASE; prior results baseline only",
+      "headless_status": "NOT_RERUN_THIS_PHASE; prior403/429 are historical, not permanent denial",
+      "cua_current_phase": "NOT_RUN; copied prior CUA proofs historical",
+      "export_format": "CSV/JSON DOM pipeline; publisher PDF acquired",
+      "publisher_download": {
+        "status": "ACQUIRED_PUBLISHER_PDF",
+        "file_acquired": true,
+        "format": "PDF",
+        "observation_path": "headed-live/export-qualification-r4/santa-rosa-ca/download-observation.json",
+        "selected_ids": [
+          "42952199"
+        ],
+        "selected_citations": "\u00a7\u00a01-01.030\nEffective date.",
+        "edition_before": {
+          "customer_id": "SA5009",
+          "code_id": "337811",
+          "currency_raw": "2026-09-15"
+        },
+        "edition_after": {
+          "customer_id": "SA5009",
+          "code_id": "337811",
+          "currency_raw": "2026-09-15"
+        },
+        "independent_intake_report": "../publisher-downloads/DOWNLOAD-VALIDATION.json",
+        "independent_intake_status": "PASS_BOUNDED_DOWNLOADED_FILE_CHECKS",
+        "path": "headed-live/export-qualification-r4/santa-rosa-ca/publisher-download-0.pdf",
+        "sha256": "e1fa1216311c29b00b16cfcef572766ed55ff4abd5880d67579e33cfb83a2d97",
+        "bytes": 47493,
+        "download_url": "https://ecode360.com/output/get/754331109",
+        "complete_pdf_operative_text_match": true,
+        "pdf_title_match": true,
+        "pdf_semantic_text_status": "PASS_BOUNDED_SELECTED_SECTION_TEXT",
+        "pages": 1,
+        "image_count": 0,
+        "pdf_native_section_json": "../publisher-downloads/final-section-exports/santa-rosa-ca/section.json",
+        "pdf_native_section_csv": "../publisher-downloads/final-section-exports/santa-rosa-ca/section.csv",
+        "independent_source_comparison": "../publisher-downloads/final-section-exports/santa-rosa-ca/source-comparison.json"
+      },
+      "blockers": [],
+      "next_action": "Use supported headed runner for bounded acquisition; review full publication inventory before any complete collection claim; companion PDF intake checks selected section only",
+      "primary_acquisition_report_path": "headed-exports/santa-rosa-ca/e2e-result.json",
+      "latest_source_bytes_match_independently_reviewed_primary_source": true
+    },
+    {
+      "slug": "south-san-francisco-ca",
+      "jurisdiction": "South San Francisco",
+      "best_method_status": "PASS_BOUNDED_STANDALONE_HEADED_DOM_TO_CSV_JSON",
+      "source_url": "https://ecode360.com/43423522",
+      "browser_mode": "ordinary installed Chrome headed, fresh isolated context",
+      "browser_version": "155.0.8059.84",
+      "fully_standalone_bytes": true,
+      "codex_browser_runtime_required": false,
+      "operator_assisted": false,
+      "route_verified": true,
+      "parser_verified": true,
+      "bounded_inventory_verified": true,
+      "publication_inventory_verified": false,
+      "full_collection_verified": false,
+      "coverage": "One bounded current chapter/section and independently observed on-page TOC only; no publication-wide inventory or import",
+      "output_records": 8,
+      "pipeline_acquisition_receipt": "headed-live/serial-r4/south-san-francisco-ca/receipt.json",
+      "pipeline_acquisition_receipt_sha256": "623b3fe24fd345ae24de5ea8fa9c5b07f3a26e586357e216afebb1ad2bb2fffc",
+      "source_sha256": "525652873bc1e587f2ce83947a78b1cec84b89e3b0e17bf4e3b23926324888e8",
+      "pipeline_report_path": "headed-exports/south-san-francisco-ca/e2e-result.json",
+      "pipeline_report_sha256": "be2a36857f6bb07827ff1f143cb20170348d5aebd15637e6604210c3268c1f3d",
+      "edition": {
+        "customer_id": "SO5016",
+        "code_id": "336974",
+        "currency_raw": "2026-09-09"
+      },
+      "edition_end": {
+        "customer_id": "SO5016",
+        "code_id": "336974",
+        "currency_raw": "2026-09-09"
+      },
+      "retrieved_at": "2026-10-16T03:44:15.429036+00:00",
+      "currentness": {
+        "publisher_customer_code_date_and_requested_node_verified": true,
+        "edition_stable_start_end": true,
+        "official_city_link_revalidated_this_phase": false,
+        "official_route_basis": "Reviewed current-route assignments retained from prior evidence; this phase verifies the current publisher document, not a new city-portal link crawl",
+        "future_edition": "Fail closed on unreviewed customer/code; review observed new edition before changing route registry"
+      },
+      "standalone_headed_status": "PASS",
+      "direct_http_status": "NOT_RERUN_THIS_PHASE; prior results baseline only",
+      "headless_status": "NOT_RERUN_THIS_PHASE; prior403/429 are historical, not permanent denial",
+      "cua_current_phase": "NOT_RUN; copied prior CUA proofs historical",
+      "export_format": "CSV/JSON DOM pipeline; publisher PDF acquired",
+      "publisher_download": {
+        "status": "ACQUIRED_PUBLISHER_PDF",
+        "file_acquired": true,
+        "format": "PDF",
+        "observation_path": "headed-live/serial-r4/south-san-francisco-ca/download-observation.json",
+        "selected_ids": [
+          "43423531"
+        ],
+        "selected_citations": "\u00a7\u00a01.01.070\nTitle, chapter and section headings.",
+        "edition_before": {
+          "customer_id": "SO5016",
+          "code_id": "336974",
+          "currency_raw": "2026-09-09"
+        },
+        "edition_after": {
+          "customer_id": "SO5016",
+          "code_id": "336974",
+          "currency_raw": "2026-09-09"
+        },
+        "independent_intake_report": "../publisher-downloads/DOWNLOAD-VALIDATION.json",
+        "independent_intake_status": "PASS_BOUNDED_DOWNLOADED_FILE_CHECKS",
+        "path": "headed-live/serial-r4/south-san-francisco-ca/publisher-download-0.pdf",
+        "sha256": "e7d14b0a5f009a2c6658070724baf836530b9979d842f1cf75ecc34df4f0fe20",
+        "bytes": 49559,
+        "download_url": "https://ecode360.com/output/get/754331098",
+        "complete_pdf_operative_text_match": true,
+        "pdf_title_match": true,
+        "pdf_semantic_text_status": "PASS_BOUNDED_SELECTED_SECTION_TEXT",
+        "pages": 1,
+        "image_count": 0,
+        "pdf_native_section_json": "../publisher-downloads/final-section-exports/south-san-francisco-ca/section.json",
+        "pdf_native_section_csv": "../publisher-downloads/final-section-exports/south-san-francisco-ca/section.csv",
+        "independent_source_comparison": "../publisher-downloads/final-section-exports/south-san-francisco-ca/source-comparison.json"
+      },
+      "blockers": [],
+      "next_action": "Use supported headed runner for bounded acquisition; review full publication inventory before any complete collection claim; companion PDF intake checks selected section only",
+      "primary_acquisition_report_path": "headed-exports/south-san-francisco-ca/e2e-result.json",
+      "latest_source_bytes_match_independently_reviewed_primary_source": true
+    },
+    {
+      "slug": "sunnyvale-ca",
+      "jurisdiction": "Sunnyvale",
+      "best_method_status": "PASS_BOUNDED_STANDALONE_HEADED_DOM_TO_CSV_JSON",
+      "source_url": "https://ecode360.com/42709867",
+      "browser_mode": "ordinary installed Chrome headed, fresh isolated context",
+      "browser_version": "155.0.8059.84",
+      "fully_standalone_bytes": true,
+      "codex_browser_runtime_required": false,
+      "operator_assisted": false,
+      "route_verified": true,
+      "parser_verified": true,
+      "bounded_inventory_verified": true,
+      "publication_inventory_verified": false,
+      "full_collection_verified": false,
+      "coverage": "One bounded current chapter/section and independently observed on-page TOC only; no publication-wide inventory or import",
+      "output_records": 8,
+      "pipeline_acquisition_receipt": "headed-live/serial-r4-rest/sunnyvale-ca/receipt.json",
+      "pipeline_acquisition_receipt_sha256": "9b2c0bd76ca019b1e666d3f807d488aae8b0dbf1ddcd5246eb22ab619b1f70bb",
+      "source_sha256": "b81427def9a2ef16ed8e7d4bf944e09f9d43f229d29e10d193444715f7ca3f87",
+      "pipeline_report_path": "headed-exports/sunnyvale-ca/e2e-result.json",
+      "pipeline_report_sha256": "f702b4e13991ce4c599621a900b7db02ea8d3b63d59bf23f03865db5db8aa9af",
+      "edition": {
+        "customer_id": "SU5020",
+        "code_id": "337833",
+        "currency_raw": "2026-08-11"
+      },
+      "edition_end": {
+        "customer_id": "SU5020",
+        "code_id": "337833",
+        "currency_raw": "2026-08-11"
+      },
+      "retrieved_at": "2026-10-16T03:44:45.191524+00:00",
+      "currentness": {
+        "publisher_customer_code_date_and_requested_node_verified": true,
+        "edition_stable_start_end": true,
+        "official_city_link_revalidated_this_phase": false,
+        "official_route_basis": "Reviewed current-route assignments retained from prior evidence; this phase verifies the current publisher document, not a new city-portal link crawl",
+        "future_edition": "Fail closed on unreviewed customer/code; review observed new edition before changing route registry"
+      },
+      "standalone_headed_status": "PASS",
+      "direct_http_status": "NOT_RERUN_THIS_PHASE; prior results baseline only",
+      "headless_status": "NOT_RERUN_THIS_PHASE; prior403/429 are historical, not permanent denial",
+      "cua_current_phase": "NOT_RUN; copied prior CUA proofs historical",
+      "export_format": "CSV/JSON DOM pipeline; publisher PDF acquired",
+      "publisher_download": {
+        "status": "ACQUIRED_PUBLISHER_PDF",
+        "file_acquired": true,
+        "format": "PDF",
+        "observation_path": "headed-live/serial-r4-rest/sunnyvale-ca/download-observation.json",
+        "selected_ids": [
+          "42709890"
+        ],
+        "selected_citations": "\u00a7\u00a01.04.030\nProhibited acts including causing, permitting or suffering.",
+        "edition_before": {
+          "customer_id": "SU5020",
+          "code_id": "337833",
+          "currency_raw": "2026-08-11"
+        },
+        "edition_after": {
+          "customer_id": "SU5020",
+          "code_id": "337833",
+          "currency_raw": "2026-08-11"
+        },
+        "independent_intake_report": "../publisher-downloads/DOWNLOAD-VALIDATION.json",
+        "independent_intake_status": "PASS_BOUNDED_DOWNLOADED_FILE_CHECKS",
+        "path": "headed-live/serial-r4-rest/sunnyvale-ca/publisher-download-0.pdf",
+        "sha256": "4576e2f2ec738308ddcc18dcd0ba3c3f947604fe4706a2c3386b25c51aab10fa",
+        "bytes": 51642,
+        "download_url": "https://ecode360.com/output/get/754331099",
+        "complete_pdf_operative_text_match": true,
+        "pdf_title_match": true,
+        "pdf_semantic_text_status": "PASS_BOUNDED_SELECTED_SECTION_TEXT",
+        "pages": 1,
+        "image_count": 0,
+        "pdf_native_section_json": "../publisher-downloads/final-section-exports/sunnyvale-ca/section.json",
+        "pdf_native_section_csv": "../publisher-downloads/final-section-exports/sunnyvale-ca/section.csv",
+        "independent_source_comparison": "../publisher-downloads/final-section-exports/sunnyvale-ca/source-comparison.json"
+      },
+      "blockers": [],
+      "next_action": "Use supported headed runner for bounded acquisition; review full publication inventory before any complete collection claim; companion PDF intake checks selected section only",
+      "primary_acquisition_report_path": "headed-exports/sunnyvale-ca/e2e-result.json",
+      "latest_source_bytes_match_independently_reviewed_primary_source": true
+    },
+    {
+      "slug": "west-hollywood-ca",
+      "jurisdiction": "West Hollywood",
+      "best_method_status": "PASS_BOUNDED_STANDALONE_HEADED_DOM_TO_CSV_JSON",
+      "source_url": "https://ecode360.com/43902463",
+      "browser_mode": "ordinary installed Chrome headed, fresh isolated context",
+      "browser_version": "155.0.8059.84",
+      "fully_standalone_bytes": true,
+      "codex_browser_runtime_required": false,
+      "operator_assisted": false,
+      "route_verified": true,
+      "parser_verified": true,
+      "bounded_inventory_verified": true,
+      "publication_inventory_verified": false,
+      "full_collection_verified": false,
+      "coverage": "One bounded current chapter/section and independently observed on-page TOC only; no publication-wide inventory or import",
+      "output_records": 10,
+      "pipeline_acquisition_receipt": "headed-live/serial-r4-rest/west-hollywood-ca/receipt.json",
+      "pipeline_acquisition_receipt_sha256": "02326fc3941cdd9bfd5a7a7324ffa5d7c4b8a41c3bc07ff5b3c73155f3322c81",
+      "source_sha256": "038a4eff6d24b44a9131dac4c6e82767007adb1fc577a1fcd7959ddfaaebd3e8",
+      "pipeline_report_path": "headed-exports/west-hollywood-ca/e2e-result.json",
+      "pipeline_report_sha256": "f46164033fc8054d6c70de1289fb37d6b78982139d2fd59d3179f3f00d609172",
+      "edition": {
+        "customer_id": "WE5031",
+        "code_id": "336663",
+        "currency_raw": "2026-06-29"
+      },
+      "edition_end": {
+        "customer_id": "WE5031",
+        "code_id": "336663",
+        "currency_raw": "2026-06-29"
+      },
+      "retrieved_at": "2026-10-16T03:45:08.548243+00:00",
+      "currentness": {
+        "publisher_customer_code_date_and_requested_node_verified": true,
+        "edition_stable_start_end": true,
+        "official_city_link_revalidated_this_phase": false,
+        "official_route_basis": "Reviewed current-route assignments retained from prior evidence; this phase verifies the current publisher document, not a new city-portal link crawl",
+        "future_edition": "Fail closed on unreviewed customer/code; review observed new edition before changing route registry"
+      },
+      "standalone_headed_status": "PASS",
+      "direct_http_status": "NOT_RERUN_THIS_PHASE; prior results baseline only",
+      "headless_status": "NOT_RERUN_THIS_PHASE; prior403/429 are historical, not permanent denial",
+      "cua_current_phase": "NOT_RUN; copied prior CUA proofs historical",
+      "export_format": "CSV/JSON DOM pipeline; publisher PDF acquired",
+      "publisher_download": {
+        "status": "ACQUIRED_PUBLISHER_PDF",
+        "file_acquired": true,
+        "format": "PDF",
+        "observation_path": "headed-live/serial-r4-rest/west-hollywood-ca/download-observation.json",
+        "selected_ids": [
+          "43902465"
+        ],
+        "selected_citations": "\u00a7\u00a01.04.020\nCodification Authority.",
+        "edition_before": {
+          "customer_id": "WE5031",
+          "code_id": "336663",
+          "currency_raw": "2026-06-29"
+        },
+        "edition_after": {
+          "customer_id": "WE5031",
+          "code_id": "336663",
+          "currency_raw": "2026-06-29"
+        },
+        "independent_intake_report": "../publisher-downloads/DOWNLOAD-VALIDATION.json",
+        "independent_intake_status": "PASS_BOUNDED_DOWNLOADED_FILE_CHECKS",
+        "path": "headed-live/serial-r4-rest/west-hollywood-ca/publisher-download-0.pdf",
+        "sha256": "c3e48d80b39e8c62f1b556b1916807031ed508fc9fb338283fcd43b6dcfe5184",
+        "bytes": 49602,
+        "download_url": "https://ecode360.com/output/get/754331100",
+        "complete_pdf_operative_text_match": true,
+        "pdf_title_match": true,
+        "pdf_semantic_text_status": "PASS_BOUNDED_SELECTED_SECTION_TEXT",
+        "pages": 1,
+        "image_count": 0,
+        "pdf_native_section_json": "../publisher-downloads/final-section-exports/west-hollywood-ca/section.json",
+        "pdf_native_section_csv": "../publisher-downloads/final-section-exports/west-hollywood-ca/section.csv",
+        "independent_source_comparison": "../publisher-downloads/final-section-exports/west-hollywood-ca/source-comparison.json"
+      },
+      "blockers": [],
+      "next_action": "Use supported headed runner for bounded acquisition; review full publication inventory before any complete collection claim; companion PDF intake checks selected section only",
+      "primary_acquisition_report_path": "headed-exports/west-hollywood-ca/e2e-result.json",
+      "latest_source_bytes_match_independently_reviewed_primary_source": true
+    },
+    {
+      "slug": "tukwila-wa",
+      "jurisdiction": "Tukwila",
+      "best_method_status": "PASS_BOUNDED_STANDALONE_HEADED_DOM_TO_CSV_JSON",
+      "source_url": "https://ecode360.com/47209490",
+      "browser_mode": "ordinary installed Chrome headed, fresh isolated context",
+      "browser_version": "155.0.8059.84",
+      "fully_standalone_bytes": true,
+      "codex_browser_runtime_required": false,
+      "operator_assisted": false,
+      "route_verified": true,
+      "parser_verified": true,
+      "bounded_inventory_verified": true,
+      "publication_inventory_verified": false,
+      "full_collection_verified": false,
+      "coverage": "One bounded current chapter/section and independently observed on-page TOC only; no publication-wide inventory or import",
+      "output_records": 16,
+      "pipeline_acquisition_receipt": "headed-live/serial-r4-rest/tukwila-wa/receipt.json",
+      "pipeline_acquisition_receipt_sha256": "43c6fc69560275e712553fc7f3df028cfa52c1e7f392a7d0a4838269468d4ed9",
+      "source_sha256": "f743ad509562f06d5932576389a5296dbf05f2a42d66e920cc7de4e75b42dd18",
+      "pipeline_report_path": "headed-exports/tukwila-wa/e2e-result.json",
+      "pipeline_report_sha256": "3e6865fd1a6881befecee3ebd2c3378dd7adfc010ced8a6d096648b935f49200",
+      "edition": {
+        "customer_id": "TU6948",
+        "code_id": "332495",
+        "currency_raw": "2026-05-18"
+      },
+      "edition_end": {
+        "customer_id": "TU6948",
+        "code_id": "332495",
+        "currency_raw": "2026-05-18"
+      },
+      "retrieved_at": "2026-10-16T03:45:30.917627+00:00",
+      "currentness": {
+        "publisher_customer_code_date_and_requested_node_verified": true,
+        "edition_stable_start_end": true,
+        "official_city_link_revalidated_this_phase": false,
+        "official_route_basis": "Reviewed current-route assignments retained from prior evidence; this phase verifies the current publisher document, not a new city-portal link crawl",
+        "future_edition": "Fail closed on unreviewed customer/code; review observed new edition before changing route registry"
+      },
+      "standalone_headed_status": "PASS",
+      "direct_http_status": "NOT_RERUN_THIS_PHASE; prior results baseline only",
+      "headless_status": "NOT_RERUN_THIS_PHASE; prior403/429 are historical, not permanent denial",
+      "cua_current_phase": "NOT_RUN; copied prior CUA proofs historical",
+      "export_format": "CSV/JSON DOM pipeline; publisher PDF acquired",
+      "publisher_download": {
+        "status": "ACQUIRED_PUBLISHER_PDF",
+        "file_acquired": true,
+        "format": "PDF",
+        "observation_path": "headed-live/serial-r4-rest/tukwila-wa/download-observation.json",
+        "selected_ids": [
+          "47209537"
+        ],
+        "selected_citations": "\u00a7\u00a01.01.150\nEffective Date.",
+        "edition_before": {
+          "customer_id": "TU6948",
+          "code_id": "332495",
+          "currency_raw": "2026-05-18"
+        },
+        "edition_after": {
+          "customer_id": "TU6948",
+          "code_id": "332495",
+          "currency_raw": "2026-05-18"
+        },
+        "independent_intake_report": "../publisher-downloads/DOWNLOAD-VALIDATION.json",
+        "independent_intake_status": "PASS_BOUNDED_DOWNLOADED_FILE_CHECKS",
+        "path": "headed-live/serial-r4-rest/tukwila-wa/publisher-download-0.pdf",
+        "sha256": "162b204d8d43ac5175c12b849b19f8dcf9b11acda9e17a76ef31cb44801e31e3",
+        "bytes": 49106,
+        "download_url": "https://ecode360.com/output/get/754331101",
+        "complete_pdf_operative_text_match": true,
+        "pdf_title_match": true,
+        "pdf_semantic_text_status": "PASS_BOUNDED_SELECTED_SECTION_TEXT",
+        "pages": 1,
+        "image_count": 0,
+        "pdf_native_section_json": "../publisher-downloads/final-section-exports/tukwila-wa/section.json",
+        "pdf_native_section_csv": "../publisher-downloads/final-section-exports/tukwila-wa/section.csv",
+        "independent_source_comparison": "../publisher-downloads/final-section-exports/tukwila-wa/source-comparison.json"
+      },
+      "blockers": [],
+      "next_action": "Use supported headed runner for bounded acquisition; review full publication inventory before any complete collection claim; companion PDF intake checks selected section only",
+      "primary_acquisition_report_path": "headed-exports/tukwila-wa/e2e-result.json",
+      "latest_source_bytes_match_independently_reviewed_primary_source": true
+    },
+    {
+      "slug": "foster-city-ca",
+      "jurisdiction": "Foster City",
+      "best_method_status": "PASS_BOUNDED_STANDALONE_HEADED_DOM_TO_CSV_JSON",
+      "source_url": "https://ecode360.com/51404426",
+      "browser_mode": "ordinary installed Chrome headed, fresh isolated context",
+      "browser_version": "155.0.8059.84",
+      "fully_standalone_bytes": true,
+      "codex_browser_runtime_required": false,
+      "operator_assisted": false,
+      "route_verified": true,
+      "parser_verified": true,
+      "bounded_inventory_verified": true,
+      "publication_inventory_verified": false,
+      "full_collection_verified": false,
+      "coverage": "One bounded current chapter/section and independently observed on-page TOC only; no publication-wide inventory or import",
+      "output_records": 7,
+      "pipeline_acquisition_receipt": "headed-live/export-qualification-r4/foster-city-ca/receipt.json",
+      "pipeline_acquisition_receipt_sha256": "253c19838a1c0b730ab7929a2b547acc25b7f2562046e20e1a9e8a4b478b4280",
+      "source_sha256": "99b8b61a7afedf332c2e0350667e73987ea23774983d424794ea305a84f0a952",
+      "pipeline_report_path": "publisher-method-exports/foster-city-ca/e2e-result.json",
+      "pipeline_report_sha256": "eac0a3151461de0cf323e8f7bbf32afe7cbfeef69718f4811d7fb2f0b7cf5f1d",
+      "edition": {
+        "customer_id": "FO4449",
+        "code_id": "337727",
+        "currency_raw": "2026-01-26"
+      },
+      "edition_end": {
+        "customer_id": "FO4449",
+        "code_id": "337727",
+        "currency_raw": "2026-01-26"
+      },
+      "retrieved_at": "2026-10-16T03:49:26.790206+00:00",
+      "currentness": {
+        "publisher_customer_code_date_and_requested_node_verified": true,
+        "edition_stable_start_end": true,
+        "official_city_link_revalidated_this_phase": false,
+        "official_route_basis": "Reviewed current-route assignments retained from prior evidence; this phase verifies the current publisher document, not a new city-portal link crawl",
+        "future_edition": "Fail closed on unreviewed customer/code; review observed new edition before changing route registry"
+      },
+      "standalone_headed_status": "PASS",
+      "direct_http_status": "NOT_RERUN_THIS_PHASE; prior results baseline only",
+      "headless_status": "NOT_RERUN_THIS_PHASE; prior403/429 are historical, not permanent denial",
+      "cua_current_phase": "NOT_RUN; copied prior CUA proofs historical",
+      "export_format": "CSV/JSON DOM pipeline; publisher PDF acquired",
+      "publisher_download": {
+        "status": "ACQUIRED_PUBLISHER_PDF",
+        "file_acquired": true,
+        "format": "PDF",
+        "observation_path": "headed-live/export-qualification-r4/foster-city-ca/download-observation.json",
+        "selected_ids": [
+          "51404438"
+        ],
+        "selected_citations": "\u00a7\u00a01.01.020\nPrior code repealed.",
+        "edition_before": {
+          "customer_id": "FO4449",
+          "code_id": "337727",
+          "currency_raw": "2026-01-26"
+        },
+        "edition_after": {
+          "customer_id": "FO4449",
+          "code_id": "337727",
+          "currency_raw": "2026-01-26"
+        },
+        "independent_intake_report": "../publisher-downloads/DOWNLOAD-VALIDATION.json",
+        "independent_intake_status": "PASS_BOUNDED_DOWNLOADED_FILE_CHECKS",
+        "path": "headed-live/export-qualification-r4/foster-city-ca/publisher-download-0.pdf",
+        "sha256": "cae46baf1e0ade6cc125e1ff3230be4909c0ec24d78b3171fdc2acf40bd8b11d",
+        "bytes": 45996,
+        "download_url": "https://ecode360.com/output/get/754331110",
+        "complete_pdf_operative_text_match": true,
+        "pdf_title_match": true,
+        "pdf_semantic_text_status": "PASS_BOUNDED_SELECTED_SECTION_TEXT",
+        "pages": 1,
+        "image_count": 0,
+        "pdf_native_section_json": "../publisher-downloads/final-section-exports/foster-city-ca/section.json",
+        "pdf_native_section_csv": "../publisher-downloads/final-section-exports/foster-city-ca/section.csv",
+        "independent_source_comparison": "../publisher-downloads/final-section-exports/foster-city-ca/source-comparison.json"
+      },
+      "blockers": [],
+      "next_action": "Use supported headed runner for bounded acquisition; review full publication inventory before any complete collection claim; companion PDF intake checks selected section only",
+      "primary_acquisition_report_path": "headed-exports/foster-city-ca/e2e-result.json",
+      "latest_source_bytes_match_independently_reviewed_primary_source": true
+    },
+    {
+      "slug": "seatac-wa",
+      "jurisdiction": "SeaTac",
+      "best_method_status": "PASS_BOUNDED_STANDALONE_HEADED_DOM_TO_CSV_JSON",
+      "source_url": "https://ecode360.com/51196398",
+      "browser_mode": "ordinary installed Chrome headed, fresh isolated context",
+      "browser_version": "155.0.8059.84",
+      "fully_standalone_bytes": true,
+      "codex_browser_runtime_required": false,
+      "operator_assisted": false,
+      "route_verified": true,
+      "parser_verified": true,
+      "bounded_inventory_verified": true,
+      "publication_inventory_verified": false,
+      "full_collection_verified": false,
+      "coverage": "One bounded current chapter/section and independently observed on-page TOC only; no publication-wide inventory or import",
+      "output_records": 12,
+      "pipeline_acquisition_receipt": "headed-live/serial-r4-rest/seatac-wa/receipt.json",
+      "pipeline_acquisition_receipt_sha256": "cdda9ea07b01c3e2a7a870c80e6b4e9137c806539d40a44d25e1fa8255160186",
+      "source_sha256": "73ee6c920ac7a8ab87d65a0ad66c522a76d77be2c4467134027ce9d8693adba3",
+      "pipeline_report_path": "headed-exports/seatac-wa/e2e-result.json",
+      "pipeline_report_sha256": "8d0528bcd823829c01767ac2109c022bfb37bbe9aad37862a535eac42460c5a3",
+      "edition": {
+        "customer_id": "SE4633",
+        "code_id": "337588",
+        "currency_raw": "2026-09-30"
+      },
+      "edition_end": {
+        "customer_id": "SE4633",
+        "code_id": "337588",
+        "currency_raw": "2026-09-30"
+      },
+      "retrieved_at": "2026-10-16T03:45:54.923079+00:00",
+      "currentness": {
+        "publisher_customer_code_date_and_requested_node_verified": true,
+        "edition_stable_start_end": true,
+        "official_city_link_revalidated_this_phase": false,
+        "official_route_basis": "Reviewed current-route assignments retained from prior evidence; this phase verifies the current publisher document, not a new city-portal link crawl",
+        "future_edition": "Fail closed on unreviewed customer/code; review observed new edition before changing route registry"
+      },
+      "standalone_headed_status": "PASS",
+      "direct_http_status": "NOT_RERUN_THIS_PHASE; prior results baseline only",
+      "headless_status": "NOT_RERUN_THIS_PHASE; prior403/429 are historical, not permanent denial",
+      "cua_current_phase": "NOT_RUN; copied prior CUA proofs historical",
+      "export_format": "CSV/JSON DOM pipeline; publisher PDF acquired",
+      "publisher_download": {
+        "status": "ACQUIRED_PUBLISHER_PDF",
+        "file_acquired": true,
+        "format": "PDF",
+        "observation_path": "headed-live/serial-r4-rest/seatac-wa/download-observation.json",
+        "selected_ids": [
+          "51196399"
+        ],
+        "selected_citations": "\u00a7\u00a01.01.010\nCode adopted.",
+        "edition_before": {
+          "customer_id": "SE4633",
+          "code_id": "337588",
+          "currency_raw": "2026-09-30"
+        },
+        "edition_after": {
+          "customer_id": "SE4633",
+          "code_id": "337588",
+          "currency_raw": "2026-09-30"
+        },
+        "independent_intake_report": "../publisher-downloads/DOWNLOAD-VALIDATION.json",
+        "independent_intake_status": "PASS_BOUNDED_DOWNLOADED_FILE_CHECKS",
+        "path": "headed-live/serial-r4-rest/seatac-wa/publisher-download-0.pdf",
+        "sha256": "99b982e0571c5f875bc1e5ed616d4747e9c25251c71d619946d9207711b6498c",
+        "bytes": 46951,
+        "download_url": "https://ecode360.com/output/get/754331102",
+        "complete_pdf_operative_text_match": true,
+        "pdf_title_match": true,
+        "pdf_semantic_text_status": "PASS_BOUNDED_SELECTED_SECTION_TEXT",
+        "pages": 1,
+        "image_count": 0,
+        "pdf_native_section_json": "../publisher-downloads/final-section-exports/seatac-wa/section.json",
+        "pdf_native_section_csv": "../publisher-downloads/final-section-exports/seatac-wa/section.csv",
+        "independent_source_comparison": "../publisher-downloads/final-section-exports/seatac-wa/source-comparison.json"
+      },
+      "blockers": [],
+      "next_action": "Use supported headed runner for bounded acquisition; review full publication inventory before any complete collection claim; companion PDF intake checks selected section only",
+      "primary_acquisition_report_path": "headed-exports/seatac-wa/e2e-result.json",
+      "latest_source_bytes_match_independently_reviewed_primary_source": true
+    }
+  ],
+  "publisher_pdf_native_selected_section_records": 13,
+  "publisher_pdf_complete_operative_text_matches": 13,
+  "publisher_pdf_bounded_text_semantic_passes": 12,
+  "publisher_pdf_nontext_review_required": [
+    "san-leandro-ca"
+  ]
+}

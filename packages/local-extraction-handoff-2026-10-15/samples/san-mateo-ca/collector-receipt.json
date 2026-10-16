@@ -1,0 +1,26 @@
+{
+  "status": "live_sample_complete",
+  "jurisdiction": "San Mateo, California",
+  "collector": "adapters.special_collectors.collect_openlaw_xml",
+  "source_type": "publisher-designated Open Law XML tree at a pinned commit",
+  "requirements_met": [
+    "local pinned-tree parse",
+    "16-column provision CSV/JSON",
+    "per-document checkpoint",
+    "no prohibited Law Library crawl"
+  ],
+  "test_evidence": "validation/test_special_collectors.py::test_openlaw_collectors_emit_16_column_output",
+  "sample_date": "2026-08-28",
+  "sample_output": {
+    "json": "C:\\Users\\olive\\OneDrive\\Documents\\Claude\\Projects\\CompliSolv 2.00\\municipal-code-batch\\outputs\\live-samples\\special-sources\\san-mateo-ca\\outputs\\san-mateo-ca-municipal-code.json",
+    "csv": "C:\\Users\\olive\\OneDrive\\Documents\\Claude\\Projects\\CompliSolv 2.00\\municipal-code-batch\\outputs\\live-samples\\special-sources\\san-mateo-ca\\outputs\\san-mateo-ca-municipal-code.csv",
+    "rows": 10,
+    "full_text_rows": 10
+  },
+  "live_evidence": {
+    "source_url": "https://raw.githubusercontent.com/cityofsanmateo/law-xml/08a2b2cbbc80f7ca584bca130c422327448d672f/us/ca/cities/san-mateo/code/1.xml",
+    "pinned_commit": "08a2b2cbbc80f7ca584bca130c422327448d672f",
+    "parsed_provisions": 37
+  },
+  "sample_limit": 10
+}

@@ -1,0 +1,56 @@
+{
+  "as_of": "2026-10-15",
+  "status": "all30_bounded_live_methods_qualified",
+  "collection_backlog_count": 30,
+  "count_basis": "reviewed project inventory, not current database",
+  "complete_jurisdiction_corpora_collected": 0,
+  "current_source_counts": {
+    "codepublishing": 5,
+    "municipal_codes": 5,
+    "ecode360": 14,
+    "gridics": 1,
+    "municode": 1,
+    "openlaw_xml": 1,
+    "civicplus_pdf": 2,
+    "king_county_html": 1
+  },
+  "runtime_summary": {
+    "cua_dependent_jurisdictions": 24,
+    "other_jurisdictions": 6,
+    "note": "Other six use HTTP/archive/API/standalone browser; King County still requires CUA landing discovery. No guarantee of future access. eCode standalone browser tested only FosterCity; other13 not run."
+  },
+  "independent_python_tests": 161,
+  "independent_javascript_checks": 27,
+  "package_hash_references_verified": 3897,
+  "package_reports": {
+    "ecode360": {
+      "path": "ecode360/E2E-VALIDATION.json",
+      "sha256": "101bf4d9706493f97bc639531f89144e50c41c6042a4a28a84570de973bf044a"
+    },
+    "codepublishing": {
+      "path": "codepublishing/E2E-VALIDATION.json",
+      "sha256": "ecfbd5c4a23877de3fe13cd5ac6c5e00c6806bf6e430c2a5e91fa35fa9a7e4c7"
+    },
+    "municipal-codes": {
+      "path": "municipal-codes/E2E-VALIDATION.json",
+      "sha256": "f238152b6a2088a67334b0577a3fbace606272ed3857f2543e180886cd10e4f0"
+    },
+    "gridics": {
+      "path": "gridics/E2E-VALIDATION.json",
+      "sha256": "0daf1f4eb39aaaf81a06b9c2a4da6885238480cfcec87d9129b9b7a8e7e5fa55"
+    },
+    "civicplus": {
+      "path": "civicplus/E2E-VALIDATION.json",
+      "sha256": "518354dd75bc3b543930d1ae2bdeab29a55fd0057a9e94c3a7b5acddb2580648"
+    },
+    "bulk-and-official-html": {
+      "path": "bulk-and-official-html/E2E-VALIDATION.json",
+      "sha256": "513e0307ac28f54892cd0d14188fc61203efa8598fcf941d428aa5fa028ad21f"
+    }
+  },
+  "independent_review": {
+    "python": "integration/independent-review/RESULTS.json",
+    "javascript_and_manifests": "integration/independent-review/ARTIFACT-REVIEW.json"
+  },
+  "interpretation": "Live reports qualify bounded samples. Full publication inventories, whole-run version closure, unacquired bodies and semantic exception queues remain. No database or production modifications."
+}

@@ -1,0 +1,32 @@
+{
+  "status": "validated_browser_capable",
+  "adapter": "codepublishing_legacy",
+  "root_url": "https://www.codepublishing.com/WA/SeaTac/",
+  "toc_url": "https://www.codepublishing.com/WA/SeaTac/#!/SeaTac01/SeaTac01.html",
+  "section_url": "https://www.codepublishing.com/WA/SeaTac/#!/SeaTac01/SeaTac0101.html",
+  "toc_count_or_sample": "18 code titles; Title 1 has eight chapter entries in the representative browser TOC",
+  "section_text_length": 2500,
+  "checks": [
+    {
+      "name": "live_root",
+      "value": "Browser-rendered root lists Titles 1–18 and is current through Ordinance 26-1008, passed March 24, 2026."
+    },
+    {
+      "name": "live_toc",
+      "value": "Title 1 -> Chapter 1.01 Code Adoption."
+    },
+    {
+      "name": "live_section",
+      "value": "Chapter 1.01 exposes §§ 1.01.010–1.01.100 with readable enactment text."
+    },
+    {
+      "name": "transport",
+      "value": "Browser-capable transport is required: root/title/chapter navigation uses hash-bang routes rendered by the General Code client."
+    },
+    {
+      "name": "fixture",
+      "value": "fixtures/seatac-{root,title,chapter}.html parsed by test_codepublishing_legacy.py."
+    }
+  ],
+  "errors": []
+}

@@ -1,0 +1,712 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+  <html xmlns="http://www.w3.org/1999/xhtml">
+ <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta http-equiv="Content-Style-Type" content="text/css" />
+<style>
+body {font-family: Arial, Sans-serif;}
+
+a:link:active { color: #1263be;}
+a:link:hover { color: #1263be;}
+a:link { color: #02397c;}
+a:link:visited, a:visited { color: #1263be;}
+
+/*Styles for NT page*/
+#cityname, #codification, .codified, .cpc {
+   font-weight: bold;
+   text-align: left;
+	font-size: .9em;
+}
+#cityname {
+   margin-top: 3em;
+   font-size: 1.25em;
+}
+
+.cpc {  margin: 0;  padding-bottom: .5em; }
+
+/* Navigation buttons */
+
+.GraphicTitleItal {
+	text-align: center;
+	font-style: italic;
+}
+
+#navTop {
+	text-align: right;
+	margin: 1em 1.8em;
+	padding-bottom: 1em;
+}
+#navBottom {
+	margin: 1em 1.8em;
+	padding-top: 1em;
+	text-align: left;
+}
+
+#navTop *, #navBottom *  {
+	text-decoration: none;
+}
+
+/* styles for the body of the code */
+
+#mainContent {
+	border:solid #000;
+	border-width:1px 0px;
+	margin: 1em 2em;
+	padding: 1.1em;
+}
+
+
+/*this is for dealing with city logos on the front page
+Since they are floated right, they can hang down into #navBottom
+*/
+#mainContent:after {
+	content: ".";
+	display: block;
+	height: 0;
+	clear: right;
+	visibility: hidden;
+}
+
+img { border:0px; }
+#mainContent img { display: block; margin: 1em auto; }
+#mainContent a img {border:1px solid;}
+#mainContent h3 img { border:0;vertical-align:bottom;float:right;margin:0px;	}
+#mainContent h2 img, #mainContent h1 img { border:0;vertical-align:top;float:right;margin:0px; }
+
+ h1, h2 {
+	font-size: 0.95em;
+	text-align:center;
+	margin:1em auto;
+}
+
+p, h3, h4 {
+	font-size: .85em;
+	line-height:1.5em;
+	margin: 0em;
+	font-style: normal;
+	font-variant: normal;
+	text-transform: normal;
+	vertical-align: baseline;
+	font-weight: normal;
+	text-align: left;
+}
+/* add default bottom margin, which we don't want in h3 */
+p { margin-bottom: 1em; }
+
+.ArticleTOC, .digArt, .artdig {
+	margin-top: 1em;
+	text-align: center;
+}
+
+.Article, .DivisionTOC, .art, .digDiv, .digdiv, .Divdig, .divdig,
+.Rxhead, .CHRepealed, .TitleRepealed,  .RxHead,
+.TitleReserved, .CHReserved, .ReservedC, .CH, .CHTitle,
+.Division, .div, .divname, .DivisionName, .DivName,
+.TableTitle, .GraphicTitle, .Graphic, .graphic,
+.graphictitle, .graphicname {
+  font-weight: bold;
+  margin: 1em 0;
+  text-align: center;
+}
+
+.Center, .center, .CellBodyC, .cellbodyc {
+  text-align: center;
+}
+
+.CellBodyR, .cellbodyr {
+	text-align: right;
+}
+
+.CellBodyIndent {	margin-left:1em; }
+.CellHeading {  font-weight: bold; text-align: center; }
+.CellHeadingL {  font-weight: bold; margin:0; }
+.CellHeadingR {  font-weight: bold;  text-align: right; }
+
+.CHTOC a, .CiteTOC a { text-decoration:none; font-weight:bold;}
+.CHTOC a:hover, .CiteTOC a:hover { text-decoration:underline; font-weight:bold;}
+.CHTOC {
+  font-weight: bold;
+}
+.desktop-view .CHTOC {
+  margin: 0 0 0 7em;
+  text-indent: -3.3em;
+  }
+
+.Cite {
+  font-weight: bold;
+  margin-top: 1em;
+  vertical-align: baseline;
+}
+.desktop-view .CiteTOC {
+  margin: 0 0 0 7em;
+  text-indent: -5.8em;
+}
+
+.digCH, .ctoc {
+  font-weight: normal;
+  margin-top: 1em;
+  margin-bottom:0em;
+}
+.digTitle, .chtoc, .tocch {
+  font-weight: bold;
+}
+
+.desktop-view .digTitle, .desktop-view .chtoc, .desktop-view .tocch {
+  margin: 1em 0 0 2em;
+}
+
+.Footnote, .footnote, .FootNote, .Note, .note {
+  margin: 1em .8em;
+  font-size: .8em;
+  text-indent: -.8em;
+}
+
+.ordtab, td p.ordtab {
+  min-width:100px;
+  margin: 0;
+  margin-right: 0.9em;
+}
+
+.P0, .P0block, .P1, .P1block { margin-left: 0em;}
+.P2, .P2block {  margin-left: 2.3em; }
+.P3, .P3block {  margin-left: 4.3em; }
+.P4, .P4block {  margin-left: 6.3em; }
+.P5, .P5block {  margin-left: 8.3em; }
+.P6, .P6block {  margin-left: 9.3em; }
+.P7, .P7block {  margin-left: 11.3em; }
+
+.Q1 { font-size: .75em;  margin: 1em 2.3em; }
+
+.Q2 {
+  font-size: .75em;
+  margin: 1em 2.3em;
+  margin-left: 4.3em;
+}
+.Q3 {
+  font-size: .75em;
+  margin: 1em 2.3em;
+  margin-left: 6.3em;
+ }
+.Q4 {
+  font-size: .75em;
+  margin: 1em 2.3em;
+  margin-left: 8.3em;
+}
+.QC {
+  font-size: .75em;
+  margin: 1em 2.3em;
+  text-align:center;
+}
+
+.TableFootnote,  .HistoryNote {
+  font-weight: normal;
+  font-size: .75em;
+}
+
+.Title, .TitleName {
+  font-size: 1em;
+  font-weight: bold;
+  margin: 1em;
+  text-align: center;
+}
+
+.WAC {
+  margin-left: 5.5em;
+  text-indent: -5.5em;
+  margin-bottom:0em;
+}
+
+
+.underline, .under, .Underline, .Under {
+	text-decoration:underline;
+}
+.bold, .Bold {
+  font-weight: bold;
+}
+.bolditalic, .bold_italic, .BoldItalic, .ital, .Bold_Italic, .bold_Italic {
+  font-weight: bold;
+  font-style: italic;
+}
+.italic, .Italic, .emphasis, .Emphasis {
+  font-style: italic;
+}
+.EquationVariables {
+  font-family: Times New Roman;
+  font-style: italic;
+}
+.strikethrough, .Strikethrough, .strikeout, .Strikeout, .linethrough, .Linethrough {
+	text-decoration: line-through;
+}
+.sub, .subscript, .Subscript, .sub, .Sub {
+  vertical-align: sub;
+  font-size:0.75em;
+}
+.super, .Superscript, .superscript, .Super {
+  vertical-align: super;
+  font-size:0.75em;
+  }
+
+.White
+{
+  color: #fff;
+}
+
+ /* Table CSS */
+
+#mainContent table {
+	border-collapse: collapse;
+	margin: 1em auto;
+}
+
+table.hovercraft {
+	margin-top:0px !important;
+	margin-bottom:0px !important;
+}
+td,   tr{ background:white; }
+
+caption {
+	margin-left:auto;
+	margin-right:auto;
+	text-align:center;
+}
+
+td p, th p, caption p {
+	font-size: .8em;
+	margin-bottom:0em;
+}
+
+td { padding:3pt; text-align:left; }
+
+table.Ruled, table.RuledWithTitle, table.Format_B,
+table.TitleRules, table.Format_A {
+  border:1px solid black;
+}
+
+#mainContent img.inline-icon {
+	display: inline;
+	margin: 0 3px;
+	vertical-align: middle;
+	border: 0;
+}
+  
+iframe {width:100%; height:300px;}
+.small-caps { font-variant: small-caps; }
+.uppercase { text-transform: uppercase; }
+/*
+box.jpg is for when codes have the little empty box symbol
+we're attaching it to a dummy class here so that even if it isn't being used
+it won't get deleted by the destroyExtraImages() function.
+Other just-in-case images coulde be added here.
+*/
+.validateMeBabyYeah {
+	background:url('../html/images/box.jpg') no-repeat top right;
+	background:url('../html/images/pdf.png') no-repeat top right;
+}</style>    <title>Burien</title>
+</head> 
+<body>   
+    <div id="mainContent">
+    <a id="start" />
+    <h1 style="page-break-before:auto" headertitle="Burien Municipal Code" headerdisc="The Burien Municipal Code is current through Ordinance 905, and legislation passed through July 27, 2026." class="Title"><a id="a1"></a>Title 1<br />GENERAL PROVISIONS</h1>
+            <p class="ctoc"><span class="bold">Chapters:</span></p>
+
+            <p class="CHTOC"><a href="#a1x01">1.01&nbsp;&nbsp;&nbsp;&nbsp;Code Adoption</a></p>
+
+            <p class="CHTOC"><a href="#a1x05">1.05&nbsp;&nbsp;&nbsp;&nbsp;General Provisions</a></p>
+
+            <p class="CHTOC"><a href="#a1x10">1.10&nbsp;&nbsp;&nbsp;&nbsp;Initiative and Referendum</a></p>
+
+            <p class="CHTOC"><a href="#a1x15">1.15&nbsp;&nbsp;&nbsp;&nbsp;Code Enforcement</a></p>
+
+    <h2 headertitle="Burien Municipal Code" headerdisc="The Burien Municipal Code is current through Ordinance 905, and legislation passed through July 27, 2026." class="CH"><a id="a1x01"></a>Chapter 1.01<br />CODE ADOPTION</h2>
+            <p class="ctoc">Sections:</p>
+
+            <p class="CiteTOC"><a href="#a1x01x010">1.01.010&nbsp;&nbsp;&nbsp;&nbsp;Code adopted.</a></p>
+
+            <p class="CiteTOC"><a href="#a1x01x020">1.01.020&nbsp;&nbsp;&nbsp;&nbsp;Title &ndash; Citation &ndash; Reference.</a></p>
+
+            <p class="CiteTOC"><a href="#a1x01x030">1.01.030&nbsp;&nbsp;&nbsp;&nbsp;Reference applies to amendments.</a></p>
+
+            <p class="CiteTOC"><a href="#a1x01x040">1.01.040&nbsp;&nbsp;&nbsp;&nbsp;Codification authority.</a></p>
+
+            <p class="CiteTOC"><a href="#a1x01x050">1.01.050&nbsp;&nbsp;&nbsp;&nbsp;Reservation of prosecutions.</a></p>
+
+            <p class="CiteTOC"><a href="#a1x01x060">1.01.060&nbsp;&nbsp;&nbsp;&nbsp;Severability.</a></p>
+
+
+
+      <h3 class="Cite"><a id="a1x01x010">1.01.010</a> Code adopted.</h3>
+            <p class="P1">The Burien Municipal Code, as compiled from the ordinances of the city of Burien, Washington, and edited and published by Code Publishing Company of Seattle, Washington, is hereby adopted as the official code of the city of Burien, Washington. [Ord. 248 &sect; 1, 1999]</p>
+
+
+
+      <h3 class="Cite"><a id="a1x01x020">1.01.020</a> Title &ndash; Citation &ndash; Reference.</h3>
+            <p class="P1">This code shall be known as the &ldquo;Burien Municipal Code&rdquo; and it shall be sufficient to refer to said code as the &ldquo;Burien Municipal Code&rdquo; in any prosecution for the violation of any provision thereof or in any proceeding at law or equity. It shall also be sufficient to designate any ordinance adding to, amending, correcting or repealing all or any part or portion thereof as an addition to, amendment to, correction of, or repeal of the &ldquo;Burien Municipal Code.&rdquo; Further reference may be had to the titles, chapters, sections and subsections of the &ldquo;Burien Municipal Code&rdquo; and such reference shall apply to that numbered title, chapter, section or subsection as it appears in that code. [Ord. 248 &sect; 2, 1999]</p>
+
+
+
+      <h3 class="Cite"><a id="a1x01x030">1.01.030</a> Reference applies to amendments.</h3>
+            <p class="P1">Whenever a reference is made to the &ldquo;Burien Municipal Code&rdquo; or to any portion thereof, or to any ordinance of the city of Burien, Washington, that reference shall apply to all amendments, corrections and additions heretofore, now, or hereafter made. [Ord. 248 &sect; 3, 1999]</p>
+
+
+
+      <h3 class="Cite"><a id="a1x01x040">1.01.040</a> Codification authority.</h3>
+            <p class="P1">This code consists of all of the regulatory and penal ordinances and certain of the administrative ordinances codified pursuant to RCW 35.21.500 through RCW 35.21.570, inclusive. [Ord. 248 &sect; 4, 1999]</p>
+
+
+
+      <h3 class="Cite"><a id="a1x01x050">1.01.050</a> Reservation of prosecutions.</h3>
+            <p class="P1">The adoption of this code shall not affect any prosecution for violation of ordinances, which violations were committed prior to the effective date of the adoption of the municipal code, nor shall the adoption of the municipal code be construed as a waiver of any license, fee, or penalty due and owing at the effective date of the code adoption, nor shall adoption affect the validity of any bond or cash deposited with the city pursuant to the terms of any ordinance, upon its codification; but rather, all rights and obligations pertaining under ordinances in effect prior to codification shall remain in full force and effect. [Ord. 248 &sect; 5, 1999]</p>
+
+
+
+      <h3 class="Cite"><a id="a1x01x060">1.01.060</a> Severability.</h3>
+            <p class="P1">Should any section, paragraph, sentence, clause or phrase of this code, or its application to any person or circumstance, be declared unconstitutional or otherwise invalid for any reason, or should any portion of this code be pre-empted by state or federal law or regulation, such decision or pre-emption shall not affect the validity of the remaining portions of this code or its application to other persons or circumstances. [Ord. 248 &sect; 6, 1999]</p>
+
+    <h2 headertitle="Burien Municipal Code" headerdisc="The Burien Municipal Code is current through Ordinance 905, and legislation passed through July 27, 2026." class="CH"><a id="a1x05"></a>Chapter 1.05<br />GENERAL PROVISIONS</h2>
+      <p class="Rxhead">(RESERVED)</p>
+    <h2 headertitle="Burien Municipal Code" headerdisc="The Burien Municipal Code is current through Ordinance 905, and legislation passed through July 27, 2026." class="CH"><a id="a1x10"></a>Chapter 1.10<br />INITIATIVE AND REFERENDUM</h2>
+            <p class="ctoc">Sections:</p>
+
+            <p class="CiteTOC"><a href="#a1x10x010">1.10.010&nbsp;&nbsp;&nbsp;&nbsp;Powers granted.</a></p>
+
+
+
+      <h3 class="Cite"><a id="a1x10x010">1.10.010</a> Powers granted.</h3>
+            <p class="P1">The citizens of the city of Burien, Washington, are granted the powers of initiative and referendum as provided for in RCW 35A.11.080 as now in effect or as hereafter amended. Pursuant to RCW 35A.11.100, these powers shall be exercised in the manner set forth in RCW 35.17.240 through 35.17.360 as now in effect or as hereafter amended. [Ord. 71 &sect; 1, 1993]</p>
+
+            
+
+    <h2 headertitle="Burien Municipal Code" headerdisc="The Burien Municipal Code is current through Ordinance 905, and legislation passed through July 27, 2026." class="CH"><a id="a1x15"></a>Chapter 1.15<br />CODE ENFORCEMENT</h2>
+            <p class="ctoc">Sections:</p>
+
+            <p class="CiteTOC"><a href="#a1x15x010">1.15.010&nbsp;&nbsp;&nbsp;&nbsp;Purpose.</a></p>
+
+            <p class="CiteTOC"><a href="#a1x15x020">1.15.020&nbsp;&nbsp;&nbsp;&nbsp;Definitions.</a></p>
+
+            <p class="CiteTOC"><a href="#a1x15x030">1.15.030&nbsp;&nbsp;&nbsp;&nbsp;Conflicting code provisions.</a></p>
+
+            <p class="CiteTOC"><a href="#a1x15x040">1.15.040&nbsp;&nbsp;&nbsp;&nbsp;Joint and several responsibility and liability.</a></p>
+
+            <p class="CiteTOC"><a href="#a1x15x050">1.15.050&nbsp;&nbsp;&nbsp;&nbsp;Computation of time.</a></p>
+
+            <p class="CiteTOC"><a href="#a1x15x060">1.15.060&nbsp;&nbsp;&nbsp;&nbsp;Interference with code enforcement unlawful.</a></p>
+
+            <p class="CiteTOC"><a href="#a1x15x070">1.15.070&nbsp;&nbsp;&nbsp;&nbsp;Service of documents.</a></p>
+
+            <p class="CiteTOC"><a href="#a1x15x080">1.15.080&nbsp;&nbsp;&nbsp;&nbsp;Violations.</a></p>
+
+            <p class="CiteTOC"><a href="#a1x15x090">1.15.090&nbsp;&nbsp;&nbsp;&nbsp;Infractions.</a></p>
+
+            <p class="CiteTOC"><a href="#a1x15x100">1.15.100&nbsp;&nbsp;&nbsp;&nbsp;Voluntary correction.</a></p>
+
+            <p class="CiteTOC"><a href="#a1x15x110">1.15.110&nbsp;&nbsp;&nbsp;&nbsp;Stop work order.</a></p>
+
+            <p class="CiteTOC"><a href="#a1x15x120">1.15.120&nbsp;&nbsp;&nbsp;&nbsp;Notice of civil violation.</a></p>
+
+            <p class="CiteTOC"><a href="#a1x15x130">1.15.130&nbsp;&nbsp;&nbsp;&nbsp;Response to notice of civil violation.</a></p>
+
+            <p class="CiteTOC"><a href="#a1x15x140">1.15.140&nbsp;&nbsp;&nbsp;&nbsp;Scheduling of hearing to contest or mitigate &ndash; Correction prior to hearing.</a></p>
+
+            <p class="CiteTOC"><a href="#a1x15x150">1.15.150&nbsp;&nbsp;&nbsp;&nbsp;Contested hearing &ndash; Procedure.</a></p>
+
+            <p class="CiteTOC"><a href="#a1x15x160">1.15.160&nbsp;&nbsp;&nbsp;&nbsp;Mitigation hearing &ndash; Procedure.</a></p>
+
+            <p class="CiteTOC"><a href="#a1x15x170">1.15.170&nbsp;&nbsp;&nbsp;&nbsp;Decision of hearing examiner.</a></p>
+
+            <p class="CiteTOC"><a href="#a1x15x180">1.15.180&nbsp;&nbsp;&nbsp;&nbsp;Failure to appear &ndash; Default order.</a></p>
+
+            <p class="CiteTOC"><a href="#a1x15x190">1.15.190&nbsp;&nbsp;&nbsp;&nbsp;Judicial review.</a></p>
+
+            <p class="CiteTOC"><a href="#a1x15x200">1.15.200&nbsp;&nbsp;&nbsp;&nbsp;Recovery of penalties and costs.</a></p>
+
+            <p class="CiteTOC"><a href="#a1x15x210">1.15.210&nbsp;&nbsp;&nbsp;&nbsp;Abatement.</a></p>
+
+            <p class="CiteTOC"><a href="#a1x15x220">1.15.220&nbsp;&nbsp;&nbsp;&nbsp;Right of entry.</a></p>
+
+      <h3 class="Cite"><a id="a1x15x010">1.15.010</a> Purpose.</h3>
+            <p class="P1">The purpose of this chapter is to establish an efficient system of enforcing city regulations that will enable violations to be promptly resolved whenever possible, while providing both appropriate penalties and a full opportunity for alleged violators to have a hearing to contest the violations. It is the express and specific purpose and intent of this chapter to provide for and promote the health, safety and welfare of the general public and not to create or otherwise establish or designate any particular class or group of persons who will or should be especially protected or benefited by the terms of this chapter. It is also the express and specific purpose and intent of this chapter that no provision or term used in this chapter is intended to impose any duty whatsoever upon the city or any of its officers or employees. Nothing contained in this chapter is intended or shall be construed to create or form the basis of any liability on the part of the city, its officers, employees or agents, for any injury or damage resulting from any action or inaction on the part of the city, its officers, employees or agents. [Ord. 561 &sect;&nbsp;1, 2012]</p>
+
+      <h3 class="Cite"><a id="a1x15x020">1.15.020</a> Definitions.</h3>
+            <p class="P1">The definitions in this section apply throughout this chapter unless the context clearly requires otherwise or they are more specifically defined in a subchapter or section. Terms not defined shall be given their usual meaning.</p>
+
+            <p class="P1">&ldquo;Abate&rdquo; means to act to stop an activity and/or to repair, replace, remove, or otherwise remedy a condition, when such activity or condition constitutes a violation of this code or a city regulation, by such means and in such a manner and to such an extent as the applicable department director, enforcement officer, or other authorized official determines is necessary in the interest of the general health, safety, and welfare of the community. For the purposes of this chapter, the verbs &ldquo;abate&rdquo; and &ldquo;correct&rdquo; shall be interchangeable and have the same meaning.</p>
+
+            <p class="P1">&ldquo;Act&rdquo; means doing or performing something.</p>
+
+            <p class="P1">&ldquo;City&rdquo; means the city of Burien, Washington.</p>
+
+            <p class="P1">&ldquo;Civil penalty&rdquo; or &ldquo;monetary penalty,&rdquo; as used in any code, ordinance or regulation of the city, shall be deemed to have the same meanings as used in this chapter.</p>
+
+            <p class="P1">&ldquo;Code&rdquo; means the Burien Municipal Code.</p>
+
+            <p class="P1">&ldquo;Code enforcement officer&rdquo; or &ldquo;enforcement officer&rdquo; means the city&rsquo;s code enforcement officer(s); the building official; building inspectors; construction inspectors; the fire marshal or his or her designee; fire inspectors; the chief of the Burien police department or his or her designee; the director of the community development department or his or her designee; the director of the public works department or his or her designee; or any other person or persons assigned or directed by the city manager or his or her designee to enforce the regulations subject to the enforcement and penalty provisions of this chapter.</p>
+
+            <p class="P1">&ldquo;Correction notice&rdquo; means a written statement issued by a code enforcement officer, notifying a person that property or work under his or her control is in violation of one or more regulations and informing such person that a notice of civil violation may be issued and/or an infraction or criminal charges filed if the violations are not abated.</p>
+
+            <p class="P1">&ldquo;Costs&rdquo; means, but is not limited to, contract expenses and city employee labor expenses incurred in abating a nuisance; a rental fee for city equipment used in abatement; costs of storage, disposal, or destruction; legal expenses and attorneys&rsquo; fees associated with civil judicial enforcement of abatement orders or in seeking abatement orders; and any other costs incurred by the city, excluding fees and expenses associated with appeals authorized by this code or by state law.</p>
+
+            <p class="P1">&ldquo;Day&rdquo; or &ldquo;days&rdquo; means one or more calendar days, unless expressly stated otherwise in a given section or subsection. In addition, any portion of a 24-hour day shall constitute a full calendar day.</p>
+
+            <p class="P1">&ldquo;Hearing examiner&rdquo; means the Burien hearing examiner and the office thereof, as established pursuant to Chapter 2.15 BMC.</p>
+
+            <p class="P1">&ldquo;Knowledge&rdquo; means being aware of a fact or circumstance or having information which would lead a reasonable person in the same situation to believe a fact or circumstance exists. A person acts knowingly or with knowledge when that person either is aware of one or more facts, circumstances, or results, which are described by an ordinance defining an offense, or has information which would lead a reasonable person in the same situation to believe that facts, circumstances, or results exist which are described by an ordinance defining an offense.</p>
+
+            <p class="P1">&ldquo;Mortgagee&rdquo; means a financial institution, including a bank, credit union or other commercial lender, which holds mortgaged property as security for repayment of a loan.</p>
+
+            <p class="P1">&ldquo;Notice of violation&rdquo; or &ldquo;notice of civil violation&rdquo; means a written statement, issued by a code enforcement officer, which contains the information required under BMC <a href="#a1x15x120">1.15.120</a> and which notifies a person that he or she is responsible for one or more civil violations of the Burien Municipal Code.</p>
+
+            <p class="P1">&ldquo;Omission&rdquo; means a failure to act.</p>
+
+            <p class="P1">&ldquo;Owner&rdquo; means any owner, part owner, joint owner, tenant in common, tenant in partnership, joint tenant, or tenant by the entirety, of the whole or of a part of a building or land.</p>
+
+            <p class="P1">&ldquo;Person&rdquo; means any individual, firm, business, association, partnership, corporation, or other legal entity, public or private, however organized. Because &ldquo;person&rdquo; shall include both human beings and organizational entities, any of the following pronouns may be used to describe a person: he, she, or it.</p>
+
+            <p class="P1">&ldquo;Person responsible for the violation&rdquo; or &ldquo;violator&rdquo; means any of the following: a person who has titled ownership or legal control of the property or structure that is subject to the regulation; an occupant or other person in control of the property or structure that is subject to the regulation; a developer, builder, business operator, or owner who is developing, building, or operating a business on the property or in a structure that is subject to the regulation; a mortgagee that has filed an action in foreclosure on the property that is subject to the regulation, based on breach or default of the mortgage agreement, until title to the property is transferred to a third party; a mortgagee of property that is subject to the regulation and has not been occupied by the owner, the owner&rsquo;s tenant, or a person having the owner&rsquo;s permission to occupy the premises for a period of at least 90 days; or any person who created, caused, participated in, or has allowed a violation to occur.</p>
+
+            <p class="P1">&ldquo;Regulation&rdquo; means and includes any of the following, as now enacted or hereafter amended:</p>
+
+            <p class="P2">(a)&nbsp;All Burien Municipal Code provisions;</p>
+
+            <p class="P2">(b)&nbsp;All standards, regulations, and procedures adopted by the city pursuant to a city ordinance;</p>
+
+            <p class="P2">(c)&nbsp;The terms and conditions of any permit or approval issued by the city, or any concomitant agreement entered into with the city, pursuant to code provisions; and</p>
+
+            <p class="P2">(d)&nbsp;A written order of the hearing examiner that has been served as provided in this chapter.</p>
+
+            <p class="P1">&ldquo;Repeat violation&rdquo; means, as evidenced by the prior issuance of a correction notice or a notice of violation, a subsequent violation that has occurred on the same property or that has been committed by a person responsible for the prior violation elsewhere within the city of Burien. To constitute a repeat violation, the violation need not be the same violation as the prior violation. The violation of a written order of the hearing examiner that has been served as provided in this chapter shall constitute a repeat violation.</p>
+
+            <p class="P1">&ldquo;Right-of-way&rdquo; means land owned, dedicated or conveyed to the public or a unit of government, used primarily for the movement of vehicles or pedestrians and providing for access to adjacent parcels, with the secondary purpose of providing space for utility lines and appurtenances and other devices and facilities benefiting the public. &ldquo;Right-of-way&rdquo; includes, but is not limited to, any street, easement, sidewalk, or portion thereof under the jurisdiction of the city.</p>
+
+            <p class="P1">&ldquo;Violation&rdquo; or &ldquo;civil violation&rdquo; or &ldquo;civil infraction&rdquo; means an act or omission contrary to a regulation as defined in this section. A violation continues to exist until abated to the satisfaction of the city, with each day or portion thereof in which the violation continues constituting a separate violation. [Ord. 561 &sect;&nbsp;1, 2012]</p>
+
+      <h3 class="Cite"><a id="a1x15x030">1.15.030</a> Conflicting code provisions.</h3>
+            <p class="P1">In the event a conflict exists between the enforcement provisions of this chapter and the enforcement provisions of any international or uniform code, statute, or regulation that is adopted in the Burien Municipal Code and subject to the enforcement provisions of this chapter, the enforcement provisions of this chapter will prevail, unless the enforcement provisions of this chapter are preempted or specifically modified by said code, statute, or regulation. In the event of a conflict between this chapter and any other provision of this code or city ordinance providing for a civil penalty, the more specific provision shall control. [Ord. 561 &sect;&nbsp;1, 2012]</p>
+
+      <h3 class="Cite"><a id="a1x15x040">1.15.040</a> Joint and several responsibility and liability.</h3>
+            <p class="P1">Responsibility for violations of the codes enforced under this chapter is joint and several, both as to duty to correct and to payment of monetary penalties and costs, and the city is not prohibited from taking action against a party where other persons may also be potentially responsible for a violation, nor is the city required to take action against all persons potentially responsible for a violation. [Ord. 561 &sect;&nbsp;1, 2012]</p>
+
+      <h3 class="Cite"><a id="a1x15x050">1.15.050</a> Computation of time.</h3>
+            <p class="P1">In computing any period of time prescribed or allowed by this code, the day of the act, event or default from which the designated period of time begins to run shall not be included. The last day of the period so computed shall be included unless it is a Saturday, Sunday, or legal holiday, in which event the period shall run until the end of the next day which is neither a Saturday, Sunday, nor legal holiday. When the period of time prescribed or allowed is less than seven days, intermediate Saturdays, Sundays, and legal holidays shall be excluded in the computation. [Ord. 561 &sect;&nbsp;1, 2012]</p>
+
+      <h3 class="Cite"><a id="a1x15x060">1.15.060</a> Interference with code enforcement unlawful.</h3>
+            <p class="P1">Any person who intentionally obstructs, impedes, or interferes with any lawful attempt to serve a notice of violation, stop work order, or emergency order, or intentionally obstructs, impedes, or interferes with lawful attempts to correct a violation shall be guilty of a gross misdemeanor. [Ord. 561 &sect;&nbsp;1, 2012]</p>
+
+      <h3 class="Cite"><a id="a1x15x070">1.15.070</a> Service of documents.</h3>
+            <p class="P1">(1)&nbsp;Methods of Service. For purposes of this chapter, service of documents related to code enforcement, such as correction notices, notices of civil violation, stop work orders, etc. (hereinafter &ldquo;document&rdquo;), shall be accomplished by one of the following methods; provided, that civil infractions shall be served as provided in Chapter 7.80 RCW and criminal misdemeanors and gross misdemeanors shall be served as provided by applicable law:</p>
+
+            <p class="P2">(a)&nbsp;&ldquo;Personal service&rdquo; is accomplished by handing the document to the person subject to the document or leaving it at his or her last known dwelling house or usual place of abode with some person of suitable age and discretion then residing therein or leaving it at his or her office or place of employment with a person in charge thereof. Personal service may also be accomplished by the hearing examiner or his or her assistant handing any order, ruling, decision, or other document to a person prior to, during, or after a hearing.</p>
+
+            <p class="P2">(b)&nbsp;&ldquo;Service by mail&rdquo; is accomplished by sending the document by regular first class mail to the last known address of the person subject to the document. The last known address shall be an address provided to the city by the person to whom the document is directed. If an address has not been provided to the city, the last known address shall be any of the following as they appear at the time the document is mailed: the address of the property where the violation is occurring, as reflected on the most recent equalized tax assessment roll of the county assessor or the taxpayer address appearing for the property on the official property tax information website for King County; the address appearing in any database used for the payment of utilities for the property at which the violations are occurring; or the address of the person to whom the documents are being sent that appears in the Washington State Department of Licensing database.</p>
+
+            <p class="P2">(c)&nbsp;&ldquo;Service by posting&rdquo; is accomplished by affixing a copy of the document in a conspicuous place on the subject property or structure, or as near to the affected property or structure as feasible, with at least one copy of such document placed at an entryway to the property or structure if an entryway exists.</p>
+
+            <p class="P2">(d)&nbsp;&ldquo;Service by publication&rdquo; is accomplished by publishing the document as set forth in RCW 4.28.100 and 4.28.110, as currently enacted or hereafter amended.</p>
+
+            <p class="P1">(2)&nbsp;Service &ndash; When Complete. If service is accomplished by personal service, service shall be deemed complete immediately. If service is accomplished by mail, service shall be deemed complete upon the third day following which the document is placed in the mail, unless the third day falls on a Saturday, Sunday, or legal holiday, in which event service shall be deemed complete on the first day other than a Saturday, Sunday, or legal holiday following the third day. If service is accomplished by posting, service shall be deemed complete upon the fourteenth day following the day upon which the document is posted. If service is accomplished by publication, service shall be deemed complete upon the final publication of the document as set forth in RCW 4.28.110.</p>
+
+            <p class="P1">(3)&nbsp;Proof of Service &ndash; Due Diligence. Proof of service shall be made by written affidavit or declaration under penalty of perjury executed by the person effecting the service, declaring the time and date of service and the manner by which service was made. If service was made solely by posting or publication, the proof of service shall include a statement as to what steps were used in attempting to serve personally and by mail the person at whom service of the document is directed. If service was made by posting, a photograph of the posting may be taken and retained by the city as documentation.</p>
+
+            <p class="P1">(4)&nbsp;Additional Proof of Service Not Necessary. No additional proof of service beyond the requirements in this chapter shall be required by the hearing examiner or other entity. Any failure of the person to whom a document is directed to observe a document served by posting or publication shall not invalidate service made in compliance with this section, nor shall it invalidate the document. [Ord. 561 &sect;&nbsp;1, 2012]</p>
+
+      <h3 class="Cite"><a id="a1x15x080">1.15.080</a> Violations.</h3>
+            <p class="P1">(1)&nbsp;The violation of any regulation shall be unlawful. Violations may be enforced by issuing notices of violation and, if necessary, by filing civil infractions. In addition, any violation of this code shall constitute a misdemeanor, unless otherwise designated as a gross misdemeanor, and the city shall have discretionary authority to enforce a violation as either a civil infraction or civil violation pursuant to this chapter or as a criminal misdemeanor punishable by imprisonment in jail for a maximum term fixed by the court of not more than 90 days or by a fine in an amount fixed by the court of not more than $1,000 or by both such imprisonment and fine. A gross misdemeanor is punishable by a fine of not more than $5,000 or by imprisonment for not more than 12 months or by both such fine and imprisonment.</p>
+
+            <p class="P1">(2)&nbsp;Each day during any portion of which a violation of this code occurs or continues is a separate offense.</p>
+
+            <p class="P1">(3)&nbsp;Civil enforcement of the provisions of this code or the terms and conditions of any permit or approval issued pursuant to this code shall be governed by this chapter unless other more specific provisions apply.</p>
+
+            <p class="P1">(4)&nbsp;Code enforcement officers are authorized to enforce the code using the provisions and procedures of this chapter; provided, however, that enforcement under this chapter is in addition to, and does not preclude or limit, any other forms of enforcement available to the city including, but not limited to, criminal proceedings or sanctions, nuisance and injunction actions, rights to file and enforce liens, or other civil or equitable actions to abate, discontinue, correct, or discourage unlawful acts in violation of this code.</p>
+
+            <p class="P1">(5)&nbsp;Nothing in this chapter or in other chapters of the Burien Municipal Code shall prevent code enforcement officers or any other officers of the city of Burien or other governmental unit from taking any other action, summary or otherwise, necessary to eliminate or minimize an imminent danger to the health or safety of any person or property. The city&rsquo;s costs of abating any such nuisance or endangerment summarily or otherwise abated shall be recoverable under this chapter as well as in the same manner and to the same extent as costs of abating nuisances or endangerment under any other provisions of this code, in addition to or as an alternative to any other rights or remedies the city may possess. [Ord. 561 &sect;&nbsp;1, 2012]</p>
+
+      <h3 class="Cite"><a id="a1x15x090">1.15.090</a> Infractions.</h3>
+            <p class="P1">(1)&nbsp;When the city determines that it is appropriate to enforce violations of this code as civil infractions rather than civil or criminal violations as otherwise provided in this chapter, or if the city is unable to obtain payment of civil fines pursuant to a notice of civil violation, enforcement officers shall file such infractions in King County district court and shall follow the provisions of Chapter 7.80 RCW. First offenses shall be class 2 civil infractions, for which the maximum penalty and the default amount shall be $125.00, and second or subsequent violations shall be class 1 civil infractions, for which the maximum penalty and the default amount shall be $250.00, not including fees, costs, and assessments.</p>
+
+            <p class="P1">(2)&nbsp;Chapter 7.80 RCW is hereby adopted by reference to the extent that it is not inconsistent with explicit provisions of the Burien Municipal Code, including this section. [Ord. 561 &sect;&nbsp;1, 2012]</p>
+
+      <h3 class="Cite"><a id="a1x15x100">1.15.100</a> Voluntary correction.</h3>
+            <p class="P1">(1)&nbsp;General. When the city determines that a violation has occurred, a code enforcement officer may attempt to secure the voluntary correction of a violation by attempting to contact the person responsible for the violation, explaining the violation, and requesting correction. This may be done orally and/or in writing. The city may also enter into a written voluntary correction agreement with any person causing, allowing, or participating in the violation, including the property owner. A voluntary correction agreement may be instead of, in lieu of, or in conjunction with a notice of violation. Voluntary correction efforts need not be made where the nature of the violation creates a risk of imminent harm to public health or safety or where it is a repeat violation.</p>
+
+            <p class="P1">(2)&nbsp;Contents of Written Voluntary Correction Agreement. A voluntary correction agreement is a contract between the city and the person responsible for the violation, in which the responsible person agrees to abate the violation within a specified time and according to specified conditions. A voluntary correction agreement will generally contain the following information:</p>
+
+            <p class="P2">(a)&nbsp;The name and address of a person responsible for the violation;</p>
+
+            <p class="P2">(b)&nbsp;The street address or description sufficient for identification of the building, structure, premises, or land upon or within which the violation has occurred or is occurring;</p>
+
+            <p class="P2">(c)&nbsp;A description of the violation and a reference to the code provisions that have been violated;</p>
+
+            <p class="P2">(d)&nbsp;A statement indicating what corrective actions are required and a correction deadline stating the date by which the corrective actions must be completed to the satisfaction of the code enforcement officer in order for the violator to avoid the issuance of a notice of violation;</p>
+
+            <p class="P2">(e)&nbsp;An agreement by the person responsible for the violation that the city may inspect the premises as may be necessary to determine compliance with the voluntary correction agreement;</p>
+
+            <p class="P2">(f)&nbsp;An agreement by the person responsible for the violation and/or the owner(s) of property on which the violation has occurred or is occurring that, if the terms of the voluntary correction agreement are not met, the city may enter the property, abate the violation, and recover its costs and expenses as provided in this chapter;</p>
+
+            <p class="P2">(g)&nbsp;An agreement that by entering into the voluntary correction agreement, the person responsible for the violation waives the right to a hearing before the hearing examiner under this chapter regarding the violation, any penalty, and/or required corrective action; and</p>
+
+            <p class="P2">(h)&nbsp;A statement indicating that, pursuant to BMC <a href="#a1x15x120">1.15.120</a>, a notice of civil violation may be issued with each violation constituting a separate offense subject to civil penalties, or, alternatively, civil infraction or criminal charges may be filed.</p>
+
+            <p class="P1">(3)&nbsp;Extension of Voluntary Correction Period or Modification of Required Actions. An extension of the deadline for voluntary correction, or a modification of any required corrective action, may be granted by the code enforcement officer if the person responsible for the violation has, in the opinion of the code enforcement officer, shown due diligence or made substantial progress in correcting the violation but unforeseen circumstances have rendered correction unattainable within the original deadline.</p>
+
+            <p class="P1">(4)&nbsp;Revocation of Deadline for Compliance. The original deadline for compliance, or any extension for compliance previously granted by the code enforcement officer, may be revoked and immediate compliance required where, in the opinion of the code enforcement officer, circumstances make immediate correction necessary to avoid an imminent risk of injury to persons or property.</p>
+
+            <p class="P1">(5)&nbsp;Failure to Comply with Voluntary Correction Agreement.</p>
+
+            <p class="P2">(a)&nbsp;Abatement by the City. In addition to any other remedy provided for in this chapter, the city may abate the violation in accordance with BMC <a href="#a1x15x210">1.15.210</a>, if the terms of the voluntary correction agreement are not met.</p>
+
+            <p class="P2">(b)&nbsp;Penalties and Costs. If the terms of the voluntary correction agreement are not met, the person responsible for the violation may be issued a notice of civil violation and assessed a monetary penalty in accordance with BMC <a href="#a1x15x120">1.15.120</a>, plus all costs and expenses of abatement. Alternatively, the city may file a civil infraction or criminal charges. [Ord. 561 &sect;&nbsp;1, 2012]</p>
+
+      <h3 class="Cite"><a id="a1x15x110">1.15.110</a> Stop work order.</h3>
+            <p class="P1">(1)&nbsp;Issuance. Whenever a code enforcement officer determines that any work, use, activity, or conduct is a violation under the Burien Municipal Code and creates an imminent threat of injury to the health, safety, or welfare of any member of the public or will damage or injure, or exacerbate damage or injury already caused to, any property, the code enforcement officer may issue a stop work order directing any person causing, allowing, or participating in the offending conduct to cease such use, activity or conduct immediately.</p>
+
+            <p class="P1">(2)&nbsp;Service of Order. Service of the stop work order shall generally be accomplished as set forth in BMC <a href="#a1x15x070">1.15.070</a>(1)(c).</p>
+
+            <p class="P1">(3)&nbsp;The stop work order shall state the reasons for the order and may be appended to, or incorporate by reference, a notice of violation. The stop work order shall take effect immediately upon service and may be appealed under the procedures set forth in this chapter. During any such appeal, the stop work order shall remain in effect.</p>
+
+            <p class="P1">(4)&nbsp;Effect of a Stop Work Order. When a stop work order has been issued, posted and/or served pursuant to this section, it is unlawful for any person to whom the order is directed or any person with actual or constructive knowledge of the order to conduct the activity or perform the work covered by the order, even if the order has been appealed, until the code enforcement officer has removed the copy of the order, if posted, and issued written authorization for the activity or work to be resumed. In addition, a monetary penalty shall accrue for each day or portion thereof that a violation of a stop work order occurs, in the same amounts as under BMC <a href="#a1x15x120">1.15.120</a>. In addition to such criminal or monetary penalties, the city may enforce a stop work order pursuant to any other provision of this chapter and enforce it in superior court.</p>
+
+            <p class="P1">(5)&nbsp;Removal of a Stop Work Order. When a stop work order has been posted in conformity with the requirements of this chapter, removal of such order without the authorization of the city, or the hearing examiner if the matter has been heard by the hearing examiner, is unlawful and a violation. [Ord. 561 &sect;&nbsp;1, 2012]</p>
+
+      <h3 class="Cite"><a id="a1x15x120">1.15.120</a> Notice of civil violation.</h3>
+            <p class="P1">(1)&nbsp;Issuance of Notice of Violation. When the city determines that a violation has occurred or is occurring, the code enforcement officer may issue a notice of civil violation to any person responsible for the violation.</p>
+
+            <p class="P1">(2) Monetary Penalty. A monetary penalty shall accrue for each day or portion thereof that each violation continues beyond the date set in a notice of civil violation or any hearing examiner&rsquo;s decision. Unless a different penalty amount for a given violation is expressly authorized or required by a more specific city code provision, the maximum penalty and the default amount shall be $125.00 for the first violation and $250.00 for a second or subsequent violation of the same nature or a continuing violation past a deadline set by a notice of violation, not including fees, costs, and assessments. The city may waive the monetary penalty, if corrective action is completed by the date specified in the notice of civil violation or a voluntary correction agreement. The city shall have the discretion to impose penalties in an amount lower than those shown above.</p>
+
+            <p class="P1">(3)&nbsp;Contents of Notice. The notice of civil violation shall include the following:</p>
+
+            <p class="P2">(a)&nbsp;The name and address of a person responsible for the violation;</p>
+
+            <p class="P2">(b)&nbsp;The street address or description sufficient for identification of the building, structure, premises, or land upon or within which the violation has occurred or is occurring;</p>
+
+            <p class="P2">(c)&nbsp;A description of the violation and a reference to the provision violated and a description of what must be done to correct the violation;</p>
+
+            <p class="P2">(d)&nbsp;A statement indicating that the violator must respond to the notice of civil violation within 14 days of the date of issuance, or within such other time period as specified in the notice of civil violation, by doing one of the following:</p>
+
+            <p class="P3">(i)&nbsp;Paying any fine and correcting the violation;</p>
+
+            <p class="P3">(ii)&nbsp;Entering into and complying with a voluntary correction agreement with the city;</p>
+
+            <p class="P3">(iii)&nbsp;Requesting a mitigation hearing and correcting the violation; or</p>
+
+            <p class="P3">(iv)&nbsp;Requesting a hearing to contest the violation;</p>
+
+            <p class="P2">(e)&nbsp;A statement indicating that failure to respond to the notice of violation, or failure to attend any hearing, shall result in the violation being deemed committed without requiring further action by the city, and that the monetary penalty specified in the notice shall be due to the city by the violator and further accrue as provided; and</p>
+
+            <p class="P2">(f)&nbsp;A statement indicating that payment of a monetary penalty does not relieve the person or entity named in the notice of civil violation of the duty to abate the violation, and that failure to abate may result in the issuance of additional notices of violation and/or criminal charges, with additional civil and/or criminal penalties, including the payment of costs for any abatement action taken by the city.</p>
+
+            <p class="P1">(4)&nbsp;Extension. Upon written request received prior to the correction date or time, the code enforcement officer may extend the date set for correction for good cause or in order to accommodate a violation correction agreement. The code enforcement officer may consider substantial completion of the necessary correction or unforeseeable circumstances which render completion impossible by the date established as a good cause.</p>
+
+            <p class="P1">(5)&nbsp;(a) Transfer of Ownership. It shall be unlawful for the owner of any real property who has received a judgment or order regarding the owner&rsquo;s real property to sell, transfer, mortgage, lease, or otherwise dispose of such real property to another until the provisions of the judgment or order have been complied with, or until such owner shall first furnish the grantee, transferee, mortgagee, or lessee a true copy of any judgment or order issued by a court of competent jurisdiction, and shall furnish to the code enforcement officer a signed and notarized statement from the grantee, transferee, mortgagee, or lessee, acknowledging the receipt of such judgment or order and fully accepting the responsibility without condition for making the corrections or repairs required by such judgment or order. Such repairs must be completed within 30 calendar days unless the code enforcement officer permits more time in writing before the expiration of the aforementioned 30 calendar days.</p>
+
+            <p class="P2">(b)&nbsp;This provision shall not apply to the following types of transfers of real property: a gift or other transfer to a parent, spouse, domestic partner, or child of a transferor or child of any parent, spouse, or domestic partner of a transferor; a transfer between spouses or between domestic partners in connection with a marital dissolution or dissolution of a state-registered domestic partnership; a transfer made by the personal representative of the estate of the decedent or by a trustee in bankruptcy; and a tax-deferred exchange to an intermediary or facilitator.</p>
+
+            <p class="P2">(c)&nbsp;The filing of a judgment or order in the King County recorder&rsquo;s office shall be adequate notice to any potential or existing owner, grantee, transferee, mortgagee, or lessee.</p>
+
+            <p class="P2">(d)&nbsp;Subject to subsection (5)(b) of this section, a purchaser, grantee, transferee, mortgagee, or lessee that does not sign a notarized statement as mentioned in subsection (5)(a) of this section shall be liable in law or equity for criminal or civil remedies, fees, or penalties if that person(s) acquires the real property after the filing or being informed of the judgment or order.</p>
+
+            <p class="P2">(e)&nbsp;In this subsection (5), &ldquo;judgment or order&rdquo; shall mean any or all of the following: a judgment, a civil violation, a compliance order, a court order, a notice of civil violation, or any equivalent.</p>
+
+            <p class="P2">(f)&nbsp;In this subsection (5), &ldquo;real property&rdquo; shall mean all or any part of real property, including but not limited to structures, units, and developed, undeveloped, and regulated portions of that real property. [Ord. 762 &sect;&nbsp;1, 2023; Ord. 561 &sect;&nbsp;1, 2012]</p>
+
+      <h3 class="Cite"><a id="a1x15x130">1.15.130</a> Response to notice of civil violation.</h3>
+            <p class="P1">(1)&nbsp;Generally. A person who has been served with a notice of civil violation must respond to the notice within 14 days of the date the notice is served or within such other time period as specified in the notice of civil violation. A person may respond to the notice of civil violation by:</p>
+
+            <p class="P2">(a)&nbsp;Paying the amount of the monetary penalty as set forth in the notice of violation. Partial payment or payment using a check that is rejected for insufficient funds shall not be deemed payment under this subsection. Payment of the fine shall not relieve the person or entity responsible for the violation from the duty to correct or abate the violation. Additional notices of violation may be issued if the violation goes uncorrected.</p>
+
+            <p class="P2">(b)&nbsp;Entering into a voluntary correction agreement with the city.</p>
+
+            <p class="P2">(c)&nbsp;Contesting the notice of civil violation by requesting a contested hearing in writing and sending the request to the city as described in subsection (2) of this section.</p>
+
+            <p class="P2">(d)&nbsp;Seeking to mitigate the monetary penalty by requesting a mitigation hearing to explain the circumstances surrounding the violation. The request to mitigate must be made in writing and sent to the city with a $100.00 filing fee as described in subsection (2) of this section. Requesting to mitigate the penalty shall not relieve the person responsible for the violation from the duty to correct or abate the violation. Additional notices of violation may be issued if the violation goes uncorrected.</p>
+
+            <p class="P1">(2)&nbsp;Method of Response. The person or entity to whom a notice of civil violation has been issued may respond by mailing or hand-delivering the response to the city clerk. Mailed responses must be received no later than the fourteenth day from the date of service of the notice of violation or such other day as specified in the notice of violation. Hand-delivered responses must be brought to the city clerk no later than 4:00 p.m. on the fourteenth day after service or such other day as specified in the notice of violation; provided, that where the fourteenth or other specified day falls on a weekend or holiday, the deadline shall be extended to the next regular business day. Telephone, facsimile, electronic, or email responses shall not satisfy the requirements of this section. The response deadline may be stayed for a time certain by the code enforcement officer if the responsible person or entity is engaged in active discussions with the code enforcement officer and the code enforcement officer determines there is a reasonable probability that such discussions may result in compliance.</p>
+
+            <p class="P1">(3)&nbsp;If the person to whom the notice of civil violation is issued fails to respond as required in the notice of civil violation and this chapter, the violation(s) shall be deemed committed without requiring further action by the city or the city&rsquo;s hearing examiner, and the person to whom the notice of civil violation was issued shall owe the monetary penalty indicated. [Ord. 859 &sect;&nbsp;1, 2024; Ord. 561 &sect;&nbsp;1, 2012]</p>
+
+      <h3 class="Cite"><a id="a1x15x140">1.15.140</a> Scheduling of hearing to contest or mitigate &ndash; Correction prior to hearing.</h3>
+            <p class="P1">(1)&nbsp;Notice and Scheduling of Hearing. Upon the timely filing of a request for a hearing to contest a violation or to mitigate the penalty, the matter shall be scheduled to be heard at the next available appearance by the hearing examiner that is a minimum of 14 but no later than 60 calendar days after the date the request was received by the city. Notice of the hearing date and time shall be served by regular first class mail to the address of the party who requested the hearing. The date and time for any hearing may be rescheduled by the hearing examiner for good cause upon the motion of a party or the hearing examiner.</p>
+
+            <p class="P1">(2)&nbsp;Correction of Violation Prior to Hearing. The hearing may be cancelled and the party requesting the hearing need not appear if, at least two business days prior to the scheduled hearing, the code enforcement officer determines that the violation has been satisfactorily corrected or abated and the monetary penalty paid in full. Where the scheduled hearing involves a repeat violation as defined in this chapter, the hearing shall not be cancelled unless the new violation has been corrected or abated to the satisfaction of the code enforcement officer and the monetary penalty and costs for the new violation(s) and any monetary penalty and costs owing for the previous violation(s) have been paid in full. [Ord. 561 &sect;&nbsp;1, 2012]</p>
+
+      <h3 class="Cite"><a id="a1x15x150">1.15.150</a> Contested hearing &ndash; Procedure.</h3>
+            <p class="P1">The hearing examiner shall conduct a contested violation hearing when such hearing is properly and timely requested. The city and the person or entity to whom the notice of civil violation was issued may participate in the hearing, and each party or its legal representative may call witnesses and present evidence and rebuttal, subject to the following:</p>
+
+            <p class="P1">(1)&nbsp;Where not in conflict with a more specific provision of this chapter, hearings shall be conducted in accordance with Chapter 2.15 BMC.</p>
+
+            <p class="P1">(2)&nbsp;The city shall have the burden of proving by a preponderance of the evidence that a violation has occurred.</p>
+
+            <p class="P1">(3)&nbsp;The parties are responsible for securing the appearance of any witnesses they may wish to call. Neither the city nor the hearing examiner shall have the burden of securing any witnesses on behalf of the person who is contesting the violation(s) or seeking to mitigate the penalties.</p>
+
+            <p class="P1">(4)&nbsp;Formal rules of evidence shall not apply to any such hearing, and the hearing examiner shall allow hearsay testimony by the parties and not require proof of chain of custody for evidence that is presented; provided, that the hearing examiner shall determine the weight to be assigned to any evidence presented.</p>
+
+            <p class="P1">(5)&nbsp;Any notes, reports, summaries, photographs, or other materials prepared by the parties shall be admitted into evidence if requested; provided, that the parties are free to argue the weight that should be assigned by the hearing examiner to any evidence submitted. [Ord. 561 &sect;&nbsp;1, 2012]</p>
+
+      <h3 class="Cite"><a id="a1x15x160">1.15.160</a> Mitigation hearing &ndash; Procedure.</h3>
+            <p class="P1">The hearing examiner shall conduct a hearing to mitigate the penalty on a violation when such hearing is properly and timely requested; provided, that in the event a person has requested a hearing to contest a violation and prior to the start of the hearing indicates to the hearing examiner a desire to mitigate rather than contest, the examiner shall permit the person to seek mitigation of the monetary penalty. The mitigation hearing shall be conducted according to the following general procedures:</p>
+
+            <p class="P1">(1)&nbsp;The person responsible for the violation shall be given the opportunity to explain or provide evidence regarding the nature of the violation, why the violation exists, why the violation has not been abated or corrected, and any other information the hearing examiner determines is relevant.</p>
+
+            <p class="P1">(2)&nbsp;The city shall be given the opportunity, at its discretion, to provide evidence of the nature of the violation, evidence to rebut assertions made by any party, and any other information or evidence the hearing examiner deems to be relevant. [Ord. 561 &sect;&nbsp;1, 2012]</p>
+
+      <h3 class="Cite"><a id="a1x15x170">1.15.170</a> Decision of hearing examiner.</h3>
+            <p class="P1">(1)&nbsp;Contents of Order. Upon the conclusion of a hearing, the hearing examiner may issue an oral decision pending issuance of the written decision. If necessary, the hearing examiner may delay issuing the written order for up to 10 business days following the hearing. In either event, the oral decision and written order shall contain findings and conclusions based on the record, which to the extent applicable includes the following information:</p>
+
+            <p class="P2">(a)&nbsp;In mitigation hearings a statement indicating that each alleged violation has been found committed, and in contested hearings, for each alleged violation of the city code, a statement indicating whether the violation has been found committed or not committed;</p>
+
+            <p class="P2">(b)&nbsp;For violations found committed, the monetary penalties and costs being assessed pursuant to this chapter; provided, that where the person has requested to mitigate the monetary penalty, the hearing examiner may reduce the monetary penalty for each violation, but in no case shall the penalty be reduced to an amount less than $100.00 for each violation found committed;</p>
+
+            <p class="P2">(c)&nbsp;For violations found committed, any required corrective actions and compliance dates;</p>
+
+            <p class="P2">(d)&nbsp;For violations found committed, a finding that abatement of the violations by the city is authorized, at the expense of the person responsible for the violations; and</p>
+
+            <p class="P2">(e)&nbsp;A statement notifying the person responsible for the violation that he or she is subject to additional civil and/or criminal penalties if any violation that was the subject of the hearing has not been corrected or abated as required by the hearing examiner&rsquo;s order.</p>
+
+            <p class="P1">(2)&nbsp;Notice of Decision. The hearing examiner may cause a copy of the decision and order to be served upon the parties at the close of the hearing. When the hearing examiner requires more time to prepare a written order, or when a party fails to appear after requesting a contested hearing, the hearing examiner shall cause a copy of the decision and order to be served on the parties by mailing a copy to each party&rsquo;s last known address no later than 10 business days following the hearing. [Ord. 561 &sect;&nbsp;1, 2012]</p>
+
+      <h3 class="Cite"><a id="a1x15x180">1.15.180</a> Failure to appear &ndash; Default order.</h3>
+            <p class="P1">If the person who requests a hearing to contest a violation or mitigate the penalty then fails to appear at the scheduled hearing after having been given notice in the manner provided for by this chapter, the hearing examiner shall immediately issue a default order, which finds committed all the violations set forth in the notice of civil violation and which assesses a monetary penalty in the full amount indicated in the notice of violation. In addition, at the request of the city, the hearing examiner shall also impose upon the nonappearing party any costs to the city related to preparation for the hearing. The hearing examiner shall cause a copy of the decision to be served upon the nonappearing party by mailing a copy to the last known address of the nonappearing party within 10 business days of the hearing. Upon the motion of a party, the hearing examiner may rescind a default judgment only upon a showing of good cause to do so and only if such motion has been brought within 30 calendar days of the date of the hearing at which the default judgment was ordered. [Ord. 561 &sect;&nbsp;1, 2012]</p>
+
+      <h3 class="Cite"><a id="a1x15x190">1.15.190</a> Judicial review.</h3>
+            <p class="P1">Judicial review of a decision by the hearing examiner relating to any ordinance regulating the improvement, development, modification, maintenance, or use of real property may be sought by any person aggrieved or adversely affected by the decision, pursuant to the provisions of the Land Use Petition Act, Chapter 36.70C RCW, if applicable, or other applicable authority, if any, if the petition or complaint seeking review is filed and served on all parties within 21 days of the date of the decision. For purposes of this section, &ldquo;aggrieved or adversely affected&rdquo; shall have the meaning set forth in RCW 36.70C.060(2). Judicial review of all other decisions may only occur subject to the procedures of Chapter 7.16 RCW. [Ord. 561 &sect;&nbsp;1, 2012]</p>
+
+      <h3 class="Cite"><a id="a1x15x200">1.15.200</a> Recovery of penalties and costs.</h3>
+            <p class="P1">(1)&nbsp;Payment of Monetary Penalties and Costs. Any monetary penalties or costs assessed pursuant to this chapter constitute a personal obligation of the person responsible for the violation. In addition, the monetary penalties or costs assessed pursuant to this chapter may be assessed against the property that is the subject of the enforcement action. The city attorney is authorized to collect the monetary penalty or costs by use of appropriate legal remedies, the seeking or granting of which shall neither stay nor terminate the accrual of additional per diem monetary penalties so long as the violation continues. The city may incorporate any outstanding penalty or cost into an assessment lien, if the city incurs costs of abating the violation. Any monetary penalty assessed must be paid in full to the city within 30 days from the date of service of an uncontested notice of civil violation or any order of the hearing examiner that assesses monetary penalties.</p>
+
+            <p class="P1">(2)&nbsp;Recovery of Costs. The city shall bill its costs, including incidental expenses, of pursuing code compliance and/or of abating a violation to the person responsible for the violation and/or against the subject property. Such costs shall become due and payable 30 days after the date of the bill. The term &ldquo;incidental expenses&rdquo; shall include, but not be limited to, personnel costs, both direct and indirect, including attorneys&rsquo; fees incurred by the city; costs incurred in documenting the violation; the actual expenses and costs to the city in the preparation of notices, specifications and contracts, and in inspecting the work; hauling, storage and disposal expenses; the cost of any required printing and mailing; and interest. The city manager or designee, or the hearing examiner, may in his or her discretion waive in whole or part the assessment of any costs upon a showing that abatement has occurred or is no longer necessary or that the costs would cause a significant financial hardship for the responsible party. Any challenge to the amount of the abatement costs must be made within 14 days of issuance of the bill and shall be heard by the city manager in an informal hearing. The city manager shall make a written determination as to whether or not the city&rsquo;s costs were accurate and necessary for accomplishing the abatement.</p>
+
+            <p class="P1">(3)&nbsp;Use of Collection Agency. Pursuant to Chapter 19.16 RCW, as currently enacted or hereafter amended, the city may, at its discretion, use a collection agency for the purposes of collecting penalties and costs assessed pursuant to this chapter. The collection agency may add fees or interest charges to the original amount assigned to collections as allowed by law. No debt may be assigned to a collection agency until at least 30 calendar days have elapsed from the time that the city attempts to notify the person responsible for the debt of the existence of the debt and that the debt may be assigned to a collection agency for collection if the debt is not paid. Notice of potential assignment to collections shall be made by regular first class mail to the last known address of the person responsible for the violation; provided, that inability to ascertain a current mailing address shall not prohibit the debt from being assigned to collections.</p>
+
+            <p class="P1">(4)&nbsp;Assessment Lien. If penalties or costs assessed against a property are not paid within 30 days, the city clerk shall certify to the county treasurer the confirmed amount for assessment on the tax rolls. The county treasurer shall enter the amount of such assessment upon the tax rolls against the property for the current year and the same shall become a part of the general taxes for that year to be collected at the same time and with interest at such rates as provided in RCW 84.56.020, as now or hereafter amended, for delinquent taxes, and when collected to be deposited to the credit of the general fund of the city. The lien shall be of equal rank with the state, county and municipal taxes. The validity of any assessment made under the provisions of this chapter shall not be contested in any action or proceeding unless the same is commenced within 15 calendar days after the assessment is placed upon the assessment roll. The city attorney may also file a lien for such costs against the real property.</p>
+
+            <p class="P1">(5)&nbsp;Continuing Duty to Abate Violations. Payment of a monetary penalty or costs pursuant to this chapter does not relieve the person responsible for the violation of the duty to correct or abate the violation. Additional notices of violation may be issued and/or criminal charges filed for continuing failure to correct or abate a violation. [Ord. 561 &sect;&nbsp;1, 2012]</p>
+
+      <h3 class="Cite"><a id="a1x15x210">1.15.210</a> Abatement.</h3>
+            <p class="P1">(1)&nbsp;Abatement by City. The city may perform the abatement required upon noncompliance with the terms of an unappealed notice of violation, a voluntary correction agreement, or a final order of the hearing examiner. The city may utilize city employees or a private contractor under city direction to accomplish the abatement. The city, its employees and agents using lawful means are expressly authorized to enter upon the property of the violator for such purposes. Nothing in this chapter shall prohibit the city from pursuing abatement of a violation pursuant to any other laws of the state of Washington or the city.</p>
+
+            <p class="P1">(2)&nbsp;Summary Abatement. Whenever any violation causes a condition the continued existence of which constitutes an immediate threat to the public health, safety or welfare or to the environment, the city may summarily and without prior notice abate the condition. Notice of such abatement, including the reason for it, shall be given to the person responsible for the violation as soon as reasonably possible after the abatement. No right of action shall lie against the city or its agents, officers, or employees for actions reasonably taken to prevent or cure any such immediate threats, but neither shall the city be entitled to recover any costs incurred for summary abatement, prior to the time that notice thereof is served on the person responsible for the violation as set forth in BMC <a href="#a1x15x070">1.15.070</a>.</p>
+
+            <p class="P1">(3)&nbsp;Obstruction with Work Prohibited. No person shall obstruct, impede or interfere with the city, its employees or agents, or any person who owns or holds any interest or estate in any property in the performance of any necessary act preliminary or incidental to carrying out the requirements of a notice of violation, voluntary correction agreement, or order of the hearing examiner issued pursuant to this chapter. [Ord. 561 &sect;&nbsp;1, 2012]</p>
+
+      <h3 class="Cite"><a id="a1x15x220">1.15.220</a> Right of entry.</h3>
+            <p class="P1">(1)&nbsp;When it is necessary to enforce the provisions of the Burien Municipal Code, or when a code enforcement officer has reasonable cause to believe that there exists in a building or upon a premises a condition that is contrary to or in violation of this code, the code enforcement officer may enter the building or premises at reasonable times to inspect or to perform the duties imposed by this code; provided, that if such building or premises be occupied that credentials be presented to the occupant and entry requested. If such building or premises be unoccupied, the code enforcement officer shall first make a reasonable effort to locate the owner or other person having charge or control of the building or premises and request entry. If entry is refused, the code enforcement officer shall have recourse to the remedies provided by law to secure entry.</p>
+
+            <p class="P1">(2)&nbsp;Posted Property. Where private property is posted with a &ldquo;No Trespassing&rdquo; sign and has a gate or chain on private property, or where private property is enclosed by a secured gate or chain (other than by a simple latching or closure device) a city employee shall not make entry beyond areas open to the public without the express permission of the property owner/resident or a court order. No employee shall be required to enter a posted or gated piece of property if the employee feels threatened, intimidated, or otherwise in fear of his or her personal safety.</p>
+
+            <p class="P1">(3)&nbsp;Employee Identification. City employees shall carry identification cards while on duty. Any employee, when legitimately requested by the public, shall show the requesting party his/her identification card.</p>
+
+            <p class="P1">(4)&nbsp;Intimidation of Employees. Threats, intimidation, or other violations of public peace directed against an employee engaged in lawful action upon private property are unlawful and may subject that person and the owner of the property, as applicable, to legal action. [Ord. 561 &sect;&nbsp;1, 2012]</p>
+
+    
+    </div>
+    <div id="pgFooter">
+    <!--BeginNoIndex-->
+<p id="current">The Burien Municipal Code is current through Ordinance 905, and legislation passed through July 27, 2026.</p>
+<p id="disclaimer">Disclaimer: The City Clerk's Office has the official version of the Burien Municipal Code. Users should contact the City Clerk's Office for ordinances passed subsequent to the ordinance cited above.</p>
+
+<p>City Website: <a href="https://www.burienwa.gov/" target="_top">https://www.burienwa.gov/</a><br />
+City Telephone: (206) 241-4647</p>
+<p>Codification services provided by <a href="https://www.generalcode.com/" target="top">General Code</a></p>
+    <!--EndNoIndex-->
+
+</div>
+</body></html>

@@ -1,0 +1,714 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+  <html xmlns="http://www.w3.org/1999/xhtml">
+ <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta http-equiv="Content-Style-Type" content="text/css" />
+<style>
+body {font-family: Arial, Sans-serif;}
+
+a:link:active { color: #1263be;}
+a:link:hover { color: #1263be;}
+a:link { color: #02397c;}
+a:link:visited, a:visited { color: #1263be;}
+
+/*Styles for NT page*/
+#cityname, #codification, .codified, .cpc {
+   font-weight: bold;
+   text-align: left;
+	font-size: .9em;
+}
+#cityname {
+   margin-top: 3em;
+   font-size: 1.25em;
+}
+
+.cpc {  margin: 0;  padding-bottom: .5em; }
+
+/* Navigation buttons */
+
+#navTop {
+	text-align: right;
+	margin: 1em 1.8em;
+	padding-bottom: 1em;
+}
+#navBottom {
+	margin: 1em 1.8em;
+	padding-top: 1em;
+	text-align: left;
+}
+
+#navTop *, #navBottom *  { 
+	text-decoration: none;
+}
+
+/* styles for the body of the code */
+
+#mainContent {
+	border:solid #000;
+	border-width:1px 0px;
+	margin: 1em 2em;
+	padding: 1.1em;
+}
+
+
+/*this is for dealing with city logos on the front page
+Since they are floated right, they can hang down into #navBottom
+*/
+#mainContent:after {
+	content: "."; 
+	display: block;
+	height: 0; 
+	clear: right; 
+	visibility: hidden;
+}
+
+img { border:0px; }
+#mainContent img { display: block; margin: 1em auto; }
+#mainContent a img {border:1px solid;}
+#mainContent h3 img { border:0;vertical-align:bottom;float:right;margin:0px;	}
+#mainContent h2 img, #mainContent h1 img { border:0;vertical-align:top;float:right;margin:0px; }
+
+ h1, h2 {
+	font-size: 0.95em;
+	text-align:center;
+	margin:1em auto;
+}
+
+p, h3, h4 {
+	font-size: .85em;
+	line-height:1.5em;
+	margin: 0em;
+	font-style: normal;
+	font-variant: normal;
+	text-transform: normal;
+	vertical-align: baseline;
+	font-weight: normal;
+	text-align: left;
+}
+/* add default bottom margin, which we don't want in h3 */
+p { margin-bottom: 1em; }
+
+.ArticleTOC, .digArt, .artdig {
+	margin-top: 1em;
+	text-align: center;
+}
+
+.Article, .DivisionTOC, .art, .digDiv, .digdiv, .Divdig, .divdig,
+.Rxhead, .CHRepealed, .TitleRepealed,  .RxHead,
+.TitleReserved, .CHReserved, .ReservedC, .CH, .CHTitle, 
+.Division, .div, .divname, .DivisionName, .DivName,
+.TableTitle, .GraphicTitle, .Graphic, .graphic, 
+.graphictitle, .graphicname {
+  font-weight: bold;
+  margin: 1em 0;
+  text-align: center;
+}
+
+.Center, .center, .CellBodyC, .cellbodyc {
+  text-align: center;
+}
+
+.CellBodyR, .cellbodyr {
+	text-align: right;
+}
+
+.CellBodyIndent {	margin-left:1em; }
+.CellHeading {  font-weight: bold; text-align: center; }
+.CellHeadingL {  font-weight: bold; margin:0; }
+.CellHeadingR {  font-weight: bold;  text-align: right; }
+
+.CHTOC a, .CiteTOC a { text-decoration:none; font-weight:bold;}
+.CHTOC a:hover, .CiteTOC a:hover { text-decoration:underline; font-weight:bold;}
+.CHTOC {
+  font-weight: bold;
+}
+.desktop-view .CHTOC {
+  margin: 0 0 0 7em;
+  text-indent: -3.3em;
+  }
+
+.Cite {
+  font-weight: bold;
+  margin-top: 1em;
+  vertical-align: baseline;
+}
+.desktop-view .CiteTOC {
+  margin: 0 0 0 7em;
+  text-indent: -5.8em;
+}
+
+.digCH, .ctoc {
+  font-weight: normal;
+  margin-top: 1em;
+  margin-bottom:0em;
+}
+.digTitle, .chtoc, .tocch {
+  font-weight: bold;
+}
+
+.desktop-view .digTitle, .desktop-view .chtoc, .desktop-view .tocch {
+  margin: 1em 0 0 2em;
+}
+
+.Footnote, .footnote, .FootNote, .Note, .note {
+  margin: 1em .8em;
+  font-size: .8em;
+  text-indent: -.8em;
+}
+
+.ordtab, td p.ordtab {
+  min-width:100px;
+  margin: 0;
+  margin-right: 0.9em;
+}
+
+.P0, .P0block, .P1, .P1block { margin-left: 0em;}
+.P2, .P2block {  margin-left: 2.3em; }
+.P3, .P3block {  margin-left: 4.3em; }
+.P4, .P4block {  margin-left: 6.3em; }
+.P5, .P5block {  margin-left: 8.3em; }
+.P6, .P6block {  margin-left: 9.3em; }
+.P7, .P7block {  margin-left: 11.3em; }
+
+.Q1 { font-size: .75em;  margin: 1em 2.3em; }
+
+.Q2 {
+  font-size: .75em;
+  margin: 1em 2.3em;
+  margin-left: 4.3em;
+}
+.Q3 {
+  font-size: .75em;
+  margin: 1em 2.3em;
+  margin-left: 6.3em;
+ }
+.Q4 {
+  font-size: .75em;
+  margin: 1em 2.3em;
+  margin-left: 8.3em;
+}
+.QC {
+  font-size: .75em;
+  margin: 1em 2.3em;
+  text-align:center;
+}
+
+.TableFootnote,  .HistoryNote {
+  font-weight: normal;
+  font-size: .75em;
+}
+
+.Title, .TitleName {
+  font-size: 1em;
+  font-weight: bold;
+  margin: 1em;
+  text-align: center;
+}
+
+.WAC {
+  margin-left: 5.5em;
+  text-indent: -5.5em;
+  margin-bottom:0em;
+}
+
+
+.underline, .under, .Underline, .Under {
+	text-decoration:underline;
+}
+.bold, .Bold {
+  font-weight: bold;
+}
+.bolditalic, .bold_italic, .BoldItalic, .ital, .Bold_Italic, .bold_Italic {
+  font-weight: bold;
+  font-style: italic;
+}
+.italic, .Italic, .emphasis, .Emphasis {
+  font-style: italic;
+}
+.EquationVariables {
+  font-family: Times New Roman;
+  font-style: italic;
+}
+.strikethrough, .Strikethrough, .strikeout, .Strikeout, .linethrough, .Linethrough {
+	text-decoration: line-through;
+}
+.sub, .subscript, .Subscript, .sub, .Sub {
+  vertical-align: sub;
+  font-size:0.75em;
+}
+.super, .Superscript, .superscript, .Super {
+  vertical-align: super;
+  font-size:0.75em;
+  }
+  
+ /* Table CSS */
+ 
+#mainContent table {
+	border-collapse: collapse;
+	margin: 1em auto;
+}
+
+table.hovercraft {
+	margin-top:0px !important;
+	margin-bottom:0px !important;
+}	
+td,   tr{ background:white; }
+
+caption {
+	margin-left:auto;
+	margin-right:auto;
+	text-align:center;
+}
+
+td p, th p, caption p {
+	font-size: .8em;
+	margin-bottom:0em;
+}
+
+td { padding:3pt; text-align:left; }
+
+table.Ruled, table.RuledWithTitle, table.Format_B,
+table.TitleRules, table.Format_A {
+  border:1px solid black;
+}
+
+iframe {width:100%; height:300px;}
+
+/* 
+box.jpg is for when codes have the little empty box symbol 
+we're attaching it to a dummy class here so that even if it isn't being used
+it won't get deleted by the destroyExtraImages() function.
+Other just-in-case images coulde be added here.
+*/
+.validateMeBabyYeah { 
+	background:url('../images/but1_on.png') no-repeat top right; 
+	background:url('../images/but2_on.png') no-repeat top right; 
+	background:url('../images/but3_on.png') no-repeat top right; 
+	background:url('../images/but4_on.png') no-repeat top right; 
+	background:url('../images/but5_on.png') no-repeat top right; 
+	background:url('../images/but6_on.png') no-repeat top right; 
+	background:url('../images/but7_on.png') no-repeat top right; 
+	background:url('../images/col2-bottom.png') no-repeat top right; 
+	background:url('../images/col2-top.png') no-repeat top right; 
+	background:url('../images/dot-repeater.png') no-repeat top right; 
+	background:url('../images/search_off.png') no-repeat top right; 
+	background:url('../images/search_on.png') no-repeat top right; 
+	background:url('../html/images/box.jpg') no-repeat top right; 
+	background:url('../html/images/pdf.png') no-repeat top right;
+}</style>    <title>SanCarlos</title>
+</head> 
+<body>   
+    <div id="mainContent">
+    <a id="start" />
+    <h1 style="page-break-before:auto" headertitle="San Carlos Municipal Code" headerdisc="The San Carlos Municipal Code is current through Ordinance 1637, passed June 22, 2026." class="Title"><a id="a1"></a>Title 1<br />GENERAL PROVISIONS </h1>
+            <p class="tocch">Chapters:</p>
+
+            <p class="CHTOC"><a href="#a1x01">1.01&nbsp;&nbsp;&nbsp;&nbsp;Code Adoption</a></p>
+
+            <p class="CHTOC"><a href="#a1x04">1.04&nbsp;&nbsp;&nbsp;&nbsp;General Provisions</a> </p>
+
+            <p class="CHTOC"><a href="#a1x08">1.08&nbsp;&nbsp;&nbsp;&nbsp;City Seal</a></p>
+
+            <p class="CHTOC"><a href="#a1x16">1.16&nbsp;&nbsp;&nbsp;&nbsp;Arrest Procedure</a></p>
+
+            <p class="CHTOC"><a href="#a1x20">1.20&nbsp;&nbsp;&nbsp;&nbsp;Penalties</a></p>
+
+            <p class="CHTOC"><a href="#a1x25">1.25&nbsp;&nbsp;&nbsp;&nbsp;Appeals</a></p>
+
+            <p class="CHTOC"><a href="#a1x26">1.26&nbsp;&nbsp;&nbsp;&nbsp;Procedure and Limitations Period for Filing Claims</a></p>
+
+            <p class="CHTOC"><a href="#a1x30">1.30&nbsp;&nbsp;&nbsp;&nbsp;Developer Indemnification</a></p>
+
+    <h2 headertitle="San Carlos Municipal Code" headerdisc="The San Carlos Municipal Code is current through Ordinance 1637, passed June 22, 2026." class="CH"><a id="a1x01"></a>Chapter 1.01<br />CODE ADOPTION</h2>
+            <p class="ctoc">Sections:</p>
+
+            <p class="CiteTOC"><a href="#a1x01x010">1.01.010&nbsp;&nbsp;&nbsp;&nbsp;Adoption.</a></p>
+
+            <p class="CiteTOC"><a href="#a1x01x020">1.01.020&nbsp;&nbsp;&nbsp;&nbsp;Title&mdash;Citation&mdash;Reference.</a></p>
+
+            <p class="CiteTOC"><a href="#a1x01x030">1.01.030&nbsp;&nbsp;&nbsp;&nbsp;Codification authority.</a></p>
+
+            <p class="CiteTOC"><a href="#a1x01x040">1.01.040&nbsp;&nbsp;&nbsp;&nbsp;Ordinances passed prior to adoption of the Code.</a></p>
+
+            <p class="CiteTOC"><a href="#a1x01x050">1.01.050&nbsp;&nbsp;&nbsp;&nbsp;Reference applies to all amendments.</a></p>
+
+            <p class="CiteTOC"><a href="#a1x01x060">1.01.060&nbsp;&nbsp;&nbsp;&nbsp;Title, chapter and section headings.</a></p>
+
+            <p class="CiteTOC"><a href="#a1x01x070">1.01.070&nbsp;&nbsp;&nbsp;&nbsp;References to specific ordinances.</a></p>
+
+            <p class="CiteTOC"><a href="#a1x01x080">1.01.080&nbsp;&nbsp;&nbsp;&nbsp;Effect of Code on past actions and obligations.</a></p>
+
+            <p class="CiteTOC"><a href="#a1x01x090">1.01.090&nbsp;&nbsp;&nbsp;&nbsp;Effective date.</a></p>
+
+            <p class="CiteTOC"><a href="#a1x01x100">1.01.100&nbsp;&nbsp;&nbsp;&nbsp;Constitutionality.</a></p>
+
+      <h3 class="Cite"><a id="a1x01x010">1.01.010</a> Adoption.</h3>
+            <p class="P1">Pursuant to the provisions of Sections 50022.1 through 50022.8 and 50022.10 of the Government Code, there is hereby adopted the &quot;San Carlos Municipal Code,&quot; published by Book Publishing Company, Seattle, Washington, together with those secondary codes previously adopted by reference as authorized by the California State Legislature, save and except those portions of the secondary codes as are deleted or modified by the provisions of the &quot;San Carlos Municipal Code.&quot; (Ord. 1037 &sect; 1, 1989)</p>
+
+      <h3 class="Cite"><a id="a1x01x020">1.01.020</a> Title&mdash;Citation&mdash;Reference.</h3>
+            <p class="P1">This Code shall be known as the &quot;San Carlos Municipal Code&quot; in any prosecution for the violation of any provision thereof or in any proceeding at law or equity. It shall be sufficient to designate any ordinance adding to, amending, correcting or repealing all or any part or portion thereof as an addition to, amendment to, correction or repeal of the &quot;San Carlos Municipal Code.&quot; Further reference may be had to the titles, chapters, sections and subsections of the &quot;San Carlos Municipal Code&quot; and such references shall apply to that numbered title, chapter, section or subsection as it appears in the Code. (Ord. 1037 &sect; 2, 1989)</p>
+
+      <h3 class="Cite"><a id="a1x01x030">1.01.030</a> Codification authority.</h3>
+            <p class="P1">This Code consists of all the regulatory and penal ordinances and certain of the administrative ordinances of the City of San Carlos, California, codified pursuant to the provisions of Sections 50022.1 through 50022.8 and 50022.10 of the Government Code. (Ord. 1037 &sect; 3, 1989)</p>
+
+      <h3 class="Cite"><a id="a1x01x040">1.01.040</a> Ordinances passed prior to adoption of the Code.</h3>
+            <p class="P1">The last ordinance included in this Code was Ordinance 1019, passed February 27, 1989. The following ordinances, passed subsequent to Ordinance 1019, but prior to adoption of this Code, are adopted and made a part of this Code: Ordinances 1020 through 1035. (Ord. 1037 &sect; 4, 1989)</p>
+
+      <h3 class="Cite"><a id="a1x01x050">1.01.050</a> Reference applies to all amendments.</h3>
+            <p class="P1">Whenever a reference is made to this Code as the &quot;San Carlos Municipal Code&quot; or to any portion thereof, or to any ordinance of the City of San Carlos, California, the reference shall apply to all amendments, corrections and additions heretofore, now or hereafter made. (Ord. 1037 &sect; 5, 1989)</p>
+
+      <h3 class="Cite"><a id="a1x01x060">1.01.060</a> Title, chapter and section headings.</h3>
+            <p class="P1">Title, chapter and section headings contained in this Code shall not be deemed to govern, limit, modify or in any manner affect the scope, meaning or intent of the provisions of any title, chapter or section hereof. (Ord. 1037 &sect; 6, 1989)</p>
+
+      <h3 class="Cite"><a id="a1x01x070">1.01.070</a> References to specific ordinances.</h3>
+            <p class="P1">The provisions of this Code shall not in any manner affect matters of record which refer to, or are otherwise connected with ordinances which are therein specifically designated by number or otherwise and which are included within the Code, but such reference shall be construed to apply to the corresponding provisions contained within this Code. (Ord. 1037 &sect; 7, 1989)</p>
+
+      <h3 class="Cite"><a id="a1x01x080">1.01.080</a> Effect of Code on past actions and obligations.</h3>
+            <p class="P1">Neither the adoption of this Code nor the repeal or amendment hereby of any ordinance or part or portion of any ordinance of the City shall in any manner affect the prosecution for violations of ordinances, which violations were committed prior to the effective date of this Code, nor be construed as a waiver of any license, fee or penalty at said effective date due and unpaid under such ordinances, nor be construed as affecting any of the provisions of such ordinances relating to the collection of any such license, fee or penalty, or the penal validity of any bond or cash deposit in lieu thereof required to be posted, filed or deposited pursuant to any ordinance; and all rights and obligations thereunder appertaining shall continue in full force and effect. (Ord. 1037 &sect; 8, 1989)</p>
+
+      <h3 class="Cite"><a id="a1x01x090">1.01.090</a> Effective date.</h3>
+            <p class="P1">This Code shall become effective on the date the ordinance adopting this Code as the &quot;San Carlos Municipal Code&quot; becomes effective. (Ord. 1037 &sect; 9, 1989)</p>
+
+      <h3 class="Cite"><a id="a1x01x100">1.01.100</a> Constitutionality.</h3>
+            <p class="P1">If any section, subsection, sentence, clause or phrase of this Code is for any reason held to be invalid or unconstitutional, such decision shall not affect the validity of the remaining portions of this Code. The Council hereby declares that it would have passed this Code, and each section, subsection, sentence, clause and phrase thereof, irrespective of the fact that any one or more sections, subsections, sentences, clauses or phrases had been declared invalid or unconstitutional; and if for any reason this Code should be declared invalid or unconstitutional, then the original ordinance or ordinances shall be in full force and effect. (Ord. 1037 &sect; 10, 1989)</p>
+
+    <h2 headertitle="San Carlos Municipal Code" headerdisc="The San Carlos Municipal Code is current through Ordinance 1637, passed June 22, 2026." class="CH"><a id="a1x04"></a>Chapter 1.04<br />GENERAL PROVISIONS </h2>
+            <p class="ctoc">Sections:</p>
+
+            <p class="CiteTOC"><a href="#a1x04x010">1.04.010&nbsp;&nbsp;&nbsp;&nbsp;Construction.</a></p>
+
+            <p class="CiteTOC"><a href="#a1x04x020">1.04.020&nbsp;&nbsp;&nbsp;&nbsp;Interpretation of language.</a></p>
+
+            <p class="CiteTOC"><a href="#a1x04x030">1.04.030&nbsp;&nbsp;&nbsp;&nbsp;Reference to acts or omissions within City.</a></p>
+
+            <p class="CiteTOC"><a href="#a1x04x040">1.04.040&nbsp;&nbsp;&nbsp;&nbsp;Prohibited acts include causing and permitting.</a></p>
+
+            <p class="CiteTOC"><a href="#a1x04x050">1.04.050&nbsp;&nbsp;&nbsp;&nbsp;Acts by agents.</a></p>
+
+            <p class="CiteTOC"><a href="#a1x04x060">1.04.060&nbsp;&nbsp;&nbsp;&nbsp;Grammatical interpretation.</a></p>
+
+            <p class="CiteTOC"><a href="#a1x04x070">1.04.070&nbsp;&nbsp;&nbsp;&nbsp;Reference applies to amendments.</a></p>
+
+            <p class="CiteTOC"><a href="#a1x04x080">1.04.080&nbsp;&nbsp;&nbsp;&nbsp;Notice&mdash;Method of service.</a></p>
+
+            <p class="CiteTOC"><a href="#a1x04x090">1.04.090&nbsp;&nbsp;&nbsp;&nbsp;Notice&mdash;Proof by affidavit.</a></p>
+
+            <p class="CiteTOC"><a href="#a1x04x100">1.04.100&nbsp;&nbsp;&nbsp;&nbsp;Definitions.</a> </p>
+
+      <h3 class="Cite"><a id="a1x04x010">1.04.010</a> Construction.</h3>
+            <p class="P1">Unless the context of the provisions otherwise requires, general provisions of this Code and all proceedings under it are to be construed with a view to effect its objects and promote justice. (Prior code &sect; 1300)</p>
+
+      <h3 class="Cite"><a id="a1x04x020">1.04.020</a> Interpretation of language.</h3>
+            <p class="P1">Article and section headings contained in this Code shall not be deemed to govern, limit, modify or in any manner affect the scope, meaning or intent of the provisions of any article or section of this Code. (Prior code &sect; 1301)</p>
+
+      <h3 class="Cite"><a id="a1x04x030">1.04.030</a> Reference to acts or omissions within City.</h3>
+            <p class="P1">This Code shall refer only to the omission or commission of acts within the territorial limits of the City and to that territory outside of the City over which the City has jurisdiction or control by virtue of the Constitution, or any law, or by reason of ownership or control of property. (Prior code &sect; 1302)</p>
+
+      <h3 class="Cite"><a id="a1x04x040">1.04.040</a> Prohibited acts include causing and permitting.</h3>
+            <p class="P1">Whenever in this Code any act or omission is made unlawful, it shall include causing, permitting, aiding, abetting, suffering or concealing such act or omission. (Prior code &sect; 1303)</p>
+
+      <h3 class="Cite"><a id="a1x04x050">1.04.050</a> Acts by agents.</h3>
+            <p class="P1">Whenever a power is granted to, or a duty is imposed upon a public officer, or employee, the power may be exercised, or the duty may be performed by a deputy of such officer or employee or by a person otherwise duly authorized pursuant to law or ordinance, unless the Code expressly provided otherwise. (Prior code &sect; 1304)</p>
+
+      <h3 class="Cite"><a id="a1x04x060">1.04.060</a> Grammatical interpretation.</h3>
+            <p class="P1">Writing includes any form of recorded message capable of comprehension by ordinary visual means. Whenever any notice, report, statement or record is required or authorized by this Code, it shall be made in writing in the English language unless expressly provided otherwise. (Prior code &sect; 1305)</p>
+
+      <h3 class="Cite"><a id="a1x04x070">1.04.070</a> Reference applies to amendments.</h3>
+            <p class="P1">Whenever a reference is made to any portion of this Code, or to any ordinances of the City of San Carlos, California, the reference applies to all amendments and additions now or hereafter made. (Prior code &sect; 1306)</p>
+
+      <h3 class="Cite"><a id="a1x04x080">1.04.080</a> Notice&mdash;Method of service.</h3>
+            <p class="P1">Whenever a notice is required to be given under this Code, unless different provisions are otherwise specifically made in this Code, such notice may be given either by personal delivery thereof to the person to be notified or by deposit in the United States Mail, in a sealed envelope, postage prepaid, addressed to such person to be notified, at his last known business or residence address as the same appears in the public records of the City or other records pertaining to the matter to which such notice is directed. Service by mail shall be deemed to have been completed at the time of deposit in the Post Office. (Prior code &sect; 1307)</p>
+
+      <h3 class="Cite"><a id="a1x04x090">1.04.090</a> Notice&mdash;Proof by affidavit.</h3>
+            <p class="P1">Proof of giving any notice may be made by the certificate of any officer or employee of the City, or by affidavit or any person over the age of eighteen years, which shows service in conformity with this Code, or other provisions of law applicable to the subject matter concerned. (Prior code &sect; 1308)</p>
+
+      <h3 class="Cite"><a id="a1x04x100">1.04.100</a> Definitions. </h3>
+            <p class="P1">For the purposes of this Code, unless the context clearly indicates otherwise, certain words and phrases used throughout this Code are defined as follows:</p>
+
+            <p class="P1">1. &ldquo;City&rdquo; means the City of San Carlos, California.</p>
+
+            <p class="P1">2. &ldquo;City Council&rdquo; means the City Council of the City of San Carlos, California.</p>
+
+            <p class="P1">3. &ldquo;City Hall&rdquo; means the public building 600 Elm Street, San Carlos, California.</p>
+
+            <p class="P1">4. &quot;City manager&quot; means the appointed official of the City who occupies the position as the Chief Administrative Officer of the City of San Carlos, California.</p>
+
+            <p class="P1">5. &quot;County&quot; means San Mateo County.</p>
+
+            <p class="P1">6. Gender. The masculine gender includes the feminine and neuter.</p>
+
+            <p class="P1">7. &quot;Goods&quot; means all things (including specially manufactured goods) which are movable; investment securities and things in action. &quot;Goods&quot; also means and includes the unborn young animal and growing crops and other identified things attached to realty as described in Section 2107 of the Commercial Code.</p>
+
+            <p class="P1">8. Number. The singular number includes the plural, and the plural, the singular.</p>
+
+            <p class="P1">9. &quot;Oath&quot; means and includes affirmation.</p>
+
+            <p class="P1">10. Office. The use of the title of any officer, employee, officer or ordinance shall mean such officer, employee, office or ordinance of the City.</p>
+
+            <p class="P1">11. &quot;Operate&quot; means and includes to carry on, keep, conduct or maintain.</p>
+
+            <p class="P1">12. &quot;Owner,&quot; as applied to a building or land, means that person or those persons whose real property taxes are assessed as stated in the last equalized assessment roll or that person or those persons to whom the aforesaid owner has transferred his interest or that person or those persons entitled to possession and/or control of the property.</p>
+
+            <p class="P1">13.&nbsp;&nbsp;&nbsp;&nbsp;&ldquo;Person&rdquo; means and includes any persons, partnership, corporation or unincorporated association.</p>
+
+            <p class="P1">14.&nbsp;&nbsp;&nbsp;&nbsp;&ldquo;Sale&rdquo; means and consists of the passing of title from the seller to the buyer for a price as defined in Section 2401 of the Commercial Code.</p>
+
+            <p class="P1">15.&nbsp;&nbsp;&nbsp;&nbsp;Shall and May. Shall is mandatory and may is permissive.</p>
+
+            <p class="P1">16.&nbsp;&nbsp;&nbsp;&nbsp;&ldquo;State&rdquo; means the State of California.</p>
+
+            <p class="P1">17.&nbsp;&nbsp;&nbsp;&nbsp;&ldquo;Street&rdquo; means and includes all streets, highways, avenues, lanes, alleys, courts, places, squares, sidewalks, parkways, curbs or other public ways in the City of San Carlos which have been or may hereafter be dedicated and open to public use, or such other public property so designated in any law of the State of California.</p>
+
+            <p class="P1">18.&nbsp;&nbsp;&nbsp;&nbsp;&ldquo;Tenant&rdquo; or &ldquo;occupant,&rdquo; applied to a building or land means and includes any person who occupies the whole or part of such building or land, whether alone or with others.</p>
+
+            <p class="P1">19.&nbsp;&nbsp;&nbsp;&nbsp;Tenses. The present tense includes the past and future tenses, and the future, the present. (Ord. 1612 &sect;&nbsp;1 (Exh. A), 2024; amended during 1989 recodification; prior code &sect;&sect;&nbsp;1400&mdash;1417)</p>
+
+    <h2 headertitle="San Carlos Municipal Code" headerdisc="The San Carlos Municipal Code is current through Ordinance 1637, passed June 22, 2026." class="CH"><a id="a1x08"></a>Chapter 1.08<br />CITY SEAL</h2>
+            <p class="ctoc">Sections:</p>
+
+            <p class="CiteTOC"><a href="#a1x08x010">1.08.010&nbsp;&nbsp;&nbsp;&nbsp;Content of seal.</a></p>
+
+            <p class="CiteTOC"><a href="#a1x08x020">1.08.020&nbsp;&nbsp;&nbsp;&nbsp;Color and design.</a></p>
+
+            <p class="CiteTOC"><a href="#a1x08x030">1.08.030&nbsp;&nbsp;&nbsp;&nbsp;Impression seal&mdash;Purpose.</a></p>
+
+            <p class="CiteTOC"><a href="#a1x08x040">1.08.040&nbsp;&nbsp;&nbsp;&nbsp;Other designated uses.</a></p>
+
+      <h3 class="Cite"><a id="a1x08x010">1.08.010</a> Content of seal.</h3>
+            <p class="P1">The following described seal is adopted for the City: A seal circular in form with a diameter of two and one-eighth inches, and which shall have inscribed thereon a pictorial representation of a white oak tree in the center of the seal with an industrial structure shown on one side and a typical residence on the other, and bearing beneath it the inscription: &ldquo;The City of Good Living.&rdquo; This shall constitute the center portion of the seal and shall be surrounded by a convex scalloped border. The central theme shall be surrounded by a band at the top of which shall be inscribed &ldquo;City of San Carlos,&rdquo; and at the base thereof shall be inscribed &ldquo;California.&rdquo; (Ord. 1322 &sect; 1, 2003: Ord. 264 &sect; 1 (part), 1950)</p>
+
+      <h3 class="Cite"><a id="a1x08x020">1.08.020</a> Color and design.</h3>
+            <p class="P1">The coloring of all seals of the City, excepting the impression seal, shall be as follows: All inscriptions and outlines shall be in black, the white oak foliage shall be green, and the background shall be in gold and white. (Ord. 264 &sect; 1 (part), 1950)</p>
+
+      <h3 class="Cite"><a id="a1x08x030">1.08.030</a> Impression seal&mdash;Purpose.</h3>
+            <p class="P1">The impression seal shall be used for all official business of the City of San Carlos. (Ord. 264 &sect; 2, 1950)</p>
+
+      <h3 class="Cite"><a id="a1x08x040">1.08.040</a> Other designated uses.</h3>
+            <p class="P1">The design of the seal shall be used upon all stationery of the City and shall be placed upon at least one visible place on all vehicles and movable street equipment with the exception of vehicles which shall be designated by the Chief of Police, and shall be for the use of the Police Department in crime detection; and such seals shall be of such size and proportion as may be selected from time to time by the City Council. (Ord. 446 &sect; 2, 1958)</p>
+
+    <h2 headertitle="San Carlos Municipal Code" headerdisc="The San Carlos Municipal Code is current through Ordinance 1637, passed June 22, 2026." class="CH"><a id="a1x16"></a>Chapter 1.16<br />ARREST PROCEDURE</h2>
+            <p class="ctoc">Sections:</p>
+
+            <p class="CiteTOC"><a href="#a1x16x010">1.16.010&nbsp;&nbsp;&nbsp;&nbsp;Notice to appear&mdash;Required when.</a></p>
+
+            <p class="CiteTOC"><a href="#a1x16x020">1.16.020&nbsp;&nbsp;&nbsp;&nbsp;Notice to appear&mdash;Violation.</a></p>
+
+            <p class="CiteTOC"><a href="#a1x16x030">1.16.030&nbsp;&nbsp;&nbsp;&nbsp;Warrant for arrest.</a></p>
+
+      <h3 class="Cite"><a id="a1x16x010">1.16.010</a> Notice to appear&mdash;Required when.</h3>
+            <p class="P1">If any person is arrested for the violation of any ordinance of the City and such person is not immediately taken before a magistrate as prescribed in the State Penal Code, the arresting officer shall prepare in duplicate a written notice to appear in court, containing the name and address of such person, the offense charged, and the time and place where and when such person shall appear in court. (Ord. 490 &sect; 1 (part), 1959)</p>
+
+      <h3 class="Cite"><a id="a1x16x020">1.16.020</a> Notice to appear&mdash;Violation.</h3>
+            <p class="P1">Any person wilfully violating his written promise to appear in court is guilty of a misdemeanor regardless of the disposition of the charge upon which he was originally arrested. (Ord. 490 &sect; 1 (part), 1959)</p>
+
+      <h3 class="Cite"><a id="a1x16x030">1.16.030</a> Warrant for arrest.</h3>
+            <p class="P1">When a person signs a written promise to appear at the time and place specified in the written promise to appear and has not posted bail as provided in Section 853.1 of the State Penal Code, the magistrate shall issue and have delivered for execution a warrant for his arrest within twenty days after his failure to appear as promised, or if such person promises to appear before an officer authorized to accept bail other than a magistrate and fails to do so on or before the date which he promises to appear, then within twenty days after the delivery of such written promise to appear by the officer to a magistrate having jurisdiction over the offense. (Ord. 490 &sect; 1 (part), 1959)</p>
+
+    <h2 headertitle="San Carlos Municipal Code" headerdisc="The San Carlos Municipal Code is current through Ordinance 1637, passed June 22, 2026." class="CH"><a id="a1x20"></a>Chapter 1.20<br />PENALTIES</h2>
+            <p class="ctoc">Sections:</p>
+
+            <p class="CiteTOC"><a href="#a1x20x010">1.20.010&nbsp;&nbsp;&nbsp;&nbsp;Compliance with Code provisions required.</a></p>
+
+            <p class="CiteTOC"><a href="#a1x20x020">1.20.020&nbsp;&nbsp;&nbsp;&nbsp;General penalty.</a></p>
+
+            <p class="CiteTOC"><a href="#a1x20x030">1.20.030&nbsp;&nbsp;&nbsp;&nbsp;Separate offense for each violation.</a></p>
+
+            <p class="CiteTOC"><a href="#a1x20x040">1.20.040&nbsp;&nbsp;&nbsp;&nbsp;Permitted or existing violations deemed public nuisance.</a></p>
+
+            <p class="CiteTOC"><a href="#a1x20x050">1.20.050&nbsp;&nbsp;&nbsp;&nbsp;Administrative provision violations.</a></p>
+
+            <p class="CiteTOC"><a href="#a1x20x060">1.20.060&nbsp;&nbsp;&nbsp;&nbsp;Violation&mdash;Abatement.</a></p>
+
+            <p class="CiteTOC"><a href="#a1x20x070">1.20.070&nbsp;&nbsp;&nbsp;&nbsp;Administrative and abatement costs.</a></p>
+
+            <p class="CiteTOC"><a href="#a1x20x080">1.20.080&nbsp;&nbsp;&nbsp;&nbsp;Code compliance process.</a></p>
+
+            <p class="CiteTOC"><a href="#a1x20x090">1.20.090&nbsp;&nbsp;&nbsp;&nbsp;Enforcement authority.</a></p>
+
+            <p class="CiteTOC"><a href="#a1x20x100">1.20.100&nbsp;&nbsp;&nbsp;&nbsp;Notice of recordation.</a></p>
+
+            <p class="CiteTOC"><a href="#a1x20x110">1.20.110&nbsp;&nbsp;&nbsp;&nbsp;Mediation.</a></p>
+
+      <h3 class="Cite"><a id="a1x20x010">1.20.010</a> Compliance with Code provisions required.</h3>
+            <p class="P1">No person shall violate any provision, or fail to comply with any of the requirements of this Code. (Ord. 490 &sect; 1 (part), 1959)</p>
+
+      <h3 class="Cite"><a id="a1x20x020">1.20.020</a> General penalty.</h3>
+            <p class="P1">A. Any person violating any of the provisions or failing to comply with any of the mandatory requirements of the ordinances of the City, is guilty of a misdemeanor, unless the violation is made an infraction by ordinance.</p>
+
+            <p class="P1">B. Except in cases where a different punishment is prescribed by any ordinance of the City, any person convicted of a misdemeanor for violation of an ordinance of the City is punishable by a fine of not more than one thousand dollars, or by imprisonment not to exceed six months, or by both such fine and imprisonment.</p>
+
+            <p class="P1">C. Any person convicted of an infraction for violation of an ordinance of the City is punishable by:</p>
+
+            <p class="P1">1. A fine not exceeding one hundred dollars for a first violation;</p>
+
+            <p class="P1">2. A fine not exceeding two hundred dollars for a second violation of the same ordinance within one year; or</p>
+
+            <p class="P1">3. A fine not exceeding five hundred dollars for each additional violation of the same ordinance within one year.</p>
+
+            <p class="P1">D. Each person is guilty of a separate offense for each and every day during any portion of which any violation of any provision of this Code is committed, continued or permitted by any such person, and he shall be punishable accordingly.</p>
+
+            <p class="P1">E. In addition to the penalties set out in this Code, any condition caused or permitted to exist in violation of any of the provisions of this Code shall be deemed a public nuisance and may be, by the City, summarily abated as such, and each day such condition continues shall be regarded as a new and separate offense.</p>
+
+            <p class="P1">F. Notwithstanding any other provision of this Code, whenever violation of any section of this Code is punishable as a misdemeanor, the Prosecuting Attorney may specify that the offense is an infraction and proceed with prosecution as an infraction unless the defendant, at the time of arraignment or plea, objects to the offense being an infraction, in which event the complaint shall be amended and the case shall proceed on a misdemeanor complaint. (Ord. 1113 &sect; 1, 1992; Ord. 978 &sect; 2 (part), 1987)</p>
+
+      <h3 class="Cite"><a id="a1x20x030">1.20.030</a> Separate offense for each violation.</h3>
+            <p class="P1">Each such person shall be guilty of a separate offense for each and every day during any portion of which any violation of any provision of this Code is committed, continued or permitted by such person, and he shall be punished accordingly. (Ord. 490 &sect; 1 (part), 1959)</p>
+
+      <h3 class="Cite"><a id="a1x20x040">1.20.040</a> Permitted or existing violations deemed public nuisance.</h3>
+            <p class="P1">In addition to the penalties provided for in this chapter, any condition caused or permitted to exist in violation of any of the provisions of this Code shall be deemed a public nuisance and may be, by the City, summarily abated as such, and each day such condition continues shall be regarded as a new and separate offense. (Ord. 490 &sect; 1 (part), 1959)</p>
+
+      <h3 class="Cite"><a id="a1x20x050">1.20.050</a> Administrative provision violations.</h3>
+            <p class="P1">The violation of any administrative provision of this Code by any officer or employee of the City may be deemed a failure to perform the duties under, or observe the rules and regulations of, the department, office or board within the meaning of the Civil Service Ordinance, codified in Chapter 2.44 of this Code and rules and regulations of the City. (Ord. 490 &sect; 1 (part), 1959)</p>
+
+      <h3 class="Cite"><a id="a1x20x060">1.20.060</a> Violation&mdash;Abatement.</h3>
+            <p class="P1">A. Violations as a Misdemeanor or Infraction. In addition to the penalties provided for in this chapter, any condition caused or permitted to exist in violation of any of the provisions of the Code may, in the City Attorney&rsquo;s discretion, constitute either a misdemeanor, an infraction pursuant to Section <a href="#a1x20x020">1.20.020</a>(F) of this code, or may constitute a citable offense or any combination thereof. In addition, violations of this chapter may result in the payment of fines and fees by the property owner or responsible party as established by City Council resolution for the recovery of administrative expenses and abatement costs.</p>
+
+            <p class="P1">B. Chapter Provisions Not Exclusive. Notwithstanding the enforcement procedures as set forth in this chapter, the City may proceed to enforce any violation of its Code in any manner authorized by law. (Ord. 1179 &sect; 5 (part), 1995)</p>
+
+      <h3 class="Cite"><a id="a1x20x070">1.20.070</a> Administrative and abatement costs.</h3>
+            <p class="P1">A. Whenever a public nuisance as defined in this chapter is found to exist as a result of an inspection, the reasonable administrative expenses as determined by the City Council and actual abatement costs as set by City Council resolution, shall be paid by the property owner. The City Council shall, from time to time, determine and fix an amount to be assessed as administrative expenses and abatement costs for violations of this chapter.</p>
+
+            <p class="P1">B. Pursuant to Section 38773.5 of the California Government Code, in any action, administrative proceeding, or special proceeding brought by the City to abate a public nuisance, the prevailing party shall be entitled to reasonable attorney&rsquo;s fees. Recovery of attorney&rsquo;s fees shall be limited as follows:</p>
+
+            <p class="P1">1. To those actions or proceedings where the City has elected to recover attorney&rsquo;s fees at the initiation of such actions or proceedings.</p>
+
+            <p class="P1">2. The amount of attorney&rsquo;s fees in any action, administrative action, or special proceeding awarded to a prevailing party shall not exceed the amount of reasonable attorney&rsquo;s fees incurred by the City in the action or proceeding. (Ord. 1222 &sect; 1, 1996; Ord. 1179 &sect; 5 (part), 1995)</p>
+
+      <h3 class="Cite"><a id="a1x20x080">1.20.080</a> Code compliance process.</h3>
+            <p class="P1">The Council adopts the following basic principles to guide the City&rsquo;s Code compliance process:</p>
+
+            <p class="P1">A. It is the responsibility of the property owner and his/her builder or contractor or other responsible person to understand and comply with all applicable provisions of this Code.</p>
+
+            <p class="P1">B. The City has a duty and responsibility to investigate, enforce and prioritize Code violations in order to obtain compliance with City Code provisions. The City requires written and signed complaints from members of the public for the enforcement of violations which are not visible from the public right-of-way.</p>
+
+            <p class="P1">C. When a Code violation is discovered, any related construction or demolition work activity shall cease immediately.</p>
+
+            <p class="P1">D. No City official has the authority to waive the need for a permit required by the City Code unless expressly given that right by the City Code or court order.</p>
+
+            <p class="P1">E. When a Code violation occurs, the person responsible for the violation shall be responsible for the City&rsquo;s costs of obtaining compliance with the City&rsquo;s regulations. (Ord. 1201 &sect; 1, 1996)</p>
+
+      <h3 class="Cite"><a id="a1x20x090">1.20.090</a> Enforcement authority.</h3>
+            <p class="P1">The City Manager or his/her designee, as Code Enforcement Officer, shall enforce the violations of this Code. (Ord. 1201 &sect; 2, 1996)</p>
+
+      <h3 class="Cite"><a id="a1x20x100">1.20.100</a> Notice of recordation.</h3>
+            <p class="P1">A. In addition to any other remedy provided for violations of the provisions of this Code, or any other ordinance of the City, or the provisions of any Code adopted by reference by this Code, whenever the City has knowledge of an alleged violation that relates in any way to the occupation of real property within the City, it may provide a notice of Code violation to the owner of the property upon which the alleged violation is located, or where different from the owner, to the person(s) responsible for causing or maintaining such alleged violation. Notice shall be provided to the property owner by U.S. mail at the address shown on the latest assessment roll or at any other address of the owner known to the Code Enforcement Officer. In the event the owner&rsquo;s address is unknown, notice shall be conspicuously posted on or in front of the property, in a form to be approved by the Code Enforcement Officer. Notice to any responsible person shall be by U.S. mail to the street address of the property or by posting notice on the property.</p>
+
+            <p class="P1">B. The notice shall specify the property address, the owner&rsquo;s name, any responsible party&rsquo;s name, and the nature of the alleged violation(s), including reference to the pertinent Code section(s). The notice shall provide a list of corrections needed to bring the property into compliance, a deadline or specific date to correct the violations, and an indication of the potential consequences should the property remain in violation, including, but not limited to: criminal prosecution, civil injunction, civil penalties, administrative costs, recordation of the notice, and withholding of future permits and inspections. The potential consequences listed should be commensurate with the nature and severity of the alleged violation.</p>
+
+            <p class="P1">C. The notice shall also state that within twenty days after the date of the notice, the owner and/or any responsible person may request a hearing by the City Manager to present evidence that a Code violation does not exist. If a hearing is requested, the City Manager shall set a date and time for a hearing with the owner and/or responsible person to discuss the alleged violation, its substance, compliance procedures, remedies and potential consequences of failure to remedy, as soon as possible after receipt of request for such hearing. At the time and place set for a hearing before the City Manager, he or she shall hear evidence for and against the alleged Code violation. The City Manager may continue any hearing from time to time. Within a reasonable time, but not more than ten working days after the conclusion of the hearing, the City Manager shall determine whether or not a Code violation exists, which in his or her opinion is supported by the evidence presented at the hearing. Notice of the decision of the City Manager shall be mailed to the applicant and to any other person requesting such notice.</p>
+
+            <p class="P1">D. In the event a hearing is not requested and the alleged violation has not been corrected or a corrective plan of action is not approved by the Code Enforcement Officer within thirty days of notice or in the event that, after consideration of evidence, the City Manager determines that a violation of one or more of said City Codes or ordinances in fact exists, the Code Enforcement Officer shall issue a notice of intent to record the notice of Code violation. A copy of the notice of intent shall be provided by personal delivery or certified U.S. mail to the property owner and to any responsible person.</p>
+
+            <p class="P1">E. If the owner or the responsible person disagrees with the determination of the City Manager, either party may appeal the decision to the City Council pursuant to Chapter 1.25 of this Code.</p>
+
+            <p class="P1">F. In the event that the Code violation has not been corrected within forty-five days of the date of the notice of intent, and there has been no appeal filed, the Code Enforcement Officer shall record the notice of violation with the Office of the County Recorder of San Mateo County. If there has been an appeal filed, the City Council has found that a violation exists, and the Code violation has not been corrected within forty-five days of the final determination, the Code Enforcement Officer shall record the notice of violation with the Office of the County Recorder of San Mateo County. The recorded notice of violation shall include the name of the property owner, assessor&rsquo;s parcel number, the parcel&rsquo;s legal description, and a requirement that the Code violation be corrected prior to sale of the residence. A copy of the notice of violation shall be provided by certified U.S. mail to the property owner and any responsible person.</p>
+
+            <p class="P1">G. Upon the correction of any violation noticed pursuant to this section, the Code Enforcement Officer shall issue a notice of release of Code violation. A notice of release of Code violation shall be issued and recorded by the Code Enforcement Officer only if:</p>
+
+            <p class="P1">1. All violations listed in the notice of violation have been corrected;</p>
+
+            <p class="P1">2. All necessary permits have been issued and finalized;</p>
+
+            <p class="P1">3. Any required civil penalties or administrative penalties have been paid.</p>
+
+            <p class="P1">H. Notwithstanding the foregoing provision, however, the City may pursue such violations where the Code Enforcement Officer determines that a health and/or safety hazard exists from the violation. (Ord. 1201 &sect; 3, 1996)</p>
+
+      <h3 class="Cite"><a id="a1x20x110">1.20.110</a> Mediation.</h3>
+            <p class="P1">At any stage of a Code compliance proceeding, including during a civil action, the matter may be referred to mediation by the City, or by a court that has jurisdiction over the matter. The mediation shall be held before a neutral third party agreed to by the parties or appointed by the Presiding Judge of the Superior Court in and for the County of San Mateo. Fees incurred during the mediation process shall be shared equally by all parties involved. (Ord. 1201 &sect; 4, 1996)</p>
+
+    <h2 headertitle="San Carlos Municipal Code" headerdisc="The San Carlos Municipal Code is current through Ordinance 1637, passed June 22, 2026." class="CH"><a id="a1x25"></a>Chapter 1.25<br />APPEALS</h2>
+            <p class="ctoc">Sections:</p>
+
+            <p class="CiteTOC"><a href="#a1x25x010">1.25.010&nbsp;&nbsp;&nbsp;&nbsp;Right to appeal.</a></p>
+
+            <p class="CiteTOC"><a href="#a1x25x020">1.25.020&nbsp;&nbsp;&nbsp;&nbsp;Time for filing.</a></p>
+
+            <p class="CiteTOC"><a href="#a1x25x030">1.25.030&nbsp;&nbsp;&nbsp;&nbsp;Hearings&mdash;Notices.</a></p>
+
+            <p class="CiteTOC"><a href="#a1x25x040">1.25.040&nbsp;&nbsp;&nbsp;&nbsp;Hearings&mdash;Action.</a></p>
+
+      <h3 class="Cite"><a id="a1x25x010">1.25.010</a> Right to appeal.</h3>
+            <p class="P1">Except where an appeals procedure is otherwise specifically set forth in this Code, any person excepting to the denial, suspension or revocation of a permit applied for or held by him pursuant to any of the provisions of this Code, or to any administrative decision made by any official of the City, if the denial, suspension or revocation of such permit or the determination of such administrative decision involves the exercise of administrative discretion or personal judgment exercised pursuant to any of the provisions of this Code, may appeal in writing to the Council by filing with the City Clerk a written notice of such appeal, setting forth the specific grounds thereof.</p>
+
+            <p class="P1">No right of appeal to the Council from any administrative decision made by an official of the City pursuant to any of the provisions of this Code shall exist when such decision is ministerial and thus does not involve the exercise of administrative discretion or personal judgment exercised pursuant to any of the provisions of this Code, whether the administrative decision involves the denial, suspension or revocation of a permit or any other administrative decision. (Ord. 1062 &sect; 1 (part), 1991)</p>
+
+      <h3 class="Cite"><a id="a1x25x020">1.25.020</a> Time for filing.</h3>
+            <p class="P1">The appellant shall file a notice of appeal with the City Clerk within ten days after notice of the administrative decision concerned. (Ord. 1062 &sect; 1 (part), 1991)</p>
+
+      <h3 class="Cite"><a id="a1x25x030">1.25.030</a> Hearings&mdash;Notices.</h3>
+            <p class="P1">Upon the filing of the notice of appeal in proper form, the City Clerk shall place the matter on a Council agenda at least ten days, and no more than sixty days, after the date of the filing of the notice of appeal. The City Clerk shall cause a written notice of the hearing to be given to the appellant not less than ten days prior to such hearing. (Ord. 1062 &sect; 1 (part), 1991)</p>
+
+      <h3 class="Cite"><a id="a1x25x040">1.25.040</a> Hearings&mdash;Action.</h3>
+            <p class="P1">At the hearing before the City Council, the appellant shall show cause on the grounds set forth in the notice of appeal why the action appealed from should not be approved. The Council may continue the hearing from time to time, and its findings on the appeal shall be final and conclusive in the matter. (Ord. 1062 &sect; 1 (part), 1991)</p>
+
+    <h2 headertitle="San Carlos Municipal Code" headerdisc="The San Carlos Municipal Code is current through Ordinance 1637, passed June 22, 2026." class="CH"><a id="a1x26"></a>Chapter 1.26<br />PROCEDURE AND LIMITATIONS PERIOD FOR FILING CLAIMS</h2>
+            <p class="ctoc">Sections:</p>
+
+            <p class="CiteTOC"><a href="#a1x26x010">1.26.010&nbsp;&nbsp;&nbsp;&nbsp;Authority.</a></p>
+
+            <p class="CiteTOC"><a href="#a1x26x020">1.26.020&nbsp;&nbsp;&nbsp;&nbsp;Claims required.</a></p>
+
+            <p class="CiteTOC"><a href="#a1x26x030">1.26.030&nbsp;&nbsp;&nbsp;&nbsp;Presentment of claims.</a></p>
+
+            <p class="CiteTOC"><a href="#a1x26x040">1.26.040&nbsp;&nbsp;&nbsp;&nbsp;Form of claim.</a></p>
+
+            <p class="CiteTOC"><a href="#a1x26x050">1.26.050&nbsp;&nbsp;&nbsp;&nbsp;Claim prerequisite to suit.</a></p>
+
+            <p class="CiteTOC"><a href="#a1x26x060">1.26.060&nbsp;&nbsp;&nbsp;&nbsp;City action on claim.</a></p>
+
+            <h3 class="Cite"><a id="a1x26x010">1.26.010</a> Authority.</h3>
+
+            <p class="P1">This chapter is enacted pursuant to California Government Code Section 935. (Ord. 1293 &sect; 1 (part), 2001)</p>
+
+      <h3 class="Cite"><a id="a1x26x020">1.26.020</a> Claims required.</h3>
+            <p class="P1">All claims against the City for money, damages or tax or assessment refunds, not otherwise governed by the Tort Claims Act, California Government Code Sections 900, et seq., or any other law of the State of California (hereinafter &quot;claims&quot;) shall be governed by the provisions of this chapter. (Ord. 1293 &sect; 1 (part), 2001)</p>
+
+      <h3 class="Cite"><a id="a1x26x030">1.26.030</a> Presentment of claims.</h3>
+            <p class="P1">Claims against the City governed by this chapter shall be presented not later than one year after the accrual of the claim. A tax or assessment refund claim shall be deemed to accrue as of the date of payment of the tax or assessment. (Ord. 1293 &sect; 1 (part), 2001)</p>
+
+      <h3 class="Cite"><a id="a1x26x040">1.26.040</a> Form of claim.</h3>
+            <p class="P1">All claims shall be made in writing and verified by a claimant or by the claimant&rsquo;s guardian, conservator, executor or adminis-trator. No claim may be filed on behalf of a class of persons unless verified by every member of the class. In addition, all claims shall contain the information required by California Government Code Section 910. Claims shall be made on a form provided by the City Clerk and shall be filed with the City Clerk. (Ord. 1293 &sect; 1 (part), 2001)</p>
+
+      <h3 class="Cite"><a id="a1x26x050">1.26.050</a> Claim prerequisite to suit.</h3>
+            <p class="P1">All claims shall be presented as provided in this chapter and acted upon by the City Council prior to the filing of any lawsuit or action on such claim, and no lawsuit or action shall be maintained by a person or entity that has not complied with this chapter. (Ord. 1293 &sect; 1 (part), 2001)</p>
+
+      <h3 class="Cite"><a id="a1x26x060">1.26.060</a> City action on claim.</h3>
+            <p class="P1">The City Council shall act to approve or deny a claim within forty-five days of its presentment as required under this chapter. Failure of the City Council to act within the time required shall be deemed a denial of the claim. (Ord. 1293 &sect; 1 (part), 2001)</p>
+
+    <h2 headertitle="San Carlos Municipal Code" headerdisc="The San Carlos Municipal Code is current through Ordinance 1637, passed June 22, 2026." class="CH"><a id="a1x30"></a>Chapter 1.30<br />DEVELOPER INDEMNIFICATION</h2>
+            <p class="ctoc">Sections:</p>
+
+            <p class="CiteTOC"><a href="#a1x30x010">1.30.010&nbsp;&nbsp;&nbsp;&nbsp;Purpose.</a></p>
+
+            <p class="CiteTOC"><a href="#a1x30x020">1.30.020&nbsp;&nbsp;&nbsp;&nbsp;Definitions.</a></p>
+
+            <p class="CiteTOC"><a href="#a1x30x030">1.30.030&nbsp;&nbsp;&nbsp;&nbsp;Indemnity required.</a></p>
+
+      <h3 class="Cite"><a id="a1x30x010">1.30.010</a> Purpose.</h3>
+            <p class="P1">A.&nbsp;&nbsp;&nbsp;&nbsp;The City presently requires developers and other applicants for permits to develop real property to pay fees to mitigate the fiscal impact of processing applications.</p>
+
+            <p class="P1">B.&nbsp;&nbsp;&nbsp;&nbsp;The costs associated with defending a legal action brought by a third party challenging the City&rsquo;s approval of a permit or entitlement for development should be a cost burden of the real party-in-interest who is the applicant for such development and not the City. (Ord. 1309 &sect; 1 (part), 2002)</p>
+
+      <h3 class="Cite"><a id="a1x30x020">1.30.020</a> Definitions.</h3>
+            <p class="P1">A.&nbsp;&nbsp;&nbsp;&nbsp;&ldquo;Developer&rdquo; means any applicant for a permit or entitlement for development.</p>
+
+            <p class="P1">B.&nbsp;&nbsp;&nbsp;&nbsp;&ldquo;Development&rdquo; means a land use permit or entitlement under this code and shall include determination under the California Environmental Quality Act (CEQA), including but not limited to General Plan or zoning modification, use permit, variance exception, site development, and site design permits, and building permits. The term shall not include a subdivision. (Ord. 1309 &sect; 1 (part), 2002)</p>
+
+      <h3 class="Cite"><a id="a1x30x030">1.30.030</a> Indemnity required.</h3>
+            <p class="P1">Any developer issued a permit for development by the City shall, as a condition of such permit, indemnify, defend and hold harmless the City, its officers, employees and agents, from any and all claims and lawsuits from third party(ies) involving or related to the City&rsquo;s approval of the developer&rsquo;s application for development. (Ord. 1309 &sect; 1 (part), 2002)</p>
+
+    
+    </div>
+    <div id="pgFooter">
+    <!--BeginNoIndex-->
+<p id="current">The San Carlos Municipal Code is current through Ordinance 1637, passed June 22, 2026.</p>
+<p id="disclaimer">Disclaimer: The City Clerk's Office has the official version of the San Carlos Municipal Code. Users should contact the City Clerk's Office for ordinances passed subsequent to the ordinance cited above.</p>
+
+<p>City Website: <a href="https://www.cityofsancarlos.org/" target="_top">https://www.cityofsancarlos.org/</a><br />
+City Telephone: (650) 802-4222</p>
+<p>Codification services provided by <a href="https://www.generalcode.com/" target="top">General Code</a></p>
+    <!--EndNoIndex-->
+
+</div>
+</body></html>

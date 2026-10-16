@@ -1,0 +1,2090 @@
+{
+  "schema_version": 2,
+  "family": "ecode360",
+  "created_at": "2026-10-15T19:07:31.957173+00:00",
+  "validation_date": "2026-10-15",
+  "scope": "bounded current live route/chapter acquisition qualification; no full corpus/import",
+  "status": "supported_browser_e2e_pass_for_all_current_routes; standalone_access_blocked_or_not_run",
+  "summary": {
+    "current_jurisdictions": 14,
+    "baseline_jurisdictions": 12,
+    "additional_migrated_routes": [
+      "foster-city-ca",
+      "seatac-wa"
+    ],
+    "supported_cua_fresh_acquisition_import_parse_exports_pass": 14,
+    "current_records": 134,
+    "standalone_http_pass": 0,
+    "standalone_http_blocked": 14,
+    "standalone_browser_pass": 0,
+    "standalone_browser_blocked": 1,
+    "standalone_browser_not_run": 13,
+    "python_tests_passed": 26,
+    "node_checks_passed": 11,
+    "full_publication_inventory_verified": 0,
+    "full_collection_verified": 0
+  },
+  "runtime_environment": {
+    "python": "3.9.6 (default, May 22 2026, 11:13:45) \n[Clang 21.0.0 (clang-2100.1.1.101)]",
+    "platform": "macOS-26.6.2-arm64-arm-64bit",
+    "python_executable": "/private/tmp/ecode-e2e-venv/bin/python",
+    "packages": {
+      "requests": "2.32.5",
+      "beautifulsoup4": "4.15.0",
+      "playwright": "1.60.0"
+    }
+  },
+  "node_version": "v24.19.0",
+  "commands": {
+    "python_tests": "python -m unittest -v test_ecode360.py test_e2e.py",
+    "node_checks": "node test_capture.mjs",
+    "offline_current_replay": "python verify_e2e.py --out fresh-empty-output",
+    "supported_capture": "cua_repl: import acquire_cua.mjs, createAcquirer or bind own task tab, captureJob with observed route/node/customer identity",
+    "standalone_browser_attempt": "python acquire_browser.py https://ecode360.com/51404426 --expected-node 51404426 --out live/standalone-browser/foster-city-ca",
+    "direct_http_probe": "python ecode360.py probe --routes live/direct-http-probe-routes.json --out live/standalone-current --delay 1.5",
+    "single_capture_ingest": "python ingest_cua.py --receipt CAPTURE.receipt.json --jurisdiction NAME --out FRESH_OUTPUT"
+  },
+  "tests": {
+    "python": {
+      "path": "live/final-replay/tests.txt",
+      "sha256": "1d16a020a29f03f59cf2df37fc472c50431a592c2a869d6d7cfbf8a8a695de45",
+      "bytes": 2335
+    },
+    "node": {
+      "path": "live/tests-capture.txt",
+      "sha256": "623c0d60de91d84f7e9cf6410616fb37a7609b25b8ed5876b4c3ed6af3a7dcd2",
+      "bytes": 110
+    },
+    "current_replay_summary": {
+      "path": "live/final-replay/summary.json",
+      "sha256": "d33698e804fffa850dc715200465208af8e61a60fa7687236bcf2a03fb4b11fa",
+      "bytes": 5825
+    },
+    "current_replay_pass": true,
+    "current_replay_network_used": false,
+    "python_test_scope": "22 inherited regressions plus4 current E2E/list-label/tamper/blocked-exit checks",
+    "node_test_scope": "5 pureJS/nativeSHA comparisons plus6 capture surrogate/mutation/stale-heading/immutability/size checks"
+  },
+  "parser": {
+    "version": "ecode360-e2e-1.1.0",
+    "source": {
+      "path": "ecode360.py",
+      "sha256": "ce79453ff406caa78c1a73b00cfe7b314ffa929eb65c795eb6edb8d1085ba58b",
+      "bytes": 29506
+    },
+    "live_defect_fixed": "Current list-number labels can be nested in a wrapper. Resolve label/content within nearest owning litem rather than direct-child-only lookup; Foster real A.–J. list regression and all134 source-body comparisons pass.",
+    "freeze_note": "Parser and acquisition code frozen before final26Python/11Node checks. No live reacquisition needed for post-capture immutable-output guard; final guard also executed in actual acceptedMalibu capture."
+  },
+  "jurisdictions": [
+    {
+      "slug": "burlingame-ca",
+      "jurisdiction": "Burlingame",
+      "discovery_url": "https://ecode360.com/44507298",
+      "route_basis": "retained observed publisher chapter route; current capture independently validates customer/code/date",
+      "checked_on": "2026-10-15",
+      "standalone_http_status": "blocked",
+      "standalone_browser_status": "not_run",
+      "supported_cua_e2e_status": "pass",
+      "record_count": 1,
+      "latest_success_receipt": "live/cua/burlingame-ca/legal-content.receipt.json",
+      "current_output_directory": "live/final-replay/burlingame-ca",
+      "direct_http": {
+        "status": "blocked",
+        "http_status": 403,
+        "receipt": {
+          "path": "live/standalone-current/burlingame-ca/receipt.json",
+          "sha256": "4092719a5388cf054afbe6f53d431926b820725aba864c35ff8f74e8776dc851",
+          "bytes": 993
+        },
+        "raw": {
+          "path": "live/standalone-current/burlingame-ca/89e2b5c55cdc5bde2e7edc92042114e9ef88990866fa09cf31642347aacfdb9b.html",
+          "sha256": "89e2b5c55cdc5bde2e7edc92042114e9ef88990866fa09cf31642347aacfdb9b",
+          "bytes": 5522
+        },
+        "command": "python ecode360.py fetch https://ecode360.com/44507298 --out OUTPUT",
+        "blocker": "Public request returned403; retained exact response; no repeated blocked retries"
+      },
+      "standalone_browser": {
+        "status": "not_run",
+        "blocker": null,
+        "note": "No standalone-browser result inferred from HTTP or CUA results"
+      },
+      "supported_cua": {
+        "status": "pass",
+        "runtime": "supported Codex CUA, Chrome browser3, isolated task session; Node filesystem outside read-only DOM evaluation",
+        "acquisition_started_at": "2026-10-15T18:55:16.504Z",
+        "acquisition_finished_at": "2026-10-15T18:55:20.665Z",
+        "receipt": {
+          "path": "live/cua/burlingame-ca/legal-content.receipt.json",
+          "sha256": "491056c73aae076c2705cdbf5a06361bf568467e1b576e7bdeaafa8bb80ade4f",
+          "bytes": 2519
+        },
+        "source": {
+          "path": "live/cua/burlingame-ca/legal-content.html",
+          "sha256": "67a3a3aed21915d7bba5312d8f2e4f1387ecc56e11aa0573f306094b11135dd0",
+          "bytes": 6807
+        },
+        "capture_scope": "exact legal-content DOM subtree",
+        "capture_selector": "#codeContent",
+        "synthetic_document_wrapper_added": true,
+        "source_sha256_before": "67a3a3aed21915d7bba5312d8f2e4f1387ecc56e11aa0573f306094b11135dd0",
+        "source_sha256_after": "67a3a3aed21915d7bba5312d8f2e4f1387ecc56e11aa0573f306094b11135dd0",
+        "raw_sha256": "67a3a3aed21915d7bba5312d8f2e4f1387ecc56e11aa0573f306094b11135dd0",
+        "source_version_before": {
+          "code_id": "332192",
+          "currency_raw": "2026-04-20",
+          "customer_id": "BU4910"
+        },
+        "source_version_after": {
+          "code_id": "332192",
+          "currency_raw": "2026-04-20",
+          "customer_id": "BU4910"
+        },
+        "requested_node_ready": true,
+        "acquisition_script": {
+          "path": "live/acquisition-script-v6.mjs",
+          "sha256": "cdf840f16d99bf8c6cb2efd683cc177f0d55036afb468d5e82bf9bcdf390d821",
+          "bytes": 7970
+        },
+        "checksum_module": {
+          "path": "sha256_browser.mjs",
+          "sha256": "e8838b9e8ac1a54c0b9d116855e020258ea7314b73a6dbb651e48eb260692f78",
+          "bytes": 2303
+        },
+        "uses_final_capture_revision": false,
+        "e2e_result": {
+          "path": "live/final-replay/burlingame-ca/e2e-result.json",
+          "sha256": "8dc2ec65a526ee9a4e873f2362bd8e3b7d4fe8ec594ca986a439af86feba777b",
+          "bytes": 3349
+        },
+        "export_fulltext_json": {
+          "path": "live/final-replay/burlingame-ca/exports/aggregate-fulltext.json",
+          "sha256": "4b00d31cbec1359ab4732767e68f28015004f5629acb852df77c1c6185b8e3db",
+          "bytes": 2475
+        },
+        "export_fulltext_csv": {
+          "path": "live/final-replay/burlingame-ca/exports/aggregate-fulltext.csv",
+          "sha256": "fc58421dd1a403e4bfa991437c452e6185c6e347193d669d529dbdcd70a80ad0",
+          "bytes": 2126
+        },
+        "provenance": {
+          "path": "live/final-replay/burlingame-ca/exports/record-provenance.jsonl",
+          "sha256": "9cffc283bfdc68cf227d57d586c70912aece82320e0106bb3dd332b4be377e9d",
+          "bytes": 3874
+        },
+        "observed_toc_nodes": 1,
+        "parsed_records": 1,
+        "unresolved_nodes": 0,
+        "all_record_source_text_comparisons_pass": true,
+        "current_sample_source_features": {
+          "tables": 0,
+          "merged_table_cells": 0,
+          "ecode_list_items": 0,
+          "native_lists": 0,
+          "images": 0,
+          "superscripts": 0,
+          "subscripts": 0,
+          "history": 1
+        },
+        "capture_attempts": [
+          {
+            "receipt": "live/cua/burlingame-ca/current-chapter.failure.receipt.json",
+            "accepted": false,
+            "reason": "Error: DOM chunk incomplete/truncated"
+          },
+          {
+            "receipt": "live/cua/burlingame-ca/legal-content.receipt.json",
+            "accepted": true,
+            "reason": null
+          }
+        ]
+      },
+      "official_route_currentness": {
+        "status": "official_ecode_link_verified",
+        "evidence_phase": "retained v1 city-page check; not refreshed in E2E phase"
+      },
+      "historical_proof": {
+        "available": true,
+        "source": "HISTORICAL-V1-VALIDATION-REPORT.json",
+        "count": 1,
+        "currentness_inferred_from_historical_proof": false
+      },
+      "inventory_verified": false,
+      "full_collection_verified": false,
+      "release_eligible": false
+    },
+    {
+      "slug": "emeryville-ca",
+      "jurisdiction": "Emeryville",
+      "discovery_url": "https://ecode360.com/46989352",
+      "route_basis": "retained observed publisher chapter route; current capture independently validates customer/code/date",
+      "checked_on": "2026-10-15",
+      "standalone_http_status": "blocked",
+      "standalone_browser_status": "not_run",
+      "supported_cua_e2e_status": "pass",
+      "record_count": 7,
+      "latest_success_receipt": "live/cua/emeryville-ca/legal-content.receipt.json",
+      "current_output_directory": "live/final-replay/emeryville-ca",
+      "direct_http": {
+        "status": "blocked",
+        "http_status": 403,
+        "receipt": {
+          "path": "live/standalone-current/emeryville-ca/receipt.json",
+          "sha256": "61b51d9989065c3775145308220fab6c9eaf2ab95758a1fc25d3d5b2bc77a2fa",
+          "bytes": 993
+        },
+        "raw": {
+          "path": "live/standalone-current/emeryville-ca/78def09b3516678c815d01570112b1de0d180f032d841a2076bc31763a852aec.html",
+          "sha256": "78def09b3516678c815d01570112b1de0d180f032d841a2076bc31763a852aec",
+          "bytes": 5522
+        },
+        "command": "python ecode360.py fetch https://ecode360.com/46989352 --out OUTPUT",
+        "blocker": "Public request returned403; retained exact response; no repeated blocked retries"
+      },
+      "standalone_browser": {
+        "status": "not_run",
+        "blocker": null,
+        "note": "No standalone-browser result inferred from HTTP or CUA results"
+      },
+      "supported_cua": {
+        "status": "pass",
+        "runtime": "supported Codex CUA, Chrome browser3, isolated task session; Node filesystem outside read-only DOM evaluation",
+        "acquisition_started_at": "2026-10-15T18:55:20.677Z",
+        "acquisition_finished_at": "2026-10-15T18:55:24.264Z",
+        "receipt": {
+          "path": "live/cua/emeryville-ca/legal-content.receipt.json",
+          "sha256": "b300aa1dc0f7342ae74622d4fcb7ec1fb37fd08cc885fd11578deab65d96893d",
+          "bytes": 3989
+        },
+        "source": {
+          "path": "live/cua/emeryville-ca/legal-content.html",
+          "sha256": "df7d870e9112de2a2c45c957eb78863a175e9ae91b40d745cccbd28fe43c04fb",
+          "bytes": 84427
+        },
+        "capture_scope": "exact legal-content DOM subtree",
+        "capture_selector": "#codeContent",
+        "synthetic_document_wrapper_added": true,
+        "source_sha256_before": "df7d870e9112de2a2c45c957eb78863a175e9ae91b40d745cccbd28fe43c04fb",
+        "source_sha256_after": "df7d870e9112de2a2c45c957eb78863a175e9ae91b40d745cccbd28fe43c04fb",
+        "raw_sha256": "df7d870e9112de2a2c45c957eb78863a175e9ae91b40d745cccbd28fe43c04fb",
+        "source_version_before": {
+          "code_id": "336039",
+          "currency_raw": "2026-06-02",
+          "customer_id": "EM4426"
+        },
+        "source_version_after": {
+          "code_id": "336039",
+          "currency_raw": "2026-06-02",
+          "customer_id": "EM4426"
+        },
+        "requested_node_ready": true,
+        "acquisition_script": {
+          "path": "live/acquisition-script-v6.mjs",
+          "sha256": "cdf840f16d99bf8c6cb2efd683cc177f0d55036afb468d5e82bf9bcdf390d821",
+          "bytes": 7970
+        },
+        "checksum_module": {
+          "path": "sha256_browser.mjs",
+          "sha256": "e8838b9e8ac1a54c0b9d116855e020258ea7314b73a6dbb651e48eb260692f78",
+          "bytes": 2303
+        },
+        "uses_final_capture_revision": false,
+        "e2e_result": {
+          "path": "live/final-replay/emeryville-ca/e2e-result.json",
+          "sha256": "d998911bd35f4b703b889577f283d34fd2fa875d66a87a76e6b5d82777d025e8",
+          "bytes": 5719
+        },
+        "export_fulltext_json": {
+          "path": "live/final-replay/emeryville-ca/exports/aggregate-fulltext.json",
+          "sha256": "d96c3006dd19f0ae091c5e3e8ada583a3270396c6c73f4a2edd0a3bb4172e461",
+          "bytes": 26621
+        },
+        "export_fulltext_csv": {
+          "path": "live/final-replay/emeryville-ca/exports/aggregate-fulltext.csv",
+          "sha256": "5fbe5c3cdddfa2b7f7b59d80e962430c490399cd76333e8aeda0d54cbfe2ddef",
+          "bytes": 24090
+        },
+        "provenance": {
+          "path": "live/final-replay/emeryville-ca/exports/record-provenance.jsonl",
+          "sha256": "74778c1de70049a02479a9ba64a4d7c08ac4efd11732913aec0bdd99350c7708",
+          "bytes": 32519
+        },
+        "observed_toc_nodes": 7,
+        "parsed_records": 7,
+        "unresolved_nodes": 0,
+        "all_record_source_text_comparisons_pass": true,
+        "current_sample_source_features": {
+          "tables": 6,
+          "merged_table_cells": 7,
+          "ecode_list_items": 14,
+          "native_lists": 0,
+          "images": 0,
+          "superscripts": 0,
+          "subscripts": 0,
+          "history": 7
+        },
+        "capture_attempts": [
+          {
+            "receipt": "live/cua/emeryville-ca/current-chapter.failure.receipt.json",
+            "accepted": false,
+            "reason": "Error: DOM chunk incomplete/truncated"
+          },
+          {
+            "receipt": "live/cua/emeryville-ca/legal-content.receipt.json",
+            "accepted": true,
+            "reason": null
+          }
+        ]
+      },
+      "official_route_currentness": {
+        "status": "unverified",
+        "evidence_phase": "retained v1 city-page check; not refreshed in E2E phase"
+      },
+      "historical_proof": {
+        "available": true,
+        "source": "HISTORICAL-V1-VALIDATION-REPORT.json",
+        "count": 7,
+        "currentness_inferred_from_historical_proof": false
+      },
+      "inventory_verified": false,
+      "full_collection_verified": false,
+      "release_eligible": false
+    },
+    {
+      "slug": "half-moon-bay-ca",
+      "jurisdiction": "Half Moon Bay",
+      "discovery_url": "https://ecode360.com/47025425",
+      "route_basis": "retained observed publisher chapter route; current capture independently validates customer/code/date",
+      "checked_on": "2026-10-15",
+      "standalone_http_status": "blocked",
+      "standalone_browser_status": "not_run",
+      "supported_cua_e2e_status": "pass",
+      "record_count": 10,
+      "latest_success_receipt": "live/cua/half-moon-bay-ca/legal-content.receipt.json",
+      "current_output_directory": "live/final-replay/half-moon-bay-ca",
+      "direct_http": {
+        "status": "blocked",
+        "http_status": 403,
+        "receipt": {
+          "path": "live/standalone-current/half-moon-bay-ca/receipt.json",
+          "sha256": "07678babffbb071a0579c62e600ab3a3274b59e9930e851bb3fed160ff0504d0",
+          "bytes": 993
+        },
+        "raw": {
+          "path": "live/standalone-current/half-moon-bay-ca/ee4341a4fc291af294c5e5d13c7f92642ab1ce1557a52e65b059dea19150f98e.html",
+          "sha256": "ee4341a4fc291af294c5e5d13c7f92642ab1ce1557a52e65b059dea19150f98e",
+          "bytes": 5522
+        },
+        "command": "python ecode360.py fetch https://ecode360.com/47025425 --out OUTPUT",
+        "blocker": "Public request returned403; retained exact response; no repeated blocked retries"
+      },
+      "standalone_browser": {
+        "status": "not_run",
+        "blocker": null,
+        "note": "No standalone-browser result inferred from HTTP or CUA results"
+      },
+      "supported_cua": {
+        "status": "pass",
+        "runtime": "supported Codex CUA, Chrome browser3, isolated task session; Node filesystem outside read-only DOM evaluation",
+        "acquisition_started_at": "2026-10-15T18:55:24.268Z",
+        "acquisition_finished_at": "2026-10-15T18:55:33.933Z",
+        "receipt": {
+          "path": "live/cua/half-moon-bay-ca/legal-content.receipt.json",
+          "sha256": "d513b3c92adc2e1b19962edcd8b945f4f104c2c11edce78c7cf329a21d77f7f8",
+          "bytes": 4745
+        },
+        "source": {
+          "path": "live/cua/half-moon-bay-ca/legal-content.html",
+          "sha256": "d3db7047f47b518aa5a2a3e874d518f5957be806a69ad525d7326aa7c8462736",
+          "bytes": 38547
+        },
+        "capture_scope": "exact legal-content DOM subtree",
+        "capture_selector": "#codeContent",
+        "synthetic_document_wrapper_added": true,
+        "source_sha256_before": "d3db7047f47b518aa5a2a3e874d518f5957be806a69ad525d7326aa7c8462736",
+        "source_sha256_after": "d3db7047f47b518aa5a2a3e874d518f5957be806a69ad525d7326aa7c8462736",
+        "raw_sha256": "d3db7047f47b518aa5a2a3e874d518f5957be806a69ad525d7326aa7c8462736",
+        "source_version_before": {
+          "code_id": "336191",
+          "currency_raw": "2026-05-05",
+          "customer_id": "HA4470"
+        },
+        "source_version_after": {
+          "code_id": "336191",
+          "currency_raw": "2026-05-05",
+          "customer_id": "HA4470"
+        },
+        "requested_node_ready": true,
+        "acquisition_script": {
+          "path": "live/acquisition-script-v6.mjs",
+          "sha256": "cdf840f16d99bf8c6cb2efd683cc177f0d55036afb468d5e82bf9bcdf390d821",
+          "bytes": 7970
+        },
+        "checksum_module": {
+          "path": "sha256_browser.mjs",
+          "sha256": "e8838b9e8ac1a54c0b9d116855e020258ea7314b73a6dbb651e48eb260692f78",
+          "bytes": 2303
+        },
+        "uses_final_capture_revision": false,
+        "e2e_result": {
+          "path": "live/final-replay/half-moon-bay-ca/e2e-result.json",
+          "sha256": "7bd42bb8791a8c9d8d1163b23646066d11b6a58ab574aa94a4c7d886b5b1e243",
+          "bytes": 6906
+        },
+        "export_fulltext_json": {
+          "path": "live/final-replay/half-moon-bay-ca/exports/aggregate-fulltext.json",
+          "sha256": "47af2080cbd4a24c182eb1416bd719706407764c937cd166283d987dba3be802",
+          "bytes": 10149
+        },
+        "export_fulltext_csv": {
+          "path": "live/final-replay/half-moon-bay-ca/exports/aggregate-fulltext.csv",
+          "sha256": "9bd795046f3e3c6d07aaf23be50b535852d5fef24f78a2ded3ce47decd00326a",
+          "bytes": 6594
+        },
+        "provenance": {
+          "path": "live/final-replay/half-moon-bay-ca/exports/record-provenance.jsonl",
+          "sha256": "3cb7a5e9092a64abd7dc77e15c5daf186cb0ec7a66bb3b25eb205c035fadf408",
+          "bytes": 12335
+        },
+        "observed_toc_nodes": 10,
+        "parsed_records": 10,
+        "unresolved_nodes": 0,
+        "all_record_source_text_comparisons_pass": true,
+        "current_sample_source_features": {
+          "tables": 0,
+          "merged_table_cells": 0,
+          "ecode_list_items": 0,
+          "native_lists": 0,
+          "images": 0,
+          "superscripts": 0,
+          "subscripts": 0,
+          "history": 10
+        },
+        "capture_attempts": [
+          {
+            "receipt": "live/cua/half-moon-bay-ca/current-chapter.failure.receipt.json",
+            "accepted": false,
+            "reason": "Error: DOM chunk incomplete/truncated"
+          },
+          {
+            "receipt": "live/cua/half-moon-bay-ca/legal-content.receipt.json",
+            "accepted": true,
+            "reason": null
+          }
+        ]
+      },
+      "official_route_currentness": {
+        "status": "legacy_official_link_redirect_unreconciled",
+        "evidence_phase": "retained v1 city-page check; not refreshed in E2E phase"
+      },
+      "historical_proof": {
+        "available": true,
+        "source": "HISTORICAL-V1-VALIDATION-REPORT.json",
+        "count": 10,
+        "currentness_inferred_from_historical_proof": false
+      },
+      "inventory_verified": false,
+      "full_collection_verified": false,
+      "release_eligible": false
+    },
+    {
+      "slug": "malibu-ca",
+      "jurisdiction": "Malibu",
+      "discovery_url": "https://ecode360.com/44331146",
+      "route_basis": "retained observed publisher chapter route; current capture independently validates customer/code/date",
+      "checked_on": "2026-10-15",
+      "standalone_http_status": "blocked",
+      "standalone_browser_status": "not_run",
+      "supported_cua_e2e_status": "pass",
+      "record_count": 28,
+      "latest_success_receipt": "live/cua/malibu-ca/final-stable-source.receipt.json",
+      "current_output_directory": "live/final-replay/malibu-ca",
+      "direct_http": {
+        "status": "blocked",
+        "http_status": 403,
+        "receipt": {
+          "path": "live/standalone-current/malibu-ca/receipt.json",
+          "sha256": "ee574aa1c7f96d08c75af009d5fafb57a7e39b6e2ee1c5d12e1b0fd106c18ee6",
+          "bytes": 993
+        },
+        "raw": {
+          "path": "live/standalone-current/malibu-ca/e014e9049a5e35a0ba88e62930b71e0ef2302b3f7c27fa2358581247e4101500.html",
+          "sha256": "e014e9049a5e35a0ba88e62930b71e0ef2302b3f7c27fa2358581247e4101500",
+          "bytes": 5522
+        },
+        "command": "python ecode360.py fetch https://ecode360.com/44331146 --out OUTPUT",
+        "blocker": "Public request returned403; retained exact response; no repeated blocked retries"
+      },
+      "standalone_browser": {
+        "status": "not_run",
+        "blocker": null,
+        "note": "No standalone-browser result inferred from HTTP or CUA results"
+      },
+      "supported_cua": {
+        "status": "pass",
+        "runtime": "supported Codex CUA, Chrome browser3, isolated task session; Node filesystem outside read-only DOM evaluation",
+        "acquisition_started_at": "2026-10-15T19:01:30.961Z",
+        "acquisition_finished_at": "2026-10-15T19:01:44.169Z",
+        "receipt": {
+          "path": "live/cua/malibu-ca/final-stable-source.receipt.json",
+          "sha256": "1fd459966d63fd8d48eddaa44da82adb7b56d81763585322f0ec491750581d57",
+          "bytes": 8686
+        },
+        "source": {
+          "path": "live/cua/malibu-ca/final-stable-source.html",
+          "sha256": "52c8e6aa69c5a1843fc686cf27c385910ad245884ab5a3670b8f9d4c3820a34e",
+          "bytes": 97840
+        },
+        "capture_scope": "exact legal-content DOM subtree",
+        "capture_selector": "#codeContent",
+        "synthetic_document_wrapper_added": true,
+        "source_sha256_before": "52c8e6aa69c5a1843fc686cf27c385910ad245884ab5a3670b8f9d4c3820a34e",
+        "source_sha256_after": "52c8e6aa69c5a1843fc686cf27c385910ad245884ab5a3670b8f9d4c3820a34e",
+        "raw_sha256": "52c8e6aa69c5a1843fc686cf27c385910ad245884ab5a3670b8f9d4c3820a34e",
+        "source_version_before": {
+          "code_id": "336335",
+          "currency_raw": "2026-06-22",
+          "customer_id": "MA5043"
+        },
+        "source_version_after": {
+          "code_id": "336335",
+          "currency_raw": "2026-06-22",
+          "customer_id": "MA5043"
+        },
+        "requested_node_ready": true,
+        "acquisition_script": {
+          "path": "acquire_cua.mjs",
+          "sha256": "355efbc4ee994d91b5a300234e7d98b238a43c021fd3e2e2f799852e816a025d",
+          "bytes": 8970
+        },
+        "checksum_module": {
+          "path": "sha256_browser.mjs",
+          "sha256": "e8838b9e8ac1a54c0b9d116855e020258ea7314b73a6dbb651e48eb260692f78",
+          "bytes": 2303
+        },
+        "uses_final_capture_revision": true,
+        "e2e_result": {
+          "path": "live/final-replay/malibu-ca/e2e-result.json",
+          "sha256": "e68855946b36d4da35be8be12e2240787ac0278a4608b4cd51227e527a6d8f66",
+          "bytes": 14016
+        },
+        "export_fulltext_json": {
+          "path": "live/final-replay/malibu-ca/exports/aggregate-fulltext.json",
+          "sha256": "0ca054fef4e6784260bb95a2e37cc6e4ab87469f00c145b838f892273109271c",
+          "bytes": 21887
+        },
+        "export_fulltext_csv": {
+          "path": "live/final-replay/malibu-ca/exports/aggregate-fulltext.csv",
+          "sha256": "0df09df023745fa20a6aca4a737380542beac1cc3bb4361e00d2420fa7c4f77e",
+          "bytes": 11842
+        },
+        "provenance": {
+          "path": "live/final-replay/malibu-ca/exports/record-provenance.jsonl",
+          "sha256": "85934128c6e2cb3573011c68ad61aaa276285f2c3ae1b1724e71027e36be8141",
+          "bytes": 29204
+        },
+        "observed_toc_nodes": 28,
+        "parsed_records": 28,
+        "unresolved_nodes": 0,
+        "all_record_source_text_comparisons_pass": true,
+        "current_sample_source_features": {
+          "tables": 0,
+          "merged_table_cells": 0,
+          "ecode_list_items": 7,
+          "native_lists": 0,
+          "images": 0,
+          "superscripts": 0,
+          "subscripts": 0,
+          "history": 28
+        },
+        "capture_attempts": [
+          {
+            "receipt": "live/cua/malibu-ca/atomic-legal-content-settled.receipt.json",
+            "accepted": false,
+            "reason": "Source DOM SHA256 changed during capture or another explicit receipt acceptance check failed"
+          },
+          {
+            "receipt": "live/cua/malibu-ca/atomic-legal-content.receipt.json",
+            "accepted": false,
+            "reason": "Source DOM SHA256 changed during capture or another explicit receipt acceptance check failed"
+          },
+          {
+            "receipt": "live/cua/malibu-ca/current-chapter.failure.receipt.json",
+            "accepted": false,
+            "reason": "Error: DOM chunk incomplete/truncated"
+          },
+          {
+            "receipt": "live/cua/malibu-ca/final-current-source.receipt.json",
+            "accepted": false,
+            "reason": "Source DOM SHA256 changed during capture or another explicit receipt acceptance check failed"
+          },
+          {
+            "receipt": "live/cua/malibu-ca/final-stable-source.receipt.json",
+            "accepted": true,
+            "reason": null
+          },
+          {
+            "receipt": "live/cua/malibu-ca/legal-content-stable.failure.receipt.json",
+            "accepted": false,
+            "reason": "Error: DOM chunk incomplete/truncated at 80000; expected 2468; received 17613"
+          },
+          {
+            "receipt": "live/cua/malibu-ca/legal-content.receipt.json",
+            "accepted": false,
+            "reason": "Error: Error: Timed out after 3000ms waiting for selector input[id$=\"_content_checkbox\"] >> nth=0: Browser Use encountered an error interacting with this webpage: Error: Element is not attached\n    at <anonymous>:227:97\n    at <anonymous>:227:479\n    at <anonymous>:228:11\n    at <anonymous>:229:11\nlocator.waitFor(attached) timed out for selector input[id$=\"_content_checkbox\"] >> nth=0\nLocator diagnostics: {\"kind\":\"no_matches\",\"action\":\"waitFor\",\"locator\":\"input[id$=\\\"_content_checkbox\\\"] >> nth=0\",\"matchCount\":0,\"matches\":[],\"visibleCount\":0,\"truncated\":false}"
+          }
+        ]
+      },
+      "official_route_currentness": {
+        "status": "official_ecode_link_verified",
+        "evidence_phase": "retained v1 city-page check; not refreshed in E2E phase"
+      },
+      "historical_proof": {
+        "available": true,
+        "source": "HISTORICAL-V1-VALIDATION-REPORT.json",
+        "count": 28,
+        "currentness_inferred_from_historical_proof": false
+      },
+      "inventory_verified": false,
+      "full_collection_verified": false,
+      "release_eligible": false
+    },
+    {
+      "slug": "san-leandro-ca",
+      "jurisdiction": "San Leandro",
+      "discovery_url": "https://ecode360.com/44065748",
+      "route_basis": "retained observed publisher chapter route; current capture independently validates customer/code/date",
+      "checked_on": "2026-10-15",
+      "standalone_http_status": "blocked",
+      "standalone_browser_status": "not_run",
+      "supported_cua_e2e_status": "pass",
+      "record_count": 1,
+      "latest_success_receipt": "live/cua/san-leandro-ca/legal-content.receipt.json",
+      "current_output_directory": "live/final-replay/san-leandro-ca",
+      "direct_http": {
+        "status": "blocked",
+        "http_status": 403,
+        "receipt": {
+          "path": "live/standalone-current/san-leandro-ca/receipt.json",
+          "sha256": "bee2d8250e9455176dbd3466e54199b89a763824e0a6eaffcf5518d94c9ec1b8",
+          "bytes": 993
+        },
+        "raw": {
+          "path": "live/standalone-current/san-leandro-ca/47bebc2206f9dd593904974a428c70af44fc3afab49fb70cf8d9ede1a41a6cc0.html",
+          "sha256": "47bebc2206f9dd593904974a428c70af44fc3afab49fb70cf8d9ede1a41a6cc0",
+          "bytes": 5522
+        },
+        "command": "python ecode360.py fetch https://ecode360.com/44065748 --out OUTPUT",
+        "blocker": "Public request returned403; retained exact response; no repeated blocked retries"
+      },
+      "standalone_browser": {
+        "status": "not_run",
+        "blocker": null,
+        "note": "No standalone-browser result inferred from HTTP or CUA results"
+      },
+      "supported_cua": {
+        "status": "pass",
+        "runtime": "supported Codex CUA, Chrome browser3, isolated task session; Node filesystem outside read-only DOM evaluation",
+        "acquisition_started_at": "2026-10-15T18:55:45.023Z",
+        "acquisition_finished_at": "2026-10-15T18:55:48.555Z",
+        "receipt": {
+          "path": "live/cua/san-leandro-ca/legal-content.receipt.json",
+          "sha256": "5428d44ac8f4ca28ec4f6d968ba9aff3efa612ad1d52ac317c5394c8e1014ae7",
+          "bytes": 2545
+        },
+        "source": {
+          "path": "live/cua/san-leandro-ca/legal-content.html",
+          "sha256": "7590f0c31ca380eee5c99462ad07f14ec8c2b33dfeeb5583cdf2d47f3623257a",
+          "bytes": 5238
+        },
+        "capture_scope": "exact legal-content DOM subtree",
+        "capture_selector": "#codeContent",
+        "synthetic_document_wrapper_added": true,
+        "source_sha256_before": "7590f0c31ca380eee5c99462ad07f14ec8c2b33dfeeb5583cdf2d47f3623257a",
+        "source_sha256_after": "7590f0c31ca380eee5c99462ad07f14ec8c2b33dfeeb5583cdf2d47f3623257a",
+        "raw_sha256": "7590f0c31ca380eee5c99462ad07f14ec8c2b33dfeeb5583cdf2d47f3623257a",
+        "source_version_before": {
+          "code_id": "337882",
+          "currency_raw": "2026-07-20",
+          "customer_id": "SA5044"
+        },
+        "source_version_after": {
+          "code_id": "337882",
+          "currency_raw": "2026-07-20",
+          "customer_id": "SA5044"
+        },
+        "requested_node_ready": true,
+        "acquisition_script": {
+          "path": "live/acquisition-script-v6.mjs",
+          "sha256": "cdf840f16d99bf8c6cb2efd683cc177f0d55036afb468d5e82bf9bcdf390d821",
+          "bytes": 7970
+        },
+        "checksum_module": {
+          "path": "sha256_browser.mjs",
+          "sha256": "e8838b9e8ac1a54c0b9d116855e020258ea7314b73a6dbb651e48eb260692f78",
+          "bytes": 2303
+        },
+        "uses_final_capture_revision": false,
+        "e2e_result": {
+          "path": "live/final-replay/san-leandro-ca/e2e-result.json",
+          "sha256": "1098ee11cc6eb60ae670e6cb39cbd4ade38b8f837d036860df2f99b6f87a4d59",
+          "bytes": 3349
+        },
+        "export_fulltext_json": {
+          "path": "live/final-replay/san-leandro-ca/exports/aggregate-fulltext.json",
+          "sha256": "de4a55a599c50ddfb43bc7ae2c7d4a0d109395577e5f90cee54cc4cfc270dc09",
+          "bytes": 1168
+        },
+        "export_fulltext_csv": {
+          "path": "live/final-replay/san-leandro-ca/exports/aggregate-fulltext.csv",
+          "sha256": "af19762b380752dfa0c0c250a285dc532c89819e65570832650a1d1dd653d9b9",
+          "bytes": 853
+        },
+        "provenance": {
+          "path": "live/final-replay/san-leandro-ca/exports/record-provenance.jsonl",
+          "sha256": "a74a91d67483f726cb2a8d3f17ba16821e597defd10de3a6fe3603babf62b35f",
+          "bytes": 1372
+        },
+        "observed_toc_nodes": 1,
+        "parsed_records": 1,
+        "unresolved_nodes": 0,
+        "all_record_source_text_comparisons_pass": true,
+        "current_sample_source_features": {
+          "tables": 1,
+          "merged_table_cells": 0,
+          "ecode_list_items": 0,
+          "native_lists": 0,
+          "images": 1,
+          "superscripts": 0,
+          "subscripts": 0,
+          "history": 0
+        },
+        "capture_attempts": [
+          {
+            "receipt": "live/cua/san-leandro-ca/current-chapter.failure.receipt.json",
+            "accepted": false,
+            "reason": "Error: DOM chunk incomplete/truncated"
+          },
+          {
+            "receipt": "live/cua/san-leandro-ca/legal-content.receipt.json",
+            "accepted": true,
+            "reason": null
+          }
+        ]
+      },
+      "official_route_currentness": {
+        "status": "unverified",
+        "evidence_phase": "retained v1 city-page check; not refreshed in E2E phase"
+      },
+      "historical_proof": {
+        "available": true,
+        "source": "HISTORICAL-V1-VALIDATION-REPORT.json",
+        "count": 1,
+        "currentness_inferred_from_historical_proof": false
+      },
+      "inventory_verified": false,
+      "full_collection_verified": false,
+      "release_eligible": false
+    },
+    {
+      "slug": "santa-clara-ca",
+      "jurisdiction": "Santa Clara",
+      "discovery_url": "https://ecode360.com/47543489",
+      "route_basis": "retained observed publisher chapter route; current capture independently validates customer/code/date",
+      "checked_on": "2026-10-15",
+      "standalone_http_status": "blocked",
+      "standalone_browser_status": "not_run",
+      "supported_cua_e2e_status": "pass",
+      "record_count": 4,
+      "latest_success_receipt": "live/cua/santa-clara-ca/current-chapter.receipt.json",
+      "current_output_directory": "live/final-replay/santa-clara-ca",
+      "direct_http": {
+        "status": "blocked",
+        "http_status": 403,
+        "receipt": {
+          "path": "live/standalone-current/santa-clara-ca/receipt.json",
+          "sha256": "0731f763f3eb5a352328270236386036beeb54a302614b95f5dbd7170e195820",
+          "bytes": 993
+        },
+        "raw": {
+          "path": "live/standalone-current/santa-clara-ca/003f5a9130060fc6a9c6b55a99673d94d5bcfbd991e3ea2c68783911b7aa9a14.html",
+          "sha256": "003f5a9130060fc6a9c6b55a99673d94d5bcfbd991e3ea2c68783911b7aa9a14",
+          "bytes": 5522
+        },
+        "command": "python ecode360.py fetch https://ecode360.com/47543489 --out OUTPUT",
+        "blocker": "Public request returned403; retained exact response; no repeated blocked retries"
+      },
+      "standalone_browser": {
+        "status": "not_run",
+        "blocker": null,
+        "note": "No standalone-browser result inferred from HTTP or CUA results"
+      },
+      "supported_cua": {
+        "status": "pass",
+        "runtime": "supported Codex CUA, Chrome browser3, isolated task session; Node filesystem outside read-only DOM evaluation",
+        "acquisition_started_at": "2026-10-15T18:53:51.747Z",
+        "acquisition_finished_at": "2026-10-15T18:53:53.982Z",
+        "receipt": {
+          "path": "live/cua/santa-clara-ca/current-chapter.receipt.json",
+          "sha256": "22369b85e8e203479359977d198374d351c1121f34581b2a2df6a4998c7f40b6",
+          "bytes": 3147
+        },
+        "source": {
+          "path": "live/cua/santa-clara-ca/current-chapter.html",
+          "sha256": "a6f93693728095d6efbf5cbcf5eb3b48b298848c37d76b85a886ef4090a64262",
+          "bytes": 95405
+        },
+        "capture_scope": "full document outerHTML",
+        "capture_selector": "html",
+        "synthetic_document_wrapper_added": false,
+        "source_sha256_before": "a6f93693728095d6efbf5cbcf5eb3b48b298848c37d76b85a886ef4090a64262",
+        "source_sha256_after": "a6f93693728095d6efbf5cbcf5eb3b48b298848c37d76b85a886ef4090a64262",
+        "raw_sha256": "a6f93693728095d6efbf5cbcf5eb3b48b298848c37d76b85a886ef4090a64262",
+        "source_version_before": {
+          "code_id": "329535",
+          "currency_raw": "2026-01-27",
+          "customer_id": "SA4626"
+        },
+        "source_version_after": {
+          "code_id": "329535",
+          "currency_raw": "2026-01-27",
+          "customer_id": "SA4626"
+        },
+        "requested_node_ready": true,
+        "acquisition_script": {
+          "path": "live/acquisition-script-v5.mjs",
+          "sha256": "e4a11d7119e543ea2e40e8d26088d6e8855b46264aada9045a96df67fc8040c1",
+          "bytes": 7370
+        },
+        "checksum_module": {
+          "path": "sha256_browser.mjs",
+          "sha256": "e8838b9e8ac1a54c0b9d116855e020258ea7314b73a6dbb651e48eb260692f78",
+          "bytes": 2303
+        },
+        "uses_final_capture_revision": false,
+        "e2e_result": {
+          "path": "live/final-replay/santa-clara-ca/e2e-result.json",
+          "sha256": "ed628447625ac83b0b19a2b9e354a82c64a034898383c8de259ff82a02505f42",
+          "bytes": 4519
+        },
+        "export_fulltext_json": {
+          "path": "live/final-replay/santa-clara-ca/exports/aggregate-fulltext.json",
+          "sha256": "44b95ceace841120be2e66d1c9f01d9d0c353a0fe32570c95ac75d38458c725d",
+          "bytes": 5021
+        },
+        "export_fulltext_csv": {
+          "path": "live/final-replay/santa-clara-ca/exports/aggregate-fulltext.csv",
+          "sha256": "5b1a144cc53daa8459eba7a2b683d4326ddbd2a4e1bfad2afe0a29c80d6d1fd9",
+          "bytes": 3626
+        },
+        "provenance": {
+          "path": "live/final-replay/santa-clara-ca/exports/record-provenance.jsonl",
+          "sha256": "de2b3ba5bdbfd2899f718a5c30104d3e944c372674662fa2b1bfb36630307a9a",
+          "bytes": 6013
+        },
+        "observed_toc_nodes": 4,
+        "parsed_records": 4,
+        "unresolved_nodes": 0,
+        "all_record_source_text_comparisons_pass": true,
+        "current_sample_source_features": {
+          "tables": 0,
+          "merged_table_cells": 0,
+          "ecode_list_items": 0,
+          "native_lists": 0,
+          "images": 0,
+          "superscripts": 0,
+          "subscripts": 0,
+          "history": 4
+        },
+        "capture_attempts": [
+          {
+            "receipt": "live/cua/santa-clara-ca/current-chapter.receipt.json",
+            "accepted": true,
+            "reason": null
+          }
+        ]
+      },
+      "official_route_currentness": {
+        "status": "unverified",
+        "evidence_phase": "retained v1 city-page check; not refreshed in E2E phase"
+      },
+      "historical_proof": {
+        "available": true,
+        "source": "HISTORICAL-V1-VALIDATION-REPORT.json",
+        "count": 4,
+        "currentness_inferred_from_historical_proof": false
+      },
+      "inventory_verified": false,
+      "full_collection_verified": false,
+      "release_eligible": false
+    },
+    {
+      "slug": "santa-monica-ca",
+      "jurisdiction": "Santa Monica",
+      "discovery_url": "https://ecode360.com/42718485",
+      "route_basis": "retained observed publisher chapter route; current capture independently validates customer/code/date",
+      "checked_on": "2026-10-15",
+      "standalone_http_status": "blocked",
+      "standalone_browser_status": "not_run",
+      "supported_cua_e2e_status": "pass",
+      "record_count": 9,
+      "latest_success_receipt": "live/cua/santa-monica-ca/atomic-legal-content-settled.receipt.json",
+      "current_output_directory": "live/final-replay/santa-monica-ca",
+      "direct_http": {
+        "status": "blocked",
+        "http_status": 403,
+        "receipt": {
+          "path": "live/standalone-current/santa-monica-ca/receipt.json",
+          "sha256": "6465043f7c45f5a36d06f69f34e1964f1ab284b640354e21307c74a3ea8654d5",
+          "bytes": 993
+        },
+        "raw": {
+          "path": "live/standalone-current/santa-monica-ca/1faa512748cbb03eb0ddbe7e43be2c13846c85dfcaca006c084a85ef63c21f29.html",
+          "sha256": "1faa512748cbb03eb0ddbe7e43be2c13846c85dfcaca006c084a85ef63c21f29",
+          "bytes": 5522
+        },
+        "command": "python ecode360.py fetch https://ecode360.com/42718485 --out OUTPUT",
+        "blocker": "Public request returned403; retained exact response; no repeated blocked retries"
+      },
+      "standalone_browser": {
+        "status": "not_run",
+        "blocker": null,
+        "note": "No standalone-browser result inferred from HTTP or CUA results"
+      },
+      "supported_cua": {
+        "status": "pass",
+        "runtime": "supported Codex CUA, Chrome browser3, isolated task session; Node filesystem outside read-only DOM evaluation",
+        "acquisition_started_at": "2026-10-15T18:59:56.200Z",
+        "acquisition_finished_at": "2026-10-15T18:59:58.073Z",
+        "receipt": {
+          "path": "live/cua/santa-monica-ca/atomic-legal-content-settled.receipt.json",
+          "sha256": "ff36965a1ace6ab10fef1183dd6a7b4dbf8f0be6c76fdbf9e02aa401df11d12e",
+          "bytes": 4506
+        },
+        "source": {
+          "path": "live/cua/santa-monica-ca/atomic-legal-content-settled.html",
+          "sha256": "c0202059f5873321471413361481eda23bfd45797f31ff919c671b421d3be22b",
+          "bytes": 35312
+        },
+        "capture_scope": "exact legal-content DOM subtree",
+        "capture_selector": "#codeContent",
+        "synthetic_document_wrapper_added": true,
+        "source_sha256_before": "c0202059f5873321471413361481eda23bfd45797f31ff919c671b421d3be22b",
+        "source_sha256_after": "c0202059f5873321471413361481eda23bfd45797f31ff919c671b421d3be22b",
+        "raw_sha256": "c0202059f5873321471413361481eda23bfd45797f31ff919c671b421d3be22b",
+        "source_version_before": {
+          "code_id": "336847",
+          "currency_raw": "2026-07-28",
+          "customer_id": "SA5008"
+        },
+        "source_version_after": {
+          "code_id": "336847",
+          "currency_raw": "2026-07-28",
+          "customer_id": "SA5008"
+        },
+        "requested_node_ready": true,
+        "acquisition_script": {
+          "path": "live/acquisition-script-v8.mjs",
+          "sha256": "c46b53ade85a434641d3709dfa87c1b4be05fa3c8847179aef28f6b1a950ce8a",
+          "bytes": 8086
+        },
+        "checksum_module": {
+          "path": "sha256_browser.mjs",
+          "sha256": "e8838b9e8ac1a54c0b9d116855e020258ea7314b73a6dbb651e48eb260692f78",
+          "bytes": 2303
+        },
+        "uses_final_capture_revision": false,
+        "e2e_result": {
+          "path": "live/final-replay/santa-monica-ca/e2e-result.json",
+          "sha256": "8f9d9b3168254abd9f46831727a7270703b50d9b2e9aa7852f6a01e374a31dc8",
+          "bytes": 6509
+        },
+        "export_fulltext_json": {
+          "path": "live/final-replay/santa-monica-ca/exports/aggregate-fulltext.json",
+          "sha256": "72511dc37d8beb7de98d5b829e5dd592a488077dde90be3dbd9f7dab63ad6916",
+          "bytes": 10325
+        },
+        "export_fulltext_csv": {
+          "path": "live/final-replay/santa-monica-ca/exports/aggregate-fulltext.csv",
+          "sha256": "c6cefc9b1874f98d88712e25ee208cbc2bd92c600b5fb827acf6c8ee91cdc617",
+          "bytes": 7122
+        },
+        "provenance": {
+          "path": "live/final-replay/santa-monica-ca/exports/record-provenance.jsonl",
+          "sha256": "ca109e359ed305532b143bad3dbf13384b25c9fcd8cac19b0be1a147d792c55a",
+          "bytes": 12167
+        },
+        "observed_toc_nodes": 9,
+        "parsed_records": 9,
+        "unresolved_nodes": 0,
+        "all_record_source_text_comparisons_pass": true,
+        "current_sample_source_features": {
+          "tables": 0,
+          "merged_table_cells": 0,
+          "ecode_list_items": 0,
+          "native_lists": 0,
+          "images": 0,
+          "superscripts": 0,
+          "subscripts": 0,
+          "history": 9
+        },
+        "capture_attempts": [
+          {
+            "receipt": "live/cua/santa-monica-ca/atomic-legal-content-settled.receipt.json",
+            "accepted": true,
+            "reason": null
+          },
+          {
+            "receipt": "live/cua/santa-monica-ca/atomic-legal-content.receipt.json",
+            "accepted": false,
+            "reason": "Source DOM SHA256 changed during capture or another explicit receipt acceptance check failed"
+          },
+          {
+            "receipt": "live/cua/santa-monica-ca/legal-content.failure.receipt.json",
+            "accepted": false,
+            "reason": "Error: DOM chunk incomplete/truncated at 0; expected 29225; received 30913"
+          }
+        ]
+      },
+      "official_route_currentness": {
+        "status": "official_ecode_link_verified",
+        "evidence_phase": "retained v1 city-page check; not refreshed in E2E phase"
+      },
+      "historical_proof": {
+        "available": true,
+        "source": "HISTORICAL-V1-VALIDATION-REPORT.json",
+        "count": 9,
+        "currentness_inferred_from_historical_proof": false
+      },
+      "inventory_verified": false,
+      "full_collection_verified": false,
+      "release_eligible": false
+    },
+    {
+      "slug": "santa-rosa-ca",
+      "jurisdiction": "Santa Rosa",
+      "discovery_url": "https://ecode360.com/42952196",
+      "route_basis": "retained observed publisher chapter route; current capture independently validates customer/code/date",
+      "checked_on": "2026-10-15",
+      "standalone_http_status": "blocked",
+      "standalone_browser_status": "not_run",
+      "supported_cua_e2e_status": "pass",
+      "record_count": 13,
+      "latest_success_receipt": "live/cua/santa-rosa-ca/legal-content-end-check.receipt.json",
+      "current_output_directory": "live/final-replay/santa-rosa-ca",
+      "direct_http": {
+        "status": "blocked",
+        "http_status": 403,
+        "receipt": {
+          "path": "live/standalone-current/santa-rosa-ca/receipt.json",
+          "sha256": "65af50d305e319c45b35886f0db8c3a3146a943f3097d871c008c0189337a032",
+          "bytes": 993
+        },
+        "raw": {
+          "path": "live/standalone-current/santa-rosa-ca/461c571d47530759c42cd59a3b60b17b2223c17d29ca70d2e4b2133acdb65cb2.html",
+          "sha256": "461c571d47530759c42cd59a3b60b17b2223c17d29ca70d2e4b2133acdb65cb2",
+          "bytes": 5522
+        },
+        "command": "python ecode360.py fetch https://ecode360.com/42952196 --out OUTPUT",
+        "blocker": "Public request returned403; retained exact response; no repeated blocked retries"
+      },
+      "standalone_browser": {
+        "status": "not_run",
+        "blocker": null,
+        "note": "No standalone-browser result inferred from HTTP or CUA results"
+      },
+      "supported_cua": {
+        "status": "pass",
+        "runtime": "supported Codex CUA, Chrome browser3, isolated task session; Node filesystem outside read-only DOM evaluation",
+        "acquisition_started_at": "2026-10-15T19:00:29.241Z",
+        "acquisition_finished_at": "2026-10-15T19:00:31.501Z",
+        "receipt": {
+          "path": "live/cua/santa-rosa-ca/legal-content-end-check.receipt.json",
+          "sha256": "d512d06950ad3fd774dc9e2def8a21dfc2dd5c60c1687d999a5a9dabf85ecbc1",
+          "bytes": 5404
+        },
+        "source": {
+          "path": "live/cua/santa-rosa-ca/legal-content-end-check.html",
+          "sha256": "656df88b76a0319efb44779b9acd3694372d8b80d2cf748f2b5b697e2d20392e",
+          "bytes": 57319
+        },
+        "capture_scope": "exact legal-content DOM subtree",
+        "capture_selector": "#codeContent",
+        "synthetic_document_wrapper_added": true,
+        "source_sha256_before": "656df88b76a0319efb44779b9acd3694372d8b80d2cf748f2b5b697e2d20392e",
+        "source_sha256_after": "656df88b76a0319efb44779b9acd3694372d8b80d2cf748f2b5b697e2d20392e",
+        "raw_sha256": "656df88b76a0319efb44779b9acd3694372d8b80d2cf748f2b5b697e2d20392e",
+        "source_version_before": {
+          "code_id": "337811",
+          "currency_raw": "2026-09-15",
+          "customer_id": "SA5009"
+        },
+        "source_version_after": {
+          "code_id": "337811",
+          "currency_raw": "2026-09-15",
+          "customer_id": "SA5009"
+        },
+        "requested_node_ready": true,
+        "acquisition_script": {
+          "path": "live/acquisition-script-v8.mjs",
+          "sha256": "c46b53ade85a434641d3709dfa87c1b4be05fa3c8847179aef28f6b1a950ce8a",
+          "bytes": 8086
+        },
+        "checksum_module": {
+          "path": "sha256_browser.mjs",
+          "sha256": "e8838b9e8ac1a54c0b9d116855e020258ea7314b73a6dbb651e48eb260692f78",
+          "bytes": 2303
+        },
+        "uses_final_capture_revision": false,
+        "e2e_result": {
+          "path": "live/final-replay/santa-rosa-ca/e2e-result.json",
+          "sha256": "23fb2c35624c6d41e2ad8a0aa24acd34d0ad8c4245d32ea0b2a8c6fa92ec3bcf",
+          "bytes": 8091
+        },
+        "export_fulltext_json": {
+          "path": "live/final-replay/santa-rosa-ca/exports/aggregate-fulltext.json",
+          "sha256": "187dcf0f957536d8ef3a36cb7b6b6292cb8e5f99948958c140be48c566650447",
+          "bytes": 16612
+        },
+        "export_fulltext_csv": {
+          "path": "live/final-replay/santa-rosa-ca/exports/aggregate-fulltext.csv",
+          "sha256": "e4e5849482d3dddba7c15b24f699c98cf5b4c3d2d0f13f55db0c2d7995cd30fa",
+          "bytes": 11843
+        },
+        "provenance": {
+          "path": "live/final-replay/santa-rosa-ca/exports/record-provenance.jsonl",
+          "sha256": "1bdcc62d75c37eac39bae6a17e802c1203ad813ef0aae297134bec690d205a67",
+          "bytes": 24613
+        },
+        "observed_toc_nodes": 13,
+        "parsed_records": 13,
+        "unresolved_nodes": 0,
+        "all_record_source_text_comparisons_pass": true,
+        "current_sample_source_features": {
+          "tables": 0,
+          "merged_table_cells": 0,
+          "ecode_list_items": 3,
+          "native_lists": 0,
+          "images": 0,
+          "superscripts": 0,
+          "subscripts": 0,
+          "history": 13
+        },
+        "capture_attempts": [
+          {
+            "receipt": "live/cua/santa-rosa-ca/atomic-legal-content-settled.receipt.json",
+            "accepted": false,
+            "reason": "Source DOM SHA256 changed during capture or another explicit receipt acceptance check failed"
+          },
+          {
+            "receipt": "live/cua/santa-rosa-ca/atomic-legal-content.receipt.json",
+            "accepted": false,
+            "reason": "Source DOM SHA256 changed during capture or another explicit receipt acceptance check failed"
+          },
+          {
+            "receipt": "live/cua/santa-rosa-ca/legal-content-end-check.receipt.json",
+            "accepted": true,
+            "reason": null
+          },
+          {
+            "receipt": "live/cua/santa-rosa-ca/legal-content.failure.receipt.json",
+            "accepted": false,
+            "reason": "Error: DOM chunk incomplete/truncated at 40000; expected 721; received 3013"
+          }
+        ]
+      },
+      "official_route_currentness": {
+        "status": "unverified",
+        "evidence_phase": "retained v1 city-page check; not refreshed in E2E phase"
+      },
+      "historical_proof": {
+        "available": true,
+        "source": "HISTORICAL-V1-VALIDATION-REPORT.json",
+        "count": 13,
+        "currentness_inferred_from_historical_proof": false
+      },
+      "inventory_verified": false,
+      "full_collection_verified": false,
+      "release_eligible": false
+    },
+    {
+      "slug": "south-san-francisco-ca",
+      "jurisdiction": "South San Francisco",
+      "discovery_url": "https://ecode360.com/43423522",
+      "route_basis": "retained observed publisher chapter route; current capture independently validates customer/code/date",
+      "checked_on": "2026-10-15",
+      "standalone_http_status": "blocked",
+      "standalone_browser_status": "not_run",
+      "supported_cua_e2e_status": "pass",
+      "record_count": 8,
+      "latest_success_receipt": "live/cua/south-san-francisco-ca/legal-content.receipt.json",
+      "current_output_directory": "live/final-replay/south-san-francisco-ca",
+      "direct_http": {
+        "status": "blocked",
+        "http_status": 403,
+        "receipt": {
+          "path": "live/standalone-current/south-san-francisco-ca/receipt.json",
+          "sha256": "4e3866ca17393539b605c811239f074dcc5f436bb704701b43de5b34c92a7327",
+          "bytes": 993
+        },
+        "raw": {
+          "path": "live/standalone-current/south-san-francisco-ca/ea974b28c5798090eaa7f1be35eca69e04967dce5356a77f4e2532b686840913.html",
+          "sha256": "ea974b28c5798090eaa7f1be35eca69e04967dce5356a77f4e2532b686840913",
+          "bytes": 5522
+        },
+        "command": "python ecode360.py fetch https://ecode360.com/43423522 --out OUTPUT",
+        "blocker": "Public request returned403; retained exact response; no repeated blocked retries"
+      },
+      "standalone_browser": {
+        "status": "not_run",
+        "blocker": null,
+        "note": "No standalone-browser result inferred from HTTP or CUA results"
+      },
+      "supported_cua": {
+        "status": "pass",
+        "runtime": "supported Codex CUA, Chrome browser3, isolated task session; Node filesystem outside read-only DOM evaluation",
+        "acquisition_started_at": "2026-10-15T18:56:42.524Z",
+        "acquisition_finished_at": "2026-10-15T18:56:47.732Z",
+        "receipt": {
+          "path": "live/cua/south-san-francisco-ca/legal-content.receipt.json",
+          "sha256": "f29d848f1f79da3c2ad645fccd18763ba85a072f1a86ee61a27af9fc93059e09",
+          "bytes": 4225
+        },
+        "source": {
+          "path": "live/cua/south-san-francisco-ca/legal-content.html",
+          "sha256": "525652873bc1e587f2ce83947a78b1cec84b89e3b0e17bf4e3b23926324888e8",
+          "bytes": 32143
+        },
+        "capture_scope": "exact legal-content DOM subtree",
+        "capture_selector": "#codeContent",
+        "synthetic_document_wrapper_added": true,
+        "source_sha256_before": "525652873bc1e587f2ce83947a78b1cec84b89e3b0e17bf4e3b23926324888e8",
+        "source_sha256_after": "525652873bc1e587f2ce83947a78b1cec84b89e3b0e17bf4e3b23926324888e8",
+        "raw_sha256": "525652873bc1e587f2ce83947a78b1cec84b89e3b0e17bf4e3b23926324888e8",
+        "source_version_before": {
+          "code_id": "336974",
+          "currency_raw": "2026-09-09",
+          "customer_id": "SO5016"
+        },
+        "source_version_after": {
+          "code_id": "336974",
+          "currency_raw": "2026-09-09",
+          "customer_id": "SO5016"
+        },
+        "requested_node_ready": true,
+        "acquisition_script": {
+          "path": "live/acquisition-script-v7.mjs",
+          "sha256": "8e94c9e7cf639d9b524b3d4e211cc63907b6e649d04048b6d73e33284763d302",
+          "bytes": 7833
+        },
+        "checksum_module": {
+          "path": "sha256_browser.mjs",
+          "sha256": "e8838b9e8ac1a54c0b9d116855e020258ea7314b73a6dbb651e48eb260692f78",
+          "bytes": 2303
+        },
+        "uses_final_capture_revision": false,
+        "e2e_result": {
+          "path": "live/final-replay/south-san-francisco-ca/e2e-result.json",
+          "sha256": "efbd2e589fe290b6a2a3d6eaef5d538fa536cfcdbe967ba3b9c86d61a4706e73",
+          "bytes": 6114
+        },
+        "export_fulltext_json": {
+          "path": "live/final-replay/south-san-francisco-ca/exports/aggregate-fulltext.json",
+          "sha256": "f9dc708ce0d8e4d2c0607f3e2de3b8c6c160e10115096c02845b30ef2bb5a782",
+          "bytes": 8669
+        },
+        "export_fulltext_csv": {
+          "path": "live/final-replay/south-san-francisco-ca/exports/aggregate-fulltext.csv",
+          "sha256": "361a0e523a7b8f4a5b5cfd62f2c2d50954bad34c597e1eec8850d2bb97be75b4",
+          "bytes": 5834
+        },
+        "provenance": {
+          "path": "live/final-replay/south-san-francisco-ca/exports/record-provenance.jsonl",
+          "sha256": "69972594c0d6715212a5515f2ec488124777abe05f6ae2f66074ebe0a1de9f9c",
+          "bytes": 11142
+        },
+        "observed_toc_nodes": 8,
+        "parsed_records": 8,
+        "unresolved_nodes": 0,
+        "all_record_source_text_comparisons_pass": true,
+        "current_sample_source_features": {
+          "tables": 0,
+          "merged_table_cells": 0,
+          "ecode_list_items": 3,
+          "native_lists": 0,
+          "images": 0,
+          "superscripts": 0,
+          "subscripts": 0,
+          "history": 8
+        },
+        "capture_attempts": [
+          {
+            "receipt": "live/cua/south-san-francisco-ca/legal-content.receipt.json",
+            "accepted": true,
+            "reason": null
+          }
+        ]
+      },
+      "official_route_currentness": {
+        "status": "unverified",
+        "evidence_phase": "retained v1 city-page check; not refreshed in E2E phase"
+      },
+      "historical_proof": {
+        "available": true,
+        "source": "HISTORICAL-V1-VALIDATION-REPORT.json",
+        "count": 8,
+        "currentness_inferred_from_historical_proof": false
+      },
+      "inventory_verified": false,
+      "full_collection_verified": false,
+      "release_eligible": false
+    },
+    {
+      "slug": "sunnyvale-ca",
+      "jurisdiction": "Sunnyvale",
+      "discovery_url": "https://ecode360.com/42709867",
+      "route_basis": "retained observed publisher chapter route; current capture independently validates customer/code/date",
+      "checked_on": "2026-10-15",
+      "standalone_http_status": "blocked",
+      "standalone_browser_status": "not_run",
+      "supported_cua_e2e_status": "pass",
+      "record_count": 8,
+      "latest_success_receipt": "live/cua/sunnyvale-ca/legal-content.receipt.json",
+      "current_output_directory": "live/final-replay/sunnyvale-ca",
+      "direct_http": {
+        "status": "blocked",
+        "http_status": 403,
+        "receipt": {
+          "path": "live/standalone-current/sunnyvale-ca/receipt.json",
+          "sha256": "9a968d99d53eae46298e6854b8f7ab366bfcdfbb9a2b3db2537bec5ed0f6846b",
+          "bytes": 993
+        },
+        "raw": {
+          "path": "live/standalone-current/sunnyvale-ca/b6c06d61cbf46c88d85dff8b8e024cd1be06b7da4b9a840f2fb2557ff4ed2439.html",
+          "sha256": "b6c06d61cbf46c88d85dff8b8e024cd1be06b7da4b9a840f2fb2557ff4ed2439",
+          "bytes": 5522
+        },
+        "command": "python ecode360.py fetch https://ecode360.com/42709867 --out OUTPUT",
+        "blocker": "Public request returned403; retained exact response; no repeated blocked retries"
+      },
+      "standalone_browser": {
+        "status": "not_run",
+        "blocker": null,
+        "note": "No standalone-browser result inferred from HTTP or CUA results"
+      },
+      "supported_cua": {
+        "status": "pass",
+        "runtime": "supported Codex CUA, Chrome browser3, isolated task session; Node filesystem outside read-only DOM evaluation",
+        "acquisition_started_at": "2026-10-15T18:57:42.172Z",
+        "acquisition_finished_at": "2026-10-15T18:57:56.873Z",
+        "receipt": {
+          "path": "live/cua/sunnyvale-ca/legal-content.receipt.json",
+          "sha256": "32b21cb2c7060b253f4fa6aff5b869999cdbefc0acd3f6cf315df9719beb1091",
+          "bytes": 4302
+        },
+        "source": {
+          "path": "live/cua/sunnyvale-ca/legal-content.html",
+          "sha256": "b81427def9a2ef16ed8e7d4bf944e09f9d43f229d29e10d193444715f7ca3f87",
+          "bytes": 54559
+        },
+        "capture_scope": "exact legal-content DOM subtree",
+        "capture_selector": "#codeContent",
+        "synthetic_document_wrapper_added": true,
+        "source_sha256_before": "b81427def9a2ef16ed8e7d4bf944e09f9d43f229d29e10d193444715f7ca3f87",
+        "source_sha256_after": "b81427def9a2ef16ed8e7d4bf944e09f9d43f229d29e10d193444715f7ca3f87",
+        "raw_sha256": "b81427def9a2ef16ed8e7d4bf944e09f9d43f229d29e10d193444715f7ca3f87",
+        "source_version_before": {
+          "code_id": "337833",
+          "currency_raw": "2026-08-11",
+          "customer_id": "SU5020"
+        },
+        "source_version_after": {
+          "code_id": "337833",
+          "currency_raw": "2026-08-11",
+          "customer_id": "SU5020"
+        },
+        "requested_node_ready": true,
+        "acquisition_script": {
+          "path": "live/acquisition-script-v8.mjs",
+          "sha256": "c46b53ade85a434641d3709dfa87c1b4be05fa3c8847179aef28f6b1a950ce8a",
+          "bytes": 8086
+        },
+        "checksum_module": {
+          "path": "sha256_browser.mjs",
+          "sha256": "e8838b9e8ac1a54c0b9d116855e020258ea7314b73a6dbb651e48eb260692f78",
+          "bytes": 2303
+        },
+        "uses_final_capture_revision": false,
+        "e2e_result": {
+          "path": "live/final-replay/sunnyvale-ca/e2e-result.json",
+          "sha256": "049c816c11110fb60e988b516488ac03d3319febefead93c27c04330635c353d",
+          "bytes": 6114
+        },
+        "export_fulltext_json": {
+          "path": "live/final-replay/sunnyvale-ca/exports/aggregate-fulltext.json",
+          "sha256": "646b7b9d090b395e035841da9613b666e65a0930b5e4702f29928792c52d2603",
+          "bytes": 12635
+        },
+        "export_fulltext_csv": {
+          "path": "live/final-replay/sunnyvale-ca/exports/aggregate-fulltext.csv",
+          "sha256": "b0c6fed3e304a500df994fb6c90f48d0f1d6e34ae6112a58ce228da26cb2b833",
+          "bytes": 9762
+        },
+        "provenance": {
+          "path": "live/final-replay/sunnyvale-ca/exports/record-provenance.jsonl",
+          "sha256": "daa8d356cf77258a8b415a526d5c01b8e48023e3af0a02d785677f43caf72558",
+          "bytes": 21927
+        },
+        "observed_toc_nodes": 8,
+        "parsed_records": 8,
+        "unresolved_nodes": 0,
+        "all_record_source_text_comparisons_pass": true,
+        "current_sample_source_features": {
+          "tables": 0,
+          "merged_table_cells": 0,
+          "ecode_list_items": 25,
+          "native_lists": 0,
+          "images": 0,
+          "superscripts": 0,
+          "subscripts": 0,
+          "history": 8
+        },
+        "capture_attempts": [
+          {
+            "receipt": "live/cua/sunnyvale-ca/legal-content.receipt.json",
+            "accepted": true,
+            "reason": null
+          }
+        ]
+      },
+      "official_route_currentness": {
+        "status": "unverified",
+        "evidence_phase": "retained v1 city-page check; not refreshed in E2E phase"
+      },
+      "historical_proof": {
+        "available": true,
+        "source": "HISTORICAL-V1-VALIDATION-REPORT.json",
+        "count": 8,
+        "currentness_inferred_from_historical_proof": false
+      },
+      "inventory_verified": false,
+      "full_collection_verified": false,
+      "release_eligible": false
+    },
+    {
+      "slug": "west-hollywood-ca",
+      "jurisdiction": "West Hollywood",
+      "discovery_url": "https://ecode360.com/43902463",
+      "route_basis": "retained observed publisher chapter route; current capture independently validates customer/code/date",
+      "checked_on": "2026-10-15",
+      "standalone_http_status": "blocked",
+      "standalone_browser_status": "not_run",
+      "supported_cua_e2e_status": "pass",
+      "record_count": 10,
+      "latest_success_receipt": "live/cua/west-hollywood-ca/legal-content-settled.receipt.json",
+      "current_output_directory": "live/final-replay/west-hollywood-ca",
+      "direct_http": {
+        "status": "blocked",
+        "http_status": 403,
+        "receipt": {
+          "path": "live/standalone-current/west-hollywood-ca/receipt.json",
+          "sha256": "f93cb1c30eee11891fa042a15b672df5a2a3ab3f05cdbd9126bcc728d876c082",
+          "bytes": 993
+        },
+        "raw": {
+          "path": "live/standalone-current/west-hollywood-ca/82cab72f4b22ec4b8f11c0ac7fabcdba2ce938c10cf01203b6719aba9dae3a74.html",
+          "sha256": "82cab72f4b22ec4b8f11c0ac7fabcdba2ce938c10cf01203b6719aba9dae3a74",
+          "bytes": 5522
+        },
+        "command": "python ecode360.py fetch https://ecode360.com/43902463 --out OUTPUT",
+        "blocker": "Public request returned403; retained exact response; no repeated blocked retries"
+      },
+      "standalone_browser": {
+        "status": "not_run",
+        "blocker": null,
+        "note": "No standalone-browser result inferred from HTTP or CUA results"
+      },
+      "supported_cua": {
+        "status": "pass",
+        "runtime": "supported Codex CUA, Chrome browser3, isolated task session; Node filesystem outside read-only DOM evaluation",
+        "acquisition_started_at": "2026-10-15T18:58:02.414Z",
+        "acquisition_finished_at": "2026-10-15T18:58:03.326Z",
+        "receipt": {
+          "path": "live/cua/west-hollywood-ca/legal-content-settled.receipt.json",
+          "sha256": "7faa946cf994d41a5e9242da8c078f280851aaf74e2ef3468f3156a504c060d3",
+          "bytes": 4709
+        },
+        "source": {
+          "path": "live/cua/west-hollywood-ca/legal-content-settled.html",
+          "sha256": "038a4eff6d24b44a9131dac4c6e82767007adb1fc577a1fcd7959ddfaaebd3e8",
+          "bytes": 37593
+        },
+        "capture_scope": "exact legal-content DOM subtree",
+        "capture_selector": "#codeContent",
+        "synthetic_document_wrapper_added": true,
+        "source_sha256_before": "038a4eff6d24b44a9131dac4c6e82767007adb1fc577a1fcd7959ddfaaebd3e8",
+        "source_sha256_after": "038a4eff6d24b44a9131dac4c6e82767007adb1fc577a1fcd7959ddfaaebd3e8",
+        "raw_sha256": "038a4eff6d24b44a9131dac4c6e82767007adb1fc577a1fcd7959ddfaaebd3e8",
+        "source_version_before": {
+          "code_id": "336663",
+          "currency_raw": "2026-06-29",
+          "customer_id": "WE5031"
+        },
+        "source_version_after": {
+          "code_id": "336663",
+          "currency_raw": "2026-06-29",
+          "customer_id": "WE5031"
+        },
+        "requested_node_ready": true,
+        "acquisition_script": {
+          "path": "live/acquisition-script-v8.mjs",
+          "sha256": "c46b53ade85a434641d3709dfa87c1b4be05fa3c8847179aef28f6b1a950ce8a",
+          "bytes": 8086
+        },
+        "checksum_module": {
+          "path": "sha256_browser.mjs",
+          "sha256": "e8838b9e8ac1a54c0b9d116855e020258ea7314b73a6dbb651e48eb260692f78",
+          "bytes": 2303
+        },
+        "uses_final_capture_revision": false,
+        "e2e_result": {
+          "path": "live/final-replay/west-hollywood-ca/e2e-result.json",
+          "sha256": "a65dbf3c4e5bfa07af1ce2fc8b40a3a733511f2a3e2e6b4a5d62780239c555df",
+          "bytes": 6906
+        },
+        "export_fulltext_json": {
+          "path": "live/final-replay/west-hollywood-ca/exports/aggregate-fulltext.json",
+          "sha256": "f92146b1109ed80c4a2a5f0adfac5d8151cb67a5790c51c3a9db4d679fdda2ea",
+          "bytes": 9859
+        },
+        "export_fulltext_csv": {
+          "path": "live/final-replay/west-hollywood-ca/exports/aggregate-fulltext.csv",
+          "sha256": "c70fc78694d72e4631063b46daaa24675615073f6119c965ec9f29c5c70970ea",
+          "bytes": 6302
+        },
+        "provenance": {
+          "path": "live/final-replay/west-hollywood-ca/exports/record-provenance.jsonl",
+          "sha256": "cf00ac1f9c0c09286a8da6541fc3269d1d17300a9b43e22d4817bb8dbef3ad51",
+          "bytes": 11754
+        },
+        "observed_toc_nodes": 10,
+        "parsed_records": 10,
+        "unresolved_nodes": 0,
+        "all_record_source_text_comparisons_pass": true,
+        "current_sample_source_features": {
+          "tables": 0,
+          "merged_table_cells": 0,
+          "ecode_list_items": 0,
+          "native_lists": 0,
+          "images": 0,
+          "superscripts": 0,
+          "subscripts": 0,
+          "history": 10
+        },
+        "capture_attempts": [
+          {
+            "receipt": "live/cua/west-hollywood-ca/legal-content-settled.receipt.json",
+            "accepted": true,
+            "reason": null
+          },
+          {
+            "receipt": "live/cua/west-hollywood-ca/legal-content.receipt.json",
+            "accepted": false,
+            "reason": "Source DOM SHA256 changed during capture or another explicit receipt acceptance check failed"
+          }
+        ]
+      },
+      "official_route_currentness": {
+        "status": "unverified",
+        "evidence_phase": "retained v1 city-page check; not refreshed in E2E phase"
+      },
+      "historical_proof": {
+        "available": true,
+        "source": "HISTORICAL-V1-VALIDATION-REPORT.json",
+        "count": 10,
+        "currentness_inferred_from_historical_proof": false
+      },
+      "inventory_verified": false,
+      "full_collection_verified": false,
+      "release_eligible": false
+    },
+    {
+      "slug": "tukwila-wa",
+      "jurisdiction": "Tukwila",
+      "discovery_url": "https://ecode360.com/47209490",
+      "route_basis": "retained observed publisher chapter route; current capture independently validates customer/code/date",
+      "checked_on": "2026-10-15",
+      "standalone_http_status": "blocked",
+      "standalone_browser_status": "not_run",
+      "supported_cua_e2e_status": "pass",
+      "record_count": 16,
+      "latest_success_receipt": "live/cua/tukwila-wa/legal-content-end-check.receipt.json",
+      "current_output_directory": "live/final-replay/tukwila-wa",
+      "direct_http": {
+        "status": "blocked",
+        "http_status": 403,
+        "receipt": {
+          "path": "live/standalone-current/tukwila-wa/receipt.json",
+          "sha256": "ee2a80e3755e6c23b73dc103b5e1c28f7cdda3a21f811f2e553a1c3e6580a3e9",
+          "bytes": 993
+        },
+        "raw": {
+          "path": "live/standalone-current/tukwila-wa/321a8fc1a478f90156ffc44f767d9f33f202227c4ce79927b3ec98d0d0a0d244.html",
+          "sha256": "321a8fc1a478f90156ffc44f767d9f33f202227c4ce79927b3ec98d0d0a0d244",
+          "bytes": 5522
+        },
+        "command": "python ecode360.py fetch https://ecode360.com/47209490 --out OUTPUT",
+        "blocker": "Public request returned403; retained exact response; no repeated blocked retries"
+      },
+      "standalone_browser": {
+        "status": "not_run",
+        "blocker": null,
+        "note": "No standalone-browser result inferred from HTTP or CUA results"
+      },
+      "supported_cua": {
+        "status": "pass",
+        "runtime": "supported Codex CUA, Chrome browser3, isolated task session; Node filesystem outside read-only DOM evaluation",
+        "acquisition_started_at": "2026-10-15T18:58:22.485Z",
+        "acquisition_finished_at": "2026-10-15T18:58:26.895Z",
+        "receipt": {
+          "path": "live/cua/tukwila-wa/legal-content-end-check.receipt.json",
+          "sha256": "31a2e696875233b8e6c7b889984bb49e153e91a16e22a3e5f368dceaf01ec14c",
+          "bytes": 6170
+        },
+        "source": {
+          "path": "live/cua/tukwila-wa/legal-content-end-check.html",
+          "sha256": "f743ad509562f06d5932576389a5296dbf05f2a42d66e920cc7de4e75b42dd18",
+          "bytes": 69231
+        },
+        "capture_scope": "exact legal-content DOM subtree",
+        "capture_selector": "#codeContent",
+        "synthetic_document_wrapper_added": true,
+        "source_sha256_before": "f743ad509562f06d5932576389a5296dbf05f2a42d66e920cc7de4e75b42dd18",
+        "source_sha256_after": "f743ad509562f06d5932576389a5296dbf05f2a42d66e920cc7de4e75b42dd18",
+        "raw_sha256": "f743ad509562f06d5932576389a5296dbf05f2a42d66e920cc7de4e75b42dd18",
+        "source_version_before": {
+          "code_id": "332495",
+          "currency_raw": "2026-05-18",
+          "customer_id": "TU6948"
+        },
+        "source_version_after": {
+          "code_id": "332495",
+          "currency_raw": "2026-05-18",
+          "customer_id": "TU6948"
+        },
+        "requested_node_ready": true,
+        "acquisition_script": {
+          "path": "live/acquisition-script-v8.mjs",
+          "sha256": "c46b53ade85a434641d3709dfa87c1b4be05fa3c8847179aef28f6b1a950ce8a",
+          "bytes": 8086
+        },
+        "checksum_module": {
+          "path": "sha256_browser.mjs",
+          "sha256": "e8838b9e8ac1a54c0b9d116855e020258ea7314b73a6dbb651e48eb260692f78",
+          "bytes": 2303
+        },
+        "uses_final_capture_revision": false,
+        "e2e_result": {
+          "path": "live/final-replay/tukwila-wa/e2e-result.json",
+          "sha256": "1037811199beecf5f05247a3465f26a3d74a9d57ba4ee536b9d50917c2e0c113",
+          "bytes": 9276
+        },
+        "export_fulltext_json": {
+          "path": "live/final-replay/tukwila-wa/exports/aggregate-fulltext.json",
+          "sha256": "c507f769f0bb48c49fb81f3ad59516c1b3b5e027d5733e86d5a26acd0d948489",
+          "bytes": 17980
+        },
+        "export_fulltext_csv": {
+          "path": "live/final-replay/tukwila-wa/exports/aggregate-fulltext.csv",
+          "sha256": "36bc9d3eefc345094900875672782dbcdfcec3040bbf646f99ced1652b421768",
+          "bytes": 12191
+        },
+        "provenance": {
+          "path": "live/final-replay/tukwila-wa/exports/record-provenance.jsonl",
+          "sha256": "1e055076b7ad2f6caeca1052f6ab6526ec7b87cfe2fa5fb9f734bc488eef7f8c",
+          "bytes": 27581
+        },
+        "observed_toc_nodes": 16,
+        "parsed_records": 16,
+        "unresolved_nodes": 0,
+        "all_record_source_text_comparisons_pass": true,
+        "current_sample_source_features": {
+          "tables": 0,
+          "merged_table_cells": 0,
+          "ecode_list_items": 21,
+          "native_lists": 0,
+          "images": 0,
+          "superscripts": 0,
+          "subscripts": 0,
+          "history": 16
+        },
+        "capture_attempts": [
+          {
+            "receipt": "live/cua/tukwila-wa/legal-content-end-check.receipt.json",
+            "accepted": true,
+            "reason": null
+          },
+          {
+            "receipt": "live/cua/tukwila-wa/legal-content-settled.receipt.json",
+            "accepted": false,
+            "reason": "Source DOM SHA256 changed during capture or another explicit receipt acceptance check failed"
+          },
+          {
+            "receipt": "live/cua/tukwila-wa/legal-content.receipt.json",
+            "accepted": false,
+            "reason": "Source DOM SHA256 changed during capture or another explicit receipt acceptance check failed"
+          }
+        ]
+      },
+      "official_route_currentness": {
+        "status": "unverified",
+        "evidence_phase": "retained v1 city-page check; not refreshed in E2E phase"
+      },
+      "historical_proof": {
+        "available": true,
+        "source": "HISTORICAL-V1-VALIDATION-REPORT.json",
+        "count": 16,
+        "currentness_inferred_from_historical_proof": false
+      },
+      "inventory_verified": false,
+      "full_collection_verified": false,
+      "release_eligible": false
+    },
+    {
+      "slug": "foster-city-ca",
+      "jurisdiction": "Foster City",
+      "discovery_url": "https://ecode360.com/51404426",
+      "route_basis": "observed current FO4449 root ->Title1 ->chapter1.01",
+      "checked_on": "2026-10-15",
+      "standalone_http_status": "blocked",
+      "standalone_browser_status": "blocked",
+      "supported_cua_e2e_status": "pass",
+      "record_count": 7,
+      "latest_success_receipt": "live/cua/foster-city-ca/chapter-hardened.receipt.json",
+      "current_output_directory": "live/final-replay/foster-city-ca",
+      "direct_http": {
+        "status": "blocked",
+        "http_status": 403,
+        "receipt": {
+          "path": "live/standalone/foster-city-ca/receipt.json",
+          "sha256": "470669e2ebd9f6e5e34605fa75db105b901f613b70b807d457a7f03640d1c344",
+          "bytes": 993
+        },
+        "raw": {
+          "path": "live/standalone/foster-city-ca/6589a96c0db0ce466e78cf2c7f3ad528c2a073816cdf52fd0203954ad5d4eabd.html",
+          "sha256": "6589a96c0db0ce466e78cf2c7f3ad528c2a073816cdf52fd0203954ad5d4eabd",
+          "bytes": 5522
+        },
+        "command": "python ecode360.py fetch https://ecode360.com/51404426 --out OUTPUT",
+        "blocker": "Public request returned403; retained exact response; no repeated blocked retries"
+      },
+      "standalone_browser": {
+        "status": "blocked",
+        "http_status": 403,
+        "receipt": {
+          "path": "live/standalone-browser/foster-city-ca/receipt.json",
+          "sha256": "84010e06c36eb4672433e2ad78645e3b9de1fd9185c6d90af69e84e9ec6cf9e7",
+          "bytes": 747
+        },
+        "raw": {
+          "path": "live/standalone-browser/foster-city-ca/source.html",
+          "sha256": "14925d35fdc84a00cb60264e04410fae51584438106df9cb929d2e8bcc96e13d",
+          "bytes": 28810
+        },
+        "blocker": "Fresh isolated standalone Chrome returned403 / Just a moment; no challenge solved",
+        "script_hash_at_acquisition": null,
+        "note": "The failure precedes a later expected-pageTitle-node correction; no final-revision standalone success is claimed."
+      },
+      "supported_cua": {
+        "status": "pass",
+        "runtime": "supported Codex CUA, Chrome browser3, isolated task session; Node filesystem outside read-only DOM evaluation",
+        "acquisition_started_at": "2026-10-15T18:52:27.090Z",
+        "acquisition_finished_at": "2026-10-15T18:52:29.798Z",
+        "receipt": {
+          "path": "live/cua/foster-city-ca/chapter-hardened.receipt.json",
+          "sha256": "ecbc087ae9311d6f2599c849d1d7acb5cc746392f907ff9b20d0f9c7f262654c",
+          "bytes": 4073
+        },
+        "source": {
+          "path": "live/cua/foster-city-ca/chapter-hardened.html",
+          "sha256": "3463e443dd88635efaed194e492c965f7432b15dd04416d89ab22b171899618f",
+          "bytes": 194447
+        },
+        "capture_scope": "full document outerHTML",
+        "capture_selector": "html",
+        "synthetic_document_wrapper_added": false,
+        "source_sha256_before": "3463e443dd88635efaed194e492c965f7432b15dd04416d89ab22b171899618f",
+        "source_sha256_after": "3463e443dd88635efaed194e492c965f7432b15dd04416d89ab22b171899618f",
+        "raw_sha256": "3463e443dd88635efaed194e492c965f7432b15dd04416d89ab22b171899618f",
+        "source_version_before": {
+          "code_id": "337727",
+          "currency_raw": "2026-01-26",
+          "customer_id": "FO4449"
+        },
+        "source_version_after": {
+          "code_id": "337727",
+          "currency_raw": "2026-01-26",
+          "customer_id": "FO4449"
+        },
+        "requested_node_ready": true,
+        "acquisition_script": {
+          "path": "live/acquisition-script-v4.mjs",
+          "sha256": "b14bcc149737b5ee26b483701e3cfc2f42ab2f46984937e9d6eaa82c7f54d163",
+          "bytes": 7181
+        },
+        "checksum_module": {
+          "path": "sha256_browser.mjs",
+          "sha256": "e8838b9e8ac1a54c0b9d116855e020258ea7314b73a6dbb651e48eb260692f78",
+          "bytes": 2303
+        },
+        "uses_final_capture_revision": false,
+        "e2e_result": {
+          "path": "live/final-replay/foster-city-ca/e2e-result.json",
+          "sha256": "c2ce8ed27f15880171e972918a8ae5a81231b4f47b742560960da7fd45dbda40",
+          "bytes": 5704
+        },
+        "export_fulltext_json": {
+          "path": "live/final-replay/foster-city-ca/exports/aggregate-fulltext.json",
+          "sha256": "049eed9802f9b62d97507ccbe680b706f1eacd03ee2fece67173ee93680e3d54",
+          "bytes": 9644
+        },
+        "export_fulltext_csv": {
+          "path": "live/final-replay/foster-city-ca/exports/aggregate-fulltext.csv",
+          "sha256": "63efbfd1a5e7ccc1d20a8952cf4fb6cc50588cf44a2e9fe06b7786e2caa4b474",
+          "bytes": 7137
+        },
+        "provenance": {
+          "path": "live/final-replay/foster-city-ca/exports/record-provenance.jsonl",
+          "sha256": "39042b0c0dbe00bc7a6a2bc62fb7286ae9648bb5fb745bb65fcc08ab300e81c1",
+          "bytes": 14044
+        },
+        "observed_toc_nodes": 7,
+        "parsed_records": 7,
+        "unresolved_nodes": 0,
+        "all_record_source_text_comparisons_pass": true,
+        "current_sample_source_features": {
+          "tables": 1,
+          "merged_table_cells": 0,
+          "ecode_list_items": 13,
+          "native_lists": 0,
+          "images": 0,
+          "superscripts": 0,
+          "subscripts": 0,
+          "history": 7
+        },
+        "capture_attempts": [
+          {
+            "receipt": "live/cua/foster-city-ca/chapter-hardened.receipt.json",
+            "accepted": true,
+            "reason": null
+          },
+          {
+            "receipt": "live/cua/foster-city-ca/chapter.receipt.json",
+            "accepted": true,
+            "reason": null
+          }
+        ]
+      },
+      "official_route_currentness": {
+        "status": "official_city_link_not_independently_refreshed",
+        "evidence_phase": "current publisher route/customer identity plus separately identified migration evidence"
+      },
+      "historical_proof": {
+        "available": false,
+        "source": "HISTORICAL-V1-VALIDATION-REPORT.json",
+        "count": null,
+        "currentness_inferred_from_historical_proof": false
+      },
+      "inventory_verified": false,
+      "full_collection_verified": false,
+      "release_eligible": false
+    },
+    {
+      "slug": "seatac-wa",
+      "jurisdiction": "SeaTac",
+      "discovery_url": "https://ecode360.com/51196398",
+      "route_basis": "fresh legacy vendor migration notice ->SE4633 root ->Title1 ->chapter1.01",
+      "checked_on": "2026-10-15",
+      "standalone_http_status": "blocked",
+      "standalone_browser_status": "not_run",
+      "supported_cua_e2e_status": "pass",
+      "record_count": 12,
+      "latest_success_receipt": "live/cua/seatac-wa/legal-content-end-check.receipt.json",
+      "current_output_directory": "live/final-replay/seatac-wa",
+      "direct_http": {
+        "status": "blocked",
+        "http_status": 403,
+        "receipt": {
+          "path": "live/standalone-current/seatac-wa/receipt.json",
+          "sha256": "7be2e8210e2726e3eca2346b4c3f65081850e2c7b89c3c5c4e5995653ce295ee",
+          "bytes": 993
+        },
+        "raw": {
+          "path": "live/standalone-current/seatac-wa/b45d1cc7764445714837bf559b898a9d457e914c2c69afea6e05b5c4b240fdeb.html",
+          "sha256": "b45d1cc7764445714837bf559b898a9d457e914c2c69afea6e05b5c4b240fdeb",
+          "bytes": 5522
+        },
+        "command": "python ecode360.py fetch https://ecode360.com/51196398 --out OUTPUT",
+        "blocker": "Public request returned403; retained exact response; no repeated blocked retries"
+      },
+      "standalone_browser": {
+        "status": "not_run",
+        "blocker": null,
+        "note": "No standalone-browser result inferred from HTTP or CUA results"
+      },
+      "supported_cua": {
+        "status": "pass",
+        "runtime": "supported Codex CUA, Chrome browser3, isolated task session; Node filesystem outside read-only DOM evaluation",
+        "acquisition_started_at": "2026-10-15T18:59:47.868Z",
+        "acquisition_finished_at": "2026-10-15T18:59:50.955Z",
+        "receipt": {
+          "path": "live/cua/seatac-wa/legal-content-end-check.receipt.json",
+          "sha256": "172171fcfdf6f34eacac8db2b01b0c7c5ebb8273ecdc4f0c6675408fe4458c62",
+          "bytes": 5230
+        },
+        "source": {
+          "path": "live/cua/seatac-wa/legal-content-end-check.html",
+          "sha256": "73ee6c920ac7a8ab87d65a0ad66c522a76d77be2c4467134027ce9d8693adba3",
+          "bytes": 57044
+        },
+        "capture_scope": "exact legal-content DOM subtree",
+        "capture_selector": "#codeContent",
+        "synthetic_document_wrapper_added": true,
+        "source_sha256_before": "73ee6c920ac7a8ab87d65a0ad66c522a76d77be2c4467134027ce9d8693adba3",
+        "source_sha256_after": "73ee6c920ac7a8ab87d65a0ad66c522a76d77be2c4467134027ce9d8693adba3",
+        "raw_sha256": "73ee6c920ac7a8ab87d65a0ad66c522a76d77be2c4467134027ce9d8693adba3",
+        "source_version_before": {
+          "code_id": "337588",
+          "currency_raw": "2026-09-30",
+          "customer_id": "SE4633"
+        },
+        "source_version_after": {
+          "code_id": "337588",
+          "currency_raw": "2026-09-30",
+          "customer_id": "SE4633"
+        },
+        "requested_node_ready": true,
+        "acquisition_script": {
+          "path": "live/acquisition-script-v8.mjs",
+          "sha256": "c46b53ade85a434641d3709dfa87c1b4be05fa3c8847179aef28f6b1a950ce8a",
+          "bytes": 8086
+        },
+        "checksum_module": {
+          "path": "sha256_browser.mjs",
+          "sha256": "e8838b9e8ac1a54c0b9d116855e020258ea7314b73a6dbb651e48eb260692f78",
+          "bytes": 2303
+        },
+        "uses_final_capture_revision": false,
+        "e2e_result": {
+          "path": "live/final-replay/seatac-wa/e2e-result.json",
+          "sha256": "9fab611a795acd4e55b45e42ae0b9d9a513976414fc13b42546d74689d0a0761",
+          "bytes": 7696
+        },
+        "export_fulltext_json": {
+          "path": "live/final-replay/seatac-wa/exports/aggregate-fulltext.json",
+          "sha256": "eb35c257330777bb580de80f88030b4ae214936658b92566c60964526553c002",
+          "bytes": 15591
+        },
+        "export_fulltext_csv": {
+          "path": "live/final-replay/seatac-wa/exports/aggregate-fulltext.csv",
+          "sha256": "d9f5d3d93c09b136dc6c4182de0f3c6e0ab49e47595d526a45fbfb2c08349ceb",
+          "bytes": 11228
+        },
+        "provenance": {
+          "path": "live/final-replay/seatac-wa/exports/record-provenance.jsonl",
+          "sha256": "daac61cbb7522b624af4c4bc7ac6c3a8a4c3a00492819dec52a5b1e4569a112c",
+          "bytes": 25621
+        },
+        "observed_toc_nodes": 12,
+        "parsed_records": 12,
+        "unresolved_nodes": 0,
+        "all_record_source_text_comparisons_pass": true,
+        "current_sample_source_features": {
+          "tables": 0,
+          "merged_table_cells": 0,
+          "ecode_list_items": 26,
+          "native_lists": 0,
+          "images": 0,
+          "superscripts": 0,
+          "subscripts": 0,
+          "history": 12
+        },
+        "capture_attempts": [
+          {
+            "receipt": "live/cua/seatac-wa/current-root.receipt.json",
+            "accepted": true,
+            "reason": null
+          },
+          {
+            "receipt": "live/cua/seatac-wa/legal-content-end-check.receipt.json",
+            "accepted": true,
+            "reason": null
+          },
+          {
+            "receipt": "live/cua/seatac-wa/legal-content-settled.receipt.json",
+            "accepted": false,
+            "reason": "Source DOM SHA256 changed during capture or another explicit receipt acceptance check failed"
+          },
+          {
+            "receipt": "live/cua/seatac-wa/legal-content.receipt.json",
+            "accepted": false,
+            "reason": "Source DOM SHA256 changed during capture or another explicit receipt acceptance check failed"
+          }
+        ]
+      },
+      "official_route_currentness": {
+        "status": "official_city_link_not_independently_refreshed",
+        "evidence_phase": "current publisher route/customer identity plus separately identified migration evidence"
+      },
+      "historical_proof": {
+        "available": false,
+        "source": "HISTORICAL-V1-VALIDATION-REPORT.json",
+        "count": null,
+        "currentness_inferred_from_historical_proof": false
+      },
+      "inventory_verified": false,
+      "full_collection_verified": false,
+      "release_eligible": false
+    }
+  ],
+  "migration_evidence": {
+    "seatac_vendor_notice_raw": {
+      "path": "live/migration-evidence/seatac-wa/root-confirmed.html",
+      "sha256": "e9ec1cd4eb66f8edbc8ee5596c5fe727d655d222453d22d582fa68dc2067ce8c",
+      "bytes": 33625
+    },
+    "seatac_vendor_notice_receipt": {
+      "path": "live/migration-evidence/seatac-wa/root-confirmed.receipt.json",
+      "sha256": "ac384ca58d09a76e1c8bb46c063577b7ba9a0ccabb7e2eda71bba9cc506dceca",
+      "bytes": 7213
+    },
+    "seatac_vendor_notice_origin": {
+      "path": "live/migration-evidence/seatac-wa/origin.json",
+      "sha256": "8fca43d6b60ee61329968362325e3bceadae0eceb939561fe659d1c4af1dd999",
+      "bytes": 884
+    },
+    "seatac_current_root_receipt": {
+      "path": "live/cua/seatac-wa/current-root.receipt.json",
+      "sha256": "4fdbd7ea29ef63b41ab1bbd985c159f66d279f19c6d9672e9c61924831349793",
+      "bytes": 7319
+    },
+    "foster": "Current FO4449 legal sample acquired and verified here; parent handoff separately retains official/legacy redirect evidence."
+  },
+  "limitations": [
+    "All134 rows are bounded current chapter/article samples. No publication-wide inventory, full collection, database import or production publication was performed.",
+    "Only supported managed CUA acquisition succeeded. DirectHTTP all14blocked403; standalone freshPlaywrightChrome testedFosterblocked403, other13notrun. No access control or challenge bypass.",
+    "Two accepted sources are fullDOMs (Foster/SantaClara); other selected sources are exact #codeContent legal-content subtrees with explicit programmatic document wrappers. Scope and both hashes retained.",
+    "Several early captures were rejected for source widget hydration/mutation; failed attempts and exact executed helper revisions retained. Currentfinal guard was actually used forMalibu; earlier accepted sources are not relabeled finalrevision.",
+    "Version identity and full captured-source SHA are stable during accepted captures; this is not end-to-end version reconciliation for a future whole-publication run.",
+    "Complete charter/code/improvement-district/table/amendment/attachment scope remains unreviewed. Foster publisher navigation contains a distinct improvement-district family.",
+    "Only retained v1 city pages establish three official municipal eCode links. Other current official municipal routing gaps remain; SeaTac additionally has fresh vendor migration evidence.",
+    "Source text comparisons remove whitespace and apply explicit source-image marker normalization. Human visual source review, diagram transcription and real multi-publication repeated-number review remain incomplete.",
+    "Standalone blocked receipt did not record acquisition-script SHA at execution. Current script has a later expectedheading correction; no standalone pass or finalrevision live claim inferred.",
+    "Inherited examples/fixtures/HISTORICAL-V1 reports are separate historical proof with original checkpoints; no old sample is counted as a new current acquisition."
+  ],
+  "next_actions": [
+    "Obtain legitimate supported standalone access or authorized official export before claiming unattended standalonecollection capability.",
+    "Independently review complete current publications/families and freeze every-node inventory before separately authorized full collection.",
+    "Complete whole-run version reconciliation, source-sensitive human semantic review and separate production release attestation."
+  ]
+}

@@ -1,0 +1,28 @@
+{
+  "status": "live_sample_complete",
+  "jurisdiction": "King County, Washington",
+  "collector": "adapters.special_collectors.collect_king_county",
+  "source_type": "first-party Clerk title HTML",
+  "requirements_met": [
+    "landing-page title discovery",
+    "per-title cache/checkpoint",
+    "TOC hierarchy plus full text",
+    "16-column provision CSV/JSON"
+  ],
+  "transport_note": "Direct HTTPS source retrieval worked for the 2026-08-28 sample; this workstation required the runner's explicit --insecure transport because its TLS interception issuer is not trusted by Python.",
+  "test_evidence": "validation/test_special_collectors.py::test_king_county_collector_from_first_party_fixtures",
+  "sample_date": "2026-08-28",
+  "sample_output": {
+    "json": "C:\\Users\\olive\\OneDrive\\Documents\\Claude\\Projects\\CompliSolv 2.00\\municipal-code-batch\\outputs\\live-samples\\special-sources\\king-county-wa\\outputs\\king-county-wa-municipal-code.json",
+    "csv": "C:\\Users\\olive\\OneDrive\\Documents\\Claude\\Projects\\CompliSolv 2.00\\municipal-code-batch\\outputs\\live-samples\\special-sources\\king-county-wa\\outputs\\king-county-wa-municipal-code.csv",
+    "rows": 10,
+    "full_text_rows": 10
+  },
+  "live_evidence": {
+    "landing_url": "https://kingcounty.gov/en/dept/council/governance-leadership/county-legislation-codes/king-county-code",
+    "source_url": "https://aqua.kingcounty.gov/council/clerk/code/04_Title_1.htm",
+    "title_label": "Title 1: County Council and Elections",
+    "parsed_provisions": 122
+  },
+  "sample_limit": 10
+}

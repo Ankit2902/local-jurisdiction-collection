@@ -1,0 +1,67 @@
+{
+  "job": {
+    "slug": "berkeley-ca",
+    "section_url": "https://berkeley.municipal.codes/BMC/1.01.010",
+    "expected_id": "1.01.010",
+    "export_url": "https://berkeley.municipal.codes/BMC/1.01.010/export.html?download=true",
+    "advertised_exports": [
+      {
+        "url": "https://berkeley.municipal.codes/BMC/1.01.010/export.pdf?download=true",
+        "label": "Adobe Reader (PDF)"
+      },
+      {
+        "url": "https://berkeley.municipal.codes/BMC/1.01.010/export.rtf?download=true",
+        "label": "Microsoft Word (RTF)"
+      },
+      {
+        "url": "https://berkeley.municipal.codes/BMC/1.01.010/export.pdf?print=true",
+        "label": "Print"
+      },
+      {
+        "url": "https://berkeley.municipal.codes/BMC/1.01.010/export.html?download=true",
+        "label": "Web Page (HTML)"
+      },
+      {
+        "url": "https://berkeley.municipal.codes/BMC/1.01.010/export.txt?download=true",
+        "label": "Plain Text"
+      }
+    ],
+    "discovery_receipt": "export-discovery/berkeley-ca/share-dialog.receipt.json",
+    "discovery_raw_sha256": "d2bc81f52b2e582b025a9a5fb53473754e85b54937eb8cec64636c8a8bd5f1ef",
+    "stages": [
+      "html-export"
+    ]
+  },
+  "transport": "standalone ordinary headed Playwright",
+  "node": "v24.19.0",
+  "playwright": "1.62.1",
+  "browser": "155.0.8059.41",
+  "script_sha256": "0e27ced9b244acf0924f0385ae6b852fc8d3d2fdc6352ca3d31db9d32effc8ae",
+  "started_at": "2026-10-15T19:24:31.511Z",
+  "operator_actions": [],
+  "operator_assisted": false,
+  "stages": [
+    {
+      "kind": "html-export",
+      "requested_url": "https://berkeley.municipal.codes/BMC/1.01.010/export.html?download=true",
+      "final_url": "chrome-error://chromewebdata/",
+      "http_status": null,
+      "started_at": "2026-10-15T19:24:31.538Z",
+      "finished_at": "2026-10-15T19:25:16.788Z",
+      "error": "Error: page.goto: Download is starting\nCall log:\n\u001b[2m  - navigating to \"https://berkeley.municipal.codes/BMC/1.01.010/export.html?download=true\", waiting until \"domcontentloaded\"\u001b[22m\n",
+      "download_url": null,
+      "download_failure": null,
+      "download_filename": null,
+      "raw_artifact_path": "html-export.html",
+      "raw_sha256": "979d6986089199011507c6e726aa2bcfa6dd0d9b845dc59e2754dde50eb90389",
+      "bytes": 185440,
+      "title": "berkeley.municipal.codes",
+      "expected_identity_present": false,
+      "access_challenge": false,
+      "accepted": false
+    }
+  ],
+  "whole_corpus_validated": false,
+  "finished_at": "2026-10-15T19:25:16.801Z",
+  "accepted": false
+}

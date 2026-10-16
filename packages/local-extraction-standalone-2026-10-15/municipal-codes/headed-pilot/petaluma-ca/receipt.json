@@ -1,0 +1,79 @@
+{
+  "job": {
+    "slug": "petaluma-ca",
+    "section_url": "https://petaluma.municipal.codes/Code/1.01.010",
+    "expected_id": "1.01.010",
+    "export_url": "https://petaluma.municipal.codes/Code/1.01.010/export.html?download=true",
+    "advertised_exports": [
+      {
+        "url": "https://petaluma.municipal.codes/Code/1.01.010/export.pdf?download=true",
+        "label": "Adobe Reader (PDF)"
+      },
+      {
+        "url": "https://petaluma.municipal.codes/Code/1.01.010/export.rtf?download=true",
+        "label": "Microsoft Word (RTF)"
+      },
+      {
+        "url": "https://petaluma.municipal.codes/Code/1.01.010/export.pdf?print=true",
+        "label": "Print"
+      },
+      {
+        "url": "https://petaluma.municipal.codes/Code/1.01.010/export.html?download=true",
+        "label": "Web Page (HTML)"
+      },
+      {
+        "url": "https://petaluma.municipal.codes/Code/1.01.010/export.txt?download=true",
+        "label": "Plain Text"
+      }
+    ],
+    "discovery_receipt": "export-discovery/petaluma-ca/share-dialog.receipt.json",
+    "discovery_raw_sha256": "4bdcf79c5984cffd1f4e59a682f464898996c0a9b495402edf1cde8a2c069ede"
+  },
+  "transport": "standalone ordinary headed Playwright",
+  "node": "v24.19.0",
+  "playwright": "1.62.1",
+  "browser": "155.0.8059.41",
+  "script_sha256": "1c6d10db6ee85085661611af0e54fa8150f1c04f40a474b6b2a67dd571c83cad",
+  "started_at": "2026-10-15T19:21:53.590Z",
+  "operator_actions": [],
+  "operator_assisted": false,
+  "stages": [
+    {
+      "kind": "page",
+      "requested_url": "https://petaluma.municipal.codes/Code/1.01.010",
+      "final_url": "https://petaluma.municipal.codes/Code/1.01.010",
+      "http_status": 200,
+      "started_at": "2026-10-15T19:21:53.590Z",
+      "finished_at": "2026-10-15T19:21:56.596Z",
+      "error": null,
+      "download_filename": null,
+      "raw_artifact_path": "page.html",
+      "raw_sha256": "5e6317c4ca0ea1490bb83867fd8ee80163ba6086e018a05afcfc45227d3eb186",
+      "bytes": 59248,
+      "title": "Ch. 1.01 Code Adoption | Petaluma Municipal Code",
+      "expected_identity_present": true,
+      "access_challenge": false,
+      "accepted": true
+    },
+    {
+      "kind": "html-export",
+      "requested_url": "https://petaluma.municipal.codes/Code/1.01.010/export.html?download=true",
+      "final_url": "chrome-error://chromewebdata/",
+      "http_status": null,
+      "started_at": "2026-10-15T19:21:56.601Z",
+      "finished_at": "2026-10-15T19:22:06.716Z",
+      "error": "Error: page.goto: Download is starting\nCall log:\n\u001b[2m  - navigating to \"https://petaluma.municipal.codes/Code/1.01.010/export.html?download=true\", waiting until \"domcontentloaded\"\u001b[22m\n",
+      "download_filename": null,
+      "raw_artifact_path": "html-export.html",
+      "raw_sha256": "1f08c062d4243a60c2df6f2408db2db11923d430ce80a8b6a139a2ee2d3d6638",
+      "bytes": 185443,
+      "title": "petaluma.municipal.codes",
+      "expected_identity_present": false,
+      "access_challenge": false,
+      "accepted": false
+    }
+  ],
+  "whole_corpus_validated": false,
+  "finished_at": "2026-10-15T19:22:06.718Z",
+  "accepted": true
+}

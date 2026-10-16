@@ -1,0 +1,1471 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+  <html xmlns="http://www.w3.org/1999/xhtml">
+ <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta http-equiv="Content-Style-Type" content="text/css" />
+<style>body
+{
+    font-family: Arial, sans-serif;
+}
+/*Styles for NT page*/
+#cityname, .codified, .cpc {
+   font-weight: bold;
+   text-align: left;
+	font-size: 1em;
+}
+
+#codification, #current {
+ color: #000;
+ text-align: left;
+ font-size: 1em;
+}
+
+#cityname, .cpc {
+   font-size: 1.5em;
+   color: #000;
+}
+
+.cpc {  margin: 0;  padding-bottom: .5em; }
+
+/* Navigation buttons */
+
+#navTop, #navBottom
+{
+  display: flex;
+  justify-content: flex-end;
+  margin-right: auto;
+}
+
+#navTop p, #navBottom p {
+	background-color: #EEEEEE;
+  border-radius: 0.2rem;
+  color: #000;
+  font-size: 14.4px;
+  font-weight: 600;
+ 	margin: .25em;
+	padding: .1em 1em;
+  user-select: none;
+}
+#navTop p:not(.deactivate):hover, #navBottom p:not(.deactivate):hover {
+	background-color: #F89E1F;
+  transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+}
+
+#navTop p.deactivate, #navBottom p.deactivate {
+  color: #c9bfbf;
+  pointer-events: none;
+}
+
+#navTop *, #navBottom *  {
+	text-decoration: none;
+}
+
+img { border:0px; }
+#mainContent img { display: block; margin: 1em auto; }
+#mainContent a img {border:1px solid;}
+#mainContent h3 img.addthis-img {
+    border:0;vertical-align:bottom;float:right;margin:0px;
+}
+
+@media (max-width: 767.98px)
+{
+    #mainContent h3 img.addthis-img {
+        vertical-align: middle;
+        float: none;
+        display: inline;
+        margin-left: 5px;
+    }
+}
+
+#mainContent h2 img.addthis-img,
+#mainContent h1 img.addthis-img {
+    border:0;vertical-align:top;float:right;margin:0px;
+}
+
+
+
+ h1, h2 {
+	font-size: 1.4em;
+	line-height: 1.2;
+	text-align:center;
+	margin:1em auto;
+}
+
+p, h3, h4 {
+	font-size: 1em;
+	line-height: 1.64;
+	margin: 0em;
+	font-style: normal;
+	font-variant: normal;
+	text-transform: normal;
+	vertical-align: baseline;
+	font-weight: normal;
+	text-align: left;
+}
+/* add default bottom margin, which we don't want in h3 */
+p { margin-bottom: 1.25em; }
+
+h3, h4 { font-weight: bold; }
+
+.ArticleTOC, .digArt, .artdig, .ArtDig {
+	margin-top: 1em;
+	text-align: center;
+}
+
+.Article, .DivisionTOC,  .PartTOC,  .Part, .art, .digDiv, .digdiv, .Divdig, .divdig,
+.Rxhead, .CHRepealed, .TitleRepealed,  .RxHead,
+.TitleReserved, .CHReserved, .ReservedC, .CH, .CHTitle,
+.Division, .div, .divname, .DivisionName, .DivName,
+.TableTitle, .GraphicTitle, .Graphic, .graphic,
+.graphictitle, .graphicname, .GraphicCaption {
+  font-weight: bold;
+  margin: 1em 0;
+  text-align: center;
+}
+
+.Center, .center, .CellBodyC, .cellbodyc {
+  text-align: center;
+}
+
+.CellBodyR, .cellbodyr {
+	text-align: right;
+}
+
+.CellBodyIndent, .CellBody1 {	margin-left:1em; }
+.CellHeading {  font-weight: bold; text-align: center; }
+.CellHeadingL {  font-weight: bold; margin:0; }
+.CellHeadingR {  font-weight: bold;  text-align: right; }
+
+.CHTOC a, .CiteTOC a { text-decoration:none !important; font-weight:bold;}
+.CHTOC a:hover, .CiteTOC a:hover { text-decoration: none !important; font-weight:bold;}
+.CHTOC {
+  font-weight: bold;
+}
+
+.digCH, .ctoc {
+  font-weight: normal;
+  margin-top: 1em;
+  margin-bottom:0em;
+}
+.digTitle, .chtoc, .tocch {
+  font-weight: bold;
+}
+
+.Footnote, .footnote, .FootNote, .Note, .note {
+  margin: 1em .8em;
+  font-size: .9em;
+  text-indent: -.8em;
+}
+
+.ordtab, td p.ordtab {
+  min-width:100px;
+  margin: 0;
+  margin-right: 0.9em;
+}
+
+.P0, .P0block, .P1, .P1block { margin-left: 0em;}
+.P2, .P2block {  margin-left: 2.3em; }
+.P3, .P3block {  margin-left: 4.3em; }
+.P4, .P4block {  margin-left: 6.3em; }
+.P5, .P5block {  margin-left: 8.3em; }
+.P6, .P6block {  margin-left: 9.3em; }
+.P7, .P7block {  margin-left: 11.3em; }
+
+.Q1 { font-size: .8em;  margin: 1em 2.3em; }
+
+.Q2 {
+  font-size: .75em;
+  margin: 1em 2.3em;
+  margin-left: 4.3em;
+}
+.Q3 {
+  font-size: .75em;
+  margin: 1em 2.3em;
+  margin-left: 6.3em;
+ }
+.Q4 {
+  font-size: .75em;
+  margin: 1em 2.3em;
+  margin-left: 8.3em;
+}
+.QC {
+  font-size: .75em;
+  margin: 1em 2.3em;
+  text-align:center;
+}
+
+.TableFootnote,  .HistoryNote {
+  font-weight: normal;
+  font-size: .75em;
+}
+
+.Title, .TitleName {
+  font-size: 1em;
+  font-weight: bold;
+  margin: 1em;
+  text-align: center;
+}
+
+.WAC {
+  margin-left: 5.5em;
+  text-indent: -5.5em;
+  margin-bottom:0em;
+}
+
+
+.underline, .under, .Underline, .Under {
+	text-decoration:underline;
+}
+.bold, .Bold {
+  font-weight: bold;
+}
+.bolditalic, .bold_italic, .BoldItalic, .ital, .Bold_Italic, .bold_Italic {
+  font-weight: bold;
+  font-style: italic;
+}
+.italic, .Italic, .emphasis, .Emphasis {
+  font-style: italic;
+}
+.EquationVariables {
+  font-family: Times New Roman;
+  font-style: italic;
+}
+.strikethrough, .Strikethrough, .strikeout, .Strikeout, .linethrough, .Linethrough {
+	text-decoration: line-through;
+}
+.sub, .subscript, .Subscript, .sub, .Sub {
+  vertical-align: sub;
+  font-size:0.75em;
+}
+.super, .Superscript, .superscript, .Super {
+  vertical-align: super;
+  font-size:0.75em;
+  }
+
+ /* Table CSS */
+
+#mainContent table {
+	border-collapse: collapse;
+	margin: 1em auto;
+}
+
+.floatThead-container {
+	margin: 0 auto;
+}
+td,   tr{ background:white; }
+
+caption {
+	margin-left:auto;
+	margin-right:auto;
+	text-align:center;
+}
+
+td p, th p, caption p {
+	font-size: .9em;
+	margin-bottom:0em;
+}
+
+td { padding:3pt; text-align:left; }
+
+table.Ruled, table.RuledWithTitle, table.Format_B,
+table.TitleRules, table.Format_A {
+  border:1px solid black;
+}
+
+#mainContent img.inline-icon,
+#mainContent .ordtab img {
+	display: inline;
+	margin: 0 3px;
+	vertical-align: middle;
+	border: 0;
+}
+
+iframe {width:100%; height:300px;}
+.small-caps { font-variant: small-caps; }
+.uppercase { text-transform: uppercase; }
+/*
+box.jpg is for when codes have the little empty box symbol
+we're attaching it to a dummy class here so that even if it isn't being used
+it won't get deleted by the destroyExtraImages() function.
+Other just-in-case images coulde be added here.
+*/
+.validateMeBabyYeah {
+	background:url('../html/images/box.jpg') no-repeat top right;
+	background:url('../html/images/pdf.png') no-repeat top right;
+}
+
+
+
+@media (min-width: 768px)
+{
+	.CHTOC {
+		margin: 0 0 0 7em;
+		text-indent: -3.3em;
+	}
+
+	.CiteTOC {
+		margin: 0 0 0 7em;
+		text-indent: -5.8em;
+	}
+
+
+	.digTitle, .chtoc, .tocch {
+		margin: 1em 0 0 2em;
+	}
+}
+
+
+@media print
+{
+  #mainContent {
+    border: 0  !important;
+  }
+
+  body, #mainBody, #mainContent, td, th, table, tr
+  {
+      background: #fff !important;
+      color: black #000 !important;
+  }
+
+  #searchtabs, #codetabs, #SearchForm, .pdf, #navBar,
+  #leftSidebar, #topBanner, .modal, .skipnav, table.hovercraft,
+  #mainContent h3 .addthis-img
+  {
+    display: none !important;
+  }
+
+  .hit
+  {
+    background: transparent !important;
+    border-width: 0 !important;
+  }
+
+  #pgFooter {
+      border-top: 1px solid black;
+      margin-top: 2rem; font-size: .9rem;
+  }
+
+  thead { display:table-header-group !important; }
+  tbody {  display:table-row-group !important; }
+  table.hovercraft { display:none !important ;}
+  img, td, tr { page-break-inside: avoid !important; }
+}
+</style>    <title>Fremont</title>
+</head>
+<body>
+    <div id="mainContent">
+    <a id="start" />
+    <h1 style="page-break-before:auto" headertitle="Fremont Municipal Code" headerdisc="The Fremont Municipal Code is current through Ordinance 02-2026, passed May 5, 2026." class="Title"><a id="a1"></a>Title 1<br />GENERAL PROVISIONS</h1>
+            <p class="digTitle">Chapters:</p>
+
+            <p class="CHTOC"><a href="#a1x05">1.05&nbsp;&nbsp;&nbsp;&nbsp;Adoption of Code</a></p>
+
+            <p class="CHTOC"><a href="#a1x10">1.10&nbsp;&nbsp;&nbsp;&nbsp;Rules of Construction</a></p>
+
+            <p class="CHTOC"><a href="#a1x15">1.15&nbsp;&nbsp;&nbsp;&nbsp;Penalty Provisions</a></p>
+
+            <p class="CHTOC"><a href="#a1x20">1.20&nbsp;&nbsp;&nbsp;&nbsp;Administrative Remedies</a></p>
+
+            <p class="CHTOC"><a href="#a1x25">1.25&nbsp;&nbsp;&nbsp;&nbsp;Appeals to Council</a></p>
+
+            <p class="CHTOC"><a href="#a1x30">1.30&nbsp;&nbsp;&nbsp;&nbsp;Judicial Review of City Decisions</a></p>
+
+    <h2 headertitle="Fremont Municipal Code" headerdisc="The Fremont Municipal Code is current through Ordinance 02-2026, passed May 5, 2026." class="CH"><a id="a1x05"></a>Chapter 1.05<br />ADOPTION OF CODE</h2>
+            <p class="digCH">Sections:</p>
+
+            <p class="CiteTOC"><a href="#a1x05x010">1.05.010&nbsp;&nbsp;&nbsp;&nbsp;Recodification.</a></p>
+
+            <p class="CiteTOC"><a href="#a1x05x020">1.05.020&nbsp;&nbsp;&nbsp;&nbsp;Title, citation, reference.</a></p>
+
+            <p class="CiteTOC"><a href="#a1x05x030">1.05.030&nbsp;&nbsp;&nbsp;&nbsp;Codification authority.</a></p>
+
+            <p class="CiteTOC"><a href="#a1x05x040">1.05.040&nbsp;&nbsp;&nbsp;&nbsp;Ordinances passed prior to adoption of the code.</a></p>
+
+            <p class="CiteTOC"><a href="#a1x05x050">1.05.050&nbsp;&nbsp;&nbsp;&nbsp;Reference applies to all amendments.</a></p>
+
+            <p class="CiteTOC"><a href="#a1x05x060">1.05.060&nbsp;&nbsp;&nbsp;&nbsp;Title, chapter, and section headings.</a></p>
+
+            <p class="CiteTOC"><a href="#a1x05x070">1.05.070&nbsp;&nbsp;&nbsp;&nbsp;References to ordinances in matters of record.</a></p>
+
+            <p class="CiteTOC"><a href="#a1x05x080">1.05.080&nbsp;&nbsp;&nbsp;&nbsp;Effect of code on past actions and obligations.</a></p>
+
+            <p class="CiteTOC"><a href="#a1x05x090">1.05.090&nbsp;&nbsp;&nbsp;&nbsp;Enactment as continuation of existing ordinances.</a></p>
+
+            <p class="CiteTOC"><a href="#a1x05x100">1.05.100&nbsp;&nbsp;&nbsp;&nbsp;Severability.</a></p>
+
+            <p class="Footnote">&nbsp;&nbsp;&nbsp;&nbsp;Prior legislation: Ord. 426; 1990 Code &sect;&sect;&nbsp;1-1100 &ndash; 1-1112.</p>
+
+      <h3 class="Cite"><a id="a1x05x010">1.05.010</a> Recodification.</h3>
+            <p class="P0">Pursuant to the provisions of Cal. Gov&rsquo;t Code &sect;&sect;&nbsp;50022.1 through 50022.8, and 50022.10, there is hereby recodified and adopted the &ldquo;Fremont Municipal Code,&rdquo; as revised, reformatted, indexed, codified, compiled, edited, updated and republished by Code Publishing Company, Seattle, Washington, in Titles <a href="#a1">1</a> through <a href="#a1">1</a>8, together with those secondary codes adopted by reference as authorized by the California State Legislature, save and except those portions of the secondary codes as are deleted, modified or amended by the provisions of the Fremont Municipal Code. (Ord. 1-2013 &sect;&nbsp;1, 1-8-13.)</p>
+
+      <h3 class="Cite"><a id="a1x05x020">1.05.020</a> Title, citation, reference.</h3>
+            <p class="P0">This code shall be known as the Fremont Municipal Code and it shall be sufficient to refer to it as the Fremont Municipal Code in any prosecution for the violation of any provision thereof, or in any proceeding at law or in equity. It shall be sufficient to designate any ordinance adding to, amending, correcting or repealing all or any part or portion thereof as an addition to, amendment to, correction or repeal of the Fremont Municipal Code. Further reference may be made to titles, chapters, sections, and subsections of the municipal code and such references shall apply to that number title, chapter, section, or subsection as it appears in the code. (Ord. 1-2013 &sect;&nbsp;2, 1-8-13.)</p>
+
+      <h3 class="Cite"><a id="a1x05x030">1.05.030</a> Codification authority.</h3>
+            <p class="P0">The Fremont Municipal Code consists of all the regulatory, penal, and administrative ordinances of the city of Fremont, California, of a general and permanent character, as originally codified pursuant to Cal. Gov&rsquo;t Code &sect;&sect;&nbsp;50022.1 through 50022.8, and herein recodified and recompiled pursuant to Cal. Gov&rsquo;t Code &sect;&nbsp;50022.10. (Ord. 1-2013 &sect;&nbsp;3, 1-8-13.)</p>
+
+      <h3 class="Cite"><a id="a1x05x040">1.05.040</a> Ordinances passed prior to adoption of the code.</h3>
+            <p class="P0">The last ordinance included in this code was Ordinance No. 19-2012. Ordinance Nos. 20-2012 through 24-2012, passed subsequent to Ordinance No. 19-2012, but prior to adoption of this code, are hereby made part of the Fremont Municipal Code. (Ord. 1-2013 &sect;&nbsp;4, 1-8-13.)</p>
+
+      <h3 class="Cite"><a id="a1x05x050">1.05.050</a> Reference applies to all amendments.</h3>
+            <p class="P0">Whenever a reference is made to this code as the Fremont Municipal Code, or to any portion thereof, or to any ordinance of the city of Fremont, California, the reference shall apply to all amendments, corrections, and additions heretofore, now, or hereafter made. (Ord. 1-2013 &sect;&nbsp;6, 1-8-13.)</p>
+
+      <h3 class="Cite"><a id="a1x05x060">1.05.060</a> Title, chapter, and section headings.</h3>
+            <p class="P0">Title, chapter, and section headings shall not be deemed to govern, limit, modify or affect the scope, meaning, or intention of any section, chapter, or title of the code. (Ord. 1-2013 &sect;&nbsp;7, 1-8-13.)</p>
+
+      <h3 class="Cite"><a id="a1x05x070">1.05.070</a> References to ordinances in matters of record.</h3>
+            <p class="P0">Any reference in matters of record to any ordinance designated by number or otherwise, existing prior to the adoption of this code, shall be construed to apply to the corresponding provisions in this code. Pursuant to Cal. Gov&rsquo;t Code &sect;&nbsp;50022.8, copies of this code that have been duly certified by the city clerk shall be received without further proof as prima facie evidence of the provisions of such code in all courts and administrative tribunals of this state. (Ord. 1-2013 &sect;&nbsp;8, 1-8-13.)</p>
+
+      <h3 class="Cite"><a id="a1x05x080">1.05.080</a> Effect of code on past actions and obligations.</h3>
+            <p class="P0">Neither the adoption or recodification of this code nor the repeal or amendments of any ordinance or part or portion of any ordinance shall affect the prosecution for ordinance violations that were committed prior to the effective date of this code adoption. The adoption of this code shall not be construed as a waiver of any license, fee, penalty, debt, forfeiture, or obligation due and unpaid to the city on the date this code takes effect. All rights, fines, entitlements, duties, and proceedings existing pursuant to any ordinance on the date of the adoption of this code shall remain in effect unless specifically repealed in this code adoption. No bonds or cash required to be posted, filed or deposited pursuant to any ordinance shall in any way be made invalid by this code adoption. (Ord. 1-2013 &sect;&nbsp;9, 1-8-13.)</p>
+
+      <h3 class="Cite"><a id="a1x05x090">1.05.090</a> Enactment as continuation of existing ordinances.</h3>
+            <p class="P0">Nothing contained herein is intended to enact any new taxes or to affect any penalty clauses contained in the existing ordinances recodified by this action. The recodification of the municipal code of the city of Fremont, California, is intended by the city council to be a continuation, without change, of existing ordinances, including the changes described in Section 5 of the ordinance codified in this chapter. (Ord. 1-2013 &sect;&nbsp;10, 1-8-13.)</p>
+
+      <h3 class="Cite"><a id="a1x05x100">1.05.100</a> Severability.</h3>
+            <p class="P0">It is hereby declared to be the intention of the city council that the sections, paragraphs, sentences, clauses and phrases of this code are severable, and if any phrase, clause, sentence, paragraph or section of this code is declared unconstitutional or without effect by any final judgment or decree of a court of competent jurisdiction, such judgment or decree shall not affect any of the remaining phrases, clauses, sentences, paragraphs and sections of this code. (Ord. 1-2013 &sect;&nbsp;11, 1-8-13.)</p>
+
+    <h2 headertitle="Fremont Municipal Code" headerdisc="The Fremont Municipal Code is current through Ordinance 02-2026, passed May 5, 2026." class="CH"><a id="a1x10"></a>Chapter 1.10<br />RULES OF CONSTRUCTION</h2>
+            <p class="digCH">Sections:</p>
+
+            <p class="CiteTOC"><a href="#a1x10x010">1.10.010&nbsp;&nbsp;&nbsp;&nbsp;Generally.</a></p>
+
+            <p class="CiteTOC"><a href="#a1x10x020">1.10.020&nbsp;&nbsp;&nbsp;&nbsp;Headings.</a></p>
+
+            <p class="CiteTOC"><a href="#a1x10x030">1.10.030&nbsp;&nbsp;&nbsp;&nbsp;Territorial limitations.</a></p>
+
+            <p class="CiteTOC"><a href="#a1x10x040">1.10.040&nbsp;&nbsp;&nbsp;&nbsp;Prohibited acts, including causing, permitting or suffering.</a></p>
+
+            <p class="CiteTOC"><a href="#a1x10x050">1.10.050&nbsp;&nbsp;&nbsp;&nbsp;Acts by deputy.</a></p>
+
+            <p class="CiteTOC"><a href="#a1x10x060">1.10.060&nbsp;&nbsp;&nbsp;&nbsp;Reference applies to amendments.</a></p>
+
+            <p class="CiteTOC"><a href="#a1x10x070">1.10.070&nbsp;&nbsp;&nbsp;&nbsp;Writing, includes what.</a></p>
+
+            <p class="CiteTOC"><a href="#a1x10x080">1.10.080&nbsp;&nbsp;&nbsp;&nbsp;Notices, service of.</a></p>
+
+            <p class="CiteTOC"><a href="#a1x10x090">1.10.090&nbsp;&nbsp;&nbsp;&nbsp;Proof of notice.</a></p>
+
+            <p class="CiteTOC"><a href="#a1x10x100">1.10.100&nbsp;&nbsp;&nbsp;&nbsp;Tenses.</a></p>
+
+            <p class="CiteTOC"><a href="#a1x10x110">1.10.110&nbsp;&nbsp;&nbsp;&nbsp;Gender.</a></p>
+
+            <p class="CiteTOC"><a href="#a1x10x120">1.10.120&nbsp;&nbsp;&nbsp;&nbsp;Number.</a></p>
+
+            <p class="CiteTOC"><a href="#a1x10x130">1.10.130&nbsp;&nbsp;&nbsp;&nbsp;Words and phrases.</a></p>
+
+            <p class="CiteTOC"><a href="#a1x10x140">1.10.140&nbsp;&nbsp;&nbsp;&nbsp;Technical words.</a></p>
+
+            <p class="CiteTOC"><a href="#a1x10x150">1.10.150&nbsp;&nbsp;&nbsp;&nbsp;Titles.</a></p>
+
+            <p class="CiteTOC"><a href="#a1x10x160">1.10.160&nbsp;&nbsp;&nbsp;&nbsp;Shall and may.</a></p>
+
+            <p class="CiteTOC"><a href="#a1x10x170">1.10.170&nbsp;&nbsp;&nbsp;&nbsp;Oath.</a></p>
+
+            <p class="CiteTOC"><a href="#a1x10x180">1.10.180&nbsp;&nbsp;&nbsp;&nbsp;Person.</a></p>
+
+            <p class="CiteTOC"><a href="#a1x10x190">1.10.190&nbsp;&nbsp;&nbsp;&nbsp;City.</a></p>
+
+            <p class="CiteTOC"><a href="#a1x10x200">1.10.200&nbsp;&nbsp;&nbsp;&nbsp;County.</a></p>
+
+            <p class="CiteTOC"><a href="#a1x10x210">1.10.210&nbsp;&nbsp;&nbsp;&nbsp;State.</a></p>
+
+            <p class="CiteTOC"><a href="#a1x10x220">1.10.220&nbsp;&nbsp;&nbsp;&nbsp;Council.</a></p>
+
+            <p class="CiteTOC"><a href="#a1x10x230">1.10.230&nbsp;&nbsp;&nbsp;&nbsp;City manager.</a></p>
+
+            <p class="CiteTOC"><a href="#a1x10x240">1.10.240&nbsp;&nbsp;&nbsp;&nbsp;Street.</a></p>
+
+            <p class="CiteTOC"><a href="#a1x10x250">1.10.250&nbsp;&nbsp;&nbsp;&nbsp;Owner.</a></p>
+
+            <p class="CiteTOC"><a href="#a1x10x260">1.10.260&nbsp;&nbsp;&nbsp;&nbsp;Tenant or occupant.</a></p>
+
+            <p class="CiteTOC"><a href="#a1x10x270">1.10.270&nbsp;&nbsp;&nbsp;&nbsp;Sale.</a></p>
+
+            <p class="CiteTOC"><a href="#a1x10x280">1.10.280&nbsp;&nbsp;&nbsp;&nbsp;Goods.</a></p>
+
+            <p class="CiteTOC"><a href="#a1x10x290">1.10.290&nbsp;&nbsp;&nbsp;&nbsp;Operate.</a></p>
+
+      <h3 class="Cite"><a id="a1x10x010">1.10.010</a> Generally.</h3>
+            <p class="P0">The provisions of this code and all proceedings under it are to be construed to effect its objects and to promote justice. (1990 Code &sect;&nbsp;1-2100.)</p>
+
+      <h3 class="Cite"><a id="a1x10x020">1.10.020</a> Headings.</h3>
+            <p class="P0">Title, division, chapter, article, section, and subsection headings contained herein shall not govern, limit, modify, or affect the scope, meaning, or intent of the provisions of this code. (1990 Code &sect;&nbsp;1-2101.)</p>
+
+      <h3 class="Cite"><a id="a1x10x030">1.10.030</a> Territorial limitations.</h3>
+            <p class="P0">This code shall refer only to the omission or commission of acts within the territorial limits of the city and to that territory outside of the city over which the city has jurisdiction or control by virtue of the Constitution, or any law, or by reason of ownership or control of property. (1990 Code &sect;&nbsp;1-2102.)</p>
+
+      <h3 class="Cite"><a id="a1x10x040">1.10.040</a> Prohibited acts, including causing, permitting or suffering.</h3>
+            <p class="P0">Whenever in this code any act or omission is made unlawful, it shall include causing, permitting, aiding, abetting, suffering, or concealing such act or omission. (1990 Code &sect;&nbsp;1-2103.)</p>
+
+      <h3 class="Cite"><a id="a1x10x050">1.10.050</a> Acts by deputy.</h3>
+            <p class="P0">Whenever a power is granted to, or a duty is imposed upon, a public officer or employee, the power may be exercised, or the duty may be performed, by a deputy or authorized representative of such officer or employee, or by a person otherwise duly authorized pursuant to law or ordinance, unless this code expressly provides otherwise. (1990 Code &sect;&nbsp;1-2104.)</p>
+
+      <h3 class="Cite"><a id="a1x10x060">1.10.060</a> Reference applies to amendments.</h3>
+            <p class="P0">Whenever a reference is made to any portion of this code, or to any ordinances of this city, the reference applies to all amendments and additions now or hereafter made. (1990 Code &sect;&nbsp;1-2105.)</p>
+
+      <h3 class="Cite"><a id="a1x10x070">1.10.070</a> Writing, includes what.</h3>
+            <p class="P0">Writing includes any form of recorded message capable of comprehension by ordinary visual means. Whenever any notice, report, statement, or record is required or authorized by this code, it shall be made in writing in the English language unless it is expressly provided otherwise. (1990 Code &sect;&nbsp;1-2106.)</p>
+
+      <h3 class="Cite"><a id="a1x10x080">1.10.080</a> Notices, service of.</h3>
+            <p class="P0">Whenever a notice is required to be given under this code, unless different provisions herein are otherwise specifically made, such notice may be given either by personal delivery thereof to the person to be notified or by deposit in the United States mail, in a sealed envelope, postage prepaid, addressed to such person to be notified, at his/her last known business or residence address as the same appears in the public records of the city or other records pertaining to the matter to which such notice is directed. Notice by mail shall be deemed to have been completed at the time of deposit in the post office. (Amended during 2012 reformat. 1990 Code &sect;&nbsp;1-2107.)</p>
+
+      <h3 class="Cite"><a id="a1x10x090">1.10.090</a> Proof of notice.</h3>
+            <p class="P0">Proof of giving any notice may be made by the certificate of any officer or employee of the city, or by affidavit of any person over the age of 18 years, which shows service in conformity with this code, or other provisions of law applicable to the subject matter concerned. (1990 Code &sect;&nbsp;1-2108.)</p>
+
+      <h3 class="Cite"><a id="a1x10x100">1.10.100</a> Tenses.</h3>
+            <p class="P0">The present tense includes the past and future tenses, and the future includes the present. (1990 Code &sect;&nbsp;1-2109.)</p>
+
+      <h3 class="Cite"><a id="a1x10x110">1.10.110</a> Gender.</h3>
+            <p class="P0">The masculine gender includes the feminine and neuter. (1990 Code &sect;&nbsp;1-2110.)</p>
+
+      <h3 class="Cite"><a id="a1x10x120">1.10.120</a> Number.</h3>
+            <p class="P0">The singular number includes the plural, and the plural, the singular. (1990 Code &sect;&nbsp;1-2111.)</p>
+
+      <h3 class="Cite"><a id="a1x10x130">1.10.130</a> Words and phrases.</h3>
+            <p class="P0">Words and phrases are construed according to the context and the approved usage of the language; but technical words and phrases, and such other as may have acquired a peculiar and appropriate meaning at law, or are defined elsewhere in this code, are to be construed according to such peculiar and appropriate meaning or definition. (1990 Code &sect;&nbsp;1-2112.)</p>
+
+      <h3 class="Cite"><a id="a1x10x140">1.10.140</a> Technical words.</h3>
+            <p class="P0">Technical words are to be interpreted as usually understood by persons in the profession or business to which they relate, unless clearly used in a different sense. (1990 Code &sect;&nbsp;1-2113.)</p>
+
+      <h3 class="Cite"><a id="a1x10x150">1.10.150</a> Titles.</h3>
+            <p class="P0">The use of the title of any officer, employee, office, board, commission, council, or ordinance shall mean such officer, employee, office, board, commission, council, or ordinance of the city, unless otherwise designated. (1990 Code &sect;&nbsp;1-2114.)</p>
+
+      <h3 class="Cite"><a id="a1x10x160">1.10.160</a> Shall and may.</h3>
+            <p class="P0">&ldquo;Shall&rdquo; is mandatory and &ldquo;may&rdquo; is permissive. (1990 Code &sect;&nbsp;1-2115.)</p>
+
+      <h3 class="Cite"><a id="a1x10x170">1.10.170</a> Oath.</h3>
+            <p class="P0">&ldquo;Oath&rdquo; includes affirmation. (1990 Code &sect;&nbsp;1-2116.)</p>
+
+      <h3 class="Cite"><a id="a1x10x180">1.10.180</a> Person.</h3>
+            <p class="P0">&ldquo;Person,&rdquo; as used in this code or in any secondary code adopted hereby, includes any natural person, firm, corporation, organization, company, association, business trust, joint-stock company, partnership, joint venture, club, or the agent, servant, manager, officer, employee, or lessee of any of them, and any municipal, political, or governmental corporation, district, body, or agency, other than the city. (1990 Code &sect;&nbsp;1-2117.)</p>
+
+      <h3 class="Cite"><a id="a1x10x190">1.10.190</a> City.</h3>
+            <p class="P0">&ldquo;City&rdquo; is the city of Fremont, California. (1990 Code &sect;&nbsp;1-2118.)</p>
+
+      <h3 class="Cite"><a id="a1x10x200">1.10.200</a> County.</h3>
+            <p class="P0">&ldquo;County&rdquo; is the county of Alameda, California. (1990 Code &sect;&nbsp;1-2119.)</p>
+
+      <h3 class="Cite"><a id="a1x10x210">1.10.210</a> State.</h3>
+            <p class="P0">&ldquo;State&rdquo; is the state of California. (1990 Code &sect;&nbsp;1-2120.)</p>
+
+      <h3 class="Cite"><a id="a1x10x220">1.10.220</a> Council.</h3>
+            <p class="P0">&ldquo;Council&rdquo; is the city council of this city. (1990 Code &sect;&nbsp;1-2121.)</p>
+
+      <h3 class="Cite"><a id="a1x10x230">1.10.230</a> City manager.</h3>
+            <p class="P0">&ldquo;City manager&rdquo; means the appointed official of the city who occupies the position as the chief administrative officer of the city. (1990 Code &sect;&nbsp;1-2122.)</p>
+
+      <h3 class="Cite"><a id="a1x10x240">1.10.240</a> Street.</h3>
+            <p class="P0">&ldquo;Street&rdquo; includes all streets, highways, avenues, lanes, alleys, courts, places, squares, sidewalks, parkways, curbs, or other public ways in this city which have been or may hereafter be dedicated and open to public use, or such other public property so designated in any law of this state. (1990 Code &sect;&nbsp;1-2123.)</p>
+
+      <h3 class="Cite"><a id="a1x10x250">1.10.250</a> Owner.</h3>
+            <p class="P0">&ldquo;Owner,&rdquo; applied to a building or land, shall include any part owner, joint owner, tenant, tenant in common, joint tenant, or purchaser under contract of the whole or a part of such building or land. (1990 Code &sect;&nbsp;1-2124.)</p>
+
+      <h3 class="Cite"><a id="a1x10x260">1.10.260</a> Tenant or occupant.</h3>
+            <p class="P0">&ldquo;Tenant&rdquo; or &ldquo;occupant,&rdquo; applied to a building or land, shall include any person who occupies the whole or part of such building or land, whether alone or with others. (1990 Code &sect;&nbsp;1-2125.)</p>
+
+      <h3 class="Cite"><a id="a1x10x270">1.10.270</a> Sale.</h3>
+            <p class="P0">&ldquo;Sale&rdquo; includes any sale, exchange, barter, or offer for sale. (1990 Code &sect;&nbsp;1-2126.)</p>
+
+      <h3 class="Cite"><a id="a1x10x280">1.10.280</a> Goods.</h3>
+            <p class="P0">&ldquo;Goods&rdquo; includes wares or merchandise. (1990 Code &sect;&nbsp;1-2127.)</p>
+
+      <h3 class="Cite"><a id="a1x10x290">1.10.290</a> Operate.</h3>
+            <p class="P0">&ldquo;Operate&rdquo; includes carry on, keep, conduct or maintain. (1990 Code &sect;&nbsp;1-2128.)</p>
+
+    <h2 headertitle="Fremont Municipal Code" headerdisc="The Fremont Municipal Code is current through Ordinance 02-2026, passed May 5, 2026." class="CH"><a id="a1x15"></a>Chapter 1.15<br />PENALTY PROVISIONS</h2>
+            <p class="digCH">Sections:</p>
+
+            <p class="CiteTOC"><a href="#a1x15x010">1.15.010&nbsp;&nbsp;&nbsp;&nbsp;Criminal violation a misdemeanor or infraction.</a></p>
+
+            <p class="CiteTOC"><a href="#a1x15x020">1.15.020&nbsp;&nbsp;&nbsp;&nbsp;Penalty.</a></p>
+
+            <p class="CiteTOC"><a href="#a1x15x030">1.15.030&nbsp;&nbsp;&nbsp;&nbsp;Separate offenses.</a></p>
+
+            <p class="CiteTOC"><a href="#a1x15x040">1.15.040&nbsp;&nbsp;&nbsp;&nbsp;Nuisance.</a></p>
+
+            <p class="CiteTOC"><a href="#a1x15x050">1.15.050&nbsp;&nbsp;&nbsp;&nbsp;Power of arrest.</a></p>
+
+            <p class="CiteTOC"><a href="#a1x15x060">1.15.060&nbsp;&nbsp;&nbsp;&nbsp;Fees, taxes, etc., deemed civil debts &ndash; Suits for collection.</a></p>
+
+            <p class="CiteTOC"><a href="#a1x15x070">1.15.070&nbsp;&nbsp;&nbsp;&nbsp;Criminal justice administration fees.</a></p>
+
+            <p class="CiteTOC"><a href="#a1x15x080">1.15.080&nbsp;&nbsp;&nbsp;&nbsp;Civil violations &ndash; Injunction and civil penalties.</a></p>
+
+            <p class="CiteTOC"><a href="#a1x15x090">1.15.090&nbsp;&nbsp;&nbsp;&nbsp;Authority to enforce.</a></p>
+
+            <p class="CiteTOC"><a href="#a1x15x100">1.15.100&nbsp;&nbsp;&nbsp;&nbsp;Authority to inspect.</a></p>
+
+      <h3 class="Cite"><a id="a1x15x010">1.15.010</a> Criminal violation a misdemeanor or infraction.</h3>
+            <p class="P1">(a)&nbsp;&nbsp;&nbsp;&nbsp;It is unlawful for any person to violate any provision or to fail to comply with any of the requirements of this code or the ordinances of the city of Fremont.</p>
+
+            <p class="P1">(b)&nbsp;&nbsp;&nbsp;&nbsp;A violation of any of the provisions or failing to comply with any of the mandatory requirements of this code or any ordinance is a misdemeanor but may be charged and prosecuted as an infraction in the discretion of the enforcement official. (Ord. 1158 &sect;&nbsp;1, 4-5-77; Ord. 1260 &sect;&nbsp;1, 8-1-78; Ord. 1262 &sect;&nbsp;1, 8-15-78; Ord. 1348 &sect;&nbsp;1, 12-4-79; Ord. 1459 &sect;&nbsp;3, 9-8-81; Ord. 1631 &sect;&nbsp;1, 10-2-84; Ord. 2004 &sect;&nbsp;1, 5-12-92; Ord. 2276 &sect;&nbsp;3, 2-3-98; Ord. 2488 &sect;&nbsp;3, 10-1-02. 1990 Code &sect;&nbsp;1-3100.)</p>
+
+      <h3 class="Cite"><a id="a1x15x020">1.15.020</a> Penalty.</h3>
+            <p class="P1">(a)&nbsp;&nbsp;&nbsp;&nbsp;Any person convicted of a misdemeanor under the provisions of this code shall be punishable by a fine of not more than $1,000 or by imprisonment in the county jail for a period of not more than six months, or by both such fine and imprisonment.</p>
+
+            <p class="P1">(b)&nbsp;&nbsp;&nbsp;&nbsp;Any person convicted of an infraction under the provisions of this code shall be punishable upon a first conviction by a fine of not more than $100.00, and for a second conviction within a period of one year by a fine of not more than $200.00, and for a third or any subsequent conviction within a period of one year by a fine of not more than $500.00. </p>
+
+            <p class="P1">(c)&nbsp;&nbsp;&nbsp;&nbsp;Notwithstanding any other provision of law, a violation of Title 15 determined to be an infraction is punishable by the following:</p>
+
+            <p class="P2">(1)&nbsp;&nbsp;&nbsp;&nbsp;A fine not exceeding $130.00.</p>
+
+            <p class="P2">(2)&nbsp;&nbsp;&nbsp;&nbsp;A fine not exceeding $700.00 for the second violation.</p>
+
+            <p class="P2">(3)&nbsp;&nbsp;&nbsp;&nbsp;A fine not exceeding $1,300 for each additional violation of the same ordinance within one year of the first violation. </p>
+
+            <p class="P2">(4)&nbsp;&nbsp;&nbsp;&nbsp;A fine not exceeding $2,500 for each additional violation of the same ordinance within two years of the first violation if the property is commercial property that has an existing building at the time of the violation and the owner failed to remove visible refuse or prohibit unauthorized use of the property.</p>
+
+            <p class="P1">(d)&nbsp;&nbsp;&nbsp;&nbsp;A fine levied pursuant to subsection (c)(2) or (c)(3) of this section may be appealed to the building official in writing within 10 calendar days of the date the citation is issued based on a showing by the responsible party that the responsible party has made a bona fide effort to comply after the first violation and that payment of the full amount would impose an undue financial burden on the responsible party. (Ord. 1158 &sect;&nbsp;1, 4-5-77; Ord. 1260 &sect;&nbsp;2, 8-1-78; Ord. 2004 &sect;&nbsp;2, 5-12-92; Ord. 28-2018 &sect;&nbsp;1, 12-18-18. 1990 Code &sect;&nbsp;1-3101.)</p>
+
+      <h3 class="Cite"><a id="a1x15x030">1.15.030</a> Separate offenses.</h3>
+            <p class="P0">Each person shall be guilty of a separate offense for each and every day during any portion of which any violation of any provision of this code is committed, continued, or permitted by such person, and he/she shall be punished accordingly. (Amended during 2012 reformat. 1990 Code &sect;&nbsp;1-3102.)</p>
+
+      <h3 class="Cite"><a id="a1x15x040">1.15.040</a> Nuisance.</h3>
+            <p class="P0">In addition to the penalties hereinbefore provided, any condition caused or permitted to exist in violation of any of the provisions of this code shall be deemed a public nuisance and may, by this city, be summarily abated as such, and each day that such condition continues shall be regarded as a new and separate offense. (1990 Code &sect;&nbsp;1-3103.)</p>
+
+      <h3 class="Cite"><a id="a1x15x050">1.15.050</a> Power of arrest.</h3>
+            <p class="P1">(a)&nbsp;&nbsp;&nbsp;&nbsp;The city manager and any designated enforcement official are authorized to arrest any person without a warrant as provided in Cal. Penal Code &sect;&nbsp;836.5 whenever the city manager or the enforcement official has reasonable cause to believe that the person has committed a misdemeanor in his or her presence.</p>
+
+            <p class="P1">(b)&nbsp;&nbsp;&nbsp;&nbsp;In addition to any other grant of authority to enforce, the following officers and their subordinates are authorized to arrest any person who violates the following provisions of this code in the manner provided by Cal. Penal Code &sect;&nbsp;836.5:</p>
+
+            <p class="P2">(1)&nbsp;&nbsp;&nbsp;&nbsp;Title 5 &ndash; Business Licenses and Regulations:</p>
+
+      <table class="header1" style="margin-left: 36.0pt; padding: 2pt 2pt 2pt 2pt; text-align: center; width: 188.8569pt" cellspacing="0" summary="">
+     <thead>
+        <tr>
+          <th style="padding: 2pt 2pt 2pt 2pt; vertical-align: bottom; width: 25.5941pt">
+                        <p class="CellHeading">&nbsp;</p>
+
+          </th>
+          <th style="padding: 2pt 2pt 2pt 2pt; vertical-align: bottom; width: 75.6314pt">
+                        <p class="CellHeadingL">Title of Officer</p>
+
+          </th>
+          <th style="padding: 2pt 2pt 2pt 2pt; vertical-align: bottom; width: 87.6314pt">
+                        <p class="CellHeadingL">Provision of Code</p>
+
+          </th>
+        </tr>
+     </thead>
+     <tbody>
+        <tr>
+          <td style="padding: 2pt 2pt 2pt 2pt; vertical-align: top">
+                        <p class="CellBody">(A)</p>
+
+          </td>
+          <td style="padding: 2pt 2pt 2pt 2pt; vertical-align: top">
+                        <p class="CellBody">Finance services manager</p>
+
+          </td>
+          <td style="padding: 2pt 2pt 2pt 2pt; vertical-align: top">
+                        <p class="CellBody">Chapter 5.05 (business taxes), Articles I and II</p>
+
+          </td>
+        </tr>
+        <tr>
+          <td style="padding: 2pt 2pt 2pt 2pt; vertical-align: top">
+                        <p class="CellBody">(B)</p>
+
+          </td>
+          <td style="padding: 2pt 2pt 2pt 2pt; vertical-align: top">
+                        <p class="CellBody">Finance services manager; chief of police; and building and safety manager</p>
+
+          </td>
+          <td style="padding: 2pt 2pt 2pt 2pt; vertical-align: top">
+                        <p class="CellBody">Chapter 5.35 (commercial solicitations and peddlers), Sections 5.35.050 and 5.35.120</p>
+
+          </td>
+        </tr>
+        <tr>
+          <td style="padding: 2pt 2pt 2pt 2pt; vertical-align: top">
+                        <p class="CellBody">(C)</p>
+
+          </td>
+          <td style="padding: 2pt 2pt 2pt 2pt; vertical-align: top">
+                        <p class="CellBody">Assistant city manager; chief of police; building and safety manager</p>
+
+          </td>
+          <td style="padding: 2pt 2pt 2pt 2pt; vertical-align: top">
+                        <p class="CellBody">Chapter 5.45, Article I (entertainment permits)</p>
+
+          </td>
+        </tr>
+        <tr>
+          <td style="padding: 2pt 2pt 2pt 2pt; vertical-align: top">
+                        <p class="CellBody">(D)</p>
+
+          </td>
+          <td style="padding: 2pt 2pt 2pt 2pt; vertical-align: top">
+                        <p class="CellBody">Alameda County health officer; finance services manager; chief of police; building and safety manager</p>
+
+          </td>
+          <td style="padding: 2pt 2pt 2pt 2pt; vertical-align: top">
+                        <p class="CellBody">Chapter 5.65 (massage establishments)</p>
+
+          </td>
+        </tr>
+      </tbody>
+</table>
+            <p class="P2">(2)&nbsp;&nbsp;&nbsp;&nbsp;Title 6 &ndash; Animals:</p>
+
+      <table class="header1" style="margin-left: 36.0pt; padding: 2pt 2pt 2pt 2pt; text-align: center; width: 188.8569pt" cellspacing="0" summary="">
+     <thead>
+        <tr>
+          <th style="padding: 2pt 2pt 2pt 2pt; vertical-align: bottom; width: 25.5941pt">
+                        <p class="CellHeading">&nbsp;</p>
+
+          </th>
+          <th style="padding: 2pt 2pt 2pt 2pt; vertical-align: bottom; width: 75.6314pt">
+                        <p class="CellHeadingL">Title of Officer</p>
+
+          </th>
+          <th style="padding: 2pt 2pt 2pt 2pt; vertical-align: bottom; width: 87.6314pt">
+                        <p class="CellHeadingL">Provision of Code</p>
+
+          </th>
+        </tr>
+     </thead>
+     <tbody>
+        <tr>
+          <td style="padding: 2pt 2pt 2pt 2pt; vertical-align: top">
+                        <p class="CellBody">(A)</p>
+
+          </td>
+          <td style="padding: 2pt 2pt 2pt 2pt; vertical-align: top">
+                        <p class="CellBody">Chief of police, maintenance and recreation services director</p>
+
+          </td>
+          <td style="padding: 2pt 2pt 2pt 2pt; vertical-align: top">
+                        <p class="CellBody">Chapter 6.05 (animals)</p>
+
+          </td>
+        </tr>
+      </tbody>
+</table>
+            <p class="P2">(3)&nbsp;&nbsp;&nbsp;&nbsp;Title 8 &ndash; Health and Safety:</p>
+
+      <table class="header1" style="margin-left: 36.0pt; padding: 2pt 2pt 2pt 2pt; text-align: center; width: 188.8569pt" cellspacing="0" summary="">
+     <thead>
+        <tr>
+          <th style="padding: 2pt 2pt 2pt 2pt; vertical-align: bottom; width: 25.5941pt">
+                        <p class="CellHeading">&nbsp;</p>
+
+          </th>
+          <th style="padding: 2pt 2pt 2pt 2pt; vertical-align: bottom; width: 75.6314pt">
+                        <p class="CellHeadingL">Title of Officer</p>
+
+          </th>
+          <th style="padding: 2pt 2pt 2pt 2pt; vertical-align: bottom; width: 87.6314pt">
+                        <p class="CellHeadingL">Provision of Code</p>
+
+          </th>
+        </tr>
+     </thead>
+     <tbody>
+        <tr>
+          <td style="padding: 2pt 2pt 2pt 2pt; vertical-align: top">
+                        <p class="CellBody">(A)</p>
+
+          </td>
+          <td style="padding: 2pt 2pt 2pt 2pt; vertical-align: top">
+                        <p class="CellBody">Chief of police, building and safety manager, fire chief</p>
+
+          </td>
+          <td style="padding: 2pt 2pt 2pt 2pt; vertical-align: top">
+                        <p class="CellBody">Chapter 8.05 (nuisance conditions on private or public property)</p>
+
+          </td>
+        </tr>
+        <tr>
+          <td style="padding: 2pt 2pt 2pt 2pt; vertical-align: top">
+                        <p class="CellBody">(B)</p>
+
+          </td>
+          <td style="padding: 2pt 2pt 2pt 2pt; vertical-align: top">
+                        <p class="CellBody">Chief of police; finance services manager, building and safety manager</p>
+
+          </td>
+          <td style="padding: 2pt 2pt 2pt 2pt; vertical-align: top">
+                        <p class="CellBody">Chapter 8.15 (distribution of advertising)</p>
+
+          </td>
+        </tr>
+        <tr>
+          <td style="padding: 2pt 2pt 2pt 2pt; vertical-align: top">
+                        <p class="CellBody">(C)</p>
+
+          </td>
+          <td style="padding: 2pt 2pt 2pt 2pt; vertical-align: top">
+                        <p class="CellBody">Fire chief; building and safety manager; chief of police</p>
+
+          </td>
+          <td style="padding: 2pt 2pt 2pt 2pt; vertical-align: top">
+                        <p class="CellBody">Chapter 8.25 (weed and waste abatement)</p>
+
+          </td>
+        </tr>
+        <tr>
+          <td style="padding: 2pt 2pt 2pt 2pt; vertical-align: top">
+                        <p class="CellBody">(D)</p>
+
+          </td>
+          <td style="padding: 2pt 2pt 2pt 2pt; vertical-align: top">
+                        <p class="CellBody">Building and safety manager, fire chief</p>
+
+          </td>
+          <td style="padding: 2pt 2pt 2pt 2pt; vertical-align: top">
+                        <p class="CellBody">Chapter 8.35 (hazardous materials management)</p>
+
+          </td>
+        </tr>
+        <tr>
+          <td style="padding: 2pt 2pt 2pt 2pt; vertical-align: top">
+                        <p class="CellBody">(E)</p>
+
+          </td>
+          <td style="padding: 2pt 2pt 2pt 2pt; vertical-align: top">
+                        <p class="CellBody">Fire chief; building and safety manager; Alameda County health officer</p>
+
+          </td>
+          <td style="padding: 2pt 2pt 2pt 2pt; vertical-align: top">
+                        <p class="CellBody">Chapter 8.40 (garbage, rubbish, refuse, etc.), and Chapter 8.45 (regulation of putrescible wastes, etc.)</p>
+
+          </td>
+        </tr>
+        <tr>
+          <td style="padding: 2pt 2pt 2pt 2pt; vertical-align: top">
+                        <p class="CellBody">(F)</p>
+
+          </td>
+          <td style="padding: 2pt 2pt 2pt 2pt; vertical-align: top">
+                        <p class="CellBody">Alameda County health officer</p>
+
+          </td>
+          <td style="padding: 2pt 2pt 2pt 2pt; vertical-align: top">
+                        <p class="CellBody">Chapter 8.50 (food establishments)</p>
+
+          </td>
+        </tr>
+        <tr>
+          <td style="padding: 2pt 2pt 2pt 2pt; vertical-align: top">
+                        <p class="CellBody">(G)</p>
+
+          </td>
+          <td style="padding: 2pt 2pt 2pt 2pt; vertical-align: top">
+                        <p class="CellBody">Building and safety manager; fire chief; chief of police</p>
+
+          </td>
+          <td style="padding: 2pt 2pt 2pt 2pt; vertical-align: top">
+                        <p class="CellBody">Chapter 8.55 (smoking)</p>
+
+          </td>
+        </tr>
+        <tr>
+          <td style="padding: 2pt 2pt 2pt 2pt; vertical-align: top">
+                        <p class="CellBody">(H)</p>
+
+          </td>
+          <td style="padding: 2pt 2pt 2pt 2pt; vertical-align: top">
+                        <p class="CellBody">Building and safety manager; chief of police; fire chief; maintenance and recreation services director</p>
+
+          </td>
+          <td style="padding: 2pt 2pt 2pt 2pt; vertical-align: top">
+                        <p class="CellBody">Chapter 8.60 (neighborhood preservation)</p>
+
+          </td>
+        </tr>
+      </tbody>
+</table>
+            <p class="P2">(4)&nbsp;&nbsp;&nbsp;&nbsp;Title 9 &ndash; Public Peace, Morals and Welfare:</p>
+
+      <table class="header1" style="margin-left: 36.0pt; padding: 2pt 2pt 2pt 2pt; text-align: center; width: 188.8569pt" cellspacing="0" summary="">
+     <thead>
+        <tr>
+          <th style="padding: 2pt 2pt 2pt 2pt; vertical-align: bottom; width: 25.5941pt">
+                        <p class="CellHeading">&nbsp;</p>
+
+          </th>
+          <th style="padding: 2pt 2pt 2pt 2pt; vertical-align: bottom; width: 75.6314pt">
+                        <p class="CellHeadingL">Title of Officer</p>
+
+          </th>
+          <th style="padding: 2pt 2pt 2pt 2pt; vertical-align: bottom; width: 87.6314pt">
+                        <p class="CellHeadingL">Provision of Code</p>
+
+          </th>
+        </tr>
+     </thead>
+     <tbody>
+        <tr>
+          <td style="padding: 2pt 2pt 2pt 2pt; vertical-align: top">
+                        <p class="CellBody">(A)</p>
+
+          </td>
+          <td style="padding: 2pt 2pt 2pt 2pt; vertical-align: top">
+                        <p class="CellBody">Chief of police; fire chief; building and safety manager, maintenance and recreation services director</p>
+
+          </td>
+          <td style="padding: 2pt 2pt 2pt 2pt; vertical-align: top">
+                        <p class="CellBody">Chapter 9.20 (fireworks)</p>
+
+          </td>
+        </tr>
+      </tbody>
+</table>
+            <p class="P2">(5)&nbsp;&nbsp;&nbsp;&nbsp;Title 10 &ndash; Vehicles and Traffic:</p>
+
+      <table class="header1" style="margin-left: 36.0pt; padding: 2pt 2pt 2pt 2pt; text-align: center; width: 188.8569pt" cellspacing="0" summary="">
+     <thead>
+        <tr>
+          <th style="padding: 2pt 2pt 2pt 2pt; vertical-align: bottom; width: 25.5941pt">
+                        <p class="CellHeading">&nbsp;</p>
+
+          </th>
+          <th style="padding: 2pt 2pt 2pt 2pt; vertical-align: bottom; width: 75.6314pt">
+                        <p class="CellHeadingL">Title of Officer</p>
+
+          </th>
+          <th style="padding: 2pt 2pt 2pt 2pt; vertical-align: bottom; width: 87.6314pt">
+                        <p class="CellHeadingL">Provision of Code</p>
+
+          </th>
+        </tr>
+     </thead>
+     <tbody>
+        <tr>
+          <td style="padding: 2pt 2pt 2pt 2pt; vertical-align: top">
+                        <p class="CellBody">(A)</p>
+
+          </td>
+          <td style="padding: 2pt 2pt 2pt 2pt; vertical-align: top">
+                        <p class="CellBody">Chief of police; fire chief</p>
+
+          </td>
+          <td style="padding: 2pt 2pt 2pt 2pt; vertical-align: top">
+                        <p class="CellBody">Chapter 10.05 (traffic regulations), Article II</p>
+
+          </td>
+        </tr>
+        <tr>
+          <td style="padding: 2pt 2pt 2pt 2pt; vertical-align: top">
+                        <p class="CellBody">(B)</p>
+
+          </td>
+          <td style="padding: 2pt 2pt 2pt 2pt; vertical-align: top">
+                        <p class="CellBody">Chief of police</p>
+
+          </td>
+          <td style="padding: 2pt 2pt 2pt 2pt; vertical-align: top">
+                        <p class="CellBody">Chapter 10.10 (bicycles)</p>
+
+          </td>
+        </tr>
+        <tr>
+          <td style="padding: 2pt 2pt 2pt 2pt; vertical-align: top">
+                        <p class="CellBody">(C)</p>
+
+          </td>
+          <td style="padding: 2pt 2pt 2pt 2pt; vertical-align: top">
+                        <p class="CellBody">Chief of police; public works director</p>
+
+          </td>
+          <td style="padding: 2pt 2pt 2pt 2pt; vertical-align: top">
+                        <p class="CellBody">Chapter 10.35 (bicycle and motorized scooter shared active transportation programs)</p>
+
+          </td>
+        </tr>
+      </tbody>
+</table>
+            <p class="P2">(6)&nbsp;&nbsp;&nbsp;&nbsp;Title 12 &ndash; Streets, Sidewalks and Public Property:</p>
+
+      <table class="header1" style="margin-left: 36.0pt; padding: 2pt 2pt 2pt 2pt; text-align: center; width: 188.8569pt" cellspacing="0" summary="">
+     <thead>
+        <tr>
+          <th style="padding: 2pt 2pt 2pt 2pt; vertical-align: bottom; width: 25.5941pt">
+                        <p class="CellHeading">&nbsp;</p>
+
+          </th>
+          <th style="padding: 2pt 2pt 2pt 2pt; vertical-align: bottom; width: 75.6314pt">
+                        <p class="CellHeadingL">Title of Officer</p>
+
+          </th>
+          <th style="padding: 2pt 2pt 2pt 2pt; vertical-align: bottom; width: 87.6314pt">
+                        <p class="CellHeadingL">Provision of Code</p>
+
+          </th>
+        </tr>
+     </thead>
+     <tbody>
+        <tr>
+          <td style="padding: 2pt 2pt 2pt 2pt; vertical-align: top">
+                        <p class="CellBody">(A)</p>
+
+          </td>
+          <td style="padding: 2pt 2pt 2pt 2pt; vertical-align: top">
+                        <p class="CellBody">Chief of police; maintenance and recreation services director; fire chief</p>
+
+          </td>
+          <td style="padding: 2pt 2pt 2pt 2pt; vertical-align: top">
+                        <p class="CellBody">Chapter 12.20 (parks and recreation areas)</p>
+
+          </td>
+        </tr>
+        <tr>
+          <td style="padding: 2pt 2pt 2pt 2pt; vertical-align: top">
+                        <p class="CellBody">(B)</p>
+
+          </td>
+          <td style="padding: 2pt 2pt 2pt 2pt; vertical-align: top">
+                        <p class="CellBody">Chief of police; maintenance and recreation services director; fire chief</p>
+
+          </td>
+          <td style="padding: 2pt 2pt 2pt 2pt; vertical-align: top">
+                        <p class="CellBody">Chapter 12.25 (special events and parades)</p>
+
+          </td>
+        </tr>
+      </tbody>
+</table>
+            <p class="P2">(7)&nbsp;&nbsp;&nbsp;&nbsp;Title 15 &ndash; Buildings and Construction:</p>
+
+      <table class="header1" style="margin-left: 36.0pt; padding: 2pt 2pt 2pt 2pt; text-align: center; width: 188.8569pt" cellspacing="0" summary="">
+     <thead>
+        <tr>
+          <th style="padding: 2pt 2pt 2pt 2pt; vertical-align: bottom; width: 25.5941pt">
+                        <p class="CellHeading">&nbsp;</p>
+
+          </th>
+          <th style="padding: 2pt 2pt 2pt 2pt; vertical-align: bottom; width: 75.6314pt">
+                        <p class="CellHeadingL">Title of Officer</p>
+
+          </th>
+          <th style="padding: 2pt 2pt 2pt 2pt; vertical-align: bottom; width: 87.6314pt">
+                        <p class="CellHeadingL">Provision of Code</p>
+
+          </th>
+        </tr>
+     </thead>
+     <tbody>
+        <tr>
+          <td style="padding: 2pt 2pt 2pt 2pt; vertical-align: top">
+                        <p class="CellBody">(A)</p>
+
+          </td>
+          <td style="padding: 2pt 2pt 2pt 2pt; vertical-align: top">
+                        <p class="CellBody">Building and safety manager; fire chief</p>
+
+          </td>
+          <td style="padding: 2pt 2pt 2pt 2pt; vertical-align: top">
+                        <p class="CellBody">Chapters 15.05 through 15.35 (Fremont building standards code)</p>
+
+          </td>
+        </tr>
+        <tr>
+          <td style="padding: 2pt 2pt 2pt 2pt; vertical-align: top">
+                        <p class="CellBody">(B)</p>
+
+          </td>
+          <td style="padding: 2pt 2pt 2pt 2pt; vertical-align: top">
+                        <p class="CellBody">Building and safety manager</p>
+
+          </td>
+          <td style="padding: 2pt 2pt 2pt 2pt; vertical-align: top">
+                        <p class="CellBody">Chapter 15.50 (building security)</p>
+
+          </td>
+        </tr>
+      </tbody>
+</table>
+            <p class="P2">(8)&nbsp;&nbsp;&nbsp;&nbsp;Title 18 &ndash; Planning and Zoning:</p>
+
+      <table class="header1" style="margin-left: 36.0pt; padding: 2pt 2pt 2pt 2pt; text-align: center; width: 188.8569pt" cellspacing="0" summary="">
+     <thead>
+        <tr>
+          <th style="padding: 2pt 2pt 2pt 2pt; vertical-align: bottom; width: 25.5941pt">
+                        <p class="CellHeading">&nbsp;</p>
+
+          </th>
+          <th style="padding: 2pt 2pt 2pt 2pt; vertical-align: bottom; width: 75.6314pt">
+                        <p class="CellHeadingL">Title of Officer</p>
+
+          </th>
+          <th style="padding: 2pt 2pt 2pt 2pt; vertical-align: bottom; width: 87.6314pt">
+                        <p class="CellHeadingL">Provision of Code</p>
+
+          </th>
+        </tr>
+     </thead>
+     <tbody>
+        <tr>
+          <td style="padding: 2pt 2pt 2pt 2pt; vertical-align: top">
+                        <p class="CellBody">(A)</p>
+
+          </td>
+          <td style="padding: 2pt 2pt 2pt 2pt; vertical-align: top">
+                        <p class="CellBody">Building and safety manager</p>
+
+          </td>
+          <td style="padding: 2pt 2pt 2pt 2pt; vertical-align: top">
+                        <p class="CellBody">Chapters 18.05 through 18.200, 18.210 and 18.220 through 18.290 (zoning)</p>
+
+          </td>
+        </tr>
+        <tr>
+          <td style="padding: 2pt 2pt 2pt 2pt; vertical-align: top">
+                        <p class="CellBody">(B)</p>
+
+          </td>
+          <td style="padding: 2pt 2pt 2pt 2pt; vertical-align: top">
+                        <p class="CellBody">Building and safety manager</p>
+
+          </td>
+          <td style="padding: 2pt 2pt 2pt 2pt; vertical-align: top">
+                        <p class="CellBody">Chapter 18.205 (grading, erosion and sediment control)</p>
+
+          </td>
+        </tr>
+        <tr>
+          <td style="padding: 2pt 2pt 2pt 2pt; vertical-align: top">
+                        <p class="CellBody">(C)</p>
+
+          </td>
+          <td style="padding: 2pt 2pt 2pt 2pt; vertical-align: top">
+                        <p class="CellBody">Landscape architect; building and safety manager</p>
+
+          </td>
+          <td style="padding: 2pt 2pt 2pt 2pt; vertical-align: top">
+                        <p class="CellBody">Chapter 18.215 (preservation of trees)</p>
+
+          </td>
+        </tr>
+      </tbody>
+</table>
+            <p class="P1">(c)&nbsp;&nbsp;&nbsp;&nbsp;The city manager may designate by written order that a particular officer or employee is authorized to enforce the provisions of this code or an ordinance in addition to those officers enumerated in subsection (b) of this section or the provisions of any ordinance. Officers and employees so designated may arrest persons who violate any of the provisions that the officer or employee is authorized to enforce.</p>
+
+            <p class="P1">(d)&nbsp;&nbsp;&nbsp;&nbsp;An officer or employee designated in subsection (b) or (c) of this section shall be determinative of the enforcement powers of the officer or employee, notwithstanding a designation of a different officer or employee within the particular provision. (Ord. 1348 &sect;&nbsp;2, 12-4-79; Ord. 2004 &sect;&nbsp;3, 5-12-92; Ord. 2488 &sect;&nbsp;4, 10-1-02; Ord. 2504 &sect;&nbsp;1, 7-15-03; Ord. 25-2018 &sect;&nbsp;2, 12-4-18. 1990 Code &sect;&nbsp;1-3104.)</p>
+
+      <h3 class="Cite"><a id="a1x15x060">1.15.060</a> Fees, taxes, etc., deemed civil debts &ndash; Suits for collection.</h3>
+            <p class="P0">The amount of any fee, service charge, utility charge, license or tax of any nature whatsoever imposed by any provision of this code shall be deemed a civil debt owing to the city. An action may be commenced in the name of the city in any court of competent jurisdiction for the collection of the amount of any such delinquent or unpaid fee, service charge, utility charge, license or tax, together with any penalties applicable thereto as prescribed by this code. Such an action may also be commenced for the collection of any other amount or debt determined to be due the city on account of any tortious act or conduct by any person. The remedy prescribed by this section shall be accumulative and the use of an action to collect such an amount as a debt by civil action shall not bar the use of any other remedy provided by this code or by law for the purpose of enforcing the provisions thereof. (Ord. 376 &sect;&nbsp;1. 1990 Code &sect;&nbsp;1-3105.)</p>
+
+      <h3 class="Cite"><a id="a1x15x070">1.15.070</a> Criminal justice administration fees.</h3>
+            <p class="P1">(a)&nbsp;&nbsp;&nbsp;&nbsp;Cal. Gov&rsquo;t Code &sect;&nbsp;29550.1 authorizes a city to recover any criminal justice administration fees imposed by a county on the city pursuant to Cal. Gov&rsquo;t Code &sect;&nbsp;29550; and the county of Alameda is currently imposing criminal justice administration fees on the city of Fremont pursuant to the authority of Cal. Gov&rsquo;t Code &sect;&nbsp;29550.</p>
+
+            <p class="P1">(b)&nbsp;&nbsp;&nbsp;&nbsp;Pursuant to the authority of Cal. Gov&rsquo;t Code &sect;&nbsp;29550.1, the city manager is authorized and directed to recover all criminal justice administration fees imposed on the city of Fremont by the county of Alameda.</p>
+
+            <p class="P1">(c)&nbsp;&nbsp;&nbsp;&nbsp;The city manager shall seek recovery of all criminal administration fees as authorized by Cal. Gov&rsquo;t Code &sect;&nbsp;29550.1 from any person arrested by officers of the city of Fremont and convicted of any criminal offense related to the arrest.</p>
+
+            <p class="P1">(d)&nbsp;&nbsp;&nbsp;&nbsp;The courts of Alameda County are hereby requested to order payment for the amount of criminal justice administration fees, as authorized by Cal. Gov&rsquo;t Code &sect;&nbsp;29550.1, by the convicted person at the time of entering judgment of conviction of any person arrested by officers of the city of Fremont. Execution of the order for payment shall be made in the same manner as a judgment in a civil action.</p>
+
+            <p class="P1">(e)&nbsp;&nbsp;&nbsp;&nbsp;The courts of Alameda County are hereby requested to impose as a condition of probation an order that the convicted person reimburse the city of Fremont for criminal justice administration fees imposed on the city of Fremont by Alameda County as a result of the arrest, booking and processing of the convicted person. (Ord. 2033 &sect;&sect;&nbsp;1 &ndash; 5, 5-25-93. 1990 Code &sect;&nbsp;1-3106.)</p>
+
+      <h3 class="Cite"><a id="a1x15x080">1.15.080</a> Civil violations &ndash; Injunction and civil penalties.</h3>
+            <p class="P1">(a)&nbsp;&nbsp;&nbsp;&nbsp;In addition to any other remedy provided by this code, any provision of the Fremont Municipal Code or of a city of Fremont ordinance may be enforced by injunction in a civil action brought in the name of the people of the city of Fremont by the city attorney in any court of competent jurisdiction.</p>
+
+            <p class="P1">(b)&nbsp;&nbsp;&nbsp;&nbsp;As part of a civil action filed to enforce provisions of this code or of a city of Fremont ordinance, a court may assess a maximum civil penalty of $1,000 per violation of the Fremont Municipal Code or of the city of Fremont ordinance for each day during which any person commits, continues, allows or maintains a violation of any provision of this code or ordinance. (Ord. 2488 &sect;&nbsp;5, 10-1-02. 1990 Code &sect;&nbsp;1-3107.)</p>
+
+      <h3 class="Cite"><a id="a1x15x090">1.15.090</a> Authority to enforce.</h3>
+            <p class="P0">The city manager and his or her designated enforcement officers have the authority and powers necessary to gain compliance with the provisions of the Fremont Municipal Code, ordinances of the city of Fremont, and applicable state codes. These powers include the power to issue correction notices and field citations, inspect public and private property and use whatever judicial and administrative remedies are available under this code.</p>
+
+            <p class="P0">As used in this chapter, &ldquo;designated enforcement official&rdquo; means a city employee designated by the city manager, ordinance, or state law to enforce a given violation of the Fremont Municipal Code, city ordinance, or applicable state law. (Ord. 2488 &sect;&nbsp;5, 10-1-02. 1990 Code &sect;&nbsp;1-3108.)</p>
+
+      <h3 class="Cite"><a id="a1x15x100">1.15.100</a> Authority to inspect.</h3>
+            <p class="P0">The city manager and his or her designated enforcement officers are authorized to enter any property or premises to ascertain whether the provisions of the Fremont Municipal Code, ordinances of the city of Fremont, or applicable state codes are being obeyed, and to make any examinations and surveys as may be necessary in the performance of their enforcement duties. These may include the taking of photographs, samples or other physical evidence. All inspections, entries, examinations and surveys shall be done in a reasonable manner. If an owner, occupant or agent refuses permission to enter or inspect, the enforcement officer may seek an administrative inspection warrant under the procedures provided for in Cal. Civ. Proc. Code &sect;&sect;&nbsp;1822.50 through 1822.59. (Ord. 2488 &sect;&nbsp;5, 10-1-02. 1990 Code &sect;&nbsp;1-3109.)</p>
+
+    <h2 headertitle="Fremont Municipal Code" headerdisc="The Fremont Municipal Code is current through Ordinance 02-2026, passed May 5, 2026." class="CH"><a id="a1x20"></a>Chapter 1.20<br />ADMINISTRATIVE REMEDIES</h2>
+            <p class="digCH">Sections:</p>
+
+            <p class="CiteTOC"><a href="#a1x20x010">1.20.010&nbsp;&nbsp;&nbsp;&nbsp;Title and purpose.</a></p>
+
+            <p class="CiteTOC"><a href="#a1x20x020">1.20.020&nbsp;&nbsp;&nbsp;&nbsp;Definitions.</a></p>
+
+            <p class="CiteTOC"><a href="#a1x20x030">1.20.030&nbsp;&nbsp;&nbsp;&nbsp;Administrative citation.</a></p>
+
+            <p class="CiteTOC"><a href="#a1x20x040">1.20.040&nbsp;&nbsp;&nbsp;&nbsp;Procedures for administrative citations.</a></p>
+
+            <p class="CiteTOC"><a href="#a1x20x050">1.20.050&nbsp;&nbsp;&nbsp;&nbsp;Contents of administrative citation.</a></p>
+
+            <p class="CiteTOC"><a href="#a1x20x060">1.20.060&nbsp;&nbsp;&nbsp;&nbsp;Appeal of administrative citation.</a></p>
+
+            <p class="CiteTOC"><a href="#a1x20x070">1.20.070&nbsp;&nbsp;&nbsp;&nbsp;Court review.</a></p>
+
+            <p class="CiteTOC"><a href="#a1x20x080">1.20.080&nbsp;&nbsp;&nbsp;&nbsp;Penalties assessed.</a></p>
+
+            <p class="CiteTOC"><a href="#a1x20x090">1.20.090&nbsp;&nbsp;&nbsp;&nbsp;Allocation of administrative penalties.</a></p>
+
+            <p class="CiteTOC"><a href="#a1x20x100">1.20.100&nbsp;&nbsp;&nbsp;&nbsp;Severability.</a></p>
+
+            <p class="CiteTOC"><a href="#a1x20x110">1.20.110&nbsp;&nbsp;&nbsp;&nbsp;Notice to Department of Motor Vehicles.</a></p>
+
+            <p class="CiteTOC"><a href="#a1x20x120">1.20.120&nbsp;&nbsp;&nbsp;&nbsp;Civil or criminal actions not affected.</a></p>
+
+      <h3 class="Cite"><a id="a1x20x010">1.20.010</a> Title and purpose.</h3>
+            <p class="P1">(a)&nbsp;&nbsp;&nbsp;&nbsp;This chapter shall be cited as the &ldquo;administration remedies ordinance.&rdquo;</p>
+
+            <p class="P1">(b)&nbsp;&nbsp;&nbsp;&nbsp;The city council finds there is a need for an alternative method of enforcement for violations of this code. The city council finds an appropriate method of enforcement is an administrative citation.</p>
+
+            <p class="P1">(c)&nbsp;&nbsp;&nbsp;&nbsp;The procedures established in this chapter shall be in addition to criminal, civil or any other legally established procedures that may be pursued to address violations of this code. (Ord. 2135 &sect;&nbsp;1, 10-17-95. 1990 Code &sect;&nbsp;1-4100.)</p>
+
+      <h3 class="Cite"><a id="a1x20x020">1.20.020</a> Definitions.</h3>
+            <p class="P0">For purposes of this chapter, the following definitions shall apply:</p>
+
+            <p class="P1">(a)&nbsp;&nbsp;&nbsp;&nbsp;The term &ldquo;director&rdquo; includes the following: city manager, community development director, maintenance and recreation director, police chief, fire chief, and any of their designees. Should any of these positions be eliminated or the titles changed, references to them shall be considered to be references to the new title for the renamed positions or to the replacement official designated with the responsibilities of any eliminated position.</p>
+
+            <p class="P1">(b)&nbsp;&nbsp;&nbsp;&nbsp;The term &ldquo;person&rdquo; means any natural person, firm, association, business, trust, organization, corporation, partnership, company or any other entity.</p>
+
+            <p class="P1">(c)&nbsp;&nbsp;&nbsp;&nbsp;The term &ldquo;enforcement officer&rdquo; means any person authorized to enforce violations of this code.</p>
+
+            <p class="P1">(d)&nbsp;&nbsp;&nbsp;&nbsp;The term &ldquo;hearing examiner&rdquo; means any person appointed by the city manager or director to preside over the administrative hearings provided for in Section <a href="#a1x20x060">1.20.060</a>.</p>
+
+            <p class="P1">(e)&nbsp;&nbsp;&nbsp;&nbsp;The term &ldquo;city&rdquo; means the city of Fremont.</p>
+
+            <p class="P1">(f)&nbsp;&nbsp;&nbsp;&nbsp;The term &ldquo;contestant&rdquo; means any person or entity who is the registered owner, property owner, legal owner, driver, operator, tenant, lessee, or is otherwise liable for penalties in accordance with the applicable section of this code, and who contests or disputes liability for civil penalties. (Ord. 2135 &sect;&nbsp;1, 10-17-95; amended during 2012 reformat. 1990 Code &sect;&nbsp;1-4110.)</p>
+
+      <h3 class="Cite"><a id="a1x20x030">1.20.030</a> Administrative citation.</h3>
+            <p class="P1">(a)&nbsp;&nbsp;&nbsp;&nbsp;In accordance with Cal. Gov&rsquo;t Code &sect;&nbsp;53069.4, an enforcement officer may issue an administrative citation assessing a civil penalty to any person violating provisions of this code and any ordinance of the city of Fremont as provided in this chapter.</p>
+
+            <p class="P1">(b)&nbsp;&nbsp;&nbsp;&nbsp;Each provision of this code or any ordinance of the city of Fremont that is violated constitutes a separate offense. Each and every day a violation of any provision exists constitutes a separate and distinct offense.</p>
+
+            <p class="P1">(c)&nbsp;&nbsp;&nbsp;&nbsp;A civil penalty assessed by an administrative citation shall be payable directly to the city of Fremont.</p>
+
+            <p class="P1">(d)&nbsp;&nbsp;&nbsp;&nbsp;Civil penalties assessed by an administrative citation shall be collected in accordance with the procedures specified in this chapter. (Ord. 2135 &sect;&nbsp;1, 10-17-95; Ord. 2488 &sect;&nbsp;7, 10-1-02. 1990 Code &sect;&nbsp;1-4115.)</p>
+
+      <h3 class="Cite"><a id="a1x20x040">1.20.040</a> Procedures for administrative citations.</h3>
+            <p class="P1">(a)&nbsp;&nbsp;&nbsp;&nbsp;An enforcement officer may issue an administrative citation to any person or property owner responsible for a violation of this code or any ordinance of the city of Fremont in the manner prescribed in Section <a href="#a1x20x050">1.20.050</a>. The administrative citation shall be issued on a form prescribed by the city manager.</p>
+
+            <p class="P1">(b)&nbsp;&nbsp;&nbsp;&nbsp;A warning notice shall be provided to a person responsible for a continuing violation which pertains to building, plumbing, electrical or other structural or zoning issues that do not create an immediate danger to health or safety. The warning notice shall specify the action required to correct or otherwise remedy the violation(s). Not less than 24 hours&rsquo; and not more than 30 calendar days&rsquo; notice shall be allowed from the date of the warning notice for the party to correct or otherwise remedy the violation before a notice of violation may be issued. The enforcement officer shall assign a specific reasonable warning period for each violation. The enforcement officer shall consider the cost of abatement or correction, the time required to obtain permits for correction, the time needed to obtain estimates, drawings and contracts for correction, time required for physical relocation of personal property, and the time required to review submittals in determining the reasonable warning period to be assigned for each violation.</p>
+
+            <p class="P1">(c)&nbsp;&nbsp;&nbsp;&nbsp;Sections 18.15.030 and 18.15.060, Chapter 18.153, Sections 18.170.020, 18.170.030, 18.170.040, 18.170.050, 18.170.060, 18.171.010(a) and (b), 18.171.020(a) through (d), 18.171.030(b) and (d), 18.183.150, 18.183.180(c) through (g), 18.190.050, 18.190.160(a) and (e) through (i), 18.190.330(a) through (e), 18.190.350(a) through (g), 18.190.360, 18.190.370(d), 18.190.420, 18.190.430(a) through (e), 18.190.480(a) and (b), 18.190.530(b) through (d), 18.190.560(a) through (g), 18.190.580(a) through (g), 18.190.620, 18.193.010(c), 18.193.080(i), 18.193.110(a) through (e), 18.193.120(a) through (m), 18.230.020, 18.275.020 and 18.280.020 shall be deemed business regulations for the purposes of this chapter despite their location in Title 18 (Planning and Zoning). The warning notice mandate of Cal. Gov&rsquo;t Code &sect;&nbsp;53069.4(a)(2)(A) shall not apply to these specified sections of this code or to any violations of building, plumbing, electrical, or other similar structural or zoning requirements of this code if the violation exists as a result of or to facilitate the illegal cultivation of cannabis.</p>
+
+            <p class="P1">(d)&nbsp;&nbsp;&nbsp;&nbsp;The enforcement officer shall identify the responsible party. A responsible party shall be deemed to be the person who is in immediate control of the premises or activity which constitutes a violation of this code, or the actor of prohibited conduct, the business owner, or the property owner.</p>
+
+            <p class="P1">(e)&nbsp;&nbsp;&nbsp;&nbsp;Once the person responsible for the violation is identified, the enforcement officer may obtain the signature of that person on the administrative citation to establish personal service of the citation.</p>
+
+            <p class="P1">(f)&nbsp;&nbsp;&nbsp;&nbsp;If the responsible person is not located, refuses or otherwise fails to sign the administrative citation, the lack of signature shall in no way affect the validity of the citation or the proceedings and the enforcement officer shall make service of the citation as otherwise provided herein.</p>
+
+            <p class="P1">(g)&nbsp;&nbsp;&nbsp;&nbsp;The enforcement officer may post the citation by affixing the citation to a surface in a conspicuous place on the property whenever the violation is connected to a condition of real property and poses a risk to the public health or safety. Conspicuous posting of the citation is not required when personal service is accomplished or when conspicuous posting poses a hardship or is excessively expensive. Failure of a posted notice to remain in place after posting shall in no way affect the validity of the citation or the proceeding.</p>
+
+            <p class="P1">(h)&nbsp;&nbsp;&nbsp;&nbsp;If the enforcement officer is unable to locate the responsible party, or the responsible party refuses or otherwise fails to sign for the violation, the administrative citation shall be served on the responsible party, or the property owner when appropriate, as follows:</p>
+
+            <p class="P2">(1)&nbsp;&nbsp;&nbsp;&nbsp;The administrative citation shall be mailed to the responsible party or property owner(s) by first-class mail, postage prepaid, with a declaration of service under penalty of perjury.</p>
+
+            <p class="P2">(2)&nbsp;&nbsp;&nbsp;&nbsp;The declaration of service shall be made by the person mailing the administrative citation showing the date and manner of service by mail and reciting the name and address of the citation addressee.</p>
+
+            <p class="P2">(3)&nbsp;&nbsp;&nbsp;&nbsp;The failure of any responsible party or person with an interest in the property, where applicable, to receive a properly addressed citation shall not affect the validity of any proceeding under this chapter.</p>
+
+            <p class="P2">(4)&nbsp;&nbsp;&nbsp;&nbsp;Service of the administrative citation in the manner described above shall be effective on the date of mailing. (Ord. 2135 &sect;&nbsp;1, 10-17-95; Ord. 2161 &sect;&nbsp;1, 4-2-96; Ord. 2176 &sect;&nbsp;1, 6-4-96; Ord. 2190 &sect;&nbsp;1, 9-3-96; Ord. 2488 &sect;&nbsp;8, 10-1-02; Ord. 1-2009 &sect;&nbsp;1, 1-6-09; Ord. 28-2018 &sect;&nbsp;2, 12-18-18. 1990 Code &sect;&nbsp;1-4120.)</p>
+
+      <h3 class="Cite"><a id="a1x20x050">1.20.050</a> Contents of administrative citation.</h3>
+            <p class="P0">The administrative citation shall include all the following:</p>
+
+            <p class="P1">(a)&nbsp;&nbsp;&nbsp;&nbsp;Date and location of the violation(s) and the approximate time the violation(s) was(were) observed, identifying markings (i.e., name brand, serial number, color or other description);</p>
+
+            <p class="P1">(b)&nbsp;&nbsp;&nbsp;&nbsp;Section(s) of this code violated and description of how the section(s) was(were) violated;</p>
+
+            <p class="P1">(c)&nbsp;&nbsp;&nbsp;&nbsp;Description of corrective action required, where appropriate;</p>
+
+            <p class="P1">(d)&nbsp;&nbsp;&nbsp;&nbsp;A statement requiring immediate correction of the violation(s), where appropriate, and an explanation of the consequences for failure to correct the violation(s);</p>
+
+            <p class="P1">(e)&nbsp;&nbsp;&nbsp;&nbsp;Amount of civil penalty imposed for the violation(s) and the additional penalties for late payment;</p>
+
+            <p class="P1">(f)&nbsp;&nbsp;&nbsp;&nbsp;Explanation of the applicable time limits, the penalty payment procedure and the consequences of failure to pay the fine;</p>
+
+            <p class="P1">(g)&nbsp;&nbsp;&nbsp;&nbsp;Rights of appeal; and</p>
+
+            <p class="P1">(h)&nbsp;&nbsp;&nbsp;&nbsp;Signature of the enforcement officer and the officer&rsquo;s employment number, where applicable. (Ord. 2135 &sect;&nbsp;1, 10-17-95. 1990 Code &sect;&nbsp;1-4125.)</p>
+
+      <h3 class="Cite"><a id="a1x20x060">1.20.060</a> Appeal of administrative citation.</h3>
+            <p class="P1">(a)&nbsp;&nbsp;&nbsp;&nbsp;Persons receiving an administrative citation may appeal it within 21 calendar days from the date the notice of municipal code violation is served by mail. The notice to appeal must be in writing, accompanied by the penalty deposit, specifying the basis for the appeal in detail, and must be filed with the administrative processing agency as indicated in the administrative citation. If the deadline falls on a weekend or city holiday, then the deadline shall be extended until the next regular business day.</p>
+
+            <p class="P1">(b)&nbsp;&nbsp;&nbsp;&nbsp;As soon as practicable after receiving the written notice of appeal, the citation processing agency shall review the citation and, if found to be complete and in conformance with Section <a href="#a1x20x050">1.20.050</a>, fix a date, time and place for hearing before a hearing examiner appointed by the city manager. Written notice of the time and place for the hearing may be served by first-class mail, personal service, or posting the notice at least 10 calendar days prior to the date of the hearing to the party protesting the citation and anyone else who received notice of the citation, by any one of the following means:</p>
+
+            <p class="P2">(1)&nbsp;&nbsp;&nbsp;&nbsp;Personal service;</p>
+
+            <p class="P2">(2)&nbsp;&nbsp;&nbsp;&nbsp;First-class mail; or</p>
+
+            <p class="P2">(3)&nbsp;&nbsp;&nbsp;&nbsp;Posting the notice of hearing conspicuously on or in front of the property on which the violation is located.</p>
+
+            <p class="P1">(c)&nbsp;&nbsp;&nbsp;&nbsp;The failure of any person with an interest in the property to receive such properly addressed notice of the hearing shall not affect the validity of any proceedings under this chapter. Service by first-class mail, postage prepaid, shall be effective on the date of mailing.</p>
+
+            <p class="P1">(d)&nbsp;&nbsp;&nbsp;&nbsp;Failure of any person to file an appeal in accordance with the provisions of this section shall constitute waiver of that person&rsquo;s rights to administrative determination of the merits of the citation and the amount of the penalty.</p>
+
+            <p class="P1">(e)&nbsp;&nbsp;&nbsp;&nbsp;A hearing examiner shall be designated by the city manager for all appeal hearings under this chapter. The contestant may request the city manager to recuse a hearing examiner for reasons of actual prejudice against the party&rsquo;s cause. The hearing examiner shall conduct an orderly fair hearing and accept evidence on which persons commonly would rely in the conduct of their business affairs as follows:</p>
+
+            <p class="P2">(1)&nbsp;&nbsp;&nbsp;&nbsp;A valid citation shall be prima facie evidence of the violation;</p>
+
+            <p class="P2">(2)&nbsp;&nbsp;&nbsp;&nbsp;The hearing examiner shall accept testimony by declaration under penalty of perjury relating to the violation and the appropriate means of correcting the violation;</p>
+
+            <p class="P2">(3)&nbsp;&nbsp;&nbsp;&nbsp;The owner, agent, person responsible for the violation, or any other interested person may present testimony or evidence concerning the violation and the means and time frame for correction.</p>
+
+            <p class="P1">(f)&nbsp;&nbsp;&nbsp;&nbsp;The city manager shall establish all appropriate administrative regulations for implementing this chapter, conducting hearings and rendering decisions pursuant to this section.</p>
+
+            <p class="P1">(g)&nbsp;&nbsp;&nbsp;&nbsp;The hearing examiner may not reduce, waive or conditionally reduce the penalties stated in the citations or any late fees assessed. The hearing examiner may impose conditions and deadlines for correction of violations or payment of outstanding penalties.</p>
+
+            <p class="P1">(h)&nbsp;&nbsp;&nbsp;&nbsp;The hearing examiner shall make findings based on the record of the hearing and make a written decision based on the findings. The processing agency shall preserve all exhibits submitted by the parties and shall serve the decision by first-class mail on the contestant within 10 working days after the hearing. The decision of the hearing examiner affirming or dismissing the citation is final and conclusive, subject only to review by the city manager as provided herein. There are no appeals to the city council. (Ord. 2135 &sect;&nbsp;1, 10-17-95. 1990 Code &sect;&nbsp;1-4130.)</p>
+
+      <h3 class="Cite"><a id="a1x20x070">1.20.070</a> Court review.</h3>
+            <p class="P1">(a)&nbsp;&nbsp;&nbsp;&nbsp;After receipt of the hearing examiner&rsquo;s decision, the contestant may file an appeal with the municipal court for de novo review. The request for review shall be submitted within 20 days of the date of mailing of the decision of the examiner. The request for review shall be submitted on a form prescribed by the court. The request for municipal court review shall state the reasons the party objects to the hearing examiner&rsquo;s findings or decision.</p>
+
+            <p class="P1">(b)&nbsp;&nbsp;&nbsp;&nbsp;The municipal court shall conduct a de novo hearing, except the contents of the processing agency file shall be received into evidence.</p>
+
+            <p class="P1">(c)&nbsp;&nbsp;&nbsp;&nbsp;A copy of the notice of violation and imposition of penalty shall be entered as prima facie evidence of the facts stated therein.</p>
+
+            <p class="P1">(d)&nbsp;&nbsp;&nbsp;&nbsp;The municipal court fee for filing shall be $25.00. If the court finds in favor of the contestant, the amount of the fee shall be reimbursed to the contestant by the city. Any deposit of penalty shall be refunded by the city in accordance with the judgment of the court.</p>
+
+            <p class="P1">(e)&nbsp;&nbsp;&nbsp;&nbsp;If the penalty has not been deposited, and the decision of the court is against the contestant, the city may proceed to collect the civil penalty in the manner provided by law. (Ord. 2135 &sect;&nbsp;1, 10-17-95; Ord. 2161 &sect;&nbsp;2, 4-2-96; Ord. 2176 &sect;&nbsp;2, 6-4-96. 1990 Code &sect;&nbsp;1-4135.)</p>
+
+      <h3 class="Cite"><a id="a1x20x080">1.20.080</a> Penalties assessed.</h3>
+            <p class="P1">(a)&nbsp;&nbsp;&nbsp;&nbsp;The city council may establish a civil penalty schedule setting forth the penalty to be assessed by an administrative citation for violation of a particular provision of this code or any city of Fremont ordinance in accordance with Cal. Gov&rsquo;t Code &sect;&nbsp;53069.4(a)(1).</p>
+
+            <p class="P1">(b)&nbsp;&nbsp;&nbsp;&nbsp;If the violator or property owner fails to correct the violation, subsequent administrative citations may be issued for the same violation(s). The amount of the penalty shall increase at a rate specified in this chapter.</p>
+
+            <p class="P1">(c)&nbsp;&nbsp;&nbsp;&nbsp;Except as otherwise provided by a civil penalty schedule established by the city council, the civil penalty assessed by administrative citation for violation of a provision of this code or a city ordinance shall be as follows:</p>
+
+            <p class="P2">(1)&nbsp;&nbsp;&nbsp;&nbsp;First administrative citation: A fine not exceeding $100.00;</p>
+
+            <p class="P2">(2)&nbsp;&nbsp;&nbsp;&nbsp;Second administrative citation within one year for violation of the same code section: A fine not exceeding $200.00;</p>
+
+            <p class="P2">(3)&nbsp;&nbsp;&nbsp;&nbsp;Third or subsequent administrative citation within one year for violation of the same code section: A fine not exceeding $500.00.</p>
+
+            <p class="P1">(d)&nbsp;&nbsp;&nbsp;&nbsp;Except as otherwise provided by a civil penalty schedule established by the city council, the civil penalty assessed by administrative citation for violation of Title 15 shall be as follows:</p>
+
+            <p class="P2">(1)&nbsp;&nbsp;&nbsp;&nbsp;First administrative citation: A fine not exceeding $130.00;</p>
+
+            <p class="P2">(2)&nbsp;&nbsp;&nbsp;&nbsp;Second administrative citation within one year for violation of the same ordinance: A fine not exceeding $700.00;</p>
+
+            <p class="P2">(3)&nbsp;&nbsp;&nbsp;&nbsp;Third or subsequent administrative citation within one year for violation of the same ordinance: A fine not exceeding $1,300;</p>
+
+            <p class="P2">(4)&nbsp;&nbsp;&nbsp;&nbsp;For commercial property that has an existing building at the time of the violation and the owner failed to remove visible refuse or prohibit unauthorized use of the property, each additional violation of the same ordinance within two years of the first violation: A fine not exceeding $2,500.</p>
+
+            <p class="P1">(e)&nbsp;&nbsp;&nbsp;&nbsp;A fine levied pursuant to subsection (d)(2) or (d)(3) of this section may be appealed to the building official in writing within 10 calendar days of the date the citation is issued based on a showing by the responsible party that the responsible party has made a bona fide effort to comply after the first violation and that payment of the full amount would impose an undue financial burden on the responsible party. Regardless of the decision of the building official, any party receiving a fine pursuant to subsection (d)(2) or (d)(3) of this section retains the right to appeal the citation pursuant to Section <a href="#a1x20x060">1.20.060</a> (Appeal of administrative citation), except that the hearing examiner specified under that section may not reduce, waive or conditionally reduce the penalties stated in the citations or any late fees assessed. The 21-calendar-day appeal period of Section <a href="#a1x20x060">1.20.060</a>(a) shall not be extended due to any appeal of the fine to the building official pursuant to subsection (d)(2) or (d)(3) of this section.</p>
+
+            <p class="P1">(f)&nbsp;&nbsp;&nbsp;&nbsp;Payment of the penalty shall not excuse the failure to correct the violation nor shall it bar further enforcement action by the city.</p>
+
+            <p class="P1">(g)&nbsp;&nbsp;&nbsp;&nbsp;All penalties assessed shall be payable to the city.</p>
+
+            <p class="P1">(h)&nbsp;&nbsp;&nbsp;&nbsp;The failure of any person to pay a penalty assessed by administrative citation within the time specified on the citation shall result in the assessment of an additional late fee to be charged. The amount of the late fee shall be 100 percent of the total amount of the administrative penalty owed. The combined penalty and late fee shall not exceed $1,000.</p>
+
+            <p class="P1">(i)&nbsp;&nbsp;&nbsp;&nbsp;The failure of any person to pay a penalty assessed by administrative citation within the time specified on the citation constitutes a debt to the city. To enforce that debt, the director of financial services may file a claim with the small claims court; impose an assessment lien as set forth below; or pursue any other legal remedy to collect such money.</p>
+
+            <p class="P1">(j)&nbsp;&nbsp;&nbsp;&nbsp;The director of financial services may impose a special assessment against the property that is the subject of a citation if the citation has been issued to the property owner. The director of financial services shall record a notice of lien in the office of the county recorder when the special assessment procedure is used. When so made and confirmed, the cost shall constitute a lien on that property for the amount of the assessment. After confirmation and recordation, a copy shall be turned over to the Alameda County tax collector. At that point, it will be the duty of the tax collector to add the amounts of the respective assessments to the next regular property tax bills levied against the lots and parcels of land for municipal purposes. Those amounts shall be collected at the same time and in the same manner as ordinary property taxes are collected, and shall be subject to the same penalties and procedures under foreclosure and sale as provided for with ordinary municipal taxes. Alternatively, after recording, the lien may be foreclosed by judicial or other sale in the manner and means provided by law.</p>
+
+            <p class="P1">(k)&nbsp;&nbsp;&nbsp;&nbsp;If the failure by any person to pay a penalty assessed by administrative citation results in the filing of an action with the small claims court or any other court to collect the fine, the violator shall be liable for all costs associated with the filing of such action if the city prevails. (Ord. 2135 &sect;&nbsp;1, 10-17-95; Ord. 2276 &sect;&nbsp;4, 2-3-98; Ord. 2488 &sect;&sect;&nbsp;9, 10, 10-1-02; Ord. 28-2018 &sect;&nbsp;3, 12-18-18. 1990 Code &sect;&nbsp;1-4140.)</p>
+
+      <h3 class="Cite"><a id="a1x20x090">1.20.090</a> Allocation of administrative penalties.</h3>
+            <p class="P0">Penalties collected in the manner described in this chapter shall be deposited in the general fund. (Ord. 2135 &sect;&nbsp;1, 10-17-95. 1990 Code &sect;&nbsp;1-4145.)</p>
+
+      <h3 class="Cite"><a id="a1x20x100">1.20.100</a> Severability.</h3>
+            <p class="P0">If any provision of this chapter, or the application thereof to any person or circumstances, is held invalid, such invalidity shall not affect other provisions or applications of this chapter which can be given effect without the invalid provision or application, and to this end the provisions of this chapter are declared to be severable. (Ord. 2135 &sect;&nbsp;1, 10-17-95. 1990 Code &sect;&nbsp;1-4150.)</p>
+
+      <h3 class="Cite"><a id="a1x20x110">1.20.110</a> Notice to Department of Motor Vehicles.</h3>
+            <p class="P0">Nothing contained herein shall in any way be construed to inhibit or alter any obligations any person may have to report the sale, dismantlement, or destruction of a vehicle or vehicle parts to the State Department of Motor Vehicles in accordance with applicable laws. (Ord. 2135 &sect;&nbsp;1, 10-17-95. 1990 Code &sect;&nbsp;1-4155.)</p>
+
+      <h3 class="Cite"><a id="a1x20x120">1.20.120</a> Civil or criminal actions not affected.</h3>
+            <p class="P0">Any administrative citation pursuant to this section shall not prejudice or adversely affect any other action, civil or criminal, that may be brought to abate the public nuisance or violation or to seek compensation for damages suffered. A civil or criminal action may be brought concurrently with any other process regarding the same public nuisance or violation. (Ord. 2135 &sect;&nbsp;1, 10-17-95. 1990 Code &sect;&nbsp;1-4160.)</p>
+
+    <h2 headertitle="Fremont Municipal Code" headerdisc="The Fremont Municipal Code is current through Ordinance 02-2026, passed May 5, 2026." class="CH"><a id="a1x25"></a>Chapter 1.25<br />APPEALS TO COUNCIL</h2>
+            <p class="digCH">Sections: </p>
+
+            <p class="CiteTOC"><a href="#a1x25x010">1.25.010&nbsp;&nbsp;&nbsp;&nbsp;Purpose.</a></p>
+
+            <p class="CiteTOC"><a href="#a1x25x020">1.25.020&nbsp;&nbsp;&nbsp;&nbsp;When procedure not applicable.</a></p>
+
+            <p class="CiteTOC"><a href="#a1x25x030">1.25.030&nbsp;&nbsp;&nbsp;&nbsp;Filing and timing of notice of appeal.</a></p>
+
+            <p class="CiteTOC"><a href="#a1x25x040">1.25.040&nbsp;&nbsp;&nbsp;&nbsp;Report, scheduling, and noticing of hearing.</a></p>
+
+            <p class="CiteTOC"><a href="#a1x25x050">1.25.050&nbsp;&nbsp;&nbsp;&nbsp;Conduct of hearing on appeal.</a></p>
+
+            <p class="CiteTOC"><a href="#a1x25x060">1.25.060&nbsp;&nbsp;&nbsp;&nbsp;Applicability of chapter where special rules are provided.</a></p>
+
+            <p class="CiteTOC"><a href="#a1x25x070">1.25.070&nbsp;&nbsp;&nbsp;&nbsp;Appeals not allowed where other remedies available.</a></p>
+
+      <h3 class="Cite"><a id="a1x25x010">1.25.010</a> Purpose.</h3>
+            <p class="P0">The purpose of the appeal procedure is to provide a general method of recourse for persons aggrieved by or dissatisfied with any action of any administrative official, board, commission, body, or other agency of the city, except the city council (hereinafter &ldquo;administrative agency&rdquo;) in the administration or enforcement of any provision of this code or any other ordinance, rule or regulation of the city, except where it is specifically provided in this code or by other ordinance, rule or regulation of the city that a particular action by an administrative agency is final and conclusive. (Ord. 9-2014 &sect;&nbsp;1, 3-4-14.)</p>
+
+      <h3 class="Cite"><a id="a1x25x020">1.25.020</a> When procedure not applicable.</h3>
+            <p class="P0">The appeal procedure herein prescribed shall not apply to:</p>
+
+            <p class="P1">(a)&nbsp;&nbsp;&nbsp;&nbsp;Actions by administrative agencies which are specifically provided by other provisions of this code, or other ordinance of the city, to be final and conclusive, or where appeal to another administrative agency is provided;</p>
+
+            <p class="P1">(b)&nbsp;&nbsp;&nbsp;&nbsp;Law enforcement activities involving state law; or</p>
+
+            <p class="P1">(c)&nbsp;&nbsp;&nbsp;&nbsp;Appeals by subdividers, applicants, or interested parties from actions of any official or body authorized to make decisions pursuant to Title 17 or 18, where such title specifies an appeal procedure. In such cases, the procedure for appeal prescribed by such title shall be applicable. (Ord. 9-2014 &sect;&nbsp;1, 3-4-14.)</p>
+
+      <h3 class="Cite"><a id="a1x25x030">1.25.030</a> Filing and timing of notice of appeal.</h3>
+            <p class="P1">(a)&nbsp;&nbsp;&nbsp;&nbsp;Except as provided in Section <a href="#a1x25x020">1.25.020</a>, appeals may be filed by any interested party. An appeal shall be submitted in writing on any form prescribed for that purpose by the city, and shall state the decision appealed from, the facts and basis for the appeal, and the relief or action sought. No fee is required where an appeal is filed by the city manager or other public official in pursuance of his or her official duties.</p>
+
+            <p class="P1">(b)&nbsp;&nbsp;&nbsp;&nbsp;The appeal shall be filed within 10 calendar days following the date of the decision that is being appealed. The time limit will extend to the next business day when the tenth day falls on a day that the city is not open for business.</p>
+
+            <p class="P1">(c)&nbsp;&nbsp;&nbsp;&nbsp;Appeals shall be filed with the city clerk and accompanied by the required fee. (Ord. 9-2014 &sect;&nbsp;1, 3-4-14.)</p>
+
+      <h3 class="Cite"><a id="a1x25x040">1.25.040</a> Report, scheduling, and noticing of hearing.</h3>
+            <p class="P1">(a)&nbsp;&nbsp;&nbsp;&nbsp;The timely filing of an appeal shall automatically stay the operative effect of the action, permit, decision or determination from which the appeal has been taken until a final decision is rendered on the appeal, unless the appeal is withdrawn by the appellant.</p>
+
+            <p class="P1">(b)&nbsp;&nbsp;&nbsp;&nbsp;When an appeal has been filed, the matter shall be scheduled for hearing by the city council. Staff shall prepare a report on the matter.</p>
+
+            <p class="P1">(c)&nbsp;&nbsp;&nbsp;&nbsp;The city council shall conduct a public hearing on all appeals where a public hearing was held prior to the decision being appealed from. No public hearing need be held on appeals from decisions where no public hearing was originally held. Where a public hearing of an appeal is required, notice shall be given of the proposed hearing in the same manner as was required for the decision being appealed. (Ord. 9-2014 &sect;&nbsp;1, 3-4-14.)</p>
+
+      <h3 class="Cite"><a id="a1x25x050">1.25.050</a> Conduct of hearing on appeal.</h3>
+            <p class="P1">(a)&nbsp;&nbsp;&nbsp;&nbsp;Scope of Hearing. Review of all appeals shall be de novo. The city council is not bound by the decision that has been appealed or limited to the issues raised on appeal.</p>
+
+            <p class="P1">(b)&nbsp;&nbsp;&nbsp;&nbsp;Action of City Council. The city council may continue the matter from time to time, and, at the conclusion of its consideration, may affirm, reverse, or modify the decision appealed and may take any action which might have been taken in the first instance by the body whose action is being appealed. If new or different evidence is presented on appeal, the city council may also refer the matter for reconsideration to the body whose action is being appealed. In ruling on the appeal, the findings and action of the city council shall be final and conclusive in the matter. (Ord. 9-2014 &sect;&nbsp;1, 3-4-14.)</p>
+
+      <h3 class="Cite"><a id="a1x25x060">1.25.060</a> Applicability of chapter where special rules are provided.</h3>
+            <p class="P0">Notwithstanding this chapter, when any provision of this code specifically requires that the appeal of an action be filed within a shorter period of time from the date of the action, or that the city council must hear or act upon an appeal within a specific number of days, such provision shall govern. (Ord. 9-2014 &sect;&nbsp;1, 3-4-14.)</p>
+
+      <h3 class="Cite"><a id="a1x25x070">1.25.070</a> Appeals not allowed where other remedies available.</h3>
+            <p class="P0">Upon receipt of a notice of appeal pursuant to this chapter, the city clerk shall investigate whether the appellant has an administrative means of relief or remedy available to him/her other than by appeal to the city council. If the city clerk finds that such alternative remedy or means of relief is available, he/she shall advise the appellant in writing of this fact, the action the appellant should take, and which administrative agency of the city may grant such relief. The appeal shall thereupon be terminated, and the appellant shall be refunded any appeal fee he/she may have paid. (Ord. 9-2014 &sect;&nbsp;1, 3-4-14.)</p>
+
+            <p class="P0"></p>
+
+    <h2 headertitle="Fremont Municipal Code" headerdisc="The Fremont Municipal Code is current through Ordinance 02-2026, passed May 5, 2026." class="CH"><a id="a1x30"></a>Chapter 1.30<br />JUDICIAL REVIEW OF CITY DECISIONS</h2>
+            <p class="digCH">Sections:</p>
+
+            <p class="CiteTOC"><a href="#a1x30x010">1.30.010&nbsp;&nbsp;&nbsp;&nbsp;Power and general purpose.</a></p>
+
+            <p class="CiteTOC"><a href="#a1x30x020">1.30.020&nbsp;&nbsp;&nbsp;&nbsp;Definitions.</a></p>
+
+            <p class="CiteTOC"><a href="#a1x30x030">1.30.030&nbsp;&nbsp;&nbsp;&nbsp;Judicial review, time within which petition must be filed.</a></p>
+
+            <p class="CiteTOC"><a href="#a1x30x040">1.30.040&nbsp;&nbsp;&nbsp;&nbsp;Record of proceedings.</a></p>
+
+            <p class="CiteTOC"><a href="#a1x30x050">1.30.050&nbsp;&nbsp;&nbsp;&nbsp;Notice of time within which judicial review must be sought.</a></p>
+
+      <h3 class="Cite"><a id="a1x30x010">1.30.010</a> Power and general purpose.</h3>
+            <p class="P0">This chapter is enacted by the city council pursuant to Cal. Civ. Proc. Code &sect;&nbsp;1094.6. The purpose of this chapter is to avoid uncertainty as to the finality of certain decisions of the city, its officers, boards, commissions and agents by providing specific time limitations as to when petitions for judicial review of such decisions may be sought, while preserving the substantial rights of parties who believe that they are aggrieved by such decisions to seek such review. (Ord. 1165 &sect;&nbsp;1, 4-19-77. 1990 Code &sect;&nbsp;1-6100.)</p>
+
+      <h3 class="Cite"><a id="a1x30x020">1.30.020</a> Definitions.</h3>
+            <p class="P0">Unless it is plainly evident from the context that a different meaning is intended, certain terms used in this chapter are defined as follows:</p>
+
+            <p class="P1">(a)&nbsp;&nbsp;&nbsp;&nbsp;&ldquo;Decision&rdquo; means adjudicatory administrative decision made, after hearing, suspending, demoting, or dismissing an officer or employee, revoking, suspending, or denying an application for a permit or license (or renewal thereof), or denying an application for any retirement benefit or allowance.</p>
+
+            <p class="P1">(b)&nbsp;&nbsp;&nbsp;&nbsp;&ldquo;Party&rdquo; means an officer or employee who has been suspended, demoted, or dismissed; a person whose permit or license has been revoked or suspended or whose application for a permit or license or renewal thereof has been denied; or a person whose application for a retirement benefit or allowance has been denied. (Ord. 1165 &sect;&nbsp;1, 4-19-77. 1990 Code &sect;&nbsp;1-6101.)</p>
+
+      <h3 class="Cite"><a id="a1x30x030">1.30.030</a> Judicial review, time within which petition must be filed.</h3>
+            <p class="P1">(a)&nbsp;&nbsp;&nbsp;&nbsp;Judicial review of any decision of the city, its city council, or any commission, board, officer or agent thereof may be had pursuant to Cal. Civ. Proc. Code &sect;&nbsp;1094.5 only if the petition for the writ of mandate is filed within the time limits specified in this section.</p>
+
+            <p class="P1">(b)&nbsp;&nbsp;&nbsp;&nbsp;Any such petition shall be filed not later than the ninetieth day following the date on which any decision becomes final, except as provided in subsection (c) of this section. If there is no provision for reconsideration of the decision in any applicable provision of this code or other ordinance, or any applicable rule or regulation, for purposes of this section the decision is final on the date it is made. If there is such provision for reconsideration, the decision is final for the purposes of this section upon the expiration of the period during which such reconsideration can be sought; provided, that if reconsideration is sought pursuant to any such provision, the decision is final for purposes of this section on the date that reconsideration is rejected.</p>
+
+            <p class="P1">(c)&nbsp;&nbsp;&nbsp;&nbsp;If the petitioner files a request for the record as specified in Section <a href="#a1x30x040">1.30.040</a>, within 10 days after the date the decision becomes final as provided in this section, the time within which a petition pursuant to Cal. Civ. Proc. Code &sect;&nbsp;1094.5 may be filed shall be extended to not later than the thirtieth day following the date on which the record is either personally delivered or mailed to the petitioner or his/her attorney of record, if he/she has one.</p>
+
+            <p class="P1">(d)&nbsp;&nbsp;&nbsp;&nbsp;Nothing in this chapter shall be construed to authorize judicial review of any decision of any board, commission, officer or agent of the city if there is available to the aggrieved party the right of appeal of such decision to the city council, or any other board, commission, officer or agent of the city, as prescribed by this code, ordinance, rule or regulation. It is hereby expressly recognized that any party aggrieved by such decision shall be required to exhaust his/her administrative remedies with the city council and the boards, commissioners, officers and agents of the city as a prerequisite to his/her obtaining judicial review. (Ord. 1165 &sect;&nbsp;1, 4-19-77; amended during 2012 reformat. 1990 Code &sect;&nbsp;1-6102.)</p>
+
+      <h3 class="Cite"><a id="a1x30x040">1.30.040</a> Record of proceedings.</h3>
+            <p class="P0">The complete record of the proceedings shall be prepared by the city clerk and shall be delivered to the petitioner within 90 days after he/she has filed a written request therefor with the city clerk. The city may recover from the petitioner its actual costs for transcribing or otherwise preparing the record. Such record shall include the transcript of the proceedings, all pleadings, all notices and orders, any proposed decision by a hearing officer, the final decision, all admitted exhibits, all rejected exhibits in the possession of the city or its commission, board, officer or agent, all written evidence, and any other papers in the case. (Ord. 1165 &sect;&nbsp;1, 4-19-77; amended during 2012 reformat. 1990 Code &sect;&nbsp;1-6103.)</p>
+
+      <h3 class="Cite"><a id="a1x30x050">1.30.050</a> Notice of time within which judicial review must be sought.</h3>
+            <p class="P0">After a final decision has been made, the city clerk shall provide notice to the party that the time within which judicial review must be sought is governed by this chapter. (Ord. 1165 &sect;&nbsp;1, 4-19-77. 1990 Code &sect;&nbsp;1-6104.)</p>
+
+    
+    </div>
+    <div id="pgFooter">
+<!--BeginNoIndex-->
+<p id="current">The Fremont Municipal Code is current through Ordinance 02-2026, passed May 5, 2026.</p>
+<p class="cpc">Disclaimer</p>
+<p id="disclaimer">The <a href="https://www.fremont.gov/government/departments/city-clerk" target="_blank" rel="noopener noreferrer">City Clerk&rsquo;s office</a> has the official version of the Fremont Municipal Code. <a href="mailto:cclerk@fremont.gov">Email the City Clerk’s office</a> or call 510-284-4060 for records of ordinances passed after the date shown above.
+
+<!--EndNoIndex-->
+</div>
+</body></html>

@@ -1,0 +1,236 @@
+{
+  "jurisdiction_slug": "portland-me",
+  "generated_at": "2026-10-15T16:48:13.682689+00:00",
+  "parser_version": "civicplus-layout-pilot-1.0",
+  "parser_sha256": "ed99cba8a0a4fff084e58b57f9fdbc0507186daa6dfa9f4d123f0c57fc03e145",
+  "status": "validated_bounded_subset_with_explicit_review_conditions",
+  "corpus_complete": false,
+  "release_ready_full_corpus": false,
+  "methods": [
+    {
+      "method": "native_pdf_layout_parser",
+      "status": "bounded_regression_pass_with_manual_review_gates",
+      "documents": [
+        "b4305bca-b7ef-4d12-b84f-5554626b4b81"
+      ],
+      "full_corpus_validated": false,
+      "pages_parsed": 53,
+      "records": 13,
+      "tables_retained": 15
+    },
+    {
+      "method": "offline_snapshot_replay_and_package_integrity",
+      "status": "passed",
+      "tests": "test_civicplus.py",
+      "log_sha256": "c7d6dc84bf319f1787a4a967a2e1ffd756871f06e69422d006d56f6dc37f4ffc",
+      "tests_count": 15,
+      "interrupted_resume": "One Rockland document first, then restore second acquisition; clean and resumed ordered record/node/provenance/disposition bytes equal."
+    },
+    {
+      "method": "official_http_index_and_pdf",
+      "status": "passed_bounded",
+      "inventory_documents": 44,
+      "acquired_documents": 1,
+      "source_root": "https://portlandmaine.gov/city-code",
+      "tls_verification": true
+    },
+    {
+      "method": "ordinary_browser_rendered_widget",
+      "status": "passed_inventory_labels",
+      "widget_id": "8e1b032d-9c35-40d2-8687-17e08b2f1ff5",
+      "labels": 44,
+      "response_headers_available": false
+    }
+  ],
+  "automated_validation": {
+    "status": "bounded_pilot_requires_review",
+    "corpus_complete": false,
+    "inventory_documents": 44,
+    "acquired_documents": 1,
+    "unacquired_documents": 43,
+    "record_count": 13,
+    "source_node_count": 110,
+    "disposition_count": 110,
+    "documents": [
+      {
+        "document_id": "b4305bca-b7ef-4d12-b84f-5554626b4b81",
+        "publication_id": "municipal-code",
+        "profile": "portland",
+        "pages": 53,
+        "records": 13,
+        "printed_toc_entries": 0,
+        "review_conditions": [
+          {
+            "page": 36,
+            "condition": "table_semantics_and_cross_page_review",
+            "disposition": "unresolved",
+            "required_action": "Compare cell coordinates and fixed-spacing cell text to source; reconcile continued table headers across pages."
+          },
+          {
+            "page": 37,
+            "condition": "table_semantics_and_cross_page_review",
+            "disposition": "unresolved",
+            "required_action": "Compare cell coordinates and fixed-spacing cell text to source; reconcile continued table headers across pages."
+          },
+          {
+            "page": 38,
+            "condition": "table_semantics_and_cross_page_review",
+            "disposition": "unresolved",
+            "required_action": "Compare cell coordinates and fixed-spacing cell text to source; reconcile continued table headers across pages."
+          },
+          {
+            "page": 39,
+            "condition": "table_semantics_and_cross_page_review",
+            "disposition": "unresolved",
+            "required_action": "Compare cell coordinates and fixed-spacing cell text to source; reconcile continued table headers across pages."
+          },
+          {
+            "page": 40,
+            "condition": "table_semantics_and_cross_page_review",
+            "disposition": "unresolved",
+            "required_action": "Compare cell coordinates and fixed-spacing cell text to source; reconcile continued table headers across pages."
+          },
+          {
+            "page": 41,
+            "condition": "table_semantics_and_cross_page_review",
+            "disposition": "unresolved",
+            "required_action": "Compare cell coordinates and fixed-spacing cell text to source; reconcile continued table headers across pages."
+          },
+          {
+            "page": 42,
+            "condition": "table_semantics_and_cross_page_review",
+            "disposition": "unresolved",
+            "required_action": "Compare cell coordinates and fixed-spacing cell text to source; reconcile continued table headers across pages."
+          },
+          {
+            "page": 43,
+            "condition": "table_semantics_and_cross_page_review",
+            "disposition": "unresolved",
+            "required_action": "Compare cell coordinates and fixed-spacing cell text to source; reconcile continued table headers across pages."
+          },
+          {
+            "page": 48,
+            "condition": "mixed_text_image",
+            "disposition": "unresolved",
+            "required_action": "Render source page and review/transcribe affected content with evidence; OCR is never silently assumed complete."
+          },
+          {
+            "condition": "unnumbered_body_classification_review",
+            "node_id": "b4305bca-b7ef-4d12-b84f-5554626b4b81:p1:y142.808:n0",
+            "disposition": "unresolved"
+          }
+        ],
+        "native_text_only": false,
+        "sha256": "3636e539560c461b586bfe612bdf8cd4936277ba96e3f482ab6690bb8f0ba712"
+      }
+    ],
+    "unresolved_exception_count": 10,
+    "snapshot_id": "a65a5c2b71a6106da579e291dabb81682078600eb81cfb5258fe3d8644d4f9eb",
+    "limits": [
+      "Full jurisdiction collection was not run.",
+      "Heading and page ledger are not an independently verified full legal-node inventory.",
+      "OCR is not performed; mixed/image pages remain unresolved.",
+      "Table fragments crossing pages require source review before a corpus can be accepted.",
+      "Unnumbered introductory text is retained and requires operative/editorial classification.",
+      "No global legal current-through date was inferred."
+    ]
+  },
+  "source_visual_comparison": [
+    {
+      "jurisdiction": "portland-me",
+      "document": "Chapter 13",
+      "pages": [
+        2,
+        3
+      ],
+      "result": "pass_bounded_spotcheck",
+      "checks": [
+        "Page 2 bold Sec.13-2 Definitions is emitted once, despite page3 Sec.13-2/Rev running header.",
+        "Applicant definition continues from page2 ending if he to page3 is receiving general assistance at the time of application; both belong to one 13-2 record.",
+        "Application form, Back bills, Basic necessities and Dwelling unit remain in definition body; header removal did not remove definitions."
+      ],
+      "limits": "Full p2-p7 definition transcription was not manually compared character by character.",
+      "reviewer": "Codex agent visual inspection of Poppler page renderings and extracted records",
+      "reviewed_at": "2026-10-15",
+      "rendered_evidence": [
+        {
+          "path": "evidence/rendered/portland-ch13-p2.png",
+          "sha256": "dd1ec2e5442682bb4915c86e905776f6dc1da831c8bfdf7080b6bc8701269b34"
+        },
+        {
+          "path": "evidence/rendered/portland-ch13-p3.png",
+          "sha256": "ffa883a80fa4e04028fede48e9b9974a9e2478710999e23cdc8a876871205592"
+        }
+      ]
+    },
+    {
+      "jurisdiction": "portland-me",
+      "document": "Chapter 13",
+      "pages": [
+        37
+      ],
+      "result": "pass_layout_spotcheck_requires_semantic_review",
+      "checks": [
+        "Rent table has Bedrooms, Unheated Weekly/Monthly and Heated Weekly/Monthly. Row0 values 100/431/112/481 match retained cells.",
+        "Food table starts Household1, Daily $3.70, Weekly $26.00, Monthly $111.00.",
+        "Exported table preserves grouped cells using fixed-spacing pre blocks; table body lines are not emitted twice."
+      ],
+      "limits": "Grouped subcolumn semantics and table continuation onto following pages remain unresolved.",
+      "reviewer": "Codex agent visual inspection of Poppler page renderings and extracted records",
+      "reviewed_at": "2026-10-15",
+      "rendered_evidence": [
+        {
+          "path": "evidence/rendered/portland-ch13-p37.png",
+          "sha256": "750414a6aaf2740312124ee5996977b46984f27a0ae4185394473342e221addd"
+        }
+      ]
+    },
+    {
+      "jurisdiction": "portland-me",
+      "document": "Chapter 13",
+      "pages": [
+        48
+      ],
+      "result": "manual_review_required",
+      "checks": [
+        "Image/mask present in source; visible property-tax clause includes abatement process language not completely represented by native extraction.",
+        "Image box and ordered IMAGE placeholder retained; mixed_text_image explicitly unresolved."
+      ],
+      "limits": "OCR/transcription was not performed. No page48 completion claim.",
+      "reviewer": "Codex agent visual inspection of Poppler page renderings and extracted records",
+      "reviewed_at": "2026-10-15",
+      "rendered_evidence": [
+        {
+          "path": "evidence/rendered/portland-ch13-p48.png",
+          "sha256": "121cce1ba6a6ad4a810707d20285a96ea9c02fd9fd7f67ccbb4dbc956f2bf1bd"
+        }
+      ]
+    }
+  ],
+  "source_evidence": [
+    {
+      "node_id": "b4305bca-b7ef-4d12-b84f-5554626b4b81",
+      "raw_path": "raw/cbfe6b6d6378f9cccccdfb2d9537e66c7bc4f12881871e92fee4746cfad4f92b.pdf",
+      "sha256": "3636e539560c461b586bfe612bdf8cd4936277ba96e3f482ab6690bb8f0ba712",
+      "source_url": "https://content.civicplus.com/api/assets/me-portland/b4305bca-b7ef-4d12-b84f-5554626b4b81?cache=1800",
+      "transport": "http_tls_verified"
+    }
+  ],
+  "test_command": "python -m unittest -v test_civicplus",
+  "replay_commands": [
+    "python civicplus.py parse --package samples/portland-me",
+    "python civicplus.py verify --package samples/portland-me"
+  ],
+  "blockers": [
+    "Full document and substantive-node coverage is not established.",
+    "Resolve all reported OCR/mixed, table semantics, source-overlap, microscopic marker and unnumbered-body review conditions before downstream use.",
+    "Retain and compare source versions/inventory at full-run start/end; do not equate retrieval date with code currency."
+  ],
+  "runtime": {
+    "python": "3.12.14",
+    "pdfplumber": "0.11.9",
+    "requests": "2.34.2",
+    "beautifulsoup4": "4.15.0",
+    "json5": "0.17.3"
+  }
+}

@@ -1,0 +1,15 @@
+{"phase": "launch", "at": "2026-10-15T18:57:53.403995+00:00"}
+{"phase": "launched", "browser_version": "148.0.7778.96"}
+{"phase": "goto", "url": "https://codehub.gridics.com/us/ca/cupertino#/90d493fe-25f4-4aef-a519-710b1e0055c6/88af81d8-f905-4db5-98ae-6c3735fab006/e039b8ec-52e6-4c19-a5e3-a73daccfdeba"}
+{"phase": "document_loaded", "url": "https://codehub.gridics.com/us/ca/cupertino#/90d493fe-25f4-4aef-a519-710b1e0055c6/88af81d8-f905-4db5-98ae-6c3735fab006/e039b8ec-52e6-4c19-a5e3-a73daccfdeba", "status": 200}
+{"phase": "checkpointed", "url": "https://codehub.gridics.com/us/ca/cupertino#/90d493fe-25f4-4aef-a519-710b1e0055c6/88af81d8-f905-4db5-98ae-6c3735fab006/e039b8ec-52e6-4c19-a5e3-a73daccfdeba", "sha256": "9f3188ccc1a256dbc49e658b52665f4720ceaaab6f8dbca95a40788703c8bab2"}
+{"phase": "goto", "url": "https://codehub.gridics.com/us/ca/cupertino#/d2cdbf65-126d-4964-a06c-6ebe7a91da6f"}
+{"phase": "document_loaded", "url": "https://codehub.gridics.com/us/ca/cupertino#/d2cdbf65-126d-4964-a06c-6ebe7a91da6f", "status": 200}
+Traceback (most recent call last):
+  File "/Users/oliverflint/My Drive/Claude/Projects/CompliSolv 2.00/outputs/local-extraction-e2e-2026-10-15/gridics/acquire.py", line 152, in <module>
+    if __name__=='__main__':main()
+  File "/Users/oliverflint/My Drive/Claude/Projects/CompliSolv 2.00/outputs/local-extraction-e2e-2026-10-15/gridics/acquire.py", line 124, in main
+    html=wait_ready(page,url,a.timeout);raw=html.encode();name='raw/'+digest(url)+'.html';(out/'raw').mkdir(exist_ok=True);(out/name).write_bytes(raw)
+  File "/Users/oliverflint/My Drive/Claude/Projects/CompliSolv 2.00/outputs/local-extraction-e2e-2026-10-15/gridics/acquire.py", line 35, in wait_ready
+    raise RuntimeError('Requested route content/UUID did not stabilize; no cached success is recorded')
+RuntimeError: Requested route content/UUID did not stabilize; no cached success is recorded

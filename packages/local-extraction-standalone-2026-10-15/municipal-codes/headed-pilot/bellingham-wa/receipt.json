@@ -1,0 +1,79 @@
+{
+  "job": {
+    "slug": "bellingham-wa",
+    "section_url": "https://bellingham.municipal.codes/BMC/1.01.010",
+    "expected_id": "1.01.010",
+    "export_url": "https://bellingham.municipal.codes/BMC/1.01.010/export.html?download=true",
+    "advertised_exports": [
+      {
+        "url": "https://bellingham.municipal.codes/BMC/1.01.010/export.pdf?download=true",
+        "label": "Adobe Reader (PDF)"
+      },
+      {
+        "url": "https://bellingham.municipal.codes/BMC/1.01.010/export.rtf?download=true",
+        "label": "Microsoft Word (RTF)"
+      },
+      {
+        "url": "https://bellingham.municipal.codes/BMC/1.01.010/export.pdf?print=true",
+        "label": "Print"
+      },
+      {
+        "url": "https://bellingham.municipal.codes/BMC/1.01.010/export.html?download=true",
+        "label": "Web Page (HTML)"
+      },
+      {
+        "url": "https://bellingham.municipal.codes/BMC/1.01.010/export.txt?download=true",
+        "label": "Plain Text"
+      }
+    ],
+    "discovery_receipt": "export-discovery/bellingham-wa/share-dialog.receipt.json",
+    "discovery_raw_sha256": "cf4fce81a56801ddc5fdbaea695eb360851f18bc07201c64f3a528ada6ca8a65"
+  },
+  "transport": "standalone ordinary headed Playwright",
+  "node": "v24.19.0",
+  "playwright": "1.62.1",
+  "browser": "155.0.8059.41",
+  "script_sha256": "1c6d10db6ee85085661611af0e54fa8150f1c04f40a474b6b2a67dd571c83cad",
+  "started_at": "2026-10-15T19:22:22.857Z",
+  "operator_actions": [],
+  "operator_assisted": false,
+  "stages": [
+    {
+      "kind": "page",
+      "requested_url": "https://bellingham.municipal.codes/BMC/1.01.010",
+      "final_url": "https://bellingham.municipal.codes/BMC/1.01.010",
+      "http_status": 200,
+      "started_at": "2026-10-15T19:22:22.861Z",
+      "finished_at": "2026-10-15T19:22:38.666Z",
+      "error": null,
+      "download_filename": null,
+      "raw_artifact_path": "page.html",
+      "raw_sha256": "c93e2a2f3d31a59622522413c31603cec2bf31715f8603a122a3579487685fd7",
+      "bytes": 75743,
+      "title": "Ch. 1.01 Code Adoption | Bellingham Municipal Code",
+      "expected_identity_present": true,
+      "access_challenge": false,
+      "accepted": true
+    },
+    {
+      "kind": "html-export",
+      "requested_url": "https://bellingham.municipal.codes/BMC/1.01.010/export.html?download=true",
+      "final_url": "https://bellingham.municipal.codes/BMC/1.01.010/export.html?download=true",
+      "http_status": 429,
+      "started_at": "2026-10-15T19:22:38.692Z",
+      "finished_at": "2026-10-15T19:22:48.785Z",
+      "error": null,
+      "download_filename": null,
+      "raw_artifact_path": "html-export.html",
+      "raw_sha256": "1454dc0e2c85a27b317a96dedb1f82e75ccbf6fef0a90e463a14ec6d0a55d5dd",
+      "bytes": 28913,
+      "title": "Just a moment...",
+      "expected_identity_present": false,
+      "access_challenge": true,
+      "accepted": false
+    }
+  ],
+  "whole_corpus_validated": false,
+  "finished_at": "2026-10-15T19:22:48.789Z",
+  "accepted": true
+}

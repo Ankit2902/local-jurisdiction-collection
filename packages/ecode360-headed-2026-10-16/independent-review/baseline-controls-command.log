@@ -1,0 +1,52 @@
+/private/tmp/complisolv-codepublishing-e2e-venv/lib/python3.9/site-packages/urllib3/__init__.py:35: NotOpenSSLWarning: urllib3 v2 only supports OpenSSL 1.1.1+, currently the 'ssl' module is compiled with 'LibreSSL 2.8.3'. See: https://github.com/urllib3/urllib3/issues/3020
+  warnings.warn(
+{
+  "scope": "Independent offline-only controls; no fresh acquisition claimed",
+  "package_source": "/Users/oliverflint/My Drive/Claude/Projects/CompliSolv 2.00/outputs/ecode360-headed-2026-10-16/independent-review/baseline-source",
+  "source_hashes": {
+    "ecode360.py": "ce79453ff406caa78c1a73b00cfe7b314ffa929eb65c795eb6edb8d1085ba58b",
+    "ingest_cua.py": "f3e2f42d6c87cced2a6baaa3890b25cc9d77d14410034a9606a83ffe95c783c1"
+  },
+  "fixture_origin": "/Users/oliverflint/My Drive/Claude/Projects/CompliSolv 2.00/outputs/ecode360-headed-2026-10-16/independent-review/fixtures/baseline-foster/origin.json",
+  "publisher_network_calls": 0,
+  "controls": [
+    {
+      "control": "unexpected_edition_rejected",
+      "passed": true,
+      "evidence_kind": "actual baseline DOM with adversarial expected edition"
+    },
+    {
+      "control": "processed_raw_mutation_rejected_on_resume",
+      "passed": false,
+      "error": null,
+      "original_raw_sha256": "3463e443dd88635efaed194e492c965f7432b15dd04416d89ab22b171899618f",
+      "changed_raw_sha256": "ced6cc96bbaa6ca1cc35a3f3a68fea61daeb20847e25413395112f11deaba034",
+      "first_included_records": 7,
+      "evidence_kind": "actual baseline DOM; local intentionally mutated test copy"
+    },
+    {
+      "control": "cross_city_receipt_mislabel_rejected",
+      "passed": false,
+      "error": null,
+      "actual_source_customer": "FO4449",
+      "adversarial_slug": "burlingame-ca",
+      "evidence_kind": "actual baseline source, deliberately spoofed local metadata; output is not trusted legal data"
+    },
+    {
+      "control": "429_no_automatic_retry",
+      "passed": false,
+      "mock_request_count": 3,
+      "sleep_calls": 2,
+      "error": null,
+      "evidence_kind": "mocked negative transport response, zero live network"
+    },
+    {
+      "control": "429_stops_cross_city_probe_queue",
+      "passed": false,
+      "mock_acquire_calls": 2,
+      "exit_code": 2,
+      "evidence_kind": "mocked negative CLI queue; zero live network"
+    }
+  ],
+  "all_controls_passed": false
+}

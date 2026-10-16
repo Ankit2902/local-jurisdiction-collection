@@ -1,0 +1,50 @@
+{
+  "scope": "Independent offline-only controls; no fresh acquisition claimed",
+  "package_source": "/Users/oliverflint/My Drive/Claude/Projects/CompliSolv 2.00/outputs/ecode360-headed-2026-10-16/independent-review/proposed-source",
+  "source_hashes": {
+    "ecode360.py": "48691afc5dd396da120fbf585d461ebe44ec3bad3336dbd665a11f504a8bb125",
+    "ingest_cua.py": "040d0fc33a538ce7ba26400f8735a0abbe18ff13ff1ec950adda6633476ec87a"
+  },
+  "fixture_origin": "/Users/oliverflint/My Drive/Claude/Projects/CompliSolv 2.00/outputs/ecode360-headed-2026-10-16/independent-review/fixtures/baseline-foster/origin.json",
+  "publisher_network_calls": 0,
+  "controls": [
+    {
+      "control": "unexpected_edition_rejected",
+      "passed": true,
+      "evidence_kind": "actual baseline DOM with adversarial expected edition"
+    },
+    {
+      "control": "processed_raw_mutation_rejected_on_resume",
+      "passed": true,
+      "error": "artifact SHA-256 mismatch before checkpoint resume raw/replay.html",
+      "original_raw_sha256": "3463e443dd88635efaed194e492c965f7432b15dd04416d89ab22b171899618f",
+      "changed_raw_sha256": "ced6cc96bbaa6ca1cc35a3f3a68fea61daeb20847e25413395112f11deaba034",
+      "first_included_records": 7,
+      "evidence_kind": "actual baseline DOM; local intentionally mutated test copy"
+    },
+    {
+      "control": "cross_city_receipt_mislabel_rejected",
+      "passed": true,
+      "error": "customer/code does not match independent jurisdiction registry; document any new edition before updating registry",
+      "actual_source_customer": "FO4449",
+      "adversarial_slug": "burlingame-ca",
+      "evidence_kind": "actual baseline source, deliberately spoofed local metadata; output is not trusted legal data"
+    },
+    {
+      "control": "429_no_automatic_retry",
+      "passed": true,
+      "mock_request_count": 1,
+      "sleep_calls": 0,
+      "error": null,
+      "evidence_kind": "mocked negative transport response, zero live network"
+    },
+    {
+      "control": "429_stops_cross_city_probe_queue",
+      "passed": true,
+      "mock_acquire_calls": 1,
+      "exit_code": 2,
+      "evidence_kind": "mocked negative CLI queue; zero live network"
+    }
+  ],
+  "all_controls_passed": true
+}

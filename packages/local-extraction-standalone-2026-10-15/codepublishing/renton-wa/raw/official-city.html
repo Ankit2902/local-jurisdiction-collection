@@ -1,0 +1,1209 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8" lang="en"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9" lang="en"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js" lang="en-US">
+<!--<![endif]-->
+<head>
+	<!-- Published by OpenCities, 1.38.0.1 -->
+
+    
+        
+    
+    
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="theme-color" content="#002448"/>
+    <title>Home | City of Renton</title>
+	<meta name="generator" content="OpenCities - https://granicus.com/product/opencities" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Using mobile-web-app-capable for now to enable full-screen experience on supported platforms -->
+    <!-- Note: This tag works mainly on Android Chrome. It does NOT enable full-screen mode on iOS Safari. -->
+    <!-- For iOS, the correct tag is: <meta name="apple-mobile-web-app-capable" content="yes"> -->
+    <!-- TODO: Monitor for updated meta tag standards from Apple or other browser vendors -->
+    <meta name="mobile-web-app-capable" content="yes" />
+        <meta name="description" content="The official website of the City of Renton " />
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://www.rentonwa.gov/Home" />
+    <meta property="og:title" content="City of Renton" />
+    <meta property="og:description" content="The official website of the City of Renton " />
+    <meta property="og:image" content="https://www.rentonwa.gov/files/ocwebsite/City/HeroImage/renton%20seal_color.jpg?w=1200" />
+    <meta property="twitter:card" content="summary" />
+    <meta property="twitter:title" content="City of Renton" />
+    <meta property="twitter:description" content="The official website of the City of Renton " />
+    <meta property="twitter:image" content="https://www.rentonwa.gov/files/ocwebsite/City/HeroImage/renton%20seal_color.jpg?w=1080" />
+    <meta name="City of Renton" content="Home" />
+    <meta property="fb:app_id" content="1254388999790018" />
+    <link rel="canonical" href="https://www.rentonwa.gov/Home" />
+
+    
+    <link rel="apple-touch-icon" sizes="180x180" href="/files/ocfavicon/City/apple-touch-icon.png?V=638579244766011268">
+<link rel="icon" type="image/png" sizes="32x32" href="/files/ocfavicon/City/favicon-32x32.png?V=638579244766011268">
+<link rel="icon" type="image/png" sizes="16x16" href="/files/ocfavicon/City/favicon-16x16.png?V=638579244766011268">
+<link rel="manifest" href="/files/ocfavicon/City/site.webmanifest?V=638579244766011268">
+<link rel="shortcut icon" href="/files/ocfavicon/City/favicon.ico?V=638579244766011268">
+<meta name="msapplication-TileColor" content="#000000">
+<meta name="msapplication-config" content="/files/ocfavicon/City/browserconfig.xml?V=638579244766011268">
+    <script>
+        (function () {
+            if (window.__UNLOAD_LAZY_PATCH__) return;
+            window.__UNLOAD_LAZY_PATCH__ = true;
+
+            var supportsPageHide = ("onpagehide" in window);
+            var mappedType = supportsPageHide ? "pagehide" : "beforeunload";
+            var nativeAdd = window.addEventListener;
+            var nativeRemove = window.removeEventListener;
+            var unloadMap = null;
+            var patched = false;
+
+            function ensurePatched() {
+                if (patched) return;
+                unloadMap = new WeakMap();
+
+                window.addEventListener = function (type, listener, options) {
+                    if (type === "unload") {
+                        var wrapped = function (evt) {
+                            if (supportsPageHide && evt.persisted) return;
+                            listener.call(this, evt);
+                        };
+                        unloadMap.set(listener, wrapped);
+                        return nativeAdd.call(this, mappedType, wrapped, options);
+                    }
+                    return nativeAdd.call(this, type, listener, options);
+                };
+
+                window.removeEventListener = function (type, listener, options) {
+                    if (type === "unload") {
+                        var wrapped = unloadMap.get(listener);
+                        if (wrapped) {
+                            nativeRemove.call(this, mappedType, wrapped, options);
+                            unloadMap.delete(listener);
+                        }
+                        return;
+                    }
+                    return nativeRemove.call(this, type, listener, options);
+                };
+
+                var orig = null;
+                Object.defineProperty(window, "onunload", {
+                    configurable: true, enumerable: true,
+                    get: function () { return orig; },
+                    set: function (h) {
+                        orig = h;
+                        if (typeof h === "function") window.addEventListener("unload", h);
+                    }
+                });
+                patched = true;
+            }
+
+            window.addEventListener = function (type, listener, options) {
+                if (type === "unload") {
+                    ensurePatched();
+                    return window.addEventListener(type, listener, options);
+                }
+                return nativeAdd.call(this, type, listener, options);
+            };
+
+            window.removeEventListener = function (type, listener, options) {
+                if (type === "unload" && !patched) {
+                    return;
+                }
+                return nativeRemove.call(this, type, listener, options);
+            };
+
+            function patchTelerik() {
+                ensurePatched();
+                var ns = window.RadAjaxNamespace;
+                if (!ns || !ns.EventManager || !ns.EventManager.Add || ns.EventManager.__UnloadPatched) return;
+                var origAdd = ns.EventManager.Add;
+                ns.EventManager.Add = function (el, evtName, handler, clientId) {
+                    if (el === window && evtName === "unload") {
+                        return window.addEventListener("unload", handler);
+                    }
+                    return origAdd.call(this, el, evtName, handler, clientId);
+                };
+                ns.EventManager.__UnloadPatched = true;
+            }
+
+            if (window.RadAjaxNamespace)
+                patchTelerik();
+            else (window.requestIdleCallback || function (cb)
+            {
+                setTimeout(cb, 120);
+            })(patchTelerik);
+        })();
+    </script>
+    <!-- Preconnecting to Google Fonts servers -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <!-- Defer Roboto font loading to avoid render-blocking -->
+    <script>
+        window.addEventListener('DOMContentLoaded', () => {
+            const robotoLink = document.createElement('link');
+            robotoLink.rel = 'stylesheet';
+            robotoLink.href = 'https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap';
+            document.head.appendChild(robotoLink);
+        });
+    </script>
+
+    <style>
+        .gm-style, .gm-style * {
+            font-family: 'Roboto', system-ui, -apple-system, "Segoe UI", Arial, sans-serif !important;
+        }
+    </style>
+
+    <script>
+        document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, "js");
+    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Figtree:ital,wght@0,300..900;1,300..900&display=swap" rel="stylesheet">
+    
+        
+            <script type="text/javascript">
+                window.__oc_flags_ImprovedBreakpointEventHandling = true;
+            </script>
+            
+        
+    
+    
+    
+        <script type="text/javascript">
+            var __metaQueryBreakpoints = {
+                'sc-size-4': '(max-width: 480px)',
+                'sc-size-3': '(min-width: 480px) and (max-width: 768px)',
+                'sc-size-2': '(min-width: 768px) and (max-width: 992px)',
+                'sc-size-1': '(min-width: 992px)'
+            }
+
+            var __ocSizePoints = [
+                { min: 0, name: 'sc-size-4' },
+                { min: 480, name: 'sc-size-3' },
+                { min: 768, name: 'sc-size-2' },
+                { min: 992, name: 'sc-size-1' }
+            ];
+
+        </script>
+    
+
+    <!-- Framework Section -->
+    
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script>window.jQuery || document.write('<script src="/files/templates/00000000-0000-0000-0000-000000000000/b94d253b-abed-4b58-8caa-72b864310021/v/261/jquery-3.7.1.min.js?seamlessts=639263253230206862" ><\/script>')</script>
+
+    <!--Google Maps API Loader – Improved Version to avoid Warning
+    This script loads the Google Maps JavaScript API using a dynamic and async method.
+    It replaces the old static <script> tag to avoid performance warnings from Google.
+
+    Dynamically creates the <script> tag with loading = async for better performance
+    Builds the API URL with required libraries(places, geometry, marker, geocoding)
+    Uses a Promise and callback(google.maps.__ib__) to confirm when the script is ready
+
+    It Avoids Google’s warning about direct script loading
+    Improves page load speed by loading the API asynchronously-->
+
+    
+        <script>
+            (function (root) {
+                root.OpenCities = root.OpenCities || {};
+                if (!root.OpenCities.GoogleMapsLoader) {
+                    root.OpenCities.GoogleMapsLoader = {
+                        _cbs: [],
+                        _ready: false,
+                        onReady: function (cb) {
+                            if (this._ready) { try { cb(); } catch (e) { console.error(e); } }
+                            else if (typeof cb === 'function') this._cbs.push(cb);
+                        },
+                        _fire: function () {
+                            if (this._ready) return;
+                            this._ready = true;
+                            var q = this._cbs.splice(0);
+                            for (var i = 0; i < q.length; i++) {
+                                try { q[i](); } catch (e) { console.error(e); }
+                            }
+                        }
+                    };
+                }
+            })(window);
+
+            (g => {
+                var h, a, k, p = "The Google Maps JavaScript API", c = "google", l = "importLibrary", q = "__ib__",
+                    m = document, b = window;
+                b = b[c] || (b[c] = {});
+                var d = b.maps || (b.maps = {}), r = new Set, e = new URLSearchParams,
+                    u = () => h || (h = new Promise(async (resolve, reject) => {
+                        a = m.createElement("script");
+                        e.set("libraries", [...r] + "");
+                        for (k in g) e.set(k.replace(/[A-Z]/g, t => "_" + t[0].toLowerCase()), g[k]);
+                        e.set("callback", c + ".maps." + q);
+                        a.src = "https://maps." + c + "apis.com/maps/api/js?" + e.toString();
+                        a.loading = "async";
+                        a.async = true;
+                        a.defer = true;
+                        d[q] = resolve;
+                        a.onerror = () => reject(Error(p + " could not load."));
+                        a.nonce = m.querySelector("script[nonce]")?.nonce || "";
+                        m.head.append(a);
+                    }));
+                if (d[l]) {
+                    console.warn(p + " only loads once. Ignoring duplicate load.");
+                } else {
+                    d[l] = (f, ...n) => (r.add(f), u().then(() => d[l](f, ...n)));
+                }
+            })({
+                key: "AIzaSyDS4y7Nzv9WyGb4QbdOypHIePJhiJuRObE",
+                v: "3.65"
+            });
+
+            (async () => {
+                try {
+                    if (!google?.maps?.importLibrary) return;
+
+                    if (!window.OpenCities.__mapsLibsPromise) {
+                        window.OpenCities.__mapsLibsPromise = Promise.all([
+                            google.maps.importLibrary('maps'),
+                            google.maps.importLibrary('places'),
+                            google.maps.importLibrary('geocoding'),
+                            google.maps.importLibrary('marker'),
+                            google.maps.importLibrary('geometry')
+                        ]);
+                    }
+                    await window.OpenCities.__mapsLibsPromise;
+
+                    if (window.OpenCities?.GoogleMapsLoader) {
+                        window.OpenCities.GoogleMapsLoader._fire();
+                    }
+                } catch (err) {
+                    console.error('Google Maps failed to initialise', err);
+                }
+            })();
+        </script>
+    
+    <script src="/files/templates/00000000-0000-0000-0000-000000000000/b94d253b-abed-4b58-8caa-72b864310021/v/261/modernizr.custom.710f3bf.js?seamlessts=639263253230206862" defer></script>
+    
+    <!--// End Framework Section -->
+    <!-- OpenCities Section -->
+    <script>
+        var OpenCities = OpenCities || {};
+        OpenCities.Paths = {
+            SiteTemplate: '/files/templates/00000000-0000-0000-0000-000000000000/b94d253b-abed-4b58-8caa-72b864310021/v/261/',
+            ThemePath: '/files/templates/00000000-0000-0000-0000-000000000000/b94d253b-abed-4b58-8caa-72b864310021/v/261/'
+        };
+    </script>
+    <script src='/ocapi/401ce1cd-1b01-4346-852e-fdc207e5ae0c/en-US/websitesettings.js'></script>
+    <script src="/files/templates/00000000-0000-0000-0000-000000000000/b94d253b-abed-4b58-8caa-72b864310021/v/261/oc_head.js?applied=20250408070654"></script>
+    <!-- Script Combine. To enter debug mode for this browser session, enter OcScriptCombineDebug=true as a querystring -->
+<link href="/files/oc-templates/00000000-0000-0000-0000-000000000000/b94d253b-abed-4b58-8caa-72b864310021/v/261/oc_grid.css~oc_style.css~oc_wizard_style.css~oc_main.css~oc_forms.css~oc_wizard.css~oc_wizard_menu.css~oc_main_s1.css~oc_wizard_s1.css~oc_wizard_menu_s1.css~oc_grid_s1.css~OcScriptCombine_Minify0?uniqueid=20250408070654" rel="stylesheet" type="text/css">
+    <!-- Script Combine. To enter debug mode for this browser session, enter OcScriptCombineDebug=true as a querystring -->
+<link href="/files/oc-templates/00000000-0000-0000-0000-000000000000/b94d253b-abed-4b58-8caa-72b864310021/v/261/client_style.css~client.css~client_menu.css~client_s1.css~client_menu_s1.css~client_forms.css~OcScriptCombine_Minify0?uniqueid=20250408070654" rel="stylesheet" type="text/css">
+    <style type="text/css">.background-container
+{
+    background-image:url('/files/assets/city/v/5/featured-backgrounds/coulon_3.jpg?w=480');
+    background-color:#FFFFFF;
+}
+
+@media (min-width: 480px)
+{
+    .background-container
+    {
+      background-image:url('/files/assets/city/v/5/featured-backgrounds/coulon_3.jpg?w=768');
+    }
+}
+@media (min-width: 768px)
+{
+    .background-container
+    {
+      background-image:url('/files/assets/city/v/5/featured-backgrounds/coulon_3.jpg?w=992');
+    }
+}
+@media (min-width: 992px)
+{
+    .background-container
+    {
+      background-image:url('/files/assets/city/v/5/featured-backgrounds/coulon_3.jpg');
+    }
+}
+@media (min-width: 1280px)
+{
+    .background-container
+    {
+      background-image:url('/files/assets/city/v/5/featured-backgrounds/coulon_3.jpg');
+    }
+}
+@media (min-width: 1920px)
+{
+    .background-container
+    {
+      background-image:url('/files/assets/city/v/5/featured-backgrounds/coulon_3.jpg');
+    }
+}
+        </style><script>
+(function (BackgroundSettings, $, undefined) {
+    BackgroundSettings.initialise = function () {
+        this.Application = {"CSSSelector":".background-container","EnableFade":false,"MediaType":"image"};
+    };
+} (OpenCities.BackgroundSettings = OpenCities.BackgroundSettings || {}, jQuery));
+OpenCities.BackgroundSettings.initialise();
+</script>
+    
+    <!-- Script Combine. To enter debug mode for this browser session, enter OcScriptCombineDebug=true as a querystring -->
+<link href="/files/oc-templates/00000000-0000-0000-0000-000000000000/b94d253b-abed-4b58-8caa-72b864310021/v/261/oc_print.css~client_print.css~OcScriptCombine_Minify0?uniqueid=20250408070654" rel="stylesheet" type="text/css" media="print">
+    <!-- Script Combine. To enter debug mode for this browser session, enter OcScriptCombineDebug=true as a querystring -->
+<script src="/files/oc-templates/00000000-0000-0000-0000-000000000000/b94d253b-abed-4b58-8caa-72b864310021/v/261/external_plugins.js~oc_form_helper.js~oc_main.js~plugins.js~oc_main_init.js~OcScriptCombine_Minify0?uniqueid=20250408070654" defer="true"></script>
+    
+    
+
+                                <script>!function(e){var n="https://s.go-mpulse.net/boomerang/";if("False"=="True")e.BOOMR_config=e.BOOMR_config||{},e.BOOMR_config.PageParams=e.BOOMR_config.PageParams||{},e.BOOMR_config.PageParams.pci=!0,n="https://s2.go-mpulse.net/boomerang/";if(window.BOOMR_API_key="DYTCK-JM9C8-ED4EP-C3GGK-Z575H",function(){function e(){if(!r){var e=document.createElement("script");e.id="boomr-scr-as",e.src=window.BOOMR.url,e.async=!0,o.appendChild(e),r=!0}}function t(e){r=!0;var n,t,a,i,d=document,O=window;if(window.BOOMR.snippetMethod=e?"if":"i",t=function(e,n){var t=d.createElement("script");t.id=n||"boomr-if-as",t.src=window.BOOMR.url,BOOMR_lstart=(new Date).getTime(),e=e||d.body,e.appendChild(t)},!window.addEventListener&&window.attachEvent&&navigator.userAgent.match(/MSIE [67]\./))return window.BOOMR.snippetMethod="s",void t(o,"boomr-async");a=document.createElement("IFRAME"),a.src="about:blank",a.title="",a.role="presentation",a.loading="eager",i=(a.frameElement||a).style,i.width=0,i.height=0,i.border=0,i.display="none",o.appendChild(a);try{O=a.contentWindow,d=O.document.open()}catch(_){n=document.domain,a.src="javascript:var d=document.open();d.domain='"+n+"';void 0;",O=a.contentWindow,d=O.document.open()}if(n)d._boomrl=function(){this.domain=n,t()},d.write("<bo"+"dy onload='document._boomrl();'>");else if(O._boomrl=function(){t()},O.addEventListener)O.addEventListener("load",O._boomrl,!1);else if(O.attachEvent)O.attachEvent("onload",O._boomrl);d.close()}function a(e){window.BOOMR_onload=e&&e.timeStamp||(new Date).getTime()}if(!window.BOOMR||!window.BOOMR.version&&!window.BOOMR.snippetExecuted){window.BOOMR=window.BOOMR||{},window.BOOMR.snippetStart=(new Date).getTime(),window.BOOMR.snippetExecuted=!0,window.BOOMR.snippetVersion=14,window.BOOMR.url=n+"DYTCK-JM9C8-ED4EP-C3GGK-Z575H";var i=document.currentScript||document.getElementsByTagName("script")[0],o=i.parentNode,r=!1,d=document.createElement("link");if(d.relList&&"function"==typeof d.relList.supports&&d.relList.supports("preload")&&"as"in d)window.BOOMR.snippetMethod="p",d.href=window.BOOMR.url,d.rel="preload",d.as="script",d.addEventListener("load",e),d.addEventListener("error",function(){t(!0)}),setTimeout(function(){if(!r)t(!0)},3e3),BOOMR_lstart=(new Date).getTime(),o.appendChild(d);else t(!1);if(window.addEventListener)window.addEventListener("load",a,!1);else if(window.attachEvent)window.attachEvent("onload",a)}}(),"".length>0)if(e&&"performance"in e&&e.performance&&"function"==typeof e.performance.setResourceTimingBufferSize)e.performance.setResourceTimingBufferSize();!function(){if(BOOMR=e.BOOMR||{},BOOMR.plugins=BOOMR.plugins||{},!BOOMR.plugins.AK){var n=""=="true"?1:0,t="",a="eyaqesmsaa3wajqacqdxiaaacrvncabs-f-67faaf0ae-clienttons-s.akamaihd.net",i="false"=="true"?2:1,o={"ak.v":"41","ak.cp":"1766636","ak.ai":parseInt("1075935",10),"ak.ol":"0","ak.cr":19,"ak.ipv":6,"ak.proto":"http/1.1","ak.rid":"be406ed","ak.r":48121,"ak.a2":n,"ak.m":"dscb","ak.n":"essl","ak.cport":53237,"ak.gh":"23.62.38.239","ak.quicv":"","ak.tlsv":"tls1.2","ak.0rtt":"","ak.0rtt.ed":"","ak.csrc":"-","ak.acc":"bbr","ak.t":"1792081970","ak.ak":"hOBiQwZUYzCg5VSAfCLimQ==7jErmfMCf/aC2YW/glWmc2+R7xdbOoWh1NXn95mgxhSfWsUb8ag8byBsqSHHEpOgZV9bcMZa9tc3hSqVZ17cx25LVFpYl/llNurPogR9nN0BqVPzjSKVwC9e3bC0T3reKPhidYGXB9IDvaRz9aLdFmKrW5nzQBhMCQ8PuFxg4sl+D0/uohOERI/3TG/GIfO2rRg1z7xhNPBgjj5j8mZu2Le2qqpXO2L6KjqnWV89voT5Puvt/RkS6t23u1UEu4S9zyRn4L5/DMmMJ2rUB8IY6A+c85VhDxFyTaodVOU8fFX/ew5BSSR3WpW9snWJ569YyhSWHpyLsrjmRbROfSxqxWFH1KVhN2eRUEH7nPAbzVGcrpm0ympRDIG9WW8AgiSMaumfteomzTr8pukX4efRha3Hut4QNAjsQjXohBZ0xE4=","ak.pv":"354","ak.dpoabenc":"","ak.tf":i};if(""!==t)o["ak.ruds"]=t;var r={i:!1,av:function(n){var t="http.initiator";if(n&&(!n[t]||"spa_hard"===n[t]))o["ak.feo"]=void 0!==e.aFeoApplied?1:0,BOOMR.addVar(o)},rv:function(){var e=["ak.cport","ak.cr","ak.csrc","ak.gh","ak.ipv","ak.m","ak.n","ak.ol","ak.proto","ak.quicv","ak.tlsv","ak.0rtt","ak.0rtt.ed","ak.r","ak.acc","ak.t","ak.tf"];BOOMR.removeVar(e)}};BOOMR.plugins.AK={akVars:o,akDNSPreFetchDomain:a,init:function(){if(!r.i){var e=BOOMR.subscribe;e("before_beacon",r.av,null,null),e("onbeacon",r.rv,null,null),r.i=!0}return this},is_complete:function(){return!0}}}}()}(window);</script></head>
+<body class="body layout-modern  site-search-always-visble  content-type-oc-profile content-template-oc-default group-template-oc-empty-with-default-header page-name-home page-sequence-1 page-depth-1 page-section-1 website-type-primary device-desktop " id="body-top">
+    <div id="skip-to-content-container">
+        <a href="#main-content" class="visuallyhidden focusable" id="skip-to-content-link">Skip to main content</a>
+    </div>
+    <script>
+        // OCNOW-11988 (Cursor): Proactively focus skip link when returning from browser chrome.
+        // Must run inline (not deferred oc_main.js) so focus is intercepted before NVDA speaks footer.
+        (function () {
+            var awaitingReentry = false;
+            var inertSupported = 'inert' in HTMLElement.prototype;
+
+            function isExplicitlyOutsideDocument(node) {
+                return node != null && !document.documentElement.contains(node);
+            }
+
+            function getSkipContainer() {
+                return document.getElementById('skip-to-content-container');
+            }
+
+            function getSkipLink() {
+                return document.getElementById('skip-to-content-link');
+            }
+
+            function applyGuard() {
+                awaitingReentry = true;
+                if (!inertSupported) {
+                    return;
+                }
+                var skipContainer = getSkipContainer();
+                var children = document.body.children;
+                for (var i = 0; i < children.length; i++) {
+                    if (children[i] !== skipContainer) {
+                        children[i].setAttribute('inert', '');
+                    }
+                }
+            }
+
+            function clearGuard() {
+                awaitingReentry = false;
+                if (!inertSupported) {
+                    return;
+                }
+                var children = document.body.children;
+                for (var i = 0; i < children.length; i++) {
+                    children[i].removeAttribute('inert');
+                }
+            }
+
+            function isSkipLinkElement(target) {
+                if (!target) {
+                    return false;
+                }
+                var skipContainer = getSkipContainer();
+                return target.id === 'skip-to-content-link' ||
+                    (skipContainer && skipContainer.contains(target));
+            }
+
+            function focusSkipLink() {
+                var skipLink = getSkipLink();
+                if (!skipLink) {
+                    return;
+                }
+                if (window.scrollY > 0) {
+                    window.scrollTo(0, 0);
+                }
+                skipLink.focus({ preventScroll: true });
+            }
+
+            function scheduleGuardIfDocumentLostFocus() {
+                window.setTimeout(function () {
+                    if (!document.hasFocus()) {
+                        applyGuard();
+                    }
+                }, 0);
+            }
+
+            document.addEventListener('focusout', function (e) {
+                if (isExplicitlyOutsideDocument(e.relatedTarget)) {
+                    applyGuard();
+                }
+            }, true);
+
+            document.addEventListener('keydown', function (e) {
+                if (e.key === 'Tab') {
+                    scheduleGuardIfDocumentLostFocus();
+                } else if (e.key === 'F6' || (e.key === 'l' && e.ctrlKey)) {
+                    scheduleGuardIfDocumentLostFocus();
+                }
+            }, true);
+
+            window.addEventListener('focus', function () {
+                if (!awaitingReentry) {
+                    return;
+                }
+                applyGuard();
+                focusSkipLink();
+            }, true);
+
+            document.addEventListener('focusin', function (e) {
+                var reentryFromChrome = awaitingReentry || isExplicitlyOutsideDocument(e.relatedTarget);
+                if (!reentryFromChrome) {
+                    return;
+                }
+                if (isSkipLinkElement(e.target)) {
+                    clearGuard();
+                    return;
+                }
+                applyGuard();
+                focusSkipLink();
+                clearGuard();
+            }, true);
+        })();
+    </script>
+    <form name="mainForm" method="post" action="/Home" id="mainForm">
+<input type="hidden" name="ctl04_seamless_script_manager_TSM" id="ctl04_seamless_script_manager_TSM" value="" />
+<input type="hidden" name="__SEAMLESSVIEWSTATE" id="__SEAMLESSVIEWSTATE" value="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" />
+<input type="hidden" name="__VIEWSTATE" id="__VIEWSTATE" value="" />
+
+
+<script src="/Telerik.Web.UI.WebResource.axd?_TSM_HiddenField_=ctl04_seamless_script_manager_TSM&amp;compress=1&amp;_TSM_CombinedScripts_=%3b%3bSystem.Web.Extensions%2c+Version%3d4.0.0.0%2c+Culture%3dneutral%2c+PublicKeyToken%3d31bf3856ad364e35%3aen-GB%3add3ac3d5-1e29-4112-8fed-529caffa8f24%3aea597d4b%3bOpenCities.CustomControls%3aen-GB%3a7197b077-b068-4a69-9481-a6cf2e7718f9%3a8e1d32bf" type="text/javascript"></script>
+<script src="/ScriptResource.axd?d=EYVjNsQ7oYmzBqCI0dkEyYe0LYmPcVFL4WPcQCXhKfQwUqkAT7lLra0za-OLMuUUcCyPINdTVMHIWti96-8R_oN-trjXUUZnJRzckxTjid4ecctwwEJyNI-05jZYvXHBRiEKL0MUQMEyEJ2FXanyE1uBk88RxZ1wVK6AUn9D4v8rW-LNx2OOtB8vE3hC8P0jk4XZt7GAPiCeYQolxUlwFZA8cuOfgd4u08OASxFdh8mChz3A0YHhuwRrXGVlulfs9SJVkAvulhjdHYIIp1SRohDxt9acTwxUQrOlxuxC847b00zOOWg9SlpwD_iBuQQ1rOK9WH9O_wN9c2TXm4GeXaQHHT4yQ9IlzZXw6th8ch3f-k_n1yYeeurDMbwChXW1Vh_7rpu00kgmegsg9w2J3ququXIPfy2Gq8IscVTmtwouupfmUzAOicU_yESgQ-dG0" type="text/javascript"></script>
+    
+<script type="text/javascript">
+    try{
+        function SeamlessEndRequestHandler(sender, args) {
+            try {
+                var dataItems = args.get_dataItems();
+                if(dataItems.ctl04_seamless_script_manager)
+                    document.getElementById('__SEAMLESSVIEWSTATE').value = dataItems.ctl04_seamless_script_manager;
+            }
+            catch (e) { }
+        }
+
+        Sys.WebForms.PageRequestManager.getInstance().add_endRequest(SeamlessEndRequestHandler);
+    }
+    catch (e) { }
+</script>
+
+    <div class="unsupported-browser-warning js-element"></div>
+    
+    <div hidden>
+        <span id="new-window-0">opens in new tab or window </span>
+    </div>
+    <div class="overlay-container"></div>
+    
+    <div class="background-container">
+        <div class="page-container">
+            <!-- OC Layout Element GROUP TEMPLATE -->
+            <!--groupTemplateStart--><header>
+            <div class="print-header-outer-container print-element">
+<img src="/files/templates/00000000-0000-0000-0000-000000000000/b94d253b-abed-4b58-8caa-72b864310021/v/260/print-logo.svg" alt="City of Renton - Logo" />
+</div>
+            <div class="toolbar-outer-container">
+  <div class="toolbar-inner-container clearfix">
+    <div class="toolbar-item toolbar-quicklinks toolbar-display-dropdown">
+	<button type="button" aria-controls="toolbar-quicklinks-drop-down" aria-expanded="false" class="toolbar-button toolbar-button-quicklinks js-element"><span>Quick Links</span><i aria-hidden="true"></i></button>	
+	<div id="toolbar-quicklinks-drop-down" class="toolbar-drop-down toolbar-quicklinks-drop-down clearfix">
+		<ul>
+		  <li><a href="https://www.facebook.com/CityofRenton/" class="oc-icon-b oc-i-facebook link-type-external" target="_blank"><span>Facebook</span></a></li><li><a href="https://x.com/CityofRenton" class="oc-icon-b oc-i-x link-type-external" target="_blank"><span>X</span></a></li><li><a href="https://www.instagram.com/cityofrenton/" class="oc-icon-b oc-i-instagram link-type-external" target="_blank"><span>Instagram</span></a></li><li><a href="https://nextdoor.com/agency-detail/wa/renton/city-of-renton/" class="oc-icon-b oc-i-nextdoor link-type-external" target="_blank"><span>Nextdoor</span></a></li><li><a href="https://www.youtube.com/channel/UCuYPL89Peh3oH_TIGWtzbvg/videos" class="oc-icon-b oc-i-youtube link-type-external" target="_blank"><span>YouTube</span></a></li><li><a href="https://www.linkedin.com/company/city-of-renton" class="oc-icon-b oc-i-linkedin link-type-external" target="_blank"><span>LinkedIn</span></a></li>
+		</ul>
+	</div>
+</div><div class="toolbar-item toolbar-language notranslate toolbar-display-dropdown"><div class="no-js-element">
+		  <ul>
+		    <li id="toolbar-language-option-en-us-noscript"><a href="https://www.rentonwa.gov/Home?oc_lang=en-US" class="lang-item lang-en-us" data-translate-to="en-us" lang="en-US">English<span class="visuallyhidden"> Select this as your preferred language</span></a></li><li id="toolbar-language-option-es-noscript"><a href="https://www.rentonwa.gov/Home?oc_lang=es" class="lang-item lang-es" data-translate-to="es" lang="en">Spanish<span class="visuallyhidden"> Select this as your preferred language</span></a></li><li id="toolbar-language-option-zh-cn-noscript"><a href="https://www.rentonwa.gov/Home?oc_lang=zh-CN" class="lang-item lang-zh-cn" data-translate-to="zh-cn" lang="en">Chinese (Simplified)<span class="visuallyhidden"> Select this as your preferred language</span></a></li><li id="toolbar-language-option-vi-noscript"><a href="https://www.rentonwa.gov/Home?oc_lang=vi" class="lang-item lang-vi" data-translate-to="vi" lang="en">Vietnamese<span class="visuallyhidden"> Select this as your preferred language</span></a></li><li id="toolbar-language-option-tl-noscript"><a href="https://www.rentonwa.gov/Home?oc_lang=tl" class="lang-item lang-tl" data-translate-to="tl" lang="en">Tagalog (Filipino)<span class="visuallyhidden"> Select this as your preferred language</span></a></li><li id="toolbar-language-option-ru-noscript"><a href="https://www.rentonwa.gov/Home?oc_lang=ru" class="lang-item lang-ru" data-translate-to="ru" lang="en">Russian<span class="visuallyhidden"> Select this as your preferred language</span></a></li><li id="toolbar-language-option-uk-noscript"><a href="https://www.rentonwa.gov/Home?oc_lang=uk" class="lang-item lang-uk" data-translate-to="uk" lang="en">Ukrainian<span class="visuallyhidden"> Select this as your preferred language</span></a></li><li id="toolbar-language-option-ko-noscript"><a href="https://www.rentonwa.gov/Home?oc_lang=ko" class="lang-item lang-ko" data-translate-to="ko" lang="en">Korean<span class="visuallyhidden"> Select this as your preferred language</span></a></li><li id="toolbar-language-option-pa-noscript"><a href="https://www.rentonwa.gov/Home?oc_lang=pa" class="lang-item lang-pa" data-translate-to="pa" lang="en">Punjabi<span class="visuallyhidden"> Select this as your preferred language</span></a></li><li id="toolbar-language-option-hi-noscript"><a href="https://www.rentonwa.gov/Home?oc_lang=hi" class="lang-item lang-hi" data-translate-to="hi" lang="en">Hindi<span class="visuallyhidden"> Select this as your preferred language</span></a></li><li id="toolbar-language-option-so-noscript"><a href="https://www.rentonwa.gov/Home?oc_lang=so" class="lang-item lang-so" data-translate-to="so" lang="en">Somali<span class="visuallyhidden"> Select this as your preferred language</span></a></li><li id="toolbar-language-option-ja-noscript"><a href="https://www.rentonwa.gov/Home?oc_lang=ja" class="lang-item lang-ja" data-translate-to="ja" lang="en">Japanese<span class="visuallyhidden"> Select this as your preferred language</span></a></li><li id="toolbar-language-option-ar-noscript"><a href="https://www.rentonwa.gov/Home?oc_lang=ar" class="lang-item lang-ar" data-translate-to="ar" lang="en">Arabic<span class="visuallyhidden"> Select this as your preferred language</span></a></li><li id="toolbar-language-option-id-noscript"><a href="https://www.rentonwa.gov/Home?oc_lang=id" class="lang-item lang-id" data-translate-to="id" lang="en">Indonesian<span class="visuallyhidden"> Select this as your preferred language</span></a></li><li id="toolbar-language-option-fr-noscript"><a href="https://www.rentonwa.gov/Home?oc_lang=fr" class="lang-item lang-fr" data-translate-to="fr" lang="en">French<span class="visuallyhidden"> Select this as your preferred language</span></a></li><li id="toolbar-language-option-it-noscript"><a href="https://www.rentonwa.gov/Home?oc_lang=it" class="lang-item lang-it" data-translate-to="it" lang="en">Italian<span class="visuallyhidden"> Select this as your preferred language</span></a></li><li id="toolbar-language-option-ne-noscript"><a href="https://www.rentonwa.gov/Home?oc_lang=ne" class="lang-item lang-ne" data-translate-to="ne" lang="en">Nepali<span class="visuallyhidden"> Select this as your preferred language</span></a></li><li id="toolbar-language-option-pt-noscript"><a href="https://www.rentonwa.gov/Home?oc_lang=pt" class="lang-item lang-pt" data-translate-to="pt" lang="en">Portuguese<span class="visuallyhidden"> Select this as your preferred language</span></a></li>
+          </ul>
+		</div>
+	<button type="button" role="combobox" aria-controls="toolbar-language-drop-down" aria-expanded="false" aria-haspopup="listbox" aria-autocomplete="none" aria-labelledby="toolbar-language-label" class="toolbar-button toolbar-button-language js-element">  
+        <span class="toolbar-language-globe-icon" aria-hidden="true"></span>
+        <span id="toolbar-language-label" class="current-language">
+            Select a language to translate to
+		</span>
+		<i aria-hidden="true"></i>
+	</button>
+	<div id="toolbar-language-drop-down" role="listbox" aria-label="Available languages" class="toolbar-drop-down toolbar-language-drop-down js-element clearfix">
+		<ul role="group">
+		    <li role="presentation"><a id="toolbar-language-option-en-us" role="option" aria-selected="true" href="https://www.rentonwa.gov/Home?oc_lang=en-US" class="lang-item lang-en-us" data-translate-to="en-us" lang="en-US">English<span class="visuallyhidden"> Select this as your preferred language</span></a></li><li role="presentation"><a id="toolbar-language-option-es" role="option" aria-selected="false" href="https://www.rentonwa.gov/Home?oc_lang=es" class="lang-item lang-es" data-translate-to="es" lang="en">Spanish<span class="visuallyhidden"> Select this as your preferred language</span></a></li><li role="presentation"><a id="toolbar-language-option-zh-cn" role="option" aria-selected="false" href="https://www.rentonwa.gov/Home?oc_lang=zh-CN" class="lang-item lang-zh-cn" data-translate-to="zh-cn" lang="en">Chinese (Simplified)<span class="visuallyhidden"> Select this as your preferred language</span></a></li><li role="presentation"><a id="toolbar-language-option-vi" role="option" aria-selected="false" href="https://www.rentonwa.gov/Home?oc_lang=vi" class="lang-item lang-vi" data-translate-to="vi" lang="en">Vietnamese<span class="visuallyhidden"> Select this as your preferred language</span></a></li><li role="presentation"><a id="toolbar-language-option-tl" role="option" aria-selected="false" href="https://www.rentonwa.gov/Home?oc_lang=tl" class="lang-item lang-tl" data-translate-to="tl" lang="en">Tagalog (Filipino)<span class="visuallyhidden"> Select this as your preferred language</span></a></li><li role="presentation"><a id="toolbar-language-option-ru" role="option" aria-selected="false" href="https://www.rentonwa.gov/Home?oc_lang=ru" class="lang-item lang-ru" data-translate-to="ru" lang="en">Russian<span class="visuallyhidden"> Select this as your preferred language</span></a></li><li role="presentation"><a id="toolbar-language-option-uk" role="option" aria-selected="false" href="https://www.rentonwa.gov/Home?oc_lang=uk" class="lang-item lang-uk" data-translate-to="uk" lang="en">Ukrainian<span class="visuallyhidden"> Select this as your preferred language</span></a></li><li role="presentation"><a id="toolbar-language-option-ko" role="option" aria-selected="false" href="https://www.rentonwa.gov/Home?oc_lang=ko" class="lang-item lang-ko" data-translate-to="ko" lang="en">Korean<span class="visuallyhidden"> Select this as your preferred language</span></a></li><li role="presentation"><a id="toolbar-language-option-pa" role="option" aria-selected="false" href="https://www.rentonwa.gov/Home?oc_lang=pa" class="lang-item lang-pa" data-translate-to="pa" lang="en">Punjabi<span class="visuallyhidden"> Select this as your preferred language</span></a></li><li role="presentation"><a id="toolbar-language-option-hi" role="option" aria-selected="false" href="https://www.rentonwa.gov/Home?oc_lang=hi" class="lang-item lang-hi" data-translate-to="hi" lang="en">Hindi<span class="visuallyhidden"> Select this as your preferred language</span></a></li><li role="presentation"><a id="toolbar-language-option-so" role="option" aria-selected="false" href="https://www.rentonwa.gov/Home?oc_lang=so" class="lang-item lang-so" data-translate-to="so" lang="en">Somali<span class="visuallyhidden"> Select this as your preferred language</span></a></li><li role="presentation"><a id="toolbar-language-option-ja" role="option" aria-selected="false" href="https://www.rentonwa.gov/Home?oc_lang=ja" class="lang-item lang-ja" data-translate-to="ja" lang="en">Japanese<span class="visuallyhidden"> Select this as your preferred language</span></a></li><li role="presentation"><a id="toolbar-language-option-ar" role="option" aria-selected="false" href="https://www.rentonwa.gov/Home?oc_lang=ar" class="lang-item lang-ar" data-translate-to="ar" lang="en">Arabic<span class="visuallyhidden"> Select this as your preferred language</span></a></li><li role="presentation"><a id="toolbar-language-option-id" role="option" aria-selected="false" href="https://www.rentonwa.gov/Home?oc_lang=id" class="lang-item lang-id" data-translate-to="id" lang="en">Indonesian<span class="visuallyhidden"> Select this as your preferred language</span></a></li><li role="presentation"><a id="toolbar-language-option-fr" role="option" aria-selected="false" href="https://www.rentonwa.gov/Home?oc_lang=fr" class="lang-item lang-fr" data-translate-to="fr" lang="en">French<span class="visuallyhidden"> Select this as your preferred language</span></a></li><li role="presentation"><a id="toolbar-language-option-it" role="option" aria-selected="false" href="https://www.rentonwa.gov/Home?oc_lang=it" class="lang-item lang-it" data-translate-to="it" lang="en">Italian<span class="visuallyhidden"> Select this as your preferred language</span></a></li><li role="presentation"><a id="toolbar-language-option-ne" role="option" aria-selected="false" href="https://www.rentonwa.gov/Home?oc_lang=ne" class="lang-item lang-ne" data-translate-to="ne" lang="en">Nepali<span class="visuallyhidden"> Select this as your preferred language</span></a></li><li role="presentation"><a id="toolbar-language-option-pt" role="option" aria-selected="false" href="https://www.rentonwa.gov/Home?oc_lang=pt" class="lang-item lang-pt" data-translate-to="pt" lang="en">Portuguese<span class="visuallyhidden"> Select this as your preferred language</span></a></li>
+        </ul>
+	</div></div>
+  </div>
+</div>
+            <div class="header-outer-container">
+    <div class="header-container header-layout-4  clearfix">
+			<div class="header-site-logo">
+				<a href="https://www.rentonwa.gov/Home" lang="en-US" aria-label="City of Renton - Home - Logo">
+				</a>
+			</div>
+      
+		    <div class="mobile-search-btn js-element">
+		        <button><i aria-hidden="true"></i><span class="mobile-search-btn-text"><span class="visuallyhidden">Open </span>Search</span></button>
+		    </div>
+		    <div class="header-website-settings">
+                <button id="btn-mob-nav" type="button" aria-expanded="false" aria-controls="nav">
+                    <i aria-hidden="true"></i><span class="side-menu-btn-text">Menu</span>
+                </button>
+        	</div>
+          <div class="navigation-outer-container">
+	<div id="nav" role="navigation" class="navigation-container  navigation-container-option-8" data-menu-type="horizontal" aria-label="primary">
+        <div class="grid">
+            <div class="col-xs-12">              
+                <ul class="sf-menu mega-menu" id="sc-main-menu"><li class="nav-section-quarters-1   first-item nav-item-seq-1">
+<a href="https://www.rentonwa.gov/Government" class="nav-level-1 nav-has-children"  target="">
+	<i class="item-icon" aria-hidden="true"></i><span class="item-text">Government</span>
+</a>
+<button aria-label="Expand" aria-controls="sc-menu-second-level-nav-item-seq-1" aria-haspopup="true" class="mobnav-subarrow" ><i aria-hidden="true"></i></button>
+<ul id="sc-menu-second-level-nav-item-seq-1" class="second-level-container ch-6">
+
+          
+            <li class="second-level-item  "><a href="https://www.rentonwa.gov/Government/Mayor-Armondo-Pavone" class=""  target="_self">Mayor Armondo Pavone</a></li><li class="second-level-item  "><a href="https://www.rentonwa.gov/Government/City-Council" class="nav-has-children"  target="">City Council</a><button aria-label="Expand" aria-controls="sc-menu-third-level-nav-item-seq-1-nav-item-seq-2" class="mobnav-subarrow-child"><i aria-hidden="true"></i>
+              </button>
+<ul  id="sc-menu-third-level-nav-item-seq-1-nav-item-seq-2" class="third-level-container">
+          
+            <li  class="third-level-item  "><a href="https://www.rentonwa.gov/Government/City-Council/Council-explained"  target="">Renton City Council explained</a></li><li  class="third-level-item  "><a href="https://www.rentonwa.gov/Government/City-Council/Public-meeting-rules"  target="">Public meeting rules</a></li><li  class="third-level-item  "><a href="https://www.rentonwa.gov/Government/City-Council/Watch-council-meetings"  target="">Watch council meetings</a></li><li  class="third-level-item  "><a href="https://www.rentonwa.gov/Government/City-Council/City-council-agendas"  target="">City council agendas</a></li><li  class="third-level-item  "><a href="https://www.rentonwa.gov/Government/City-Council/Council-Committees"  target="">Council Committees</a></li></ul></li><li class="second-level-item  "><a href="https://www.rentonwa.gov/Government/Boards-Committees-Commissions" class="nav-has-children"  target="">Boards, Committees, and Commissions</a><button aria-label="Expand" aria-controls="sc-menu-third-level-nav-item-seq-1-nav-item-seq-3" class="mobnav-subarrow-child"><i aria-hidden="true"></i>
+              </button>
+<ul  id="sc-menu-third-level-nav-item-seq-1-nav-item-seq-3" class="third-level-container">
+          
+            <li  class="third-level-item  "><a href="https://www.rentonwa.gov/Government/Boards-Committees-Commissions/Boards-Committees-Commissions-Calendar"  target="">Boards Committees Commissions Calendar</a></li><li  class="third-level-item  "><a href="https://www.rentonwa.gov/Government/Boards-Committees-Commissions/BoardsCommissionsCommittees-Application"  target="">Boards/Commissions/Committees Application</a></li><li  class="third-level-item  "><a href="https://www.rentonwa.gov/Government/Boards-Committees-Commissions/MembersVacancies"  target="">Members/Vacancies</a></li></ul></li><li class="second-level-item  "><a href="https://www.rentonwa.gov/Government/Departments-and-Offices" class="nav-has-children"  target="">Departments and Offices</a><button aria-label="Expand" aria-controls="sc-menu-third-level-nav-item-seq-1-nav-item-seq-4" class="mobnav-subarrow-child"><i aria-hidden="true"></i>
+              </button>
+<ul  id="sc-menu-third-level-nav-item-seq-1-nav-item-seq-4" class="third-level-container">
+          
+            <li  class="third-level-item  "><a href="https://www.rentonwa.gov/Government/Departments-and-Offices/Community-and-Economic-Development"  target="">Community and Economic Development</a></li><li  class="third-level-item  "><a href="https://www.rentonwa.gov/Government/Departments-and-Offices/City-Attorney"  target="">City Attorney</a></li><li  class="third-level-item  "><a href="https://www.rentonwa.gov/Government/Departments-and-Offices/City-Clerk"  target="">City Clerk</a></li><li  class="third-level-item  "><a href="https://www.rentonwa.gov/Government/Departments-and-Offices/Executive-Services"  target="">Executive Services</a></li><li  class="third-level-item  "><a href="https://www.rentonwa.gov/Government/Departments-and-Offices/Finance"  target="">Finance</a></li><li  class="third-level-item  "><a href="https://www.rentonwa.gov/Government/Departments-and-Offices/Human-Resources-and-Risk-Management"  target="">Human Resources and Risk Management</a></li><li  class="third-level-item  "><a href="https://www.rentonwa.gov/Government/Departments-and-Offices/Municipal-Court"  target="_self">Municipal Court</a></li><li  class="third-level-item  "><a href="https://www.rentonwa.gov/Government/Departments-and-Offices/Parks-and-Recreation"  target="">Parks and Recreation</a></li><li  class="third-level-item  "><a href="https://www.rentonwa.gov/Government/Departments-and-Offices/Police"  target="">Police</a></li><li  class="third-level-item  "><a href="https://www.rentonwa.gov/Government/Departments-and-Offices/Public-Works"  target="">Public Works</a></li></ul></li><li class="second-level-item  "><a href="https://www.rentonwa.gov/Government/Newsroom" class="nav-has-children"  target="">Newsroom</a><button aria-label="Expand" aria-controls="sc-menu-third-level-nav-item-seq-1-nav-item-seq-5" class="mobnav-subarrow-child"><i aria-hidden="true"></i>
+              </button>
+<ul  id="sc-menu-third-level-nav-item-seq-1-nav-item-seq-5" class="third-level-container">
+          
+            <li  class="third-level-item  "><a href="https://www.rentonwa.gov/Government/Newsroom/ICYMI"  target="">In Case You Missed It: Council Meeting Recap</a></li><li  class="third-level-item  "><a href="https://www.rentonwa.gov/Government/Newsroom/Press-Releases"  target="">Press Releases</a></li><li  class="third-level-item  "><a href="https://www.rentonwa.gov/Government/Newsroom/This-Month-in-Renton"  target="">This Month in Renton</a></li><li  class="third-level-item  "><a href="https://www.rentonwa.gov/Government/Newsroom/Our-Renton"  target="">Our Renton</a></li><li  class="third-level-item  "><a href="https://www.rentonwa.gov/Government/Newsroom/City-Publications"  target="">City Publications</a></li><li  class="third-level-item  "><a href="https://www.rentonwa.gov/Government/Newsroom/Channel-21"  target="">Channel 21</a></li><li  class="third-level-item  "><a href="https://www.rentonwa.gov/Government/Newsroom/Mayor-in-a-Minute"  target="_self">Mayor in a Minute</a></li></ul></li><li class="second-level-item  "><a href="https://www.rentonwa.gov/Government/Career-Center" class="nav-has-children"  target="_self">Career Center</a><button aria-label="Expand" aria-controls="sc-menu-third-level-nav-item-seq-1-nav-item-seq-6" class="mobnav-subarrow-child"><i aria-hidden="true"></i>
+              </button>
+<ul  id="sc-menu-third-level-nav-item-seq-1-nav-item-seq-6" class="third-level-container">
+          
+            <li  class="third-level-item  "><a href="https://www.rentonwa.gov/Government/Career-Center/Benefits"  target="">Employee benefits</a></li><li  class="third-level-item  "><a href="https://www.rentonwa.gov/Government/Career-Center/Union-Contracts"  target="">Union Contracts</a></li></ul></li></ul></li>
+          
+            <li class="nav-section-quarters-2   nav-item-seq-2">
+<a href="https://www.rentonwa.gov/City-Services" class="nav-level-1 nav-has-children"  target="">City Services</a>
+<button aria-label="Expand" aria-controls="sc-menu-second-level-nav-item-seq-2" aria-haspopup="true" class="mobnav-subarrow" ><i aria-hidden="true"></i></button>
+<ul id="sc-menu-second-level-nav-item-seq-2" class="second-level-container ch-13">
+
+          
+            <li class="second-level-item  "><a href="https://www.rentonwa.gov/City-Services/Animal-Control-and-Licenses" class=""  target="_self">Animal Control and Licenses</a></li><li class="second-level-item  "><a href="https://www.rentonwa.gov/City-Services/Code-Compliance" class=""  target="">Code Compliance</a></li><li class="second-level-item  "><a href="https://www.rentonwa.gov/City-Services/Emergency-Management" class="nav-has-children"  target="">Emergency Management</a><button aria-label="Expand" aria-controls="sc-menu-third-level-nav-item-seq-2-nav-item-seq-3" class="mobnav-subarrow-child"><i aria-hidden="true"></i>
+              </button>
+<ul  id="sc-menu-third-level-nav-item-seq-2-nav-item-seq-3" class="third-level-container">
+          
+            <li  class="third-level-item  "><a href="https://www.rentonwa.gov/City-Services/Emergency-Management/Emergency-Information-and-Alerts"  target="">Emergency Information and Alerts</a></li><li  class="third-level-item  "><a href="https://www.rentonwa.gov/City-Services/Emergency-Management/Preparedness-Education-and-Outreach"  target="">Preparedness Education and Outreach</a></li><li  class="third-level-item  "><a href="https://www.rentonwa.gov/City-Services/Emergency-Management/Emergency-Training-and-Exercises"  target="">Emergency Training and Exercises</a></li><li  class="third-level-item  "><a href="https://www.rentonwa.gov/City-Services/Emergency-Management/Disaster-Recovery"  target="">Disaster Recovery</a></li></ul></li><li class="second-level-item  "><a href="https://www.rentonwa.gov/City-Services/Fee-schedule" class=""  target="_blank">City of Renton Fee Schedule</a></li><li class="second-level-item  "><a href="https://www.rentonwa.gov/City-Services/Housing" class="nav-has-children"  target="">Housing</a><button aria-label="Expand" aria-controls="sc-menu-third-level-nav-item-seq-2-nav-item-seq-5" class="mobnav-subarrow-child"><i aria-hidden="true"></i>
+              </button>
+<ul  id="sc-menu-third-level-nav-item-seq-2-nav-item-seq-5" class="third-level-container">
+          
+            <li  class="third-level-item  "><a href="https://www.rentonwa.gov/City-Services/Housing/Housing-Incentives"  target="">Affordable Housing Incentives</a></li><li  class="third-level-item  "><a href="https://www.rentonwa.gov/City-Services/Housing/Housing-Repair-Assistance"  target="_self">Housing Repair Assistance</a></li><li  class="third-level-item  "><a href="https://www.rentonwa.gov/City-Services/Housing/Rental-Registration"  target="">Rental Registration Program</a></li><li  class="third-level-item  "><a href="https://www.rentonwa.gov/City-Services/Housing/Short-term-property-rentals"  target="">Short-term property rentals</a></li></ul></li><li class="second-level-item  "><a href="https://www.rentonwa.gov/City-Services/Municipal-Court" class="nav-has-children"  target="">Municipal Court</a><button aria-label="Expand" aria-controls="sc-menu-third-level-nav-item-seq-2-nav-item-seq-6" class="mobnav-subarrow-child"><i aria-hidden="true"></i>
+              </button>
+<ul  id="sc-menu-third-level-nav-item-seq-2-nav-item-seq-6" class="third-level-container">
+          
+            <li  class="third-level-item  "><a href="https://www.rentonwa.gov/City-Services/Municipal-Court/Find-My-Court-Date"  target="_blank">Find My Court Date</a></li><li  class="third-level-item  "><a href="https://www.rentonwa.gov/City-Services/Municipal-Court/Forms"  target="">Find a Form</a></li><li  class="third-level-item  "><a href="https://www.rentonwa.gov/City-Services/Municipal-Court/Request-a-Hearing"  target="_blank">Request a Hearing</a></li><li  class="third-level-item  "><a href="https://www.rentonwa.gov/City-Services/Municipal-Court/Payments"  target="">Pay a Court Fine</a></li></ul></li><li class="second-level-item  "><a href="https://www.rentonwa.gov/City-Services/Permit-Services" class="nav-has-children"  target="">Permit Services</a><button aria-label="Expand" aria-controls="sc-menu-third-level-nav-item-seq-2-nav-item-seq-7" class="mobnav-subarrow-child"><i aria-hidden="true"></i>
+              </button>
+<ul  id="sc-menu-third-level-nav-item-seq-2-nav-item-seq-7" class="third-level-container">
+          
+            <li  class="third-level-item  "><a href="https://www.rentonwa.gov/City-Services/Permit-Services/Online-Permit-Portal"  target="_blank">Online Permit Portal</a></li><li  class="third-level-item  "><a href="https://www.rentonwa.gov/City-Services/Permit-Services/Online-Permit-Portal-Help"  target="">Online Permit Portal Help</a></li></ul></li><li class="second-level-item  "><a href="https://www.rentonwa.gov/City-Services/Public-Safety-Services" class="nav-has-children"  target="_self">Public Safety Services</a><button aria-label="Expand" aria-controls="sc-menu-third-level-nav-item-seq-2-nav-item-seq-8" class="mobnav-subarrow-child"><i aria-hidden="true"></i>
+              </button>
+<ul  id="sc-menu-third-level-nav-item-seq-2-nav-item-seq-8" class="third-level-container">
+          
+            <li  class="third-level-item  "><a href="https://www.rentonwa.gov/City-Services/Public-Safety-Services/Police-report"  target="_self">File a Police Report</a></li></ul></li><li class="second-level-item  "><a href="https://www.rentonwa.gov/City-Services/Records" class="nav-has-children"  target="_self">Records</a><button aria-label="Expand" aria-controls="sc-menu-third-level-nav-item-seq-2-nav-item-seq-9" class="mobnav-subarrow-child"><i aria-hidden="true"></i>
+              </button>
+<ul  id="sc-menu-third-level-nav-item-seq-2-nav-item-seq-9" class="third-level-container">
+          
+            <li  class="third-level-item  "><a href="https://www.rentonwa.gov/City-Services/Records/Public-Records-Request"  target="">Public Records Request</a></li><li  class="third-level-item  "><a href="https://www.rentonwa.gov/City-Services/Records/Digital-Records-Library"  target="">Digital Records Library</a></li><li  class="third-level-item  "><a href="https://www.rentonwa.gov/City-Services/Records/Renton-Municipal-Code"  target="_blank">Renton Municipal Code</a></li></ul></li><li class="second-level-item  "><a href="https://www.rentonwa.gov/City-Services/Sustainability-and-Solid-Waste" class=""  target="">Sustainability and Solid Waste Services</a></li><li class="second-level-item  "><a href="https://www.rentonwa.gov/City-Services/Tax-and-Licensing" class="nav-has-children"  target="">Tax and Licensing</a><button aria-label="Expand" aria-controls="sc-menu-third-level-nav-item-seq-2-nav-item-seq-11" class="mobnav-subarrow-child"><i aria-hidden="true"></i>
+              </button>
+<ul  id="sc-menu-third-level-nav-item-seq-2-nav-item-seq-11" class="third-level-container">
+          
+            <li  class="third-level-item  "><a href="https://www.rentonwa.gov/City-Services/Tax-and-Licensing/Business-Licenses"  target="">Business Licenses</a></li><li  class="third-level-item  "><a href="https://www.rentonwa.gov/City-Services/Tax-and-Licensing/Business-and-Occupation-Tax"  target="">Business and Occupation Tax</a></li><li  class="third-level-item  "><a href="https://www.rentonwa.gov/City-Services/Tax-and-Licensing/Other-Taxes"  target="">Other Taxes</a></li><li  class="third-level-item  "><a href="https://www.rentonwa.gov/City-Services/Tax-and-Licensing/Other-Licenses"  target="">Other Licenses</a></li><li  class="third-level-item  "><a href="https://www.rentonwa.gov/City-Services/Tax-and-Licensing/FAQs"  target="">Tax and Licensing FAQs</a></li></ul></li><li class="second-level-item  "><a href="https://www.rentonwa.gov/City-Services/Utilities" class="nav-has-children"  target="">Utilities</a><button aria-label="Expand" aria-controls="sc-menu-third-level-nav-item-seq-2-nav-item-seq-12" class="mobnav-subarrow-child"><i aria-hidden="true"></i>
+              </button>
+<ul  id="sc-menu-third-level-nav-item-seq-2-nav-item-seq-12" class="third-level-container">
+          
+            <li  class="third-level-item  "><a href="https://www.rentonwa.gov/City-Services/Utilities/Utility-Billing"  target="">Utility Billing</a></li></ul></li><li class="second-level-item  "><a href="https://www.rentonwa.gov/City-Services/Report-an-Issue" class=""  target="">Report an Issue</a></li></ul></li>
+          
+            <li class="nav-section-quarters-3   nav-item-seq-3">
+<a href="https://www.rentonwa.gov/Projects-Development" class="nav-level-1 nav-has-children"  target="">Projects & Development</a>
+<button aria-label="Expand" aria-controls="sc-menu-second-level-nav-item-seq-3" aria-haspopup="true" class="mobnav-subarrow" ><i aria-hidden="true"></i></button>
+<ul id="sc-menu-second-level-nav-item-seq-3" class="second-level-container ch-6">
+
+          
+            <li class="second-level-item  "><a href="https://www.rentonwa.gov/Projects-Development/Community-and-Economic-Development-Projects" class="nav-has-children"  target="">Community and Economic Development Projects</a><button aria-label="Expand" aria-controls="sc-menu-third-level-nav-item-seq-3-nav-item-seq-1" class="mobnav-subarrow-child"><i aria-hidden="true"></i>
+              </button>
+<ul  id="sc-menu-third-level-nav-item-seq-3-nav-item-seq-1" class="third-level-container">
+          
+            <li  class="third-level-item  "><a href="https://www.rentonwa.gov/Projects-Development/Community-and-Economic-Development-Projects/Projects-and-Programs"  target="">Projects and Programs</a></li><li  class="third-level-item  "><a href="https://www.rentonwa.gov/Projects-Development/Community-and-Economic-Development-Projects/Long-Term-Planning-and-Programming"  target="">Long Term Planning and Programming</a></li></ul></li><li class="second-level-item  "><a href="https://www.rentonwa.gov/Projects-Development/Parks-Projects" class="nav-has-children"  target="">Parks Projects</a><button aria-label="Expand" aria-controls="sc-menu-third-level-nav-item-seq-3-nav-item-seq-2" class="mobnav-subarrow-child"><i aria-hidden="true"></i>
+              </button>
+<ul  id="sc-menu-third-level-nav-item-seq-3-nav-item-seq-2" class="third-level-container">
+          
+            <li  class="third-level-item  "><a href="https://www.rentonwa.gov/Projects-Development/Parks-Projects/Parks-Projects-and-Plans"  target="">Parks Projects and Plans</a></li></ul></li><li class="second-level-item  "><a href="https://www.rentonwa.gov/Projects-Development/Public-Works-Projects" class="nav-has-children"  target="">Public Works Projects</a><button aria-label="Expand" aria-controls="sc-menu-third-level-nav-item-seq-3-nav-item-seq-3" class="mobnav-subarrow-child"><i aria-hidden="true"></i>
+              </button>
+<ul  id="sc-menu-third-level-nav-item-seq-3-nav-item-seq-3" class="third-level-container">
+          
+            <li  class="third-level-item  "><a href="https://www.rentonwa.gov/Projects-Development/Public-Works-Projects/Current-Projects-and-Programs"  target="">Current Projects and Programs</a></li><li  class="third-level-item  "><a href="https://www.rentonwa.gov/Projects-Development/Public-Works-Projects/Completed-Projects-and-Programs"  target="">Completed Projects and Programs</a></li><li  class="third-level-item  "><a href="https://www.rentonwa.gov/Projects-Development/Public-Works-Projects/Transportation-Planning-Programming-and-Traffic-Operations"  target="">Transportation Planning, Programming, and Traffic Operations</a></li><li  class="third-level-item  "><a href="https://www.rentonwa.gov/Projects-Development/Public-Works-Projects/Regional-Transportation-Projects"  target="">Regional Transportation Projects</a></li></ul></li><li class="second-level-item  "><a href="https://www.rentonwa.gov/Projects-Development/Bids-Proposals-Qualifications-and-Other-Procurement-Solicitations" class=""  target="">Bids, Proposals, Qualifications & Other Procurement Solicitations</a></li><li class="second-level-item  "><a href="https://www.rentonwa.gov/Projects-Development/Maps-and-GIS-Data" class=""  target="">Maps and GIS Data</a></li><li class="second-level-item  "><a href="https://www.rentonwa.gov/Projects-Development/Traffic-Alerts" class=""  target="">Traffic Alerts</a></li></ul></li>
+          
+            <li class="nav-section-quarters-4   nav-item-seq-4">
+<a href="https://www.rentonwa.gov/Activities-Events" class="nav-level-1 nav-has-children"  target="">Activities & Events</a>
+<button aria-label="Expand" aria-controls="sc-menu-second-level-nav-item-seq-4" aria-haspopup="true" class="mobnav-subarrow" ><i aria-hidden="true"></i></button>
+<ul id="sc-menu-second-level-nav-item-seq-4" class="second-level-container ch-6">
+
+          
+            <li class="second-level-item  "><a href="https://www.rentonwa.gov/Activities-Events/Activities" class="nav-has-children"  target="">Activities</a><button aria-label="Expand" aria-controls="sc-menu-third-level-nav-item-seq-4-nav-item-seq-1" class="mobnav-subarrow-child"><i aria-hidden="true"></i>
+              </button>
+<ul  id="sc-menu-third-level-nav-item-seq-4-nav-item-seq-1" class="third-level-container">
+          
+            <li  class="third-level-item  "><a href="https://www.rentonwa.gov/Activities-Events/Activities/Recreation-Guide"  target="">Recreation Guide</a></li><li  class="third-level-item  "><a href="https://www.rentonwa.gov/Activities-Events/Activities/Adaptive-Recreation"  target="">Adaptive Recreation</a></li><li  class="third-level-item  "><a href="https://www.rentonwa.gov/Activities-Events/Activities/Arts-and-Culture"  target="">Arts and Culture</a></li><li  class="third-level-item  "><a href="https://www.rentonwa.gov/Activities-Events/Activities/Youth-and-Family-Programs"  target="">Youth and Family Programs</a></li></ul></li><li class="second-level-item  "><a href="https://www.rentonwa.gov/Activities-Events/Events" class=""  target="_self">Events</a></li><li class="second-level-item  "><a href="https://www.rentonwa.gov/Activities-Events/Maplewood-Golf-Course" class=""  target="">Maplewood Golf Course</a></li><li class="second-level-item  "><a href="https://www.rentonwa.gov/Activities-Events/Park-and-Facility-Rentals-and-Reservations" class=""  target="">Park and Facility Rentals and Reservations</a></li><li class="second-level-item  "><a href="https://www.rentonwa.gov/Activities-Events/Volunteer-Opportunities" class=""  target="">Volunteer Opportunities</a></li><li class="second-level-item  "><a href="https://www.rentonwa.gov/Activities-Events/Museum" class=""  target="">Renton History Museum</a></li></ul></li>
+          
+            </ul>
+            </div>
+        </div>
+    </div>
+</div>
+			
+			<div class="header-search-control-container" id="header-search">
+				<div class="search-inner-container">
+					<div class="sc-search-panel">
+	<label for="ctl08_txtSearch" id="ctl08_lblSearch" class="sc-search-label">Search</label><input name="ctl08$txtSearch" type="text" id="ctl08_txtSearch" class="sc-search-text" placeholder="What are you looking for?" /><input type="submit" name="ctl08$btnSearch" value="Search" id="ctl08_btnSearch" class="sc-search-button" />
+</div>
+					<div role="status" id="predictiveResults"></div>
+				</div>
+			</div>
+    </div>
+</div>
+
+            
+            </header>
+            <div class="content-outer-container">
+                <div id="main" role="main" class="main-outer-container no-background clearfix">
+                        <div class="content-main-container">
+                                                    
+                            <!-- OC Layout Element Conent Template -->
+                            <!--normalTemplateStart--><div class="visuallyhidden"><h1 class='oc-page-title '>Home</h1></div><div id="main-content"><section class="row-index-1"><div class="row-container full-width clearfix"><div class="row-content-container fixed-width clearfix"></div></div></section><section class="row-index-2"><div class="row-container full-width clearfix"><div class="row-content-container fixed-width clearfix">
+
+<div class="do-it-online do-it-online-format-1 top-task-homepage top-task-homepage-format-1 clearfix upper-top-tasks" data-total-results="3"><div class="grid">
+
+<div class="col-xs-12 col-m-6 col-lg-4">
+	<a href="https://www.rentonwa.gov/Government/Departments-and-Offices/Finance/Online-Payments" title="Make a Payment" class="profile-list item-0" target="_self" >	
+		<i class="item-icon make-a-payment" aria-hidden="true"></i>
+		<h2>Make a Payment</h2>
+		<p>Make online payments for utility bills, license renewals, Republic Services, donations, and more.</p>
+	</a>
+</div><div class="col-xs-12 col-m-6 col-lg-4">
+	<a href="https://rentonwa.prelive.opencities.com/Government/Departments-and-Offices/Human-Resources-and-Risk-Management/Career-Center" title="Career Center" class="profile-list item-1" target="_self" >	
+		<i class="item-icon career-center" aria-hidden="true"></i>
+		<h2>Career Center</h2>
+		<p>Start an exciting career with the City of Renton. Learn about benefits, open positions, and more.</p>
+	</a>
+</div><div class="col-xs-12 col-m-6 col-lg-4">
+	<a href="https://www.rentonwa.gov/Government/Newsroom" title="Get Connected" class="profile-list item-2" target="_self" >	
+		<i class="item-icon custom-icon" style="background-image:url('/files/assets/city/v/3/_homepage/icons/icon_news_90x90-dark.png?w=60');"></i>
+		<h2>Get Connected</h2>
+		<p>Find all city news and subscribe to content you are most interested in!</p>
+	</a>
+</div>
+
+
+</grid>
+
+
+
+
+
+</div></div></section><section class="row-index-3"><div class="row-container full-width clearfix"><div class="row-content-container fixed-width clearfix">
+
+<div class="do-it-online do-it-online-format-10 top-task-homepage top-task-homepage-format-10 clearfix lower-top-tasks" data-total-results="6"><div class="grid">
+
+<div class="col-xs-12 col-m-4 col-lg-2">
+	<a href="https://www.rentonwa.gov/Government/Departments-and-Offices/Police/Police-Services/File-a-Police-Report" title="File a Police Report" class="profile-list item-0" target="_self" >	
+		<i class="item-icon police-report" aria-hidden="true"></i>
+		<h2>File a Police Report</h2>
+	</a>
+</div><div class="col-xs-12 col-m-4 col-lg-2">
+	<a href="https://www.rentonwa.gov/City-Services/Permit-Center" title="Permit Services" class="profile-list item-1" target="_self" >	
+		<i class="item-icon permiting" aria-hidden="true"></i>
+		<h2>Permit Services</h2>
+	</a>
+</div><div class="col-xs-12 col-m-4 col-lg-2">
+	<a href="https://www.rentonwa.gov/Government/City-Council" title="City Council" class="profile-list item-2" target="_self" >	
+		<i class="item-icon city-council" aria-hidden="true"></i>
+		<h2>City Council</h2>
+	</a>
+</div><div class="col-xs-12 col-m-4 col-lg-2">
+	<a href="https://rentonwa.prelive.opencities.com/City-Services/Animal-Control-and-Licenses" title="Animal Control" class="profile-list item-3" target="_self" >	
+		<i class="item-icon animal-control" aria-hidden="true"></i>
+		<h2>Animal Control</h2>
+	</a>
+</div><div class="col-xs-12 col-m-4 col-lg-2">
+	<a href="https://rentonwa.prelive.opencities.com/Government/Departments-and-Offices/Parks-and-Recreation/Things-To-Do-Landing-Page/Community-Centers" title="Community Centers" class="profile-list item-4" target="_self" >	
+		<i class="item-icon community-center" aria-hidden="true"></i>
+		<h2>Community Centers</h2>
+	</a>
+</div><div class="col-xs-12 col-m-4 col-lg-2">
+	<a href="https://rentonwa.prelive.opencities.com/City-Services/Report-an-Issue" title="Report an Issue" class="profile-list item-5" target="_self" >	
+		<i class="item-icon self-help-kiosk" aria-hidden="true"></i>
+		<h2>Report an Issue</h2>
+	</a>
+</div>
+
+
+</grid>
+
+
+
+
+
+</div></div></section><section class="row-index-4"><div class="row-container full-width clearfix"><div class="row-content-container fixed-width clearfix"><div class="row-container-title fixed-width" ><h1>LATEST NEWS</h1></div><div class="profile-listing-container  profile-news-listing-container profile-news-listing-option-3 clearfix"><div class=" profile-news-listing clearfix" data-total-results="3">
+<div class="grid">
+        <div class="col-xs-12 col-m-6 col-lg-4">
+	<a href="https://www.rentonwa.gov/Government/Newsroom/City-news/Crafted-with-Care-by-Local-Seniors-2026-Senior-Holiday-Craft-Bazaar-at-Renton-Community-Center" class="profile-list item-0 homepage-show" >		
+		
+       <picture>
+  <source media="(min-width: 992px)" srcset="/files/assets/city/v/1/parks-amp-recreation/recreation/images/events/sept-dec-2026/senior-holiday-bazaar-2026_1920x1080.jpg?dimension=homepagelisting&w=345&h=189">
+  <source media="(min-width: 768px)" srcset="/files/assets/city/v/1/parks-amp-recreation/recreation/images/events/sept-dec-2026/senior-holiday-bazaar-2026_1920x1080.jpg?dimension=homepagelisting&w=345&h=189">
+  <source srcset="/files/assets/city/v/1/parks-amp-recreation/recreation/images/events/sept-dec-2026/senior-holiday-bazaar-2026_1920x1080.jpg?dimension=homepagelisting&w=345&h=189">
+  <img class="large-thumbnail-image" src="/files/assets/city/v/1/parks-amp-recreation/recreation/images/events/sept-dec-2026/senior-holiday-bazaar-2026_1920x1080.jpg?dimension=homepagelisting&w=345&h=189" alt=""/>
+  </picture>
+		<h2>Crafted with Care by Local Seniors: 2026 Senior Holiday Craft Bazaar a</h2>
+		<p class="published-on small-text">Published on October 14, 2026</p>
+	</a>
+</div><div class="col-xs-12 col-m-6 col-lg-4">
+	<a href="https://www.rentonwa.gov/Government/Newsroom/City-news/See-Whats-Next-for-the-Cedar-River-Natural-Area" class="profile-list item-1 homepage-show" >		
+		
+       <picture>
+  <source media="(min-width: 992px)" srcset="/files/assets/city/v/2/parks-amp-recreation/parks-planning-amp-natural-resources/images/parks-projects-and-plans/crna-cedar-river-natural-area-public-meeting-project-event-graphic-showing-map-of-area.jpg?dimension=homepagelisting&w=345&h=189">
+  <source media="(min-width: 768px)" srcset="/files/assets/city/v/2/parks-amp-recreation/parks-planning-amp-natural-resources/images/parks-projects-and-plans/crna-cedar-river-natural-area-public-meeting-project-event-graphic-showing-map-of-area.jpg?dimension=homepagelisting&w=345&h=189">
+  <source srcset="/files/assets/city/v/2/parks-amp-recreation/parks-planning-amp-natural-resources/images/parks-projects-and-plans/crna-cedar-river-natural-area-public-meeting-project-event-graphic-showing-map-of-area.jpg?dimension=homepagelisting&w=345&h=189">
+  <img class="large-thumbnail-image" src="/files/assets/city/v/2/parks-amp-recreation/parks-planning-amp-natural-resources/images/parks-projects-and-plans/crna-cedar-river-natural-area-public-meeting-project-event-graphic-showing-map-of-area.jpg?dimension=homepagelisting&w=345&h=189" alt=""/>
+  </picture>
+		<h2>See What’s Next for the Cedar River Natural Area</h2>
+		<p class="published-on small-text">Published on October 13, 2026</p>
+	</a>
+</div><div class="col-xs-12 col-m-6 col-lg-4">
+	<a href="https://www.rentonwa.gov/Government/Newsroom/City-news/Honoring-Domestic-Violence-Victims-Survivors-and-Service-Agencies-in-Renton" class="profile-list item-2 homepage-show" >		
+		
+       <picture>
+  <source media="(min-width: 992px)" srcset="/files/assets/city/v/2/news/blog/2026-09-sept-thru-12-dec/three-women-at-purple-light-nights-walk-holding-the-purple-banner-in-downtown-renton-.jpg.png?dimension=homepagelisting&w=345&h=189">
+  <source media="(min-width: 768px)" srcset="/files/assets/city/v/2/news/blog/2026-09-sept-thru-12-dec/three-women-at-purple-light-nights-walk-holding-the-purple-banner-in-downtown-renton-.jpg.png?dimension=homepagelisting&w=345&h=189">
+  <source srcset="/files/assets/city/v/2/news/blog/2026-09-sept-thru-12-dec/three-women-at-purple-light-nights-walk-holding-the-purple-banner-in-downtown-renton-.jpg.png?dimension=homepagelisting&w=345&h=189">
+  <img class="large-thumbnail-image" src="/files/assets/city/v/2/news/blog/2026-09-sept-thru-12-dec/three-women-at-purple-light-nights-walk-holding-the-purple-banner-in-downtown-renton-.jpg.png?dimension=homepagelisting&w=345&h=189" alt=""/>
+  </picture>
+		<h2>Honoring Domestic Violence Victims, Survivors, and Service Agencies</h2>
+		<p class="published-on small-text">Published on October 12, 2026</p>
+	</a>
+</div></div>
+</div>
+<a href="https://www.rentonwa.gov/News-articles" class="panel-button">View More News</a></div>
+        </div></div></section><section class="row-index-5"><div class="row-container full-width clearfix"><div class="row-content-container fixed-width clearfix"><div class="row-container-title fixed-width" ><h1>UPCOMING EVENTS</h1></div><div class="profile-listing-container  profile-events-listing-container profile-events-listing-option-3 clearfix"><div class=" profile-events-listing clearfix" data-total-results="3">
+<div class="grid">
+        
+        <div class="col-xs-12 col-m-6 col-lg-4">
+	<a href="https://www.rentonwa.gov/Government/Departments-and-Offices/Community-and-Economic-Development/Economic-Development/Business/Business-Events-Calendar/Empowering-Women-to-Lead" class="profile-list item-0 homepage-show  " >		
+		
+       <picture>
+  <source media="(min-width: 992px)" srcset="/files/assets/city/v/1/ced/economic-development/images/empowering-women-to-lead-flyer.png?dimension=homepagelisting&w=345&h=189">
+  <source media="(min-width: 768px)" srcset="/files/assets/city/v/1/ced/economic-development/images/empowering-women-to-lead-flyer.png?dimension=homepagelisting&w=345&h=189">
+  <source srcset="/files/assets/city/v/1/ced/economic-development/images/empowering-women-to-lead-flyer.png?dimension=homepagelisting&w=345&h=189">
+  <img class="large-thumbnail-image" src="/files/assets/city/v/1/ced/economic-development/images/empowering-women-to-lead-flyer.png?dimension=homepagelisting&w=345&h=189" alt=""/>
+  </picture>
+		<span class="list-item-block-date" aria-hidden="true"><span class="part-date">15</span>
+<span class="part-month">Oct</span>
+<span class="part-year">2026</span></span>
+		<h2>Empowering Women to Lead</h2>
+		<p class="event-date small-text">October 15, 2026</p>
+	</a>
+</div><div class="col-xs-12 col-m-6 col-lg-4">
+	<a href="https://www.rentonwa.gov/Government/Departments-and-Offices/Community-and-Economic-Development/Economic-Development/Business/Business-Events-Calendar/October-After-Hours-Networking-Event" class="profile-list item-1 homepage-show  " >		
+		
+       <picture>
+  <source media="(min-width: 992px)" srcset="/files/assets/city/v/1/ced/economic-development/images/business-events/october-chamber-after-hours-flyer.png?dimension=homepagelisting&w=345&h=189">
+  <source media="(min-width: 768px)" srcset="/files/assets/city/v/1/ced/economic-development/images/business-events/october-chamber-after-hours-flyer.png?dimension=homepagelisting&w=345&h=189">
+  <source srcset="/files/assets/city/v/1/ced/economic-development/images/business-events/october-chamber-after-hours-flyer.png?dimension=homepagelisting&w=345&h=189">
+  <img class="large-thumbnail-image" src="/files/assets/city/v/1/ced/economic-development/images/business-events/october-chamber-after-hours-flyer.png?dimension=homepagelisting&w=345&h=189" alt=""/>
+  </picture>
+		<span class="list-item-block-date" aria-hidden="true"><span class="part-date">15</span>
+<span class="part-month">Oct</span>
+<span class="part-year">2026</span></span>
+		<h2>After-Hours Networking Event</h2>
+		<p class="event-date small-text">October 15, 2026</p>
+	</a>
+</div><div class="col-xs-12 col-m-6 col-lg-4">
+	<a href="https://www.rentonwa.gov/Events-Meetings/All-City-Events-Meetings-Calendar/CERT-Fall-Course" class="profile-list item-2 homepage-show  " >		
+		
+       <picture>
+  <source media="(min-width: 992px)" srcset="/files/assets/city/v/1/executive-services/emergency-management/images/community-emergency-response-team.png?dimension=homepagelisting&w=345&h=189">
+  <source media="(min-width: 768px)" srcset="/files/assets/city/v/1/executive-services/emergency-management/images/community-emergency-response-team.png?dimension=homepagelisting&w=345&h=189">
+  <source srcset="/files/assets/city/v/1/executive-services/emergency-management/images/community-emergency-response-team.png?dimension=homepagelisting&w=345&h=189">
+  <img class="large-thumbnail-image" src="/files/assets/city/v/1/executive-services/emergency-management/images/community-emergency-response-team.png?dimension=homepagelisting&w=345&h=189" alt=""/>
+  </picture>
+		<span class="list-item-block-date" aria-hidden="true"><span class="part-date">15</span>
+<span class="part-month">Oct</span>
+<span class="part-year">2026</span></span>
+		<h2>7-week Community Emergency Response Team Series</h2>
+		<p class="event-date small-text">October 15, 2026</p>
+	</a>
+</div></div>
+</div>
+<a href="https://www.rentonwa.gov/Events-Meetings" class="panel-button">View More Events</a></div>
+        
+        </div></div></section><section class="row-index-6"><div class="row-container full-width clearfix"><div class="row-content-container fixed-width clearfix"><script>OpenCities.Settings.AddressPickerVariables['oc-df37c232-fd76-46e9-9432-ab75e9759560'] = {"PageUrl":"https://rentonwa.prelive.opencities.com/My-area","MapId":"","AddressSource":"Google"}</script>
+<div class='address-picker-container option-1' data-object-id='oc-df37c232-fd76-46e9-9432-ab75e9759560' role='search' aria-label='Search by address'>
+<h2 class='address-picker-title'>What's around me?</h2>
+<div class='address-picker-input-controls clearfix'> <div class='address-picker-location'><label class='address-picker-location-input-label visuallyhidden' for='input_cb6991fb-1bf7-4328-ae15-02bd816c7e63'>Enter your street address</label><input type='text' id='input_cb6991fb-1bf7-4328-ae15-02bd816c7e63' class='address-picker-location-input' placeholder='Enter an address'/><input type='button' class='address-picker-my-location' value='Use my location'/></div><input type='submit' class='address-picker-submit' value='Search' /></div>
+</div>
+</div></div></section><section class="row-index-7"><div class="row-container full-width clearfix"><div class="row-content-container fixed-width clearfix">
+<div class="profile-cta-spotlight">
+<div class="grid">
+
+<div class="col-xs-12 col-m-12 col-lg-12 cta-spotlight">
+	<div class="cta-text-item">
+		<h2 class="cta-spotlight-title">Stay Up To Date</h2>
+		<p class="cta-spotlight-description">Subscribe to This Week in Renton and get the latest news, events, and information about what is happening in Renton.</p>	
+	</div>
+	<div class="cta-spotlight-link">
+		<a href="https://public.govdelivery.com/accounts/RENTONWA/subscriber/new"  target="_blank" >Sign Up Now</a>
+	</div>
+</div>
+
+
+<style>
+	.profile-cta-spotlight {
+		text-align: center;
+	}
+</style>
+</div>
+</div>
+
+
+
+</div></div></section><section class="row-index-8"><div class="row-container full-width clearfix"><div class="row-content-container fixed-width clearfix">
+<div class="ocpt-dv-container clearfix" data-total-results="3">
+<div class="grid">
+
+<div class="col-xs-12 col-s-6 col-m-4 col-lg-4 resident-data-viz">
+ 
+    
+ 
+    
+    <a href="https://www.rentonwa.gov/Home" title="Home" class="ocpt-dv-item item-0" target="_self" data-match-height="true" >
+    
+         
+        
+        <div class="top-task-homepage ">
+            <i class="item-icon data-viz-current-residents" aria-hidden="true"></i>
+        </div>
+        
+         
+        <div class="ocpt-dv-values">
+            <p class="ocpt-dv-counter">108800</p>
+             
+            <p class="ocpt-dv-title">Current Residents</p>
+            
+            
+            <p class="ocpt-dv-button">Home</p>
+            
+             
+        </div>
+         
+    
+    </a>
+    
+     
+    
+     
+</div><div class="col-xs-12 col-s-6 col-m-4 col-lg-4 parks-data-viz">
+ 
+    
+ 
+    
+    <a href="https://www.rentonwa.gov/Government/Departments-and-Offices/Parks-and-Recreation" title="Parks and Recreation" class="ocpt-dv-item item-1" target="_self" data-match-height="true" >
+    
+         
+        
+        <div class="top-task-homepage ">
+            <i class="item-icon data-viz-parks-and-venues" aria-hidden="true"></i>
+        </div>
+        
+         
+        <div class="ocpt-dv-values">
+            <p class="ocpt-dv-counter">41</p>
+             
+            <p class="ocpt-dv-title">Parks, Trails & Facilities</p>
+            
+            
+            <p class="ocpt-dv-button">Parks and Recreation</p>
+            
+             
+        </div>
+         
+    
+    </a>
+    
+     
+    
+     
+</div><div class="col-xs-12 col-s-6 col-m-4 col-lg-4 commercial-data-viz">
+ 
+    
+ 
+    
+    <a href="https://www.rentonwa.gov/Home" title="Home" class="ocpt-dv-item item-2" target="_self" data-match-height="true" >
+    
+         
+        
+        <div class="top-task-homepage custom-icon">
+            <i class="item-icon custom-icon" style="background-image:url('/files/assets/city/v/2/_homepage/data-viz/icon_tree_90x90.png');"></i>
+        </div>
+        
+         
+        <div class="ocpt-dv-values">
+            <p class="ocpt-dv-counter">116984</p>
+             
+            <p class="ocpt-dv-title">Public trees</p>
+            
+            
+            <p class="ocpt-dv-button">Home</p>
+            
+             
+        </div>
+         
+    
+    </a>
+    
+     
+    
+     
+</div>
+
+
+</div>
+</div>
+ 
+<style>
+</style>
+ 
+ 
+<script>
+ 
+$(function() {
+     
+    // SANITIZE COUNTER INPUT ---
+    $('.ocpt-dv-counter').each(function(i) {
+        var dvn = $(this).html().replace(/\b(\d.+)\b/g, '<span data-number="$1">0</span>');
+        $(this).html(dvn); 
+    });
+     
+    // COUNTER SCRIPT ---
+    var a = 0;
+    $(window).scroll(function () {
+        var oTop = $(".ocpt-dv-container").offset().top - (window.innerHeight - 150);
+        if (a == 0 && $(window).scrollTop() > oTop) {
+            $(".ocpt-dv-counter span").each(function () {
+                var $this = $(this),
+                    countTo = $this.attr("data-number");
+                $({
+                    countNum: $this.text()
+                }).animate(
+                    {
+                        countNum: countTo
+                    },
+     
+                    {
+                        duration: 3500,
+                        easing: "swing",
+                        step: function () {
+                            $this.text(
+                                Math.floor(this.countNum).toLocaleString("en")
+                            );
+                        },
+                        complete: function () {
+                            $this.text(
+                                this.countNum.toLocaleString("en")
+                            );
+                        }
+                    }
+                );
+            });
+            a = 1;
+        }
+    });
+});
+ 
+ 
+ 
+ 
+</script>
+
+
+
+</div></div></section></div><!--normalTemplateEnd-->
+                        </div>
+                        <div class="back-to-top-container text-center">
+                            <a href="#body-top" id="back-to-top"><i aria-hidden="true"></i><span class="js-visuallyhidden">Back to top</span></a>
+                        </div>
+                </div>
+            </div><!--groupTemplateEnd-->
+            <footer>
+                
+                    <div class="footer-outer-container footer-first-row">
+                        <div class="footer-container clearfix">
+                            <div class="grid grid-pad">
+                                <div class="col-xs-12 col-s-6 col-m-3 col-lg-3 footer-contact-us" >
+	
+			<h2 class="visuallyhidden">Site Footer</h2>
+			<h3 class="footer-title">Contact Us</h3>
+			
+	<p>City of Renton</p>
+<p>1055 S. Grady Way</p>
+<p>Renton, WA 98057</p>
+<p><a href="https://maps.app.goo.gl/bgvBuGCAfmJ69dwp7" target="_blank">View on Map</a></p>
+<p>P <a href="tel:4254306400">(425) 430-6400</a></p>
+
+
+	
+	
+</div><div class="col-xs-12 col-s-6 col-m-3 col-lg-3 share-connect" >
+	
+			<h2 class="visuallyhidden">Site Footer</h2>
+			<h3 class="footer-title">Share &amp; Connect</h3>
+			
+	
+	<ul class="footer-links with-icons social-media-links">  <li class="footer-link-facebook">
+	<a href="https://www.facebook.com/CityofRenton/" target="_blank"  >
+<i aria-hidden="true"></i>Like us on Facebook
+</a>
+</li>
+          <li class="footer-link-twitter">
+	<a href="https://x.com/CityofRenton" target="_blank"  >
+<i aria-hidden="true"></i>Follow us on X
+</a>
+</li>
+          <li class="footer-link-instagram">
+	<a href="https://www.instagram.com/cityofrenton/" target="_blank"  >
+<i aria-hidden="true"></i>Follow us on Instagram
+</a>
+</li>
+          <li class="footer-link-nextdoor">
+	<a href="https://nextdoor.com/agency-detail/wa/renton/city-of-renton/" target="_blank"  >
+<i aria-hidden="true"></i>Follow us on Nextdoor
+</a>
+</li>
+          <li class="footer-link-youtube">
+	<a href="https://www.youtube.com/channel/UCuYPL89Peh3oH_TIGWtzbvg/videos" target="_blank"  >
+<i aria-hidden="true"></i>Watch us on YouTube
+</a>
+</li>
+          <li class="footer-link-linkedin">
+	<a href="https://www.linkedin.com/company/city-of-renton" target="_blank"  >
+<i aria-hidden="true"></i>Follow us on LinkedIn
+</a>
+</li>
+           </ul>
+	
+</div><div class="col-xs-12 col-s-6 col-m-3 col-lg-3 get-involved" >
+	
+			<h2 class="visuallyhidden">Site Footer</h2>
+			<h3 class="footer-title">Get Involved</h3>
+			
+	
+	<ul class="footer-links without-icons ">  <li>
+<a href="https://rentonwa.prelive.opencities.com/Government/Boards-Committees-Commissions/BoardsCommissionsCommittees-Application" target="_self"  >Boards and Commissions</a>
+</li>
+          <li>
+<a href="https://rentonwa.prelive.opencities.com/Government/Departments-and-Offices/Human-Resources-and-Risk-Management/Career-Center" target="_self"  >Careers</a>
+</li>
+          <li>
+<a href="https://rentonwa.prelive.opencities.com/Activities-Events/Volunteer" target="_self"  >Volunteering</a>
+</li>
+          <li>
+<a href="https://yourvoice.rentonwa.gov/" target="_blank"  >Stay Connected</a>
+</li>
+           </ul>
+	
+</div><div class="col-xs-12 col-s-6 col-m-3 col-lg-3 quick-links-widget" >
+	
+			<h2 class="visuallyhidden">Site Footer</h2>
+			<h3 class="footer-title">Quick Links</h3>
+			
+	
+	<ul class="footer-links without-icons ">  <li>
+<a href="https://www.rentonwa.gov/Government/Departments-and-Offices/Community-and-Economic-Development/Economic-Development/City-Demographics" target="_self"  >City demographics</a>
+</li>
+          <li>
+<a href="https://rentonwa.prelive.opencities.com/Government/Departments-and-Offices/Finance/Online-Payments" target="_self"  >Make a payment</a>
+</li>
+          <li>
+<a href="https://www.rentonwa.gov/photolibrary" target="_blank"  >City of Renton Photo Library</a>
+</li>
+          <li>
+<a href="https://rentonwa.prelive.opencities.com/City-Services/Report-an-Issue" target="_self"  >Report an issue</a>
+</li>
+          <li>
+<a href="https://www.rentonwa.gov/Events-Meetings" target="_self"  >Upcoming events</a>
+</li>
+          <li>
+<a href="https://visitrentonwa.com/" target="_blank"  >Visit Renton</a>
+</li>
+           </ul>
+	
+</div>
+                            </div>
+                        </div>
+                    </div>
+                
+                <div class="footer-outer-container footer-second-row">
+                    <div class="footer-container clearfix">
+                        <div class="grid grid-pad footer-secondary-links">
+                            <div class="col-xs-12 col-m-7">
+                                
+                                    <div><a href="https://www.rentonwa.gov/Site-Footer/Sub-Footer-Links/Internet-Policies" target="_self"  >Disclaimer & Copyright</a>&nbsp;| <a href="https://www.rentonwa.gov/Government/Departments-and-Offices/Human-Resources-and-Risk-Management/Accessibility" target="_self"  >Accessibility</a>&nbsp;| </div>
+                                
+                            </div>
+                            <div class="col-xs-12 col-m-5 powered-by">
+                                <div class="right">
+                                    &copy; 2026 City of Renton&nbsp;|&nbsp;<span class="powered-by">Powered by <a href="https://granicus.com/solution/govaccess/opencities/" target="_blank">Granicus</a></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </footer>
+        </div>
+    </div>
+
+    <script src="/files/oc-resources/0138abea-210d-440c-9ad4-a0e7ae373576/JsTextSnippets.js?ocsvclang=en-US" type="text/javascript"></script><script></script>
+    
+    
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-6FVG06LKFJ"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-6FVG06LKFJ');
+</script>
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-PGF9FSL');</script>
+<!-- End Google Tag Manager -->
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PGF9FSL"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+    
+    
+
+<script type="text/javascript">
+//<![CDATA[
+window.__TsmHiddenField = $get('ctl04_seamless_script_manager_TSM');//]]>
+</script>
+</form>
+</body>
+</html>

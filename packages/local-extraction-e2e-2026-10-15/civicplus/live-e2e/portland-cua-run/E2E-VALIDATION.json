@@ -1,0 +1,239 @@
+{
+  "jurisdiction": "portland-me",
+  "runtime": "cua-files",
+  "started_at": "2026-10-15T18:49:23.679760+00:00",
+  "commands": [
+    {
+      "argv": [
+        "/tmp/complisolv-civicplus-venv/bin/python",
+        "/Users/oliverflint/My Drive/Claude/Projects/CompliSolv 2.00/outputs/local-extraction-e2e-2026-10-15/civicplus/civicplus.py",
+        "discover",
+        "--jurisdiction",
+        "portland-me",
+        "--out",
+        "/Users/oliverflint/My Drive/Claude/Projects/CompliSolv 2.00/outputs/local-extraction-e2e-2026-10-15/civicplus/live-e2e/portland-cua-run/package",
+        "--index-html",
+        "/Users/oliverflint/My Drive/Claude/Projects/CompliSolv 2.00/outputs/local-extraction-e2e-2026-10-15/civicplus/live-e2e/portland-cua-capture/index.html",
+        "--transport",
+        "supported_cua_chrome",
+        "--retrieved-at",
+        "2026-10-15T18:49:16.932Z",
+        "--rendered-html",
+        "/Users/oliverflint/My Drive/Claude/Projects/CompliSolv 2.00/outputs/local-extraction-e2e-2026-10-15/civicplus/live-e2e/portland-cua-capture/widget.html"
+      ],
+      "cwd": "/Users/oliverflint/My Drive/Claude/Projects/CompliSolv 2.00/outputs/local-extraction-e2e-2026-10-15/civicplus",
+      "started_at": "2026-10-15T18:49:23.723924+00:00",
+      "finished_at": "2026-10-15T18:49:24.121107+00:00",
+      "exit_code": 0,
+      "stdout": "{\"inventory_documents\": 44, \"unresolved_labels\": 0, \"out\": \"/Users/oliverflint/My Drive/Claude/Projects/CompliSolv 2.00/outputs/local-extraction-e2e-2026-10-15/civicplus/live-e2e/portland-cua-run/package\"}\n",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "/tmp/complisolv-civicplus-venv/bin/python",
+        "/Users/oliverflint/My Drive/Claude/Projects/CompliSolv 2.00/outputs/local-extraction-e2e-2026-10-15/civicplus/civicplus.py",
+        "acquire",
+        "--package",
+        "/Users/oliverflint/My Drive/Claude/Projects/CompliSolv 2.00/outputs/local-extraction-e2e-2026-10-15/civicplus/live-e2e/portland-cua-run/package",
+        "--id",
+        "b4305bca-b7ef-4d12-b84f-5554626b4b81"
+      ],
+      "cwd": "/Users/oliverflint/My Drive/Claude/Projects/CompliSolv 2.00/outputs/local-extraction-e2e-2026-10-15/civicplus",
+      "started_at": "2026-10-15T18:49:24.121420+00:00",
+      "finished_at": "2026-10-15T18:49:25.085731+00:00",
+      "exit_code": 0,
+      "stdout": "{\"acquired_documents\": 1}\n",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "/tmp/complisolv-civicplus-venv/bin/python",
+        "/Users/oliverflint/My Drive/Claude/Projects/CompliSolv 2.00/outputs/local-extraction-e2e-2026-10-15/civicplus/civicplus.py",
+        "parse",
+        "--package",
+        "/Users/oliverflint/My Drive/Claude/Projects/CompliSolv 2.00/outputs/local-extraction-e2e-2026-10-15/civicplus/live-e2e/portland-cua-run/package"
+      ],
+      "cwd": "/Users/oliverflint/My Drive/Claude/Projects/CompliSolv 2.00/outputs/local-extraction-e2e-2026-10-15/civicplus",
+      "started_at": "2026-10-15T18:49:25.086386+00:00",
+      "finished_at": "2026-10-15T18:49:28.566297+00:00",
+      "exit_code": 0,
+      "stdout": "{\"status\": \"bounded_pilot_requires_review\", \"record_count\": 13, \"inventory_documents\": 44, \"acquired_documents\": 1, \"unresolved_exception_count\": 10}\n",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "/tmp/complisolv-civicplus-venv/bin/python",
+        "/Users/oliverflint/My Drive/Claude/Projects/CompliSolv 2.00/outputs/local-extraction-e2e-2026-10-15/civicplus/civicplus.py",
+        "verify",
+        "--package",
+        "/Users/oliverflint/My Drive/Claude/Projects/CompliSolv 2.00/outputs/local-extraction-e2e-2026-10-15/civicplus/live-e2e/portland-cua-run/package"
+      ],
+      "cwd": "/Users/oliverflint/My Drive/Claude/Projects/CompliSolv 2.00/outputs/local-extraction-e2e-2026-10-15/civicplus",
+      "started_at": "2026-10-15T18:49:28.569180+00:00",
+      "finished_at": "2026-10-15T18:49:28.718963+00:00",
+      "exit_code": 0,
+      "stdout": "{\"integrity_passed\": true, \"errors\": [], \"corpus_complete\": false, \"status\": \"bounded pilot, manual review outstanding\"}\n",
+      "stderr": ""
+    }
+  ],
+  "environment": {
+    "python_executable": "/tmp/complisolv-civicplus-venv/bin/python",
+    "python_version": "3.12.14",
+    "platform": "macOS-26.6.2-arm64-arm-64bit",
+    "requests_ca_bundle": null,
+    "tls_checks_disabled": false
+  },
+  "code_hashes": {
+    "civicplus.py": "ed99cba8a0a4fff084e58b57f9fdbc0507186daa6dfa9f4d123f0c57fc03e145",
+    "run_live.py": "b0bdc62a12ff1924f3d78bcb0eb44ada8e05de13776da4e71b444be5681f0fa1",
+    "capture_browser.py": "41c0310a66825c7c95761c12d20c79b2a8ec1e39759ac8ceb6351948d894a441",
+    "capture_cua.mjs": "c5757d8f182274afac0765fb96ef608a0101a7b31db36f5821b2782807795b79"
+  },
+  "selected_ids": [
+    "b4305bca-b7ef-4d12-b84f-5554626b4b81"
+  ],
+  "corpus_complete": false,
+  "browser_capture_receipt": {
+    "runtime": "supported_cua_chrome",
+    "requested_url": "https://portlandmaine.gov/city-code",
+    "started_at": "2026-10-15T18:49:15.070Z",
+    "finished_at": "2026-10-15T18:49:16.932Z",
+    "result": "captured",
+    "source_kind": "Observed rendered widget plus its page DOM configuration script, not HTTP response bytes",
+    "http_status": null,
+    "response_headers_available": false,
+    "files": {
+      "index.html": "66307f853b586aa4ff2d160e09955dee1cd0f17e4b832415e8450b11efffecc0",
+      "widget.html": "e6dc0dd3df44eef0532d13ec6d0e8c272c8452660f9be7ce6cbb838a3cb00c2a"
+    }
+  },
+  "browser_capture_path": "/Users/oliverflint/My Drive/Claude/Projects/CompliSolv 2.00/outputs/local-extraction-e2e-2026-10-15/civicplus/live-e2e/portland-cua-capture",
+  "live_acquisition_status": "passed_bounded",
+  "validation": {
+    "status": "bounded_pilot_requires_review",
+    "corpus_complete": false,
+    "inventory_documents": 44,
+    "acquired_documents": 1,
+    "unacquired_documents": 43,
+    "record_count": 13,
+    "source_node_count": 110,
+    "disposition_count": 110,
+    "documents": [
+      {
+        "document_id": "b4305bca-b7ef-4d12-b84f-5554626b4b81",
+        "publication_id": "municipal-code",
+        "profile": "portland",
+        "pages": 53,
+        "records": 13,
+        "printed_toc_entries": 0,
+        "review_conditions": [
+          {
+            "page": 36,
+            "condition": "table_semantics_and_cross_page_review",
+            "disposition": "unresolved",
+            "required_action": "Compare cell coordinates and fixed-spacing cell text to source; reconcile continued table headers across pages."
+          },
+          {
+            "page": 37,
+            "condition": "table_semantics_and_cross_page_review",
+            "disposition": "unresolved",
+            "required_action": "Compare cell coordinates and fixed-spacing cell text to source; reconcile continued table headers across pages."
+          },
+          {
+            "page": 38,
+            "condition": "table_semantics_and_cross_page_review",
+            "disposition": "unresolved",
+            "required_action": "Compare cell coordinates and fixed-spacing cell text to source; reconcile continued table headers across pages."
+          },
+          {
+            "page": 39,
+            "condition": "table_semantics_and_cross_page_review",
+            "disposition": "unresolved",
+            "required_action": "Compare cell coordinates and fixed-spacing cell text to source; reconcile continued table headers across pages."
+          },
+          {
+            "page": 40,
+            "condition": "table_semantics_and_cross_page_review",
+            "disposition": "unresolved",
+            "required_action": "Compare cell coordinates and fixed-spacing cell text to source; reconcile continued table headers across pages."
+          },
+          {
+            "page": 41,
+            "condition": "table_semantics_and_cross_page_review",
+            "disposition": "unresolved",
+            "required_action": "Compare cell coordinates and fixed-spacing cell text to source; reconcile continued table headers across pages."
+          },
+          {
+            "page": 42,
+            "condition": "table_semantics_and_cross_page_review",
+            "disposition": "unresolved",
+            "required_action": "Compare cell coordinates and fixed-spacing cell text to source; reconcile continued table headers across pages."
+          },
+          {
+            "page": 43,
+            "condition": "table_semantics_and_cross_page_review",
+            "disposition": "unresolved",
+            "required_action": "Compare cell coordinates and fixed-spacing cell text to source; reconcile continued table headers across pages."
+          },
+          {
+            "page": 48,
+            "condition": "mixed_text_image",
+            "disposition": "unresolved",
+            "required_action": "Render source page and review/transcribe affected content with evidence; OCR is never silently assumed complete."
+          },
+          {
+            "condition": "unnumbered_body_classification_review",
+            "node_id": "b4305bca-b7ef-4d12-b84f-5554626b4b81:p1:y142.808:n0",
+            "disposition": "unresolved"
+          }
+        ],
+        "native_text_only": false,
+        "sha256": "3636e539560c461b586bfe612bdf8cd4936277ba96e3f482ab6690bb8f0ba712"
+      }
+    ],
+    "unresolved_exception_count": 10,
+    "snapshot_id": "b4a508902afaf8b5ef30694d1159474817811f39ae04328f500461908b5538f2",
+    "limits": [
+      "Full jurisdiction collection was not run.",
+      "Heading and page ledger are not an independently verified full legal-node inventory.",
+      "OCR is not performed; mixed/image pages remain unresolved.",
+      "Table fragments crossing pages require source review before a corpus can be accepted.",
+      "Unnumbered introductory text is retained and requires operative/editorial classification.",
+      "No global legal current-through date was inferred."
+    ]
+  },
+  "input_hashes": {
+    "package/raw/66307f853b586aa4ff2d160e09955dee1cd0f17e4b832415e8450b11efffecc0.index.html": "66307f853b586aa4ff2d160e09955dee1cd0f17e4b832415e8450b11efffecc0",
+    "package/raw/66307f853b586aa4ff2d160e09955dee1cd0f17e4b832415e8450b11efffecc0.index.html.receipt.json": "6e7f230f5a0aa8d1de3fa7c1df290081f353effc2bde1d5ff3c525f45f605a8d",
+    "package/raw/cbfe6b6d6378f9cccccdfb2d9537e66c7bc4f12881871e92fee4746cfad4f92b.pdf": "3636e539560c461b586bfe612bdf8cd4936277ba96e3f482ab6690bb8f0ba712",
+    "package/raw/cbfe6b6d6378f9cccccdfb2d9537e66c7bc4f12881871e92fee4746cfad4f92b.response.json": "2bf215f715db958e5ea812c455596a271a1a41209673fc80480609c2f4e28e6e",
+    "package/raw/e6dc0dd3df44eef0532d13ec6d0e8c272c8452660f9be7ce6cbb838a3cb00c2a.rendered.html": "e6dc0dd3df44eef0532d13ec6d0e8c272c8452660f9be7ce6cbb838a3cb00c2a"
+  },
+  "output_hashes": {
+    "package/acquisition.json": "96203776dc89b30fb1885193f5393e34fb48691e7fdc03ed152b6ba64f20b9a1",
+    "package/aggregate-fulltext.csv": "7006ed72cc78506b77676adf787bb02b253b7a47680e3c51c6d1b38827a90086",
+    "package/aggregate-fulltext.json": "d44a6c46a8fbfb9ba18faf7e2f5f528d590822179ab472fff9701170de19efde",
+    "package/aggregate-toc.csv": "adef685489b2d2fcc527bdc5249a0399196509ef1092d6256d94ba9784b49cf6",
+    "package/aggregate-toc.json": "de6a219e47c0487e7e32b2431b7a9895c8efc9cc6336cebbb99f7fb3f4951c28",
+    "package/exceptions.jsonl": "b30e29218f7c792aa353335a484664e8fb7501362896689b211d03b85bac4179",
+    "package/inventory.json": "4cf966ba04debe7641df99dc3582fc8b0534ead4d14d63f409346d1d0e977cb8",
+    "package/layout/b4305bca-b7ef-4d12-b84f-5554626b4b81/blocks.jsonl": "6c9b386f52dd9cdbb3d2c03a9b55b7d114e873dc5ffd9e4fb977b6fc9b667a92",
+    "package/layout/b4305bca-b7ef-4d12-b84f-5554626b4b81/pages.json": "a0725eb874e28e2710ed8c9d78f4ba5d1e53df0fc138e506c5ca56f4e032f775",
+    "package/layout/b4305bca-b7ef-4d12-b84f-5554626b4b81/printed-toc.json": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570",
+    "package/node-dispositions.jsonl": "f19105bdbb9972746f943dd7c1d01f3fbebd51ce428dbf41ecd5957b11e91bd7",
+    "package/publications/charter/fulltext.csv": "730014d29307897c8a9127f5ba5ab7755edd5dea8253121ba20e83ddf79957b7",
+    "package/publications/charter/fulltext.json": "435a528c5841dff93fd3a80f3db36024e11205246813500b76b48bc069ed2161",
+    "package/publications/charter/toc.csv": "730014d29307897c8a9127f5ba5ab7755edd5dea8253121ba20e83ddf79957b7",
+    "package/publications/charter/toc.json": "435a528c5841dff93fd3a80f3db36024e11205246813500b76b48bc069ed2161",
+    "package/publications/municipal-code/fulltext.csv": "7006ed72cc78506b77676adf787bb02b253b7a47680e3c51c6d1b38827a90086",
+    "package/publications/municipal-code/fulltext.json": "d44a6c46a8fbfb9ba18faf7e2f5f528d590822179ab472fff9701170de19efde",
+    "package/publications/municipal-code/toc.csv": "adef685489b2d2fcc527bdc5249a0399196509ef1092d6256d94ba9784b49cf6",
+    "package/publications/municipal-code/toc.json": "de6a219e47c0487e7e32b2431b7a9895c8efc9cc6336cebbb99f7fb3f4951c28",
+    "package/publications.json": "4df9cb8255f1cb067c40c4d80fb5bdfeea734b9b3e98845e2571fbc75833f46d",
+    "package/record-provenance.jsonl": "16001432a20641dd33d85eafcb75c53447be81f1eced99d90d50e09b71086cb3",
+    "package/run-manifest.json": "207b52bc2cbbf61fce9b5f2b8832492975048bab5a929d6d830135dd09dc0d13",
+    "package/source-nodes.jsonl": "182d744e39f0a13e2cc521343242459c675bbe08632c9f78246580d424002edf",
+    "package/validation-report.json": "2d8666af5643ab92128f876a1463605abc5f85c4f78d36326db032e3e983dab8"
+  },
+  "finished_at": "2026-10-15T18:49:28.723919+00:00"
+}

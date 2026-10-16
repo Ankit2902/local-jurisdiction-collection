@@ -1,0 +1,462 @@
+{
+  "phase": 2,
+  "generated_at": "2026-10-15T19:00:53.146774+00:00",
+  "status": "fresh_bounded_live_acquisition_and_verified_exports_pass",
+  "corpus_complete": false,
+  "semantic_complete": false,
+  "live_runs": [
+    {
+      "run": "final-rockland-http-v2",
+      "report_path": "live-e2e/final-rockland-http-v2/E2E-VALIDATION.json",
+      "report_sha256": "99a91cc461cf605b2748be05aea424ed8a659c7b3c7e1668c3c2222eeee9e432",
+      "live_status": "passed_bounded",
+      "runtime": "http",
+      "jurisdiction": "rockland-me",
+      "started_at": "2026-10-15T18:58:33.389172+00:00",
+      "finished_at": "2026-10-15T18:59:09.648534+00:00",
+      "environment": {
+        "python_executable": "/tmp/complisolv-civicplus-venv/bin/python",
+        "python_version": "3.12.14",
+        "platform": "macOS-26.6.2-arm64-arm-64bit",
+        "requests_ca_bundle": null,
+        "tls_checks_disabled": false,
+        "requests_version": "2.34.2",
+        "pdfplumber_version": "0.11.9",
+        "beautifulsoup4_version": "4.15.0",
+        "json5_version": "0.17.3",
+        "playwright_version": "1.64.0"
+      },
+      "inventory_recheck": {
+        "method": "fresh official index/capture after acquisition and parse",
+        "coherent": true,
+        "initial_raw_sha256": "456c971edba430976d8329cfdfc8d25c780785a5bb08f109e7529e4d54fb71f7",
+        "final_raw_sha256": "456c971edba430976d8329cfdfc8d25c780785a5bb08f109e7529e4d54fb71f7",
+        "initial_documents": 21,
+        "final_documents": 21,
+        "legal_currency_note": "Observed labels/revision markers compared; legal current-through remains unknown."
+      },
+      "parse_integrity_status": "PASS",
+      "semantic_completion_status": "requires_review",
+      "records": 92,
+      "unresolved_exceptions": 28,
+      "commands": [
+        {
+          "argv": [
+            "/tmp/complisolv-civicplus-venv/bin/python",
+            "/Users/oliverflint/My Drive/Claude/Projects/CompliSolv 2.00/outputs/local-extraction-e2e-2026-10-15/civicplus/civicplus.py",
+            "discover",
+            "--jurisdiction",
+            "rockland-me",
+            "--out",
+            "/Users/oliverflint/My Drive/Claude/Projects/CompliSolv 2.00/outputs/local-extraction-e2e-2026-10-15/civicplus/live-e2e/final-rockland-http-v2/package"
+          ],
+          "cwd": "/Users/oliverflint/My Drive/Claude/Projects/CompliSolv 2.00/outputs/local-extraction-e2e-2026-10-15/civicplus",
+          "started_at": "2026-10-15T18:58:33.416185+00:00",
+          "finished_at": "2026-10-15T18:58:34.837089+00:00",
+          "exit_code": 0,
+          "stdout": "{\"inventory_documents\": 21, \"unresolved_labels\": 0, \"out\": \"/Users/oliverflint/My Drive/Claude/Projects/CompliSolv 2.00/outputs/local-extraction-e2e-2026-10-15/civicplus/live-e2e/final-rockland-http-v2/package\"}\n",
+          "stderr": ""
+        },
+        {
+          "argv": [
+            "/tmp/complisolv-civicplus-venv/bin/python",
+            "/Users/oliverflint/My Drive/Claude/Projects/CompliSolv 2.00/outputs/local-extraction-e2e-2026-10-15/civicplus/civicplus.py",
+            "acquire",
+            "--package",
+            "/Users/oliverflint/My Drive/Claude/Projects/CompliSolv 2.00/outputs/local-extraction-e2e-2026-10-15/civicplus/live-e2e/final-rockland-http-v2/package",
+            "--id",
+            "document-621",
+            "--id",
+            "document-620"
+          ],
+          "cwd": "/Users/oliverflint/My Drive/Claude/Projects/CompliSolv 2.00/outputs/local-extraction-e2e-2026-10-15/civicplus",
+          "started_at": "2026-10-15T18:58:34.837550+00:00",
+          "finished_at": "2026-10-15T18:58:37.062995+00:00",
+          "exit_code": 0,
+          "stdout": "{\"acquired_documents\": 2}\n",
+          "stderr": ""
+        },
+        {
+          "argv": [
+            "/tmp/complisolv-civicplus-venv/bin/python",
+            "/Users/oliverflint/My Drive/Claude/Projects/CompliSolv 2.00/outputs/local-extraction-e2e-2026-10-15/civicplus/civicplus.py",
+            "parse",
+            "--package",
+            "/Users/oliverflint/My Drive/Claude/Projects/CompliSolv 2.00/outputs/local-extraction-e2e-2026-10-15/civicplus/live-e2e/final-rockland-http-v2/package"
+          ],
+          "cwd": "/Users/oliverflint/My Drive/Claude/Projects/CompliSolv 2.00/outputs/local-extraction-e2e-2026-10-15/civicplus",
+          "started_at": "2026-10-15T18:58:37.064247+00:00",
+          "finished_at": "2026-10-15T18:59:07.324972+00:00",
+          "exit_code": 0,
+          "stdout": "{\"status\": \"bounded_pilot_requires_review\", \"record_count\": 92, \"inventory_documents\": 21, \"acquired_documents\": 2, \"unresolved_exception_count\": 28}\n",
+          "stderr": ""
+        },
+        {
+          "argv": [
+            "/tmp/complisolv-civicplus-venv/bin/python",
+            "/Users/oliverflint/My Drive/Claude/Projects/CompliSolv 2.00/outputs/local-extraction-e2e-2026-10-15/civicplus/civicplus.py",
+            "verify",
+            "--package",
+            "/Users/oliverflint/My Drive/Claude/Projects/CompliSolv 2.00/outputs/local-extraction-e2e-2026-10-15/civicplus/live-e2e/final-rockland-http-v2/package"
+          ],
+          "cwd": "/Users/oliverflint/My Drive/Claude/Projects/CompliSolv 2.00/outputs/local-extraction-e2e-2026-10-15/civicplus",
+          "started_at": "2026-10-15T18:59:07.331324+00:00",
+          "finished_at": "2026-10-15T18:59:07.843650+00:00",
+          "exit_code": 0,
+          "stdout": "{\"integrity_passed\": true, \"errors\": [], \"corpus_complete\": false, \"status\": \"bounded pilot, manual review outstanding\"}\n",
+          "stderr": ""
+        },
+        {
+          "argv": [
+            "/tmp/complisolv-civicplus-venv/bin/python",
+            "/Users/oliverflint/My Drive/Claude/Projects/CompliSolv 2.00/outputs/local-extraction-e2e-2026-10-15/civicplus/civicplus.py",
+            "discover",
+            "--jurisdiction",
+            "rockland-me",
+            "--out",
+            "/Users/oliverflint/My Drive/Claude/Projects/CompliSolv 2.00/outputs/local-extraction-e2e-2026-10-15/civicplus/live-e2e/final-rockland-http-v2/final-inventory"
+          ],
+          "cwd": "/Users/oliverflint/My Drive/Claude/Projects/CompliSolv 2.00/outputs/local-extraction-e2e-2026-10-15/civicplus",
+          "started_at": "2026-10-15T18:59:07.844966+00:00",
+          "finished_at": "2026-10-15T18:59:09.478490+00:00",
+          "exit_code": 0,
+          "stdout": "{\"inventory_documents\": 21, \"unresolved_labels\": 0, \"out\": \"/Users/oliverflint/My Drive/Claude/Projects/CompliSolv 2.00/outputs/local-extraction-e2e-2026-10-15/civicplus/live-e2e/final-rockland-http-v2/final-inventory\"}\n",
+          "stderr": ""
+        }
+      ]
+    },
+    {
+      "run": "final-portland-playwright-v2",
+      "report_path": "live-e2e/final-portland-playwright-v2/E2E-VALIDATION.json",
+      "report_sha256": "8263a67b44ed6d341eb40a5aa8cca17cced839f9f5296723003b460eeec98389",
+      "live_status": "passed_bounded",
+      "runtime": "playwright",
+      "jurisdiction": "portland-me",
+      "started_at": "2026-10-15T18:58:34.405418+00:00",
+      "finished_at": "2026-10-15T18:59:13.999591+00:00",
+      "environment": {
+        "python_executable": "/tmp/complisolv-civicplus-venv/bin/python",
+        "python_version": "3.12.14",
+        "platform": "macOS-26.6.2-arm64-arm-64bit",
+        "requests_ca_bundle": null,
+        "tls_checks_disabled": false,
+        "requests_version": "2.34.2",
+        "pdfplumber_version": "0.11.9",
+        "beautifulsoup4_version": "4.15.0",
+        "json5_version": "0.17.3",
+        "playwright_version": "1.64.0"
+      },
+      "inventory_recheck": {
+        "method": "fresh official index/capture after acquisition and parse",
+        "coherent": true,
+        "initial_raw_sha256": "92bdce6ca17f3ca11583ebb506b4a9db447a1aa49e13a723a2bea65fcfe04bf5",
+        "final_raw_sha256": "92bdce6ca17f3ca11583ebb506b4a9db447a1aa49e13a723a2bea65fcfe04bf5",
+        "initial_documents": 44,
+        "final_documents": 44,
+        "legal_currency_note": "Observed labels/revision markers compared; legal current-through remains unknown."
+      },
+      "parse_integrity_status": "PASS",
+      "semantic_completion_status": "requires_review",
+      "records": 13,
+      "unresolved_exceptions": 10,
+      "commands": [
+        {
+          "argv": [
+            "/tmp/complisolv-civicplus-venv/bin/python",
+            "/Users/oliverflint/My Drive/Claude/Projects/CompliSolv 2.00/outputs/local-extraction-e2e-2026-10-15/civicplus/capture_browser.py",
+            "--jurisdiction",
+            "portland-me",
+            "--out",
+            "/Users/oliverflint/My Drive/Claude/Projects/CompliSolv 2.00/outputs/local-extraction-e2e-2026-10-15/civicplus/live-e2e/final-portland-playwright-v2/capture",
+            "--channel",
+            "chrome"
+          ],
+          "cwd": "/Users/oliverflint/My Drive/Claude/Projects/CompliSolv 2.00/outputs/local-extraction-e2e-2026-10-15/civicplus",
+          "started_at": "2026-10-15T18:58:34.460647+00:00",
+          "finished_at": "2026-10-15T18:58:54.598206+00:00",
+          "exit_code": 0,
+          "stdout": "{\"started_at\": \"2026-10-15T18:58:34.646212+00:00\", \"runtime\": \"standalone_playwright\", \"jurisdiction\": \"portland-me\", \"requested_url\": \"https://portlandmaine.gov/city-code\", \"ignore_https_errors\": false, \"files\": {\"index.html\": \"92bdce6ca17f3ca11583ebb506b4a9db447a1aa49e13a723a2bea65fcfe04bf5\", \"widget.html\": \"781d2aaf788ed71fb01e972f23d534196c40c7b752fefe38a5c273a6b74b4af9\"}, \"browser_executable\": \"/Applications/Google Chrome.app/Contents/MacOS/Google Chrome\", \"browser_channel\": \"chrome\", \"playwright_version\": \"1.64.0\", \"browser_version\": \"155.0.8059.41\", \"status\": 200, \"final_url\": \"https://portlandmaine.gov/city-code\", \"headers\": {\"cache-control\": \"public, must-revalidate, proxy-revalidate, max-age=1, s-maxage=255, stale-if-error\", \"cloudflare-cdn-cache-control\": \"public, s-maxage=255, stale-while-revalidate=60, stale-if-error=3600\", \"content-encoding\": \"br\", \"content-security-policy-report-only\": \"default-src * 'self'; style-src * 'self' 'unsafe-inline'; img-src * 'self' data: blob:; script-src * 'self' about: 'unsafe-inline' 'unsafe-eval' data:; worker-src * 'self' data: blob: 'unsafe-eval' 'unsafe-inline'; frame-src * 'self'; media-src 'self' blob: *; font-src * 'self' data:; upgrade-insecure-requests; form-action 'self'; frame-ancestors 'self';report-uri /contentsecuritypolicy/report\", \"content-type\": \"text/html; charset=utf-8\", \"date\": \"Thu, 15 Oct 2026 18:58:45 GMT\", \"link\": \"<https://content.civicplus.com>; nopush; rel=preconnect, <https://engage6-api.civicplus.pro>; nopush; rel=preconnect, <https://fonts.googleapis.com>; nopush; rel=preconnect, </Assets/Mystique/Shared/Scripts/webfontloader/webfont.1.5.18.min.js?v=1518>; as=script; nopush; rel=preload, <https://cdn-live.evolve.civicplus.io>; nopush; rel=preconnect, <https://cdn-live.evolve.civicplus.io/build/assets/index-CiOfClup.js>; as=script; nopush; crossorigin; rel=preload, <https://content.civicplus.com/api/assets/16cd9d59-6db0-4727-82ea-e69007e799b4?cache=1800>; as=image; nopush; rel=preload, <https://content.civicplus.com/api/assets/21c5c7a0-d41b-45d1-a1db-4a1771304786?cache=1800>; as=image; nopush; rel=preload, <https://content.civicplus.com/api/assets/a81dcbb6-7471-4dda-9950-b17192619e17?cache=1800>; as=image; nopush; rel=preload\", \"permissions-policy\": \"camera=(), geolocation=(), microphone=(), usb=(), fullscreen=(self)\", \"referrer-policy\": \"strict-origin-when-cross-origin\", \"request-context\": \"appId=cid-v1:cd12a649-6132-4c93-8c7b-649841af9773\", \"served-by\": \"engage6-cms-6995bd8fd4-vq6mz\", \"server\": \"evolve\", \"strict-transport-security\": \"max-age=31536000; includeSubDomains\", \"vary\": \"Accept-Encoding\", \"x-authenticated\": \"false\", \"x-cache-status\": \"HIT\", \"x-content-type-options\": \"nosniff\", \"x-edge\": \"1\", \"x-frame-options\": \"SAMEORIGIN\"}, \"finished_at\": \"2026-10-15T18:58:47.987407+00:00\", \"result\": \"captured\"}\n",
+          "stderr": ""
+        },
+        {
+          "argv": [
+            "/tmp/complisolv-civicplus-venv/bin/python",
+            "/Users/oliverflint/My Drive/Claude/Projects/CompliSolv 2.00/outputs/local-extraction-e2e-2026-10-15/civicplus/civicplus.py",
+            "discover",
+            "--jurisdiction",
+            "portland-me",
+            "--out",
+            "/Users/oliverflint/My Drive/Claude/Projects/CompliSolv 2.00/outputs/local-extraction-e2e-2026-10-15/civicplus/live-e2e/final-portland-playwright-v2/package",
+            "--index-html",
+            "/Users/oliverflint/My Drive/Claude/Projects/CompliSolv 2.00/outputs/local-extraction-e2e-2026-10-15/civicplus/live-e2e/final-portland-playwright-v2/capture/index.html",
+            "--transport",
+            "standalone_playwright",
+            "--retrieved-at",
+            "2026-10-15T18:58:47.987407+00:00",
+            "--rendered-html",
+            "/Users/oliverflint/My Drive/Claude/Projects/CompliSolv 2.00/outputs/local-extraction-e2e-2026-10-15/civicplus/live-e2e/final-portland-playwright-v2/capture/widget.html"
+          ],
+          "cwd": "/Users/oliverflint/My Drive/Claude/Projects/CompliSolv 2.00/outputs/local-extraction-e2e-2026-10-15/civicplus",
+          "started_at": "2026-10-15T18:58:54.605909+00:00",
+          "finished_at": "2026-10-15T18:58:56.091674+00:00",
+          "exit_code": 0,
+          "stdout": "{\"inventory_documents\": 44, \"unresolved_labels\": 0, \"out\": \"/Users/oliverflint/My Drive/Claude/Projects/CompliSolv 2.00/outputs/local-extraction-e2e-2026-10-15/civicplus/live-e2e/final-portland-playwright-v2/package\"}\n",
+          "stderr": ""
+        },
+        {
+          "argv": [
+            "/tmp/complisolv-civicplus-venv/bin/python",
+            "/Users/oliverflint/My Drive/Claude/Projects/CompliSolv 2.00/outputs/local-extraction-e2e-2026-10-15/civicplus/civicplus.py",
+            "acquire",
+            "--package",
+            "/Users/oliverflint/My Drive/Claude/Projects/CompliSolv 2.00/outputs/local-extraction-e2e-2026-10-15/civicplus/live-e2e/final-portland-playwright-v2/package",
+            "--id",
+            "b4305bca-b7ef-4d12-b84f-5554626b4b81"
+          ],
+          "cwd": "/Users/oliverflint/My Drive/Claude/Projects/CompliSolv 2.00/outputs/local-extraction-e2e-2026-10-15/civicplus",
+          "started_at": "2026-10-15T18:58:56.092800+00:00",
+          "finished_at": "2026-10-15T18:58:57.624635+00:00",
+          "exit_code": 0,
+          "stdout": "{\"acquired_documents\": 1}\n",
+          "stderr": ""
+        },
+        {
+          "argv": [
+            "/tmp/complisolv-civicplus-venv/bin/python",
+            "/Users/oliverflint/My Drive/Claude/Projects/CompliSolv 2.00/outputs/local-extraction-e2e-2026-10-15/civicplus/civicplus.py",
+            "parse",
+            "--package",
+            "/Users/oliverflint/My Drive/Claude/Projects/CompliSolv 2.00/outputs/local-extraction-e2e-2026-10-15/civicplus/live-e2e/final-portland-playwright-v2/package",
+            "--review-file",
+            "/Users/oliverflint/My Drive/Claude/Projects/CompliSolv 2.00/outputs/local-extraction-e2e-2026-10-15/civicplus/reviewed-recoveries.json"
+          ],
+          "cwd": "/Users/oliverflint/My Drive/Claude/Projects/CompliSolv 2.00/outputs/local-extraction-e2e-2026-10-15/civicplus",
+          "started_at": "2026-10-15T18:58:57.630427+00:00",
+          "finished_at": "2026-10-15T18:59:02.716041+00:00",
+          "exit_code": 0,
+          "stdout": "{\"status\": \"bounded_pilot_requires_review\", \"record_count\": 13, \"inventory_documents\": 44, \"acquired_documents\": 1, \"unresolved_exception_count\": 10}\n",
+          "stderr": ""
+        },
+        {
+          "argv": [
+            "/tmp/complisolv-civicplus-venv/bin/python",
+            "/Users/oliverflint/My Drive/Claude/Projects/CompliSolv 2.00/outputs/local-extraction-e2e-2026-10-15/civicplus/civicplus.py",
+            "verify",
+            "--package",
+            "/Users/oliverflint/My Drive/Claude/Projects/CompliSolv 2.00/outputs/local-extraction-e2e-2026-10-15/civicplus/live-e2e/final-portland-playwright-v2/package"
+          ],
+          "cwd": "/Users/oliverflint/My Drive/Claude/Projects/CompliSolv 2.00/outputs/local-extraction-e2e-2026-10-15/civicplus",
+          "started_at": "2026-10-15T18:59:02.717241+00:00",
+          "finished_at": "2026-10-15T18:59:03.016788+00:00",
+          "exit_code": 0,
+          "stdout": "{\"integrity_passed\": true, \"errors\": [], \"corpus_complete\": false, \"status\": \"bounded pilot, manual review outstanding\"}\n",
+          "stderr": ""
+        },
+        {
+          "argv": [
+            "/tmp/complisolv-civicplus-venv/bin/python",
+            "/Users/oliverflint/My Drive/Claude/Projects/CompliSolv 2.00/outputs/local-extraction-e2e-2026-10-15/civicplus/capture_browser.py",
+            "--jurisdiction",
+            "portland-me",
+            "--out",
+            "/Users/oliverflint/My Drive/Claude/Projects/CompliSolv 2.00/outputs/local-extraction-e2e-2026-10-15/civicplus/live-e2e/final-portland-playwright-v2/final-capture",
+            "--channel",
+            "chrome"
+          ],
+          "cwd": "/Users/oliverflint/My Drive/Claude/Projects/CompliSolv 2.00/outputs/local-extraction-e2e-2026-10-15/civicplus",
+          "started_at": "2026-10-15T18:59:03.017367+00:00",
+          "finished_at": "2026-10-15T18:59:13.279342+00:00",
+          "exit_code": 0,
+          "stdout": "{\"started_at\": \"2026-10-15T18:59:03.322185+00:00\", \"runtime\": \"standalone_playwright\", \"jurisdiction\": \"portland-me\", \"requested_url\": \"https://portlandmaine.gov/city-code\", \"ignore_https_errors\": false, \"files\": {\"index.html\": \"92bdce6ca17f3ca11583ebb506b4a9db447a1aa49e13a723a2bea65fcfe04bf5\", \"widget.html\": \"4f8d44ecd02c4186c212fcd3733e0e71ca34925b8740bd8d644dc1df16f842e2\"}, \"browser_executable\": \"/Applications/Google Chrome.app/Contents/MacOS/Google Chrome\", \"browser_channel\": \"chrome\", \"playwright_version\": \"1.64.0\", \"browser_version\": \"155.0.8059.41\", \"status\": 200, \"final_url\": \"https://portlandmaine.gov/city-code\", \"headers\": {\"cache-control\": \"public, must-revalidate, proxy-revalidate, max-age=1, s-maxage=255, stale-if-error\", \"cloudflare-cdn-cache-control\": \"public, s-maxage=255, stale-while-revalidate=60, stale-if-error=3600\", \"content-encoding\": \"br\", \"content-security-policy-report-only\": \"default-src * 'self'; style-src * 'self' 'unsafe-inline'; img-src * 'self' data: blob:; script-src * 'self' about: 'unsafe-inline' 'unsafe-eval' data:; worker-src * 'self' data: blob: 'unsafe-eval' 'unsafe-inline'; frame-src * 'self'; media-src 'self' blob: *; font-src * 'self' data:; upgrade-insecure-requests; form-action 'self'; frame-ancestors 'self';report-uri /contentsecuritypolicy/report\", \"content-type\": \"text/html; charset=utf-8\", \"date\": \"Thu, 15 Oct 2026 18:59:10 GMT\", \"link\": \"<https://content.civicplus.com>; nopush; rel=preconnect, <https://engage6-api.civicplus.pro>; nopush; rel=preconnect, <https://fonts.googleapis.com>; nopush; rel=preconnect, </Assets/Mystique/Shared/Scripts/webfontloader/webfont.1.5.18.min.js?v=1518>; as=script; nopush; rel=preload, <https://cdn-live.evolve.civicplus.io>; nopush; rel=preconnect, <https://cdn-live.evolve.civicplus.io/build/assets/index-CiOfClup.js>; as=script; nopush; crossorigin; rel=preload, <https://content.civicplus.com/api/assets/16cd9d59-6db0-4727-82ea-e69007e799b4?cache=1800>; as=image; nopush; rel=preload, <https://content.civicplus.com/api/assets/21c5c7a0-d41b-45d1-a1db-4a1771304786?cache=1800>; as=image; nopush; rel=preload, <https://content.civicplus.com/api/assets/a81dcbb6-7471-4dda-9950-b17192619e17?cache=1800>; as=image; nopush; rel=preload\", \"permissions-policy\": \"camera=(), geolocation=(), microphone=(), usb=(), fullscreen=(self)\", \"referrer-policy\": \"strict-origin-when-cross-origin\", \"request-context\": \"appId=cid-v1:cd12a649-6132-4c93-8c7b-649841af9773\", \"served-by\": \"engage6-cms-6995bd8fd4-vq6mz\", \"server\": \"evolve\", \"strict-transport-security\": \"max-age=31536000; includeSubDomains\", \"vary\": \"Accept-Encoding\", \"x-authenticated\": \"false\", \"x-cache-status\": \"HIT\", \"x-content-type-options\": \"nosniff\", \"x-edge\": \"1\", \"x-frame-options\": \"SAMEORIGIN\"}, \"finished_at\": \"2026-10-15T18:59:12.828825+00:00\", \"result\": \"captured\"}\n",
+          "stderr": ""
+        },
+        {
+          "argv": [
+            "/tmp/complisolv-civicplus-venv/bin/python",
+            "/Users/oliverflint/My Drive/Claude/Projects/CompliSolv 2.00/outputs/local-extraction-e2e-2026-10-15/civicplus/civicplus.py",
+            "discover",
+            "--jurisdiction",
+            "portland-me",
+            "--out",
+            "/Users/oliverflint/My Drive/Claude/Projects/CompliSolv 2.00/outputs/local-extraction-e2e-2026-10-15/civicplus/live-e2e/final-portland-playwright-v2/final-inventory",
+            "--index-html",
+            "/Users/oliverflint/My Drive/Claude/Projects/CompliSolv 2.00/outputs/local-extraction-e2e-2026-10-15/civicplus/live-e2e/final-portland-playwright-v2/final-capture/index.html",
+            "--transport",
+            "standalone_playwright",
+            "--retrieved-at",
+            "2026-10-15T18:59:12.828825+00:00",
+            "--rendered-html",
+            "/Users/oliverflint/My Drive/Claude/Projects/CompliSolv 2.00/outputs/local-extraction-e2e-2026-10-15/civicplus/live-e2e/final-portland-playwright-v2/final-capture/widget.html"
+          ],
+          "cwd": "/Users/oliverflint/My Drive/Claude/Projects/CompliSolv 2.00/outputs/local-extraction-e2e-2026-10-15/civicplus",
+          "started_at": "2026-10-15T18:59:13.282944+00:00",
+          "finished_at": "2026-10-15T18:59:13.968789+00:00",
+          "exit_code": 0,
+          "stdout": "{\"inventory_documents\": 44, \"unresolved_labels\": 0, \"out\": \"/Users/oliverflint/My Drive/Claude/Projects/CompliSolv 2.00/outputs/local-extraction-e2e-2026-10-15/civicplus/live-e2e/final-portland-playwright-v2/final-inventory\"}\n",
+          "stderr": ""
+        }
+      ]
+    },
+    {
+      "run": "final-portland-cua-v2",
+      "report_path": "live-e2e/final-portland-cua-v2/E2E-VALIDATION.json",
+      "report_sha256": "d494bb09827f48676452ff2b4b30fb2d0fcf37f63cc5ccfc3a506a4c7d5f5ba7",
+      "live_status": "passed_bounded",
+      "runtime": "cua-files",
+      "jurisdiction": "portland-me",
+      "started_at": "2026-10-15T18:59:01.037368+00:00",
+      "finished_at": "2026-10-15T18:59:08.284393+00:00",
+      "environment": {
+        "python_executable": "/tmp/complisolv-civicplus-venv/bin/python",
+        "python_version": "3.12.14",
+        "platform": "macOS-26.6.2-arm64-arm-64bit",
+        "requests_ca_bundle": null,
+        "tls_checks_disabled": false,
+        "requests_version": "2.34.2",
+        "pdfplumber_version": "0.11.9",
+        "beautifulsoup4_version": "4.15.0",
+        "json5_version": "0.17.3",
+        "playwright_version": "1.64.0"
+      },
+      "inventory_recheck": {
+        "method": "Fresh supported CUA capture after acquisition and parse",
+        "coherent": true,
+        "final_capture_receipt": {
+          "runtime": "supported_cua_chrome",
+          "requested_url": "https://portlandmaine.gov/city-code",
+          "started_at": "2026-10-15T18:59:39.655Z",
+          "finished_at": "2026-10-15T18:59:39.994Z",
+          "result": "captured",
+          "browser_version": null,
+          "browser_version_note": "Not exposed by supported CUA DOM API; navigator is intentionally unavailable in its read-only scope",
+          "browser_executable": "Not exposed by supported CUA API; browser controlled through registered Chrome extension",
+          "source_kind": "Observed rendered widget plus its page DOM configuration script, not HTTP response bytes",
+          "http_status": null,
+          "response_headers_available": false,
+          "files": {
+            "index.html": "66307f853b586aa4ff2d160e09955dee1cd0f17e4b832415e8450b11efffecc0",
+            "widget.html": "e6dc0dd3df44eef0532d13ec6d0e8c272c8452660f9be7ce6cbb838a3cb00c2a"
+          }
+        },
+        "final_capture_path": "live-e2e/final-portland-cua-end-v2",
+        "initial_documents": 44,
+        "final_documents": 44
+      },
+      "parse_integrity_status": "PASS",
+      "semantic_completion_status": "requires_review",
+      "records": 13,
+      "unresolved_exceptions": 10,
+      "commands": [
+        {
+          "argv": [
+            "/tmp/complisolv-civicplus-venv/bin/python",
+            "/Users/oliverflint/My Drive/Claude/Projects/CompliSolv 2.00/outputs/local-extraction-e2e-2026-10-15/civicplus/civicplus.py",
+            "discover",
+            "--jurisdiction",
+            "portland-me",
+            "--out",
+            "/Users/oliverflint/My Drive/Claude/Projects/CompliSolv 2.00/outputs/local-extraction-e2e-2026-10-15/civicplus/live-e2e/final-portland-cua-v2/package",
+            "--index-html",
+            "/Users/oliverflint/My Drive/Claude/Projects/CompliSolv 2.00/outputs/local-extraction-e2e-2026-10-15/civicplus/live-e2e/final-portland-cua-start-v2/index.html",
+            "--transport",
+            "supported_cua_chrome",
+            "--retrieved-at",
+            "2026-10-15T18:58:52.695Z",
+            "--rendered-html",
+            "/Users/oliverflint/My Drive/Claude/Projects/CompliSolv 2.00/outputs/local-extraction-e2e-2026-10-15/civicplus/live-e2e/final-portland-cua-start-v2/widget.html"
+          ],
+          "cwd": "/Users/oliverflint/My Drive/Claude/Projects/CompliSolv 2.00/outputs/local-extraction-e2e-2026-10-15/civicplus",
+          "started_at": "2026-10-15T18:59:01.104753+00:00",
+          "finished_at": "2026-10-15T18:59:01.442250+00:00",
+          "exit_code": 0,
+          "stdout": "{\"inventory_documents\": 44, \"unresolved_labels\": 0, \"out\": \"/Users/oliverflint/My Drive/Claude/Projects/CompliSolv 2.00/outputs/local-extraction-e2e-2026-10-15/civicplus/live-e2e/final-portland-cua-v2/package\"}\n",
+          "stderr": ""
+        },
+        {
+          "argv": [
+            "/tmp/complisolv-civicplus-venv/bin/python",
+            "/Users/oliverflint/My Drive/Claude/Projects/CompliSolv 2.00/outputs/local-extraction-e2e-2026-10-15/civicplus/civicplus.py",
+            "acquire",
+            "--package",
+            "/Users/oliverflint/My Drive/Claude/Projects/CompliSolv 2.00/outputs/local-extraction-e2e-2026-10-15/civicplus/live-e2e/final-portland-cua-v2/package",
+            "--id",
+            "b4305bca-b7ef-4d12-b84f-5554626b4b81"
+          ],
+          "cwd": "/Users/oliverflint/My Drive/Claude/Projects/CompliSolv 2.00/outputs/local-extraction-e2e-2026-10-15/civicplus",
+          "started_at": "2026-10-15T18:59:01.442665+00:00",
+          "finished_at": "2026-10-15T18:59:02.425937+00:00",
+          "exit_code": 0,
+          "stdout": "{\"acquired_documents\": 1}\n",
+          "stderr": ""
+        },
+        {
+          "argv": [
+            "/tmp/complisolv-civicplus-venv/bin/python",
+            "/Users/oliverflint/My Drive/Claude/Projects/CompliSolv 2.00/outputs/local-extraction-e2e-2026-10-15/civicplus/civicplus.py",
+            "parse",
+            "--package",
+            "/Users/oliverflint/My Drive/Claude/Projects/CompliSolv 2.00/outputs/local-extraction-e2e-2026-10-15/civicplus/live-e2e/final-portland-cua-v2/package",
+            "--review-file",
+            "/Users/oliverflint/My Drive/Claude/Projects/CompliSolv 2.00/outputs/local-extraction-e2e-2026-10-15/civicplus/reviewed-recoveries.json"
+          ],
+          "cwd": "/Users/oliverflint/My Drive/Claude/Projects/CompliSolv 2.00/outputs/local-extraction-e2e-2026-10-15/civicplus",
+          "started_at": "2026-10-15T18:59:02.426760+00:00",
+          "finished_at": "2026-10-15T18:59:07.870367+00:00",
+          "exit_code": 0,
+          "stdout": "{\"status\": \"bounded_pilot_requires_review\", \"record_count\": 13, \"inventory_documents\": 44, \"acquired_documents\": 1, \"unresolved_exception_count\": 10}\n",
+          "stderr": ""
+        },
+        {
+          "argv": [
+            "/tmp/complisolv-civicplus-venv/bin/python",
+            "/Users/oliverflint/My Drive/Claude/Projects/CompliSolv 2.00/outputs/local-extraction-e2e-2026-10-15/civicplus/civicplus.py",
+            "verify",
+            "--package",
+            "/Users/oliverflint/My Drive/Claude/Projects/CompliSolv 2.00/outputs/local-extraction-e2e-2026-10-15/civicplus/live-e2e/final-portland-cua-v2/package"
+          ],
+          "cwd": "/Users/oliverflint/My Drive/Claude/Projects/CompliSolv 2.00/outputs/local-extraction-e2e-2026-10-15/civicplus",
+          "started_at": "2026-10-15T18:59:07.871102+00:00",
+          "finished_at": "2026-10-15T18:59:08.266165+00:00",
+          "exit_code": 0,
+          "stdout": "{\"integrity_passed\": true, \"errors\": [], \"corpus_complete\": false, \"status\": \"bounded pilot, manual review outstanding\"}\n",
+          "stderr": ""
+        }
+      ]
+    }
+  ],
+  "standalone_cua_ordered_provisions_equal": true,
+  "tests": {
+    "command": "python -m unittest -v test_civicplus test_e2e",
+    "count": 20,
+    "result": "PASS",
+    "path": "final-test-results-v2.txt",
+    "sha256": "b17a373b5598b42da82c251e3fa91b073ddb0eb8c7c1a147d75a6856fa927a31"
+  },
+  "frozen_code_hashes": {
+    "capture_browser.py": "8f54a0c3930ec67d79ee249e2f32a2c0d6a3c46e52c4ed1cc0e4d9d0f1dca9d0",
+    "capture_cua.mjs": "8fe82e00e3b950350a590964e5073d01dbe248ce18a7d85097a84372de4a5550",
+    "civicplus.py": "320cc64d8bc709384a9327aab58b93406654cf3762a530c6ceb8ea30b5f9d964",
+    "make_report.py": "39b53c52230143bf8453736f92fe5eb104511071c7773c61041d27c792407305",
+    "qa_preview.py": "e7bef756d9396a7efc58a54ccf15da4dae8f012521587ab51f6b3a36a1e3f284",
+    "reconcile_cua.py": "4663fd35fc9c69b658ba8272459f50fa29d4dd1db54037eba2da4bea141ebc85",
+    "review_pdf.py": "dd334e502ecfbf62240b3c06e92b629ed2c663678ea19c5677405872032d5b19",
+    "run_live.py": "c38fabc7bdf036af1e6cda4a9f3a08161a4057e8bdc89ec6ac8d87c06726e72c",
+    "seal_e2e.py": "f7e1564c50ea53ab2c90ba75d5a95c972f10e2e4b491f400369686df026986ba",
+    "test_civicplus.py": "a292187e88318708c54826de59d265f246d6c0d6a8a77c9fa79f8af3f762f677",
+    "test_e2e.py": "2d9989f3493404734417f1bb855b82db107ca5f9093b87733bde7be98b3081da"
+  },
+  "source_visual_comparison": "E2E-SOURCE-COMPARISON.json",
+  "fresh_probe_boundaries": {
+    "portland_plain_requests": "Certificate chain verification failed with certifi and system CA bundle; retained failed-request receipts. Verified isolated Chrome is the qualified index transport. No ignore_https_errors or verify=False used.",
+    "rockland_http": "Current direct official index/PDF requests returned200. Earlier404 is historical, not a current blocker.",
+    "bundled_chromium_cross_platform": "Supported option/documented dependency, not live-qualified on other platforms."
+  },
+  "remaining_gates": [
+    "Unreadable printed symbol on Portland p48; readable words recovered but intended character not guessed.",
+    "Other Portland table fragments/semantics outside the specifically reviewed cases.",
+    "Rockland Charter source locator boxes obscure legal text; native extraction retained but alternate source/human review required.",
+    "Microscopic Rockland heading glyphs and unnumbered-body classification.",
+    "Unacquired publications/documents and independent full legal-node coverage, coherent legal edition/currency, full-corpus completion."
+  ],
+  "historical_baseline": "Copied samples/ and prior VALIDATION-REPORT.json are retained baseline, not fresh live evidence."
+}

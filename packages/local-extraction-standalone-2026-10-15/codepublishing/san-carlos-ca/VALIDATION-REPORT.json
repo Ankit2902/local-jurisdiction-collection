@@ -1,0 +1,101 @@
+{
+  "schema_version": 1,
+  "jurisdiction_slug": "san-carlos-ca",
+  "jurisdiction": "San Carlos",
+  "prepared_on": "2026-10-15",
+  "implementation_version": "cp-handoff-1.0",
+  "status": "bounded_implementation_validation_only",
+  "production_ready": false,
+  "current_route": {
+    "slug": "san-carlos-ca",
+    "root_url": "https://www.codepublishing.com/CA/SanCarlos/",
+    "current_route_status": "root_reachable",
+    "profile": "hash_navigation",
+    "title_label_anchor_count": 18,
+    "first_title_url": "https://www.codepublishing.com/CA/SanCarlos/#!/SanCarlos01/SanCarlos01.html",
+    "currency_raw": "The San Carlos Municipal Code is current through Ordinance 1637, passed June 22, 2026.",
+    "live_chapter_check": "not performed; retained historical chapter replay tested"
+  },
+  "current_publisher_currency_raw": "The San Carlos Municipal Code is current through Ordinance 1637, passed June 22, 2026.",
+  "current_currency_assigned_to_historical_artifacts": false,
+  "current_representative_text_validation": {
+    "status": "not_performed",
+    "human_visual_review": false,
+    "evidence_kind": "selected CUA DOM/AX observations; no whole-current-DOM claim"
+  },
+  "historical_parser_validation": {
+    "status": "bounded_replay_passed",
+    "whole_corpus_complete": false,
+    "snapshot_binding": "1e338d87c5205b0c39b089c6aa3a596d00caf71fe75feea94ee594b91de58122",
+    "pages": 1,
+    "records": 10,
+    "source_nodes": 11,
+    "unresolved_nodes": 0,
+    "csv_json_equal": true,
+    "limitations": [
+      "bounded cached-page replay; publication inventory, scope and coherent version are not established"
+    ]
+  },
+  "inventory_validation": {
+    "historical_chapters_checked": 1,
+    "chapter_numbered_TOC_nodes": 10,
+    "parsed_numbered_nodes": 10,
+    "chapter_TOC_reconciled": true,
+    "retained_title_observed_links": 11,
+    "current_root_observation_only": true,
+    "whole_publication_inventory_complete": false,
+    "scope_decisions_complete": false
+  },
+  "automated_tests": {
+    "suite": "test_cp_collect.py",
+    "test_count": 27,
+    "passed": true,
+    "evidence": "test-results.txt",
+    "coverage": "synthetic family-sensitive cases plus actual retained DOM for all seven"
+  },
+  "whole_corpus_validation": {
+    "performed": false,
+    "complete": false,
+    "full_collection_run": false
+  },
+  "limitations": [
+    "No complete current independent publication inventory or coherent edition validation.",
+    "Live browser source excerpts/observations are bounded; historical DOM is not current edition proof.",
+    "Real difficult tables/images, all additional families and human visual QA remain unqualified.",
+    "Direct HTTPS roots returned403; use ordinary supported browser route where needed.",
+    "Browser driving remains operator-supported; package imports hash-bound rendered DOM and does not automate the browser."
+  ],
+  "evidence_sha256": {
+    "san-carlos-ca/historical/acquisition-plan.json": "ddd6c95136a64a9f8a2e13567460c5ef4a44a3389d746a148adc5b475c4b5908",
+    "san-carlos-ca/historical/historical-collector-receipt.json": "1a2e790132aa86af3586f6f58fb87ec53d5c0ed4e9fdc613f3ec1f4a7c32ad4c",
+    "san-carlos-ca/historical/import-provenance.json": "1d246506ef8cc9b71418747a9e324445bab08bd42703af70efe0d20501a1f375",
+    "san-carlos-ca/historical/observed-title-links.json": "c962868e57a30c661cd5a0e4ebfe7257537f2c8bdf0665ebcffffc47694fe3f5",
+    "san-carlos-ca/historical/raw/section.html": "f36618116dafc7caa568d892ec7818cffb8a2e2b0baefbceee950978ae210253",
+    "san-carlos-ca/historical/raw/toc.html": "b822cd50dc365052a241794142031eb121920da9d0c3eabca92c1d500668fec9",
+    "san-carlos-ca/historical/snapshot.json": "a770cd8112852e133f7802e8863f73994db630d9d6a80edfb6919598115fe46f",
+    "san-carlos-ca/official-route.json": "aed7d2ad26d7c41f250eb4a150095ca6913f567afb73f5e830c566654aa91905",
+    "san-carlos-ca/raw/official-city.html": "8ecd4283c57a9bbfffde434cf39f10191dd61814b4598686a1818a53afb23a2d",
+    "san-carlos-ca/raw/root.html": "1198a0d477dacf1fc7e78873395d4c31685afe5b28375bb6663f9327f712d8b3",
+    "san-carlos-ca/replay/aggregate-fulltext.csv": "f3e0ec4d764096b7ea61f9288a5aa317535d6edf572d63efa5cf721c4ead9084",
+    "san-carlos-ca/replay/aggregate-fulltext.json": "cfc42344858d412a187504c608a1fa7a8a3b531b07c23ecf5d1cd39272ad8c65",
+    "san-carlos-ca/replay/aggregate-toc.csv": "73105eaa631699bd292b4399de62f29f54d08fe91afc280210646f0efb3f9bd6",
+    "san-carlos-ca/replay/aggregate-toc.json": "abd82412afc7069f5fff0193ac4c39151f13fc1e544912bafbc10c00647678eb",
+    "san-carlos-ca/replay/exceptions.jsonl": "08dba41e938b6039487b765c7ea8c0e519cbb5679ad23dccde81cf70418f0378",
+    "san-carlos-ca/replay/input-snapshot.json": "3c200203dc18c49241d2a05fc26ab13750181dc75147f1b213a02e0c6d684708",
+    "san-carlos-ca/replay/node-dispositions.jsonl": "23e0cc4d96abd244670ddfc4a328aa4120fa6b2bdecb99d18beb581835ef3851",
+    "san-carlos-ca/replay/publications/city-code/fulltext.csv": "f3e0ec4d764096b7ea61f9288a5aa317535d6edf572d63efa5cf721c4ead9084",
+    "san-carlos-ca/replay/publications/city-code/fulltext.json": "cfc42344858d412a187504c608a1fa7a8a3b531b07c23ecf5d1cd39272ad8c65",
+    "san-carlos-ca/replay/publications/city-code/toc.csv": "73105eaa631699bd292b4399de62f29f54d08fe91afc280210646f0efb3f9bd6",
+    "san-carlos-ca/replay/publications/city-code/toc.json": "abd82412afc7069f5fff0193ac4c39151f13fc1e544912bafbc10c00647678eb",
+    "san-carlos-ca/replay/publications.json": "952f99d2c2c3d61ac8b062d2f52f06dc6f48d5b136b5c07a0200df8b17fe97fb",
+    "san-carlos-ca/replay/raw/section.html": "f36618116dafc7caa568d892ec7818cffb8a2e2b0baefbceee950978ae210253",
+    "san-carlos-ca/replay/raw/toc.html": "b822cd50dc365052a241794142031eb121920da9d0c3eabca92c1d500668fec9",
+    "san-carlos-ca/replay/record-provenance.jsonl": "b7e35726bc9157af580606c4e2c2f76929f9061c91dd122af30d5694df5f4c54",
+    "san-carlos-ca/replay/run-manifest.json": "57ef3943bea97dbccfcb2b7b93a0be99b4cea5aef19f2823bee631be8b885546",
+    "san-carlos-ca/replay/source-nodes.jsonl": "0705d913e82b7d0d4f5ffe3113452672a9680c8668ab6335cd37ca4862c042f9",
+    "san-carlos-ca/replay/validation-report.json": "bbf259f914743021650f87c29787b9d6e5136edaeaf783f49b5fa30974d49ccf",
+    "san-carlos-ca/root-http.json": "3f0427f1654636d85866f382bd31a12c17e59c88d10a8e6a7e2ddb49e309250b",
+    "live-browser-observations.json": "8606075c429702f9c466154431d362eec1456c31e007b284163f1297f4690814",
+    "test-results.txt": "2ce8cb580838550f82b645db6250d2ba42f500e319d6170ae0853603ead037c2"
+  }
+}

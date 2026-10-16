@@ -1,0 +1,101 @@
+{
+  "schema_version": 1,
+  "jurisdiction_slug": "seatac-wa",
+  "jurisdiction": "SeaTac",
+  "prepared_on": "2026-10-15",
+  "implementation_version": "cp-handoff-1.0",
+  "status": "bounded_implementation_validation_only",
+  "production_ready": false,
+  "current_route": {
+    "slug": "seatac-wa",
+    "root_url": "https://www.codepublishing.com/WA/SeaTac/",
+    "current_route_status": "root_reachable",
+    "profile": "hash_navigation",
+    "title_label_anchor_count": 18,
+    "first_title_url": "https://www.codepublishing.com/WA/SeaTac/#!/SeaTac01/SeaTac01.html",
+    "currency_raw": "The SeaTac Municipal Code is current through Ordinance 26-1008, passed March 24, 2026.",
+    "live_chapter_check": "not performed; retained historical chapter replay tested"
+  },
+  "current_publisher_currency_raw": "The SeaTac Municipal Code is current through Ordinance 26-1008, passed March 24, 2026.",
+  "current_currency_assigned_to_historical_artifacts": false,
+  "current_representative_text_validation": {
+    "status": "not_performed",
+    "human_visual_review": false,
+    "evidence_kind": "selected CUA DOM/AX observations; no whole-current-DOM claim"
+  },
+  "historical_parser_validation": {
+    "status": "bounded_replay_passed",
+    "whole_corpus_complete": false,
+    "snapshot_binding": "febacda70c9faa3cbcde2b6142ecfcc5cf4b6633d30a6f38136fa3f777927c70",
+    "pages": 1,
+    "records": 12,
+    "source_nodes": 13,
+    "unresolved_nodes": 0,
+    "csv_json_equal": true,
+    "limitations": [
+      "bounded cached-page replay; publication inventory, scope and coherent version are not established"
+    ]
+  },
+  "inventory_validation": {
+    "historical_chapters_checked": 1,
+    "chapter_numbered_TOC_nodes": 12,
+    "parsed_numbered_nodes": 12,
+    "chapter_TOC_reconciled": true,
+    "retained_title_observed_links": 35,
+    "current_root_observation_only": true,
+    "whole_publication_inventory_complete": false,
+    "scope_decisions_complete": false
+  },
+  "automated_tests": {
+    "suite": "test_cp_collect.py",
+    "test_count": 27,
+    "passed": true,
+    "evidence": "test-results.txt",
+    "coverage": "synthetic family-sensitive cases plus actual retained DOM for all seven"
+  },
+  "whole_corpus_validation": {
+    "performed": false,
+    "complete": false,
+    "full_collection_run": false
+  },
+  "limitations": [
+    "No complete current independent publication inventory or coherent edition validation.",
+    "Live browser source excerpts/observations are bounded; historical DOM is not current edition proof.",
+    "Real difficult tables/images, all additional families and human visual QA remain unqualified.",
+    "Direct HTTPS roots returned403; use ordinary supported browser route where needed.",
+    "Browser driving remains operator-supported; package imports hash-bound rendered DOM and does not automate the browser."
+  ],
+  "evidence_sha256": {
+    "seatac-wa/historical/acquisition-plan.json": "9f78e2f8aeb1d0e748547a1790d914f28731f849224671b1bf257ec9508423e0",
+    "seatac-wa/historical/historical-collector-receipt.json": "08a2fdaa48e6381869825547184b0b06e541f702e25dc0f49dc57d0272bb6744",
+    "seatac-wa/historical/import-provenance.json": "23c48519467d64fb37c952b593d742a44c4714330062e6504d3bb3caa450f211",
+    "seatac-wa/historical/observed-title-links.json": "4d3429c7d4d008d7a66319c52b89ba006a11a5ced3f8f9d457b55d8336b124bf",
+    "seatac-wa/historical/raw/section.html": "39c3f548d6e84e705f16260e7ca3a800c1a6c6415e29901b4dbd5a072f8fe575",
+    "seatac-wa/historical/raw/toc.html": "8e45377f183b227d1fe5366dfa1def0f950a274f1678e38d838c0fb2dfcaa89e",
+    "seatac-wa/historical/snapshot.json": "d92165fa5001d68cfb60d8c1bb92c92d2c0a1251cb67aeee4fddc343348f64f0",
+    "seatac-wa/official-route.json": "413b01cae9e64472edc383a26416cdb651e8b5a8c9781fa0363a6390e759e10a",
+    "seatac-wa/raw/official-city.html": "4d29966acc516cf615200f62e3df842b3b9aa7a85cfe0cee4d90f67b1b9764e1",
+    "seatac-wa/raw/root.html": "c5f159d372a10b0b0d1c8fea0d109973e3d386aea881827d5a43b2e29ea258cf",
+    "seatac-wa/replay/aggregate-fulltext.csv": "4f48e4a2f44a35b0be266a22963796f4b5c93087509634d14428ff25c8f11f5d",
+    "seatac-wa/replay/aggregate-fulltext.json": "fa660002f8fe8e923f35891341830d97879e588a895327eb13f6a3c697864d01",
+    "seatac-wa/replay/aggregate-toc.csv": "a859de52f3cc2970722c6a35cdb7ea71009d56b5ca39d12030022c6816de8dee",
+    "seatac-wa/replay/aggregate-toc.json": "9798a02df5b56ee1a574fbcc6e8cee7aaf26e4d86a0004db7af065845680218c",
+    "seatac-wa/replay/exceptions.jsonl": "08dba41e938b6039487b765c7ea8c0e519cbb5679ad23dccde81cf70418f0378",
+    "seatac-wa/replay/input-snapshot.json": "829c68908b5f34e35eab9db322a6bd2474acf05b03f417b79da53d8375fc3c81",
+    "seatac-wa/replay/node-dispositions.jsonl": "44fba6d0628ecbb55ca1f70257eb5dfd05bc1257a687ffdc7870d41f4055db6b",
+    "seatac-wa/replay/publications/city-code/fulltext.csv": "4f48e4a2f44a35b0be266a22963796f4b5c93087509634d14428ff25c8f11f5d",
+    "seatac-wa/replay/publications/city-code/fulltext.json": "fa660002f8fe8e923f35891341830d97879e588a895327eb13f6a3c697864d01",
+    "seatac-wa/replay/publications/city-code/toc.csv": "a859de52f3cc2970722c6a35cdb7ea71009d56b5ca39d12030022c6816de8dee",
+    "seatac-wa/replay/publications/city-code/toc.json": "9798a02df5b56ee1a574fbcc6e8cee7aaf26e4d86a0004db7af065845680218c",
+    "seatac-wa/replay/publications.json": "e6ad9fc2aacd31d6aa147787dc87ca109a9e459942e8734a47b878b7d1c5238f",
+    "seatac-wa/replay/raw/section.html": "39c3f548d6e84e705f16260e7ca3a800c1a6c6415e29901b4dbd5a072f8fe575",
+    "seatac-wa/replay/raw/toc.html": "8e45377f183b227d1fe5366dfa1def0f950a274f1678e38d838c0fb2dfcaa89e",
+    "seatac-wa/replay/record-provenance.jsonl": "dc84503152e5ea660741c58ff1e81a7274da1a75ff70c0c08e78c33bbaba846c",
+    "seatac-wa/replay/run-manifest.json": "e8e6451e3d337038a7569cde70220fae45b8bb49dd1860114bdee1ff5bedebdf",
+    "seatac-wa/replay/source-nodes.jsonl": "42007548dd8ede2c4c1962f022c5b9effdffe9f0ae3617d587eecfe89781d32c",
+    "seatac-wa/replay/validation-report.json": "f11e08431d117c37a5a4a0669629239f796234a42a67c81526add9f9ee9ed8e5",
+    "seatac-wa/root-http.json": "a97b63db68b9bcaf0d6eba0eeec7f21b3a915e3f14af046dd241fff15bb109ce",
+    "live-browser-observations.json": "8606075c429702f9c466154431d362eec1456c31e007b284163f1297f4690814",
+    "test-results.txt": "2ce8cb580838550f82b645db6250d2ba42f500e319d6170ae0853603ead037c2"
+  }
+}

@@ -1,0 +1,42 @@
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"><head>
+	<meta http-equiv="Content-Type" content="Type=text/html; charset=utf-8">
+        <title>Flagstaff Municipal Code</title>
+        <script>
+		function Startup() {
+                if (location.search == "?f") {return;}
+                if ( screen.width < 500) { window.location = "mobile/"; }
+                isMobile();
+
+			 if ( location.search.match(/html\d*\/Flagstaff/i) ) {
+				var via = location.search.replace(/\?/,'?archive=' ).replace(/\//,'&page=' ) + '&anchor=' + location.hash.replace(/#/,'');
+				parent.crumbular.location = "cgi/versionMenu.pl" + via;
+			}
+			else if ( location.search.match(/\?Flagstaff/i) ) {
+				var via = "html/"+  location.search.replace(/\?/,'') + location.hash;
+				parent.doc.location =via;
+			}
+		}
+        </script>
+        <script src="/cgi-bin/detectMobile.js"></script>
+        <script src="/cgi-bin/domFunction.js"></script><script src="https://www.googletagmanager.com/gtag/js?id=G-F0LNZ6CN9W"></script>
+
+<script src="chrome-extension://liecbddmkiiihnedobmlmillhodjkdmb/js/recordConsoleEvents.js"></script><link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20data-codex-favicon-badge%3D%22codex-favicon-badge%22%20width%3D%2232%22%20height%3D%2232%22%20viewBox%3D%220%200%2032%2032%22%3E%3Cimage%20href%3D%22data%3Aimage%2Fbmp%3Bbase64%2CiVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAIAAAD8GO2jAAAGvElEQVR4nNRWeWwUZRSfnXvvbmlLSxfbWrmRgBWDIMYDjEqUeIvGoyIaFUQEDQGRwwKCgohKOMKVymW45FZOgYqBaihXAYHKlvvs7szsOYe%2Fb6Y7LI2J%2FsMffpndfPPmfe%2F8vfc%2B1t3vAepWLpq6xeuWK2AzXwzDcNgrTdENw6I3OWkR6TSvYVCNvBSVycxmHmBoGp9jiYSmpihDByPFsE5e4BhG03VbjbVhGUbVNDkRNzSViKdpnhNEntd1wmrrYG9IZxgpqtA03a6wuLQg6He6E6lk6OrFw6FTESns8fgsNso0ECsiRTxuzz2t2hfl5vMsf1VqOFxfF7pwVhBFjuWgxdLBpm1nJFnq2aHL2BcHdG%2FbSeB427NjZ09%2FvX7ZzE0rXYLTtkuOKv0feerDJ%2Fu1D5ZQ6XhckyPLf906avEsbERBtHQwXMciREaOyo%2BWdd84atodBS3hhKpr%2BKaZzub5A33KergEcUP1LoEXEHRZkce%2B9PaU8sG5%2FoBmaLSDIAXMbkEsK2332F33rtyzXYlHEUPQGf7OElXXvU7Xhk%2B%2Byvb4kmoKH6ASG57liDJN1Qy9Z%2FvOO4%2FUnDhfj7jf3brD9x%2BMxUY3dJZhLzZcq798IS8rG%2BLiyWSL7Nzi5i2W7NjICyJiQzMOOh5THi%2B7r2VOcwjlGDZ0%2BcJTEz%2FqPOTlrsNeW7tvF0SYnhhvPPyErmlaKvVCj154hQIEdunuze0GPnfX0FceHTf4uhxhaAcMeqbbgw916aZEFRhKkwgaRvc2HQkizah9unT26m3r%2FrpyqfrYwXdmTb4uSyAiaJ1LWrldbqQYKCC%2BMyQyk1ZVgkEUnD9VbRmzbC7Sq2p6Td1xr%2BiizdywhomwFs1yyRmawWvtmdOMP8AzLOvLQrqiiVjA48XXdsHigNurKBKwaCKP%2FIFCaSoS4wzk%2FFC1BUGrqq05Ul8Hg0TRjcSYMHXQAstnVphOaoaEBfZWLJ%2Bf6wuAmFCTKUBe0%2BounnuwYxkYYNL0Nz98dtLwY6dPuLx%2BJRH7ds0SmuOdgsA5GpEKDxyUYRVgI8ztUoIGmDZz43JAxLSDcnt8NC8s2L6%2Bf68n4S5EdLytdM%2FkeZ%2BvWDjr51VhKez3Z%2BFsZlXSmS3gRomnN%2BDzeXw%2Bf4A8vixQXE7X7kN%2FjF46hyVYI2BDlCa9OnDf5AXlvfuiVGOJOIBr20pT6dKkMpaDssmkGjSghzy6pRIFPG7p7CHzpiVSBMqAE9S0atFy3sBR60ZOLchqpsQUK53Uv3ZTw4wSLLIei4JzHrd32urKe4f3X7N3J1yBmpSq4kGV7aiYWZofjCVi8I8cbxST9qiJdHggxaJSVDIf2aKY7IbfHzgYOtl3wrA%2BFUOqT9ZyLEvKM5UqQZUNrbD6I2m3mZIzk2xv7u%2FQ5bGy%2B%2FD07tINZQgK%2FuENWiHP8V6Pd0N1VY%2FhAyauWAiT4Q38KCtt%2B3T3h2NRGVXMwiA7B3YmLDOtBMx9dwQaFIgIdOv3ngtdvhhNRdDGc7KyoSmsSD6PF2wj5nzpEZ2D%2BjyfVFXG0Ht36rpo61ok0wyRrsMcI70sbNHmLMEvoaZ0kmc9ElWURPy2nOYVrw1aM3JKzdTKqeWDo1HZYmM83spfNllDxUE5SOmYeSZSoODstcsU6YikibYtLNLC15OaKkcaUMOQaKm8rkjoCk5RHPls%2BRNde6KpocveHiwOhxtomtGiSq4vy6weAjYppmBkQRNNKp52VB09QAwx8z6u34C%2BD%2FUpzsm7u82dM9762Ot0kwKmqOoTtZh0R0OnluzaDJ9iyQR6cOX7o1u3LE4lYq2LW2GW2BNp74laMuagAdcWuC%2BwbM3URUV5%2BYABz3GkMaSS1tgBzDFuEe5eYwZtO7APzbVNYdG%2BL%2BYLgKamAqDQVHf%2BTElBEMPVOn5VCnf64OUrUhjQok1UMBFFHjBjfJwAgwMFJ82%2BiFGgARiQPuXHxVv3%2F%2BZ2ukReOFR3%2FM3vxsNUSIdxIse3LyqFdBzE8Xgy8fr0ceeuXhJMUWTgoHGIvFhbf2r7od%2BL8goKs3NguxUxLIxMNIYJKxa4RRcBhKGjOVcfP4So3p5fGGyWh6xa2Ism4pv37y3%2F5rPtB6u9bq9VBw7rZndj6CPJweI78oN%2Bl8ce%2BpKM%2Be4zKMMuNMKsyCzLotmBGQ28QZGOnQv9eS4EwzxOFyZTI%2FTtq%2BN%2Fv7akmRl4gwTohBn5pFmOA7OJRr3ptcVKvfUB3dwhiBaDdfFSTXMyG6LJTIi4DNCik2q8eP3DLe2mm519rwIzZTSlN1k2s3ZzH2vC%2FP%2B%2F%2FP4NAAD%2F%2F1tKzZUAAAAGSURBVAMA9YDp%2FN1YYOkAAAAASUVORK5CYII%3D%22%20width%3D%2232%22%20height%3D%2232%22%20opacity%3D%220.3%22%20%2F%3E%3Cpath%20d%3D%22M3.04536%204.45259C2.7582%203.60299%203.60299%202.7582%204.45259%203.04536L14.1828%206.33403C15.1637%206.66558%2015.0872%208.08006%2014.0715%208.39045L10.2994%209.54319C9.93919%209.65327%209.65327%209.93919%209.54319%2010.2994L8.39046%2014.0715C8.08007%2015.0872%206.66558%2015.1637%206.33404%2014.1828L3.04536%204.45259Z%22%20fill%3D%22black%22%20stroke%3D%22white%22%20stroke-width%3D%221.5%22%20stroke-linejoin%3D%22round%22%20paint-order%3D%22stroke%20fill%22%20transform%3D%22translate(-2%20-2)%20scale(2.1)%22%20%2F%3E%3C%2Fsvg%3E" data-codex-favicon-badge="true" data-codex-favicon-badge-created="true"></head>
+
+
+    <frameset rows="117px, 65px,  *" id="rows" framespacing="0" frameborder="no">
+        <frame src="nav_bar.html" name="nav" id="nav" scrolling="no" frameborder="0" title="Search Navigation Bar" noresize="">
+              <frame src="cgi/versionMenu.pl" name="crumbular" id="crumbular" frameborder="0" title="Breadcrumbs" scrolling="no" noresize="">
+     <frameset cols="300px, *" id="cols">
+            <frame src="cgi/FlagstaffTOC.pl" name="toc" id="toc" frameborder="0" title="Table of Contents" noresize="">
+
+                     <frame src="html/FlagstaffNT.html" name="doc" id="doc" frameborder="0" title="Main Document">
+
+    </frameset>
+
+    <noframes>
+        <p><a href="mobile/">Mobile Version</a></p>
+    </noframes>
+
+    
+
+</frameset><div id="codex-agent-overlay-root" data-codex-agent-overlay-root="true"></div></html>

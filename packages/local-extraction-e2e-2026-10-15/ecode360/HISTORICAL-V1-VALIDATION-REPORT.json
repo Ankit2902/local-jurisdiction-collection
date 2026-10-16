@@ -1,0 +1,2147 @@
+{
+  "schema_version": 1,
+  "family": "ecode360",
+  "created_at": "2026-10-15T16:47:42.679638+00:00",
+  "validation_date": "2026-10-15",
+  "package_status": "completed portable method-validation package; production/full-inventory qualification incomplete",
+  "parser_version": "ecode360-handoff-1.0.0",
+  "parser_sha256": "f4f728645c36f6adf7e9391cf6b219177a296d73d5076f7610e18f78a3e8de6e",
+  "python_runtime_tested": "3.9",
+  "requirements": {
+    "path": "requirements.txt",
+    "sha256": "f00328ba43fe8eca5a8f8765b4997657517cf0e25d0b1989da253d6153c54699",
+    "bytes": 42
+  },
+  "summary": {
+    "baseline_jurisdictions": 12,
+    "current_publisher_route_identities_verified": 12,
+    "current_official_municipal_ecode_links_verified": 3,
+    "retained_real_historical_DOM_parser_verified": 12,
+    "historical_records": 115,
+    "current_representative_text_observed": 4,
+    "current_exact_section_DOM_excerpts_parser_verified": 1,
+    "inventory_verified": 0,
+    "full_collection_verified": 0,
+    "additional_current_routes_observed": 1,
+    "offline_fixture_records_including_current_excerpt": 116,
+    "tests_passed": 22,
+    "tests_failed": 0
+  },
+  "validation_definitions": {
+    "route_verified": "publisher route rendered exact jurisdiction/customer/code/date identity during bounded browser check; independent official-route currentness is separate",
+    "parser_verified": "all expected source node/body pairs in a bounded retained DOM fixture emitted and passed tests; does not establish current/full-publication coverage",
+    "inventory_verified": "independent complete version-bound publication/family inventory reconciled; not achieved here",
+    "full_collection_verified": "complete inventory/acquisition/semantic review/end-version reconciliation achieved; not attempted here"
+  },
+  "tests": {
+    "command": "python -m unittest -v test_ecode360.py",
+    "passed": 22,
+    "failed": 0,
+    "evidence": {
+      "path": "evidence/tests.txt",
+      "sha256": "1c2931c8b53e6491934190f93718b1fcbf4c64e3caf78a9c2de8616e484d9923",
+      "bytes": 2037
+    },
+    "offline_replay_command": "python validate_local.py --out replay-check",
+    "executed_offline_report": {
+      "path": "examples/offline-validation.json",
+      "sha256": "e9f78e60cfb835eda7e7515becbe0ba968c9afcd6f45df17ac09127e12c06527",
+      "bytes": 5928
+    },
+    "coverage": [
+      "distinct source nodes with repeated printed citations",
+      "same node repeated across artifacts deduplicated with all origins",
+      "parent own and unnumbered operative bodies",
+      "exact body association and navigation exclusion",
+      "merged tables, nested native/eCode lists, sup/sub, images/order, history",
+      "version/strict publication scope/challenge/raw hash refusal",
+      "resume identical deterministic content and parser-file/inventory/source binding",
+      "partial inventory publication refusal",
+      "all12 retained real chapter DOMs and1 exact current section DOM excerpt"
+    ]
+  },
+  "historical_count_reconciliation": {
+    "source_counts": {
+      "burlingame-ca": 1,
+      "emeryville-ca": 7,
+      "half-moon-bay-ca": 10,
+      "malibu-ca": 28,
+      "san-leandro-ca": 1,
+      "santa-clara-ca": 4,
+      "santa-monica-ca": 9,
+      "santa-rosa-ca": 13,
+      "south-san-francisco-ca": 8,
+      "sunnyvale-ca": 8,
+      "west-hollywood-ca": 10,
+      "tukwila-wa": 16
+    },
+    "sum": 115,
+    "initial_test_literal": 123,
+    "resolution": "Initial123 was a handwritten summation error. Exact per-source TOC/body identities reconcile115; no nodes or bodies removed. Current excerpt contributes a separate1 record."
+  },
+  "jurisdictions": [
+    {
+      "slug": "burlingame-ca",
+      "jurisdiction": "Burlingame",
+      "checked_on": "2026-10-15",
+      "mapped_url": "https://ecode360.com/44587767",
+      "route_verified": true,
+      "route_evidence_kind": "current supported public browser DOM attributes/title; not full DOM archive",
+      "official_route_currentness": "official_ecode_link_verified",
+      "official_ecode_route_verified": true,
+      "official_page_check": {
+        "slug": "burlingame-ca",
+        "official_page_url": "https://burlingame.org/172/Codes-Regulations",
+        "checked_at": "2026-10-15T16:34:34.036675+00:00",
+        "official_routing_verified": true,
+        "publication_version_verified": false,
+        "status": 200,
+        "final_url": "https://burlingame.org/172/Codes-Regulations",
+        "redirect_chain": [],
+        "raw_path": "evidence/official-routing/burlingame-ca/official.html",
+        "raw_sha256": "1e0805fce075920a0f599acd4275d50ea24dfa02e3b873f05b96ce57c73f6963",
+        "publisher_links": [
+          {
+            "label": "Burlingame Municipal Code",
+            "url": "https://ecode360.com/BU4910"
+          },
+          {
+            "label": "Title 18 of the Code: Building Construction",
+            "url": "https://ecode360.com/44512920#44512920"
+          },
+          {
+            "label": "Title 25 of the Code: Zoning",
+            "url": "https://ecode360.com/44514176"
+          },
+          {
+            "label": "Title 25.78 of the Code: Fences and Hedges",
+            "url": "https://ecode360.com/44516798"
+          }
+        ]
+      },
+      "ordinary_http": {
+        "status": 403,
+        "route_verified": false,
+        "receipt": "evidence/live-http/burlingame-ca/receipt.json",
+        "blocked": true
+      },
+      "current_browser": {
+        "slug": "burlingame-ca",
+        "source_url": "https://ecode360.com/44587767",
+        "observed_on": "2026-10-15",
+        "observed_time_utc": null,
+        "transport": "isolated Codex IAB; supported read-only DOM evaluation after navigation/state",
+        "evidence_kind": "derived exact DOM attribute/count observation, not saved full DOM",
+        "title": "Code of Ordinances - City of Burlingame, CA",
+        "identity": {
+          "customer_id": "BU4910",
+          "code_id": "332192",
+          "currency_raw": "2026-04-20"
+        },
+        "route_verified": true,
+        "current_official_route_verified": true,
+        "observed_toc_link_count": 26,
+        "observed_collapsed_control_count": 2,
+        "collapsed_count_is_not_completeness_proof": true,
+        "observed_untyped_family_candidates": [],
+        "representative_text_checks": [
+          {
+            "source_url": "https://ecode360.com/44507297",
+            "section_content_body_count": 0,
+            "result": "challenge"
+          }
+        ],
+        "representative_text_verified": false,
+        "inventory_verified": false,
+        "full_collection_verified": false
+      },
+      "current_representative_text_verified": false,
+      "parser_verified": true,
+      "parser_validation_scope": "retained historical chapter DOM only",
+      "historical_fixture": {
+        "slug": "burlingame-ca",
+        "title": "Chapter 1.04: DEFINITIONS - City of Burlingame, CA",
+        "url": "https://ecode360.com/44507298",
+        "raw_sha256": "32d3441de521f4fa20b9f359d69f2cacbca4f54411ae765604bf674c34903dd1",
+        "node_count": 1,
+        "parsed_record_count": 1,
+        "raw_path": "fixtures/historical/burlingame-ca/chapter.html",
+        "source_has_table": false,
+        "source_has_litem": false,
+        "source_has_image": false,
+        "version": {
+          "customer_id": "BU4910",
+          "code_id": "332192",
+          "currency_raw": "2026-04-20"
+        },
+        "original_retrieval_time_known": false,
+        "pilot_context_date": "2026-08-28",
+        "replayed_on": "2026-10-15",
+        "currentness_verified": false,
+        "observed_navigation_nodes": 1,
+        "included_records": 1,
+        "unresolved_nodes": 0,
+        "errors": []
+      },
+      "inventory_verified": false,
+      "inventory_validation_scope": "bounded on-page TOC candidate only; full publication families/hierarchy not independently reconciled",
+      "full_collection_verified": false,
+      "release_eligible": false,
+      "evidence": [
+        {
+          "path": "fixtures/historical/burlingame-ca/chapter.html",
+          "sha256": "32d3441de521f4fa20b9f359d69f2cacbca4f54411ae765604bf674c34903dd1",
+          "bytes": 99477
+        },
+        {
+          "path": "fixtures/historical/burlingame-ca/inventory.json",
+          "sha256": "78d184ce5721eadfec9ccd511d7976bd6dce31acaa9b7a10b710b869cab4572b",
+          "bytes": 1414
+        },
+        {
+          "path": "fixtures/historical/burlingame-ca/artifacts.json",
+          "sha256": "0936df9b221054a2706f992929d6153bac91281d64e5447e7eda01f701498c88",
+          "bytes": 275
+        },
+        {
+          "path": "fixtures/historical/burlingame-ca/origin.json",
+          "sha256": "7f95f3bc5409d178274615824b4eec34e84d1697b8d1ecfa7ce9a6c3a4fa3e60",
+          "bytes": 369
+        },
+        {
+          "path": "fixtures/historical/burlingame-ca/toc-candidate.json",
+          "sha256": "a90de7f5111eab5c2fd60b718a113d246c014759372d731699788cbc79f50b58",
+          "bytes": 866
+        },
+        {
+          "path": "examples/burlingame-ca/validation-report.json",
+          "sha256": "465b4db292744df9f6463344e05a47fab411c2250f70cdb3252e63016670f20e",
+          "bytes": 339
+        },
+        {
+          "path": "examples/burlingame-ca/aggregate-fulltext.csv",
+          "sha256": "45f7c4c863948d4f9ad132340a249da6d842328bf592b77597243023d047cb1f",
+          "bytes": 2153
+        },
+        {
+          "path": "examples/burlingame-ca/record-provenance.jsonl",
+          "sha256": "9b6214f92de652859102476ab389761e5ae3dea91c615bd8d1a84997d3724b35",
+          "bytes": 3826
+        },
+        {
+          "path": "examples/burlingame-ca/node-dispositions.jsonl",
+          "sha256": "540ea359221634e8813f34c2ff5e3cef12c51b5e5bb8925720abb49ec07b99ec",
+          "bytes": 188
+        },
+        {
+          "path": "evidence/official-routing/burlingame-ca/official.html",
+          "sha256": "1e0805fce075920a0f599acd4275d50ea24dfa02e3b873f05b96ce57c73f6963",
+          "bytes": 126577
+        },
+        {
+          "path": "evidence/live-http/burlingame-ca/receipt.json",
+          "sha256": "a4c1f08db08436ad23654efe69b3bd4bcad40f99d2e782e6e59e7246ef1c61f7",
+          "bytes": 993
+        },
+        {
+          "path": "evidence/live-http/burlingame-ca/d306db7efa4c39f9e040333f1fe94bb6ccf17171d84fa2fc8b463e82b518975b.html",
+          "sha256": "d306db7efa4c39f9e040333f1fe94bb6ccf17171d84fa2fc8b463e82b518975b",
+          "bytes": 5522
+        }
+      ]
+    },
+    {
+      "slug": "emeryville-ca",
+      "jurisdiction": "Emeryville",
+      "checked_on": "2026-10-15",
+      "mapped_url": "https://ecode360.com/47056325",
+      "route_verified": true,
+      "route_evidence_kind": "current supported public browser DOM attributes/title; not full DOM archive",
+      "official_route_currentness": "unverified",
+      "official_ecode_route_verified": false,
+      "official_page_check": {
+        "slug": "emeryville-ca",
+        "official_page_url": "https://www.emeryville.org/Site-Footer/Footer-Widgets/Quick-Links/Municipal-Code",
+        "checked_at": "2026-10-15T16:34:35.454785+00:00",
+        "official_routing_verified": false,
+        "publication_version_verified": false,
+        "status": 403,
+        "final_url": "https://www.emeryville.org/Site-Footer/Footer-Widgets/Quick-Links/Municipal-Code",
+        "redirect_chain": [],
+        "raw_path": "evidence/official-routing/emeryville-ca/official.html",
+        "raw_sha256": "8ded431ac9a97b8097613b7696b8f490520f7704687dff343303d8fc1536199a",
+        "publisher_links": []
+      },
+      "ordinary_http": {
+        "status": 403,
+        "route_verified": false,
+        "receipt": "evidence/live-http/emeryville-ca/receipt.json",
+        "blocked": true
+      },
+      "current_browser": {
+        "slug": "emeryville-ca",
+        "source_url": "https://ecode360.com/47056325",
+        "observed_on": "2026-10-15",
+        "observed_time_utc": null,
+        "transport": "isolated Codex IAB; supported read-only DOM evaluation after navigation/state",
+        "evidence_kind": "derived exact DOM attribute/count observation, not saved full DOM",
+        "title": "Municipal Code - City of Emeryville, CA",
+        "identity": {
+          "customer_id": "EM4426",
+          "code_id": "336039",
+          "currency_raw": "2026-06-02"
+        },
+        "route_verified": true,
+        "current_official_route_verified": false,
+        "observed_toc_link_count": 10,
+        "observed_collapsed_control_count": 131,
+        "collapsed_count_is_not_completeness_proof": true,
+        "observed_untyped_family_candidates": [],
+        "representative_text_checks": [
+          {
+            "source_url": "https://ecode360.com/46989351",
+            "section_content_body_count": 0,
+            "result": "challenge"
+          }
+        ],
+        "representative_text_verified": false,
+        "inventory_verified": false,
+        "full_collection_verified": false
+      },
+      "current_representative_text_verified": false,
+      "parser_verified": true,
+      "parser_validation_scope": "retained historical chapter DOM only",
+      "historical_fixture": {
+        "slug": "emeryville-ca",
+        "title": "CHAPTER 1: ADOPTION OF CODE - City of Emeryville, CA",
+        "url": "https://ecode360.com/46989352",
+        "raw_sha256": "e19833638f668c98d96b9cfcd0273904fa42cd71e2a6e7fa42cdd90678f90b61",
+        "node_count": 7,
+        "parsed_record_count": 7,
+        "raw_path": "fixtures/historical/emeryville-ca/chapter.html",
+        "source_has_table": true,
+        "source_has_litem": true,
+        "source_has_image": false,
+        "version": {
+          "customer_id": "EM4426",
+          "code_id": "336039",
+          "currency_raw": "2026-06-02"
+        },
+        "original_retrieval_time_known": false,
+        "pilot_context_date": "2026-08-28",
+        "replayed_on": "2026-10-15",
+        "currentness_verified": false,
+        "observed_navigation_nodes": 7,
+        "included_records": 7,
+        "unresolved_nodes": 0,
+        "errors": []
+      },
+      "inventory_verified": false,
+      "inventory_validation_scope": "bounded on-page TOC candidate only; full publication families/hierarchy not independently reconciled",
+      "full_collection_verified": false,
+      "release_eligible": false,
+      "evidence": [
+        {
+          "path": "fixtures/historical/emeryville-ca/chapter.html",
+          "sha256": "e19833638f668c98d96b9cfcd0273904fa42cd71e2a6e7fa42cdd90678f90b61",
+          "bytes": 190677
+        },
+        {
+          "path": "fixtures/historical/emeryville-ca/inventory.json",
+          "sha256": "0241b67cb94a787be2c79456354a88edb18c70669b999e6934decc78b7a3f083",
+          "bytes": 4553
+        },
+        {
+          "path": "fixtures/historical/emeryville-ca/artifacts.json",
+          "sha256": "6f368e9cee25ba7c9201f7673fdf08b93eb04ed95f7fb7686c3c25e317027336",
+          "bytes": 275
+        },
+        {
+          "path": "fixtures/historical/emeryville-ca/origin.json",
+          "sha256": "7e5a6ab236667e9dbdcfceba35cbed5844dd56531567c307d575cf6c304ceba2",
+          "bytes": 369
+        },
+        {
+          "path": "fixtures/historical/emeryville-ca/toc-candidate.json",
+          "sha256": "195e0d11bec85d0ec06fbc52c9cfff9bbb4c09aeca6fc73cdf284417bd453df6",
+          "bytes": 3199
+        },
+        {
+          "path": "examples/emeryville-ca/validation-report.json",
+          "sha256": "df9040cef6e851fa43393c52aea150b9685a8c7c6feeda7b80e2b656aacd6719",
+          "bytes": 339
+        },
+        {
+          "path": "examples/emeryville-ca/aggregate-fulltext.csv",
+          "sha256": "9e8f5d25e26f9e7e6239f9c64293973eebb33ae3268b8d3ccfff735801c750f2",
+          "bytes": 24233
+        },
+        {
+          "path": "examples/emeryville-ca/record-provenance.jsonl",
+          "sha256": "e0db8f702a9dc0c261c52b254db1c8abca893e457132f5efc820cc3af4fe274c",
+          "bytes": 32183
+        },
+        {
+          "path": "examples/emeryville-ca/node-dispositions.jsonl",
+          "sha256": "aa32c329feef76b10d281db3c2fa524b06ff8d7d1f4ac301b47ff20fa546e757",
+          "bytes": 1316
+        },
+        {
+          "path": "evidence/official-routing/emeryville-ca/official.html",
+          "sha256": "8ded431ac9a97b8097613b7696b8f490520f7704687dff343303d8fc1536199a",
+          "bytes": 453
+        },
+        {
+          "path": "evidence/live-http/emeryville-ca/receipt.json",
+          "sha256": "3071bb6685e28eb2183099eb7d6972ccd804be2de774061ea4ba5d96ecc94107",
+          "bytes": 993
+        },
+        {
+          "path": "evidence/live-http/emeryville-ca/055c1ca132f1d583d7e1924e708c17c5c05e23acc76a538aa309fd8bec842aa8.html",
+          "sha256": "055c1ca132f1d583d7e1924e708c17c5c05e23acc76a538aa309fd8bec842aa8",
+          "bytes": 5522
+        }
+      ]
+    },
+    {
+      "slug": "half-moon-bay-ca",
+      "jurisdiction": "Half Moon Bay",
+      "checked_on": "2026-10-15",
+      "mapped_url": "https://ecode360.com/HA4470",
+      "route_verified": true,
+      "route_evidence_kind": "current supported public browser DOM attributes/title; not full DOM archive",
+      "official_route_currentness": "legacy_official_link_redirect_unreconciled",
+      "official_ecode_route_verified": false,
+      "official_page_check": {
+        "slug": "half-moon-bay-ca",
+        "official_page_url": "https://www.halfmoonbay.gov/384/Municipal-Code",
+        "checked_at": "2026-10-15T16:34:36.154979+00:00",
+        "official_routing_verified": true,
+        "publication_version_verified": false,
+        "status": 200,
+        "final_url": "https://www.halfmoonbay.gov/384/Municipal-Code",
+        "redirect_chain": [],
+        "raw_path": "evidence/official-routing/half-moon-bay-ca/official.html",
+        "raw_sha256": "5084a7908646250a32e6aee65c891639070292cd0e33e695cd66320e13beec0a",
+        "publisher_links": [
+          {
+            "label": "View the entire Half Moon Bay Municipal Code",
+            "url": "http://www.codepublishing.com/CA/HalfMoonBay/"
+          },
+          {
+            "label": "Title 17",
+            "url": "http://www.codepublishing.com/CA/HalfMoonBay/#!/HalfMoonBay17/HalfMoonBay17.html"
+          },
+          {
+            "label": "Chapter 17.06",
+            "url": "http://www.codepublishing.com/CA/HalfMoonBay/#!/HalfMoonBay17/HalfMoonBay1706.html#17.06"
+          },
+          {
+            "label": "Title 18",
+            "url": "http://www.codepublishing.com/CA/HalfMoonBay/#!/HalfMoonBay18/HalfMoonBay18.html"
+          },
+          {
+            "label": "Chapter 7.40",
+            "url": "http://www.codepublishing.com/CA/HalfMoonBay/#!/HalfMoonBay07/HalfMoonBay0740.html#7.40"
+          },
+          {
+            "label": "Chapter 13.04",
+            "url": "http://www.codepublishing.com/CA/HalfMoonBay/#!/HalfMoonBay13/HalfMoonBay1304.html#13.04"
+          },
+          {
+            "label": "Chapter 14.39",
+            "url": "http://www.codepublishing.com/CA/HalfMoonBay/#!/HalfMoonBay14/HalfMoonBay1439.html#14.39"
+          },
+          {
+            "label": "Title 17 (Subdivisions)",
+            "url": "http://www.codepublishing.com/CA/HalfMoonBay/#!/HalfMoonBay17/HalfMoonBay17.html"
+          },
+          {
+            "label": "Chapter 17.06 (Dwelling Unit Allocation)",
+            "url": "http://www.codepublishing.com/CA/HalfMoonBay/#!/HalfMoonBay17/HalfMoonBay1706.html#17.06"
+          },
+          {
+            "label": "Title 18 (Zoning)",
+            "url": "http://www.codepublishing.com/CA/HalfMoonBay/#!/HalfMoonBay18/HalfMoonBay18.html"
+          },
+          {
+            "label": "Chapter 7.40 (Heritage Trees)",
+            "url": "https://www.codepublishing.com/CA/HalfMoonBay/#!/HalfMoonBay07/HalfMoonBay0740.html#7.40"
+          }
+        ]
+      },
+      "ordinary_http": {
+        "status": 403,
+        "route_verified": false,
+        "receipt": "evidence/live-http/half-moon-bay-ca/receipt.json",
+        "blocked": true
+      },
+      "current_browser": {
+        "slug": "half-moon-bay-ca",
+        "source_url": "https://ecode360.com/HA4470",
+        "observed_on": "2026-10-15",
+        "observed_time_utc": null,
+        "transport": "isolated Codex IAB; supported read-only DOM evaluation after navigation/state",
+        "evidence_kind": "derived exact DOM attribute/count observation, not saved full DOM",
+        "title": "Table of Contents - City of Half Moon Bay, CA",
+        "identity": {
+          "customer_id": "HA4470",
+          "code_id": "336191",
+          "currency_raw": "2026-05-05"
+        },
+        "route_verified": true,
+        "current_official_route_verified": false,
+        "observed_toc_link_count": 22,
+        "observed_collapsed_control_count": 0,
+        "collapsed_count_is_not_completeness_proof": true,
+        "observed_untyped_family_candidates": [
+          {
+            "node_id": "47155205",
+            "label": "Municipal Code"
+          },
+          {
+            "node_id": "47155230",
+            "label": "Tables"
+          }
+        ],
+        "representative_text_checks": [
+          {
+            "source_url": "https://ecode360.com/47025424",
+            "section_content_body_count": 0,
+            "result": "challenge"
+          }
+        ],
+        "representative_text_verified": false,
+        "inventory_verified": false,
+        "full_collection_verified": false
+      },
+      "current_representative_text_verified": false,
+      "parser_verified": true,
+      "parser_validation_scope": "retained historical chapter DOM only",
+      "historical_fixture": {
+        "slug": "half-moon-bay-ca",
+        "title": "Chapter 1.01: CODE ADOPTION - City of Half Moon Bay, CA",
+        "url": "https://ecode360.com/47025425",
+        "raw_sha256": "dd138820b70fb3277a0692a28c59fa720999711e4c3703a6e76769d97a062f8a",
+        "node_count": 10,
+        "parsed_record_count": 10,
+        "raw_path": "fixtures/historical/half-moon-bay-ca/chapter.html",
+        "source_has_table": false,
+        "source_has_litem": false,
+        "source_has_image": false,
+        "version": {
+          "customer_id": "HA4470",
+          "code_id": "336191",
+          "currency_raw": "2026-05-05"
+        },
+        "original_retrieval_time_known": false,
+        "pilot_context_date": "2026-08-28",
+        "replayed_on": "2026-10-15",
+        "currentness_verified": false,
+        "observed_navigation_nodes": 10,
+        "included_records": 10,
+        "unresolved_nodes": 0,
+        "errors": []
+      },
+      "inventory_verified": false,
+      "inventory_validation_scope": "bounded on-page TOC candidate only; full publication families/hierarchy not independently reconciled",
+      "full_collection_verified": false,
+      "release_eligible": false,
+      "evidence": [
+        {
+          "path": "fixtures/historical/half-moon-bay-ca/chapter.html",
+          "sha256": "dd138820b70fb3277a0692a28c59fa720999711e4c3703a6e76769d97a062f8a",
+          "bytes": 73610
+        },
+        {
+          "path": "fixtures/historical/half-moon-bay-ca/inventory.json",
+          "sha256": "80b4ce33510a0985e51f16d0f2684ce2e800d4b554455050b7f3cda27b7953df",
+          "bytes": 6089
+        },
+        {
+          "path": "fixtures/historical/half-moon-bay-ca/artifacts.json",
+          "sha256": "2fccbdfc182c7826f414d25ee45c9d3dfa3be36f123dc5fc0aed131c48826e47",
+          "bytes": 275
+        },
+        {
+          "path": "fixtures/historical/half-moon-bay-ca/origin.json",
+          "sha256": "fcb55bf12d8eb5b2040d19954772bbd651606a54b59f8536583bc384afceee0d",
+          "bytes": 369
+        },
+        {
+          "path": "fixtures/historical/half-moon-bay-ca/toc-candidate.json",
+          "sha256": "e4444df6a1bca75b501da53212db3acdf87ab7fdfd10eef3e9200ee8e1c53f77",
+          "bytes": 4327
+        },
+        {
+          "path": "examples/half-moon-bay-ca/validation-report.json",
+          "sha256": "58cdc81b62922242f6c306cc03bd8290ebb5b39b1d5d8611fdacccb85876908c",
+          "bytes": 341
+        },
+        {
+          "path": "examples/half-moon-bay-ca/aggregate-fulltext.csv",
+          "sha256": "048de061a3413b4af88b9f1c12b7e3f972268670a1049c20c423314bd0d4e63d",
+          "bytes": 6864
+        },
+        {
+          "path": "examples/half-moon-bay-ca/record-provenance.jsonl",
+          "sha256": "c4109e400ed0d5f1d5bd8b9d5c05e1eb45a9006cf789885eb3e4aec8ee16430c",
+          "bytes": 11855
+        },
+        {
+          "path": "examples/half-moon-bay-ca/node-dispositions.jsonl",
+          "sha256": "e19a67d0d4fa0506a8dde440adbe58a4c0865b3d0035d38a1c80902497582740",
+          "bytes": 1910
+        },
+        {
+          "path": "evidence/official-routing/half-moon-bay-ca/official.html",
+          "sha256": "5084a7908646250a32e6aee65c891639070292cd0e33e695cd66320e13beec0a",
+          "bytes": 73779
+        },
+        {
+          "path": "evidence/live-http/half-moon-bay-ca/receipt.json",
+          "sha256": "810fd80a29809d62900573f100c002a8643803cc896cdb6cd095e8231aa898a4",
+          "bytes": 987
+        },
+        {
+          "path": "evidence/live-http/half-moon-bay-ca/bff1a012d78943fe45b09bb68f4f0798eb19302722b6621b5daf0a8188e8897f.html",
+          "sha256": "bff1a012d78943fe45b09bb68f4f0798eb19302722b6621b5daf0a8188e8897f",
+          "bytes": 5516
+        }
+      ]
+    },
+    {
+      "slug": "malibu-ca",
+      "jurisdiction": "Malibu",
+      "checked_on": "2026-10-15",
+      "mapped_url": "https://ecode360.com/44342329",
+      "route_verified": true,
+      "route_evidence_kind": "current supported public browser DOM attributes/title; not full DOM archive",
+      "official_route_currentness": "official_ecode_link_verified",
+      "official_ecode_route_verified": true,
+      "official_page_check": {
+        "slug": "malibu-ca",
+        "official_page_url": "https://malibucity.org/188/City-Council-Documents",
+        "checked_at": "2026-10-15T16:34:38.041453+00:00",
+        "official_routing_verified": true,
+        "publication_version_verified": false,
+        "status": 200,
+        "final_url": "https://malibucity.org/188/City-Council-Documents",
+        "redirect_chain": [],
+        "raw_path": "evidence/official-routing/malibu-ca/official.html",
+        "raw_sha256": "ac4c0e30c5f4b1e8e5cc1361c092328d093708a6f25f6da0e8da6aaa88bfc56f",
+        "publisher_links": [
+          {
+            "label": "City Council Ordinances - Municipal Code",
+            "url": "http://qcode.us/codes/malibu/"
+          },
+          {
+            "label": "Municipal Code",
+            "url": "https://www.ecode360.com/MA5043"
+          }
+        ]
+      },
+      "ordinary_http": {
+        "status": 403,
+        "route_verified": false,
+        "receipt": "evidence/live-http/malibu-ca/receipt.json",
+        "blocked": true
+      },
+      "current_browser": {
+        "slug": "malibu-ca",
+        "source_url": "https://ecode360.com/44342329",
+        "observed_on": "2026-10-15",
+        "observed_time_utc": null,
+        "transport": "isolated Codex IAB; supported read-only DOM evaluation after navigation/state",
+        "evidence_kind": "derived exact DOM attribute/count observation, not saved full DOM",
+        "title": "Municipal Code - City of Malibu, CA",
+        "identity": {
+          "customer_id": "MA5043",
+          "code_id": "336335",
+          "currency_raw": "2026-06-22"
+        },
+        "route_verified": true,
+        "current_official_route_verified": true,
+        "observed_toc_link_count": 17,
+        "observed_collapsed_control_count": 5,
+        "collapsed_count_is_not_completeness_proof": true,
+        "observed_untyped_family_candidates": [],
+        "representative_text_checks": [
+          {
+            "source_url": "https://ecode360.com/44331144",
+            "section_content_body_count": 0,
+            "result": "challenge"
+          }
+        ],
+        "representative_text_verified": false,
+        "inventory_verified": false,
+        "full_collection_verified": false
+      },
+      "current_representative_text_verified": false,
+      "parser_verified": true,
+      "parser_validation_scope": "retained historical chapter DOM only",
+      "historical_fixture": {
+        "slug": "malibu-ca",
+        "title": "Chapter 1.04: GENERAL PROVISIONS - City of Malibu, CA",
+        "url": "https://ecode360.com/44331146",
+        "raw_sha256": "339051c8bc4b4576073ab92e124cdde2af229c00feebf2c7f27a0b9957cdd301",
+        "node_count": 28,
+        "parsed_record_count": 28,
+        "raw_path": "fixtures/historical/malibu-ca/chapter.html",
+        "source_has_table": false,
+        "source_has_litem": true,
+        "source_has_image": false,
+        "version": {
+          "customer_id": "MA5043",
+          "code_id": "336335",
+          "currency_raw": "2026-06-22"
+        },
+        "original_retrieval_time_known": false,
+        "pilot_context_date": "2026-08-28",
+        "replayed_on": "2026-10-15",
+        "currentness_verified": false,
+        "observed_navigation_nodes": 28,
+        "included_records": 28,
+        "unresolved_nodes": 0,
+        "errors": []
+      },
+      "inventory_verified": false,
+      "inventory_validation_scope": "bounded on-page TOC candidate only; full publication families/hierarchy not independently reconciled",
+      "full_collection_verified": false,
+      "release_eligible": false,
+      "evidence": [
+        {
+          "path": "fixtures/historical/malibu-ca/chapter.html",
+          "sha256": "339051c8bc4b4576073ab92e124cdde2af229c00feebf2c7f27a0b9957cdd301",
+          "bytes": 120506
+        },
+        {
+          "path": "fixtures/historical/malibu-ca/inventory.json",
+          "sha256": "8f7b15707f96061558331b4c514e38bf6f52066ae60b6abb7f68a6ce8573a396",
+          "bytes": 15167
+        },
+        {
+          "path": "fixtures/historical/malibu-ca/artifacts.json",
+          "sha256": "28d289b1aa0569bb9b9bc4449d158a11eb659179a32f84e8213770a04860e3a9",
+          "bytes": 275
+        },
+        {
+          "path": "fixtures/historical/malibu-ca/origin.json",
+          "sha256": "20f4a5c76dd7d68fbeee4eb3dd768d404c8a1653d9d340b19eb18bebc33729b1",
+          "bytes": 369
+        },
+        {
+          "path": "fixtures/historical/malibu-ca/toc-candidate.json",
+          "sha256": "ba7e92d3d231107f960dfba31513da625531453884be5549588c4fc6200845e7",
+          "bytes": 10867
+        },
+        {
+          "path": "examples/malibu-ca/validation-report.json",
+          "sha256": "eb2899611a0528c637bf3098751b1451d88167ead7a2d61c7db4242aa63d8fc9",
+          "bytes": 341
+        },
+        {
+          "path": "examples/malibu-ca/aggregate-fulltext.csv",
+          "sha256": "3019221dd21d83a1374903b73d5f09e04641e78a92dbf63cd52d411cbd4b6839",
+          "bytes": 12598
+        },
+        {
+          "path": "examples/malibu-ca/record-provenance.jsonl",
+          "sha256": "edae6db403c9ea89248ef88da11dd0820e1fd92bb1359034161e6de993a7cf3f",
+          "bytes": 27783
+        },
+        {
+          "path": "examples/malibu-ca/node-dispositions.jsonl",
+          "sha256": "8df8bf86a6f897c9fc3e4879f78fdb8996fe47b0e13f3a6ee4f8e17e245e314e",
+          "bytes": 5152
+        },
+        {
+          "path": "evidence/official-routing/malibu-ca/official.html",
+          "sha256": "ac4c0e30c5f4b1e8e5cc1361c092328d093708a6f25f6da0e8da6aaa88bfc56f",
+          "bytes": 108242
+        },
+        {
+          "path": "evidence/live-http/malibu-ca/receipt.json",
+          "sha256": "310921dd7ac57f3e48c2882bde24cb0b866cd14c4c3b2c4f92a6439abd240a58",
+          "bytes": 993
+        },
+        {
+          "path": "evidence/live-http/malibu-ca/45bb97c88e5bbd6799851030f17b503345681df05ac00ea82d98ea90b22c1cfa.html",
+          "sha256": "45bb97c88e5bbd6799851030f17b503345681df05ac00ea82d98ea90b22c1cfa",
+          "bytes": 5522
+        }
+      ]
+    },
+    {
+      "slug": "san-leandro-ca",
+      "jurisdiction": "San Leandro",
+      "checked_on": "2026-10-15",
+      "mapped_url": "https://ecode360.com/44065746",
+      "route_verified": true,
+      "route_evidence_kind": "current supported public browser DOM attributes/title; not full DOM archive",
+      "official_route_currentness": "unverified",
+      "official_ecode_route_verified": false,
+      "official_page_check": {
+        "slug": "san-leandro-ca",
+        "official_page_url": "https://www.sanleandro.org/342/Other-Planning-Resources",
+        "checked_at": "2026-10-15T16:34:39.344381+00:00",
+        "official_routing_verified": false,
+        "publication_version_verified": false,
+        "status": 403,
+        "final_url": "https://www.sanleandro.org/342/Other-Planning-Resources",
+        "redirect_chain": [],
+        "raw_path": "evidence/official-routing/san-leandro-ca/official.html",
+        "raw_sha256": "41df64ec9544e737202f3896705dbad7ddc646efa68c60501b400fa82be2c934",
+        "publisher_links": []
+      },
+      "ordinary_http": {
+        "status": 403,
+        "route_verified": false,
+        "receipt": "evidence/live-http/san-leandro-ca/receipt.json",
+        "blocked": true
+      },
+      "current_browser": {
+        "slug": "san-leandro-ca",
+        "source_url": "https://ecode360.com/44065746",
+        "observed_on": "2026-10-15",
+        "observed_time_utc": null,
+        "transport": "isolated Codex IAB; supported read-only DOM evaluation after navigation/state",
+        "evidence_kind": "derived exact DOM attribute/count observation, not saved full DOM",
+        "title": "Title 1: General Provisions and Administration - City of San Leandro, CA",
+        "identity": {
+          "customer_id": "SA5044",
+          "code_id": "337882",
+          "currency_raw": "2026-07-20"
+        },
+        "route_verified": true,
+        "current_official_route_verified": false,
+        "observed_toc_link_count": 14,
+        "observed_collapsed_control_count": 6,
+        "collapsed_count_is_not_completeness_proof": true,
+        "observed_untyped_family_candidates": [],
+        "representative_text_checks": [
+          {
+            "source_url": "https://ecode360.com/44065747",
+            "section_content_body_count": 0,
+            "result": "rendered navigation"
+          },
+          {
+            "source_url": "https://ecode360.com/44065748",
+            "section_content_body_count": 1,
+            "result": "rendered legal text"
+          }
+        ],
+        "representative_text_verified": true,
+        "inventory_verified": false,
+        "full_collection_verified": false
+      },
+      "current_representative_text_verified": true,
+      "parser_verified": true,
+      "parser_validation_scope": "retained historical chapter DOM only",
+      "historical_fixture": {
+        "slug": "san-leandro-ca",
+        "title": "Article 1: Council Member Districts - City of San Leandro, CA",
+        "url": "https://ecode360.com/44065748",
+        "raw_sha256": "e4365e88039e488c587705e9858f81bd20ae5a3fb1a7c23e15509c6e14f39b72",
+        "node_count": 1,
+        "parsed_record_count": 1,
+        "raw_path": "fixtures/historical/san-leandro-ca/chapter.html",
+        "source_has_table": true,
+        "source_has_litem": false,
+        "source_has_image": true,
+        "version": {
+          "customer_id": "SA5044",
+          "code_id": "335588",
+          "currency_raw": "2026-07-06"
+        },
+        "original_retrieval_time_known": false,
+        "pilot_context_date": "2026-08-28",
+        "replayed_on": "2026-10-15",
+        "currentness_verified": false,
+        "observed_navigation_nodes": 1,
+        "included_records": 1,
+        "unresolved_nodes": 0,
+        "errors": []
+      },
+      "inventory_verified": false,
+      "inventory_validation_scope": "bounded on-page TOC candidate only; full publication families/hierarchy not independently reconciled",
+      "full_collection_verified": false,
+      "release_eligible": false,
+      "evidence": [
+        {
+          "path": "fixtures/historical/san-leandro-ca/chapter.html",
+          "sha256": "e4365e88039e488c587705e9858f81bd20ae5a3fb1a7c23e15509c6e14f39b72",
+          "bytes": 64635
+        },
+        {
+          "path": "fixtures/historical/san-leandro-ca/inventory.json",
+          "sha256": "2a664d643b9baa0317cd9ef71bdab9c383a2b847e317b3c64ce7f088c5182b6b",
+          "bytes": 1439
+        },
+        {
+          "path": "fixtures/historical/san-leandro-ca/artifacts.json",
+          "sha256": "1b323da082086da1a753619dad9c4585d1684d3ed0eff0d4470831d320c59de0",
+          "bytes": 275
+        },
+        {
+          "path": "fixtures/historical/san-leandro-ca/origin.json",
+          "sha256": "803865b41d6aea6c11d82961e50e94576f76de46a34a99ee7c4ea8bff8dc6279",
+          "bytes": 369
+        },
+        {
+          "path": "fixtures/historical/san-leandro-ca/toc-candidate.json",
+          "sha256": "cc2206921807dd0de927f1fa950047c8c61ad6b7a6241b5a5af0f32ab0d8d149",
+          "bytes": 870
+        },
+        {
+          "path": "examples/san-leandro-ca/validation-report.json",
+          "sha256": "baea4bed5cced9e23d7ec586e36b52bcb269686cde151c83e7d30805611b02c6",
+          "bytes": 339
+        },
+        {
+          "path": "examples/san-leandro-ca/aggregate-fulltext.csv",
+          "sha256": "28ae90a4cc266b008e79485686ab9920e3cbaa93115ffe32af3f51ca63265206",
+          "bytes": 889
+        },
+        {
+          "path": "examples/san-leandro-ca/record-provenance.jsonl",
+          "sha256": "81305bb688f6a7b572cee40ae14b1e47fa8c86f22ee709c07f2625a080fc7ee5",
+          "bytes": 1324
+        },
+        {
+          "path": "examples/san-leandro-ca/node-dispositions.jsonl",
+          "sha256": "805e63cbfdf58b6d495c5ae1dce9bb1406fee22cbb6643d7adfef3d1f275911f",
+          "bytes": 189
+        },
+        {
+          "path": "evidence/official-routing/san-leandro-ca/official.html",
+          "sha256": "41df64ec9544e737202f3896705dbad7ddc646efa68c60501b400fa82be2c934",
+          "bytes": 5486
+        },
+        {
+          "path": "evidence/live-http/san-leandro-ca/receipt.json",
+          "sha256": "64d29e326cad8a9802f44e833ab0820e2dfd8dd0a33890f93682d14b60d41e11",
+          "bytes": 993
+        },
+        {
+          "path": "evidence/live-http/san-leandro-ca/aa4676b5e60cf2eaf96c5d5c6c1c43f51c7d729e9a05546f97db0921dba7a9a2.html",
+          "sha256": "aa4676b5e60cf2eaf96c5d5c6c1c43f51c7d729e9a05546f97db0921dba7a9a2",
+          "bytes": 5522
+        }
+      ]
+    },
+    {
+      "slug": "santa-clara-ca",
+      "jurisdiction": "Santa Clara",
+      "checked_on": "2026-10-15",
+      "mapped_url": "https://ecode360.com/47578663",
+      "route_verified": true,
+      "route_evidence_kind": "current supported public browser DOM attributes/title; not full DOM archive",
+      "official_route_currentness": "unverified",
+      "official_ecode_route_verified": false,
+      "official_page_check": {
+        "slug": "santa-clara-ca",
+        "official_page_url": "https://www.santaclaraca.gov/our-city/departments-a-f/community-development/planning-division/",
+        "checked_at": "2026-10-15T16:34:39.973347+00:00",
+        "official_routing_verified": false,
+        "publication_version_verified": false,
+        "status": 403,
+        "final_url": "https://www.santaclaraca.gov/our-city/departments-a-f/community-development/planning-division/",
+        "redirect_chain": [],
+        "raw_path": "evidence/official-routing/santa-clara-ca/official.html",
+        "raw_sha256": "4a82cce1cff3d98e88402b1d7729b12aa18780897c96c0dd8f978bfda98bb290",
+        "publisher_links": []
+      },
+      "ordinary_http": {
+        "status": 403,
+        "route_verified": false,
+        "receipt": "evidence/live-http/santa-clara-ca/receipt.json",
+        "blocked": true
+      },
+      "current_browser": {
+        "slug": "santa-clara-ca",
+        "source_url": "https://ecode360.com/47578663",
+        "observed_on": "2026-10-15",
+        "observed_time_utc": null,
+        "transport": "isolated Codex IAB; supported read-only DOM evaluation after navigation/state",
+        "evidence_kind": "derived exact DOM attribute/count observation, not saved full DOM",
+        "title": "City Code - City of Santa Clara, CA",
+        "identity": {
+          "customer_id": "SA4626",
+          "code_id": "329535",
+          "currency_raw": "2026-01-27"
+        },
+        "route_verified": true,
+        "current_official_route_verified": false,
+        "observed_toc_link_count": 18,
+        "observed_collapsed_control_count": 2,
+        "collapsed_count_is_not_completeness_proof": true,
+        "observed_untyped_family_candidates": [],
+        "representative_text_checks": [
+          {
+            "source_url": "https://ecode360.com/47543488",
+            "section_content_body_count": 0,
+            "result": "rendered navigation"
+          },
+          {
+            "source_url": "https://ecode360.com/47543489",
+            "section_content_body_count": 0,
+            "result": "challenge"
+          }
+        ],
+        "representative_text_verified": false,
+        "inventory_verified": false,
+        "full_collection_verified": false
+      },
+      "current_representative_text_verified": false,
+      "parser_verified": true,
+      "parser_validation_scope": "retained historical chapter DOM only",
+      "historical_fixture": {
+        "slug": "santa-clara-ca",
+        "title": "Chapter 1.01: CODE ADOPTION - City of Santa Clara, CA",
+        "url": "https://ecode360.com/47543489",
+        "raw_sha256": "63f74da382c7c4e6ac1ee71e7984ab2205d1b36f5fc360ecbf41f7635ccaba9b",
+        "node_count": 4,
+        "parsed_record_count": 4,
+        "raw_path": "fixtures/historical/santa-clara-ca/chapter.html",
+        "source_has_table": false,
+        "source_has_litem": false,
+        "source_has_image": false,
+        "version": {
+          "customer_id": "SA4626",
+          "code_id": "329535",
+          "currency_raw": "2026-01-27"
+        },
+        "original_retrieval_time_known": false,
+        "pilot_context_date": "2026-08-28",
+        "replayed_on": "2026-10-15",
+        "currentness_verified": false,
+        "observed_navigation_nodes": 4,
+        "included_records": 4,
+        "unresolved_nodes": 0,
+        "errors": []
+      },
+      "inventory_verified": false,
+      "inventory_validation_scope": "bounded on-page TOC candidate only; full publication families/hierarchy not independently reconciled",
+      "full_collection_verified": false,
+      "release_eligible": false,
+      "evidence": [
+        {
+          "path": "fixtures/historical/santa-clara-ca/chapter.html",
+          "sha256": "63f74da382c7c4e6ac1ee71e7984ab2205d1b36f5fc360ecbf41f7635ccaba9b",
+          "bytes": 58357
+        },
+        {
+          "path": "fixtures/historical/santa-clara-ca/inventory.json",
+          "sha256": "1e0b940037c4b3879ce60c853ac0bbf40f085f6a8f6aba2c0da087af0d123bfc",
+          "bytes": 2983
+        },
+        {
+          "path": "fixtures/historical/santa-clara-ca/artifacts.json",
+          "sha256": "8a072d4bb3202d42ce0a1ed3a9e76fab131ebdbfc474976fa3c1f7763da2579f",
+          "bytes": 275
+        },
+        {
+          "path": "fixtures/historical/santa-clara-ca/origin.json",
+          "sha256": "3fa4144602cbd6a14069539989ff65bdae14baa6a8a4272c5622f4b207d11fd8",
+          "bytes": 369
+        },
+        {
+          "path": "fixtures/historical/santa-clara-ca/toc-candidate.json",
+          "sha256": "8917b9f8f4abf0c8a5030c41fb816f451a2ac8287cf435c1cad4bf0c7960c72a",
+          "bytes": 2029
+        },
+        {
+          "path": "examples/santa-clara-ca/validation-report.json",
+          "sha256": "8b786fbf7ae2e10027b01867036355625fa0b44690d7db18301c6b3497292dd9",
+          "bytes": 339
+        },
+        {
+          "path": "examples/santa-clara-ca/aggregate-fulltext.csv",
+          "sha256": "a9fe49bad752d833121b7ec627028a603bd826038fc33e427a66dcface57fe15",
+          "bytes": 3734
+        },
+        {
+          "path": "examples/santa-clara-ca/record-provenance.jsonl",
+          "sha256": "e5c1b621dd9fdf8fa4bd329f07b8e639472f003e994b92a32efec0787f51c889",
+          "bytes": 5821
+        },
+        {
+          "path": "examples/santa-clara-ca/node-dispositions.jsonl",
+          "sha256": "2c70fb2ae8a1d179b1da72a5289975bb100d1a1542e47c714386cefd656626a0",
+          "bytes": 756
+        },
+        {
+          "path": "evidence/official-routing/santa-clara-ca/official.html",
+          "sha256": "4a82cce1cff3d98e88402b1d7729b12aa18780897c96c0dd8f978bfda98bb290",
+          "bytes": 511
+        },
+        {
+          "path": "evidence/live-http/santa-clara-ca/receipt.json",
+          "sha256": "3583ff849089053c204ce772f5d60ae508d29b43dc9d24ce9fda9dcda2408cbc",
+          "bytes": 993
+        },
+        {
+          "path": "evidence/live-http/santa-clara-ca/d38cbc83fd421f76a34bec9b8aebe5b3a5e1225a9b8737b7c8c86e3bfed1e70f.html",
+          "sha256": "d38cbc83fd421f76a34bec9b8aebe5b3a5e1225a9b8737b7c8c86e3bfed1e70f",
+          "bytes": 5522
+        }
+      ]
+    },
+    {
+      "slug": "santa-monica-ca",
+      "jurisdiction": "Santa Monica",
+      "checked_on": "2026-10-15",
+      "mapped_url": "https://ecode360.com/42781804",
+      "route_verified": true,
+      "route_evidence_kind": "current supported public browser DOM attributes/title; not full DOM archive",
+      "official_route_currentness": "official_ecode_link_verified",
+      "official_ecode_route_verified": true,
+      "official_page_check": {
+        "slug": "santa-monica-ca",
+        "official_page_url": "https://www.santamonica.gov/",
+        "checked_at": "2026-10-15T16:34:40.595543+00:00",
+        "official_routing_verified": true,
+        "publication_version_verified": false,
+        "status": 200,
+        "final_url": "https://www.santamonica.gov/",
+        "redirect_chain": [],
+        "raw_path": "evidence/official-routing/santa-monica-ca/official.html",
+        "raw_sha256": "cc276dd923aab0f61d49b7ce709496e41ee41e3286d5e69803afb0eac3a78685",
+        "publisher_links": [
+          {
+            "label": "Municipal Code",
+            "url": "https://www.ecode360.com/SA5008/home"
+          },
+          {
+            "label": "Municipal Code",
+            "url": "https://ecode360.com/SA5008"
+          }
+        ]
+      },
+      "ordinary_http": {
+        "status": 403,
+        "route_verified": false,
+        "receipt": "evidence/live-http/santa-monica-ca/receipt.json",
+        "blocked": true
+      },
+      "current_browser": {
+        "slug": "santa-monica-ca",
+        "source_url": "https://ecode360.com/42781804",
+        "observed_on": "2026-10-15",
+        "observed_time_utc": null,
+        "transport": "isolated Codex IAB; supported read-only DOM evaluation after navigation/state",
+        "evidence_kind": "derived exact DOM attribute/count observation, not saved full DOM",
+        "title": "Code of Ordinances - City of Santa Monica, CA",
+        "identity": {
+          "customer_id": "SA5008",
+          "code_id": "336847",
+          "currency_raw": "2026-07-28"
+        },
+        "route_verified": true,
+        "current_official_route_verified": true,
+        "observed_toc_link_count": 13,
+        "observed_collapsed_control_count": 3,
+        "collapsed_count_is_not_completeness_proof": true,
+        "observed_untyped_family_candidates": [],
+        "representative_text_checks": [
+          {
+            "source_url": "https://ecode360.com/42718484",
+            "section_content_body_count": 0,
+            "result": "rendered navigation"
+          },
+          {
+            "source_url": "https://ecode360.com/42718485",
+            "section_content_body_count": 9,
+            "result": "rendered legal text"
+          }
+        ],
+        "representative_text_verified": true,
+        "inventory_verified": false,
+        "full_collection_verified": false
+      },
+      "current_representative_text_verified": true,
+      "parser_verified": true,
+      "parser_validation_scope": "retained historical chapter DOM only; additionally one exact current DOM section excerpt",
+      "historical_fixture": {
+        "slug": "santa-monica-ca",
+        "title": "Chapter 1.01: ADOPTION OF CODE - City of Santa Monica, CA",
+        "url": "https://ecode360.com/42718485",
+        "raw_sha256": "d17333dec0c7ca8a59e0d2e683ff95c97a4501b488a1b17dca748b9a729e22b7",
+        "node_count": 9,
+        "parsed_record_count": 9,
+        "raw_path": "fixtures/historical/santa-monica-ca/chapter.html",
+        "source_has_table": false,
+        "source_has_litem": false,
+        "source_has_image": false,
+        "version": {
+          "customer_id": "SA5008",
+          "code_id": "336090",
+          "currency_raw": "2026-06-23"
+        },
+        "original_retrieval_time_known": false,
+        "pilot_context_date": "2026-08-28",
+        "replayed_on": "2026-10-15",
+        "currentness_verified": false,
+        "observed_navigation_nodes": 9,
+        "included_records": 9,
+        "unresolved_nodes": 0,
+        "errors": []
+      },
+      "inventory_verified": false,
+      "inventory_validation_scope": "bounded on-page TOC candidate only; full publication families/hierarchy not independently reconciled",
+      "full_collection_verified": false,
+      "release_eligible": false,
+      "evidence": [
+        {
+          "path": "fixtures/historical/santa-monica-ca/chapter.html",
+          "sha256": "d17333dec0c7ca8a59e0d2e683ff95c97a4501b488a1b17dca748b9a729e22b7",
+          "bytes": 71152
+        },
+        {
+          "path": "fixtures/historical/santa-monica-ca/inventory.json",
+          "sha256": "fd7686c48e64030fb4fa1b8d10f2d35219a24e34cc3b7b11741f4efe3a845705",
+          "bytes": 5128
+        },
+        {
+          "path": "fixtures/historical/santa-monica-ca/artifacts.json",
+          "sha256": "102eeb9d3d26d599a86f6dc7914714724197a9746ba167a5f5d91e043e5ee867",
+          "bytes": 275
+        },
+        {
+          "path": "fixtures/historical/santa-monica-ca/origin.json",
+          "sha256": "9cb0ee60223be83fe16ca44a2349d0cf31893957084d53dd6593b38f5f849803",
+          "bytes": 369
+        },
+        {
+          "path": "fixtures/historical/santa-monica-ca/toc-candidate.json",
+          "sha256": "afaefebd89a286381ccceaa916c3108dea4267646c139f6ff79bbd9c31d54d52",
+          "bytes": 3907
+        },
+        {
+          "path": "examples/santa-monica-ca/validation-report.json",
+          "sha256": "ab173a8cb42860046556a8195aedea70edc0f2d62e7b7a9844617be5e4630b05",
+          "bytes": 339
+        },
+        {
+          "path": "examples/santa-monica-ca/aggregate-fulltext.csv",
+          "sha256": "c6cefc9b1874f98d88712e25ee208cbc2bd92c600b5fb827acf6c8ee91cdc617",
+          "bytes": 7122
+        },
+        {
+          "path": "examples/santa-monica-ca/record-provenance.jsonl",
+          "sha256": "e801e5b92dc2fc01b424ed77cfde86aa628022f3e9d578c0cb32e97c1f6a525d",
+          "bytes": 11735
+        },
+        {
+          "path": "examples/santa-monica-ca/node-dispositions.jsonl",
+          "sha256": "bbca1401541be80621fa47935bb78a0b49de69eabff8ba4a2a0d445edd8645ba",
+          "bytes": 1710
+        },
+        {
+          "path": "evidence/official-routing/santa-monica-ca/official.html",
+          "sha256": "cc276dd923aab0f61d49b7ce709496e41ee41e3286d5e69803afb0eac3a78685",
+          "bytes": 138162
+        },
+        {
+          "path": "evidence/live-http/santa-monica-ca/receipt.json",
+          "sha256": "0bb1f7cdf60cccc21f9e91acff4f3d4fd5d98ddd621a4cdd6675a502bb4cbdb1",
+          "bytes": 993
+        },
+        {
+          "path": "evidence/live-http/santa-monica-ca/ac5dbbaee8b53e333adf306ab8d3e4837259cb7238a5f5ccfeaa211a553af433.html",
+          "sha256": "ac5dbbaee8b53e333adf306ab8d3e4837259cb7238a5f5ccfeaa211a553af433",
+          "bytes": 5522
+        }
+      ]
+    },
+    {
+      "slug": "santa-rosa-ca",
+      "jurisdiction": "Santa Rosa",
+      "checked_on": "2026-10-15",
+      "mapped_url": "https://ecode360.com/42952195",
+      "route_verified": true,
+      "route_evidence_kind": "current supported public browser DOM attributes/title; not full DOM archive",
+      "official_route_currentness": "unverified",
+      "official_ecode_route_verified": false,
+      "official_page_check": {
+        "slug": "santa-rosa-ca",
+        "official_page_url": "https://www.srcity.org/785/Code-Enforcement",
+        "checked_at": "2026-10-15T16:34:41.635052+00:00",
+        "official_routing_verified": false,
+        "publication_version_verified": false,
+        "status": 403,
+        "final_url": "https://www.srcity.org/785/Code-Enforcement",
+        "redirect_chain": [],
+        "raw_path": "evidence/official-routing/santa-rosa-ca/official.html",
+        "raw_sha256": "77b5fad80546f9aef2ef54a3ce7a76ca5a79a77a8e80cd5925ae975b66b7bb04",
+        "publisher_links": []
+      },
+      "ordinary_http": {
+        "status": 403,
+        "route_verified": false,
+        "receipt": "evidence/live-http/santa-rosa-ca/receipt.json",
+        "blocked": true
+      },
+      "current_browser": {
+        "slug": "santa-rosa-ca",
+        "source_url": "https://ecode360.com/42952195",
+        "observed_on": "2026-10-15",
+        "observed_time_utc": null,
+        "transport": "isolated Codex IAB; supported read-only DOM evaluation after navigation/state",
+        "evidence_kind": "derived exact DOM attribute/count observation, not saved full DOM",
+        "title": "Title 1: General Provisions - City of Santa Rosa, CA",
+        "identity": {
+          "customer_id": "SA5009",
+          "code_id": "337811",
+          "currency_raw": "2026-09-15"
+        },
+        "route_verified": true,
+        "current_official_route_verified": false,
+        "observed_toc_link_count": 15,
+        "observed_collapsed_control_count": 3,
+        "collapsed_count_is_not_completeness_proof": true,
+        "observed_untyped_family_candidates": [],
+        "representative_text_checks": [
+          {
+            "source_url": "https://ecode360.com/42952196",
+            "section_content_body_count": 13,
+            "result": "rendered legal text"
+          }
+        ],
+        "representative_text_verified": true,
+        "inventory_verified": false,
+        "full_collection_verified": false
+      },
+      "current_representative_text_verified": true,
+      "parser_verified": true,
+      "parser_validation_scope": "retained historical chapter DOM only",
+      "historical_fixture": {
+        "slug": "santa-rosa-ca",
+        "title": "Chapter 1-01: CODE ADOPTION - City of Santa Rosa, CA",
+        "url": "https://ecode360.com/42952196",
+        "raw_sha256": "292cd584fbc3c8ad213de774898d297c28f97315babd2c5969f6efe84c753f33",
+        "node_count": 13,
+        "parsed_record_count": 13,
+        "raw_path": "fixtures/historical/santa-rosa-ca/chapter.html",
+        "source_has_table": false,
+        "source_has_litem": true,
+        "source_has_image": false,
+        "version": {
+          "customer_id": "SA5009",
+          "code_id": "336305",
+          "currency_raw": "2026-06-16"
+        },
+        "original_retrieval_time_known": false,
+        "pilot_context_date": "2026-08-28",
+        "replayed_on": "2026-10-15",
+        "currentness_verified": false,
+        "observed_navigation_nodes": 13,
+        "included_records": 13,
+        "unresolved_nodes": 0,
+        "errors": []
+      },
+      "inventory_verified": false,
+      "inventory_validation_scope": "bounded on-page TOC candidate only; full publication families/hierarchy not independently reconciled",
+      "full_collection_verified": false,
+      "release_eligible": false,
+      "evidence": [
+        {
+          "path": "fixtures/historical/santa-rosa-ca/chapter.html",
+          "sha256": "292cd584fbc3c8ad213de774898d297c28f97315babd2c5969f6efe84c753f33",
+          "bytes": 93743
+        },
+        {
+          "path": "fixtures/historical/santa-rosa-ca/inventory.json",
+          "sha256": "59f0ae3cb1ac942286f25c336f77be52be646c718f4106e9e66a64833e6fa2cd",
+          "bytes": 7562
+        },
+        {
+          "path": "fixtures/historical/santa-rosa-ca/artifacts.json",
+          "sha256": "24a8ccbfbbd5ddd7c702202d10040b8c2129c2106922db82d50622cf8c19c27f",
+          "bytes": 275
+        },
+        {
+          "path": "fixtures/historical/santa-rosa-ca/origin.json",
+          "sha256": "ebb7e2d9a2237b56d2c67e583c57fd83d700fd1cfc1101e26ed0c1a04851e425",
+          "bytes": 369
+        },
+        {
+          "path": "fixtures/historical/santa-rosa-ca/toc-candidate.json",
+          "sha256": "cd54a3ba12ffd18da15429a10af595a1fa162f4e4754f33633283aac7e97975e",
+          "bytes": 5404
+        },
+        {
+          "path": "examples/santa-rosa-ca/validation-report.json",
+          "sha256": "013ebe6a59d8766314fe97c2fb81abfb2a58ccc2bd07aa0ca1879c6a06b4eca5",
+          "bytes": 341
+        },
+        {
+          "path": "examples/santa-rosa-ca/aggregate-fulltext.csv",
+          "sha256": "085d553c6695442848e60e60d30a79b3bc32e8cd41ef3192d812fe3bd9e41f5a",
+          "bytes": 12162
+        },
+        {
+          "path": "examples/santa-rosa-ca/record-provenance.jsonl",
+          "sha256": "db0a8b44765a94eab2d092479401f95714c9c00596d75c1c82b1a6203997e250",
+          "bytes": 23604
+        },
+        {
+          "path": "examples/santa-rosa-ca/node-dispositions.jsonl",
+          "sha256": "6a95a4c7c344bbfea6345f004920a4da518fb0aeac1978f8797a16c7df345903",
+          "bytes": 2444
+        },
+        {
+          "path": "evidence/official-routing/santa-rosa-ca/official.html",
+          "sha256": "77b5fad80546f9aef2ef54a3ce7a76ca5a79a77a8e80cd5925ae975b66b7bb04",
+          "bytes": 5486
+        },
+        {
+          "path": "evidence/live-http/santa-rosa-ca/receipt.json",
+          "sha256": "352530ffe6c98b54bcf8beda8d8c5ad6e4664f82e6a1523a35be8e39038f66de",
+          "bytes": 993
+        },
+        {
+          "path": "evidence/live-http/santa-rosa-ca/54c99c29cd4617cd7a91da30ca6024e375a17c39eebdce997b3c897cc0b4a656.html",
+          "sha256": "54c99c29cd4617cd7a91da30ca6024e375a17c39eebdce997b3c897cc0b4a656",
+          "bytes": 5522
+        }
+      ]
+    },
+    {
+      "slug": "south-san-francisco-ca",
+      "jurisdiction": "South San Francisco",
+      "checked_on": "2026-10-15",
+      "mapped_url": "https://ecode360.com/43423521",
+      "route_verified": true,
+      "route_evidence_kind": "current supported public browser DOM attributes/title; not full DOM archive",
+      "official_route_currentness": "unverified",
+      "official_ecode_route_verified": false,
+      "official_page_check": {
+        "slug": "south-san-francisco-ca",
+        "official_page_url": "https://www.ssf.gov/",
+        "checked_at": "2026-10-15T16:34:42.306596+00:00",
+        "official_routing_verified": false,
+        "publication_version_verified": false,
+        "error": "HTTPSConnectionPool(host='www.ssf.gov', port=443): Max retries exceeded with url: / (Caused by NameResolutionError(\"HTTPSConnection(host='www.ssf.gov', port=443): Failed to resolve 'www.ssf.gov' ([Errno 8] nodename nor servname provided, or not known)\"))"
+      },
+      "ordinary_http": {
+        "status": 403,
+        "route_verified": false,
+        "receipt": "evidence/live-http/south-san-francisco-ca/receipt.json",
+        "blocked": true
+      },
+      "current_browser": {
+        "slug": "south-san-francisco-ca",
+        "source_url": "https://ecode360.com/43423521",
+        "observed_on": "2026-10-15",
+        "observed_time_utc": null,
+        "transport": "isolated Codex IAB; supported read-only DOM evaluation after navigation/state",
+        "evidence_kind": "derived exact DOM attribute/count observation, not saved full DOM",
+        "title": "Title 1: General Provisions - City of South San Francisco, CA",
+        "identity": {
+          "customer_id": "SO5016",
+          "code_id": "336974",
+          "currency_raw": "2026-09-09"
+        },
+        "route_verified": true,
+        "current_official_route_verified": false,
+        "observed_toc_link_count": 9,
+        "observed_collapsed_control_count": 2,
+        "collapsed_count_is_not_completeness_proof": true,
+        "observed_untyped_family_candidates": [],
+        "representative_text_checks": [
+          {
+            "source_url": "https://ecode360.com/43423522",
+            "section_content_body_count": 8,
+            "result": "rendered legal text"
+          }
+        ],
+        "representative_text_verified": true,
+        "inventory_verified": false,
+        "full_collection_verified": false
+      },
+      "current_representative_text_verified": true,
+      "parser_verified": true,
+      "parser_validation_scope": "retained historical chapter DOM only",
+      "historical_fixture": {
+        "slug": "south-san-francisco-ca",
+        "title": "Chapter 1.01: CODE ADOPTION - City of South San Francisco, CA",
+        "url": "https://ecode360.com/43423522",
+        "raw_sha256": "e9a45d3da39998d8e94225c15bfd5be52adaa15c8c9ea3d316b05062e17af55e",
+        "node_count": 8,
+        "parsed_record_count": 8,
+        "raw_path": "fixtures/historical/south-san-francisco-ca/chapter.html",
+        "source_has_table": false,
+        "source_has_litem": true,
+        "source_has_image": false,
+        "version": {
+          "customer_id": "SO5016",
+          "code_id": "332370",
+          "currency_raw": "2026-05-13"
+        },
+        "original_retrieval_time_known": false,
+        "pilot_context_date": "2026-08-28",
+        "replayed_on": "2026-10-15",
+        "currentness_verified": false,
+        "observed_navigation_nodes": 8,
+        "included_records": 8,
+        "unresolved_nodes": 0,
+        "errors": []
+      },
+      "inventory_verified": false,
+      "inventory_validation_scope": "bounded on-page TOC candidate only; full publication families/hierarchy not independently reconciled",
+      "full_collection_verified": false,
+      "release_eligible": false,
+      "evidence": [
+        {
+          "path": "fixtures/historical/south-san-francisco-ca/chapter.html",
+          "sha256": "e9a45d3da39998d8e94225c15bfd5be52adaa15c8c9ea3d316b05062e17af55e",
+          "bytes": 69924
+        },
+        {
+          "path": "fixtures/historical/south-san-francisco-ca/inventory.json",
+          "sha256": "215ea9b335d38294c5d53b6176e48c3b195eb3dab3961f88d8397a1445a56226",
+          "bytes": 5060
+        },
+        {
+          "path": "fixtures/historical/south-san-francisco-ca/artifacts.json",
+          "sha256": "236fabbba8f44f456d997608f5eb7e4f1e77b66d8c2a31716b172e041421ae64",
+          "bytes": 275
+        },
+        {
+          "path": "fixtures/historical/south-san-francisco-ca/origin.json",
+          "sha256": "0505c86512b541a9c1d44302488390311805db25b243da300863ca6befb43517",
+          "bytes": 369
+        },
+        {
+          "path": "fixtures/historical/south-san-francisco-ca/toc-candidate.json",
+          "sha256": "3a8b4a03ff4f45009c87c36326167b916753bd59fb8d2f32faf52b469e957f9f",
+          "bytes": 3554
+        },
+        {
+          "path": "examples/south-san-francisco-ca/validation-report.json",
+          "sha256": "171af39a0026b2bb8f1e365f2d2deaa5b8a0602a642981ca718984001fe29643",
+          "bytes": 339
+        },
+        {
+          "path": "examples/south-san-francisco-ca/aggregate-fulltext.csv",
+          "sha256": "b3917abdd421fe5cc757a6bb6409a0191dd3811e4409e5f89a9186705d6ed650",
+          "bytes": 6050
+        },
+        {
+          "path": "examples/south-san-francisco-ca/record-provenance.jsonl",
+          "sha256": "117daa78bc8b22b382876e0c0049ada39667b2e3a21101d9e15d778cf0f1766c",
+          "bytes": 10725
+        },
+        {
+          "path": "examples/south-san-francisco-ca/node-dispositions.jsonl",
+          "sha256": "ba062a9a554e8ad1c2d3c2e5cdf342590b4bb7b8d57f3bb14ed6e60688dbc25e",
+          "bytes": 1576
+        },
+        {
+          "path": "evidence/live-http/south-san-francisco-ca/receipt.json",
+          "sha256": "52d1a95c089d664a25c360b5bcb991e8bb3cfd183e702bad0263f1993409081c",
+          "bytes": 993
+        },
+        {
+          "path": "evidence/live-http/south-san-francisco-ca/eadc0f1459598e679ca804a5ca7ac8de97e073d3c292475102794aa7cab5bd0c.html",
+          "sha256": "eadc0f1459598e679ca804a5ca7ac8de97e073d3c292475102794aa7cab5bd0c",
+          "bytes": 5522
+        }
+      ]
+    },
+    {
+      "slug": "sunnyvale-ca",
+      "jurisdiction": "Sunnyvale",
+      "checked_on": "2026-10-15",
+      "mapped_url": "https://ecode360.com/SU5020",
+      "route_verified": true,
+      "route_evidence_kind": "current supported public browser DOM attributes/title; not full DOM archive",
+      "official_route_currentness": "unverified",
+      "official_ecode_route_verified": false,
+      "official_page_check": {
+        "slug": "sunnyvale-ca",
+        "official_page_url": "https://www.sunnyvale.ca.gov/your-government/departments/office-of-the-city-attorney",
+        "checked_at": "2026-10-15T16:34:42.767570+00:00",
+        "official_routing_verified": false,
+        "publication_version_verified": false,
+        "status": 403,
+        "final_url": "https://www.sunnyvale.ca.gov/your-government/departments/office-of-the-city-attorney",
+        "redirect_chain": [],
+        "raw_path": "evidence/official-routing/sunnyvale-ca/official.html",
+        "raw_sha256": "1b4d6e6147f33fbcb5f9191f46036473fa796e1da68596be7c372bb9ee5a5b15",
+        "publisher_links": []
+      },
+      "ordinary_http": {
+        "status": 403,
+        "route_verified": false,
+        "receipt": "evidence/live-http/sunnyvale-ca/receipt.json",
+        "blocked": true
+      },
+      "current_browser": {
+        "slug": "sunnyvale-ca",
+        "source_url": "https://ecode360.com/SU5020",
+        "observed_on": "2026-10-15",
+        "observed_time_utc": null,
+        "transport": "isolated Codex IAB; supported read-only DOM evaluation after navigation/state",
+        "evidence_kind": "derived exact DOM attribute/count observation, not saved full DOM",
+        "title": "Table of Contents - City of Sunnyvale, CA",
+        "identity": {
+          "customer_id": "SU5020",
+          "code_id": "337833",
+          "currency_raw": "2026-08-11"
+        },
+        "route_verified": true,
+        "current_official_route_verified": false,
+        "observed_toc_link_count": 29,
+        "observed_collapsed_control_count": 0,
+        "collapsed_count_is_not_completeness_proof": true,
+        "observed_untyped_family_candidates": [
+          {
+            "node_id": "42744864",
+            "label": "The Charter"
+          },
+          {
+            "node_id": "42744743",
+            "label": "Code of Ordinances"
+          },
+          {
+            "node_id": "42744865",
+            "label": "Statutory References"
+          },
+          {
+            "node_id": "42744866",
+            "label": "Tables"
+          }
+        ],
+        "representative_text_checks": [
+          {
+            "source_url": "https://ecode360.com/42709866",
+            "section_content_body_count": 0,
+            "result": "rendered navigation"
+          },
+          {
+            "source_url": "https://ecode360.com/42709867",
+            "section_content_body_count": 0,
+            "result": "challenge"
+          }
+        ],
+        "representative_text_verified": false,
+        "inventory_verified": false,
+        "full_collection_verified": false
+      },
+      "current_representative_text_verified": false,
+      "parser_verified": true,
+      "parser_validation_scope": "retained historical chapter DOM only",
+      "historical_fixture": {
+        "slug": "sunnyvale-ca",
+        "title": "Chapter 1.04: GENERAL PENALTY - City of Sunnyvale, CA",
+        "url": "https://ecode360.com/42709867",
+        "raw_sha256": "f7064cc5641b5d591ee962b435fa3ec5e4a26231f78d3ae5fd93219e977f37c0",
+        "node_count": 8,
+        "parsed_record_count": 8,
+        "raw_path": "fixtures/historical/sunnyvale-ca/chapter.html",
+        "source_has_table": false,
+        "source_has_litem": true,
+        "source_has_image": false,
+        "version": {
+          "customer_id": "SU5020",
+          "code_id": "332262",
+          "currency_raw": "2026-05-19"
+        },
+        "original_retrieval_time_known": false,
+        "pilot_context_date": "2026-08-28",
+        "replayed_on": "2026-10-15",
+        "currentness_verified": false,
+        "observed_navigation_nodes": 8,
+        "included_records": 8,
+        "unresolved_nodes": 0,
+        "errors": []
+      },
+      "inventory_verified": false,
+      "inventory_validation_scope": "bounded on-page TOC candidate only; full publication families/hierarchy not independently reconciled",
+      "full_collection_verified": false,
+      "release_eligible": false,
+      "evidence": [
+        {
+          "path": "fixtures/historical/sunnyvale-ca/chapter.html",
+          "sha256": "f7064cc5641b5d591ee962b435fa3ec5e4a26231f78d3ae5fd93219e977f37c0",
+          "bytes": 85226
+        },
+        {
+          "path": "fixtures/historical/sunnyvale-ca/inventory.json",
+          "sha256": "fc2937beb6962a12012c0a9c9134f88921b4d9a910278dc261963c6c3c7657e4",
+          "bytes": 5099
+        },
+        {
+          "path": "fixtures/historical/sunnyvale-ca/artifacts.json",
+          "sha256": "212e279e09545327980831b03c31178c54de9ce46d562724d4792e9122349837",
+          "bytes": 275
+        },
+        {
+          "path": "fixtures/historical/sunnyvale-ca/origin.json",
+          "sha256": "7ff5b2e4793637b1b5db3225226a102509147bead5e261acf1c1ef47f8ae5628",
+          "bytes": 369
+        },
+        {
+          "path": "fixtures/historical/sunnyvale-ca/toc-candidate.json",
+          "sha256": "251743ac2f74ee30d42dd16a32542324e0e434c3c8bc284e757e358e837ae245",
+          "bytes": 3597
+        },
+        {
+          "path": "examples/sunnyvale-ca/validation-report.json",
+          "sha256": "78ef6281e361b8f76c2c0a4e29cfb77ef8119a465a65692594174671ec9c38a2",
+          "bytes": 339
+        },
+        {
+          "path": "examples/sunnyvale-ca/aggregate-fulltext.csv",
+          "sha256": "80b72ee725f7223e7a2eba208b74109d7df125646ae29f1185d8b3531e99ceaf",
+          "bytes": 9978
+        },
+        {
+          "path": "examples/sunnyvale-ca/record-provenance.jsonl",
+          "sha256": "57c884cc6f01b4638ca7eee40511eb0120ab8f9f6fca2373370b306c57c2e80e",
+          "bytes": 21205
+        },
+        {
+          "path": "examples/sunnyvale-ca/node-dispositions.jsonl",
+          "sha256": "2d2424ffaf3c7d70ca98f089afa27766c0d1830050f9a6e42676a9b51593180a",
+          "bytes": 1496
+        },
+        {
+          "path": "evidence/official-routing/sunnyvale-ca/official.html",
+          "sha256": "1b4d6e6147f33fbcb5f9191f46036473fa796e1da68596be7c372bb9ee5a5b15",
+          "bytes": 497
+        },
+        {
+          "path": "evidence/live-http/sunnyvale-ca/receipt.json",
+          "sha256": "29521d8d57482687724804bc9f2f01e213a7ae31caf634c2411261d454851cea",
+          "bytes": 987
+        },
+        {
+          "path": "evidence/live-http/sunnyvale-ca/cfbd4aac1017ce6ae0b58b4f6223f413ccdc19100f37af9bda07ae4303c62e31.html",
+          "sha256": "cfbd4aac1017ce6ae0b58b4f6223f413ccdc19100f37af9bda07ae4303c62e31",
+          "bytes": 5516
+        }
+      ]
+    },
+    {
+      "slug": "west-hollywood-ca",
+      "jurisdiction": "West Hollywood",
+      "checked_on": "2026-10-15",
+      "mapped_url": "https://ecode360.com/43902431",
+      "route_verified": true,
+      "route_evidence_kind": "current supported public browser DOM attributes/title; not full DOM archive",
+      "official_route_currentness": "unverified",
+      "official_ecode_route_verified": false,
+      "official_page_check": {
+        "slug": "west-hollywood-ca",
+        "official_page_url": "https://www.weho.org/city-government/city-clerk",
+        "checked_at": "2026-10-15T16:34:43.513743+00:00",
+        "official_routing_verified": false,
+        "publication_version_verified": false,
+        "status": 403,
+        "final_url": "https://www.weho.org/city-government/city-clerk",
+        "redirect_chain": [],
+        "raw_path": "evidence/official-routing/west-hollywood-ca/official.html",
+        "raw_sha256": "e83df2c8bf01bb2ace70cb8128a30c9b7fe0a23b52d8ec35d25ab4507c393159",
+        "publisher_links": []
+      },
+      "ordinary_http": {
+        "status": 403,
+        "route_verified": false,
+        "receipt": "evidence/live-http/west-hollywood-ca/receipt.json",
+        "blocked": true
+      },
+      "current_browser": {
+        "slug": "west-hollywood-ca",
+        "source_url": "https://ecode360.com/43902431",
+        "observed_on": "2026-10-15",
+        "observed_time_utc": null,
+        "transport": "isolated Codex IAB; supported read-only DOM evaluation after navigation/state",
+        "evidence_kind": "derived exact DOM attribute/count observation, not saved full DOM",
+        "title": "Title 1: General Provisions - City of West Hollywood, CA",
+        "identity": {
+          "customer_id": "WE5031",
+          "code_id": "336663",
+          "currency_raw": "2026-06-29"
+        },
+        "route_verified": true,
+        "current_official_route_verified": false,
+        "observed_toc_link_count": 71,
+        "observed_collapsed_control_count": 4,
+        "collapsed_count_is_not_completeness_proof": true,
+        "observed_untyped_family_candidates": [],
+        "representative_text_checks": [
+          {
+            "source_url": "https://ecode360.com/43902432",
+            "section_content_body_count": 0,
+            "result": "rendered navigation; no section_content body observed; content completeness unassessed"
+          }
+        ],
+        "representative_text_verified": false,
+        "inventory_verified": false,
+        "full_collection_verified": false
+      },
+      "current_representative_text_verified": false,
+      "parser_verified": true,
+      "parser_validation_scope": "retained historical chapter DOM only",
+      "historical_fixture": {
+        "slug": "west-hollywood-ca",
+        "title": "Chapter 1.04: GENERAL PROVISIONS - City of West Hollywood, CA",
+        "url": "https://ecode360.com/43902463",
+        "raw_sha256": "e3f7d6da78f97397907806b468e5ca9c9b4ddceb97ca282e6a29ccab45bf33a5",
+        "node_count": 10,
+        "parsed_record_count": 10,
+        "raw_path": "fixtures/historical/west-hollywood-ca/chapter.html",
+        "source_has_table": false,
+        "source_has_litem": false,
+        "source_has_image": false,
+        "version": {
+          "customer_id": "WE5031",
+          "code_id": "332558",
+          "currency_raw": "2026-05-04"
+        },
+        "original_retrieval_time_known": false,
+        "pilot_context_date": "2026-08-28",
+        "replayed_on": "2026-10-15",
+        "currentness_verified": false,
+        "observed_navigation_nodes": 10,
+        "included_records": 10,
+        "unresolved_nodes": 0,
+        "errors": []
+      },
+      "inventory_verified": false,
+      "inventory_validation_scope": "bounded on-page TOC candidate only; full publication families/hierarchy not independently reconciled",
+      "full_collection_verified": false,
+      "release_eligible": false,
+      "evidence": [
+        {
+          "path": "fixtures/historical/west-hollywood-ca/chapter.html",
+          "sha256": "e3f7d6da78f97397907806b468e5ca9c9b4ddceb97ca282e6a29ccab45bf33a5",
+          "bytes": 76662
+        },
+        {
+          "path": "fixtures/historical/west-hollywood-ca/inventory.json",
+          "sha256": "6cb563549fd7fd87968d38d790ccc19261270dd24a38ebff5f0be04cafa1abe1",
+          "bytes": 6074
+        },
+        {
+          "path": "fixtures/historical/west-hollywood-ca/artifacts.json",
+          "sha256": "6c857847866e154259881f3d8bc5a625b90e91b171076080ef2061ef0dcf62ba",
+          "bytes": 275
+        },
+        {
+          "path": "fixtures/historical/west-hollywood-ca/origin.json",
+          "sha256": "b068c15409b222d9ad0fc72e5d8d719a89539a06e7079757d546730ccdc8ac47",
+          "bytes": 369
+        },
+        {
+          "path": "fixtures/historical/west-hollywood-ca/toc-candidate.json",
+          "sha256": "11729608a5cdcd0a67509d2ed5a24f3fee6ac0500481702f89c4a7751da8d8a1",
+          "bytes": 4260
+        },
+        {
+          "path": "examples/west-hollywood-ca/validation-report.json",
+          "sha256": "9b93a9b4c2b83a8271c29eb1c62cf15006c2e3b4f7d2f06dc54b441ce14df399",
+          "bytes": 341
+        },
+        {
+          "path": "examples/west-hollywood-ca/aggregate-fulltext.csv",
+          "sha256": "33f17121a81d32c73255dc7189a6994a146668a5b9bafccc6ff5945ef6b41c0e",
+          "bytes": 6572
+        },
+        {
+          "path": "examples/west-hollywood-ca/record-provenance.jsonl",
+          "sha256": "041f916101640575142d1e3c613ab4c34797dfc814aded6fd36d7018a1397a23",
+          "bytes": 11274
+        },
+        {
+          "path": "examples/west-hollywood-ca/node-dispositions.jsonl",
+          "sha256": "3b60f65da671145b18d04f15fdbff6d23b946020016634a4b63752f1f71cce73",
+          "bytes": 1920
+        },
+        {
+          "path": "evidence/official-routing/west-hollywood-ca/official.html",
+          "sha256": "e83df2c8bf01bb2ace70cb8128a30c9b7fe0a23b52d8ec35d25ab4507c393159",
+          "bytes": 442
+        },
+        {
+          "path": "evidence/live-http/west-hollywood-ca/receipt.json",
+          "sha256": "4f01cb787edbf0c8df5232fd084fd9827cd2912f7b09c41d24405073192f84a5",
+          "bytes": 993
+        },
+        {
+          "path": "evidence/live-http/west-hollywood-ca/0bf6a526abc72c47da7b793efe3002e7ca99d0613cb4ce40ef7952048456b280.html",
+          "sha256": "0bf6a526abc72c47da7b793efe3002e7ca99d0613cb4ce40ef7952048456b280",
+          "bytes": 5522
+        }
+      ]
+    },
+    {
+      "slug": "tukwila-wa",
+      "jurisdiction": "Tukwila",
+      "checked_on": "2026-10-15",
+      "mapped_url": "https://ecode360.com/TU6948",
+      "route_verified": true,
+      "route_evidence_kind": "current supported public browser DOM attributes/title; not full DOM archive",
+      "official_route_currentness": "unverified",
+      "official_ecode_route_verified": false,
+      "official_page_check": {
+        "slug": "tukwila-wa",
+        "official_page_url": "https://www.tukwilawa.gov/departments/city-clerks-office/tukwila-municipal-code/",
+        "checked_at": "2026-10-15T16:34:44.236950+00:00",
+        "official_routing_verified": false,
+        "publication_version_verified": false,
+        "status": 403,
+        "final_url": "https://www.tukwilawa.gov/departments/city-clerks-office/tukwila-municipal-code/",
+        "redirect_chain": [],
+        "raw_path": "evidence/official-routing/tukwila-wa/official.html",
+        "raw_sha256": "18be9157973c2bc0ae0418b3c7f64d754f9198c599a094ece365893b44ae330f",
+        "publisher_links": []
+      },
+      "ordinary_http": {
+        "status": 403,
+        "route_verified": false,
+        "receipt": "evidence/live-http/tukwila-wa/receipt.json",
+        "blocked": true
+      },
+      "current_browser": {
+        "slug": "tukwila-wa",
+        "source_url": "https://ecode360.com/TU6948",
+        "observed_on": "2026-10-15",
+        "observed_time_utc": null,
+        "transport": "isolated Codex IAB; supported read-only DOM evaluation after navigation/state",
+        "evidence_kind": "derived exact DOM attribute/count observation, not saved full DOM",
+        "title": "Table of Contents - City of Tukwila, WA",
+        "identity": {
+          "customer_id": "TU6948",
+          "code_id": "332495",
+          "currency_raw": "2026-05-18"
+        },
+        "route_verified": true,
+        "current_official_route_verified": false,
+        "observed_toc_link_count": 25,
+        "observed_collapsed_control_count": 0,
+        "collapsed_count_is_not_completeness_proof": true,
+        "observed_untyped_family_candidates": [
+          {
+            "node_id": "47215611",
+            "label": "Municipal Code"
+          },
+          {
+            "node_id": "47496617",
+            "label": "Tables"
+          }
+        ],
+        "representative_text_checks": [
+          {
+            "source_url": "https://ecode360.com/47209489",
+            "section_content_body_count": 0,
+            "result": "rendered navigation"
+          },
+          {
+            "source_url": "https://ecode360.com/47209490",
+            "section_content_body_count": 0,
+            "result": "challenge"
+          }
+        ],
+        "representative_text_verified": false,
+        "inventory_verified": false,
+        "full_collection_verified": false
+      },
+      "current_representative_text_verified": false,
+      "parser_verified": true,
+      "parser_validation_scope": "retained historical chapter DOM only",
+      "historical_fixture": {
+        "slug": "tukwila-wa",
+        "title": "Chapter 1.01: CODE ADOPTION - City of Tukwila, WA",
+        "url": "https://ecode360.com/47209490",
+        "raw_sha256": "668925e2f61fb028dc674654abbf619c15664779912d0cfc0351cf6484904546",
+        "node_count": 16,
+        "parsed_record_count": 16,
+        "raw_path": "fixtures/historical/tukwila-wa/chapter.html",
+        "source_has_table": false,
+        "source_has_litem": true,
+        "source_has_image": false,
+        "version": {
+          "customer_id": "TU6948",
+          "code_id": "332495",
+          "currency_raw": "2026-05-18"
+        },
+        "original_retrieval_time_known": false,
+        "pilot_context_date": "2026-08-28",
+        "replayed_on": "2026-10-15",
+        "currentness_verified": false,
+        "observed_navigation_nodes": 16,
+        "included_records": 16,
+        "unresolved_nodes": 0,
+        "errors": []
+      },
+      "inventory_verified": false,
+      "inventory_validation_scope": "bounded on-page TOC candidate only; full publication families/hierarchy not independently reconciled",
+      "full_collection_verified": false,
+      "release_eligible": false,
+      "evidence": [
+        {
+          "path": "fixtures/historical/tukwila-wa/chapter.html",
+          "sha256": "668925e2f61fb028dc674654abbf619c15664779912d0cfc0351cf6484904546",
+          "bytes": 104487
+        },
+        {
+          "path": "fixtures/historical/tukwila-wa/inventory.json",
+          "sha256": "d87eae58a23f62de63065b380f00c1af23af03f89cf8b6428f19b684ee19eafe",
+          "bytes": 9165
+        },
+        {
+          "path": "fixtures/historical/tukwila-wa/artifacts.json",
+          "sha256": "bafc9a845e38d2e78264e3bb714d5c49079894129d2d4b616e9fbdd96410411c",
+          "bytes": 275
+        },
+        {
+          "path": "fixtures/historical/tukwila-wa/origin.json",
+          "sha256": "77c9a21908af412661166f54ad56838abaa811d06356cd966725591b0888206d",
+          "bytes": 369
+        },
+        {
+          "path": "fixtures/historical/tukwila-wa/toc-candidate.json",
+          "sha256": "aa04cae4aafa0474b7150280df6403f3dc337569b16794275876837193c154e5",
+          "bytes": 6611
+        },
+        {
+          "path": "examples/tukwila-wa/validation-report.json",
+          "sha256": "2ca5a84ecdd6bd8bdefd90c2cd904ec07a4b285df53b90174dd7885d5d8f7df5",
+          "bytes": 341
+        },
+        {
+          "path": "examples/tukwila-wa/aggregate-fulltext.csv",
+          "sha256": "1e0b72f82a3cf778477a984b983346747d5d98e3df3638ef859e1b2f2b9fa23d",
+          "bytes": 12609
+        },
+        {
+          "path": "examples/tukwila-wa/record-provenance.jsonl",
+          "sha256": "a965ea93df956ff679184dcd53623527ba01fd27b057029225ee71be6fabf17b",
+          "bytes": 26428
+        },
+        {
+          "path": "examples/tukwila-wa/node-dispositions.jsonl",
+          "sha256": "1d7b3dc91515ca1d499bc933bbdd9b4ab725df30f91703dbd7974c51ce1a6515",
+          "bytes": 2960
+        },
+        {
+          "path": "evidence/official-routing/tukwila-wa/official.html",
+          "sha256": "18be9157973c2bc0ae0418b3c7f64d754f9198c599a094ece365893b44ae330f",
+          "bytes": 5347
+        },
+        {
+          "path": "evidence/live-http/tukwila-wa/receipt.json",
+          "sha256": "3dedd62ec82128bb643886e01651b8aa9731b9a058fb8087d9c575837e4eacce",
+          "bytes": 987
+        },
+        {
+          "path": "evidence/live-http/tukwila-wa/bf2181cf6d28d924a58900f53e2abb71cbef84cf1dffa65065664c6c64200935.html",
+          "sha256": "bf2181cf6d28d924a58900f53e2abb71cbef84cf1dffa65065664c6c64200935",
+          "bytes": 5516
+        }
+      ]
+    }
+  ],
+  "additional_current_route": {
+    "slug": "foster-city-ca",
+    "baseline12_member": false,
+    "source_url": "https://ecode360.com/FO4449",
+    "observed_at": "2026-10-15T16:43:04Z",
+    "evidence_kind": "derived DOM attribute and bounded visible link observation; not saved full DOM",
+    "identity": {
+      "customer_id": "FO4449",
+      "code_id": "337727",
+      "currency_raw": "2026-01-26"
+    },
+    "title": "Table of Contents - City of Foster City, CA",
+    "route_verified": true,
+    "official_route_evidence": "Separate Code Publishing agent official frame redirect evidence; see parent handoff (not independently captured here)",
+    "official_route_verified_by_this_package": false,
+    "observed_links": [
+      {
+        "node_id": "51528208",
+        "label": "Municipal Code",
+        "content_type": null
+      },
+      {
+        "node_id": "51404425",
+        "label": "Title 1 General Provisions",
+        "content_type": "chapter"
+      }
+    ],
+    "representative_text_verified": false,
+    "parser_verified": false,
+    "inventory_verified": false,
+    "full_collection_verified": false
+  },
+  "common_evidence": [
+    {
+      "path": "routes.json",
+      "sha256": "22905c20734f14bf7d0b04934e2cfd6e9cf52e23087d2eeee5f9a0636fae0fe4",
+      "bytes": 6290
+    },
+    {
+      "path": "evidence/historical-fixtures.json",
+      "sha256": "f83a2639ae6c5660a85b96b66d717f61062b77748aae328fbcca139a0d32a866",
+      "bytes": 5413
+    },
+    {
+      "path": "evidence/live-browser/baseline12-observations.json",
+      "sha256": "b26a77ebbd51250dd62acc9e1140edd557bfe1a63b15667fe47f24c6c2d39038",
+      "bytes": 14436
+    },
+    {
+      "path": "evidence/live-browser/additional-foster-city-observation.json",
+      "sha256": "139a47b90fb5c1a8f5f29ea829058106a4d18d1d899fa19d6c6e3a96424f04b0",
+      "bytes": 1028
+    },
+    {
+      "path": "fixtures/current-santa-monica/capture.json",
+      "sha256": "07590e371160a4ffc9fe8bca15c233a559cae29738e6179228816928eaf683c3",
+      "bytes": 1064
+    },
+    {
+      "path": "fixtures/current-santa-monica/header-excerpt.html",
+      "sha256": "54ce4aae4606d580769e98944d6266d1c5dd22d52096c426cb33b3ced089cb2e",
+      "bytes": 1388
+    },
+    {
+      "path": "fixtures/current-santa-monica/body-excerpt.html",
+      "sha256": "5504fcc710527aee806d1721b4c34dd71730bf923ce88965dbf3b32eef0490d7",
+      "bytes": 669
+    },
+    {
+      "path": "fixtures/current-santa-monica/wrapped-excerpt.html",
+      "sha256": "1ca058b61d8e6e2426b2bc3206a71eebce92241c5980e0a7dd7ecf5cdbf6a126",
+      "bytes": 2330
+    },
+    {
+      "path": "examples/current-santa-monica/validation-report.json",
+      "sha256": "580cecda3fe37c38457f497a763fe86b6eb8449e9c0f38241161fc4c3f757d8c",
+      "bytes": 339
+    }
+  ],
+  "limitations": [
+    "No full corpus collection/import was performed. All inventories and exports remain validation samples; release is disabled.",
+    "Current public HTTP requests returned403 for all12 roots; supported IAB rendered root identities but several legal child routes still challenged. No challenge/access-control bypass was attempted.",
+    "Only Burlingame, Malibu and SantaMonica official city eCode links independently verified. HalfMoonBay official legacy CodePublishing redirect unresolved; seven official-page requests403 and ssf.gov attempted URL unverified/DNS failure.",
+    "Current browser root/body counts are retained derived DOM observations, not saved full DOM evidence. Current SantaMonica header/body are exact small subtree excerpts with an explicitly assembled wrapper. No full-document/complete-chapter claim is made for this fixture.",
+    "Raw historical source capture times unavailable; historical pilot context2026-08-28 and replay date2026-10-15 do not prove currentness.",
+    "Several mapped routes begin at Title1, not a publication root. Complete charters/code families, lazy trees, attachments/amendments and scope remain to review.",
+    "Native semantic markup and ordered image sidecars retained. Diagram transcription and broad rendered-source human comparisons remain outstanding.",
+    "No real source repeated-number multi-publication comparison was completed; synthetic collision regression and observed Sunnyvale Charter family are separate evidence.",
+    "Python3.9 originating runtime uses LibreSSL and emitted urllib3 compatibility warning; supported Python/OpenSSL deployment recommended."
+  ],
+  "next_actions": [
+    "Resolve official route currentness; review complete publication families and all scope exclusions.",
+    "Obtain supported ordinary access or authorized official exports for challenged legal routes.",
+    "Freeze independent complete inventory with source-node parent/order/classification evidence.",
+    "Perform separately authorized full collection with every-node disposition/provenance reconciliation and start/end version comparison.",
+    "Complete source-sensitive human review for complex formatting/images/repeated citations and add separate production release attestation."
+  ]
+}

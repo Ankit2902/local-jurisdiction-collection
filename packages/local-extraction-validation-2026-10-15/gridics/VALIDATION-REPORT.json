@@ -1,0 +1,188 @@
+{
+  "generated_at": "2026-10-15T16:46:05.553011+00:00",
+  "source_type": "Gridics CodeHUB",
+  "jurisdiction": "Cupertino",
+  "status": "bounded_live_routes_title1_inventory_and_offline_parser_validated",
+  "qualifications": {
+    "offline_synthetic_parser": "passed",
+    "historical_actual_dom_parser": "passed",
+    "fresh_rendered_dom_parser": "passed",
+    "checkpoint_and_deterministic_exports": "passed",
+    "fresh_live_routes": "root hierarchy plus three UUID section routes passed through isolated IAB",
+    "title1_navigation_inventory": "65 UUID nodes independently reconcile to 65 rendered containers; eight chapters expanded; zero closed Title 1 branches",
+    "standalone_playwright_acquisition_cli": "implemented and imported by tests; NOT executed live",
+    "full_publication_inventory": "not qualified; 17 other branches remain closed",
+    "full_collection": "not attempted or validated"
+  },
+  "tests": {
+    "command": "python -m unittest discover -s . -p test_gridics.py -v",
+    "passed": 17,
+    "failed": 0,
+    "log": "evidence/test-results.txt",
+    "python": "3.9.6",
+    "beautifulsoup4": "4.15.0"
+  },
+  "packages": {
+    "retained": {
+      "status": "bounded_sample_only",
+      "record_count": 58,
+      "rendered_source_nodes": 65,
+      "inventory_nodes": 39,
+      "disposition_counts": {
+        "included": 58,
+        "structural": 7,
+        "reserved_or_repealed": 0,
+        "unresolved": 21
+      },
+      "independent_inventory_complete": false,
+      "full_collection_validated": false,
+      "exceptions": 47
+    },
+    "live": {
+      "status": "bounded_sample_only",
+      "record_count": 58,
+      "rendered_source_nodes": 65,
+      "inventory_nodes": 86,
+      "disposition_counts": {
+        "included": 58,
+        "structural": 7,
+        "reserved_or_repealed": 0,
+        "unresolved": 21
+      },
+      "independent_inventory_complete": false,
+      "full_collection_validated": false,
+      "exceptions": 0
+    }
+  },
+  "fresh_navigation": {
+    "observed_uuid_nodes": 86,
+    "title1_uuid_nodes": 65,
+    "title1_closed_branches": 0,
+    "other_closed_branches": 17,
+    "evidence": "evidence/live-navigation-extraction.json"
+  },
+  "source_comparison_evidence": "evidence/source-comparisons.json",
+  "checkpoint_replay_evidence": "evidence/retained-replay-equivalence.json",
+  "limitations": [
+    {
+      "kind": "legal_currency",
+      "observation": "No verified current-through marker or source version; explicit unknown-version snapshot labels used. Official city link and additional publication families not independently revalidated."
+    },
+    {
+      "kind": "live_acquisition_qualification",
+      "observation": "Live evidence used supported CUA IAB, not the delivered standalone Playwright CLI. Playwright transport, full expansion and interruption require operator environment qualification."
+    },
+    {
+      "kind": "access_evidence",
+      "evidence": [
+        "evidence/landing-response.json",
+        "evidence/browser-attempts.json",
+        "evidence/live-observations.json"
+      ],
+      "observation": "Independent public HTTPS probe returned 403 and initial Chrome connector failed its policy service; IAB subsequently rendered the public source normally. No bypass attempted. IAB response metadata unavailable."
+    },
+    {
+      "kind": "truncated_browser_export",
+      "evidence": [
+        "evidence/truncated-export.html",
+        "evidence/live-navigation-extraction.json"
+      ],
+      "observation": "Initial 200k-character browser exports were truncated. Parser rejects marker. All four live legal DOMs were recaptured in 70k chunks with exact URL and character-length checks. Only the complete navigation element is used from the truncated expanded-tree snapshot."
+    },
+    {
+      "kind": "content_scope",
+      "observation": "Real pilot covers tables and nested ordered lists, chapter editorial notes and prose. Synthetic fixtures cover images, sup/sub notation, rowspan/colspan, crossreferences and footnotes; no claim of live image/appendix or all source constructs validation."
+    }
+  ],
+  "remaining_acceptance": [
+    "Verify official city source and legal current-through/version continuity.",
+    "Execute standalone Playwright acquisition in a permitted operator environment.",
+    "Expand/reconcile all publication branches and check virtualization before claiming independent full inventory.",
+    "Validate additional live image/appendix/notation samples and editorial-note classification before full collection."
+  ],
+  "full_collection_validated": false,
+  "production_or_database_changes": false,
+  "artifact_hashes": {
+    "README.md": "063917d4ccda1e0a9ef2f7860e43220d9c4a911ad74659486142badf2f307be0",
+    "acquire.py": "3b2bc09a757ec7287e344e03a7af6047cea1375f797c28c7f18c2a5a5be6a3c9",
+    "evidence/69693e089359e5b49b3d0bb00451050780864143.html": "673a862b4b1b90a182281ae78351c4d1dd673354c09ea096da4ee1df2724d7c9",
+    "evidence/browser-attempts.json": "f19721589209e6a05cd33c0915bc8f5f9f37b79bda0b492d2dcf4354b985c646",
+    "evidence/ceebacfa61230647a3f3bea033c72443480eba82.html": "5833dd71c94c1fd39b29d39aec55c7df72f50af9a54165267f0b7cfe697007c4",
+    "evidence/landing-response.json": "221c606481b0807cbdc9e05c478da7b9041b40bbf6f4679a4dba85df774e2139",
+    "evidence/landing.html": "58bf2215b395dcac74c009aa98701854e43cbe54a1cd3a95fee6a647ca9910d4",
+    "evidence/live-1.01.010-state.json": "82ea42e448e01d9b83282e397de6eebc944979e3a7a1e07ea5ff00ff1e247549",
+    "evidence/live-1.01.010.ax.txt": "f5d4d834936ad5bf1e2d432ae1b25c561be5fb8d2983038ccec93b929fc3b45b",
+    "evidence/live-1.01.010.html": "a9a364b991d54ba88ed783b9cd6e1f5d3014d5e576b58e1a2f86c665232ffde6",
+    "evidence/live-1.01.010.png": "466480364defaf2edaf9aedd5a605dffa8cf5bfe1d416a3797ff841ccedb20bf",
+    "evidence/live-1.09.030-state.json": "075d1a7e3f76b26083eb13344e575283b537ea2c213209be61bd55a317d68a8b",
+    "evidence/live-1.09.030.ax.txt": "f3c75a8f02d187ed5aa428f28ffdbf4c70f8b96b76261b6e77ab8c64d2cc905f",
+    "evidence/live-1.09.030.html": "5d1c6a00b00a57df8b456033f19367fe44e0f3864c83bd7ad74cf6a391c9ea9e",
+    "evidence/live-1.09.030.png": "a7a66a19befc61378ec224ae93681ee8244eb09051b5e503beda08c4b0dda7d7",
+    "evidence/live-1.10.140-state.json": "7630917dfe522af5dc5cd35a88669222751844ba687cc180849b541f4a22047b",
+    "evidence/live-1.10.140.ax.txt": "74b9621c14031d2f4a2e770e85cbdd82cb0e325da3c3eee1720099606984eea5",
+    "evidence/live-1.10.140.html": "1b7f3f01972bc4d64e0402546c69cd2bfaae58ff0b1884108b0387cdd251e59a",
+    "evidence/live-navigation-expanded.ax.txt": "b80786cdc465cd4dd1e50f2dcca3eafbc40925b41906d4b203de93a3a6a1cf76",
+    "evidence/live-navigation-expanded.html": "a5f2c1215d6927e510cb0c11449e6cd20bd7567ec9d0e88ce7f3f2add11f3ef7",
+    "evidence/live-navigation-extraction.json": "9148252628d98ede85f2fe461c4fe06a51f4872224e019013790543d0fb414f3",
+    "evidence/live-navigation.json": "85584e36d6a62a7cb720ad0b9ad3cb3ac7b13e227559713101a50f242f414b30",
+    "evidence/live-observations.json": "ee996796d1097c1c82cbeb6b5bbea4e6cb7fb175d1adb286bad5ab77f251afde",
+    "evidence/live-title1-inventory.ax.txt": "f81cac5d114c09e458e0194befc50d2967d5a6394a7391dcf3e9ea942386e8fd",
+    "evidence/live-title1-inventory.html": "0f19ef2803d01b9b9e2d4f6df9ca056f6d869622c7f1295a9292f39d358d3791",
+    "evidence/live-title1-navigation.html": "46cf9688597a4c514b4d4a8bf9745a4218abd26d54527643c1d33d591632c3b3",
+    "evidence/live-title1-state.json": "725ca9acc6dfdbd70a2ac727eb26997a6ccfb80529dbc55784cc5dc42e2a64bb",
+    "evidence/live-title1.html": "0c8fb67f7f5bb1bf757bb5bb623232940dd48232df7f50ff326afa969dde232f",
+    "evidence/retained-navigation.json": "6ca06fb3ff1a8eab962e78152b8ed17cbd4950a60002eedc6d8b12c2d8dda458",
+    "evidence/retained-replay-equivalence.json": "6bf66f650fdd9f016fd529ccc77bd9896520f0fa4d881fcdc825ab864a9cb040",
+    "evidence/source-comparisons.json": "527f0043c69e29c2d139289e12009128061ccc8f719faf90ee703023467b950f",
+    "evidence/test-results.txt": "1b1050efa79c0c3c223f9db35d626fa2a03d4399d80d8d240bd1c8b1d14116c8",
+    "evidence/truncated-export.html": "96161559a7500e076a46decc37c3192fa44ee404822203f41e729dac3b5beeff",
+    "gridics.py": "4df67bf08c7a5e20dec8d72101124235fbd5c78123d390c2ea00b98cebbd63c9",
+    "live-manifest.json": "fb6664b66d3aca3b40a1e0caa55fdf9edc8f0130cf482bf5e84363bb96aca80c",
+    "live-replay/aggregate-fulltext.csv": "7c13138330d33800aadad7704d9fa2628bbc69da4e9228beb64324baec7ba70d",
+    "live-replay/aggregate-fulltext.json": "f4bea6059d8c409f4e71a8c71526ca4805f6b3e6defa69f8458210db915b1c12",
+    "live-replay/aggregate-toc.csv": "34e25fa543e44a5779dd66e1215d1e3f05d53ed6d769685f6c1ad4c392da1384",
+    "live-replay/aggregate-toc.json": "6f10d71d27ed62bb428a84b92bca178bdd9b0922b42f9b2cd5d8d8bc89968c04",
+    "live-replay/checkpoint.json": "a6a835ba2f82a238a755ee762deb2cc886b1ea0e83e509baa113143ee94023d6",
+    "live-replay/evidence/live-1.01.010.html": "a9a364b991d54ba88ed783b9cd6e1f5d3014d5e576b58e1a2f86c665232ffde6",
+    "live-replay/evidence/live-1.09.030.html": "5d1c6a00b00a57df8b456033f19367fe44e0f3864c83bd7ad74cf6a391c9ea9e",
+    "live-replay/evidence/live-1.10.140.html": "1b7f3f01972bc4d64e0402546c69cd2bfaae58ff0b1884108b0387cdd251e59a",
+    "live-replay/evidence/live-navigation.json": "85584e36d6a62a7cb720ad0b9ad3cb3ac7b13e227559713101a50f242f414b30",
+    "live-replay/evidence/live-title1.html": "0c8fb67f7f5bb1bf757bb5bb623232940dd48232df7f50ff326afa969dde232f",
+    "live-replay/exceptions.jsonl": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "live-replay/node-dispositions.jsonl": "8f90967ccf627c95b033df9f112ea5434b504f166c5c121df6660eed4185afdd",
+    "live-replay/publications/municipal-code/fulltext.csv": "7c13138330d33800aadad7704d9fa2628bbc69da4e9228beb64324baec7ba70d",
+    "live-replay/publications/municipal-code/fulltext.json": "f4bea6059d8c409f4e71a8c71526ca4805f6b3e6defa69f8458210db915b1c12",
+    "live-replay/publications/municipal-code/toc.csv": "34e25fa543e44a5779dd66e1215d1e3f05d53ed6d769685f6c1ad4c392da1384",
+    "live-replay/publications/municipal-code/toc.json": "6f10d71d27ed62bb428a84b92bca178bdd9b0922b42f9b2cd5d8d8bc89968c04",
+    "live-replay/publications.json": "978b2754bc1c85dad8de69956a968b6936a5c6ec698b79d1a135b788395d830d",
+    "live-replay/record-provenance.jsonl": "853bae30ba5c903fb6d8ef68e7e4cfe4b5d75e2bb7722d4254e39dd2b9d717c4",
+    "live-replay/run-manifest.json": "14176701ebf76584d56bbdeb3aa4b1a73e80f86373135aec3d2ece192570b62a",
+    "live-replay/source-nodes.jsonl": "e759d3776e2185777146bec003cdac567993b821de3d715680485768569f01c3",
+    "live-replay/source-snapshot-manifest.json": "fb6664b66d3aca3b40a1e0caa55fdf9edc8f0130cf482bf5e84363bb96aca80c",
+    "live-replay/validation-report.json": "75c3483e3e58205db756cc78bfe5ee27bd94c1081b61af862d4d56b943f29dc7",
+    "requirements.txt": "c350584c90e1c396aee2b7a52bbc9751c5e2e21e23e8708d68d51c75b2de39f2",
+    "retained-manifest.json": "d031f108004e341201afddd17344c936baf2200fe29b2d400abb6b1988e287ba",
+    "retained-replay/aggregate-fulltext.csv": "ff19f35801fc6d407913d0f30fdbbdb635ca18e3bcf9e6d5a1281828c8cf78a5",
+    "retained-replay/aggregate-fulltext.json": "dbf84b93c879501e1184883e12c49279b2693823209b470e3d35e84912e373fd",
+    "retained-replay/aggregate-toc.csv": "bec5e8a9e531a158694fc0cff2c7e48d33a310238964c1e4e3ee7939300af67d",
+    "retained-replay/aggregate-toc.json": "18bc0726be9e972e4dd2e5926024d9f588f4c61514d42c413aac6e1fdcf10f15",
+    "retained-replay/checkpoint.json": "bdc2469f51c8b323a71f7202ed0feafc4b524119016659c1fe106101689dc061",
+    "retained-replay/evidence/69693e089359e5b49b3d0bb00451050780864143.html": "673a862b4b1b90a182281ae78351c4d1dd673354c09ea096da4ee1df2724d7c9",
+    "retained-replay/evidence/ceebacfa61230647a3f3bea033c72443480eba82.html": "5833dd71c94c1fd39b29d39aec55c7df72f50af9a54165267f0b7cfe697007c4",
+    "retained-replay/evidence/retained-navigation.json": "6ca06fb3ff1a8eab962e78152b8ed17cbd4950a60002eedc6d8b12c2d8dda458",
+    "retained-replay/exceptions.jsonl": "58cc688c155dbf431e0271f6a8af66c8d21e34525714729b9890cbb20ecebedf",
+    "retained-replay/node-dispositions.jsonl": "8f90967ccf627c95b033df9f112ea5434b504f166c5c121df6660eed4185afdd",
+    "retained-replay/publications/municipal-code/fulltext.csv": "ff19f35801fc6d407913d0f30fdbbdb635ca18e3bcf9e6d5a1281828c8cf78a5",
+    "retained-replay/publications/municipal-code/fulltext.json": "dbf84b93c879501e1184883e12c49279b2693823209b470e3d35e84912e373fd",
+    "retained-replay/publications/municipal-code/toc.csv": "bec5e8a9e531a158694fc0cff2c7e48d33a310238964c1e4e3ee7939300af67d",
+    "retained-replay/publications/municipal-code/toc.json": "18bc0726be9e972e4dd2e5926024d9f588f4c61514d42c413aac6e1fdcf10f15",
+    "retained-replay/publications.json": "b065f4df9d0b043550429756e8fbe4feec3483efa9b054ee98f962f379aa84ce",
+    "retained-replay/record-provenance.jsonl": "bf6d6b6dc53350d9444f7f6e5db201fcf831b6fb2d876c80e59b6e65a35ffa87",
+    "retained-replay/run-manifest.json": "111a55353f15699949550a0360317bef0d9e4cd0079326eff1da751ff6826583",
+    "retained-replay/source-nodes.jsonl": "f8a62206799c2f768de1ca49b070e0e0b77d28b26a3452ffd158f5d8d0ac0bb2",
+    "retained-replay/source-snapshot-manifest.json": "d031f108004e341201afddd17344c936baf2200fe29b2d400abb6b1988e287ba",
+    "retained-replay/validation-report.json": "59066180231d1590ed6fd0243326573192b3a5119cd7ab463826f963e1d9bcfb",
+    "test_gridics.py": "9b70170272f1c8c969a3c40ede681421962a83eb0a2acd0ef1cdff54d8067fd1",
+    "validate.py": "a6cb295113d22cfd3e42438d341c72047810acbac6304a2914f5d2f2aa602102"
+  }
+}

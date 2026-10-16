@@ -1,0 +1,57 @@
+{
+  "stopped_hosts": {
+    "ecode360.com": {
+      "status": 429,
+      "evidence_source": "outputs/local-extraction-standalone-2026-10-15/ecode360/standalone-live/headless-chrome/santa-rosa-ca/receipt.json",
+      "source_sha256": "77cb8212ebdd4555e15b17d60440d7dc726e65b486497f43918c7d5b098228a3",
+      "retry_after": null,
+      "retry_after_status": "not recorded by original family probe; no request made to recover it",
+      "policy": "stop host-wide jobs; no automatic retry; explicit operator review required"
+    },
+    "bellingham.municipal.codes": {
+      "status": 429,
+      "evidence_summary": "prior-evidence/municipal-headed-stable-bellingham-wa.json",
+      "source_receipt_sha256": "eaa9506edd372071bf0ee406a5f2d1c1c4bbd53a24d52c1f719c57f35f974b0b",
+      "retry_after": null,
+      "retry_after_status": "not retained by original stage; no new request sent to recover it",
+      "policy": "stop host-wide jobs; no automatic retry; operator review required"
+    },
+    "sonoma.municipal.codes": {
+      "status": 429,
+      "evidence_summary": "prior-evidence/municipal-headed-sonoma-ca.json",
+      "source_receipt_sha256": "d929ff69f6f5b8daba63c68b511d3945ac28a7fede7bd7a9406cbe35938b7186",
+      "retry_after": null,
+      "retry_after_status": "not retained by original stage; no new request sent to recover it",
+      "policy": "stop host-wide jobs; no automatic retry; operator review required"
+    }
+  },
+  "attempts": [
+    {
+      "experiment_key": "cff0f84404b8732d10e0b2b5e31907614263c4476803ac34e5a540ea10ceca16",
+      "url": "https://codehub.gridics.com/us/ca/cupertino#/90d493fe-25f4-4aef-a519-710b1e0055c6",
+      "engine": "chromium",
+      "headed": false,
+      "at": "2026-10-15T19:22:54.662654+00:00",
+      "status": 200,
+      "result": "public_document_observed"
+    },
+    {
+      "experiment_key": "fec5f1a3b0395e7c853b16e3b1d9504453fc4861e632f5f8458cc885ac29817f",
+      "url": "https://codehub.gridics.com/us/ca/cupertino#/90d493fe-25f4-4aef-a519-710b1e0055c6",
+      "engine": "chrome",
+      "headed": false,
+      "at": "2026-10-15T19:23:40.508553+00:00",
+      "status": 200,
+      "result": "public_document_observed"
+    },
+    {
+      "experiment_key": "77cd6d1f474e2482e160479148c6b5063f900885df7514736b0aa0126b65bbfd",
+      "url": "https://www.codepublishing.com/AZ/Flagstaff/html/Flagstaff01/Flagstaff0101000.html#1.01",
+      "engine": "chromium",
+      "headed": true,
+      "at": "2026-10-15T19:24:55.417552+00:00",
+      "status": 403,
+      "result": "stopped_challenge_or_denial_document"
+    }
+  ]
+}

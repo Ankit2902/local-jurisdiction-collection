@@ -1,0 +1,38 @@
+{
+  "frozen_at": "2026-10-16T03:54:48.431785+00:00",
+  "code_files": {
+    "standalone.py": "15a9b97eb1f5865eac58e3b14e4a656167f39a01978190ec6cf996070f32971f",
+    "test_capture.mjs": "bf958239b2099e9cf710fad923472bc9713b5bf125007b979961d50b407e68fe",
+    "verify_e2e.py": "b957ee46591a1f32e82ba9f5c538920cc5c2d3f108896e0405fde12d5f837232",
+    "acquire_cua.mjs": "355efbc4ee994d91b5a300234e7d98b238a43c021fd3e2e2f799852e816a025d",
+    "acquire_browser.py": "7dc8165f57aab08a97fad74bbcb5049dac1e7be0bfd87dbc33f48f8822ee0a38",
+    "run_serial.py": "08ddae1fb42b8c32237d702c5213c223a3d5ee840de12d0de4097dbfb771abfb",
+    "ingest_cua.py": "ec29d2d3b8f50720a39aecd6d481122686ced14adcc0974b49e7839fb38371df",
+    "ingest_standalone.py": "750a2414f8657e5cb9de19a0e7aa6a60af3f92f1641d83c3e6272e33a7ebae00",
+    "validate_local.py": "8831fa4939db63c6d5d0d96427d199802337048fe1d9ff8bd172ac04fc2efc12",
+    "build_report.py": "730d01238ad176ad167928854807ce490f37924d6b6f5a65e6830b1b94f20e7a",
+    "prepare_evidence.py": "c0d411e6ac4b20c5c062ced3c838d2cc38ab53488264f3da968214a6a46669a3",
+    "verify_headed.py": "2c73c1a3814fc726071109950516818b0e8f26f1e73763c9fb1761b0dcf007e2",
+    "check_official_routes.py": "49fecb0737ae6887be63b67a9e03bb32410d15e94dcb9465cfb9875dcdc35167",
+    "vision_pdf_ocr.swift": "157e44fe66f0dd6300944b021d78956be8a3689feecb989d3efb53cad3d4959a",
+    "test_ecode360.py": "a84caf8c3e926d523a248b8eafe65812ec4ebe81c174f05fe4cf8b1119c9daeb",
+    "source_controls.py": "226221cbfdfa8a3c5b3b0edbb5e01272743643323e32cc732faab4aaf66dac4b",
+    "test_standalone.py": "6f220a16551b7e5c76a50ebda997c828e60fe46758457d9a6f6e14c21a05eadd",
+    "test_e2e.py": "cb8443806413b5cba029f49c39dc45d39e23c4591dd5d1fbdbc6a2060da66270",
+    "headed_probe.py": "4cb2651f0e43a6053287542ab2f0147238f7ae8df5836ee66f0c5b2f95239891",
+    "test_ocr_charter.py": "8af3722c46c7c3474ae05bafcabfc9b28372835c88443bd18b2fd594d2c611ae",
+    "ocr_charter_review.py": "59efc818a99a46cd599365a684d1d39e43c1eb8c563d46ec0e08f41412bcd5aa",
+    "ecode360.py": "48691afc5dd396da120fbf585d461ebe44ec3bad3336dbd665a11f504a8bb125",
+    "capture_export_state.mjs": "d77e598c2719a4860bc336213aa2a61b399365506daba4a932f6690c3d2eaeba",
+    "sha256_browser.mjs": "e8838b9e8ac1a54c0b9d116855e020258ea7314b73a6dbb651e48eb260692f78"
+  },
+  "live_execution_revision": "headed-live/executed-r4",
+  "post_live_changes": [
+    "standalone.py and acquire_browser.py direct historical CLI disabled; imported state function unchanged",
+    "test assertions updated for stronger rawpreflight and route binding; added processed-resume tamper and disabledCLI checks",
+    "verify_headed.py added for offline delivered evidence/output verification",
+    "run_serial.py final launcher-only r5: required explicit authorization path, fresh parent output preflight, selected/excluded slug validation, default all14, nonzero failure/stop exit; offline tested, not rerun live"
+  ],
+  "no_new_live_acquisition_after_freeze": true,
+  "initial_freeze_at": "2026-10-16T03:50:32.877350+00:00"
+}

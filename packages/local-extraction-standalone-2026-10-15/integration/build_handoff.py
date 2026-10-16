@@ -1,0 +1,36 @@
+#!/usr/bin/env python3
+"""Assemble the 24-city handoff from final family evidence; no network."""
+import json, hashlib
+from pathlib import Path
+from datetime import datetime, timezone
+ROOT=Path(__file__).resolve().parents[1]
+def read(p): return json.loads((ROOT/p).read_text())
+def write(p,d): (ROOT/p).write_text(json.dumps(d,indent=2)+'\n')
+def sha(p): return hashlib.sha256((ROOT/p).read_bytes()).hexdigest()
+base=read('BASELINE.json')['jurisdictions']
+reports={'ecode360':('ecode360/STANDALONE-VALIDATION.json','jurisdictions'),'codepublishing':('codepublishing/STANDALONE-VALIDATION.json','results'),'municipal-codes':('municipal-codes/STANDALONE-VALIDATION.json','cities')}
+lookup={r['slug']:(pkg,path,r) for pkg,(path,key) in reports.items() for r in read(path)[key]}
+alts={r['slug']:r for r in read('official-alternatives/OFFICIAL-ALTERNATIVES.json')['jurisdictions']}
+assert len(base)==len(lookup)==len(alts)==24
+rows=[]
+for b in base:
+ pkg,path,r=lookup[b['slug']]
+ status=('primary_unqualified' if pkg=='ecode360' else 'operator_export_local_import_pass' if pkg=='codepublishing' else 'partial_standalone_endcheck_missing' if b['slug']=='bellingham-wa' else 'bounded_standalone_pass')
+ rows.append({'slug':b['slug'],'jurisdiction':b['jurisdiction'],'state':b['state'],'publisher':pkg,'classification':status,'primary_source_url':b['current_source_url'],'tested_source_url':r['source_url'],'primary_records':r.get('primary_output_records',r['output_records']),'whole_corpus_validated':False,'method_status':r['best_method_status'],'package_readme':pkg+'/README.md','family_report':path,'report_path_basis':'Evidence paths inside family_result are relative to its package directory. Official alternative paths are relative to official-alternatives/.','family_result':r,'official_alternatives':alts[b['slug']],'baseline':b,'publisher_export_findings':'publisher-exports/EXPORT-FINDINGS.json'})
+counts={s:sum(r['classification']==s for r in rows) for s in sorted({r['classification'] for r in rows})}
+write('SOURCE-MATRIX.json',{'generated_at':datetime.now(timezone.utc).isoformat(),'jurisdictions':24,'scope':'Previously CUA-dependent subset of the 30-jurisdiction handoff; no current database query or full collection','classification_counts':counts,'primary_sample_records':sum(r['primary_records'] for r in rows),'whole_corpus_validated':False,'rows':rows})
+labels={'primary_unqualified':'Primary standalone path unqualified','operator_export_local_import_pass':'Manual publisher export + local importer passed','partial_standalone_endcheck_missing':'Partial standalone; final check missing','bounded_standalone_pass':'Bounded standalone acquisition/export passed'}
+lines=['# Standalone acquisition matrix — 15 October 2026','','These are the 24 previously CUA-dependent jurisdictions, not a new database backlog count. Four bounded standalone pilots passed, one standalone pilot is partial, five manual publisher-export/local-import pilots passed, and 14 primary standalone paths remain unqualified. No whole jurisdiction is qualified complete.','','Municipal.codes full inventories are retained earlier CUA evidence; fresh standalone inventory acquisition is still a gap. Everett has an actual selected-section download but no fresh repeated endcheck. Bellingham has an actual initial legal capture but a later 429 prevents the endcheck and completion of its live job.','','| Jurisdiction | Publisher | Best verified result | Primary sample records | Runbook |','|---|---|---|---:|---|']
+for r in rows: lines.append(f"| {r['jurisdiction']}, {r['state']} | {r['publisher']} | {labels[r['classification']]} | {r['primary_records']} | [Runbook]({r['package_readme']}) |")
+lines += ['','## Per-jurisdiction evidence and next action','', 'Source versions below are publisher notices or historical evidence, not a guarantee that all uncodified amendments are included. The JSON matrix retains the full baseline discovery record alongside the new qualification and official-alternative findings.']
+for r in rows:
+ f=r['family_result']; a=r['official_alternatives']
+ lines += ['',f"### {r['jurisdiction']}, {r['state']}",'',f"**{labels[r['classification']]}**. Primary sample records: {r['primary_records']}.",'',f"Primary publication: [{r['primary_source_url']}]({r['primary_source_url']}). Tested route: [{r['tested_source_url']}]({r['tested_source_url']}).",'',f"Evidence: [{r['family_report']}]({r['family_report']}); exact receipts, hashes, scope and currentness are in the `{r['slug']}` entry.",'',f"Next action: {f['next_action']}",'','Remaining limits: '+ '; '.join(f.get('blockers',[])),'',f"Official alternative discovery: {a['finding']}",'',f"Alternative currentness: {a['currency']}"]
+ if f.get('partial_alternative'): lines += ['', 'Separate partial publication: `'+json.dumps(f['partial_alternative'],ensure_ascii=False)+'`']
+lines += ['','The separate Charter pilots add two Emeryville records and five Santa Clara records. They do not close either primary municipal-code gap. The official-alternatives package reports the Santa Clara download stage; the later eCode360 companion report adds the first-page OCR pilot.','']
+(ROOT/'SOURCE-MATRIX.md').write_text('\n'.join(lines))
+review=read('integration/independent-review/RESULTS.json'); node=read('integration/independent-review/NODE-REVIEW.json'); manifests=read('integration/independent-review/MANIFEST-REVIEW.json')
+assert review['all_passed'] and node['all_passed'] and manifests['all_passed']
+refs=[p for p,k in reports.values()]+['publisher-exports/EXPORT-FINDINGS.json','official-alternatives/OFFICIAL-ALTERNATIVES.json','integration/runtime-diagnostics/RUNTIME-FINDINGS.json','integration/independent-review/RESULTS.json','integration/independent-review/NODE-REVIEW.json','integration/independent-review/MANIFEST-REVIEW.json','SOURCE-MATRIX.json']
+write('VALIDATION-SUMMARY.json',{'generated_at':datetime.now(timezone.utc).isoformat(),'classification_counts':counts,'primary_sample_records':87,'municipal_codes_records':44,'codepublishing_records':43,'separate_charter_sample_records':7,'whole_corpus_validated':False,'independent_python_tests':review['total_tests'],'independent_node_checks':node['checks'],'verified_child_manifest_references':manifests['references_verified'],'authoritative_report_sha256':{p:sha(p) for p in refs},'limits':['No full collection, database query or import performed.','Municipal.codes fresh body acquisition reuses prior CUA inventory; new standalone inventory unqualified.','Bellingham final consistency check incomplete after 429. Everett selected export has no fresh repeated endcheck.','CodePublishing downloads were operated with CUA during validation; documented manual browser workflow and standalone importer require no Codex. Unattended acquisition remains blocked here.','eCode360 initial 403/429 results do not prove ordinary passive/headed browsers can never succeed. Accepted standalone branch has synthetic-only proof.','Live executed revisions are retained separately from final offline-tested transport hardening.','Only macOS browser runtime was exercised. Santa Clara OCR uses macOS Vision/PDFKit and compatible SDK.']})
+print(json.dumps({'jurisdictions':len(rows),'counts':counts,'primary_records':sum(r['primary_records'] for r in rows)},indent=2))

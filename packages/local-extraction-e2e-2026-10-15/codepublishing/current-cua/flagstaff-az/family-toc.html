@@ -1,0 +1,97 @@
+<html lang="en" xml:lang="en"><head>
+    <meta charset="utf-8">
+    <title>Flagstaff Table of Contents</title>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.4.4/jquery.min.js"></script>
+	<script src="navigation.js"></script>
+    <script>
+        $(function() {   $.ajaxSetup({ cache: false });   tocInit(1, 'html');   });
+            window.onunload = function(){moreButtons(); onTOC(); };
+            window.onpageshow = function(){ fewButtons(); };
+    </script>
+	<base target="doc">
+	<link rel="stylesheet" href="../css/browse.css">
+  <script src="chrome-extension://liecbddmkiiihnedobmlmillhodjkdmb/js/recordConsoleEvents.js"></script><link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20data-codex-favicon-badge%3D%22codex-favicon-badge%22%20width%3D%2232%22%20height%3D%2232%22%20viewBox%3D%220%200%2032%2032%22%3E%3Cimage%20href%3D%22data%3Aimage%2Fbmp%3Bbase64%2CiVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAIAAAD8GO2jAAAGvElEQVR4nNRWeWwUZRSfnXvvbmlLSxfbWrmRgBWDIMYDjEqUeIvGoyIaFUQEDQGRwwKCgohKOMKVymW45FZOgYqBaihXAYHKlvvs7szsOYe%2Fb6Y7LI2J%2FsMffpndfPPmfe%2F8vfc%2B1t3vAepWLpq6xeuWK2AzXwzDcNgrTdENw6I3OWkR6TSvYVCNvBSVycxmHmBoGp9jiYSmpihDByPFsE5e4BhG03VbjbVhGUbVNDkRNzSViKdpnhNEntd1wmrrYG9IZxgpqtA03a6wuLQg6He6E6lk6OrFw6FTESns8fgsNso0ECsiRTxuzz2t2hfl5vMsf1VqOFxfF7pwVhBFjuWgxdLBpm1nJFnq2aHL2BcHdG%2FbSeB427NjZ09%2FvX7ZzE0rXYLTtkuOKv0feerDJ%2Fu1D5ZQ6XhckyPLf906avEsbERBtHQwXMciREaOyo%2BWdd84atodBS3hhKpr%2BKaZzub5A33KergEcUP1LoEXEHRZkce%2B9PaU8sG5%2FoBmaLSDIAXMbkEsK2332F33rtyzXYlHEUPQGf7OElXXvU7Xhk%2B%2Byvb4kmoKH6ASG57liDJN1Qy9Z%2FvOO4%2FUnDhfj7jf3brD9x%2BMxUY3dJZhLzZcq798IS8rG%2BLiyWSL7Nzi5i2W7NjICyJiQzMOOh5THi%2B7r2VOcwjlGDZ0%2BcJTEz%2FqPOTlrsNeW7tvF0SYnhhvPPyErmlaKvVCj154hQIEdunuze0GPnfX0FceHTf4uhxhaAcMeqbbgw916aZEFRhKkwgaRvc2HQkizah9unT26m3r%2FrpyqfrYwXdmTb4uSyAiaJ1LWrldbqQYKCC%2BMyQyk1ZVgkEUnD9VbRmzbC7Sq2p6Td1xr%2BiizdywhomwFs1yyRmawWvtmdOMP8AzLOvLQrqiiVjA48XXdsHigNurKBKwaCKP%2FIFCaSoS4wzk%2FFC1BUGrqq05Ul8Hg0TRjcSYMHXQAstnVphOaoaEBfZWLJ%2Bf6wuAmFCTKUBe0%2BounnuwYxkYYNL0Nz98dtLwY6dPuLx%2BJRH7ds0SmuOdgsA5GpEKDxyUYRVgI8ztUoIGmDZz43JAxLSDcnt8NC8s2L6%2Bf68n4S5EdLytdM%2FkeZ%2BvWDjr51VhKez3Z%2BFsZlXSmS3gRomnN%2BDzeXw%2Bf4A8vixQXE7X7kN%2FjF46hyVYI2BDlCa9OnDf5AXlvfuiVGOJOIBr20pT6dKkMpaDssmkGjSghzy6pRIFPG7p7CHzpiVSBMqAE9S0atFy3sBR60ZOLchqpsQUK53Uv3ZTw4wSLLIei4JzHrd32urKe4f3X7N3J1yBmpSq4kGV7aiYWZofjCVi8I8cbxST9qiJdHggxaJSVDIf2aKY7IbfHzgYOtl3wrA%2BFUOqT9ZyLEvKM5UqQZUNrbD6I2m3mZIzk2xv7u%2FQ5bGy%2B%2FD07tINZQgK%2FuENWiHP8V6Pd0N1VY%2FhAyauWAiT4Q38KCtt%2B3T3h2NRGVXMwiA7B3YmLDOtBMx9dwQaFIgIdOv3ngtdvhhNRdDGc7KyoSmsSD6PF2wj5nzpEZ2D%2BjyfVFXG0Ht36rpo61ok0wyRrsMcI70sbNHmLMEvoaZ0kmc9ElWURPy2nOYVrw1aM3JKzdTKqeWDo1HZYmM83spfNllDxUE5SOmYeSZSoODstcsU6YikibYtLNLC15OaKkcaUMOQaKm8rkjoCk5RHPls%2BRNde6KpocveHiwOhxtomtGiSq4vy6weAjYppmBkQRNNKp52VB09QAwx8z6u34C%2BD%2FUpzsm7u82dM9762Ot0kwKmqOoTtZh0R0OnluzaDJ9iyQR6cOX7o1u3LE4lYq2LW2GW2BNp74laMuagAdcWuC%2BwbM3URUV5%2BYABz3GkMaSS1tgBzDFuEe5eYwZtO7APzbVNYdG%2BL%2BYLgKamAqDQVHf%2BTElBEMPVOn5VCnf64OUrUhjQok1UMBFFHjBjfJwAgwMFJ82%2BiFGgARiQPuXHxVv3%2F%2BZ2ukReOFR3%2FM3vxsNUSIdxIse3LyqFdBzE8Xgy8fr0ceeuXhJMUWTgoHGIvFhbf2r7od%2BL8goKs3NguxUxLIxMNIYJKxa4RRcBhKGjOVcfP4So3p5fGGyWh6xa2Ism4pv37y3%2F5rPtB6u9bq9VBw7rZndj6CPJweI78oN%2Bl8ce%2BpKM%2Be4zKMMuNMKsyCzLotmBGQ28QZGOnQv9eS4EwzxOFyZTI%2FTtq%2BN%2Fv7akmRl4gwTohBn5pFmOA7OJRr3ptcVKvfUB3dwhiBaDdfFSTXMyG6LJTIi4DNCik2q8eP3DLe2mm519rwIzZTSlN1k2s3ZzH2vC%2FP%2B%2F%2FP4NAAD%2F%2F1tKzZUAAAAGSURBVAMA9YDp%2FN1YYOkAAAAASUVORK5CYII%3D%22%20width%3D%2232%22%20height%3D%2232%22%20opacity%3D%220.3%22%20%2F%3E%3Cpath%20d%3D%22M3.04536%204.45259C2.7582%203.60299%203.60299%202.7582%204.45259%203.04536L14.1828%206.33403C15.1637%206.66558%2015.0872%208.08006%2014.0715%208.39045L10.2994%209.54319C9.93919%209.65327%209.65327%209.93919%209.54319%2010.2994L8.39046%2014.0715C8.08007%2015.0872%206.66558%2015.1637%206.33404%2014.1828L3.04536%204.45259Z%22%20fill%3D%22black%22%20stroke%3D%22white%22%20stroke-width%3D%221.5%22%20stroke-linejoin%3D%22round%22%20paint-order%3D%22stroke%20fill%22%20transform%3D%22translate(-2%20-2)%20scale(2.1)%22%20%2F%3E%3C%2Fsvg%3E" data-codex-favicon-badge="true" data-codex-favicon-badge-created="true"></head>
+
+<body id="toc">
+
+     <div id="tabs">
+	<ul id="sbtabs">
+        <li id="browse">Browse</li>
+        <li><a href="../Flagstaff_form.html" target="toc" class="s">Advanced Search</a></li>
+	</ul>
+     </div>
+
+<div id="wrapper">
+	<div id="content">
+
+<div id="frameless"><a href="../mobile/" target="_top">Mobile Version</a></div>
+<form name="myForm" id="myForm" action="menuCompile.pl" method="post" target="formtarget"><div id="formControls"><input type="submit" value="Print/Save Selections" name="Print/Save Selections" alt="Print/Save Selections" id="printSubmit" class="color"><p class="ptext" style="text-align:center"><a href="help.html" id="selectHelp" target="toc">Help</a>&nbsp;|&nbsp;<a href="#" onclick="clearAll('myForm'); return false;" target="toc">Clear all</a></p></div>
+<div class="ptoc"><p class="codeHead"><span class="ajx" id="spanflagstaffch">+</span> <a href="../html/FlagstaffCH.html" id="flagstaffch">Charter</a></p>
+<div class="ptoc" id="divflagstaffch" style="display: none"></div><p class="codeHead"><span class="ajx" id="spanmuni">+</span> <a href="../html/FlagstaffNT.html" id="muni">City Code</a></p>
+<div class="ptoc" id="divmuni" style="display: none"><p><span class="ajx" id="spanFlagstaffCH">+</span>  <input type="checkbox" value="../html/FlagstaffCH.html" name="code" class="FlagstaffCH" onclick="changeCheck('FlagstaffCH', this.checked,'html');"> <a href="../html/FlagstaffCH.html" id="FlagstaffCH">CHARTER</a> </p>
+<div class="ptoc1" style="display: none" id="divFlagstaffCH"></div>
+
+<p><span class="ajx" id="spanFlagstaff01">+</span>  <input type="checkbox" value="../html/Flagstaff01/Flagstaff01.html" name="code" class="Flagstaff01" onclick="changeCheck('Flagstaff01', this.checked,'html');"> <a href="../html/Flagstaff01/Flagstaff01.html" id="Flagstaff01">Title 1 ADMINISTRATIVE</a> </p>
+<div class="ptoc1" style="display: none" id="divFlagstaff01"></div>
+
+<p><span class="ajx" id="spanFlagstaff02">+</span>  <input type="checkbox" value="../html/Flagstaff02/Flagstaff02.html" name="code" class="Flagstaff02" onclick="changeCheck('Flagstaff02', this.checked,'html');"> <a href="../html/Flagstaff02/Flagstaff02.html" id="Flagstaff02">Title 2 BOARDS AND COMMISSIONS</a> </p>
+<div class="ptoc1" style="display: none" id="divFlagstaff02"></div>
+
+<p><span class="ajx" id="spanFlagstaff03">+</span>  <input type="checkbox" value="../html/Flagstaff03/Flagstaff03.html" name="code" class="Flagstaff03" onclick="changeCheck('Flagstaff03', this.checked,'html');"> <a href="../html/Flagstaff03/Flagstaff03.html" id="Flagstaff03">Title 3 BUSINESS REGULATIONS</a> </p>
+<div class="ptoc1" style="display: none" id="divFlagstaff03"></div>
+
+<p><span class="ajx" id="spanFlagstaff04">+</span>  <input type="checkbox" value="../html/Flagstaff04/Flagstaff04.html" name="code" class="Flagstaff04" onclick="changeCheck('Flagstaff04', this.checked,'html');"> <a href="../html/Flagstaff04/Flagstaff04.html" id="Flagstaff04">Title 4 BUILDING REGULATIONS</a> </p>
+<div class="ptoc1" style="display: none" id="divFlagstaff04"></div>
+
+<p><span class="ajx" id="spanFlagstaff05">+</span>  <input type="checkbox" value="../html/Flagstaff05/Flagstaff05.html" name="code" class="Flagstaff05" onclick="changeCheck('Flagstaff05', this.checked,'html');"> <a href="../html/Flagstaff05/Flagstaff05.html" id="Flagstaff05">Title 5 FIRE CODE</a> </p>
+<div class="ptoc1" style="display: none" id="divFlagstaff05"></div>
+
+<p><span class="ajx" id="spanFlagstaff06">+</span>  <input type="checkbox" value="../html/Flagstaff06/Flagstaff06.html" name="code" class="Flagstaff06" onclick="changeCheck('Flagstaff06', this.checked,'html');"> <a href="../html/Flagstaff06/Flagstaff06.html" id="Flagstaff06">Title 6 POLICE REGULATIONS</a> </p>
+<div class="ptoc1" style="display: none" id="divFlagstaff06"></div>
+
+<p><span class="ajx" id="spanFlagstaff07">+</span>  <input type="checkbox" value="../html/Flagstaff07/Flagstaff07.html" name="code" class="Flagstaff07" onclick="changeCheck('Flagstaff07', this.checked,'html');"> <a href="../html/Flagstaff07/Flagstaff07.html" id="Flagstaff07">Title 7 HEALTH AND SANITATION</a> </p>
+<div class="ptoc1" style="display: none" id="divFlagstaff07"></div>
+
+<p><span class="ajx" id="spanFlagstaff08">+</span>  <input type="checkbox" value="../html/Flagstaff08/Flagstaff08.html" name="code" class="Flagstaff08" onclick="changeCheck('Flagstaff08', this.checked,'html');"> <a href="../html/Flagstaff08/Flagstaff08.html" id="Flagstaff08">Title 8 PUBLIC WAYS AND PROPERTY</a> </p>
+<div class="ptoc1" style="display: none" id="divFlagstaff08"></div>
+
+<p><span class="ajx" id="spanFlagstaff09">+</span>  <input type="checkbox" value="../html/Flagstaff09/Flagstaff09.html" name="code" class="Flagstaff09" onclick="changeCheck('Flagstaff09', this.checked,'html');"> <a href="../html/Flagstaff09/Flagstaff09.html" id="Flagstaff09">Title 9 TRAFFIC</a> </p>
+<div class="ptoc1" style="display: none" id="divFlagstaff09"></div>
+
+<p><span class="ajx" id="spanFlagstaff10">+</span>  <input type="checkbox" value="../html/Flagstaff10/Flagstaff10.html" name="code" class="Flagstaff10" onclick="changeCheck('Flagstaff10', this.checked,'html');"> <a href="../html/Flagstaff10/Flagstaff10.html" id="Flagstaff10">Title 10 FLAGSTAFF ZONING CODE</a> </p>
+<div class="ptoc1" style="display: none" id="divFlagstaff10"></div>
+
+<p><span class="ajx" id="spanFlagstaff11">+</span>  <input type="checkbox" value="../html/Flagstaff11/Flagstaff11.html" name="code" class="Flagstaff11" onclick="changeCheck('Flagstaff11', this.checked,'html');"> <a href="../html/Flagstaff11/Flagstaff11.html" id="Flagstaff11">Title 11 GENERAL PLANS AND SUBDIVISIONS</a> </p>
+<div class="ptoc1" style="display: none" id="divFlagstaff11"></div>
+
+<p><span class="ajx" id="spanFlagstaff12">+</span>  <input type="checkbox" value="../html/Flagstaff12/Flagstaff12.html" name="code" class="Flagstaff12" onclick="changeCheck('Flagstaff12', this.checked,'html');"> <a href="../html/Flagstaff12/Flagstaff12.html" id="Flagstaff12">Title 12 FLOODPLAINS</a> </p>
+<div class="ptoc1" style="display: none" id="divFlagstaff12"></div>
+
+<p><span class="ajx" id="spanFlagstaff13">+</span>  <input type="checkbox" value="../html/Flagstaff13/Flagstaff13.html" name="code" class="Flagstaff13" onclick="changeCheck('Flagstaff13', this.checked,'html');"> <a href="../html/Flagstaff13/Flagstaff13.html" id="Flagstaff13">Title 13 ENGINEERING DESIGN STANDARDS AND SPECIFICATIONS FOR NEW INFRASTRUCTURE</a> </p>
+<div class="ptoc1" style="display: none" id="divFlagstaff13"></div>
+
+<p><span class="ajx" id="spanFlagstaff14">+</span>  <input type="checkbox" value="../html/Flagstaff14/Flagstaff14.html" name="code" class="Flagstaff14" onclick="changeCheck('Flagstaff14', this.checked,'html');"> <a href="../html/Flagstaff14/Flagstaff14.html" id="Flagstaff14">Title 14 HUMAN RELATIONS</a> </p>
+<div class="ptoc1" style="display: none" id="divFlagstaff14"></div>
+
+<p><span class="ajx" id="spanFlagstaff15">+</span>  <input type="checkbox" value="../html/Flagstaff15/Flagstaff15.html" name="code" class="Flagstaff15" onclick="changeCheck('Flagstaff15', this.checked,'html');"> <a href="../html/Flagstaff15/Flagstaff15.html" id="Flagstaff15">Title 15 LABOR</a> </p>
+<div class="ptoc1" style="display: none" id="divFlagstaff15"></div>
+
+<p><span class="ajx" id="spanFlagstaffSR">+</span>  <input type="checkbox" value="../html/FlagstaffSR.html" name="code" class="FlagstaffSR" onclick="changeCheck('FlagstaffSR', this.checked,'html');"> <a href="../html/FlagstaffSR.html" id="FlagstaffSR">STATUTORY REFERENCES FOR ARIZONA CITIES AND TOWNS</a> </p>
+<div class="ptoc1" style="display: none" id="divFlagstaffSR"></div>
+
+<p><span class="ajx" id="spanFlagstaffOT">+</span>  <input type="checkbox" value="../html/FlagstaffOT.html" name="code" class="FlagstaffOT" onclick="changeCheck('FlagstaffOT', this.checked,'html');"> <a href="../html/FlagstaffOT.html" id="FlagstaffOT">TITLE 20 SPECIAL ORDINANCES</a> </p>
+<div class="ptoc1" style="display: none" id="divFlagstaffOT"></div>
+
+</div><p class="codeHead"><span class="ajx" id="spanFlagstaffEmployeeHandbook">+</span> <a href="../html/FlagstaffEmployeeHandbookNT.html" id="FlagstaffEmployeeHandbook">Employee Handbook</a></p>
+<div class="ptoc" id="divFlagstaffEmployeeHandbook" style="display: none"></div>
+
+
+
+</div></form>
+</div>
+
+<script type="module" src="https://static.cloudflareinsights.com/beacon.min.js/v4bc70e2c01a94c73b74392e4234840661791215815920" integrity="sha512-L0ha0OXavK/8okipN9F8BtP84dg9DUhPERbBXzwI6dgTA55d2+yweo3pn5CSFYs45/r8md2+xvUPtTdvTNRfjA==" data-cf-beacon="{&quot;version&quot;:&quot;2024.11.0&quot;,&quot;token&quot;:&quot;c60ba34ac0fe48c1acf405bbc7e1a7c6&quot;,&quot;r&quot;:1,&quot;spa&quot;:2}" crossorigin="anonymous"></script>
+
+
+
+</div></body><div id="codex-agent-overlay-root" data-codex-agent-overlay-root="true"></div></html>

@@ -1,0 +1,62 @@
+{
+  "note": "Historical exact execution paths; delivered script does not depend on these external absolute locations. No commands are automatically replayed.",
+  "commands": [
+    {
+      "argv": [
+        "/Users/oliverflint/My Drive/Claude/Projects/CompliSolv 2.00/outputs/local-extraction-e2e-2026-10-15/gridics/.venv/bin/python",
+        "/Users/oliverflint/My Drive/Claude/Projects/CompliSolv 2.00/outputs/local-extraction-standalone-2026-10-15/integration/runtime-diagnostics/runtime_diagnostics.py",
+        "probe",
+        "--url",
+        "https://codehub.gridics.com/us/ca/cupertino#/90d493fe-25f4-4aef-a519-710b1e0055c6",
+        "--engine",
+        "chromium",
+        "--expect-selector",
+        "div.section[data-path]",
+        "--out",
+        "probes/gridics-chromium148-headless"
+      ],
+      "environment_overrides": {
+        "PLAYWRIGHT_BROWSERS_PATH": "/Users/oliverflint/My Drive/Claude/Projects/CompliSolv 2.00/outputs/local-extraction-e2e-2026-10-15/gridics/.browsers"
+      },
+      "receipt": "probes/gridics-chromium148-headless/receipt.json"
+    },
+    {
+      "argv": [
+        "/Users/oliverflint/My Drive/Claude/Projects/CompliSolv 2.00/outputs/local-extraction-e2e-2026-10-15/gridics/.venv/bin/python",
+        "/Users/oliverflint/My Drive/Claude/Projects/CompliSolv 2.00/outputs/local-extraction-standalone-2026-10-15/integration/runtime-diagnostics/runtime_diagnostics.py",
+        "probe",
+        "--url",
+        "https://codehub.gridics.com/us/ca/cupertino#/90d493fe-25f4-4aef-a519-710b1e0055c6",
+        "--engine",
+        "chrome",
+        "--expect-selector",
+        "div.section[data-path]",
+        "--out",
+        "probes/gridics-chrome155-headless"
+      ],
+      "environment_overrides": {},
+      "receipt": "probes/gridics-chrome155-headless/receipt.json"
+    },
+    {
+      "argv": [
+        "/Users/oliverflint/My Drive/Claude/Projects/CompliSolv 2.00/outputs/local-extraction-e2e-2026-10-15/gridics/.venv/bin/python",
+        "/Users/oliverflint/My Drive/Claude/Projects/CompliSolv 2.00/outputs/local-extraction-standalone-2026-10-15/integration/runtime-diagnostics/runtime_diagnostics.py",
+        "probe",
+        "--url",
+        "https://www.codepublishing.com/AZ/Flagstaff/html/Flagstaff01/Flagstaff0101000.html#1.01",
+        "--engine",
+        "chromium",
+        "--headed",
+        "--expect-selector",
+        "#mainContent h3.Cite",
+        "--screenshot",
+        "--out",
+        "probes/flagstaff-chromium148-headed"
+      ],
+      "environment_overrides": {
+        "PLAYWRIGHT_BROWSERS_PATH": "/Users/oliverflint/My Drive/Claude/Projects/CompliSolv 2.00/outputs/local-extraction-e2e-2026-10-15/gridics/.browsers"
+      },
+      "receipt": "probes/flagstaff-chromium148-headed/receipt.json"
+    }
+  ]
+}

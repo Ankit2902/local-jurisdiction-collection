@@ -1,0 +1,103 @@
+{
+  "publisher_network_calls": 0,
+  "source_hashes": {
+    "source_controls.py": "226221cbfdfa8a3c5b3b0edbb5e01272743643323e32cc732faab4aaf66dac4b",
+    "ecode360.py": "48691afc5dd396da120fbf585d461ebe44ec3bad3336dbd665a11f504a8bb125",
+    "route-registry.json": "ee34dd47002ffb93d5e2f6b14e2cc48ec3de8511890e5a231a54d2960f425463"
+  },
+  "receipt_sha256": "350eab1ee859529ce9834f2f72ac8e4646b8b9c65e75a4df7629503b8619614a",
+  "checks": [
+    {
+      "name": "actual_fresh_receipt_accepts",
+      "passed": true,
+      "kind": "acceptance metadata only; source semantic review separate"
+    },
+    {
+      "name": "wrong_customer",
+      "passed": true,
+      "error": "customer/code does not match independent jurisdiction registry; document any new edition before updating registry",
+      "kind": "offline adversarial receipt metadata"
+    },
+    {
+      "name": "unreviewed_code_edition",
+      "passed": true,
+      "error": "customer/code does not match independent jurisdiction registry; document any new edition before updating registry",
+      "kind": "offline adversarial receipt metadata"
+    },
+    {
+      "name": "cross_city_slug",
+      "passed": true,
+      "error": "receipt slug/jurisdiction absent from independent route registry",
+      "kind": "offline adversarial receipt metadata"
+    },
+    {
+      "name": "wrong_acquisition_route",
+      "passed": true,
+      "error": "capture URL outside reviewed jurisdiction acquisition routes",
+      "kind": "offline adversarial receipt metadata"
+    },
+    {
+      "name": "operator_assisted_label",
+      "passed": true,
+      "error": "receipt does not establish fully standalone acquisition mode",
+      "kind": "offline adversarial receipt metadata"
+    },
+    {
+      "name": "missing_runtime_mode",
+      "passed": true,
+      "error": "receipt does not establish fully standalone acquisition mode",
+      "kind": "offline adversarial receipt metadata"
+    },
+    {
+      "name": "imported_storage_state",
+      "passed": true,
+      "error": "standalone receipt lacks fresh-context/no-imported-state evidence",
+      "kind": "offline adversarial receipt metadata"
+    },
+    {
+      "name": "not_fresh_context",
+      "passed": true,
+      "error": "standalone receipt lacks fresh-context/no-imported-state evidence",
+      "kind": "offline adversarial receipt metadata"
+    },
+    {
+      "name": "non200_final_document",
+      "passed": true,
+      "error": "standalone legal source requires final document HTTP200",
+      "kind": "offline adversarial receipt metadata"
+    },
+    {
+      "name": "intermediate429",
+      "passed": true,
+      "error": "rate-limited acquisition cannot be imported as accepted standalone source",
+      "kind": "offline adversarial receipt metadata"
+    },
+    {
+      "name": "rate_limit_marked",
+      "passed": true,
+      "error": "rate-limited acquisition cannot be imported as accepted standalone source",
+      "kind": "offline adversarial receipt metadata"
+    },
+    {
+      "name": "calendar_currency_not_pinned_to_historical_date",
+      "passed": true,
+      "kind": "metadata registry check only; raw/start/end identity must still match during ingest"
+    },
+    {
+      "name": "comparison_preserves_word_boundaries",
+      "passed": true,
+      "kind": "offline negative text regression"
+    },
+    {
+      "name": "comparison_preserves_punctuation",
+      "passed": true,
+      "kind": "offline negative text regression"
+    },
+    {
+      "name": "comparison_ignores_rendering_whitespace",
+      "passed": true,
+      "kind": "offline normalization regression"
+    }
+  ],
+  "all_passed": true
+}

@@ -1,0 +1,369 @@
+{
+  "jurisdiction": "rockland-me",
+  "runtime": "http",
+  "started_at": "2026-10-15T18:58:33.389172+00:00",
+  "commands": [
+    {
+      "argv": [
+        "/tmp/complisolv-civicplus-venv/bin/python",
+        "/Users/oliverflint/My Drive/Claude/Projects/CompliSolv 2.00/outputs/local-extraction-e2e-2026-10-15/civicplus/civicplus.py",
+        "discover",
+        "--jurisdiction",
+        "rockland-me",
+        "--out",
+        "/Users/oliverflint/My Drive/Claude/Projects/CompliSolv 2.00/outputs/local-extraction-e2e-2026-10-15/civicplus/live-e2e/final-rockland-http-v2/package"
+      ],
+      "cwd": "/Users/oliverflint/My Drive/Claude/Projects/CompliSolv 2.00/outputs/local-extraction-e2e-2026-10-15/civicplus",
+      "started_at": "2026-10-15T18:58:33.416185+00:00",
+      "finished_at": "2026-10-15T18:58:34.837089+00:00",
+      "exit_code": 0,
+      "stdout": "{\"inventory_documents\": 21, \"unresolved_labels\": 0, \"out\": \"/Users/oliverflint/My Drive/Claude/Projects/CompliSolv 2.00/outputs/local-extraction-e2e-2026-10-15/civicplus/live-e2e/final-rockland-http-v2/package\"}\n",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "/tmp/complisolv-civicplus-venv/bin/python",
+        "/Users/oliverflint/My Drive/Claude/Projects/CompliSolv 2.00/outputs/local-extraction-e2e-2026-10-15/civicplus/civicplus.py",
+        "acquire",
+        "--package",
+        "/Users/oliverflint/My Drive/Claude/Projects/CompliSolv 2.00/outputs/local-extraction-e2e-2026-10-15/civicplus/live-e2e/final-rockland-http-v2/package",
+        "--id",
+        "document-621",
+        "--id",
+        "document-620"
+      ],
+      "cwd": "/Users/oliverflint/My Drive/Claude/Projects/CompliSolv 2.00/outputs/local-extraction-e2e-2026-10-15/civicplus",
+      "started_at": "2026-10-15T18:58:34.837550+00:00",
+      "finished_at": "2026-10-15T18:58:37.062995+00:00",
+      "exit_code": 0,
+      "stdout": "{\"acquired_documents\": 2}\n",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "/tmp/complisolv-civicplus-venv/bin/python",
+        "/Users/oliverflint/My Drive/Claude/Projects/CompliSolv 2.00/outputs/local-extraction-e2e-2026-10-15/civicplus/civicplus.py",
+        "parse",
+        "--package",
+        "/Users/oliverflint/My Drive/Claude/Projects/CompliSolv 2.00/outputs/local-extraction-e2e-2026-10-15/civicplus/live-e2e/final-rockland-http-v2/package"
+      ],
+      "cwd": "/Users/oliverflint/My Drive/Claude/Projects/CompliSolv 2.00/outputs/local-extraction-e2e-2026-10-15/civicplus",
+      "started_at": "2026-10-15T18:58:37.064247+00:00",
+      "finished_at": "2026-10-15T18:59:07.324972+00:00",
+      "exit_code": 0,
+      "stdout": "{\"status\": \"bounded_pilot_requires_review\", \"record_count\": 92, \"inventory_documents\": 21, \"acquired_documents\": 2, \"unresolved_exception_count\": 28}\n",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "/tmp/complisolv-civicplus-venv/bin/python",
+        "/Users/oliverflint/My Drive/Claude/Projects/CompliSolv 2.00/outputs/local-extraction-e2e-2026-10-15/civicplus/civicplus.py",
+        "verify",
+        "--package",
+        "/Users/oliverflint/My Drive/Claude/Projects/CompliSolv 2.00/outputs/local-extraction-e2e-2026-10-15/civicplus/live-e2e/final-rockland-http-v2/package"
+      ],
+      "cwd": "/Users/oliverflint/My Drive/Claude/Projects/CompliSolv 2.00/outputs/local-extraction-e2e-2026-10-15/civicplus",
+      "started_at": "2026-10-15T18:59:07.331324+00:00",
+      "finished_at": "2026-10-15T18:59:07.843650+00:00",
+      "exit_code": 0,
+      "stdout": "{\"integrity_passed\": true, \"errors\": [], \"corpus_complete\": false, \"status\": \"bounded pilot, manual review outstanding\"}\n",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "/tmp/complisolv-civicplus-venv/bin/python",
+        "/Users/oliverflint/My Drive/Claude/Projects/CompliSolv 2.00/outputs/local-extraction-e2e-2026-10-15/civicplus/civicplus.py",
+        "discover",
+        "--jurisdiction",
+        "rockland-me",
+        "--out",
+        "/Users/oliverflint/My Drive/Claude/Projects/CompliSolv 2.00/outputs/local-extraction-e2e-2026-10-15/civicplus/live-e2e/final-rockland-http-v2/final-inventory"
+      ],
+      "cwd": "/Users/oliverflint/My Drive/Claude/Projects/CompliSolv 2.00/outputs/local-extraction-e2e-2026-10-15/civicplus",
+      "started_at": "2026-10-15T18:59:07.844966+00:00",
+      "finished_at": "2026-10-15T18:59:09.478490+00:00",
+      "exit_code": 0,
+      "stdout": "{\"inventory_documents\": 21, \"unresolved_labels\": 0, \"out\": \"/Users/oliverflint/My Drive/Claude/Projects/CompliSolv 2.00/outputs/local-extraction-e2e-2026-10-15/civicplus/live-e2e/final-rockland-http-v2/final-inventory\"}\n",
+      "stderr": ""
+    }
+  ],
+  "environment": {
+    "python_executable": "/tmp/complisolv-civicplus-venv/bin/python",
+    "python_version": "3.12.14",
+    "platform": "macOS-26.6.2-arm64-arm-64bit",
+    "requests_ca_bundle": null,
+    "tls_checks_disabled": false,
+    "requests_version": "2.34.2",
+    "pdfplumber_version": "0.11.9",
+    "beautifulsoup4_version": "4.15.0",
+    "json5_version": "0.17.3",
+    "playwright_version": "1.64.0"
+  },
+  "code_hashes": {
+    "civicplus.py": "320cc64d8bc709384a9327aab58b93406654cf3762a530c6ceb8ea30b5f9d964",
+    "review_pdf.py": "dd334e502ecfbf62240b3c06e92b629ed2c663678ea19c5677405872032d5b19",
+    "run_live.py": "c38fabc7bdf036af1e6cda4a9f3a08161a4057e8bdc89ec6ac8d87c06726e72c",
+    "capture_browser.py": "8f54a0c3930ec67d79ee249e2f32a2c0d6a3c46e52c4ed1cc0e4d9d0f1dca9d0",
+    "capture_cua.mjs": "8fe82e00e3b950350a590964e5073d01dbe248ce18a7d85097a84372de4a5550"
+  },
+  "selected_ids": [
+    "document-621",
+    "document-620"
+  ],
+  "corpus_complete": false,
+  "inventory_recheck": {
+    "method": "fresh official index/capture after acquisition and parse",
+    "coherent": true,
+    "initial_raw_sha256": "456c971edba430976d8329cfdfc8d25c780785a5bb08f109e7529e4d54fb71f7",
+    "final_raw_sha256": "456c971edba430976d8329cfdfc8d25c780785a5bb08f109e7529e4d54fb71f7",
+    "initial_documents": 21,
+    "final_documents": 21,
+    "legal_currency_note": "Observed labels/revision markers compared; legal current-through remains unknown."
+  },
+  "live_acquisition_status": "passed_bounded",
+  "validation": {
+    "status": "bounded_pilot_requires_review",
+    "corpus_complete": false,
+    "inventory_documents": 21,
+    "acquired_documents": 2,
+    "unacquired_documents": 19,
+    "record_count": 92,
+    "source_node_count": 134,
+    "disposition_count": 134,
+    "documents": [
+      {
+        "document_id": "document-621",
+        "publication_id": "municipal-code",
+        "profile": "rockland-code",
+        "pages": 4,
+        "records": 16,
+        "printed_toc_entries": 15,
+        "review_conditions": [
+          {
+            "page": 2,
+            "condition": "microscopic_heading_marker_review",
+            "disposition": "unresolved",
+            "required_action": "Render source page and review/transcribe affected content with evidence; OCR is never silently assumed complete."
+          },
+          {
+            "page": 3,
+            "condition": "microscopic_heading_marker_review",
+            "disposition": "unresolved",
+            "required_action": "Render source page and review/transcribe affected content with evidence; OCR is never silently assumed complete."
+          },
+          {
+            "condition": "unnumbered_body_classification_review",
+            "node_id": "document-621:p2:y73.285:n0",
+            "disposition": "unresolved"
+          }
+        ],
+        "native_text_only": true,
+        "sha256": "022d88fb6c691c0ffb06bfa640a8d86139dc5160fea2df45e562c26787ae4588",
+        "reviewed_recoveries": []
+      },
+      {
+        "document_id": "document-620",
+        "publication_id": "charter",
+        "profile": "rockland-charter",
+        "pages": 17,
+        "records": 76,
+        "printed_toc_entries": 68,
+        "review_conditions": [
+          {
+            "page": 3,
+            "condition": "source_footer_box_overlaps_legal_text",
+            "disposition": "unresolved",
+            "required_action": "Render source page and review/transcribe affected content with evidence; OCR is never silently assumed complete."
+          },
+          {
+            "page": 4,
+            "condition": "source_footer_box_overlaps_legal_text",
+            "disposition": "unresolved",
+            "required_action": "Render source page and review/transcribe affected content with evidence; OCR is never silently assumed complete."
+          },
+          {
+            "page": 5,
+            "condition": "source_footer_box_overlaps_legal_text",
+            "disposition": "unresolved",
+            "required_action": "Render source page and review/transcribe affected content with evidence; OCR is never silently assumed complete."
+          },
+          {
+            "page": 6,
+            "condition": "off_page_native_text_review",
+            "disposition": "unresolved",
+            "required_action": "Render source page and review/transcribe affected content with evidence; OCR is never silently assumed complete."
+          },
+          {
+            "page": 6,
+            "condition": "source_footer_box_overlaps_legal_text",
+            "disposition": "unresolved",
+            "required_action": "Render source page and review/transcribe affected content with evidence; OCR is never silently assumed complete."
+          },
+          {
+            "page": 8,
+            "condition": "off_page_native_text_review",
+            "disposition": "unresolved",
+            "required_action": "Render source page and review/transcribe affected content with evidence; OCR is never silently assumed complete."
+          },
+          {
+            "page": 9,
+            "condition": "off_page_native_text_review",
+            "disposition": "unresolved",
+            "required_action": "Render source page and review/transcribe affected content with evidence; OCR is never silently assumed complete."
+          },
+          {
+            "page": 10,
+            "condition": "off_page_native_text_review",
+            "disposition": "unresolved",
+            "required_action": "Render source page and review/transcribe affected content with evidence; OCR is never silently assumed complete."
+          },
+          {
+            "page": 10,
+            "condition": "source_footer_box_overlaps_legal_text",
+            "disposition": "unresolved",
+            "required_action": "Render source page and review/transcribe affected content with evidence; OCR is never silently assumed complete."
+          },
+          {
+            "page": 11,
+            "condition": "source_footer_box_overlaps_legal_text",
+            "disposition": "unresolved",
+            "required_action": "Render source page and review/transcribe affected content with evidence; OCR is never silently assumed complete."
+          },
+          {
+            "page": 12,
+            "condition": "off_page_native_text_review",
+            "disposition": "unresolved",
+            "required_action": "Render source page and review/transcribe affected content with evidence; OCR is never silently assumed complete."
+          },
+          {
+            "page": 12,
+            "condition": "source_footer_box_overlaps_legal_text",
+            "disposition": "unresolved",
+            "required_action": "Render source page and review/transcribe affected content with evidence; OCR is never silently assumed complete."
+          },
+          {
+            "page": 14,
+            "condition": "off_page_native_text_review",
+            "disposition": "unresolved",
+            "required_action": "Render source page and review/transcribe affected content with evidence; OCR is never silently assumed complete."
+          },
+          {
+            "page": 15,
+            "condition": "off_page_native_text_review",
+            "disposition": "unresolved",
+            "required_action": "Render source page and review/transcribe affected content with evidence; OCR is never silently assumed complete."
+          },
+          {
+            "page": 16,
+            "condition": "off_page_native_text_review",
+            "disposition": "unresolved",
+            "required_action": "Render source page and review/transcribe affected content with evidence; OCR is never silently assumed complete."
+          },
+          {
+            "page": 17,
+            "condition": "off_page_native_text_review",
+            "disposition": "unresolved",
+            "required_action": "Render source page and review/transcribe affected content with evidence; OCR is never silently assumed complete."
+          },
+          {
+            "page": 17,
+            "condition": "source_footer_box_overlaps_legal_text",
+            "disposition": "unresolved",
+            "required_action": "Render source page and review/transcribe affected content with evidence; OCR is never silently assumed complete."
+          },
+          {
+            "condition": "unnumbered_body_classification_review",
+            "node_id": "document-620:p3:y74.142:n0",
+            "disposition": "unresolved"
+          },
+          {
+            "condition": "unnumbered_body_classification_review",
+            "node_id": "document-620:p3:y300.985:n4",
+            "disposition": "unresolved"
+          },
+          {
+            "condition": "unnumbered_body_classification_review",
+            "node_id": "document-620:p7:y165.285:n19",
+            "disposition": "unresolved"
+          },
+          {
+            "condition": "unnumbered_body_classification_review",
+            "node_id": "document-620:p8:y188.285:n24",
+            "disposition": "unresolved"
+          },
+          {
+            "condition": "unnumbered_body_classification_review",
+            "node_id": "document-620:p9:y530.975:n32",
+            "disposition": "unresolved"
+          },
+          {
+            "condition": "unnumbered_body_classification_review",
+            "node_id": "document-620:p12:y648.265:n47",
+            "disposition": "unresolved"
+          },
+          {
+            "condition": "unnumbered_body_classification_review",
+            "node_id": "document-620:p14:y682.775:n60",
+            "disposition": "unresolved"
+          },
+          {
+            "condition": "unnumbered_body_classification_review",
+            "node_id": "document-620:p16:y443.555:n67",
+            "disposition": "unresolved"
+          }
+        ],
+        "native_text_only": true,
+        "sha256": "ea3d062d7397f2db508753cb1d99bd2c697b7f06ba7909729f3f8255533af458",
+        "reviewed_recoveries": []
+      }
+    ],
+    "unresolved_exception_count": 28,
+    "snapshot_id": "b41879ff26e6aa7f761f6dd840ae060d284b0e975fb893ea40035698947572cc",
+    "limits": [
+      "Full jurisdiction collection was not run.",
+      "Heading and page ledger are not an independently verified full legal-node inventory.",
+      "OCR is not performed; mixed/image pages remain unresolved.",
+      "Table fragments crossing pages require source review before a corpus can be accepted.",
+      "Unnumbered introductory text is retained and requires operative/editorial classification.",
+      "No global legal current-through date was inferred."
+    ]
+  },
+  "input_hashes": {
+    "package/raw/50c9ef794aa59af865bfbdc42df0cd7356173056ac054f7b1049a69b1deb44c4.pdf": "ea3d062d7397f2db508753cb1d99bd2c697b7f06ba7909729f3f8255533af458",
+    "package/raw/50c9ef794aa59af865bfbdc42df0cd7356173056ac054f7b1049a69b1deb44c4.response.json": "ef7c2cb713ad06933bf5d1eb9549d0cc71d4c7f8292b23d90dbca9d8e2826253",
+    "package/raw/8cc847bdad675d9a1b5e79dbe513f3c4339cc173632271de450af445bd466b43.pdf": "022d88fb6c691c0ffb06bfa640a8d86139dc5160fea2df45e562c26787ae4588",
+    "package/raw/8cc847bdad675d9a1b5e79dbe513f3c4339cc173632271de450af445bd466b43.response.json": "bd1203f057b650bd0e13c670482c2df0e13145f99f88192871e55b7beb560b04",
+    "package/raw/c335a89880235c0364cffe0c55843989d5647915158207f994d67cfcdb40d596.html": "456c971edba430976d8329cfdfc8d25c780785a5bb08f109e7529e4d54fb71f7",
+    "package/raw/c335a89880235c0364cffe0c55843989d5647915158207f994d67cfcdb40d596.response.json": "78fba901e84c1639e44a6f5e45363f8dcda9c1ef13f2d3e83a430020c39f7f98"
+  },
+  "output_hashes": {
+    "package/acquisition.json": "24ed14edc9f168d4a771d83861da422a8472ccad20556d3222dc509ae4071473",
+    "package/aggregate-fulltext.csv": "2506e3a42e41cc93974a6110c17590edb606bfc990f25e5a5397ebec8ef1048a",
+    "package/aggregate-fulltext.json": "c1fbbff5e02b003c217d1cfc28d754dea55d0708f1abfea1d85c2e7ec6a17d6c",
+    "package/aggregate-toc.csv": "3062430b0f2e1646f3562206ddc9e4439d48e42582d162a629281625abc3aeb5",
+    "package/aggregate-toc.json": "ac55e0894256778305f7d82a663b2da8ce30e7d1725b24a713bfbd013b5a5280",
+    "package/exceptions.jsonl": "1be4d2427dad6377e053122d145d98f12fcbf1507ef5b5abd3c25302f3c5dcd5",
+    "package/inventory.json": "942867bb28c75952b87666a2f196806a7ecad5b9370ac5410f08a7ebdc8d795d",
+    "package/layout/document-620/blocks.jsonl": "947a225128bb92e5c5f59b37016e9d59b8447d9bf469aea819c552887b686dbe",
+    "package/layout/document-620/pages.json": "306e94e1403eaf6f9872ac2e4878d50b25a38c138b0e1e770f857d83bd3319aa",
+    "package/layout/document-620/printed-toc.json": "ff62da346bc2378eb7436cc6a03aa72b25c31b527192a1061e18a3f95316c814",
+    "package/layout/document-621/blocks.jsonl": "b95902ffd4d63aa79535d06c336ee7a2d64466c6ab02ef657dbc4e12dfc394fb",
+    "package/layout/document-621/pages.json": "8a410ae8bdf2e51ae6aca7b53e348cef5f991dc8775bb63f19801f985e7359b0",
+    "package/layout/document-621/printed-toc.json": "090e923033eb30af4d430f6ffba09058f4070b86db6f92534370cf4baae75d86",
+    "package/node-dispositions.jsonl": "506e06221699a8731b5ba1f6f04d278550b2644fe002bc328746089b33da521a",
+    "package/publications/charter/fulltext.csv": "ce403e18e050b76ef35186280b299e644832344dc8adda040a2b1d6a54b131ec",
+    "package/publications/charter/fulltext.json": "e3a91aa01d16a3e98d11ea0a0b7f2d2c492df0c80375a9d9b593c8db3055a899",
+    "package/publications/charter/toc.csv": "23c37b33a8287f031803770ff9f2ca970c55ca92ee437b1b471b204cc2636a13",
+    "package/publications/charter/toc.json": "88ccc13d6c4e93de28e85940d3b01b6bce1a9c024c5b6ca37c84303fea643658",
+    "package/publications/municipal-code/fulltext.csv": "f1e40b215539065af7a6c3d4695d49ef31b755ae1e2833fbaaa75a62876b94f6",
+    "package/publications/municipal-code/fulltext.json": "0c32241b10f04b575e11ee61fe2ece9f3ddc969a323b4912b6e63b392095ca92",
+    "package/publications/municipal-code/toc.csv": "8b2b8ee49476abb5e22dfe4c0ce95fb8476482ebf124a2713d185f89431fac9b",
+    "package/publications/municipal-code/toc.json": "24e87b6c1dec8530dc613c67e91e5715c1752ce84a993eea221a5cae21f9f54a",
+    "package/publications.json": "a2c7bd3c4039ba17092d66ad4c4e28a875cea79d19924fef1af0c20de6ac510c",
+    "package/record-provenance.jsonl": "c1e62aaa3abf60d01c98e2f16767a63017b7fa61a13ca7e21a9e8e5877decce4",
+    "package/run-manifest.json": "36ea273fb42b6682dfdc1dedde79fd8115f711e74fc77e20a191fa395f9b210c",
+    "package/source-nodes.jsonl": "782a68f2bed8cb2362b967ebeee05cda311817a22dfbcb9f55a87d5a432b9706",
+    "package/validation-report.json": "5b7313f07d190543b07ebe1a34a1e280720e742433da3d33c61c88c04a790c01"
+  },
+  "finished_at": "2026-10-15T18:59:09.648534+00:00"
+}

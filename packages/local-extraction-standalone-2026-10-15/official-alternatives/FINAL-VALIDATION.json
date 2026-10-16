@@ -1,0 +1,160 @@
+{
+  "status": "passed_bounded_alternatives_validation",
+  "started_at": "2026-10-15T19:27:49.835950+00:00",
+  "ended_at": "2026-10-15T19:27:56.118608+00:00",
+  "python": "3.9.6 (default, May 22 2026, 11:13:45) \n[Clang 21.0.0 (clang-2100.1.1.101)]",
+  "platform": "macOS-26.6.2-arm64-arm-64bit",
+  "frozen_code_hashes": {
+    "verify_hashes.py": "93b8f4d6203399c71fa9954e216b849ac0a32f8699b471432e40a807ce7703e0",
+    "discover.py": "18afb38ca0835dd192dab58df86461dcc79096f9c08d34312b9365c3dc4b51cf",
+    "build_report.py": "dab92f3fb3ad8abc05d3c5b723a17d1050417aba25c50917adf45acb0f0085ab",
+    "test_discovery.py": "0cd7cf2aa5fb235f09431b30cc9c1d7133c49ff81f27d754876a068caf16f429",
+    "qualify_charter.py": "40bdfeb59853a375aaee0bb77f8ad3c222a2b617e4b44334aa9a27f907fc9018",
+    "inspect_pdf.py": "0510ee3e911c81f17dc6f6a09c3349528b06b12fe31c629fea33337e70c918bb"
+  },
+  "commands": [
+    {
+      "argv": [
+        "/private/tmp/complisolv-handoff-review-venv/bin/python",
+        "-m",
+        "unittest",
+        "test_discovery",
+        "-v"
+      ],
+      "started_at": "2026-10-15T19:27:49.840544+00:00",
+      "ended_at": "2026-10-15T19:27:52.445815+00:00",
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": "/private/tmp/complisolv-handoff-review-venv/lib/python3.9/site-packages/urllib3/__init__.py:35: NotOpenSSLWarning: urllib3 v2 only supports OpenSSL 1.1.1+, currently the 'ssl' module is compiled with 'LibreSSL 2.8.3'. See: https://github.com/urllib3/urllib3/issues/3020\n  warnings.warn(\ntest_byte_limit_rejected (test_discovery.DiscoveryTests) ... ok\ntest_charter_source_inventory_and_no_operative_omission (test_discovery.DiscoveryTests) ... ok\ntest_empty_200_is_failure (test_discovery.DiscoveryTests) ... ok\ntest_html_error_pdf_rejected (test_discovery.DiscoveryTests) ... ok\ntest_publisher_probes_disabled (test_discovery.DiscoveryTests) ... ok\ntest_received_pdf_counts_and_ocr_status (test_discovery.DiscoveryTests) ... ok\ntest_redirect_retained_without_follow (test_discovery.DiscoveryTests) ... ok\n\n----------------------------------------------------------------------\nRan 7 tests in 2.194s\n\nOK\n"
+    },
+    {
+      "argv": [
+        "/private/tmp/complisolv-handoff-review-venv/bin/python",
+        "qualify_charter.py",
+        "--out",
+        "final-emeryville-charter"
+      ],
+      "started_at": "2026-10-15T19:27:49.840614+00:00",
+      "ended_at": "2026-10-15T19:27:53.078156+00:00",
+      "exit_code": 0,
+      "stdout": "{\n  \"status\": \"passed_bounded_charter_only\",\n  \"record_count\": 2,\n  \"independent_source_nodes\": 8,\n  \"csv_json_equal\": true\n}\n",
+      "stderr": "/private/tmp/complisolv-handoff-review-venv/lib/python3.9/site-packages/urllib3/__init__.py:35: NotOpenSSLWarning: urllib3 v2 only supports OpenSSL 1.1.1+, currently the 'ssl' module is compiled with 'LibreSSL 2.8.3'. See: https://github.com/urllib3/urllib3/issues/3020\n  warnings.warn(\n"
+    },
+    {
+      "argv": [
+        "/private/tmp/complisolv-handoff-review-venv/bin/python",
+        "discover.py",
+        "download",
+        "--url",
+        "https://santaclara.legistar.com/View.ashx?GUID=9FDBDA24-1C91-4A58-859B-2516966A0809&ID=15562338&M=F",
+        "--out",
+        "final-downloads/santa-clara-charter.pdf"
+      ],
+      "started_at": "2026-10-15T19:27:49.840690+00:00",
+      "ended_at": "2026-10-15T19:27:53.847963+00:00",
+      "exit_code": 0,
+      "stdout": "{\n  \"url\": \"https://santaclara.legistar.com/View.ashx?GUID=9FDBDA24-1C91-4A58-859B-2516966A0809&ID=15562338&M=F\",\n  \"started_at\": \"2026-10-15T19:27:50.113356+00:00\",\n  \"certificate_verification\": true,\n  \"status\": \"downloaded\",\n  \"http_status\": 200,\n  \"final_url\": \"https://santaclara.legistar.com/View.ashx?GUID=9FDBDA24-1C91-4A58-859B-2516966A0809&ID=15562338&M=F\",\n  \"content_type\": \"application/pdf\",\n  \"last_modified\": null,\n  \"location\": null,\n  \"redirects\": [],\n  \"ended_at\": \"2026-10-15T19:27:53.814974+00:00\",\n  \"bytes\": 10200857,\n  \"sha256\": \"c732ecd755150ea472f927ab6d4aa61862f6708ffde96183a679d3288961934c\"\n}\n",
+      "stderr": "/private/tmp/complisolv-handoff-review-venv/lib/python3.9/site-packages/urllib3/__init__.py:35: NotOpenSSLWarning: urllib3 v2 only supports OpenSSL 1.1.1+, currently the 'ssl' module is compiled with 'LibreSSL 2.8.3'. See: https://github.com/urllib3/urllib3/issues/3020\n  warnings.warn(\n"
+    },
+    {
+      "argv": [
+        "/private/tmp/complisolv-handoff-review-venv/bin/python",
+        "discover.py",
+        "download",
+        "--url",
+        "https://www.emeryville.org/files/assets/city/v/1/development/documents/building-permits/repealing-and-replacing-buidling-regulations.pdf",
+        "--out",
+        "final-downloads/emeryville-title8.pdf"
+      ],
+      "started_at": "2026-10-15T19:27:49.844077+00:00",
+      "ended_at": "2026-10-15T19:27:50.540424+00:00",
+      "exit_code": 0,
+      "stdout": "{\n  \"url\": \"https://www.emeryville.org/files/assets/city/v/1/development/documents/building-permits/repealing-and-replacing-buidling-regulations.pdf\",\n  \"started_at\": \"2026-10-15T19:27:50.107047+00:00\",\n  \"certificate_verification\": true,\n  \"status\": \"downloaded\",\n  \"http_status\": 200,\n  \"final_url\": \"https://www.emeryville.org/files/assets/city/v/1/development/documents/building-permits/repealing-and-replacing-buidling-regulations.pdf\",\n  \"content_type\": \"application/pdf\",\n  \"last_modified\": \"Wed, 19 Mar 2025 10:41:11 GMT\",\n  \"location\": null,\n  \"redirects\": [],\n  \"ended_at\": \"2026-10-15T19:27:50.523321+00:00\",\n  \"bytes\": 549998,\n  \"sha256\": \"de75990c402040c6bfefd5639a0b87bcac1a7a7ba57c2032cdf07302ecfc45bf\"\n}\n",
+      "stderr": "/private/tmp/complisolv-handoff-review-venv/lib/python3.9/site-packages/urllib3/__init__.py:35: NotOpenSSLWarning: urllib3 v2 only supports OpenSSL 1.1.1+, currently the 'ssl' module is compiled with 'LibreSSL 2.8.3'. See: https://github.com/urllib3/urllib3/issues/3020\n  warnings.warn(\n"
+    },
+    {
+      "argv": [
+        "/private/tmp/complisolv-handoff-review-venv/bin/python",
+        "inspect_pdf.py",
+        "--input",
+        "final-downloads/santa-clara-charter.pdf",
+        "--out",
+        "final-downloads/santa-clara-charter.inspection.json"
+      ],
+      "started_at": "2026-10-15T19:27:53.848162+00:00",
+      "ended_at": "2026-10-15T19:27:55.971612+00:00",
+      "exit_code": 0,
+      "stdout": "{\n  \"input\": \"santa-clara-charter.pdf\",\n  \"sha256\": \"c732ecd755150ea472f927ab6d4aa61862f6708ffde96183a679d3288961934c\",\n  \"bytes\": 10200857,\n  \"pages\": 29,\n  \"inspected_at\": \"2026-10-15T19:27:55.958329+00:00\",\n  \"text_status\": \"ocr_required\",\n  \"coverage\": \"bounded PDF structure/text pilot; no full extraction\",\n  \"layout_fidelity_verified\": false\n}\n",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "/private/tmp/complisolv-handoff-review-venv/bin/python",
+        "inspect_pdf.py",
+        "--input",
+        "final-downloads/emeryville-title8.pdf",
+        "--out",
+        "final-downloads/emeryville-title8.inspection.json"
+      ],
+      "started_at": "2026-10-15T19:27:55.971699+00:00",
+      "ended_at": "2026-10-15T19:27:56.117563+00:00",
+      "exit_code": 0,
+      "stdout": "{\n  \"input\": \"emeryville-title8.pdf\",\n  \"sha256\": \"de75990c402040c6bfefd5639a0b87bcac1a7a7ba57c2032cdf07302ecfc45bf\",\n  \"bytes\": 549998,\n  \"pages\": 41,\n  \"inspected_at\": \"2026-10-15T19:27:56.108239+00:00\",\n  \"text_status\": \"text_available\",\n  \"coverage\": \"bounded PDF structure/text pilot; no full extraction\",\n  \"layout_fidelity_verified\": false\n}\n",
+      "stderr": ""
+    }
+  ],
+  "offline_tests": 7,
+  "full_municipal_code_gaps_closed": 0,
+  "charter_sample_records": 2,
+  "charter_inventory_nodes": 8,
+  "pdfs": {
+    "santa-clara-charter": {
+      "input": "santa-clara-charter.pdf",
+      "sha256": "c732ecd755150ea472f927ab6d4aa61862f6708ffde96183a679d3288961934c",
+      "bytes": 10200857,
+      "pages": 29,
+      "inspected_at": "2026-10-15T19:27:55.958329+00:00",
+      "selected_pages": [
+        {
+          "page": 1,
+          "text": ""
+        },
+        {
+          "page": 2,
+          "text": ""
+        },
+        {
+          "page": 29,
+          "text": ""
+        }
+      ],
+      "text_status": "ocr_required",
+      "coverage": "bounded PDF structure/text pilot; no full extraction",
+      "layout_fidelity_verified": false
+    },
+    "emeryville-title8": {
+      "input": "emeryville-title8.pdf",
+      "sha256": "de75990c402040c6bfefd5639a0b87bcac1a7a7ba57c2032cdf07302ecfc45bf",
+      "bytes": 549998,
+      "pages": 41,
+      "inspected_at": "2026-10-15T19:27:56.108239+00:00",
+      "selected_pages": [
+        {
+          "page": 1,
+          "text": "DocuSign Envelope ID: CF922D99-EB 30-45E5-8D36-27E55CBD42EF \nORDINANCE NO. 22-013 \nAn Ordinance Of The City Council Of The City Of Emeryville Repealing and Replacing \nChapters 1, 2, 3, 4, 5, 6, 7, 8, 9, And 10 Of Title 8 Of The Emeryville Municipal Code, \nEntitled \"Building Regulations\", And Making Required Findings Relating To The \nAdoption And Amendment Of The California Building Standards Code (CEQA \nDetermination: Exempt Pursuant To CEQA Guidelines Sections 15061 (b)(3) and \n15378(b)(2) and (5)) \nWHEREAS, the City of Emeryville's Building Regulations are codified in Title 8 of the \nEmeryville Municipal Code and were last updated in 2019; and \nWHEREAS, it is the desire and intent of the City Council of the City of Emeryville to \nprovide the public with the greatest degree of fire, life, health and structural safety in \nbuildings in the most effective manner by adopting the most current body of regulations; \nand \nWHEREAS, on January 18-20, 2022, the California Building Standards Commission \nadopted the 2021 International Building Code, 2021 International Residential Code, 2021 \nCalifornia Existing Building Code , 2021 California Historical Building Code , 2021 \nInternational Property Maintenance Code, 2021 California Green Building Standards \nCode, 2021 Uniform Mechanical Code , 2021 Uniform Plumbing Code, 2020 National \nElectrical Code , and the 2021 International Energy Conservation Code as the 2022 \nCalifornia Building Standards Code collectively; and \nWHEREAS, State law requires local jurisdictions to enforce the 2022 California Building \nStandards Code beginning January 1, 2023; and \nWHEREAS, California Health and Safety Codes Sections 13143.5, 17958.5, 17958.7, \nand 18941.5 allow the City, by ordinance, to make modifications or changes to the \nCalifornia Building Standards Code and other regulations adopted pursuant to Health and \nSafety Code Section 17922 when such amendments are reasonably necessary because \nof local climatic, geological, or topographical conditions, and where such amendments \nestablish requirements more stringent than those provided in the state code; and \nWHEREAS, amendments are necessary because of the climatic, geographical or \ntopographical conditions unique to the City of Emeryville; and \nWHEREAS, the Health and Safety Code requires that the City Council, before making \nany modifications and changes, makes an express finding that each modification or \nchange is needed; and \nWHEREAS, the City Council determines that the proposed ordinance establishes \nrequirements equal to or greater than those set forth in the 2022 California Building \nStandards Code, Title 24, parts 2, 2.5, 3, 4, 5, 6, 8, 9, 10 and 11 of the California Code of \nRegulations; and "
+        },
+        {
+          "page": 2,
+          "text": "DocuSign Envelope ID: CF922D99-EB 30-45E5-8D36-27E55CBD42EF \nOrdinance No. 22-013 \nAdoption of California Building Code \nCity Council Meeting I November 15, 2022 \nPage 2 of 41 \nWHEREAS, adoption of the 2022 California Building Standards Code and local \namendments is exempt from the California Environmental Quality Act (\"CEQA\") pursuant \nto Title 14 of the California Administrative Code , Section 15061 (b)(3) because it can be \nseen with certainty that there is no possibility that the proposed ordinance may have a \nsignificant effect on the environment in that it does not propose or commit to any \nconstruction activities. This action is further exempt from the definition of Project in \nSection 15378(b )(2) and (5) in that it concerns general administrative policies and \nprocedures that will not result in direct or indirect physical changes in the environment. \nNOW THEREFORE THE CITY COUNCIL OF THE CITY OF EMERYVILLE DOES \nHEREBY ORDAIN AS FOLLOWS: \nSECTION ONE. PURPOSE AND INTENT \nThe purpose and intent of this Ordinance is to adopt the 2022 California Building \nStandards Code by repealing and replacing Chapters 1, 2, 3, 4, 5, 6, 7, 8, 9, and 1 0of \nTitle 8 of the Emeryville Municipal Code. \nSECTION TWO. REQUIRED FINDINGS \nPursuant to Sections 13143.5, 17958.5, 17958.7, and 18941.5 of the California Health \nand Safety Code, a local jurisdiction may adopt amendments to the State Building Code \nwhen such amendments are reasonably necessary because of local climatic, geological, \nor topographical conditions. In adopting amendments to the State Building Code, the City \nCouncil finds that such local conditions exist in the City of Emeryville as follows: \n1. Emeryville is located between 2 and 4 kilometers from the North Hayward fault, \nconsidered to be an active earthquake fault, and in seismic design category (SOC) \n0, a very high-risk earthquake area. Buildings and other structures in SOC O can \nexperience seismic damage which could have an adverse impact on Fire \nprotection. Any earth movement which causes buildings to move creates cracking \nand warping of fire walls, smoke barriers, door frames etc., thereby negating the \neffectiveness of these structural elements which are intended to prevent fire and \nsmoke from spreading within the building. In the event of a fire in a large building, \nfire and smoke conditions can reach a magnitude which is beyond control \ncapabilities of the fire department, thus resulting in major fire damage. The \nproposed amendments to the Building Code address the local geological conditions \nin Emeryville. \n2. Emeryville is bisected topographically by Interstates 80 and 580. As a result, the \nCity is divided into discrete districts. To travel between districts emergency \nvehicles must travel under and over vehicular bridges. Heavy traffic congestion "
+        },
+        {
+          "page": 41,
+          "text": "DocuSign Envelope ID: CF922D99-EB 30-45E5-8D36-27E55CBD42EF \nOrdinance No. 22-013 \nAdoption of California Building Code \nCity Council Meeting I November 15, 2022 \nPage 41 of 41 \nThis Ordinance was INTRODUCED AND FIRST READ by the City Council of the City of \nEmeryville at a regular meeting held Tuesday, November 1, 2022 , and PASSED AND \nDOPTED by the City Council of the City of Emeryville at a regular meeting held Tuesday, \nNovember 15, 2022 , by the following vote: \nAYES: 5 \nNOES: 0 \nABSTAIN: 0 \nABSENT: 0 \nATTEST: \nMayor Bauters, Vice Mayor Medina and Council Members Donahue, \nMartinez, and Welch \nAPPROVED AS TO FORM: \nD ocuSigned by : "
+        }
+      ],
+      "text_status": "text_available",
+      "coverage": "bounded PDF structure/text pilot; no full extraction",
+      "layout_fidelity_verified": false
+    }
+  }
+}

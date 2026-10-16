@@ -1,0 +1,44 @@
+{
+  "reviewed_at": "2026-10-15T19:39:49.852971+00:00",
+  "node_version": "v24.19.0",
+  "checks": 37,
+  "all_passed": true,
+  "suites": [
+    {
+      "package": "ecode360",
+      "command": "node test_capture.mjs",
+      "checks": 11,
+      "exit_code": 0,
+      "passed": true,
+      "source_sha256": "bf958239b2099e9cf710fad923472bc9713b5bf125007b979961d50b407e68fe",
+      "log": "integration/independent-review/ecode360-test_capture.txt"
+    },
+    {
+      "package": "codepublishing",
+      "command": "node test_acquire_cua.mjs",
+      "checks": 10,
+      "exit_code": 0,
+      "passed": true,
+      "source_sha256": "934d4a56aa885c42bb041eff53ec3ada3a0f7586b9b53327f379823dd0ccfaa7",
+      "log": "integration/independent-review/codepublishing-test_acquire_cua.txt"
+    },
+    {
+      "package": "municipal-codes",
+      "command": "node test_checksum.mjs",
+      "checks": 6,
+      "exit_code": 0,
+      "passed": true,
+      "source_sha256": "b72684b4d36dca9f7997fc2dd422f6e0672fc09d213fa41b4e4b63a3682f16db",
+      "log": "integration/independent-review/municipal-codes-test_checksum.txt"
+    },
+    {
+      "package": "municipal-codes",
+      "command": "node test_transport_guards.mjs",
+      "checks": 10,
+      "exit_code": 0,
+      "passed": true,
+      "source_sha256": "1a26af902cd9b30200c1ecfe25f0a83e9704d52872ea58dc17004d107b871eac",
+      "log": "integration/independent-review/municipal-codes-test_transport_guards.txt"
+    }
+  ]
+}

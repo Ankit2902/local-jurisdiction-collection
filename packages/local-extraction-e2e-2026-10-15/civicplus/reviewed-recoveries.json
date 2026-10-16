@@ -1,0 +1,160 @@
+{
+  "schema_version": 1,
+  "scope": "Only listed immutable PDF and selected source locations, manually compared to fresh Poppler renders; never a generic PDF correction.",
+  "documents": {
+    "b4305bca-b7ef-4d12-b84f-5554626b4b81": {
+      "raw_sha256": "3636e539560c461b586bfe612bdf8cd4936277ba96e3f482ab6690bb8f0ba712",
+      "reviewer": "Codex agent visual source comparison; not human signoff",
+      "reviewed_at": "2026-10-15T18:52:00Z",
+      "evidence": [
+        {
+          "page": 37,
+          "path": "live-e2e/qa/portland-ch13-37.png",
+          "sha256": "eeb3b1b44be2dfa7f16eb94f373acf4889e94f373cad1821286828ce664e7461"
+        },
+        {
+          "page": 38,
+          "path": "live-e2e/qa/portland-ch13-38.png",
+          "sha256": "e35df751590667fb948d7acb2a4a831e9047a9f383603415bf2bd33afef4bb5e"
+        },
+        {
+          "page": 48,
+          "path": "live-e2e/qa/portland-ch13-p48.png",
+          "sha256": "b0b554f99d97d71f1116765942590d054c42dda4c0630e49a9b94c9ce8717b03"
+        }
+      ],
+      "fully_reviewed_table_pages": [
+        37
+      ],
+      "operations": [
+        {
+          "id": "portland-p37-rent-columns",
+          "kind": "table_semantics",
+          "locator": {
+            "page": 37,
+            "top": 399.649995,
+            "kind": "table"
+          },
+          "expected_rows": [
+            [
+              "Bedrooms",
+              "Unheated Weekly Monthly",
+              "Heated Weekly Monthly"
+            ],
+            [
+              "0",
+              "100 431",
+              "112 481"
+            ],
+            [
+              "1",
+              "118 507",
+              "133 572"
+            ],
+            [
+              "2",
+              "150 648",
+              "172 739"
+            ],
+            [
+              "3",
+              "178 765",
+              "204 879"
+            ],
+            [
+              "4",
+              "225 966",
+              "264 1134"
+            ]
+          ],
+          "html": "<table data-reviewed=\"portland-p37-rent\"><thead><tr><th rowspan=\"2\">Bedrooms</th><th colspan=\"2\">Unheated</th><th colspan=\"2\">Heated</th></tr><tr><th>Weekly</th><th>Monthly</th><th>Weekly</th><th>Monthly</th></tr></thead><tbody><tr><td>0</td><td>100</td><td>431</td><td>112</td><td>481</td></tr><tr><td>1</td><td>118</td><td>507</td><td>133</td><td>572</td></tr><tr><td>2</td><td>150</td><td>648</td><td>172</td><td>739</td></tr><tr><td>3</td><td>178</td><td>765</td><td>204</td><td>879</td></tr><tr><td>4</td><td>225</td><td>966</td><td>264</td><td>1134</td></tr></tbody></table>"
+        },
+        {
+          "id": "portland-p37-p38-food-continuation",
+          "kind": "merge_table_continuation",
+          "first": {
+            "page": 37,
+            "top": 623.559985,
+            "kind": "table"
+          },
+          "second": {
+            "page": 38,
+            "top": 116.95999999999998,
+            "kind": "table"
+          },
+          "expected_first_rows": [
+            [
+              "Number in Household",
+              "Daily Food Amount",
+              "Weekly Food Amount",
+              "Monthly Food Amount"
+            ],
+            [
+              "1",
+              "$ 3.70",
+              "$ 26.00",
+              "$111.00"
+            ]
+          ],
+          "expected_second_rows": [
+            [
+              "2",
+              "7.00",
+              "49.00",
+              "203.00"
+            ],
+            [
+              "3",
+              "10.00",
+              "68.00",
+              "292.00"
+            ],
+            [
+              "4",
+              "12.00",
+              "86.00",
+              "370.00"
+            ],
+            [
+              "5",
+              "15.00",
+              "102.00",
+              "440.00"
+            ],
+            [
+              "6",
+              "18.00",
+              "123.00",
+              "528.00"
+            ],
+            [
+              "7",
+              "19.00",
+              "136.00",
+              "584.00"
+            ],
+            [
+              "8",
+              "22.00",
+              "155.00",
+              "667.00"
+            ]
+          ],
+          "html": "<table data-reviewed=\"portland-p37-p38-food\"><thead><tr><th>Number in Household</th><th>Daily Food Amount</th><th>Weekly Food Amount</th><th>Monthly Food Amount</th></tr></thead><tbody><tr><td>1</td><td>$ 3.70</td><td>$ 26.00</td><td>$111.00</td></tr><tr><td>2</td><td>7.00</td><td>49.00</td><td>203.00</td></tr><tr><td>3</td><td>10.00</td><td>68.00</td><td>292.00</td></tr><tr><td>4</td><td>12.00</td><td>86.00</td><td>370.00</td></tr><tr><td>5</td><td>15.00</td><td>102.00</td><td>440.00</td></tr><tr><td>6</td><td>18.00</td><td>123.00</td><td>528.00</td></tr><tr><td>7</td><td>19.00</td><td>136.00</td><td>584.00</td></tr><tr><td>8</td><td>22.00</td><td>155.00</td><td>667.00</td></tr></tbody></table>"
+        },
+        {
+          "id": "portland-p48-visible-line",
+          "kind": "insert_visual_transcription",
+          "anchor": {
+            "page": 48,
+            "top": 193.94000000000005,
+            "kind": "image"
+          },
+          "expected_image_name": "Image112",
+          "text": "abatement process under 36 M.R.S.A. [UNREADABLE SYMBOL] 841(2) and through",
+          "remaining_uncertainty": "The source rendering shows a square/missing glyph before 841(2). Its intended character is not inferred. This symbol and any remaining page48 mapping issue require publisher/human review."
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,61 @@
+{
+  "completed_at": "2026-10-16T03:58:28.569979+00:00",
+  "jurisdictions": 14,
+  "bounded_primary_acquisition_parse_export_passes": 14,
+  "unique_primary_sample_records": 134,
+  "primary_sample_tables": 8,
+  "primary_sample_cross_references": 309,
+  "fresh_accepted_captures_including_repeated_export_method_probes": 23,
+  "observed_new_429": false,
+  "actual_publisher_pdf_files": 13,
+  "pdf_native_selected_section_records": 13,
+  "pdf_text_and_title_comparisons_passed": 13,
+  "pdf_text_layout_passes": 12,
+  "map_semantics_review_required": [
+    "san-leandro-ca"
+  ],
+  "publisher_download_control_unavailable": [
+    "santa-clara-ca"
+  ],
+  "pdf_samples_overlap_primary_provisions": true,
+  "whole_corpus_complete": false,
+  "complete_publication_inventory_verified": false,
+  "independent_source_review": {
+    "sources": 14,
+    "records": 134,
+    "safety_controls": 5,
+    "receipt_acceptance_checks": 16,
+    "existing_offline_tests": 27
+  },
+  "runtime_guard_tests": 15,
+  "primary_package_tests": {
+    "python": 38,
+    "node": 11
+  },
+  "PDF_tests": 29,
+  "parent_additional_checks": {
+    "final_launcher_standalone_tests": 8,
+    "PDF_tests_rerun": 29,
+    "component_hash_references_verified": 3881,
+    "latest_and_independently_reviewed_source_bytes_identical_all14": true,
+    "final_code_freezes_match": true
+  },
+  "authoritative_report_sha256": {
+    "ecode360/HEADED-VALIDATION.json": "f88ba57b834f64494928060bf2e01e23bee0f0501134b60ed5ee82b38cfaeaa8",
+    "ecode360/SOURCE-FREEZE.json": "89257d2bce0c6af7af06907b50744cf74c402e48b66ea14b4cad18729196a84e",
+    "independent-review/REVIEW.json": "3b890e6bb5345c88c7850f987eae403537ba6977cf2c0abd77a9c8d68653b4b6",
+    "runtime-review/RUNTIME-REVIEW.json": "f6c9b6a49daa4e81f10c8c458cb87694b9d37d9dd8b7e09105f01d3dab4462ba",
+    "publisher-downloads/DOWNLOAD-VALIDATION.json": "6a2144baa274fe3e530c89fd91050e11e2158ac7793a75849253f71d7d32bc59",
+    "publisher-downloads/SOURCE-FREEZE.json": "02268d3ef3181558bf7a141a6e7e642a2db717ed20935b702e18a7a90c05bac5",
+    "SOURCE-MATRIX.json": "621a1635bfc513971959ffcc1e905e49e3afa40bab4144dbb14402991ef6fbd7",
+    "integration/INTEGRATION-REVIEW.json": "bb7e2f9c0544fd455d6a017e7d59b4527aedeae0cf0551e83e2c3851ea9c04b2"
+  },
+  "limits": [
+    "Bounded selected chapters and sections only; no full-corpus collection or database import.",
+    "Fresh headed Chrome on macOS qualified; headless, direct HTTP and other operating systems not requalified.",
+    "PDFs tested are single-page selected-section exports, with no detected tables; multipage and table PDFs unqualified.",
+    "San Leandro map text/geometry requires semantic review in either source format.",
+    "Publisher code IDs/dates recorded from DOM; PDFs lack an immutable edition token.",
+    "Exact live revisions archived; final launcher-only changes tested offline."
+  ]
+}

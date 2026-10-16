@@ -1,0 +1,101 @@
+{
+  "status": "all_three_passed_bounded_live_pilot",
+  "code_frozen_before_final_tests": true,
+  "offline_tests": {
+    "command": "python -m unittest test_methods test_e2e -v",
+    "result_file": "FINAL-TEST-RESULTS.txt",
+    "tests": 30,
+    "passed": 30
+  },
+  "jurisdictions": {
+    "san-mateo": {
+      "path": "live/final-san-mateo/E2E-VALIDATION.json",
+      "sha256": "c59b42147ff54048ecd51c3601a9967fa56a1e1ccd8ada3abee8dd10854bb446",
+      "status": "passed_bounded_live_pilot",
+      "started_at": "2026-10-15T18:56:07.402287+00:00",
+      "ended_at": "2026-10-15T18:56:12.965618+00:00",
+      "outputs": [
+        {
+          "path": "output/charter/run-manifest.json",
+          "records": 96,
+          "nodes": 107
+        },
+        {
+          "path": "output/municipal-code/run-manifest.json",
+          "records": 39,
+          "nodes": 44
+        }
+      ],
+      "limitations": [
+        "Repository HEAD pins a reproducible source version, not legal current-through currency.",
+        "Only selected Title 1 and Charter parsed; every other include explicitly excluded from validation scope.",
+        "Archive file membership and Git blob hashes verified for all files, without full corpus XML parsing."
+      ]
+    },
+    "king-county": {
+      "path": "live/final-king-county/E2E-VALIDATION.json",
+      "sha256": "468b01a3a365668190432aa6729b04f03eb6a021c9657d856621cdb1d18e88c1",
+      "status": "passed_bounded_live_pilot",
+      "started_at": "2026-10-15T18:56:07.402172+00:00",
+      "ended_at": "2026-10-15T18:56:16.727125+00:00",
+      "outputs": [
+        {
+          "path": "output/title2a/run-manifest.json",
+          "records": 20,
+          "nodes": 24
+        },
+        {
+          "path": "output/title1/run-manifest.json",
+          "records": 121,
+          "nodes": 137
+        },
+        {
+          "path": "output/charter/run-manifest.json",
+          "records": 120,
+          "nodes": 133
+        }
+      ],
+      "limitations": [
+        "Three official documents parsed as bounded pilot; no complete jurisdiction export.",
+        "TOC/body numbering and Charter landing/header date conflicts retained as publisher source discrepancies; Word evidence does not authorize legal renumbering.",
+        "Title 21A source amendment/repeal/duplicate labels from earlier pilot remain outside this live three-document test.",
+        "Document equivalence here checks conflicting literal identifiers/dates; full Word/HTML paragraph parity is not claimed."
+      ]
+    },
+    "daly-city": {
+      "path": "live/final-daly-city/E2E-VALIDATION.json",
+      "sha256": "495b214775827af58687e455ea73e80924daa0397898d3f1faf584e662780505",
+      "status": "passed_bounded_live_pilot",
+      "started_at": "2026-10-15T18:56:07.411510+00:00",
+      "ended_at": "2026-10-15T18:56:26.230476+00:00",
+      "outputs": [
+        {
+          "path": "output/sample-2/run-manifest.json",
+          "records": 1,
+          "nodes": 1
+        },
+        {
+          "path": "output/sample-0/run-manifest.json",
+          "records": 1,
+          "nodes": 1
+        },
+        {
+          "path": "output/sample-1/run-manifest.json",
+          "records": 1,
+          "nodes": 1
+        }
+      ],
+      "limitations": [
+        "Three exact observed sections parsed from publisher chapter responses; no full extraction.",
+        "Unincorporated ordinances remain a separate publication inventory; no codification inference."
+      ]
+    }
+  },
+  "runtime_support": {
+    "http": "actual delivered scripts executed",
+    "standalone_browser": "actual isolated Chrome script executed within final Daly run",
+    "supported_cua": "actual delivered ESM helper executed; hash-bound scoped evidence copied into final run"
+  },
+  "full_jurisdiction_extraction": false,
+  "production_modified": false
+}

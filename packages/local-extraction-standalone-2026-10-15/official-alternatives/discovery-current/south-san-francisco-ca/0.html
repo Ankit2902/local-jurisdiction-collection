@@ -1,0 +1,992 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8" lang="en"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9" lang="en"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js" lang="en-US">
+<!--<![endif]-->
+<head>
+	<!-- Published by OpenCities, 1.38.0.1 -->
+
+    
+        
+    
+    
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="theme-color" content="#FFFFFF"/>
+    <title>Municipal Code - City of South San Francisco </title>
+	<meta name="generator" content="OpenCities - https://granicus.com/product/opencities" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Using mobile-web-app-capable for now to enable full-screen experience on supported platforms -->
+    <!-- Note: This tag works mainly on Android Chrome. It does NOT enable full-screen mode on iOS Safari. -->
+    <!-- For iOS, the correct tag is: <meta name="apple-mobile-web-app-capable" content="yes"> -->
+    <!-- TODO: Monitor for updated meta tag standards from Apple or other browser vendors -->
+    <meta name="mobile-web-app-capable" content="yes" />
+        <meta name="description" content=" The City of South San Francisco Municipal Code is hosted by e-Code360 Publishing and provides easier access to the public. South San Francisco Municipal Code This electronic version is provided for information only and should not be considered the official..." />
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://www.ssfca.gov/Departments/City-Clerk/Municipal-Code" />
+    <meta property="og:title" content="Municipal Code" />
+    <meta property="og:description" content=" The City of South San Francisco Municipal Code is hosted by e-Code360 Publishing and provides easier access to the public. South San Francisco Municipal Code This electronic version is provided for information only and should not be considered the official..." />
+    <meta property="og:image" content="https://www.ssfca.gov/files/assets/public/v/1/city-clerk/images/muno-code-2-photo.jpg?w=1200" />
+    <meta property="twitter:card" content="summary" />
+    <meta property="twitter:title" content="Municipal Code" />
+    <meta property="twitter:description" content=" The City of South San Francisco Municipal Code is hosted by e-Code360 Publishing and provides easier access to the public. South San Francisco Municipal Code This electronic version is provided for information only and should not be considered the official..." />
+    <meta property="twitter:image" content="https://www.ssfca.gov/files/assets/public/v/1/city-clerk/images/muno-code-2-photo.jpg?w=1080" />
+    <link rel="canonical" href="https://www.ssfca.gov/Departments/City-Clerk/Municipal-Code" />
+
+    
+    <link rel="apple-touch-icon" sizes="180x180" href="/files/ocfavicon/Public/apple-touch-icon.png?V=638391737689943508">
+<link rel="icon" type="image/png" sizes="32x32" href="/files/ocfavicon/Public/favicon-32x32.png?V=638391737689943508">
+<link rel="icon" type="image/png" sizes="16x16" href="/files/ocfavicon/Public/favicon-16x16.png?V=638391737689943508">
+<link rel="manifest" href="/files/ocfavicon/Public/site.webmanifest?V=638391737689943508">
+<link rel="shortcut icon" href="/files/ocfavicon/Public/favicon.ico?V=638391737689943508">
+<meta name="msapplication-TileColor" content="#FFFFFF">
+<meta name="msapplication-config" content="/files/ocfavicon/Public/browserconfig.xml?V=638391737689943508">
+    <script>
+        (function () {
+            if (window.__UNLOAD_LAZY_PATCH__) return;
+            window.__UNLOAD_LAZY_PATCH__ = true;
+
+            var supportsPageHide = ("onpagehide" in window);
+            var mappedType = supportsPageHide ? "pagehide" : "beforeunload";
+            var nativeAdd = window.addEventListener;
+            var nativeRemove = window.removeEventListener;
+            var unloadMap = null;
+            var patched = false;
+
+            function ensurePatched() {
+                if (patched) return;
+                unloadMap = new WeakMap();
+
+                window.addEventListener = function (type, listener, options) {
+                    if (type === "unload") {
+                        var wrapped = function (evt) {
+                            if (supportsPageHide && evt.persisted) return;
+                            listener.call(this, evt);
+                        };
+                        unloadMap.set(listener, wrapped);
+                        return nativeAdd.call(this, mappedType, wrapped, options);
+                    }
+                    return nativeAdd.call(this, type, listener, options);
+                };
+
+                window.removeEventListener = function (type, listener, options) {
+                    if (type === "unload") {
+                        var wrapped = unloadMap.get(listener);
+                        if (wrapped) {
+                            nativeRemove.call(this, mappedType, wrapped, options);
+                            unloadMap.delete(listener);
+                        }
+                        return;
+                    }
+                    return nativeRemove.call(this, type, listener, options);
+                };
+
+                var orig = null;
+                Object.defineProperty(window, "onunload", {
+                    configurable: true, enumerable: true,
+                    get: function () { return orig; },
+                    set: function (h) {
+                        orig = h;
+                        if (typeof h === "function") window.addEventListener("unload", h);
+                    }
+                });
+                patched = true;
+            }
+
+            window.addEventListener = function (type, listener, options) {
+                if (type === "unload") {
+                    ensurePatched();
+                    return window.addEventListener(type, listener, options);
+                }
+                return nativeAdd.call(this, type, listener, options);
+            };
+
+            window.removeEventListener = function (type, listener, options) {
+                if (type === "unload" && !patched) {
+                    return;
+                }
+                return nativeRemove.call(this, type, listener, options);
+            };
+
+            function patchTelerik() {
+                ensurePatched();
+                var ns = window.RadAjaxNamespace;
+                if (!ns || !ns.EventManager || !ns.EventManager.Add || ns.EventManager.__UnloadPatched) return;
+                var origAdd = ns.EventManager.Add;
+                ns.EventManager.Add = function (el, evtName, handler, clientId) {
+                    if (el === window && evtName === "unload") {
+                        return window.addEventListener("unload", handler);
+                    }
+                    return origAdd.call(this, el, evtName, handler, clientId);
+                };
+                ns.EventManager.__UnloadPatched = true;
+            }
+
+            if (window.RadAjaxNamespace)
+                patchTelerik();
+            else (window.requestIdleCallback || function (cb)
+            {
+                setTimeout(cb, 120);
+            })(patchTelerik);
+        })();
+    </script>
+    <!-- Preconnecting to Google Fonts servers -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <!-- Defer Roboto font loading to avoid render-blocking -->
+    <script>
+        window.addEventListener('DOMContentLoaded', () => {
+            const robotoLink = document.createElement('link');
+            robotoLink.rel = 'stylesheet';
+            robotoLink.href = 'https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap';
+            document.head.appendChild(robotoLink);
+        });
+    </script>
+
+    <style>
+        .gm-style, .gm-style * {
+            font-family: 'Roboto', system-ui, -apple-system, "Segoe UI", Arial, sans-serif !important;
+        }
+    </style>
+
+    <script>
+        document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, "js");
+    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap" rel="stylesheet">
+    
+        
+            <script type="text/javascript">
+                window.__oc_flags_ImprovedBreakpointEventHandling = true;
+            </script>
+            
+        
+    
+    
+    
+        <script type="text/javascript">
+            var __metaQueryBreakpoints = {
+                'sc-size-4': '(max-width: 480px)',
+                'sc-size-3': '(min-width: 480px) and (max-width: 768px)',
+                'sc-size-2': '(min-width: 768px) and (max-width: 992px)',
+                'sc-size-1': '(min-width: 992px)'
+            }
+
+            var __ocSizePoints = [
+                { min: 0, name: 'sc-size-4' },
+                { min: 480, name: 'sc-size-3' },
+                { min: 768, name: 'sc-size-2' },
+                { min: 992, name: 'sc-size-1' }
+            ];
+
+        </script>
+    
+
+    <!-- Framework Section -->
+    
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script>window.jQuery || document.write('<script src="/files/templates/00000000-0000-0000-0000-000000000000/020b02ad-4299-4c05-b919-1eef7102edd1/v/249/jquery-3.7.1.min.js?seamlessts=639263243963920315" ><\/script>')</script>
+
+    <!--Google Maps API Loader – Improved Version to avoid Warning
+    This script loads the Google Maps JavaScript API using a dynamic and async method.
+    It replaces the old static <script> tag to avoid performance warnings from Google.
+
+    Dynamically creates the <script> tag with loading = async for better performance
+    Builds the API URL with required libraries(places, geometry, marker, geocoding)
+    Uses a Promise and callback(google.maps.__ib__) to confirm when the script is ready
+
+    It Avoids Google’s warning about direct script loading
+    Improves page load speed by loading the API asynchronously-->
+
+    
+        <script>
+            (function (root) {
+                root.OpenCities = root.OpenCities || {};
+                if (!root.OpenCities.GoogleMapsLoader) {
+                    root.OpenCities.GoogleMapsLoader = {
+                        _cbs: [],
+                        _ready: false,
+                        onReady: function (cb) {
+                            if (this._ready) { try { cb(); } catch (e) { console.error(e); } }
+                            else if (typeof cb === 'function') this._cbs.push(cb);
+                        },
+                        _fire: function () {
+                            if (this._ready) return;
+                            this._ready = true;
+                            var q = this._cbs.splice(0);
+                            for (var i = 0; i < q.length; i++) {
+                                try { q[i](); } catch (e) { console.error(e); }
+                            }
+                        }
+                    };
+                }
+            })(window);
+
+            (g => {
+                var h, a, k, p = "The Google Maps JavaScript API", c = "google", l = "importLibrary", q = "__ib__",
+                    m = document, b = window;
+                b = b[c] || (b[c] = {});
+                var d = b.maps || (b.maps = {}), r = new Set, e = new URLSearchParams,
+                    u = () => h || (h = new Promise(async (resolve, reject) => {
+                        a = m.createElement("script");
+                        e.set("libraries", [...r] + "");
+                        for (k in g) e.set(k.replace(/[A-Z]/g, t => "_" + t[0].toLowerCase()), g[k]);
+                        e.set("callback", c + ".maps." + q);
+                        a.src = "https://maps." + c + "apis.com/maps/api/js?" + e.toString();
+                        a.loading = "async";
+                        a.async = true;
+                        a.defer = true;
+                        d[q] = resolve;
+                        a.onerror = () => reject(Error(p + " could not load."));
+                        a.nonce = m.querySelector("script[nonce]")?.nonce || "";
+                        m.head.append(a);
+                    }));
+                if (d[l]) {
+                    console.warn(p + " only loads once. Ignoring duplicate load.");
+                } else {
+                    d[l] = (f, ...n) => (r.add(f), u().then(() => d[l](f, ...n)));
+                }
+            })({
+                key: "AIzaSyCT5hUVZUTdynVcPohcvxr1-hDjdiyVYCI",
+                v: "3.65"
+            });
+
+            (async () => {
+                try {
+                    if (!google?.maps?.importLibrary) return;
+
+                    if (!window.OpenCities.__mapsLibsPromise) {
+                        window.OpenCities.__mapsLibsPromise = Promise.all([
+                            google.maps.importLibrary('maps'),
+                            google.maps.importLibrary('places'),
+                            google.maps.importLibrary('geocoding'),
+                            google.maps.importLibrary('marker'),
+                            google.maps.importLibrary('geometry')
+                        ]);
+                    }
+                    await window.OpenCities.__mapsLibsPromise;
+
+                    if (window.OpenCities?.GoogleMapsLoader) {
+                        window.OpenCities.GoogleMapsLoader._fire();
+                    }
+                } catch (err) {
+                    console.error('Google Maps failed to initialise', err);
+                }
+            })();
+        </script>
+    
+    <script src="/files/templates/00000000-0000-0000-0000-000000000000/020b02ad-4299-4c05-b919-1eef7102edd1/v/249/modernizr.custom.710f3bf.js?seamlessts=639263243964076702" defer></script>
+    
+    <!--// End Framework Section -->
+    <!-- OpenCities Section -->
+    <script>
+        var OpenCities = OpenCities || {};
+        OpenCities.Paths = {
+            SiteTemplate: '/files/templates/00000000-0000-0000-0000-000000000000/020b02ad-4299-4c05-b919-1eef7102edd1/v/249/',
+            ThemePath: '/files/templates/00000000-0000-0000-0000-000000000000/020b02ad-4299-4c05-b919-1eef7102edd1/v/249/'
+        };
+    </script>
+    <script src='/ocapi/d83793e0-11ff-4fb9-b9f9-29fd6c17a52b/en-US/websitesettings.js'></script>
+    <script src="/files/templates/00000000-0000-0000-0000-000000000000/020b02ad-4299-4c05-b919-1eef7102edd1/v/249/oc_head.js?applied=20250625025731"></script>
+    <!-- Script Combine. To enter debug mode for this browser session, enter OcScriptCombineDebug=true as a querystring -->
+<link href="/files/oc-templates/00000000-0000-0000-0000-000000000000/020b02ad-4299-4c05-b919-1eef7102edd1/v/249/oc_grid.css~oc_style.css~oc_wizard_style.css~oc_main.css~oc_forms.css~oc_wizard.css~oc_wizard_menu.css~oc_main_s1.css~oc_wizard_s1.css~oc_wizard_menu_s1.css~oc_grid_s1.css~OcScriptCombine_Minify0?uniqueid=20250625025731" rel="stylesheet" type="text/css">
+    <!-- Script Combine. To enter debug mode for this browser session, enter OcScriptCombineDebug=true as a querystring -->
+<link href="/files/oc-templates/00000000-0000-0000-0000-000000000000/020b02ad-4299-4c05-b919-1eef7102edd1/v/249/client_style.css~client.css~client_menu.css~client_s1.css~client_menu_s1.css~client_forms.css~OcScriptCombine_Minify0?uniqueid=20250625025731" rel="stylesheet" type="text/css">
+    <script>
+(function (BackgroundSettings, $, undefined) {
+    BackgroundSettings.initialise = function () {
+        this.Application = {"CSSSelector":".background-container","EnableFade":false,"MediaType":"image"};
+    };
+} (OpenCities.BackgroundSettings = OpenCities.BackgroundSettings || {}, jQuery));
+OpenCities.BackgroundSettings.initialise();
+</script>
+    
+    <!-- Script Combine. To enter debug mode for this browser session, enter OcScriptCombineDebug=true as a querystring -->
+<link href="/files/oc-templates/00000000-0000-0000-0000-000000000000/020b02ad-4299-4c05-b919-1eef7102edd1/v/249/oc_print.css~client_print.css~OcScriptCombine_Minify0?uniqueid=20250625025731" rel="stylesheet" type="text/css" media="print">
+    <!-- Script Combine. To enter debug mode for this browser session, enter OcScriptCombineDebug=true as a querystring -->
+<script src="/files/oc-templates/00000000-0000-0000-0000-000000000000/020b02ad-4299-4c05-b919-1eef7102edd1/v/249/external_plugins.js~oc_form_helper.js~oc_main.js~plugins.js~oc_main_init.js~OcScriptCombine_Minify0?uniqueid=20250625025731" defer="true"></script>
+    <script async src="https://docaccess.com/docbox.js"></script>
+    
+
+                                <script>!function(e){var n="https://s.go-mpulse.net/boomerang/";if("False"=="True")e.BOOMR_config=e.BOOMR_config||{},e.BOOMR_config.PageParams=e.BOOMR_config.PageParams||{},e.BOOMR_config.PageParams.pci=!0,n="https://s2.go-mpulse.net/boomerang/";if(window.BOOMR_API_key="DYTCK-JM9C8-ED4EP-C3GGK-Z575H",function(){function e(){if(!r){var e=document.createElement("script");e.id="boomr-scr-as",e.src=window.BOOMR.url,e.async=!0,o.appendChild(e),r=!0}}function t(e){r=!0;var n,t,a,i,d=document,O=window;if(window.BOOMR.snippetMethod=e?"if":"i",t=function(e,n){var t=d.createElement("script");t.id=n||"boomr-if-as",t.src=window.BOOMR.url,BOOMR_lstart=(new Date).getTime(),e=e||d.body,e.appendChild(t)},!window.addEventListener&&window.attachEvent&&navigator.userAgent.match(/MSIE [67]\./))return window.BOOMR.snippetMethod="s",void t(o,"boomr-async");a=document.createElement("IFRAME"),a.src="about:blank",a.title="",a.role="presentation",a.loading="eager",i=(a.frameElement||a).style,i.width=0,i.height=0,i.border=0,i.display="none",o.appendChild(a);try{O=a.contentWindow,d=O.document.open()}catch(_){n=document.domain,a.src="javascript:var d=document.open();d.domain='"+n+"';void 0;",O=a.contentWindow,d=O.document.open()}if(n)d._boomrl=function(){this.domain=n,t()},d.write("<bo"+"dy onload='document._boomrl();'>");else if(O._boomrl=function(){t()},O.addEventListener)O.addEventListener("load",O._boomrl,!1);else if(O.attachEvent)O.attachEvent("onload",O._boomrl);d.close()}function a(e){window.BOOMR_onload=e&&e.timeStamp||(new Date).getTime()}if(!window.BOOMR||!window.BOOMR.version&&!window.BOOMR.snippetExecuted){window.BOOMR=window.BOOMR||{},window.BOOMR.snippetStart=(new Date).getTime(),window.BOOMR.snippetExecuted=!0,window.BOOMR.snippetVersion=14,window.BOOMR.url=n+"DYTCK-JM9C8-ED4EP-C3GGK-Z575H";var i=document.currentScript||document.getElementsByTagName("script")[0],o=i.parentNode,r=!1,d=document.createElement("link");if(d.relList&&"function"==typeof d.relList.supports&&d.relList.supports("preload")&&"as"in d)window.BOOMR.snippetMethod="p",d.href=window.BOOMR.url,d.rel="preload",d.as="script",d.addEventListener("load",e),d.addEventListener("error",function(){t(!0)}),setTimeout(function(){if(!r)t(!0)},3e3),BOOMR_lstart=(new Date).getTime(),o.appendChild(d);else t(!1);if(window.addEventListener)window.addEventListener("load",a,!1);else if(window.attachEvent)window.attachEvent("onload",a)}}(),"".length>0)if(e&&"performance"in e&&e.performance&&"function"==typeof e.performance.setResourceTimingBufferSize)e.performance.setResourceTimingBufferSize();!function(){if(BOOMR=e.BOOMR||{},BOOMR.plugins=BOOMR.plugins||{},!BOOMR.plugins.AK){var n=""=="true"?1:0,t="",a="eyaqesmsaa3wajqacqd6qaaadfvncj2l-f-538a118f7-clienttons-s.akamaihd.net",i="false"=="true"?2:1,o={"ak.v":"41","ak.cp":"1700648","ak.ai":parseInt("1075935",10),"ak.ol":"0","ak.cr":41,"ak.ipv":6,"ak.proto":"http/1.1","ak.rid":"b541cbd","ak.r":39715,"ak.a2":n,"ak.m":"dscb","ak.n":"essl","ak.cport":57603,"ak.gh":"184.30.41.183","ak.quicv":"","ak.tlsv":"tls1.2","ak.0rtt":"","ak.0rtt.ed":"","ak.csrc":"-","ak.acc":"bbr","ak.t":"1792091979","ak.ak":"hOBiQwZUYzCg5VSAfCLimQ==yxZykv+KhWP6ufU5mtay8GAhM46yYli5ahxaOBnsO+ziaMDzm9QM+RolJDMtnkHby35eeVGsO1iMRGbpQCOz4a8PDsQ1Q7DjnMaRP7eVxvbOmQWruBfy5QU6ukuRM/0JTvnlR6+fyFBYKjuxVMJZ8iIFAoTX9uw9ls9IVaZh2JxfmFS5mPcjpDy+J9j0NNuDbrRDVCfV4dRNJGyAx+HCtERm1bJlZIazNdQ2LhG8zFoOH3p+H0YwYm8rWY0Hz3ilIH4J8YAB7hQBEHpzM6sgMnNGDDB66ghX6KtazhCsj4i8tnOgDCW+/TW/keeWwMEXH+2XH4NsCCvrcKMuNlFODeCG+ahYq/A44CHbIYsYUCXLxAaqd0xFfK8Tu9aCuXX2jJ1LQrsexWtHrdaNH+Oh17dysBNMTQZNOoldm4n1xRM=","ak.pv":"354","ak.dpoabenc":"","ak.tf":i};if(""!==t)o["ak.ruds"]=t;var r={i:!1,av:function(n){var t="http.initiator";if(n&&(!n[t]||"spa_hard"===n[t]))o["ak.feo"]=void 0!==e.aFeoApplied?1:0,BOOMR.addVar(o)},rv:function(){var e=["ak.cport","ak.cr","ak.csrc","ak.gh","ak.ipv","ak.m","ak.n","ak.ol","ak.proto","ak.quicv","ak.tlsv","ak.0rtt","ak.0rtt.ed","ak.r","ak.acc","ak.t","ak.tf"];BOOMR.removeVar(e)}};BOOMR.plugins.AK={akVars:o,akDNSPreFetchDomain:a,init:function(){if(!r.i){var e=BOOMR.subscribe;e("before_beacon",r.av,null,null),e("onbeacon",r.rv,null,null),r.i=!0}return this},is_complete:function(){return!0}}}}()}(window);</script></head>
+<body class="body layout-modern  site-search-always-visble  content-type-oc-general content-template-oc-2-column-without-image group-template-oc-2-column-with-default-header page-name-municipal-code page-sequence-6 page-depth-3 page-section-4 website-type-primary device-desktop featured-site-section   " id="body-top">
+    <div id="skip-to-content-container">
+        <a href="#main-content" class="visuallyhidden focusable" id="skip-to-content-link">Skip to main content</a>
+    </div>
+    <script>
+        // OCNOW-11988 (Cursor): Proactively focus skip link when returning from browser chrome.
+        // Must run inline (not deferred oc_main.js) so focus is intercepted before NVDA speaks footer.
+        (function () {
+            var awaitingReentry = false;
+            var inertSupported = 'inert' in HTMLElement.prototype;
+
+            function isExplicitlyOutsideDocument(node) {
+                return node != null && !document.documentElement.contains(node);
+            }
+
+            function getSkipContainer() {
+                return document.getElementById('skip-to-content-container');
+            }
+
+            function getSkipLink() {
+                return document.getElementById('skip-to-content-link');
+            }
+
+            function applyGuard() {
+                awaitingReentry = true;
+                if (!inertSupported) {
+                    return;
+                }
+                var skipContainer = getSkipContainer();
+                var children = document.body.children;
+                for (var i = 0; i < children.length; i++) {
+                    if (children[i] !== skipContainer) {
+                        children[i].setAttribute('inert', '');
+                    }
+                }
+            }
+
+            function clearGuard() {
+                awaitingReentry = false;
+                if (!inertSupported) {
+                    return;
+                }
+                var children = document.body.children;
+                for (var i = 0; i < children.length; i++) {
+                    children[i].removeAttribute('inert');
+                }
+            }
+
+            function isSkipLinkElement(target) {
+                if (!target) {
+                    return false;
+                }
+                var skipContainer = getSkipContainer();
+                return target.id === 'skip-to-content-link' ||
+                    (skipContainer && skipContainer.contains(target));
+            }
+
+            function focusSkipLink() {
+                var skipLink = getSkipLink();
+                if (!skipLink) {
+                    return;
+                }
+                if (window.scrollY > 0) {
+                    window.scrollTo(0, 0);
+                }
+                skipLink.focus({ preventScroll: true });
+            }
+
+            function scheduleGuardIfDocumentLostFocus() {
+                window.setTimeout(function () {
+                    if (!document.hasFocus()) {
+                        applyGuard();
+                    }
+                }, 0);
+            }
+
+            document.addEventListener('focusout', function (e) {
+                if (isExplicitlyOutsideDocument(e.relatedTarget)) {
+                    applyGuard();
+                }
+            }, true);
+
+            document.addEventListener('keydown', function (e) {
+                if (e.key === 'Tab') {
+                    scheduleGuardIfDocumentLostFocus();
+                } else if (e.key === 'F6' || (e.key === 'l' && e.ctrlKey)) {
+                    scheduleGuardIfDocumentLostFocus();
+                }
+            }, true);
+
+            window.addEventListener('focus', function () {
+                if (!awaitingReentry) {
+                    return;
+                }
+                applyGuard();
+                focusSkipLink();
+            }, true);
+
+            document.addEventListener('focusin', function (e) {
+                var reentryFromChrome = awaitingReentry || isExplicitlyOutsideDocument(e.relatedTarget);
+                if (!reentryFromChrome) {
+                    return;
+                }
+                if (isSkipLinkElement(e.target)) {
+                    clearGuard();
+                    return;
+                }
+                applyGuard();
+                focusSkipLink();
+                clearGuard();
+            }, true);
+        })();
+    </script>
+    <form name="mainForm" method="post" action="/Departments/City-Clerk/Municipal-Code" id="mainForm">
+<input type="hidden" name="ctl04_seamless_script_manager_TSM" id="ctl04_seamless_script_manager_TSM" value="" />
+<input type="hidden" name="__SEAMLESSVIEWSTATE" id="__SEAMLESSVIEWSTATE" value="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" />
+<input type="hidden" name="__VIEWSTATE" id="__VIEWSTATE" value="" />
+
+
+<script src="/Telerik.Web.UI.WebResource.axd?_TSM_HiddenField_=ctl04_seamless_script_manager_TSM&amp;compress=1&amp;_TSM_CombinedScripts_=%3b%3bSystem.Web.Extensions%2c+Version%3d4.0.0.0%2c+Culture%3dneutral%2c+PublicKeyToken%3d31bf3856ad364e35%3aen-GB%3add3ac3d5-1e29-4112-8fed-529caffa8f24%3aea597d4b%3bOpenCities.CustomControls%3aen-GB%3a7197b077-b068-4a69-9481-a6cf2e7718f9%3a8e1d32bf" type="text/javascript"></script>
+<script src="/ScriptResource.axd?d=EYVjNsQ7oYmzBqCI0dkEyYe0LYmPcVFL4WPcQCXhKfQwUqkAT7lLra0za-OLMuUUcCyPINdTVMHIWti96-8R_oN-trjXUUZnJRzckxTjid4ecctwwEJyNI-05jZYvXHBRiEKL0MUQMEyEJ2FXanyE1uBk88RxZ1wVK6AUn9D4v8rW-LNx2OOtB8vE3hC8P0jk4XZt7GAPiCeYQolxUlwFZA8cuOfgd4u08OASxFdh8mChz3A0YHhuwRrXGVlulfs9SJVkAvulhjdHYIIp1SRohDxt9acTwxUQrOlxuxC847b00zOOWg9SlpwD_iBuQQ1rOK9WH9O_wN9c2TXm4GeXaQHHT4yQ9IlzZXw6th8ch3f-k_n1yYeeurDMbwChXW1Vh_7rpu00kgmegsg9w2J3ququXIPfy2Gq8IscVTmtwouupfmUzAOicU_yESgQ-dG0" type="text/javascript"></script>
+    
+<script type="text/javascript">
+    try{
+        function SeamlessEndRequestHandler(sender, args) {
+            try {
+                var dataItems = args.get_dataItems();
+                if(dataItems.ctl04_seamless_script_manager)
+                    document.getElementById('__SEAMLESSVIEWSTATE').value = dataItems.ctl04_seamless_script_manager;
+            }
+            catch (e) { }
+        }
+
+        Sys.WebForms.PageRequestManager.getInstance().add_endRequest(SeamlessEndRequestHandler);
+    }
+    catch (e) { }
+</script>
+
+    <div class="unsupported-browser-warning js-element"></div>
+    
+    <div hidden>
+        <span id="new-window-0">opens in new tab or window </span>
+    </div>
+    <div class="overlay-container"></div>
+    
+    <div class="background-container">
+        <div class="page-container">
+            <!-- OC Layout Element GROUP TEMPLATE -->
+            <!--groupTemplateStart--><header>
+            <div class="toolbar-outer-container">
+  <div class="toolbar-inner-container clearfix">
+    <div class="toolbar-item toolbar-quicklinks toolbar-display-dropdown">
+	<button type="button" aria-controls="toolbar-quicklinks-drop-down" aria-expanded="false" class="toolbar-button toolbar-button-quicklinks js-element"><span>Quick Links</span><i aria-hidden="true"></i></button>	
+	<div id="toolbar-quicklinks-drop-down" class="toolbar-drop-down toolbar-quicklinks-drop-down clearfix">
+		<ul>
+		  <li><a href="https://www.ssfca.gov/Services/Online-Pay-and-Services" class="oc-icon-b oc-i--none link-type-internal"><span>Online Services</span></a></li><li><a href="https://www.ssfca.gov/Departments" class="oc-icon-b oc-i--none link-type-internal"><span>Contact Us</span></a></li><li><a href="https://www.ssfca.gov/Departments/City-Manager/Communications/Social-Media" class="oc-icon-b oc-i--none link-type-internal"><span>Social Media</span></a></li><li><a href="https://southsanfranciscoca.prelive.opencities.com/Services/Subscribe-to-Email?transfer=e9d17699-2ad0-42d7-b401-3edb83705f0c" class="oc-icon-b oc-i--none link-type-external" target="_blank"><span>Subscribe to Email</span></a></li>
+		</ul>
+	</div>
+</div><div class="toolbar-item toolbar-language notranslate toolbar-display-dropdown"><div class="no-js-element">
+		  <ul>
+		    <li id="toolbar-language-option-zh-cn-noscript"><a href="https://www.ssfca.gov/Departments/City-Clerk/Municipal-Code?oc_lang=zh-CN" class="lang-item lang-zh-cn" data-translate-to="zh-cn" lang="zh-CN">Chinese (Simplified)<span class="visuallyhidden"> Select this as your preferred language</span></a></li><li id="toolbar-language-option-zh-tw-noscript"><a href="https://www.ssfca.gov/Departments/City-Clerk/Municipal-Code?oc_lang=zh-TW" class="lang-item lang-zh-tw" data-translate-to="zh-tw" lang="zh-TW">Chinese (Traditional)<span class="visuallyhidden"> Select this as your preferred language</span></a></li><li id="toolbar-language-option-en-us-noscript"><a href="https://www.ssfca.gov/Departments/City-Clerk/Municipal-Code?oc_lang=en-US" class="lang-item lang-en-us" data-translate-to="en-us" lang="en-US">English (United States)<span class="visuallyhidden"> Select this as your preferred language</span></a></li><li id="toolbar-language-option-pt-noscript"><a href="https://www.ssfca.gov/Departments/City-Clerk/Municipal-Code?oc_lang=pt" class="lang-item lang-pt" data-translate-to="pt" lang="pt">Portuguese<span class="visuallyhidden"> Select this as your preferred language</span></a></li><li id="toolbar-language-option-es-noscript"><a href="https://www.ssfca.gov/Departments/City-Clerk/Municipal-Code?oc_lang=es" class="lang-item lang-es" data-translate-to="es" lang="es">Spanish<span class="visuallyhidden"> Select this as your preferred language</span></a></li><li id="toolbar-language-option-tl-noscript"><a href="https://www.ssfca.gov/Departments/City-Clerk/Municipal-Code?oc_lang=tl" class="lang-item lang-tl" data-translate-to="tl" lang="tl">Tagalog (Filipino)<span class="visuallyhidden"> Select this as your preferred language</span></a></li>
+          </ul>
+		</div>
+	<button type="button" role="combobox" aria-controls="toolbar-language-drop-down" aria-expanded="false" aria-haspopup="listbox" aria-autocomplete="none" aria-labelledby="toolbar-language-label" class="toolbar-button toolbar-button-language js-element">  
+        <span class="toolbar-language-globe-icon" aria-hidden="true"></span>
+        <span id="toolbar-language-label" class="current-language">
+            Select a language to translate to
+		</span>
+		<i aria-hidden="true"></i>
+	</button>
+	<div id="toolbar-language-drop-down" role="listbox" aria-label="Available languages" class="toolbar-drop-down toolbar-language-drop-down js-element clearfix">
+		<ul role="group">
+		    <li role="presentation"><a id="toolbar-language-option-zh-cn" role="option" aria-selected="false" href="https://www.ssfca.gov/Departments/City-Clerk/Municipal-Code?oc_lang=zh-CN" class="lang-item lang-zh-cn" data-translate-to="zh-cn" lang="zh-CN">Chinese (Simplified)<span class="visuallyhidden"> Select this as your preferred language</span></a></li><li role="presentation"><a id="toolbar-language-option-zh-tw" role="option" aria-selected="false" href="https://www.ssfca.gov/Departments/City-Clerk/Municipal-Code?oc_lang=zh-TW" class="lang-item lang-zh-tw" data-translate-to="zh-tw" lang="zh-TW">Chinese (Traditional)<span class="visuallyhidden"> Select this as your preferred language</span></a></li><li role="presentation"><a id="toolbar-language-option-en-us" role="option" aria-selected="true" href="https://www.ssfca.gov/Departments/City-Clerk/Municipal-Code?oc_lang=en-US" class="lang-item lang-en-us" data-translate-to="en-us" lang="en-US">English (United States)<span class="visuallyhidden"> Select this as your preferred language</span></a></li><li role="presentation"><a id="toolbar-language-option-pt" role="option" aria-selected="false" href="https://www.ssfca.gov/Departments/City-Clerk/Municipal-Code?oc_lang=pt" class="lang-item lang-pt" data-translate-to="pt" lang="pt">Portuguese<span class="visuallyhidden"> Select this as your preferred language</span></a></li><li role="presentation"><a id="toolbar-language-option-es" role="option" aria-selected="false" href="https://www.ssfca.gov/Departments/City-Clerk/Municipal-Code?oc_lang=es" class="lang-item lang-es" data-translate-to="es" lang="es">Spanish<span class="visuallyhidden"> Select this as your preferred language</span></a></li><li role="presentation"><a id="toolbar-language-option-tl" role="option" aria-selected="false" href="https://www.ssfca.gov/Departments/City-Clerk/Municipal-Code?oc_lang=tl" class="lang-item lang-tl" data-translate-to="tl" lang="tl">Tagalog (Filipino)<span class="visuallyhidden"> Select this as your preferred language</span></a></li>
+        </ul>
+	</div></div>
+  </div>
+</div>
+            <div class="header-outer-container">
+    <div class="header-container header-layout-2  clearfix">
+			<div class="header-site-logo">
+				<a href="https://www.ssfca.gov/Home" lang="en-US" aria-label="City of South San Francisco  - Home - Logo">
+				</a>
+			</div>
+		    <div class="header-website-settings">
+                <button id="btn-mob-nav" type="button" aria-expanded="false" aria-controls="nav">
+                    <i aria-hidden="true"></i><span class="side-menu-btn-text">Menu</span>
+                </button>
+        	</div>
+			
+			<div class="header-search-control-container" id="header-search">
+				<div class="search-inner-container">
+					<div class="sc-search-panel">
+	<label for="ctl07_txtSearch" id="ctl07_lblSearch" class="sc-search-label">Search</label><input name="ctl07$txtSearch" type="text" id="ctl07_txtSearch" class="sc-search-text" placeholder="Search this website" /><input type="submit" name="ctl07$btnSearch" value="Search" id="ctl07_btnSearch" class="sc-search-button" />
+</div>
+					<div role="status" id="predictiveResults"></div>
+				</div>
+			</div>
+    </div>
+</div>
+<div class="navigation-outer-container">
+	<div id="nav" role="navigation" class="navigation-container navigation-container-option-1" data-menu-type="horizontal" aria-label="primary">
+        <div class="grid">
+            <div class="col-xs-12">                
+                <ul class="sf-menu mega-menu" id="sc-main-menu"><li class="nav-section-quarters-1   first-item nav-item-seq-1">
+<a href="https://www.ssfca.gov/Our-City" class="nav-level-1 nav-has-children"  target="">
+	<i class="item-icon" aria-hidden="true"></i><span class="item-text">Our City</span>
+</a>
+<button aria-label="Expand" aria-controls="sc-menu-second-level-nav-item-seq-1" aria-haspopup="true" class="mobnav-subarrow" ><i aria-hidden="true"></i></button>
+<ul id="sc-menu-second-level-nav-item-seq-1" class="second-level-container ch-16">
+
+          
+            <li class="second-level-item  "><a href="https://www.ssfca.gov/Our-City/About-South-San-Francisco" class="nav-has-children"  target="">About South San Francisco</a><button aria-label="Expand" aria-controls="sc-menu-third-level-nav-item-seq-1-nav-item-seq-1" class="mobnav-subarrow-child"><i aria-hidden="true"></i>
+              </button>
+<ul  id="sc-menu-third-level-nav-item-seq-1-nav-item-seq-1" class="third-level-container">
+          
+            <li  class="third-level-item  "><a href="https://www.ssfca.gov/Our-City/About-South-San-Francisco/Demographic-Information"  target="">South San Francisco Demographic Information</a></li><li  class="third-level-item  "><a href="https://www.ssfca.gov/Our-City/About-South-San-Francisco/History"  target="">History</a></li><li  class="third-level-item  "><a href="https://www.ssfca.gov/Our-City/About-South-San-Francisco/Mission-Statement"  target="">Mission Statement</a></li></ul></li><li class="second-level-item  "><a href="https://www.ssfca.gov/Our-City/Americas-250th-Anniversary" class=""  target="">South City Celebrates America's 250th Anniversary</a></li><li class="second-level-item  "><a href="https://www.ssfca.gov/Our-City/Biotech" class="nav-has-children"  target="">Biotech</a><button aria-label="Expand" aria-controls="sc-menu-third-level-nav-item-seq-1-nav-item-seq-3" class="mobnav-subarrow-child"><i aria-hidden="true"></i>
+              </button>
+<ul  id="sc-menu-third-level-nav-item-seq-1-nav-item-seq-3" class="third-level-container">
+          
+            <li  class="third-level-item  "><a href="https://www.ssfca.gov/Our-City/Biotech/About-SSF"  target="">About SSF</a></li><li  class="third-level-item  "><a href="https://www.ssfca.gov/Our-City/Biotech/Biotech-in-SSF"  target="">Biotech in SSF</a></li></ul></li><li class="second-level-item  "><a href="https://www.ssfca.gov/Our-City/Business-Directory" class=""  target="_self">Business Directory</a></li><li class="second-level-item  "><a href="https://www.ssfca.gov/Our-City/City-Calendar" class=""  target="">City Calendar</a></li><li class="second-level-item  "><a href="https://www.ssfca.gov/Our-City/City-Newsletter" class=""  target="">City Newsletter</a></li><li class="second-level-item  "><a href="https://www.ssfca.gov/Our-City/City-Organizational-Chart" class=""  target="">City Organizational Chart</a></li><li class="second-level-item  "><a href="https://www.ssfca.gov/Our-City/Diversity" class="nav-has-children"  target="">Diversity</a><button aria-label="Expand" aria-controls="sc-menu-third-level-nav-item-seq-1-nav-item-seq-8" class="mobnav-subarrow-child"><i aria-hidden="true"></i>
+              </button>
+<ul  id="sc-menu-third-level-nav-item-seq-1-nav-item-seq-8" class="third-level-container">
+          
+            <li  class="third-level-item  "><a href="https://www.ssfca.gov/Our-City/Diversity/Culturally-Significant-Dates"  target="">Culturally Significant Dates</a></li><li  class="third-level-item  "><a href="https://www.ssfca.gov/Our-City/Diversity/Cultures-United"  target="">Cultures United</a></li></ul></li><li class="second-level-item  "><a href="https://www.ssfca.gov/Our-City/Emergency-Information" class=""  target="">Emergency Information</a></li><li class="second-level-item  "><a href="https://www.ssfca.gov/Our-City/FAQs" class=""  target="">FAQs</a></li><li class="second-level-item  "><a href="https://www.ssfca.gov/Our-City/Feedback-Comments-Suggestions" class=""  target="">Feedback, Comments, and Suggestions</a></li><li class="second-level-item  "><a href="https://www.ssfca.gov/Our-City/Living" class="nav-has-children"  target="">Living</a><button aria-label="Expand" aria-controls="sc-menu-third-level-nav-item-seq-1-nav-item-seq-12" class="mobnav-subarrow-child"><i aria-hidden="true"></i>
+              </button>
+<ul  id="sc-menu-third-level-nav-item-seq-1-nav-item-seq-12" class="third-level-container">
+          
+            <li  class="third-level-item  "><a href="https://www.ssfca.gov/Our-City/Living/Outdoor-Activities"  target="">Outdoor Activities</a></li><li  class="third-level-item  "><a href="https://www.ssfca.gov/Our-City/Living/Places-of-Worship"  target="">Places of Worship</a></li><li  class="third-level-item  "><a href="https://www.ssfca.gov/Our-City/Living/Resident-News"  target="">Resident News</a></li><li  class="third-level-item  "><a href="https://www.ssfca.gov/Our-City/Living/Schools-in-South-San-Francisco"  target="">Schools in South San Francisco</a></li><li  class="third-level-item  "><a href="https://www.ssfca.gov/Our-City/Living/Travel-Transportation"  target="">Travel/Transportation</a></li></ul></li><li class="second-level-item  "><a href="https://www.ssfca.gov/Our-City/Sister-Cities" class=""  target="">Sister Cities</a></li><li class="second-level-item  "><a href="https://www.ssfca.gov/Our-City/Visiting" class="nav-has-children"  target="">Visiting</a><button aria-label="Expand" aria-controls="sc-menu-third-level-nav-item-seq-1-nav-item-seq-14" class="mobnav-subarrow-child"><i aria-hidden="true"></i>
+              </button>
+<ul  id="sc-menu-third-level-nav-item-seq-1-nav-item-seq-14" class="third-level-container">
+          
+            <li  class="third-level-item  "><a href="https://www.ssfca.gov/Our-City/Visiting/Chamber-of-Commerce"  target="_self">Chamber of Commerce</a></li><li  class="third-level-item  "><a href="https://www.ssfca.gov/Our-City/Visiting/Conference-Center"  target="_self">Conference Center</a></li><li  class="third-level-item  "><a href="https://www.ssfca.gov/Our-City/Visiting/Local-Attractions"  target="">Local Attractions</a></li><li  class="third-level-item  "><a href="https://www.ssfca.gov/Our-City/Visiting/Travel-Transportation"  target="_self">Travel/Transportation</a></li></ul></li><li class="second-level-item  "><a href="https://www.ssfca.gov/Our-City/South-San-Francisco-Podcast" class=""  target="">The City of South San Francisco Podcast</a></li><li class="second-level-item  "><a href="https://www.ssfca.gov/Our-City/VLF-Impact-on-SSF" class=""  target="">VLF Impact on SSF</a></li></ul></li>
+          
+            <li class="nav-section-quarters-1   nav-item-seq-2">
+<a href="https://www.ssfca.gov/Government" class="nav-level-1 nav-has-children"  target="">Government</a>
+<button aria-label="Expand" aria-controls="sc-menu-second-level-nav-item-seq-2" aria-haspopup="true" class="mobnav-subarrow" ><i aria-hidden="true"></i></button>
+<ul id="sc-menu-second-level-nav-item-seq-2" class="second-level-container ch-12">
+
+          
+            <li class="second-level-item  "><a href="https://www.ssfca.gov/Government/Boards-Commissions" class="nav-has-children"  target="">Boards & Commissions</a><button aria-label="Expand" aria-controls="sc-menu-third-level-nav-item-seq-2-nav-item-seq-1" class="mobnav-subarrow-child"><i aria-hidden="true"></i>
+              </button>
+<ul  id="sc-menu-third-level-nav-item-seq-2-nav-item-seq-1" class="third-level-container">
+          
+            <li  class="third-level-item  "><a href="https://www.ssfca.gov/Government/Boards-Commissions/Agendas"  target="_self">Agendas</a></li><li  class="third-level-item  "><a href="https://www.ssfca.gov/Government/Boards-Commissions/Boards-and-Commissions-Application"  target="">Boards and Commissions Application</a></li><li  class="third-level-item  "><a href="https://www.ssfca.gov/Government/Boards-Commissions/Minutes"  target="_self">Minutes</a></li><li  class="third-level-item  "><a href="https://www.ssfca.gov/Government/Boards-Commissions/Maddy-Act-Roster"  target="">Maddy Act Roster</a></li></ul></li><li class="second-level-item  "><a href="https://www.ssfca.gov/Government/City-Council-Representatives" class=""  target="_self">City Council Representatives</a></li><li class="second-level-item  "><a href="https://www.ssfca.gov/Government/City-Treasurer" class="nav-has-children"  target="">City Treasurer</a><button aria-label="Expand" aria-controls="sc-menu-third-level-nav-item-seq-2-nav-item-seq-3" class="mobnav-subarrow-child"><i aria-hidden="true"></i>
+              </button>
+<ul  id="sc-menu-third-level-nav-item-seq-2-nav-item-seq-3" class="third-level-container">
+          
+            <li  class="third-level-item  "><a href="https://www.ssfca.gov/Government/City-Treasurer/Investment-Policies"  target="">Investment Policies</a></li><li  class="third-level-item  "><a href="https://www.ssfca.gov/Government/City-Treasurer/Quarterly-Investment-Reports"  target="">Quarterly Investment Reports</a></li></ul></li><li class="second-level-item  "><a href="https://www.ssfca.gov/Government/Construction" class="nav-has-children"  target="">Construction</a><button aria-label="Expand" aria-controls="sc-menu-third-level-nav-item-seq-2-nav-item-seq-4" class="mobnav-subarrow-child"><i aria-hidden="true"></i>
+              </button>
+<ul  id="sc-menu-third-level-nav-item-seq-2-nav-item-seq-4" class="third-level-container">
+          
+            <li  class="third-level-item  "><a href="https://www.ssfca.gov/Government/Construction/Construction-Connection"  target="">Construction Connection</a></li></ul></li><li class="second-level-item  "><a href="https://www.ssfca.gov/Government/Contact-Us" class=""  target="">Contact Us</a></li><li class="second-level-item  "><a href="https://www.ssfca.gov/Government/Forms" class="nav-has-children"  target="_self">Forms</a><button aria-label="Expand" aria-controls="sc-menu-third-level-nav-item-seq-2-nav-item-seq-6" class="mobnav-subarrow-child"><i aria-hidden="true"></i>
+              </button>
+<ul  id="sc-menu-third-level-nav-item-seq-2-nav-item-seq-6" class="third-level-container">
+          
+            <li  class="third-level-item  "><a href="https://www.ssfca.gov/Government/Forms/Claims-Against-The-City-Form"  target="">Claims Against The City Form</a></li><li  class="third-level-item  "><a href="https://www.ssfca.gov/Government/Forms/FPPC-Forms"  target="_self">FPPC Forms</a></li></ul></li><li class="second-level-item  "><a href="https://www.ssfca.gov/Government/Measure-W" class="nav-has-children"  target="">Measure W</a><button aria-label="Expand" aria-controls="sc-menu-third-level-nav-item-seq-2-nav-item-seq-7" class="mobnav-subarrow-child"><i aria-hidden="true"></i>
+              </button>
+<ul  id="sc-menu-third-level-nav-item-seq-2-nav-item-seq-7" class="third-level-container">
+          
+            <li  class="third-level-item  "><a href="https://www.ssfca.gov/Government/Measure-W/Measure-W-Agendas-and-Minutes"  target="_blank">Agendas and Minutes</a></li><li  class="third-level-item  "><a href="https://www.ssfca.gov/Government/Measure-W/Community-Civic-Campus"  target="">Community Civic Campus</a></li><li  class="third-level-item  "><a href="https://www.ssfca.gov/Government/Measure-W/FAQ-Measure-W"  target="">FAQ - Measure W</a></li><li  class="third-level-item  "><a href="https://www.ssfca.gov/Government/Measure-W/Financial-Reports"  target="">Measure W Financial Reports</a></li></ul></li><li class="second-level-item  "><a href="https://www.ssfca.gov/Government/Meeting-Agendas" class=""  target="_blank">Meeting Agendas</a></li><li class="second-level-item  "><a href="https://www.ssfca.gov/Government/MSB-FAQs" class=""  target="">Municipal Services Building FAQs</a></li><li class="second-level-item  "><a href="https://www.ssfca.gov/Government/Video-Streaming-City-and-Council-Meetings" class="nav-has-children"  target="">Video Streaming - City and Council Meetings</a><button aria-label="Expand" aria-controls="sc-menu-third-level-nav-item-seq-2-nav-item-seq-10" class="mobnav-subarrow-child"><i aria-hidden="true"></i>
+              </button>
+<ul  id="sc-menu-third-level-nav-item-seq-2-nav-item-seq-10" class="third-level-container">
+          
+            <li  class="third-level-item  "><a href="https://www.ssfca.gov/Government/Video-Streaming-City-and-Council-Meetings/City-Council"  target="">City Council Recordings</a></li><li  class="third-level-item  "><a href="https://www.ssfca.gov/Government/Video-Streaming-City-and-Council-Meetings/Planning-Commission"  target="">Planning Commission Recordings</a></li><li  class="third-level-item  "><a href="https://www.ssfca.gov/Government/Video-Streaming-City-and-Council-Meetings/Other-Videos"  target="">Other Videos Recording</a></li><li  class="third-level-item  "><a href="https://www.ssfca.gov/Government/Video-Streaming-City-and-Council-Meetings/Special-Council-Meetings"  target="">Special Council Meetings Recordings</a></li><li  class="third-level-item  "><a href="https://www.ssfca.gov/Government/Video-Streaming-City-and-Council-Meetings/Successor-Agency"  target="">Successor Agency</a></li><li  class="third-level-item  "><a href="https://www.ssfca.gov/Government/Video-Streaming-City-and-Council-Meetings/Measure-W-Meetings"  target="">Measure W Meetings</a></li></ul></li><li class="second-level-item  "><a href="https://www.ssfca.gov/Government/Municipal-Code" class=""  target="_blank">Municipal Code</a></li><li class="second-level-item  "><a href="https://www.ssfca.gov/Government/Phone-Directory" class=""  target="">Phone Directory</a></li></ul></li>
+          
+            <li class="nav-section-quarters-2 nav-active-path  nav-item-seq-3">
+<a href="https://www.ssfca.gov/Departments" class="nav-level-1 nav-has-children"  target="">Departments</a>
+<button aria-label="Expand" aria-controls="sc-menu-second-level-nav-item-seq-3" aria-haspopup="true" class="mobnav-subarrow" ><i aria-hidden="true"></i></button>
+<ul id="sc-menu-second-level-nav-item-seq-3" class="second-level-container ch-13">
+
+          
+            <li class="second-level-item  "><a href="https://www.ssfca.gov/Departments/City-Attorney" class="nav-has-children"  target="">City Attorney</a><button aria-label="Expand" aria-controls="sc-menu-third-level-nav-item-seq-3-nav-item-seq-1" class="mobnav-subarrow-child"><i aria-hidden="true"></i>
+              </button>
+<ul  id="sc-menu-third-level-nav-item-seq-3-nav-item-seq-1" class="third-level-container">
+          
+            <li  class="third-level-item  "><a href="https://www.ssfca.gov/Departments/City-Attorney/Meet-the-City-Attorney-Staff"  target="">Meet the City Attorney Staff</a></li></ul></li><li class="second-level-item nav-active-path "><a href="https://www.ssfca.gov/Departments/City-Clerk" class="nav-has-children"  target="">Office of the City Clerk</a><button aria-label="Expand" aria-controls="sc-menu-third-level-nav-item-seq-3-nav-item-seq-2" class="mobnav-subarrow-child"><i aria-hidden="true"></i>
+              </button>
+<ul  id="sc-menu-third-level-nav-item-seq-3-nav-item-seq-2" class="third-level-container">
+          
+            <li  class="third-level-item  "><a href="https://www.ssfca.gov/Departments/City-Clerk/About-Us"  target="">About Us</a></li><li  class="third-level-item  "><a href="https://www.ssfca.gov/Departments/City-Clerk/City-Clerks-Corner-Monthly-Newsletter"  target="">Clerk's Corner</a></li><li  class="third-level-item  "><a href="https://www.ssfca.gov/Departments/City-Clerk/Elections"  target="">Elections</a></li><li  class="third-level-item  "><a href="https://www.ssfca.gov/Departments/City-Clerk/Fair-Political-Practices-Commission-FPPC-Information"  target="">Fair Political Practices Commission (FPPC) Information</a></li><li  class="third-level-item nav-active-path nav-active-page"><a href="https://www.ssfca.gov/Departments/City-Clerk/Municipal-Code"  target="">Municipal Code</a></li><li  class="third-level-item  "><a href="https://www.ssfca.gov/Departments/City-Clerk/Public-Notices"  target="">Public Notices</a></li><li  class="third-level-item  "><a href="https://www.ssfca.gov/Departments/City-Clerk/Regional-Representatives"  target="">Regional Representatives</a></li><li  class="third-level-item  "><a href="https://www.ssfca.gov/Departments/City-Clerk/Services"  target="">Services</a></li></ul></li><li class="second-level-item  "><a href="https://www.ssfca.gov/Departments/City-Council" class="nav-has-children"  target="">City Council</a><button aria-label="Expand" aria-controls="sc-menu-third-level-nav-item-seq-3-nav-item-seq-3" class="mobnav-subarrow-child"><i aria-hidden="true"></i>
+              </button>
+<ul  id="sc-menu-third-level-nav-item-seq-3-nav-item-seq-3" class="third-level-container">
+          
+            <li  class="third-level-item  "><a href="https://www.ssfca.gov/Departments/City-Council/City-Council-Meetings"  target="">City Council Meetings</a></li><li  class="third-level-item  "><a href="https://www.ssfca.gov/Departments/City-Council/2026-Priorities-Action-Plan"  target="">2026 Priorities Action Plan</a></li><li  class="third-level-item  "><a href="https://www.ssfca.gov/Departments/City-Council/Meet-the-City-Council"  target="">Meet the City Council</a></li><li  class="third-level-item  "><a href="https://www.ssfca.gov/Departments/City-Council/Meet-the-Other-Elected-Officials"  target="">Meet the Other Elected Officials</a></li></ul></li><li class="second-level-item  "><a href="https://www.ssfca.gov/Departments/City-Manager" class="nav-has-children"  target="">City Manager Department</a><button aria-label="Expand" aria-controls="sc-menu-third-level-nav-item-seq-3-nav-item-seq-4" class="mobnav-subarrow-child"><i aria-hidden="true"></i>
+              </button>
+<ul  id="sc-menu-third-level-nav-item-seq-3-nav-item-seq-4" class="third-level-container">
+          
+            <li  class="third-level-item  "><a href="https://www.ssfca.gov/Departments/City-Manager/Citywide-Plans"  target="">Citywide Plans</a></li><li  class="third-level-item  "><a href="https://www.ssfca.gov/Departments/City-Manager/Civic-Engagement"  target="">Civic Engagement</a></li><li  class="third-level-item  "><a href="https://www.ssfca.gov/Departments/City-Manager/Communications"  target="">Communications</a></li><li  class="third-level-item  "><a href="https://www.ssfca.gov/Departments/City-Manager/Local-Minimum-Wage"  target="">Local Minimum Wage</a></li><li  class="third-level-item  "><a href="https://www.ssfca.gov/Departments/City-Manager/Mooring-Regulations"  target="">Mooring Regulations</a></li><li  class="third-level-item  "><a href="https://www.ssfca.gov/Departments/City-Manager/Sustainability"  target="">Sustainability</a></li><li  class="third-level-item  "><a href="https://www.ssfca.gov/Departments/City-Manager/Title-VI-Compliance-ADA-Transition-Plan"  target="">Title VI Compliance & ADA Transition Plan</a></li></ul></li><li class="second-level-item  "><a href="https://www.ssfca.gov/Departments/Economic-and-Community-Development" class="nav-has-children"  target="">Economic and Community Development</a><button aria-label="Expand" aria-controls="sc-menu-third-level-nav-item-seq-3-nav-item-seq-5" class="mobnav-subarrow-child"><i aria-hidden="true"></i>
+              </button>
+<ul  id="sc-menu-third-level-nav-item-seq-3-nav-item-seq-5" class="third-level-container">
+          
+            <li  class="third-level-item  "><a href="https://www.ssfca.gov/Departments/Economic-and-Community-Development/Divisions"  target="">Divisions</a></li></ul></li><li class="second-level-item  "><a href="https://www.ssfca.gov/Departments/Finance" class="nav-has-children"  target="">Finance Department</a><button aria-label="Expand" aria-controls="sc-menu-third-level-nav-item-seq-3-nav-item-seq-6" class="mobnav-subarrow-child"><i aria-hidden="true"></i>
+              </button>
+<ul  id="sc-menu-third-level-nav-item-seq-3-nav-item-seq-6" class="third-level-container">
+          
+            <li  class="third-level-item  "><a href="https://www.ssfca.gov/Departments/Finance/Business-License-Information"  target="">Business License Information</a></li><li  class="third-level-item  "><a href="https://www.ssfca.gov/Departments/Finance/Finance-Administrative-Policies"  target="">Finance Administrative Policies</a></li><li  class="third-level-item  "><a href="https://www.ssfca.gov/Departments/Finance/Financial-Reports"  target="">Financial Reports</a></li><li  class="third-level-item  "><a href="https://www.ssfca.gov/Departments/Finance/Investor-Relations"  target="">Investor Relations</a></li><li  class="third-level-item  "><a href="https://www.ssfca.gov/Departments/Finance/Tax-Information"  target="">Tax Information</a></li><li  class="third-level-item  "><a href="https://www.ssfca.gov/Departments/Finance/Short-Term-Rental-Permits-Tax-Payments"  target="">Short-Term Rental Permits & Tax Payments</a></li><li  class="third-level-item  "><a href="https://www.ssfca.gov/Departments/Finance/Food-Truck-Permits"  target="">Food Truck Permits</a></li></ul></li><li class="second-level-item  "><a href="https://www.ssfca.gov/Departments/Fire-Department" class="nav-has-children"  target="">Fire Department</a><button aria-label="Expand" aria-controls="sc-menu-third-level-nav-item-seq-3-nav-item-seq-7" class="mobnav-subarrow-child"><i aria-hidden="true"></i>
+              </button>
+<ul  id="sc-menu-third-level-nav-item-seq-3-nav-item-seq-7" class="third-level-container">
+          
+            <li  class="third-level-item  "><a href="https://www.ssfca.gov/Departments/Fire-Department/About-Us"  target="">About Us</a></li><li  class="third-level-item  "><a href="https://www.ssfca.gov/Departments/Fire-Department/Emergency-Preparedness"  target="">Emergency Preparedness</a></li><li  class="third-level-item  "><a href="https://www.ssfca.gov/Departments/Fire-Department/Fire-Permit-Center"  target="">Fire Permit Center</a></li><li  class="third-level-item  "><a href="https://www.ssfca.gov/Departments/Fire-Department/Fire-Prevention"  target="">Fire Prevention</a></li><li  class="third-level-item  "><a href="https://www.ssfca.gov/Departments/Fire-Department/Fire-Stations"  target="">Fire Stations</a></li><li  class="third-level-item  "><a href="https://www.ssfca.gov/Departments/Fire-Department/Recruitment"  target="">Recruitment</a></li><li  class="third-level-item  "><a href="https://www.ssfca.gov/Departments/Fire-Department/Diaper-Donations"  target="">Diaper Donations</a></li></ul></li><li class="second-level-item  "><a href="https://www.ssfca.gov/Departments/Human-Resources" class="nav-has-children"  target="">Human Resources</a><button aria-label="Expand" aria-controls="sc-menu-third-level-nav-item-seq-3-nav-item-seq-8" class="mobnav-subarrow-child"><i aria-hidden="true"></i>
+              </button>
+<ul  id="sc-menu-third-level-nav-item-seq-3-nav-item-seq-8" class="third-level-container">
+          
+            <li  class="third-level-item  "><a href="https://www.ssfca.gov/Departments/Human-Resources/Job-Classifications"  target="">Job Classifications</a></li><li  class="third-level-item  "><a href="https://www.ssfca.gov/Departments/Human-Resources/Job-Resources"  target="">Job Resources</a></li><li  class="third-level-item  "><a href="https://www.ssfca.gov/Departments/Human-Resources/Meet-our-Staff"  target="">Meet our Staff</a></li><li  class="third-level-item  "><a href="https://www.ssfca.gov/Departments/Human-Resources/Wage-Information"  target="">Wage Information</a></li><li  class="third-level-item  "><a href="https://www.ssfca.gov/Departments/Human-Resources/Human-Resources-Document-Archive"  target="">Human Resources Document Archive</a></li></ul></li><li class="second-level-item  "><a href="https://www.ssfca.gov/Departments/Information-Technology" class="nav-has-children"  target="">Information Technology</a><button aria-label="Expand" aria-controls="sc-menu-third-level-nav-item-seq-3-nav-item-seq-9" class="mobnav-subarrow-child"><i aria-hidden="true"></i>
+              </button>
+<ul  id="sc-menu-third-level-nav-item-seq-3-nav-item-seq-9" class="third-level-container">
+          
+            <li  class="third-level-item  "><a href="https://www.ssfca.gov/Departments/Information-Technology/Free-Wi-Fi-Locations"  target="">Free Wi-Fi Locations</a></li><li  class="third-level-item  "><a href="https://www.ssfca.gov/Departments/Information-Technology/GIS-Open-Data-Portal"  target="_self">GIS & Open Data Portal</a></li><li  class="third-level-item  "><a href="https://www.ssfca.gov/Departments/Information-Technology/IT-Strategic-Plans"  target="">IT Strategic Plans</a></li><li  class="third-level-item  "><a href="https://www.ssfca.gov/Departments/Information-Technology/Notice-of-Programming-Changes"  target="">Notice of Programming Changes</a></li><li  class="third-level-item  "><a href="https://www.ssfca.gov/Departments/Information-Technology/Privacy-Policy"  target="">Privacy Policy</a></li><li  class="third-level-item  "><a href="https://www.ssfca.gov/Departments/Information-Technology/SB-272-Enterprise-System-Catalog"  target="">SB 272 Enterprise System Catalog</a></li><li  class="third-level-item  "><a href="https://www.ssfca.gov/Departments/Information-Technology/Technical-Accessibility-Statement"  target="">Technical Accessibility Statement</a></li></ul></li><li class="second-level-item  "><a href="https://www.ssfca.gov/Departments/Library" class="nav-has-children"  target="">Library</a><button aria-label="Expand" aria-controls="sc-menu-third-level-nav-item-seq-3-nav-item-seq-10" class="mobnav-subarrow-child"><i aria-hidden="true"></i>
+              </button>
+<ul  id="sc-menu-third-level-nav-item-seq-3-nav-item-seq-10" class="third-level-container">
+          
+            <li  class="third-level-item  "><a href="https://www.ssfca.gov/Departments/Library/About-Us"  target="">About Us</a></li><li  class="third-level-item  "><a href="https://www.ssfca.gov/Departments/Library/Get-Involved"  target="">Get Involved</a></li><li  class="third-level-item  "><a href="https://www.ssfca.gov/Departments/Library/Library-Calendar"  target="">Library Calendar</a></li><li  class="third-level-item  "><a href="https://www.ssfca.gov/Departments/Library/Locations-Hours"  target="">Locations & Hours</a></li><li  class="third-level-item  "><a href="https://www.ssfca.gov/Departments/Library/Online-Library"  target="">Online Library</a></li><li  class="third-level-item  "><a href="https://www.ssfca.gov/Departments/Library/Parking-Directions"  target="">Parking & Directions</a></li><li  class="third-level-item  "><a href="https://www.ssfca.gov/Departments/Library/Reservations"  target="">Reservations</a></li><li  class="third-level-item  "><a href="https://www.ssfca.gov/Departments/Library/Services"  target="">Services</a></li><li  class="third-level-item  "><a href="https://www.ssfca.gov/Departments/Library/Your-Library-Card"  target="">Your Library Card</a></li></ul></li><li class="second-level-item  "><a href="https://www.ssfca.gov/Departments/Parks-Recreation" class="nav-has-children"  target="">Parks & Recreation</a><button aria-label="Expand" aria-controls="sc-menu-third-level-nav-item-seq-3-nav-item-seq-11" class="mobnav-subarrow-child"><i aria-hidden="true"></i>
+              </button>
+<ul  id="sc-menu-third-level-nav-item-seq-3-nav-item-seq-11" class="third-level-container">
+          
+            <li  class="third-level-item  "><a href="https://www.ssfca.gov/Departments/Parks-Recreation/About-Us"  target="">About Us</a></li><li  class="third-level-item  "><a href="https://www.ssfca.gov/Departments/Parks-Recreation/Divisions"  target="">Divisions</a></li><li  class="third-level-item  "><a href="https://www.ssfca.gov/Departments/Parks-Recreation/Events"  target="">Events</a></li><li  class="third-level-item  "><a href="https://www.ssfca.gov/Departments/Parks-Recreation/Library-Parks-and-Recreation-Center"  target="">Library | Parks and Recreation Center</a></li><li  class="third-level-item  "><a href="https://www.ssfca.gov/Departments/Parks-Recreation/Parks-and-Recreation-Facility-Projects"  target="">Parks & Recreation Facility Projects</a></li><li  class="third-level-item  "><a href="https://www.ssfca.gov/Departments/Parks-Recreation/Archive"  target="">Archive</a></li></ul></li><li class="second-level-item  "><a href="https://www.ssfca.gov/Departments/Police-Department" class="nav-has-children"  target="">Police Department</a><button aria-label="Expand" aria-controls="sc-menu-third-level-nav-item-seq-3-nav-item-seq-12" class="mobnav-subarrow-child"><i aria-hidden="true"></i>
+              </button>
+<ul  id="sc-menu-third-level-nav-item-seq-3-nav-item-seq-12" class="third-level-container">
+          
+            <li  class="third-level-item  "><a href="https://www.ssfca.gov/Departments/Police-Department/Community"  target="">Community</a></li><li  class="third-level-item  "><a href="https://www.ssfca.gov/Departments/Police-Department/Crime-Prevention"  target="">Crime Prevention</a></li><li  class="third-level-item  "><a href="https://www.ssfca.gov/Departments/Police-Department/Department"  target="">Department</a></li><li  class="third-level-item  "><a href="https://www.ssfca.gov/Departments/Police-Department/Divisions"  target="">Divisions</a></li><li  class="third-level-item  "><a href="https://www.ssfca.gov/Departments/Police-Department/Eight-Cant-Wait"  target="">Eight Can't Wait</a></li><li  class="third-level-item  "><a href="https://www.ssfca.gov/Departments/Police-Department/FAQs"  target="">FAQs</a></li><li  class="third-level-item  "><a href="https://www.ssfca.gov/Departments/Police-Department/Meet-Our-Mental-Health-Clinician"  target="">Meet Our Mental Health Clinician</a></li><li  class="third-level-item  "><a href="https://www.ssfca.gov/Departments/Police-Department/Military-Equipment"  target="">Military Equipment</a></li><li  class="third-level-item  "><a href="https://www.ssfca.gov/Departments/Police-Department/Our-New-Home"  target="">Our New Home</a></li><li  class="third-level-item  "><a href="https://www.ssfca.gov/Departments/Police-Department/Online-Reporting-Permits-and-Forms"  target="">Police Online Reporting / Permits and Forms</a></li><li  class="third-level-item  "><a href="https://www.ssfca.gov/Departments/Police-Department/Recruitment"  target="">Recruitment</a></li><li  class="third-level-item  "><a href="https://www.ssfca.gov/Departments/Police-Department/Traffic-and-Parking-Violations"  target="">Traffic and Parking Violations</a></li><li  class="third-level-item  "><a href="https://www.ssfca.gov/Departments/Police-Department/Transparency-Portal"  target="">Transparency Portal</a></li><li  class="third-level-item  "><a href="https://www.ssfca.gov/Departments/Police-Department/Parking-Enforcement"  target="">Parking Enforcement</a></li><li  class="third-level-item  "><a href="https://www.ssfca.gov/Departments/Police-Department/AB-413-Daylighting-Law"  target="">AB 413 Daylighting Law</a></li><li  class="third-level-item  "><a href="https://www.ssfca.gov/Departments/Police-Department/Citizen-RIMS"  target="">Citizen RIMS</a></li><li  class="third-level-item  "><a href="https://www.ssfca.gov/Departments/Police-Department/Archives"  target="">Archives</a></li><li  class="third-level-item  "><a href="https://www.ssfca.gov/Departments/Police-Department/Electric-Bikes-Scooters-and-Motorcycles"  target="">Electric Bikes, Scooters, and Motorcycles</a></li></ul></li><li class="second-level-item  "><a href="https://www.ssfca.gov/Departments/Public-Works" class="nav-has-children"  target="">Public Works</a><button aria-label="Expand" aria-controls="sc-menu-third-level-nav-item-seq-3-nav-item-seq-13" class="mobnav-subarrow-child"><i aria-hidden="true"></i>
+              </button>
+<ul  id="sc-menu-third-level-nav-item-seq-3-nav-item-seq-13" class="third-level-container">
+          
+            <li  class="third-level-item  "><a href="https://www.ssfca.gov/Departments/Public-Works/Divisions"  target="">Divisions</a></li><li  class="third-level-item  "><a href="https://www.ssfca.gov/Departments/Public-Works/Sewer-Rates"  target="">Sewer Rates</a></li><li  class="third-level-item  "><a href="https://www.ssfca.gov/Departments/Public-Works/Solid-Waste-Recycling"  target="">Solid Waste & Recycling</a></li><li  class="third-level-item  "><a href="https://www.ssfca.gov/Departments/Public-Works/Storm-Preparation-Tips"  target="">Storm Preparation</a></li><li  class="third-level-item  "><a href="https://www.ssfca.gov/Departments/Public-Works/Report-an-Issue"  target="">Report an Issue</a></li><li  class="third-level-item  "><a href="https://www.ssfca.gov/Departments/Public-Works/Public-Works-Archives"  target="_blank">Public Works Archives</a></li></ul></li></ul></li>
+          
+            <li class="nav-section-quarters-2   nav-item-seq-4">
+<a href="https://www.ssfca.gov/I-Want-To" class="nav-level-1 "  target="">I Want To...</a>
+</li>
+          
+            <li class="nav-section-quarters-3   nav-item-seq-5">
+<a href="https://www.ssfca.gov/Services" class="nav-level-1 nav-has-children"  target="">Services</a>
+<button aria-label="Expand" aria-controls="sc-menu-second-level-nav-item-seq-5" aria-haspopup="true" class="mobnav-subarrow" ><i aria-hidden="true"></i></button>
+<ul id="sc-menu-second-level-nav-item-seq-5" class="second-level-container ch-13">
+
+          
+            <li class="second-level-item  "><a href="https://www.ssfca.gov/Services/Airport-Noise-Insulation" class=""  target="">Airport Noise Insulation</a></li><li class="second-level-item  "><a href="https://www.ssfca.gov/Services/Downtown-Parking" class="nav-has-children"  target="">Downtown Parking</a><button aria-label="Expand" aria-controls="sc-menu-third-level-nav-item-seq-5-nav-item-seq-2" class="mobnav-subarrow-child"><i aria-hidden="true"></i>
+              </button>
+<ul  id="sc-menu-third-level-nav-item-seq-5-nav-item-seq-2" class="third-level-container">
+          
+            <li  class="third-level-item  "><a href="https://www.ssfca.gov/Services/Downtown-Parking/Citations"  target="">Citations</a></li><li  class="third-level-item  "><a href="https://www.ssfca.gov/Services/Downtown-Parking/Parking-Lots"  target="">Parking Lots</a></li><li  class="third-level-item  "><a href="https://www.ssfca.gov/Services/Downtown-Parking/Permits-and-Programs"  target="">Permits and Programs</a></li><li  class="third-level-item  "><a href="https://www.ssfca.gov/Services/Downtown-Parking/On-Street-Parking"  target="">On Street Parking</a></li></ul></li><li class="second-level-item  "><a href="https://www.ssfca.gov/Services/Food-Distribution" class=""  target="">Food Distribution Resources</a></li><li class="second-level-item  "><a href="https://www.ssfca.gov/Services/Forms" class=""  target="">Forms</a></li><li class="second-level-item  "><a href="https://www.ssfca.gov/Services/Free-South-City-Shuttle" class="nav-has-children"  target="">Free South City Shuttle</a><button aria-label="Expand" aria-controls="sc-menu-third-level-nav-item-seq-5-nav-item-seq-5" class="mobnav-subarrow-child"><i aria-hidden="true"></i>
+              </button>
+<ul  id="sc-menu-third-level-nav-item-seq-5-nav-item-seq-5" class="third-level-container">
+          
+            <li  class="third-level-item  "><a href="https://www.ssfca.gov/Services/Free-South-City-Shuttle/Free-South-City-Shuttle-App"  target="">Free South City Shuttle App</a></li><li  class="third-level-item  "><a href="https://www.ssfca.gov/Services/Free-South-City-Shuttle/Route-Map"  target="">Route Map</a></li><li  class="third-level-item  "><a href="https://www.ssfca.gov/Services/Free-South-City-Shuttle/Other-Transit-Options"  target="">Other Transit Options</a></li><li  class="third-level-item  "><a href="https://www.ssfca.gov/Services/Free-South-City-Shuttle/Schedule"  target="">Schedule</a></li><li  class="third-level-item  "><a href="https://www.ssfca.gov/Services/Free-South-City-Shuttle/Shuttle-Notifications"  target="">Shuttle Notifications</a></li><li  class="third-level-item  "><a href="https://www.ssfca.gov/Services/Free-South-City-Shuttle/Route-Changes"  target="">Route Changes</a></li><li  class="third-level-item  "><a href="https://www.ssfca.gov/Services/Free-South-City-Shuttle/We-Want-Your-Feedback"  target="">We Want Your Feedback</a></li></ul></li><li class="second-level-item  "><a href="https://www.ssfca.gov/Services/Leave-The-Car-Its-Not-That-Far" class=""  target="">Leave The Car, It’s Not That Far</a></li><li class="second-level-item  "><a href="https://www.ssfca.gov/Services/Legislative-Body-Meeting-Notices-Materials" class=""  target="">Legislative Body Meeting Notices & Materials</a></li><li class="second-level-item  "><a href="https://www.ssfca.gov/Services/Online-Pay-and-Services" class=""  target="">Online Pay and Services</a></li><li class="second-level-item  "><a href="https://www.ssfca.gov/Services/Peg-Public-Educational-Government-Channel" class=""  target="">PEG - Public Educational Government Channel</a></li><li class="second-level-item  "><a href="https://www.ssfca.gov/Services/Permit-Center" class="nav-has-children"  target="">Permit Center</a><button aria-label="Expand" aria-controls="sc-menu-third-level-nav-item-seq-5-nav-item-seq-10" class="mobnav-subarrow-child"><i aria-hidden="true"></i>
+              </button>
+<ul  id="sc-menu-third-level-nav-item-seq-5-nav-item-seq-10" class="third-level-container">
+          
+            <li  class="third-level-item  "><a href="https://www.ssfca.gov/Services/Permit-Center/Animal-Permits"  target="">Animal Permits</a></li><li  class="third-level-item  "><a href="https://www.ssfca.gov/Services/Permit-Center/Event-Permits"  target="">Private Event Permits</a></li><li  class="third-level-item  "><a href="https://www.ssfca.gov/Services/Permit-Center/Film-Permits"  target="">Film Permits</a></li><li  class="third-level-item  "><a href="https://www.ssfca.gov/Services/Permit-Center/Over-The-Counter-Permits"  target="">Over The Counter Permits</a></li></ul></li><li class="second-level-item  "><a href="https://www.ssfca.gov/Services/RFPs-and-Bids" class=""  target="">RFPs and Bids</a></li><li class="second-level-item  "><a href="https://www.ssfca.gov/Services/Social-Service-Resources" class=""  target="_blank">Social Service Resources</a></li><li class="second-level-item  "><a href="https://www.ssfca.gov/Services/Subscribe-to-Email" class=""  target="">Subscribe to Email</a></li></ul></li>
+          
+            </ul>
+            </div>
+        </div>
+    </div>
+</div>
+            </header>
+            <div class="content-outer-container">
+                <div id="main" role="main" class="main-outer-container clearfix">
+                        
+                        <div class="content-main-container">
+                            <div class="grid">
+					            <div class="col-xs-12">
+						            <nav id="breadcrumbs-container" aria-label="You Are Here :">
+							            <span role="list">
+<span role="listitem">
+	<a href="https://www.ssfca.gov/Home"  lang="en-US">Home</a>
+	<span class="nav-separator" aria-hidden="true" role="presentation">/</span>
+</span>
+          <span role="listitem"><a href="https://www.ssfca.gov/Departments" >Departments</a><span class='nav-separator' aria-hidden="true" role="presentation">/</span></span><span role="listitem">
+	<a href="https://www.ssfca.gov/Departments/City-Clerk" >
+		Office of the City Clerk
+	</a>
+	<span class='nav-separator' aria-hidden="true" role="presentation">/</span>
+</span>
+<span class="current-page" role="listitem" aria-current="page" >Municipal Code</span>
+          </span>
+						            </nav>
+					            </div>
+                      <div class='col-xs-12'>
+                                                <div class='featured-section-header-outer clearfix'><div class='featured-section-header-inner clearfix'><div class='featured-section-header-logo'><span class='featured-section-header-logo-span'><span class='featured-section-header-logo-text'>Office of the City Clerk</span></span></div></div></div></div>
+					            <div class="col-xs-12">
+						            <div class="main-inner-container">
+                                        <div class="grid">							
+								            <div class="col-lg-4">								
+									            <div id="sub-navigation-outter-container" role="navigation" aria-label="Section Navigation">
+									            &nbsp;
+									            <div id="sub-navigation-container">
+                                <p class="sub-nav-header" role="heading" aria-level="2" id="in-this-section" >
+	In This Section
+</p>
+<ul><li class='nav-level-1   '>
+	<a href="https://www.ssfca.gov/Departments/City-Clerk/About-Us"  target="">About Us</a>
+	
+</li><li class='nav-level-1   '>
+	<a href="https://www.ssfca.gov/Departments/City-Clerk/City-Clerks-Corner-Monthly-Newsletter"  target="">Clerk's Corner</a>
+	
+</li><li class='nav-level-1   nav-has-children'>
+	<a href="https://www.ssfca.gov/Departments/City-Clerk/Elections"  target="">Elections</a>
+	
+</li><li class='nav-level-1   nav-has-children'>
+	<a href="https://www.ssfca.gov/Departments/City-Clerk/Fair-Political-Practices-Commission-FPPC-Information"  target="">Fair Political Practices Commission (FPPC) Information</a>
+	
+</li><li class='nav-level-1 nav-active-path nav-active-page '>
+	<a href="https://www.ssfca.gov/Departments/City-Clerk/Municipal-Code"  target="">Municipal Code</a>
+	
+</li><li class='nav-level-1   '>
+	<a href="https://www.ssfca.gov/Departments/City-Clerk/Public-Notices"  target="">Public Notices</a>
+	
+</li><li class='nav-level-1   '>
+	<a href="https://www.ssfca.gov/Departments/City-Clerk/Regional-Representatives"  target="">Regional Representatives</a>
+	
+</li><li class='nav-level-1   nav-has-children'>
+	<a href="https://www.ssfca.gov/Departments/City-Clerk/Services"  target="">Services</a>
+	
+</li></ul>
+									            </div>
+									            </div>
+								            </div>
+								            <div class="col-xs-12 col-lg-8">
+							                <div id="main-content" class="main-container clearfix">
+							                  
+                                <!-- OC Layout Element Conent Template -->
+							                  <!--normalTemplateStart--><h1 class='oc-page-title '>Municipal Code</h1>
+
+<p>The City of South San Francisco Municipal Code is hosted by e-Code360 Publishing and provides easier access to the public.</p>
+<ul>
+<li><a href="https://ecode360.com/SO5016">South San Francisco Municipal Code</a></li>
+</ul>
+<p><em>This electronic version is provided for information only and should not be considered the official version of the code. Please consult the official printed version before citing provisions of this code. If inconsistencies exist between this electronic version and the official printed code and/or the underlying ordinances, the official legislation will be considered definitive.</em></p>
+<h2>Newly Adopted Ordinances</h2>
+<p>The following ordinances have been adopted and <strong>Not Yet Codified</strong>.</p>
+<ul>
+<li><a href="https://ecode360.com/laws/SO5016">New Laws - Recently Passed Ordinances</a></li>
+</ul>
+<h2>More Information on High Interest Ordinances</h2>
+<div data-type="0" data-title-level="3" class="oc-wysiwyg-container">
+<div class="oc-wysiwyg-container-panel">
+<h3>Flavored Tabacco and E-Cigarettes</h3>
+<div class="oc-wysiwyg-container-panel-content">
+<h4>What is the Flavored Tobacco and E-Cigarette Sales Ban?</h4>
+<p>Pursuant to Chapter 6.47 of the Municipal Code, the ban prohibits Retail Tobacco Permit Holders from selling any flavored tobacco product, including but not limited to smokeless/chew, cigarettes, cigars, cigarillos, vape liquid and hookah tobacco, that is manufactured to have an aroma and/or flavor, such as fruit, sweet, candy, alcohol, mint, spice or menthol.</p>
+<p>It also prohibits the sale of e-cigarette or vape devices that deliver nicotine or other substances to the person inhaling from the device, including but not limited to, an electronic cigarette, electronic cigar, electronic pipe, electronic hookah, or vapor pen.</p>
+<h4>When is the ban effective and how can I prepare now?</h4>
+<p>This ban is effective January 1, 2020. Discontinue ordering and restocking flavored tobacco products and e-cigarette devices now to prevent losing your investment once the rules and regulations are ready to implement.</p>
+<p>You are encouraged to print and post this flyer informing customers of the change prior to January 1, 2020.</p>
+<p><strong>When will the City enforce the new law?</strong>&nbsp;Enforcement will begin on the effective date of January 1, 2020. Avoid permit suspensions and civil penalties by discontinuing sales of flavored tobacco products and electronic cigarettes or vape devices now.</p>
+<h4>How can I stay informed?</h4>
+<p>Please read the mailings from the City and pay attention to the website for posting of FAQs. You may also email questions to&nbsp;<a href="mailto:flavoredtobacco@ssf.net">flavoredtobacco@ssf.net</a>.</p>
+<h4>How do I report a violation?</h4>
+<p>Please contact code enforcement at&nbsp;<a href="tel:6508296682">(650) 829-6682</a>&nbsp;and&nbsp;<a href="mailto:web-pw@ssf.net">web-pw@ssf.net</a>.</p>
+<h4>Useful Links</h4>
+<div data-layout="2" data-title-level="5" class="featured-links featured-links-option-2">
+<div class="featured-links-body clearfix">
+<ul class="clearfix">
+<li><a class="featured-link document ext-pdf" href="/files/assets/public/v/1/city-manager/documents/flavored-tobacco-ordinance.pdf" target=""><i aria-hidden="true"></i>Flavored Tobacco &amp; E-Cigarette Ordinance<span class="file-info">(PDF,&nbsp;2MB)</span></a></li>
+<li><a class="featured-link document ext-pdf" href="/files/assets/public/v/1/city-manager/documents/webpdf_85x11in_ssfflavored.pdf" target=""><i aria-hidden="true"></i>8.5" x 11" Poster - English<span class="file-info">(PDF,&nbsp;442KB)</span></a></li>
+<li><a class="featured-link document ext-pdf" href="/files/assets/public/v/1/city-manager/documents/schlowresnativefile_85x11i.pdf" target=""><i aria-hidden="true"></i>8.5" x 11" Poster - Chinese<span class="file-info">(PDF,&nbsp;4MB)</span></a></li>
+<li><a class="featured-link document ext-pdf" href="/files/assets/public/v/1/city-manager/documents/spanish_webpdf_85x11in_ssf.pdf" target=""><i aria-hidden="true"></i>8.5" x 11" Poster - Spanish<span class="file-info">(PDF,&nbsp;330KB)</span></a></li>
+<li><a class="featured-link document ext-pdf" href="/files/assets/public/v/1/city-manager/documents/taglowresnativefile_85x11i.pdf" target=""><i aria-hidden="true"></i>8.5" x 11" Poster - Tagalog<span class="file-info">(PDF,&nbsp;4MB)</span></a></li>
+<li><a class="featured-link document ext-pdf" href="/files/assets/public/v/1/city-manager/documents/webpdf_11x17in_ssfflavored.pdf" target=""><i aria-hidden="true"></i>11" x 17" Poster - English<span class="file-info">(PDF,&nbsp;756KB)</span></a></li>
+<li><a class="featured-link document ext-pdf" href="/files/assets/public/v/1/city-manager/documents/schlowresnativefile_11x17i.pdf" target=""><i aria-hidden="true"></i>11" x 17" Poster - Chinese<span class="file-info">(PDF,&nbsp;4MB)</span></a></li>
+<li><a class="featured-link document ext-pdf" href="/files/assets/public/v/1/city-manager/documents/spanish_webpdf_11x17in_ssf.pdf" target=""><i aria-hidden="true"></i>11" x 17" Poster - Spanish<span class="file-info">(PDF,&nbsp;608KB)</span></a></li>
+<li><a class="featured-link document ext-pdf" href="/files/assets/public/v/1/city-manager/documents/taglowresnativefile_11x17i.pdf" target=""><i aria-hidden="true"></i>11" x 17" Poster - Tagalog<span class="file-info">(PDF,&nbsp;4MB)</span></a></li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+
+      
+
+
+<!--normalTemplateEnd-->
+                                
+                                
+                                
+							                </div>
+							                </div>
+							             </div>
+						            </div>
+						            </div>
+                        
+					                  </div>
+                        </div>
+                        <div class="back-to-top-container text-center">
+                            <a href="#body-top" id="back-to-top"><i aria-hidden="true"></i><span class="js-visuallyhidden">Back to top</span></a>
+                        </div>
+                </div>
+            </div><!--groupTemplateEnd-->
+            <footer>
+                
+                    <div class="footer-outer-container footer-first-row">
+                        <div class="footer-container clearfix">
+                            <div class="grid grid-pad">
+                                <div class="col-xs-12 col-s-6 col-m-3 col-lg-3 footer-contact" >
+	
+			<h2 class="visuallyhidden">Site Footer</h2>
+			<h3 class="footer-title">Contact Us</h3>
+			
+	<p>City of South San Francisco<br />
+400 Grand Ave<br />
+South San Francisco, CA 94080<br />
+<a href="https://maps.app.goo.gl/6bwFi2QoThEv9rXr7">View on Map</a></p>
+<p>T <a href="tel:(650)%20877-8500">(650) 877-8500</a></p>
+<p><a href="https://www.ssfca.gov/Our-City/Feedback-Comments-Suggestions" target="_self">Submit Feedback</a></p>
+
+
+	<ul class="footer-links with-icons ">   </ul>
+	
+</div><div class="col-xs-12 col-s-6 col-m-3 col-lg-3 footer-social" >
+	
+			<h2 class="visuallyhidden">Site Footer</h2>
+			<h3 class="footer-title">Share &amp; Connect</h3>
+			
+	
+	<ul class="footer-links with-icons ">  <li class="footer-link-twitter">
+	<a href="https://twitter.com/CityofSSF" target="_self"  >
+<i aria-hidden="true"></i>Follow us on X
+</a>
+</li>
+          <li class="footer-link-linkedin">
+	<a href="https://www.linkedin.com/company/cityofsouthsanfrancisco" target="_self"  >
+<i aria-hidden="true"></i>Follow us on LinkedIn
+</a>
+</li>
+          <li class="footer-link-instagram">
+	<a href="https://www.instagram.com/cityofsouthsanfrancisco/" target="_blank"  >
+<i aria-hidden="true"></i>Follow us on Instagram
+</a>
+</li>
+          <li class="footer-link-facebook">
+	<a href="https://www.facebook.com/CityofSouthSanFrancisco" target="_self"  >
+<i aria-hidden="true"></i>Like us on Facebook
+</a>
+</li>
+          <li class="footer-link-youtube">
+	<a href="https://www.youtube.com/channel/UCpZ77HlosYBDLPg-ahmKjWg" target="_blank"  >
+<i aria-hidden="true"></i>YouTube Channel
+</a>
+</li>
+           </ul>
+	
+</div><div class="col-xs-12 col-s-6 col-m-3 col-lg-3 footer-involved" >
+	
+			<h2 class="visuallyhidden">Site Footer</h2>
+			<h3 class="footer-title">Get Involved</h3>
+			
+	
+	<ul class="footer-links with-icons ">  <li class="footer-link-">
+	<a href="https://www.ssfca.gov/Departments/Human-Resources/Job-Resources" target="_self"  >
+<i aria-hidden="true"></i>Careers
+</a>
+</li>
+          <li class="footer-link-">
+	<a href="https://www.ssfca.gov/Our-City/Feedback-Comments-Suggestions" target="_self"  >
+<i aria-hidden="true"></i>Provide Feedback
+</a>
+</li>
+          <li class="footer-link-">
+	<a href="https://www.ssfca.gov/Departments/Public-Works/Report-an-Issue" target="_self"  >
+<i aria-hidden="true"></i>Report an Issue
+</a>
+</li>
+          <li class="footer-link-">
+	<a href="https://www.ssfca.gov/Services/Subscribe-to-Email" target="_self"  >
+<i aria-hidden="true"></i>Subscribe to Email
+</a>
+</li>
+          <li class="footer-link-">
+	<a href="https://www.ssfca.gov/Departments/City-Manager/Civic-Engagement" target="_self"  >
+<i aria-hidden="true"></i>Volunteering
+</a>
+</li>
+           </ul>
+	
+</div><div class="col-xs-12 col-s-6 col-m-3 col-lg-3 footer-links" >
+	
+			<h2 class="visuallyhidden">Site Footer</h2>
+			<h3 class="footer-title">Quick Links</h3>
+			
+	
+	<ul class="footer-links with-icons ">  <li class="footer-link-">
+	<a href="https://www.ssfca.gov/Our-City/Biotech" target="_self"  >
+<i aria-hidden="true"></i>Biotech
+</a>
+</li>
+          <li class="footer-link-">
+	<a href="https://www.ssfca.gov/Our-City" target="_self"  >
+<i aria-hidden="true"></i>Community
+</a>
+</li>
+          <li class="footer-link-">
+	<a href="https://www.ssfca.gov/Services/Online-Pay-and-Services" target="_self"  >
+<i aria-hidden="true"></i>Make a Payment
+</a>
+</li>
+          <li class="footer-link-">
+	<a href="https://www.ssfca.gov/Our-City/City-Calendar" target="_self"  >
+<i aria-hidden="true"></i>Upcoming Events
+</a>
+</li>
+          <li class="footer-link-">
+	<a href="https://www.ssfca.gov/Departments/Information-Technology/Technical-Accessibility-Statement" target="_self"  >
+<i aria-hidden="true"></i>Website Accessibility
+</a>
+</li>
+           </ul>
+	
+</div>
+                            </div>
+                        </div>
+                    </div>
+                
+                <div class="footer-outer-container footer-second-row">
+                    <div class="footer-container clearfix">
+                        <div class="grid grid-pad footer-secondary-links">
+                            <div class="col-xs-12 col-m-7">
+                                
+                                    <div><a href="https://www.ssfca.gov/Departments/Information-Technology/Privacy-Policy" target="_self"  >Privacy Statement</a>&nbsp;| <a href="https://www.ssfca.gov/Sitemap" target="_self"  >Sitemap</a></div>
+                                
+                            </div>
+                            <div class="col-xs-12 col-m-5 powered-by">
+                                <div class="right">
+                                    &copy; 2026 City of South San Francisco &nbsp;|&nbsp;<span class="powered-by">Powered by <a href="https://granicus.com/solution/govaccess/opencities/" target="_blank">Granicus</a></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </footer>
+        </div>
+    </div>
+
+    <script src="/files/oc-resources/b9015858-988c-48a4-9473-7c193df083e4/JsTextSnippets.js?ocsvclang=en-US" type="text/javascript"></script><script></script>
+    
+    <script type="text/javascript">
+    window._monsido = window._monsido || {
+        token: "rA6zUJlMv4br_KMKvizQNw",
+        statistics: {
+            enabled: true,
+            cookieLessTracking: false,
+            documentTracking: {
+                enabled: true,
+                documentCls: "monsido_download",
+                documentIgnoreCls: "monsido_ignore_download",
+                documentExt: ["PDF","DOCX","ppt","doc","pptx"],
+            },
+        },
+        heatmap: {
+            enabled: true,
+        },
+    };
+</script>
+<script type="text/javascript" async src="https://app-script.monsido.com/v2/monsido-script.js"></script>
+
+<script id="citibot-chatscript" type="text/javascript" src="https://webchat-ui.citibot.net/script.js?account_id=66f474d090053b5208b48bfe"></script>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-YT45GGNNZZ"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+
+gtag('config', 'G-YT45GGNNZZ');
+</script>
+    
+    
+
+<script type="text/javascript">
+//<![CDATA[
+window.__TsmHiddenField = $get('ctl04_seamless_script_manager_TSM');//]]>
+</script>
+</form>
+</body>
+</html>

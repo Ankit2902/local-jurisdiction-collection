@@ -1,0 +1,79 @@
+{
+  "job": {
+    "slug": "sonoma-ca",
+    "section_url": "https://sonoma.municipal.codes/SMC/1.01.010",
+    "expected_id": "1.01.010",
+    "export_url": "https://sonoma.municipal.codes/SMC/1.01.010/export.html?download=true",
+    "advertised_exports": [
+      {
+        "url": "https://sonoma.municipal.codes/SMC/1.01.010/export.pdf?download=true",
+        "label": "Adobe Reader (PDF)"
+      },
+      {
+        "url": "https://sonoma.municipal.codes/SMC/1.01.010/export.rtf?download=true",
+        "label": "Microsoft Word (RTF)"
+      },
+      {
+        "url": "https://sonoma.municipal.codes/SMC/1.01.010/export.pdf?print=true",
+        "label": "Print"
+      },
+      {
+        "url": "https://sonoma.municipal.codes/SMC/1.01.010/export.html?download=true",
+        "label": "Web Page (HTML)"
+      },
+      {
+        "url": "https://sonoma.municipal.codes/SMC/1.01.010/export.txt?download=true",
+        "label": "Plain Text"
+      }
+    ],
+    "discovery_receipt": "export-discovery/sonoma-ca/share-dialog.receipt.json",
+    "discovery_raw_sha256": "e5e65cb9d449145f7c6d82d4136c77067cd7c96dc5e715538be0cdfd07344506"
+  },
+  "transport": "standalone ordinary headed Playwright",
+  "node": "v24.19.0",
+  "playwright": "1.62.1",
+  "browser": "155.0.8059.41",
+  "script_sha256": "1c6d10db6ee85085661611af0e54fa8150f1c04f40a474b6b2a67dd571c83cad",
+  "started_at": "2026-10-15T19:22:07.338Z",
+  "operator_actions": [],
+  "operator_assisted": false,
+  "stages": [
+    {
+      "kind": "page",
+      "requested_url": "https://sonoma.municipal.codes/SMC/1.01.010",
+      "final_url": "https://sonoma.municipal.codes/SMC/1.01.010",
+      "http_status": 200,
+      "started_at": "2026-10-15T19:22:07.340Z",
+      "finished_at": "2026-10-15T19:22:10.845Z",
+      "error": null,
+      "download_filename": null,
+      "raw_artifact_path": "page.html",
+      "raw_sha256": "daf32ac864fe929d7f931174ad9bb0f41f5795dfb81fcce0b04c35a7ee6f7274",
+      "bytes": 61516,
+      "title": "Ch. 1.01 Code Adoption | Sonoma Municipal Code",
+      "expected_identity_present": true,
+      "access_challenge": false,
+      "accepted": true
+    },
+    {
+      "kind": "html-export",
+      "requested_url": "https://sonoma.municipal.codes/SMC/1.01.010/export.html?download=true",
+      "final_url": "https://sonoma.municipal.codes/SMC/1.01.010/export.html?download=true",
+      "http_status": 429,
+      "started_at": "2026-10-15T19:22:10.854Z",
+      "finished_at": "2026-10-15T19:22:20.970Z",
+      "error": null,
+      "download_filename": null,
+      "raw_artifact_path": "html-export.html",
+      "raw_sha256": "9adb26d64674c1926c4e2d15a1d17bfe5e6bd45fc7e2e5049b32f72a0f32c238",
+      "bytes": 29004,
+      "title": "Just a moment...",
+      "expected_identity_present": false,
+      "access_challenge": true,
+      "accepted": false
+    }
+  ],
+  "whole_corpus_validated": false,
+  "finished_at": "2026-10-15T19:22:20.980Z",
+  "accepted": true
+}

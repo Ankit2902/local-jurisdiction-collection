@@ -1,0 +1,21 @@
+{
+  "status_definitions": {
+    "standalone_e2e_pass": "Fresh source acquired by delivered process outsideCodex, parsed and exported with verifiedsourceidentity/content, no injected retainedDOM or importedCUAcookies",
+    "operator_assisted_export_pass": "Ordinary browser/publisher export step requiresoperator; actual export acquired, retained and validated bystandaloneparser. UIautomation usingCodex duringinvestigation doesnotprove standaloneautomatedacquisition.",
+    "standalone_acquisition_only": "Freshdownloadworks but semanticparser/export qualification incomplete",
+    "documented_export_prerequisite": "Observed/dokumented export requires account/license/operatoraction nottested; noacquisitionpass",
+    "blocked": "Actual distinct ordinary request/path failed; failureevidence retained",
+    "not_tested": "Explicitly notattempted; no outcomeinferred from relatedroute"
+  },
+  "requirements": [
+    "All24jurisdictions mapped toexactstatus andevidence",
+    "Preservebaselinefiles and rawattempts",
+    "Normal verifiedTLS andclean dedicated browser profiles; noimportedCUA session material",
+    "Exactexecutedscriptsha/version, commands,deps,time,sourceURL,response/filetype/rawhash",
+    "Publicationidentity,currentthrough markers andcoverage/families explicit",
+    "Publisherexport distinguishedfrombrowserprint and historicalofficialcopy",
+    "Boundedsample parsertext/structure/exportverification; nofullcollectionclaim",
+    "Freeze codebefore finaltests; parent independentlyverifies",
+    "No externalvendorcommunication, accountpurchase or database mutation"
+  ]
+}

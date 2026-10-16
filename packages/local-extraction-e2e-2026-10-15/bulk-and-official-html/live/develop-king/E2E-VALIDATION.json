@@ -1,0 +1,1199 @@
+{
+  "jurisdiction": "king-county",
+  "started_at": "2026-10-15T18:53:27.556749+00:00",
+  "status": "passed_bounded_live_pilot",
+  "scope": "bounded_live_pilot",
+  "full_corpus_extracted": false,
+  "environment": {
+    "python": "3.9.6 (default, May 22 2026, 11:13:45) \n[Clang 21.0.0 (clang-2100.1.1.101)]",
+    "executable": "/private/tmp/complisolv-handoff-review-venv/bin/python",
+    "platform": "macOS-26.6.2-arm64-arm-64bit",
+    "requests_ca_bundle": null,
+    "certificate_verification": true
+  },
+  "code_hashes": {
+    "archive_includes.py": "3a8109bf8e2d7e57af2b6393501fad799c69d6d8889adb1970e51fc078c4d586",
+    "browser_capture.py": "2918f232672091b12196f8ac169f2d64c173ab176b486ba1ef8a14d0bddb6283",
+    "common.py": "573e724a1ee54a74cc808498989f40f7deeface9982b7c6243c7c19c7eae7ac2",
+    "daly_city.py": "e9de38741ca85b4dbdf737262da902a7ba9948c44a4233131783afb99b505469",
+    "e2e.py": "42952fd6753b1992f05222adcc59613e84d214578f8285715242f7ab7cd56b11",
+    "king_county.py": "53089bb24da8afad4e314dada501376d7915b22e58370574c8f4584385eed8c3",
+    "san_mateo.py": "a0007e2d753a4e00a9cd1bc0186227cdda3174f40c1ecf4012cdef76d4d3ae35",
+    "test_methods.py": "a2dd96c3998477bcdcb497dac5a7b0c7446bf856bfce018ec1886c08b12783a8",
+    "validate.py": "07100adb3793e46c6566549ab7f3cf688c1cf325d2356512c1297f3b21922bb6",
+    "verify_hashes.py": "c97439aed3404b992cb7079e82a0640c746054d0cc4897b86fcfbe13aff7a974"
+  },
+  "orchestrator_argv": [
+    "e2e.py",
+    "king-county",
+    "--out",
+    "live/develop-king",
+    "--landing-capture",
+    "live/browser/king-landing.html"
+  ],
+  "commands": [
+    {
+      "argv": [
+        "/private/tmp/complisolv-handoff-review-venv/bin/python",
+        "/Users/oliverflint/My Drive/Claude/Projects/CompliSolv 2.00/outputs/local-extraction-e2e-2026-10-15/bulk-and-official-html/king_county.py",
+        "--input",
+        "/Users/oliverflint/My Drive/Claude/Projects/CompliSolv 2.00/outputs/local-extraction-e2e-2026-10-15/bulk-and-official-html/live/develop-king/source/title1.htm",
+        "--source-url",
+        "https://aqua.kingcounty.gov/council/clerk/code/04_Title_1.htm",
+        "--out",
+        "/Users/oliverflint/My Drive/Claude/Projects/CompliSolv 2.00/outputs/local-extraction-e2e-2026-10-15/bulk-and-official-html/live/develop-king/output/title1"
+      ],
+      "started_at": "2026-10-15T18:53:29.157840+00:00",
+      "ended_at": "2026-10-15T18:53:29.686120+00:00",
+      "exit_code": 0,
+      "stdout": "command-0.stdout.txt",
+      "stderr": "command-0.stderr.txt"
+    },
+    {
+      "argv": [
+        "/private/tmp/complisolv-handoff-review-venv/bin/python",
+        "/Users/oliverflint/My Drive/Claude/Projects/CompliSolv 2.00/outputs/local-extraction-e2e-2026-10-15/bulk-and-official-html/king_county.py",
+        "--input",
+        "/Users/oliverflint/My Drive/Claude/Projects/CompliSolv 2.00/outputs/local-extraction-e2e-2026-10-15/bulk-and-official-html/live/develop-king/source/title2a.htm",
+        "--source-url",
+        "https://aqua.kingcounty.gov/council/clerk/code/05_Title_2A.htm",
+        "--out",
+        "/Users/oliverflint/My Drive/Claude/Projects/CompliSolv 2.00/outputs/local-extraction-e2e-2026-10-15/bulk-and-official-html/live/develop-king/output/title2a"
+      ],
+      "started_at": "2026-10-15T18:53:31.114743+00:00",
+      "ended_at": "2026-10-15T18:53:31.460011+00:00",
+      "exit_code": 0,
+      "stdout": "command-1.stdout.txt",
+      "stderr": "command-1.stderr.txt"
+    },
+    {
+      "argv": [
+        "/private/tmp/complisolv-handoff-review-venv/bin/python",
+        "/Users/oliverflint/My Drive/Claude/Projects/CompliSolv 2.00/outputs/local-extraction-e2e-2026-10-15/bulk-and-official-html/king_county.py",
+        "--input",
+        "/Users/oliverflint/My Drive/Claude/Projects/CompliSolv 2.00/outputs/local-extraction-e2e-2026-10-15/bulk-and-official-html/live/develop-king/source/charter.htm",
+        "--source-url",
+        "https://aqua.kingcounty.gov/council/clerk/code/03_Charter.htm",
+        "--out",
+        "/Users/oliverflint/My Drive/Claude/Projects/CompliSolv 2.00/outputs/local-extraction-e2e-2026-10-15/bulk-and-official-html/live/develop-king/output/charter",
+        "--charter"
+      ],
+      "started_at": "2026-10-15T18:53:32.834407+00:00",
+      "ended_at": "2026-10-15T18:53:33.383746+00:00",
+      "exit_code": 0,
+      "stdout": "command-2.stdout.txt",
+      "stderr": "command-2.stderr.txt"
+    }
+  ],
+  "checks": {
+    "cli_exit_codes_zero": true,
+    "csv_json_equal": true,
+    "original_http_html_bytes": true,
+    "html_word_source_evidence": [
+      {
+        "document": "title1",
+        "encoding": "cp1252",
+        "source_sections": 121,
+        "section_nodes": 121,
+        "toc_body_differences": {
+          "toc_only": [
+            "1.16.110"
+          ],
+          "body_only": [
+            "1.16.0110"
+          ]
+        },
+        "literal_spellings_in_official_formats": {
+          "1.16.0110": {
+            "html_present": true,
+            "word_present": false
+          },
+          "1.16.110": {
+            "html_present": true,
+            "word_present": false
+          }
+        },
+        "date_markers": {
+          "html": [
+            "UPDATED: \r\nSeptember 9, 2026"
+          ],
+          "word": [
+            "UPDATED:  "
+          ]
+        },
+        "status": "source_discrepancies_retained_pending_publisher_reconciliation"
+      },
+      {
+        "document": "title2a",
+        "encoding": "cp1252",
+        "source_sections": 20,
+        "section_nodes": 20,
+        "toc_body_differences": {
+          "toc_only": [
+            "2A.300.520"
+          ],
+          "body_only": [
+            "2A.300.521"
+          ]
+        },
+        "literal_spellings_in_official_formats": {
+          "2A.300.520": {
+            "html_present": true,
+            "word_present": true
+          },
+          "2A.300.521": {
+            "html_present": true,
+            "word_present": false
+          }
+        },
+        "date_markers": {
+          "html": [
+            "UPDATED:  September 9, 2026"
+          ],
+          "word": [
+            "UPDATED:  "
+          ]
+        },
+        "status": "source_discrepancies_retained_pending_publisher_reconciliation"
+      },
+      {
+        "document": "charter",
+        "encoding": "cp1252",
+        "source_sections": 118,
+        "section_nodes": 118,
+        "toc_body_differences": {
+          "toc_only": [],
+          "body_only": [
+            "110",
+            "120",
+            "130",
+            "140",
+            "210",
+            "220",
+            "220.10",
+            "220.20",
+            "220.30",
+            "220.40",
+            "220.50",
+            "230",
+            "230.10",
+            "230.10.10",
+            "230.20",
+            "230.30",
+            "230.40",
+            "230.50",
+            "230.50.10",
+            "230.60",
+            "230.70",
+            "230.75",
+            "240",
+            "250",
+            "260",
+            "265",
+            "270",
+            "270.10",
+            "270.20",
+            "270.30",
+            "270.40",
+            "310",
+            "320",
+            "320.10",
+            "320.20",
+            "330",
+            "340",
+            "340.10",
+            "340.20",
+            "340.30",
+            "340.40",
+            "340.50",
+            "340.60",
+            "350",
+            "350.10",
+            "350.20",
+            "350.20.10",
+            "350.20.20",
+            "350.20.40",
+            "350.20.50",
+            "350.20.60",
+            "350.20.61",
+            "350.20.65",
+            "405",
+            "410",
+            "420",
+            "425",
+            "425.10",
+            "425.20",
+            "425.30",
+            "425.40",
+            "430",
+            "440",
+            "450",
+            "460",
+            "470",
+            "470.10",
+            "470.20",
+            "470.30",
+            "480",
+            "490",
+            "495",
+            "510",
+            "520",
+            "530",
+            "540",
+            "550",
+            "555",
+            "560",
+            "610",
+            "630",
+            "640",
+            "647",
+            "649",
+            "650",
+            "650.10",
+            "650.20",
+            "650.30",
+            "650.30.10",
+            "650.30.20",
+            "650.30.30",
+            "650.40",
+            "670",
+            "680",
+            "680.10",
+            "690",
+            "690.10",
+            "710",
+            "720",
+            "730",
+            "800",
+            "810",
+            "815",
+            "820",
+            "830",
+            "840",
+            "843",
+            "850",
+            "860",
+            "870",
+            "880",
+            "890",
+            "895",
+            "896",
+            "897",
+            "899",
+            "970.20",
+            "990"
+          ]
+        },
+        "literal_spellings_in_official_formats": {
+          "110": {
+            "html_present": true,
+            "word_present": true
+          },
+          "120": {
+            "html_present": true,
+            "word_present": true
+          },
+          "130": {
+            "html_present": true,
+            "word_present": true
+          },
+          "140": {
+            "html_present": true,
+            "word_present": true
+          },
+          "210": {
+            "html_present": true,
+            "word_present": true
+          },
+          "220": {
+            "html_present": true,
+            "word_present": true
+          },
+          "220.10": {
+            "html_present": true,
+            "word_present": true
+          },
+          "220.20": {
+            "html_present": true,
+            "word_present": true
+          },
+          "220.30": {
+            "html_present": true,
+            "word_present": true
+          },
+          "220.40": {
+            "html_present": true,
+            "word_present": true
+          },
+          "220.50": {
+            "html_present": true,
+            "word_present": true
+          },
+          "230": {
+            "html_present": true,
+            "word_present": true
+          },
+          "230.10": {
+            "html_present": true,
+            "word_present": true
+          },
+          "230.10.10": {
+            "html_present": true,
+            "word_present": true
+          },
+          "230.20": {
+            "html_present": true,
+            "word_present": true
+          },
+          "230.30": {
+            "html_present": true,
+            "word_present": true
+          },
+          "230.40": {
+            "html_present": true,
+            "word_present": true
+          },
+          "230.50": {
+            "html_present": true,
+            "word_present": true
+          },
+          "230.50.10": {
+            "html_present": true,
+            "word_present": true
+          },
+          "230.60": {
+            "html_present": true,
+            "word_present": true
+          },
+          "230.70": {
+            "html_present": true,
+            "word_present": true
+          },
+          "230.75": {
+            "html_present": true,
+            "word_present": true
+          },
+          "240": {
+            "html_present": true,
+            "word_present": true
+          },
+          "250": {
+            "html_present": true,
+            "word_present": true
+          },
+          "260": {
+            "html_present": true,
+            "word_present": true
+          },
+          "265": {
+            "html_present": true,
+            "word_present": true
+          },
+          "270": {
+            "html_present": true,
+            "word_present": true
+          },
+          "270.10": {
+            "html_present": true,
+            "word_present": true
+          },
+          "270.20": {
+            "html_present": true,
+            "word_present": true
+          },
+          "270.30": {
+            "html_present": true,
+            "word_present": true
+          },
+          "270.40": {
+            "html_present": true,
+            "word_present": true
+          },
+          "310": {
+            "html_present": true,
+            "word_present": true
+          },
+          "320": {
+            "html_present": true,
+            "word_present": true
+          },
+          "320.10": {
+            "html_present": true,
+            "word_present": true
+          },
+          "320.20": {
+            "html_present": true,
+            "word_present": true
+          },
+          "330": {
+            "html_present": true,
+            "word_present": true
+          },
+          "340": {
+            "html_present": true,
+            "word_present": true
+          },
+          "340.10": {
+            "html_present": true,
+            "word_present": true
+          },
+          "340.20": {
+            "html_present": true,
+            "word_present": true
+          },
+          "340.30": {
+            "html_present": true,
+            "word_present": true
+          },
+          "340.40": {
+            "html_present": true,
+            "word_present": true
+          },
+          "340.50": {
+            "html_present": true,
+            "word_present": true
+          },
+          "340.60": {
+            "html_present": true,
+            "word_present": true
+          },
+          "350": {
+            "html_present": true,
+            "word_present": true
+          },
+          "350.10": {
+            "html_present": true,
+            "word_present": true
+          },
+          "350.20": {
+            "html_present": true,
+            "word_present": true
+          },
+          "350.20.10": {
+            "html_present": true,
+            "word_present": true
+          },
+          "350.20.20": {
+            "html_present": true,
+            "word_present": true
+          },
+          "350.20.40": {
+            "html_present": true,
+            "word_present": true
+          },
+          "350.20.50": {
+            "html_present": true,
+            "word_present": true
+          },
+          "350.20.60": {
+            "html_present": true,
+            "word_present": true
+          },
+          "350.20.61": {
+            "html_present": true,
+            "word_present": true
+          },
+          "350.20.65": {
+            "html_present": true,
+            "word_present": true
+          },
+          "405": {
+            "html_present": true,
+            "word_present": true
+          },
+          "410": {
+            "html_present": true,
+            "word_present": true
+          },
+          "420": {
+            "html_present": true,
+            "word_present": true
+          },
+          "425": {
+            "html_present": true,
+            "word_present": true
+          },
+          "425.10": {
+            "html_present": true,
+            "word_present": true
+          },
+          "425.20": {
+            "html_present": true,
+            "word_present": true
+          },
+          "425.30": {
+            "html_present": true,
+            "word_present": true
+          },
+          "425.40": {
+            "html_present": true,
+            "word_present": true
+          },
+          "430": {
+            "html_present": true,
+            "word_present": true
+          },
+          "440": {
+            "html_present": true,
+            "word_present": true
+          },
+          "450": {
+            "html_present": true,
+            "word_present": true
+          },
+          "460": {
+            "html_present": true,
+            "word_present": true
+          },
+          "470": {
+            "html_present": true,
+            "word_present": true
+          },
+          "470.10": {
+            "html_present": true,
+            "word_present": true
+          },
+          "470.20": {
+            "html_present": true,
+            "word_present": true
+          },
+          "470.30": {
+            "html_present": true,
+            "word_present": true
+          },
+          "480": {
+            "html_present": true,
+            "word_present": true
+          },
+          "490": {
+            "html_present": true,
+            "word_present": true
+          },
+          "495": {
+            "html_present": true,
+            "word_present": true
+          },
+          "510": {
+            "html_present": true,
+            "word_present": true
+          },
+          "520": {
+            "html_present": true,
+            "word_present": true
+          },
+          "530": {
+            "html_present": true,
+            "word_present": true
+          },
+          "540": {
+            "html_present": true,
+            "word_present": true
+          },
+          "550": {
+            "html_present": true,
+            "word_present": true
+          },
+          "555": {
+            "html_present": true,
+            "word_present": true
+          },
+          "560": {
+            "html_present": true,
+            "word_present": true
+          },
+          "610": {
+            "html_present": true,
+            "word_present": true
+          },
+          "630": {
+            "html_present": true,
+            "word_present": true
+          },
+          "640": {
+            "html_present": true,
+            "word_present": true
+          },
+          "647": {
+            "html_present": true,
+            "word_present": true
+          },
+          "649": {
+            "html_present": true,
+            "word_present": true
+          },
+          "650": {
+            "html_present": true,
+            "word_present": true
+          },
+          "650.10": {
+            "html_present": true,
+            "word_present": true
+          },
+          "650.20": {
+            "html_present": true,
+            "word_present": true
+          },
+          "650.30": {
+            "html_present": true,
+            "word_present": true
+          },
+          "650.30.10": {
+            "html_present": true,
+            "word_present": true
+          },
+          "650.30.20": {
+            "html_present": true,
+            "word_present": true
+          },
+          "650.30.30": {
+            "html_present": true,
+            "word_present": true
+          },
+          "650.40": {
+            "html_present": true,
+            "word_present": true
+          },
+          "670": {
+            "html_present": true,
+            "word_present": true
+          },
+          "680": {
+            "html_present": true,
+            "word_present": true
+          },
+          "680.10": {
+            "html_present": true,
+            "word_present": true
+          },
+          "690": {
+            "html_present": true,
+            "word_present": true
+          },
+          "690.10": {
+            "html_present": true,
+            "word_present": true
+          },
+          "710": {
+            "html_present": true,
+            "word_present": true
+          },
+          "720": {
+            "html_present": true,
+            "word_present": true
+          },
+          "730": {
+            "html_present": true,
+            "word_present": true
+          },
+          "800": {
+            "html_present": true,
+            "word_present": true
+          },
+          "810": {
+            "html_present": true,
+            "word_present": true
+          },
+          "815": {
+            "html_present": true,
+            "word_present": true
+          },
+          "820": {
+            "html_present": true,
+            "word_present": true
+          },
+          "830": {
+            "html_present": true,
+            "word_present": true
+          },
+          "840": {
+            "html_present": true,
+            "word_present": true
+          },
+          "843": {
+            "html_present": true,
+            "word_present": true
+          },
+          "850": {
+            "html_present": true,
+            "word_present": true
+          },
+          "860": {
+            "html_present": true,
+            "word_present": true
+          },
+          "870": {
+            "html_present": true,
+            "word_present": true
+          },
+          "880": {
+            "html_present": true,
+            "word_present": true
+          },
+          "890": {
+            "html_present": true,
+            "word_present": true
+          },
+          "895": {
+            "html_present": true,
+            "word_present": true
+          },
+          "896": {
+            "html_present": true,
+            "word_present": true
+          },
+          "897": {
+            "html_present": true,
+            "word_present": true
+          },
+          "899": {
+            "html_present": true,
+            "word_present": true
+          },
+          "970.20": {
+            "html_present": true,
+            "word_present": true
+          },
+          "990": {
+            "html_present": true,
+            "word_present": true
+          }
+        },
+        "date_markers": {
+          "html": [
+            "UPDATED: \r\nJanuary 10, 2023"
+          ],
+          "word": [
+            "UPDATED:  "
+          ]
+        },
+        "status": "source_discrepancies_retained_pending_publisher_reconciliation"
+      }
+    ]
+  },
+  "limitations": [
+    "Three official documents parsed as bounded pilot; no complete jurisdiction export.",
+    "TOC/body numbering and Charter landing/header date conflicts retained as publisher source discrepancies; Word evidence does not authorize legal renumbering.",
+    "Title 21A source amendment/repeal/duplicate labels from earlier pilot remain outside this live three-document test.",
+    "Document equivalence here checks conflicting literal identifiers/dates; full Word/HTML paragraph parity is not claimed."
+  ],
+  "landing_evidence": {
+    "artifact": "/Users/oliverflint/My Drive/Claude/Projects/CompliSolv 2.00/outputs/local-extraction-e2e-2026-10-15/bulk-and-official-html/live/develop-king/source/browser/king-landing.html",
+    "receipt": {
+      "chars": 117178,
+      "sourceEncoding": "UTF-8",
+      "title": "King County Code - King County, Washington",
+      "url": "https://kingcounty.gov/en/dept/council/governance-leadership/county-legislation-codes/king-county-code",
+      "retrieved_at": "2026-10-15T18:48:39.873Z",
+      "transport": "supported Codex CUA",
+      "retained_encoding": "utf-8",
+      "original_http_bytes": false,
+      "sha256": "84ac60ad29457ab8b8c8dde8e7da54547759cb51be48554179884eebf28a1335",
+      "bytes": 117635,
+      "ready_selector": "h1",
+      "ready_text": "King County Code"
+    }
+  },
+  "outputs": [
+    {
+      "jurisdiction": "King County, WA",
+      "parser_version": "bulk-official-html-1",
+      "scope": "bounded_validation_sample",
+      "complete": false,
+      "source_version": "872853e5b0bc90b8d9f1d2f7f363ab4a35807e2198eb88c8a0d46b539651b782",
+      "records": 20,
+      "nodes": 24,
+      "raw_artifacts": [
+        {
+          "path": "raw/872853e5b0bc90b8_title2a.htm",
+          "sha256": "872853e5b0bc90b8d9f1d2f7f363ab4a35807e2198eb88c8a0d46b539651b782"
+        }
+      ],
+      "path": "output/title2a/run-manifest.json"
+    },
+    {
+      "jurisdiction": "King County, WA",
+      "parser_version": "bulk-official-html-1",
+      "scope": "bounded_validation_sample",
+      "complete": false,
+      "source_version": "14ac4e815063b95d2b9e1f333b0d4866874efc313f7a6e1de89082f8add70db1",
+      "records": 121,
+      "nodes": 137,
+      "raw_artifacts": [
+        {
+          "path": "raw/14ac4e815063b95d_title1.htm",
+          "sha256": "14ac4e815063b95d2b9e1f333b0d4866874efc313f7a6e1de89082f8add70db1"
+        }
+      ],
+      "path": "output/title1/run-manifest.json"
+    },
+    {
+      "jurisdiction": "King County, WA",
+      "parser_version": "bulk-official-html-1",
+      "scope": "bounded_validation_sample",
+      "complete": false,
+      "source_version": "4f104dd02bdbcc9b6a7e2dd9e5680247c6098281c73289c0f62469c917bc52c9",
+      "records": 120,
+      "nodes": 133,
+      "raw_artifacts": [
+        {
+          "path": "raw/4f104dd02bdbcc9b_charter.htm",
+          "sha256": "4f104dd02bdbcc9b6a7e2dd9e5680247c6098281c73289c0f62469c917bc52c9"
+        }
+      ],
+      "path": "output/charter/run-manifest.json"
+    }
+  ],
+  "ended_at": "2026-10-15T18:53:33.767565+00:00",
+  "artifacts": [
+    {
+      "path": "command-0.stderr.txt",
+      "sha256": "3effe2faf73a7810f4dd1055d73dbc879ad28f3462560fdd7683282931ba726d",
+      "bytes": 287
+    },
+    {
+      "path": "command-0.stdout.txt",
+      "sha256": "2e62005951ceab6b14b1ad5d92893a54447bc1e5040118e3fde576d8915b01cf",
+      "bytes": 55
+    },
+    {
+      "path": "command-1.stderr.txt",
+      "sha256": "3effe2faf73a7810f4dd1055d73dbc879ad28f3462560fdd7683282931ba726d",
+      "bytes": 287
+    },
+    {
+      "path": "command-1.stdout.txt",
+      "sha256": "5410df5990fafe1d5c0cde5256e2db49917f4813aa66c80d3078dd7eb1a373ef",
+      "bytes": 53
+    },
+    {
+      "path": "command-2.stderr.txt",
+      "sha256": "3effe2faf73a7810f4dd1055d73dbc879ad28f3462560fdd7683282931ba726d",
+      "bytes": 287
+    },
+    {
+      "path": "command-2.stdout.txt",
+      "sha256": "c49187bc8c9a3a8ebd593ee0afee92686a16b36ab93184932fffdbecb3dde8ce",
+      "bytes": 55
+    },
+    {
+      "path": "landing-inventory.json",
+      "sha256": "6323be7ea8c8e927320c2b152174040b29df9bdc4e0192610939eb3acc86f278",
+      "bytes": 22431
+    },
+    {
+      "path": "output/charter/aggregate-fulltext.csv",
+      "sha256": "71ad128afae5192486df7e30023367b506990449f76810e88a3c733c8d4768d6",
+      "bytes": 114337
+    },
+    {
+      "path": "output/charter/aggregate-fulltext.json",
+      "sha256": "722899794fea76d851f1b0fbedee3e001c9150f1eac81038cf7737d322276cb7",
+      "bytes": 157372
+    },
+    {
+      "path": "output/charter/aggregate-toc.csv",
+      "sha256": "c6b8be365778d00034af3b0e4ee8c5d2b3e38688a573ee81bc72ace416953e35",
+      "bytes": 25469
+    },
+    {
+      "path": "output/charter/aggregate-toc.json",
+      "sha256": "f55f34ae22f7f2c72a444afb5ed0154478fc3b1f3a9075b1ac70e10851fee6d7",
+      "bytes": 68446
+    },
+    {
+      "path": "output/charter/exceptions.jsonl",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "path": "output/charter/independent-section-toc.json",
+      "sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570",
+      "bytes": 3
+    },
+    {
+      "path": "output/charter/node-dispositions.jsonl",
+      "sha256": "625e2858225590d6b65bbaf01c113daa93a58a633bfe0c58aa4ecb792ac054ee",
+      "bytes": 25655
+    },
+    {
+      "path": "output/charter/publications/charter/fulltext.csv",
+      "sha256": "71ad128afae5192486df7e30023367b506990449f76810e88a3c733c8d4768d6",
+      "bytes": 114337
+    },
+    {
+      "path": "output/charter/publications/charter/fulltext.json",
+      "sha256": "722899794fea76d851f1b0fbedee3e001c9150f1eac81038cf7737d322276cb7",
+      "bytes": 157372
+    },
+    {
+      "path": "output/charter/publications/charter/toc.csv",
+      "sha256": "c6b8be365778d00034af3b0e4ee8c5d2b3e38688a573ee81bc72ace416953e35",
+      "bytes": 25469
+    },
+    {
+      "path": "output/charter/publications/charter/toc.json",
+      "sha256": "f55f34ae22f7f2c72a444afb5ed0154478fc3b1f3a9075b1ac70e10851fee6d7",
+      "bytes": 68446
+    },
+    {
+      "path": "output/charter/publications.json",
+      "sha256": "158afa3a9c125b101f271a5093057c91e2f429a99a4624fd570ab4deeb1fb2e4",
+      "bytes": 162
+    },
+    {
+      "path": "output/charter/raw/4f104dd02bdbcc9b_charter.htm",
+      "sha256": "4f104dd02bdbcc9b6a7e2dd9e5680247c6098281c73289c0f62469c917bc52c9",
+      "bytes": 382052
+    },
+    {
+      "path": "output/charter/record-provenance.jsonl",
+      "sha256": "51eb36488ce1b143985e4a66b33235866e3493b12d4e97c7d414765a2f4b3117",
+      "bytes": 144825
+    },
+    {
+      "path": "output/charter/run-manifest.json",
+      "sha256": "2ebdf350dcf2c2c09e98c89afbf3e37d2fa8cc2f8ffb57874d83ded533d0dfd4",
+      "bytes": 438
+    },
+    {
+      "path": "output/charter/source-nodes.jsonl",
+      "sha256": "3f45f9298205b4f9438f9e52c4d77d87dd92efe7ccbd535b14c524ff0524a965",
+      "bytes": 82272
+    },
+    {
+      "path": "output/title1/aggregate-fulltext.csv",
+      "sha256": "3ca06c6c9c9f5178522dcdbfbf4673f4c2db955a01d4122de2596a0972a79539",
+      "bytes": 217047
+    },
+    {
+      "path": "output/title1/aggregate-fulltext.json",
+      "sha256": "3506e73c5ef50ebaf5ff03a939f3df2ca1fdeb53e8fe4c859b362150601a8920",
+      "bytes": 261238
+    },
+    {
+      "path": "output/title1/aggregate-toc.csv",
+      "sha256": "eb674fe0b8603cdedb04ec8be62658ed45d2c4a96330316894370c4de786abbe",
+      "bytes": 32432
+    },
+    {
+      "path": "output/title1/aggregate-toc.json",
+      "sha256": "7e0ad8422e7644e0ff17cd4e4b914e623eaed52b946db6da4be1b172e8daf3e4",
+      "bytes": 75743
+    },
+    {
+      "path": "output/title1/exceptions.jsonl",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "path": "output/title1/independent-section-toc.json",
+      "sha256": "47f6cf0e88202f6ad0aca12fc23ab8ef48c7df1202451aa8c73149f236f2d9a2",
+      "bytes": 27987
+    },
+    {
+      "path": "output/title1/node-dispositions.jsonl",
+      "sha256": "65f67fe54852c95ca1b35a89c609c5665ab100cb2a3ca669aadb7da7263ca017",
+      "bytes": 26228
+    },
+    {
+      "path": "output/title1/publications/county-code/fulltext.csv",
+      "sha256": "3ca06c6c9c9f5178522dcdbfbf4673f4c2db955a01d4122de2596a0972a79539",
+      "bytes": 217047
+    },
+    {
+      "path": "output/title1/publications/county-code/fulltext.json",
+      "sha256": "3506e73c5ef50ebaf5ff03a939f3df2ca1fdeb53e8fe4c859b362150601a8920",
+      "bytes": 261238
+    },
+    {
+      "path": "output/title1/publications/county-code/toc.csv",
+      "sha256": "eb674fe0b8603cdedb04ec8be62658ed45d2c4a96330316894370c4de786abbe",
+      "bytes": 32432
+    },
+    {
+      "path": "output/title1/publications/county-code/toc.json",
+      "sha256": "7e0ad8422e7644e0ff17cd4e4b914e623eaed52b946db6da4be1b172e8daf3e4",
+      "bytes": 75743
+    },
+    {
+      "path": "output/title1/publications.json",
+      "sha256": "c49d83b593ebb78ea3e5e0877e10a97c8b75792c4657967de0c61c7b6497be1f",
+      "bytes": 166
+    },
+    {
+      "path": "output/title1/raw/14ac4e815063b95d_title1.htm",
+      "sha256": "14ac4e815063b95d2b9e1f333b0d4866874efc313f7a6e1de89082f8add70db1",
+      "bytes": 360392
+    },
+    {
+      "path": "output/title1/record-provenance.jsonl",
+      "sha256": "0fb8a92b93667a83f6d36ef86d1238eab1e707aeb207d68e58c7584da0197803",
+      "bytes": 253329
+    },
+    {
+      "path": "output/title1/run-manifest.json",
+      "sha256": "ca1b1c07702cf04106c0a4a882e04c84b57db5a1a2add3c515b83eb4259478eb",
+      "bytes": 437
+    },
+    {
+      "path": "output/title1/source-nodes.jsonl",
+      "sha256": "037ed2fd9ea2c309faeaaf328d566e1cca09c9bac841fe023521fe3b9395d018",
+      "bytes": 89907
+    },
+    {
+      "path": "output/title2a/aggregate-fulltext.csv",
+      "sha256": "f84efaf299d5a5ed064089cb346166b59c9abdaa984f12e3d556d1d7649eb076",
+      "bytes": 74439
+    },
+    {
+      "path": "output/title2a/aggregate-fulltext.json",
+      "sha256": "5e24a3c5942adb38f755fd22d3eea591a88c3747d067926834d75f10d82edfa9",
+      "bytes": 82193
+    },
+    {
+      "path": "output/title2a/aggregate-toc.csv",
+      "sha256": "ce1a3d7031a5ad0f38cfd7c2004f0dc595763977021a2e4261ae9ca6f0538632",
+      "bytes": 5961
+    },
+    {
+      "path": "output/title2a/aggregate-toc.json",
+      "sha256": "405ce1ba93399430484bffb155a3ea7e1fe9809b78d0cdfbf2d87c324ff1ad48",
+      "bytes": 13153
+    },
+    {
+      "path": "output/title2a/exceptions.jsonl",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "path": "output/title2a/independent-section-toc.json",
+      "sha256": "8506b6273c6baaceb16b73b56d4c6be1176f59c491c8046867b64309a99c79e5",
+      "bytes": 4967
+    },
+    {
+      "path": "output/title2a/node-dispositions.jsonl",
+      "sha256": "508ad114ec202061879e092ae8d2480f0b68240b2481b17072e3bf791e0bb08a",
+      "bytes": 4539
+    },
+    {
+      "path": "output/title2a/publications/county-code/fulltext.csv",
+      "sha256": "f84efaf299d5a5ed064089cb346166b59c9abdaa984f12e3d556d1d7649eb076",
+      "bytes": 74439
+    },
+    {
+      "path": "output/title2a/publications/county-code/fulltext.json",
+      "sha256": "5e24a3c5942adb38f755fd22d3eea591a88c3747d067926834d75f10d82edfa9",
+      "bytes": 82193
+    },
+    {
+      "path": "output/title2a/publications/county-code/toc.csv",
+      "sha256": "ce1a3d7031a5ad0f38cfd7c2004f0dc595763977021a2e4261ae9ca6f0538632",
+      "bytes": 5961
+    },
+    {
+      "path": "output/title2a/publications/county-code/toc.json",
+      "sha256": "405ce1ba93399430484bffb155a3ea7e1fe9809b78d0cdfbf2d87c324ff1ad48",
+      "bytes": 13153
+    },
+    {
+      "path": "output/title2a/publications.json",
+      "sha256": "b18e1c55d422366866bf1ac2b974edfa5254ed5a0c57deadea664a975670d4a8",
+      "bytes": 166
+    },
+    {
+      "path": "output/title2a/raw/872853e5b0bc90b8_title2a.htm",
+      "sha256": "872853e5b0bc90b8d9f1d2f7f363ab4a35807e2198eb88c8a0d46b539651b782",
+      "bytes": 143623
+    },
+    {
+      "path": "output/title2a/record-provenance.jsonl",
+      "sha256": "897b1bf212172421e4ab243803c4a7e9d1c0ab69a9e17d3441ff769bf0818776",
+      "bytes": 84735
+    },
+    {
+      "path": "output/title2a/run-manifest.json",
+      "sha256": "43ef9e8953eb22280276d52eb6021105b5a9c623f833e4e4c8b83ade0afe939b",
+      "bytes": 436
+    },
+    {
+      "path": "output/title2a/source-nodes.jsonl",
+      "sha256": "e060c101016bd1b0cf492b12e8b6ad480fbc5f57cf0b6805eb4112d8c93ac698",
+      "bytes": 16254
+    },
+    {
+      "path": "source/browser/king-landing.html",
+      "sha256": "84ac60ad29457ab8b8c8dde8e7da54547759cb51be48554179884eebf28a1335",
+      "bytes": 117635
+    },
+    {
+      "path": "source/browser/king-landing.html.capture.json",
+      "sha256": "308d9740ec72d15ec88914e7612c7e062e483db8af96cd087708ff8a5d7e7702",
+      "bytes": 532
+    },
+    {
+      "path": "source/charter.docx",
+      "sha256": "60087c939dc15d6fc9388987df47045cf51155df8fb1127e400ce1dc6a26a636",
+      "bytes": 96465
+    },
+    {
+      "path": "source/charter.docx.http.json",
+      "sha256": "1d3eb04aa35e50c0b78b8f542cd05bc85c167262cb16ebeff8d770a452fdef2f",
+      "bytes": 987
+    },
+    {
+      "path": "source/charter.htm",
+      "sha256": "4f104dd02bdbcc9b6a7e2dd9e5680247c6098281c73289c0f62469c917bc52c9",
+      "bytes": 382052
+    },
+    {
+      "path": "source/charter.htm.http.json",
+      "sha256": "05641fb8e1a05c3e9473a583ceb7f5fd6c544bb6b7ed881011f6e434b6946139",
+      "bytes": 898
+    },
+    {
+      "path": "source/title1.docx",
+      "sha256": "8bc1bd93efb98d004a4d2a0f1f70879695d8132a3b1183771294dd5f6cc967f2",
+      "bytes": 140351
+    },
+    {
+      "path": "source/title1.docx.http.json",
+      "sha256": "051a9b5530b1b64086ab866ae6839a81c62f3450b4e724c26ef54e2ac3af220c",
+      "bytes": 988
+    },
+    {
+      "path": "source/title1.htm",
+      "sha256": "14ac4e815063b95d2b9e1f333b0d4866874efc313f7a6e1de89082f8add70db1",
+      "bytes": 360392
+    },
+    {
+      "path": "source/title1.htm.http.json",
+      "sha256": "5c3dff8cdeb513d076bbf991991f0e940e2274ead488a6162632b9a14c798871",
+      "bytes": 898
+    },
+    {
+      "path": "source/title2a.docx",
+      "sha256": "1c7ff6922f93324773d457c17a74ca937bb4b1ea712b747f83572f7d235d2825",
+      "bytes": 63063
+    },
+    {
+      "path": "source/title2a.docx.http.json",
+      "sha256": "b0689e0abde0d1fc60072f0654681371ea843dff26ef130c475a9220da7a752f",
+      "bytes": 989
+    },
+    {
+      "path": "source/title2a.htm",
+      "sha256": "872853e5b0bc90b8d9f1d2f7f363ab4a35807e2198eb88c8a0d46b539651b782",
+      "bytes": 143623
+    },
+    {
+      "path": "source/title2a.htm.http.json",
+      "sha256": "eff581876383d78567f7b02c6fcae7ede8ad27cad3215658642c91d823f18fb9",
+      "bytes": 900
+    },
+    {
+      "path": "source-reconciliation.json",
+      "sha256": "71ffd993813b2e76277f8378eac85ca04a95558ac7ceb91b7e92176e3d54dd29",
+      "bytes": 13835
+    }
+  ]
+}

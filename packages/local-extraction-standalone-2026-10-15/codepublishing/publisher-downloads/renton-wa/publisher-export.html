@@ -1,0 +1,1537 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+  <html xmlns="http://www.w3.org/1999/xhtml">
+ <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta http-equiv="Content-Style-Type" content="text/css" />
+<style>
+body {font-family: Arial, Sans-serif;}
+
+a:link:active { color: #1263be;}
+a:link:hover { color: #1263be;}
+a:link { color: #02397c;}
+a:link:visited, a:visited { color: #1263be;}
+
+/*Styles for NT page*/
+#cityname, #codification, .codified, .cpc {
+   font-weight: bold;
+   text-align: left;
+	font-size: .9em;
+}
+#cityname {
+   margin-top: 3em;
+   font-size: 1.25em;
+}
+
+.cpc {  margin: 0;  padding-bottom: .5em; }
+
+/* Navigation buttons */
+
+#navTop {
+	text-align: right;
+	margin: 1em 1.8em;
+	padding-bottom: 1em;
+}
+#navBottom {
+	margin: 1em 1.8em;
+	padding-top: 1em;
+	text-align: left;
+}
+
+#navTop *, #navBottom *  {
+	text-decoration: none;
+}
+
+/* styles for the body of the code */
+
+#mainContent {
+	border:solid #000;
+	border-width:1px 0px;
+	margin: 1em 2em;
+	padding: 1.1em;
+}
+
+
+/*this is for dealing with city logos on the front page
+Since they are floated right, they can hang down into #navBottom
+*/
+#mainContent:after {
+	content: ".";
+	display: block;
+	height: 0;
+	clear: right;
+	visibility: hidden;
+}
+
+img { border:0px; }
+#mainContent img { display: block; margin: 1em auto; }
+#mainContent a img {border:1px solid;}
+#mainContent h3 img { border:0;vertical-align:bottom;float:right;margin:0px;	}
+#mainContent h2 img, #mainContent h1 img { border:0;vertical-align:top;float:right;margin:0px; }
+
+ h1, h2 {
+	font-size: 0.95em;
+	text-align:center;
+	margin:1em auto;
+}
+
+p, h3, h4 {
+	font-size: .85em;
+	line-height:1.5em;
+	margin: 0em;
+	font-style: normal;
+	font-variant: normal;
+	text-transform: normal;
+	vertical-align: baseline;
+	font-weight: normal;
+	text-align: left;
+}
+/* add default bottom margin, which we don't want in h3 */
+p { margin-bottom: 1em; }
+
+.Interpretation {
+    background-color: #D3D3D3;
+    border: 2px solid #ff0000;
+    font-weight: bold;
+    padding: 1em;
+    margin: 0.5em;
+    max-width: 600px;
+}
+
+.ArticleTOC, .digArt, .artdig {
+	margin-top: 1em;
+	text-align: center;
+}
+
+.Article, .DivisionTOC, .art, .digDiv, .digdiv, .Divdig, .divdig,
+.Rxhead, .CHRepealed, .TitleRepealed,  .RxHead,
+.TitleReserved, .CHReserved, .ReservedC, .CH, .CHTitle,
+.Division, .div, .divname, .DivisionName, .DivName,
+.TableTitle, .GraphicTitle, .Graphic, .graphic,
+.graphictitle, .graphicname, .heading1 {
+  font-weight: bold;
+  margin: 1em 0;
+  text-align: center;
+}
+
+.Center, .center, .CellBodyC, .cellbodyc, .CellC {
+  text-align: center;
+}
+
+.CellBodyR, .cellbodyr {
+	text-align: right;
+}
+
+.CellBodyIndent {	margin-left:1em; }
+.CellHeading {  font-weight: bold; text-align: center; }
+.CellBodyB {  font-weight: bold; }
+.CellHeadingL {  font-weight: bold; margin:0; }
+.CellHeadingR {  font-weight: bold;  text-align: right; }
+
+.CHTOC a, .CiteTOC a { text-decoration:none; font-weight:bold;}
+.CHTOC a:hover, .CiteTOC a:hover { text-decoration:underline; font-weight:bold;}
+.CHTOC {
+  font-weight: bold;
+}
+.desktop-view .CHTOC {
+  margin: 0 0 0 7em;
+  text-indent: -3.3em;
+  }
+
+.Cite, .SCL1 {
+  font-weight: bold;
+  margin-top: 1em;
+  vertical-align: baseline;
+}
+.desktop-view .CiteTOC {
+  margin: 0 0 0 7em;
+  text-indent: -5.8em;
+}
+
+.digCH, .ctoc {
+  font-weight: normal;
+  margin-top: 1em;
+  margin-bottom:0em;
+}
+.digTitle, .chtoc, .tocch {
+  font-weight: bold;
+}
+
+.desktop-view .digTitle, .desktop-view .chtoc, .desktop-view .tocch {
+  margin: 1em 0 0 2em;
+}
+
+.Footnote, .footnote, .FootNote, .Note, .note {
+  margin: 1em .8em;
+  font-size: .8em;
+  text-indent: -.8em;
+}
+
+.ordtab, td p.ordtab {
+  min-width:100px;
+  margin: 0;
+  margin-right: 0.9em;
+}
+
+.P0, .P0block, .P1, .P1block, .TableNote1 { margin-left: 0em;}
+.P2, .P2block, .TableNote2 {  margin-left: 2.3em; }
+.P3, .P3block, .TableNote3 {  margin-left: 4.3em; }
+.P4, .P4block, .TableNote4 {  margin-left: 6.3em; }
+.P5, .P5block, .TableNote5 {  margin-left: 8.3em; }
+.P6, .P6block, .TableNote6 {  margin-left: 9.3em; }
+.P7, .P7block, .TableNote7 {  margin-left: 11.3em; }
+
+.Q1 { font-size: .75em;  margin: 1em 2.3em; }
+
+.Q2 {
+  font-size: .75em;
+  margin: 1em 2.3em;
+  margin-left: 4.3em;
+}
+.Q3 {
+  font-size: .75em;
+  margin: 1em 2.3em;
+  margin-left: 6.3em;
+ }
+.Q4 {
+  font-size: .75em;
+  margin: 1em 2.3em;
+  margin-left: 8.3em;
+}
+.QC {
+  font-size: .75em;
+  margin: 1em 2.3em;
+  text-align:center;
+}
+
+.TableFootnote,  .HistoryNote {
+  font-weight: normal;
+  font-size: .75em;
+}
+
+.Title, .TitleName {
+  font-size: 1em;
+  font-weight: bold;
+  margin: 1em;
+  text-align: center;
+}
+
+.WAC {
+  margin-left: 5.5em;
+  text-indent: -5.5em;
+  margin-bottom:0em;
+}
+
+
+.underline, .under, .Underline, .Under {
+	text-decoration:underline;
+}
+.bold, .Bold {
+  font-weight: bold;
+}
+.bolditalic, .bold_italic, .BoldItalic, .ital, .Bold_Italic, .bold_Italic {
+  font-weight: bold;
+  font-style: italic;
+}
+.italic, .Italic, .emphasis, .Emphasis {
+  font-style: italic;
+}
+.EquationVariables {
+  font-family: Times New Roman;
+  font-style: italic;
+}
+.PolicyTitle {
+  font-size: 18pt;
+  font-weight: bold;
+  text-align: right;
+}
+.strikethrough, .Strikethrough, .strikeout, .Strikeout, .linethrough, .Linethrough, .line-through {
+	text-decoration: line-through;
+}
+.sub, .subscript, .Subscript, .sub, .Sub {
+  vertical-align: sub;
+  font-size:0.75em;
+}
+.super, .Superscript, .superscript, .Super {
+  vertical-align: super;
+  font-size:0.75em;
+  }
+
+ /* Table CSS */
+
+#mainContent table {
+	border-collapse: collapse;
+	margin: 1em auto;
+}
+
+table.hovercraft {
+	margin-top:0px !important;
+	margin-bottom:0px !important;
+}
+td,   tr{ background:white; }
+
+caption {
+	margin-left:auto;
+	margin-right:auto;
+	text-align:center;
+}
+
+td p, th p, caption p {
+	font-size: .8em;
+	margin-bottom:0em;
+}
+
+td { padding:3pt; text-align:left; }
+
+table.Ruled, table.RuledWithTitle, table.Format_B,
+table.TitleRules, table.Format_A {
+  border:1px solid black;
+}
+
+iframe {width:100%; height:300px;}
+
+table.minutes {
+	width: 100%;
+}
+
+table.minutes th, table.minutes td {
+	vertical-align: top;
+}
+
+table.minutes p.Bulleted {
+	margin-top: 1em;
+}
+
+
+/*
+box.jpg is for when codes have the little empty box symbol
+we're attaching it to a dummy class here so that even if it isn't being used
+it won't get deleted by the destroyExtraImages() function.
+Other just-in-case images coulde be added here.
+*/
+.validateMeBabyYeah {
+	background:url('../html/images/box.jpg') no-repeat top right;
+	background:url('../html/images/pdf.png') no-repeat top right;
+}
+</style>    <title>Renton</title>
+</head>
+<body>
+    <div id="mainContent">
+    <a id="start" />
+    <h1 style="page-break-before:auto" headertitle="Renton Municipal Code" headerdisc="The Renton Municipal Code is current through Ordinance 6197, passed August 10, 2026." class="Title"><a id="aI"></a>Title I<br />ADMINISTRATIVE</h1>
+            
+      
+        
+          
+            
+                            <p class="TitleTOC">1 Seal&nbsp;&nbsp;&nbsp;&nbsp;</p>
+
+            
+          
+        
+      
+      
+        
+          
+            
+                            <p class="TitleTOC">2 Ordinances&nbsp;&nbsp;&nbsp;&nbsp;</p>
+
+            
+          
+        
+      
+      
+        
+          
+            
+                            <p class="TitleTOC">3 Remedies And Penalties&nbsp;&nbsp;&nbsp;&nbsp;</p>
+
+            
+          
+        
+      
+      
+        
+          
+            
+                            <p class="TitleTOC">4 Mayor&nbsp;&nbsp;&nbsp;&nbsp;</p>
+
+            
+          
+        
+      
+      
+        
+          
+            
+                            <p class="TitleTOC">5 Council&nbsp;&nbsp;&nbsp;&nbsp;</p>
+
+            
+          
+        
+      
+      
+        
+          
+            
+                            <p class="TitleTOC">6 Code Of Ethics&nbsp;&nbsp;&nbsp;&nbsp;</p>
+
+            
+          
+        
+      
+      
+        
+          
+            
+                            <p class="TitleTOC">7 Representatives To Legislative And Administrative <br />Bodies&nbsp;&nbsp;&nbsp;&nbsp;</p>
+
+            
+          
+        
+      
+      
+        
+          
+            
+                            <p class="TitleTOC">8 Holidays&nbsp;&nbsp;&nbsp;&nbsp;</p>
+
+            
+          
+        
+      
+      
+        
+          
+            
+                            <p class="TitleTOC">9 Defense Of Employees, Officers And Volunteers&nbsp;&nbsp;&nbsp;&nbsp;</p>
+
+            
+          
+        
+      
+      
+        
+          
+            
+                            <p class="TitleTOC">10 Code Enforcement&nbsp;&nbsp;&nbsp;&nbsp;</p>
+
+            
+          
+        
+      
+    <h2 headertitle="Renton Municipal Code" headerdisc="The Renton Municipal Code is current through Ordinance 6197, passed August 10, 2026." class="CH"><a id="a1"></a>CHAPTER 1<br />SEAL</h2>
+            <p class="ctoc">SECTION:<span class="bold"> </span></p>
+
+            <p class="CiteTOC"><a href="#a1x1x1">1-1-1:&nbsp;&nbsp;&nbsp;&nbsp;Seal</a></p>
+
+      <h3 class="Cite"><a id="a1x1x1">1-1-1</a> SEAL:</h3>
+            <p class="P0">The following be, and is hereby adopted as the Municipal Seal of the City of Renton, State of Washington, to-wit: In the center of said seal the word &ldquo;SEAL&rdquo; surrounded by the words &ldquo;CITY OF RENTON. Incorporated September 6, 1901&rdquo;. (Ord. 2332, 5-15-67) </p>
+
+    <h2 headertitle="Renton Municipal Code" headerdisc="The Renton Municipal Code is current through Ordinance 6197, passed August 10, 2026." class="CH"><a id="a2"></a>CHAPTER 2<br />ORDINANCES</h2>
+            <p class="ctoc">SECTION:</p>
+
+            <p class="CiteTOC"><a href="#a1x2x1">1-2-1:&nbsp;&nbsp;&nbsp;&nbsp;Rules For Construction Of Ordinances And Amendments</a></p>
+
+            <p class="CiteTOC"><a href="#a1x2x2">1-2-2:&nbsp;&nbsp;&nbsp;&nbsp;Initiative And Referendum</a></p>
+
+            <p class="CiteTOC"><a href="#a1x2x3">1-2-3:&nbsp;&nbsp;&nbsp;&nbsp;Correction of Manifest Errors (Rep. by Ord. 5887)</a></p>
+
+      <h3 class="Cite"><a id="a1x2x1">1-2-1</a> RULES FOR CONSTRUCTION OF ORDINANCES AND AMENDMENTS:</h3>
+            <p class="P0">In the construction of the Compiled, Codified and Revised Ordinances and all ordinances amendatory thereof or supplementary thereto, the following rules shall be observed unless such construction would be inconsistent with the manifest intent of the legislative body or repugnant to the context of the ordinance.</p>
+
+            <p class="P1">A.&nbsp;&nbsp;&nbsp;&nbsp;Intent to Defraud: Whenever by any of the provisions of this Code, an intent to defraud is required in order to constitute an offense, it is sufficient if an intent appears to defraud any person, association or body politic or any combination of persons.</p>
+
+            <p class="P1">B.&nbsp;&nbsp;&nbsp;&nbsp;Title of Sections and Subsections: The title of any section or subsection of these compiled, codified and revised ordinances shall be deemed to in nowise restrict or qualify or to limit the effect of the provisions set forth and contained in such section or subsection.</p>
+
+            <p class="P1">C.&nbsp;&nbsp;&nbsp;&nbsp;Constitutionality, Effect of: Should any section, subsection or portion of these Compiled, Codified and Revised Ordinances or of any ordinance which may be hereafter passed, approved and published as required by law, be declared by any court of competent jurisdiction to be unconstitutional or void, such adjudication shall in no way affect the remaining portion of such section, subsection, part or portion of these compiled, codified and revised ordinances or of any such ordinances hereafter passed.</p>
+
+            <p class="P1">D.&nbsp;&nbsp;&nbsp;&nbsp;Definitions:</p>
+
+            <p class="P01">The singular number includes the plural.</p>
+
+            <p class="P01">Words used in the present include the future.</p>
+
+            <p class="P01">Words used in the masculine gender comprehend, as well, the feminine and neuter.</p>
+
+            <p class="P01">The word &ldquo;shall&rdquo; is mandatory.</p>
+
+            <p class="P01">The word &ldquo;may&rdquo; is discretionary.</p>
+
+            <p class="P01">Words prohibiting anything being done, except in accordance with a license or permit or authority from a board or officer, shall be construed as giving such board or officer power to license or permit or authorize such thing to be done.</p>
+
+            <p class="P01">DAY: Any twenty four (24) hour period from midnight to midnight; and the word MONTH, a calendar month unless otherwise expressed; and the word QUARTER, any three (3) month period, ending with the last day of March, June, September and December; the word YEAR, any one calendar year.</p>
+
+            <p class="P01">When any time is specified in these ordinances it shall mean standard time, as distinguished from solar time, and the words MIDNIGHT and NOON shall be taken to be midnight and noon standard time.</p>
+
+            <p class="P01">KNOWINGLY: Imports only a knowledge that the facts exist which brings the act or omission within the provisions herein contained. It does not require any knowledge of the unlawfulness of such act or omission.</p>
+
+            <p class="P01">LAND, REAL ESTATE and REAL PROPERTY: Includes lands, tenements, hereditaments, water rights, possessory rights and claims.</p>
+
+            <p class="P01">OATH: Includes &ldquo;affirmation&rdquo;, and the word SWEAR includes the word &ldquo;affirm&rdquo;. Every mode of oral statement under oath or affirmation is embraced in the term &ldquo;testify&rdquo; and every written one in the term &ldquo;dispose&rdquo;.</p>
+
+            <p class="P01">OWNER: As applied to a building or land shall include any part owner, joint owner, tenant in common, joint tenant or lessee of the whole or of a part of such land or building.</p>
+
+            <p class="P01">PERSON: Includes bodies politic and corporate, partnerships, associations and corporations.</p>
+
+            <p class="P01">PERSONAL PROPERTY: Includes every description of money, goods, chattels, effects, evidence of rights in action and written instruments by which any pecuniary obligation, right or title of and to property is created, acknowledged, transferred, increased, defeated, discharged or diminished and every right or interest therein.</p>
+
+            <p class="P01">PROPERTY: Includes both real and personal property.</p>
+
+            <p class="P01">SIGNATURE: Includes any name, mark or sign written with the intent to authenticate any instrument of writing.</p>
+
+            <p class="P01">STREET: Includes alleys, lanes, courts, boulevards, public ways, public squares, public places and sidewalks.</p>
+
+            <p class="P01">TENANT or OCCUPANT: As applied to a building or land, includes any person who occupies the whole or any part of such building or land whether alone or with others.</p>
+
+            <p class="P01">WILFULLY: When applied to the intent with which an act is done or omitted, implies simply a purpose or willingness to commit the act or make the omission referred to. It does not require any intent to violate law or to injure another to acquire an advantage.</p>
+
+            <p class="P01">WRITING: Includes printing, writing and typewriting.</p>
+
+            <p class="P1">E.&nbsp;&nbsp;&nbsp;&nbsp;Applicability: For the purposes of clarity, brevity and consistency, unless otherwise stated or superseded by state law or case law, any reference to the Renton Municipal Code, or any chapter, section or subsection of the Renton Municipal Code, shall mean and require the application of the most recent amendment, version, or iteration of the Renton Municipal Code or any of its chapters, sections or subsections. The preceding sentence takes the place of and eliminates the need for the use of the phrase, &ldquo;as it exists or may be amended&rdquo; or any other phrase that conveys the same or a similar point.</p>
+
+            <p class="P01">This subsection applies to existing code provisions as well as future code amendments. (1957 Code; Ord. 5725, 10-13-14)</p>
+
+      <h3 class="Cite"><a id="a1x2x2">1-2-2</a> INITIATIVE AND REFERENDUM:</h3>
+            <p class="P0">In pursuance of chapter 81, laws of 1973, 1st. Ex. Session (Senate Bill No. 2190) the City of Renton hereby elects to adopt, as a non-charter code city, the powers of initiative and referendum as set forth therein.</p>
+
+            <p class="P01">Any and all ordinances hereafter passed and adopted by the City shall not go into effect prior to thirty (30) days from the time of final passage and same shall be subject to referendum during the interim except the following ordinances:</p>
+
+            <p class="P1">A.&nbsp;&nbsp;&nbsp;&nbsp;Ordinances initiated by petition;</p>
+
+            <p class="P1">B.&nbsp;&nbsp;&nbsp;&nbsp;Ordinances necessary for the immediate preservation of public peace, health and safety or for the support of City government and its existing public institutions which contain a statement of urgency and are passed by unanimous vote of the Council;</p>
+
+            <p class="P1">C.&nbsp;&nbsp;&nbsp;&nbsp;Ordinances providing for local improvement districts;</p>
+
+            <p class="P1">D.&nbsp;&nbsp;&nbsp;&nbsp;Ordinances appropriating money;</p>
+
+            <p class="P1">E.&nbsp;&nbsp;&nbsp;&nbsp;Ordinances providing for or approving collective bargaining agreements;</p>
+
+            <p class="P1">F.&nbsp;&nbsp;&nbsp;&nbsp;Ordinances providing for the compensation of or working conditions of City employees and agents;</p>
+
+            <p class="P1">G.&nbsp;&nbsp;&nbsp;&nbsp;Ordinances authorizing or repealing the levy of taxes; and all such excepted ordinances shall go into effect as provided by the general law or by applicable sections of title 35A RCW as now existing or as hereafter amended.</p>
+
+            <p class="P01">All powers of initiative and referendum shall be exercised in the manner set forth for the commission form of government in RCW 35.17.240 to 35.17.360 inclusive, as now or hereafter amended, except as otherwise provided in this Section <a href="#a1x2x2">1-2-2</a>, and except that the number of registered voters required to sign any petition for an initiative or referendum shall be fifteen percent (15%) of the total number of names or persons listed as registered voters within the City on the day of the last preceding City general election. (Ord. 2798, 9-10-73)</p>
+
+      <h3 class="Cite"><a id="a1x2x3">1-2-3</a> CORRECTION OF MANIFEST ERRORS:</h3>
+            <p class="P0">(Rep. by Ord. 5887, 9-17-18)</p>
+
+    <h2 headertitle="Renton Municipal Code" headerdisc="The Renton Municipal Code is current through Ordinance 6197, passed August 10, 2026." class="CH"><a id="a3"></a>CHAPTER 3<br />REMEDIES AND PENALTIES</h2>
+            <p class="ctoc">SECTION:</p>
+
+            <p class="CiteTOC"><a href="#a1x3x1">1-3-1:&nbsp;&nbsp;&nbsp;&nbsp;Penalties</a></p>
+
+            <p class="CiteTOC"><a href="#a1x3x2">1-3-2:&nbsp;&nbsp;&nbsp;&nbsp;Code Enforcement</a></p>
+
+            <p class="CiteTOC"><a href="#a1x3x3">1-3-3:&nbsp;&nbsp;&nbsp;&nbsp;Nuisances</a></p>
+
+            <p class="CiteTOC"><a href="#a1x3x4">1-3-4:&nbsp;&nbsp;&nbsp;&nbsp;Definitions (Rep. by Ord. 5629)</a></p>
+
+            <p class="CiteTOC"><a href="#a1x3x5">1-3-5:&nbsp;&nbsp;&nbsp;&nbsp;Unfit Dwellings, Buildings And Structures (Rep. by Ord. 5629)</a></p>
+
+      <h3 class="Cite"><a id="a1x3x1">1-3-1</a> PENALTIES:</h3>
+            <p class="P1">A.&nbsp;&nbsp;&nbsp;&nbsp;General Penalty:</p>
+
+            <p class="P2">1.&nbsp;&nbsp;&nbsp;&nbsp;Unless otherwise specified, any person who commits any act declared by any of the provisions of the Renton Municipal Code to be unlawful conduct, or any unlawful act for which there is no stated penalty, or who shall fail to comply therewith; or who shall violate or fail to comply with any order made thereunder; or who shall fail to perform any act or discharge any obligation or duty required by or imposed upon him or her by any ordinance for which there is no stated penalty; shall severally, for each and every such unlawful act, violation and noncompliance, respectively, be guilty of a misdemeanor.</p>
+
+            <p class="P2">2.&nbsp;&nbsp;&nbsp;&nbsp;No individual, group of individuals, firm, or entity shall use land or premises or construct in violation of any detailed statement of specifications or plans submitted and approved thereunder, or any certificate or permit issued thereunder, and from which no appeal has been taken. The penalty for violating this provision shall be a misdemeanor.</p>
+
+            <p class="P1">B.&nbsp;&nbsp;&nbsp;&nbsp;Additional Remedies: This section does not preclude, and is in addition to, administrative and civil remedies set forth in this code. The charging authority shall, under the provisions of this code, have the authority to pursue remedial remedies, punitive remedies, or both. If, in the opinion of the charging authority, a violation of this code may be ameliorated through the code enforcement process, then the City and its personnel are authorized to administer that process in accordance with Chapter <a href="#a10">1-10</a> RMC. If, however, in the opinion of the charging authority, a code violation presents a risk to the health, safety, or welfare of a member(s) of the general public, or the remedial measures are unnecessary, ineffective, or unsuccessful, then a criminal remedy may be sought by the charging authority. (Ord. 6034, 11-15-21)</p>
+
+            <p class="P1">C.&nbsp;&nbsp;&nbsp;&nbsp;Criminal Penalties: Any person convicted of a criminal violation of any section of the Renton Municipal Code shall be punished in accordance with RCW 9A.20.021(2) and (3), as now or hereafter amended, for gross misdemeanors and misdemeanors, with the exception that the imposition of jail time can be at any appropriate facility and is not limited to a county jail. Whenever a specific penalty or range of penalties has been established for a crime by the State Legislature and that crime has been incorporated into the Renton Municipal Code, either directly or by reference, then the penalty ranges established by the Legislature shall supersede this provision. </p>
+
+            <p class="P1">D.&nbsp;&nbsp;&nbsp;&nbsp;Civil Infraction: A violation of any ordinance which is deemed a civil infraction in this code shall constitute a class 1 civil infraction pursuant to Chapter 7.80 RCW, and any such person shall be assessed a monetary penalty of up to two hundred fifty dollars ($250.00).</p>
+
+            <p class="P1">E.&nbsp;&nbsp;&nbsp;&nbsp;Continuing Violation: Where any act which is of a continuing nature is forbidden or declared to be unlawful, each day or portion of a day such duty or obligation remains unperformed or such act continues shall constitute a separate offense.</p>
+
+            <p class="P1">F.&nbsp;&nbsp;&nbsp;&nbsp;Suspension or Revocation of Permits/Licenses: In addition to other penalties provided for elsewhere, the City may suspend or revoke a permit or license if it finds that the applicant or permittee has not complied with any or all conditions or limitations set forth in the permit, has exceeded the scope of work set forth in the permit, or has failed to undertake the project in a manner set forth in the approved application. (Ord. 4462, 7-25-94; amd. Ord. 4723, 5-11-98; Ord. 4835, 3-27-00; Ord. 4856, 8-21-00; Ord. 5196, 2-13-06; Ord. 5635, 11-14-11; Ord. 5664, 6-11-12; Ord. 5831, 1-23-17)</p>
+
+      <h3 class="Cite"><a id="a1x3x2">1-3-2</a> CODE ENFORCEMENT:</h3>
+            <p class="P0">All references in the Renton Municipal Code to Section <a href="#a1x3x2">1-3-2</a> shall be governed by Chapter <a href="#a10">1-10</a> RMC. (Ord. 6034, 11-15-21)</p>
+
+      <h3 class="Cite"><a id="a1x3x3">1-3-3</a> NUISANCES:</h3>
+            <p class="P1">A.&nbsp;&nbsp;&nbsp;&nbsp;Purpose: Unlawful, unkempt, unsafe, unsanitary, improperly maintained premises, properties, sidewalks and easements, premises where illegal and/or code violating conduct occur, and nuisances and chronic nuisance properties within the City, create potentially grave habitability, health, safety, sanitation, and welfare concerns for the City, its residents and guests, and for the value and economic well-being of the premises and properties and premises and/or property owners in Renton.</p>
+
+            <p class="P2">These nuisances are a financial burden on the City because repeated calls for service, complaints or requests for investigations and/or inspections of suspected nuisances require the time and resources of the City administration, the Renton Police Department, the City Attorney Department and the court. These nuisances include not only those on private residential properties, but also those on private commercial properties that fail to provide adequate and properly trained security and/or supervision, which results in calls for service for incidents that could have been prevented or limited with adequate security and/or supervision. Therefore, it is the purpose and intent of the City, in enacting this Chapter, to ameliorate nuisances and hold those persons responsible criminally and financially accountable.</p>
+
+            <p class="P2">It is also the purpose of this Chapter to provide the City&rsquo;s representatives with the necessary powers to prevent, remedy and/or abate nuisances and to charge those responsible for the abatement costs. This Chapter is a reasonable and proper exercise of the City&rsquo;s police power with a rational relationship toward fostering or preserving the public peace, safety, health, morals or welfare, and it shall be liberally construed to effect this purpose. This Chapter&rsquo;s remedies are not exclusive and remedies available under federal, state or other local laws may also apply.</p>
+
+            <p class="P2">Consistent with RCW 35.80.030(7) (entitled Permissible Ordinances &ndash; Appeal), the City of Renton is (a) prescribing minimum standards for the use and occupancy of dwellings throughout the municipality, (b) prescribing minimum standards for the use or occupancy of any building, structure, or premises used for any other purpose, (c) preventing the use or occupancy of any dwelling, building, structure, or premises, that is injurious to the public health, safety, morals, or welfare, and (d) prescribing punishment for the violation of any provision of such ordinance. Renton&rsquo;s authority includes but is not limited to RCW 35A.21.160 which grants to code cities &ldquo;all of the powers of which any city of any class may have&rdquo; and RCW 35.22.280(30) which permits a city to declare and abate nuisances, and to impose fines upon those responsible for nuisances. </p>
+
+            <p class="P2">Finally, to ensure that this section and any related section or subsection is appropriately and lawfully applied with a fair and non-disparate impact on members and segments of the community, the City of Renton declares that chronic nuisance offenses and chronic nuisance calls for service shall not include or apply to calls of victims or survivors of domestic violence, sex-related offenses, stalking, or any person requiring or requesting necessary medical attention on their own behalf or on the behalf of another. Further, these specified calls by or on behalf of victims or survivors of domestic violence, sex-related offenses, stalking, or those requiring or requesting necessary medical attention shall not be a basis for the abatement or eviction of these specified persons under this ordinance. (Ord. 5752, 2-9-15; Ord. 5769, 9-28-15)</p>
+
+            <p class="P1">B.&nbsp;&nbsp;&nbsp;&nbsp;Definitions: For the purposes of this Chapter, unless it is plainly evident from context that a different meaning is intended, the following words and phrases shall be defined as follows, and the singular and plural of each word shall be interchangeable when necessary to carry out the intent of this Chapter:</p>
+
+            <p class="P2">1.&nbsp;&nbsp;&nbsp;&nbsp;&ldquo;Abate&rdquo; means to clean, eliminate, remove, repair or otherwise remedy a condition that amounts to a nuisance under this Chapter by such manner, means, and to the extent as an Administrator or law enforcement officer determines is reasonably necessary to protect the general health, morals, safety and welfare of the City of Renton, and/or its citizens or guests. (Ord. 5752, 2-9-15)</p>
+
+            <p class="P2">2.&nbsp;&nbsp;&nbsp;&nbsp;&ldquo;Act&rdquo; means doing, finishing, performing, or preparing to do something.</p>
+
+            <p class="P2">3.&nbsp;&nbsp;&nbsp;&nbsp;&ldquo;Administrator&rdquo; means a City of Renton department administrator or designee.</p>
+
+            <p class="P2">4.&nbsp;&nbsp;&nbsp;&nbsp;&ldquo;Calls for service&rdquo; means calls or communications to 911, including but not limited to Valley Communications, and/or calls or communications directly to the Renton Police Department or one of its officers, or the viewing of an offense by an officer. Calls for service, as that term is used in the definition of &ldquo;chronic nuisance premises,&rdquo; does not include incidents that have no nexus to or that are unrelated to the chronic nuisance premises, its resident(s), owner(s), guests, patrons, or calls for general information. (Ord. 5752, 2-9-15)</p>
+
+            <p class="P2">5.&nbsp;&nbsp;&nbsp;&nbsp;&ldquo;Chronic nuisance premises&rdquo;:</p>
+
+            <p class="P3">a.&nbsp;&nbsp;&nbsp;&nbsp;As it relates to single-family or duplex housing, an individual apartment unit, or a building, structure or business used for commercial, retail, or entertainment purposes, or the area within two hundred feet (200&#39;) of such premises, including those regulated by the Liquor Control Board, and including public, private, commercial or industrial parking lots within two hundred feet (200&#39;) of such premises, &ldquo;chronic nuisance premises&rdquo; means a property on which any of the following exists or has occurred:</p>
+
+            <p class="P4">i.&nbsp;&nbsp;&nbsp;&nbsp;Six (6) or more calls for service during any sixty (60)-day period; or</p>
+
+            <p class="P4">ii.&nbsp;&nbsp;&nbsp;&nbsp;Ten (10) or more calls for service during any one hundred and eighty (180)-day period; or </p>
+
+            <p class="P4">iii.&nbsp;&nbsp;&nbsp;&nbsp;Fourteen (14) or more calls for service during any twelve (12)-month period;</p>
+
+            <p class="P3">b.&nbsp;&nbsp;&nbsp;&nbsp;Any action against a &ldquo;chronic nuisance premises&rdquo; and/or its owner, managing agent or person in control for a violation under RMC <a href="#a1x3x3">1-3-3</a>.B.5.a.i does not preclude the use of those nuisances or criminal activities to find a violation of RMC <a href="#a1x3x3">1-3-3</a>.B.5.a.ii or iii; and a violation under RMC <a href="#a1x3x3">1-3-3</a>.B.5.a.i and/or ii does not preclude the use of those nuisances or criminal activities to find a violation of RMC <a href="#a1x3x3">1-3-3</a>.B.5.a.iii as long as all of the nuisances or criminal activities occurred during the applicable time period. If any of the incidents that make up a &ldquo;chronic nuisance&rdquo; constitute a criminal offense, the incident may be charged separately as a criminal offense. (Ord. 5752, 2-9-15)</p>
+
+            <p class="P2">6.&nbsp;&nbsp;&nbsp;&nbsp;&ldquo;Criminal violation&rdquo; means any violation punishable under RCW 9A.20.021(2) or (3). (Ord. 5752, 2-9-15)</p>
+
+            <p class="P2">7.&nbsp;&nbsp;&nbsp;&nbsp;&ldquo;Code Compliance Inspector&rdquo; (CCI) or &ldquo;Code Enforcement Officer&rdquo; (CCO) means any person authorized by an Administrator to investigate or inspect for code violations.</p>
+
+            <p class="P2">8.&nbsp;&nbsp;&nbsp;&nbsp;&ldquo;Control&rdquo; means the ability to dominate, govern, manage, own or regulate a premises, or the conduct that occurs in or on a premises.</p>
+
+            <p class="P2">9.&nbsp;&nbsp;&nbsp;&nbsp;&ldquo;Development&rdquo; means the alteration, demolition, enlargement, erection, maintenance or use of any premises or the alteration or use of any land above, at or below ground or water level, and all acts authorized by a City regulation or ordinance.</p>
+
+            <p class="P2">10.&nbsp;&nbsp;&nbsp;&nbsp;&ldquo;Drug-related activity&rdquo; means any activity at a premises that violates Chapter 69.41 RCW (Legend Drugs), Chapter 69.50 RCW (Uniform Controlled Substances Act), Chapter 69.51A (Medical Marijuana) or 69.52 RCW (Imitation Controlled Substances), Chapter 69.53 RCW (Use of Buildings for Unlawful Drugs) or any applicable federal, state or local law regulating the same general subject-matter. (Ord. 5752, 2-9-15)</p>
+
+            <p class="P2">11.&nbsp;&nbsp;&nbsp;&nbsp;&ldquo;Emergency&rdquo; means any situation which an Administrator or law enforcement reasonably believes requires immediate action to prevent or eliminate an immediate threat to public health, morals, safety, or welfare of persons or property in the City of Renton, or to evaluate a condition immediately after a life-threatening or actual loss of life situation has occurred. (Ord. 5752, 2-9-15)</p>
+
+            <p class="P2">12.&nbsp;&nbsp;&nbsp;&nbsp;&ldquo;General public&rdquo; means the City of Renton, any of its communities or neighborhoods, or more than one (1) citizen, neighbor and/or their guests. (Ord. 5705, 3-17-14)</p>
+
+            <p class="P2">13.&nbsp;&nbsp;&nbsp;&nbsp;&ldquo;Gross misdemeanor&rdquo; means any criminal violation punishable under RCW 9A.20.021(2). (Ord. 5752, 2-9-15)</p>
+
+            <p class="P2">14.&nbsp;&nbsp;&nbsp;&nbsp;&ldquo;Hearing Examiner&rdquo; means an individual authorized to hear administrative appeals and designated matters for the City of Renton.</p>
+
+            <p class="P2">15.&nbsp;&nbsp;&nbsp;&nbsp;&ldquo;Incurred expense&rdquo; includes, but is not limited to, actual, direct or indirect, appeal costs, fees and expenses; attorney, expert, filing and litigation costs, fees and expenses; hearing costs and expenses; copy, documentation, and investigation costs and expenses; notice, contract and inspection costs and expenses; personnel expenses; hauling, disposal and storage costs and expenses; preparation, travel and parking costs, fees and expenses; photocopying, mailing and service costs and expenses. All such costs and expenses shall constitute a lien against the affected property, as set forth in subsection G.6 of this Section.</p>
+
+            <p class="P2">16.&nbsp;&nbsp;&nbsp;&nbsp;&ldquo;Material statement&rdquo; means any written or oral statement reasonably likely to be relied upon by a public servant in the discharge of his or her official powers or duties.</p>
+
+            <p class="P2">17.&nbsp;&nbsp;&nbsp;&nbsp;&ldquo;Misdemeanor&rdquo; means any criminal violation punishable under RCW 9A.20.021(3). (Ord. 5752, 2-9-15)</p>
+
+            <p class="P2">18.&nbsp;&nbsp;&nbsp;&nbsp;&ldquo;Monetary penalty&rdquo; means any cost, fines or penalties related to violation of this Chapter, including but not limited to actual fines or penalties to be paid as a result of a nuisance.</p>
+
+            <p class="P2">19.&nbsp;&nbsp;&nbsp;&nbsp;&ldquo;Nuisance&rdquo; (or &ldquo;nuisance violation&rdquo;) means but is not limited to:</p>
+
+            <p class="P3">a.&nbsp;&nbsp;&nbsp;&nbsp;&ldquo;Moral&rdquo; or &ldquo;public&rdquo; nuisances, even if the extent of the damage is unequal, that is detrimental to the general public. For the purpose of this subsection, moral or public nuisances shall not be limited to the state&rsquo;s definition of moral or public nuisances; (Ord. 5705, 3-17-14)</p>
+
+            <p class="P3">b.&nbsp;&nbsp;&nbsp;&nbsp;Any unreasonable interference with the general public&rsquo;s common right, such as unlawfully obstructing the free use of public property, or any act or omission that adversely and unreasonably impacts the general public&rsquo;s ability to enjoy private property;</p>
+
+            <p class="P3">c.&nbsp;&nbsp;&nbsp;&nbsp;Violation of any federal, state or county regulation, land use, navigation, public health or morals ordinance or criminal law, whether adopted or not by the City of Renton;</p>
+
+            <p class="P3">d.&nbsp;&nbsp;&nbsp;&nbsp;Violation of any section of the RMC identified as unlawful and/or a nuisance under Development Regulations (RMC Title IV), Finance and Business Regulations (RMC Title V), Police Regulations (RMC Title VI), Health and Sanitation (RMC Title VIII), Public Ways and Property (RMC Title IX), Traffic (RMC Title X), or public health or morals ordinance or criminal law;</p>
+
+            <p class="P3">e.&nbsp;&nbsp;&nbsp;&nbsp;Anything defined by RCW 7.48.140 (Public nuisances enumerated), Chapter 7.48A RCW (Moral nuisances), or which constitutes a misdemeanor under RCW 9.66.010 (Public nuisance) or RMC 6-18-11 (Breach of the Public Peace);</p>
+
+            <p class="P3">f.&nbsp;&nbsp;&nbsp;&nbsp;Acting, failing to act, permitting or allowing any act or failure in the use of a rental premises for criminal purposes. Both the person in charge and the owner(s) of the premises shall be responsible for the nuisance;</p>
+
+            <p class="P3">g.&nbsp;&nbsp;&nbsp;&nbsp;For clarity, nuisances that violate this subsection B.19 include but are not limited to any of the following conditions:</p>
+
+            <p class="P4">i.&nbsp;&nbsp;&nbsp;&nbsp;Beekeeping: The existence of any bees, yellow jackets, hornets, or wasps that harbor in colonies, hives, apiaries or nests which are not authorized by ordinance or statute and are not in full compliance with Chapter 15.60 RCW (Apiaries) or Chapter 16-602 WAC (Apiaries);</p>
+
+            <p class="P4">ii.&nbsp;&nbsp;&nbsp;&nbsp;Dumping: Any violation of RMC 6-14-16 (Dropping Litter from Air Craft), RCW 70.95.240 (Unlawful to dump or deposit solid waste without permit &ndash; Penalties &ndash; Litter cleanup restitution payment), and any applicable rule or regulation; (Ord. 5766, 9-21-2015)</p>
+
+            <p class="P4">iii.&nbsp;&nbsp;&nbsp;&nbsp;Dumping in Waterways: Any violation of RMC 6-14-10 (Litter in Lakes and Fountains), WAC 332-30-117.6 (Waterways), WAC 332-30-139.3 (Marinas and moorages), WAC 332-30-163.9, 10 and 13 (River management), WAC 332-30-166.1 and 2 (Open water disposal sites), WAC 332-30-171.4 (Residential uses on state-owned aquatic lands), or any dumping of materials, waste, chemicals, or other substances in or near waterways.</p>
+
+            <p class="P4">iv.&nbsp;&nbsp;&nbsp;&nbsp;Vegetation:</p>
+
+            <p class="P5">(a)&nbsp;&nbsp;&nbsp;&nbsp;Vegetation exceeding twelve inches (12&quot;) in height (exclusive of plants and flowers within a flower bed or container, shrubbery, or trees) located in any front, back or side yard, adjacent public right-of-way or planting strip, or any vacant property;</p>
+
+            <p class="P5">(b)&nbsp;&nbsp;&nbsp;&nbsp;Vegetation such as overhanging limbs or branches that are less than eight feet (8&#39;) above a public walkway or sidewalk, or less than fourteen feet (14&#39;) above a public street;</p>
+
+            <p class="P5">(c)&nbsp;&nbsp;&nbsp;&nbsp;Vegetation that obstructs or hinders the use of any public walkway, sidewalk, or street, or that obstructs or obscures the view of traffic or traffic control devices;</p>
+
+            <p class="P5">(d)&nbsp;&nbsp;&nbsp;&nbsp;Cut vegetation that is left on property, including but not limited to trees, shrubs or plants, that has not been placed in a yard-waste or otherwise disposed of lawfully;</p>
+
+            <p class="P5">(e)&nbsp;&nbsp;&nbsp;&nbsp;Dead, decaying or diseased trees or branches that pose a threat to human life or property;</p>
+
+            <p class="P5">(f)&nbsp;&nbsp;&nbsp;&nbsp;Fire hazard grass(es), plant(s), or weed(s); or</p>
+
+            <p class="P5">(g)&nbsp;&nbsp;&nbsp;&nbsp;Noxious weeds or any toxic vegetation growth;</p>
+
+            <p class="P4">v.&nbsp;&nbsp;&nbsp;&nbsp;Nuisances that do not affect the general community or more than one household are private nuisances and are not regulated under this definition;</p>
+
+            <p class="P4">vi.&nbsp;&nbsp;&nbsp;&nbsp;No lapse of time can legalize a nuisance, public nuisance, moral nuisance or chronic nuisance;</p>
+
+            <p class="P3">h.&nbsp;&nbsp;&nbsp;&nbsp;The following shall not constitute public nuisances:</p>
+
+            <p class="P4">i.&nbsp;&nbsp;&nbsp;&nbsp;Compost piles less than four feet (4&#39;) in height and six feet (6&#39;) in diameter at ground level, and 30 feet (30&#39;) or more from any dwelling, and four feet (4&#39;) or more from adjoining properties;</p>
+
+            <p class="P4">ii.&nbsp;&nbsp;&nbsp;&nbsp;Storm debris within thirty (30) days following a storm event;</p>
+
+            <p class="P4">iii.&nbsp;&nbsp;&nbsp;&nbsp;Construction residue and debris during and for fourteen (14) days following completion of work, unless the residue and/or debris is substantially or unreasonably impacting the general public;</p>
+
+            <p class="P4">iv.&nbsp;&nbsp;&nbsp;&nbsp;Fallen leaves, tree needles, tree fruit and similar vegetation, during the months of October through April, inclusive, except when located on public sidewalks;</p>
+
+            <p class="P4">v.&nbsp;&nbsp;&nbsp;&nbsp;The accumulation and temporary storage, in containers designated for such purposes, of recyclable materials pursuant to a program of recycling adopted by the City; provided, however, that such containers must not be publicly visible or they must be made available to the City&rsquo;s garbage or recycle contractor within fourteen (14) days after having been filled to fifty percent (50%) or more of their capacity;</p>
+
+            <p class="P4">vi.&nbsp;&nbsp;&nbsp;&nbsp;Uncultivated, uncut or untended weeds, grass, bushes or other vegetation not constituting a health or fire hazard, existing in a natural state on undeveloped, agricultural, native growth easement or defined critical areas such as wetlands, streams, and steep slopes. (Ord. 5752, 2-9-15)</p>
+
+            <p class="P2">20.&nbsp;&nbsp;&nbsp;&nbsp;&ldquo;Omission&rdquo; means a failure to act, complete, or to perform a legal duty.</p>
+
+            <p class="P2">21.&nbsp;&nbsp;&nbsp;&nbsp;&ldquo;Person&rdquo; means any individual, firm, association, partnership, corporation or any entity, public or private.</p>
+
+            <p class="P2">22.&nbsp;&nbsp;&nbsp;&nbsp;&ldquo;Person in control&rdquo; means any person who possesses or has control over the premises, or who is responsible for creating, maintaining or permitting the nuisance, whether as owner, tenant, occupant, or otherwise. There may be more than one person in control for purposes of this Chapter. (&ldquo;Possess&rdquo; in this context means to live in, or stay at a premises, and/or to literally possess or have their name on a title, deed, mortgage or an agreement related to the premises.) If the person in control is not the legal owner, the person in control and owner are both jointly liable for any chronic nuisance. Both the owner and person in control are subject to the provisions and remedies of this Chapter. Application of this Chapter against one party does not preclude application to another party who is an owner or person in control of a chronic nuisance premises. There is a presumption that a person in control is aware of or has knowledge of the condition at a premises as well as whether there are any nuisances or chronic nuisances at the premises. This presumption may be rebutted by substantiated proof of a serious incapacitating health concern or serious mental defect. (Ord. 5752, 2-9-15)</p>
+
+            <p class="P2">23.&nbsp;&nbsp;&nbsp;&nbsp;&ldquo;Rental property&rdquo; means any premises that is rented or intended to be rented, possessed whole or in part by a tenant, occupant, or otherwise, other than the owner, regardless of the manner of remuneration or the absence of remuneration. The owner in this context is any person or business entity, including but not limited to corporations, limited liability entities, and partnerships that own, operate, manage, maintain or control rental housing or rental property. The following are not rental housing or property:</p>
+
+            <p class="P3">a.&nbsp;&nbsp;&nbsp;&nbsp;A retail, commercial or industrial rental, unless someone is permitted to reside, sleep or stay overnight in that premises;</p>
+
+            <p class="P3">b.&nbsp;&nbsp;&nbsp;&nbsp;A registered and licensed nursing home; or</p>
+
+            <p class="P3">c.&nbsp;&nbsp;&nbsp;&nbsp;A properly registered and licensed assisted living facility.</p>
+
+            <p class="P2">24.&nbsp;&nbsp;&nbsp;&nbsp;&ldquo;Premises&rdquo; means any building, factory-built house, dwelling, house, mobile home, property, rental unit or property, or portion thereof, including, but not limited to, any building or structure used as a residential or commercial property, built for the support, shelter or enclosure of any persons, animals, chattels or property, or any building or structure used for commercial, retail or entertainment purposes, including those regulated by the Liquor Control Board, or the area within two hundred feet (200&#39;) of what is defined as a premises. &ldquo;Premises&rdquo; and &ldquo;property&rdquo; may be used interchangeably in this Chapter. As a result, &ldquo;premises&rdquo; may also mean lot, tax parcel, real estate or land, or portions thereof. (Ord. 5696, 11-4-13)</p>
+
+            <p class="P2">25.&nbsp;&nbsp;&nbsp;&nbsp;&ldquo;Premises for illegal activities&rdquo; means any premises operated, used or permitted to be used for prostitution, the illegal manufacture of liquor, illegal gambling, illegal drug usage, illegal drug selling, trading or dispensing pursuant to Chapter 7.43 RCW, or is maintained as a place for persons who appear to be under the influence of a controlled substance or alcohol. It also means a premises operated, used or permitted to be used for gang or gang-related activities. Each illegal act shall constitute a separate violation. Each individual engaging, participating, permitting, or facilitating the illegal act(s) is subject to this Section.</p>
+
+            <p class="P2">26.&nbsp;&nbsp;&nbsp;&nbsp;&ldquo;Tenant&rdquo; means any person who does not own the premises, who occupies a dwelling, mobile home, or premises primarily for the purpose of living, residing or staying there.</p>
+
+            <p class="P2">27.&nbsp;&nbsp;&nbsp;&nbsp;&ldquo;Unfit&rdquo; or &ldquo;abandoned premises&rdquo; means any premises:</p>
+
+            <p class="P3">a.&nbsp;&nbsp;&nbsp;&nbsp;Which has been damaged, or is decaying or falling by:</p>
+
+            <p class="P4">i.&nbsp;&nbsp;&nbsp;&nbsp;Any cause including but not limited to fire, uncommon neglect, water, weather, or earth movement, general disrepair, instability, structural defects, defects increasing the hazards of fire, accidents, or other calamities, inadequate ventilation and uncleanliness, inadequate electrical, natural gas, water or sanitary facilities, inadequate drainage, overcrowding, and</p>
+
+            <p class="P4">ii.&nbsp;&nbsp;&nbsp;&nbsp;Which is not fit for occupancy, or</p>
+
+            <p class="P4">iii.&nbsp;&nbsp;&nbsp;&nbsp;Due to other conditions which are inimical to the health and welfare of the City of Renton&rsquo;s residents.</p>
+
+            <p class="P3">b.&nbsp;&nbsp;&nbsp;&nbsp;Has been abandoned or unoccupied by lawful tenants for a period of ninety (90) days or more; or</p>
+
+            <p class="P3">c.&nbsp;&nbsp;&nbsp;&nbsp;Has repair costs that equal or exceed the fair market value of the premises once repaired; or</p>
+
+            <p class="P3">d.&nbsp;&nbsp;&nbsp;&nbsp;When the owner of the unfit or abandoned premises shows no intention of completing or making substantial progress on completing such repairs within ninety (90) days. </p>
+
+            <p class="P3">This intention must be manifested in the form of cooperation and/or coordination with City code compliance inspectors, having and offering detailed blueprints if the premises is being rebuilt or repaired, and having obtained permits to demolish, repair, and remove a premises.</p>
+
+            <p class="P3">e.&nbsp;&nbsp;&nbsp;&nbsp;For purposes of this Section, ninety (90) days is calculated from the date that the damage occurred.</p>
+
+            <p class="P3">f.&nbsp;&nbsp;&nbsp;&nbsp;<span class="italic">Repealed by Ord. 5752. </span>(Ord. 5752, 2-9-15)</p>
+
+            <p class="P2">28.&nbsp;&nbsp;&nbsp;&nbsp;&ldquo;Value&rdquo; as used herein shall be the valuation placed upon the building or structure for purposes of general taxation.</p>
+
+            <p class="P1">C.&nbsp;&nbsp;&nbsp;&nbsp;Nuisance Declared Unlawful: It shall be a misdemeanor for any person(s): </p>
+
+            <p class="P2">1.&nbsp;&nbsp;&nbsp;&nbsp;In control of a premises to permit, suffer, maintain, carry on or allow upon such premises or any portion of the premises:</p>
+
+            <p class="P3">a.&nbsp;&nbsp;&nbsp;&nbsp;A nuisance; or (Ord. 5705, 3-17-14)</p>
+
+            <p class="P3">b.&nbsp;&nbsp;&nbsp;&nbsp;A chronic nuisance premises. (Ord. 5752, 2-9-15)</p>
+
+            <p class="P2">2.&nbsp;&nbsp;&nbsp;&nbsp;For any person or persons to occupy or allowed to be occupied any premises ordered vacated under this Section. To prove such a violation the City must prove beyond a reasonable doubt that:</p>
+
+            <p class="P3">a.&nbsp;&nbsp;&nbsp;&nbsp;A person or persons occupied or allowed to be occupied; </p>
+
+            <p class="P3">b.&nbsp;&nbsp;&nbsp;&nbsp;Any premises;</p>
+
+            <p class="P3">c.&nbsp;&nbsp;&nbsp;&nbsp;In the City of Renton;</p>
+
+            <p class="P3">d.&nbsp;&nbsp;&nbsp;&nbsp;That had been ordered vacated under this Section. An order that was made under the authority of or related to this Section, that was valid at the time of the violation, is sufficient to prove this element. It shall not be a defense that the order was subsequently rescinded, reversed, withdrawn or vacated.</p>
+
+            <p class="P2">3.&nbsp;&nbsp;&nbsp;&nbsp;For any person or persons to permit, suffer, maintain, own, carry on or allow an unfit or abandoned premises as defined in subsection B.27 of this Section.</p>
+
+            <p class="P2">4.&nbsp;&nbsp;&nbsp;&nbsp;Any person or persons having been found to have violated this subsection C shall be guilty of a misdemeanor punishable pursuant to RMC <a href="#a1x3x1">1-3-1</a>.<sup><a id="awwfootnote_inline_93" href="#93">1</a ></sup></p>
+
+            <p class="P1">D.&nbsp;&nbsp;&nbsp;&nbsp;Prosecution And Penalties: When an Administrator or law enforcement officer in consultation and with the approval of the City Attorney&rsquo;s Office determines that a nuisance, chronic nuisance, or chronic nuisance premises exists, that also constitutes criminal conduct has occurred or is occurring, the City may issue a criminal citation to the person in charge of the chronic nuisance property and/or to any person involved in the chronic nuisance or nuisance. The City prosecutor&rsquo;s approval shall not be an element of the offense or a basis for appeal.</p>
+
+            <p class="P2">1.&nbsp;&nbsp;&nbsp;&nbsp;The City may issue a criminal citation when appropriate, including but not limited to the following circumstances:</p>
+
+            <p class="P3">a.&nbsp;&nbsp;&nbsp;&nbsp;When an emergency exists; or</p>
+
+            <p class="P3">b.&nbsp;&nbsp;&nbsp;&nbsp;When a chronic nuisance occurs; or</p>
+
+            <p class="P3">c.&nbsp;&nbsp;&nbsp;&nbsp;When the nuisance cannot be quickly remedied by voluntary correction; or</p>
+
+            <p class="P3">d.&nbsp;&nbsp;&nbsp;&nbsp;When the person in charge knows or reasonably should have known that the nuisance violates a City rule, regulation or ordinance; or</p>
+
+            <p class="P3">e.&nbsp;&nbsp;&nbsp;&nbsp;The person in charge refuses to communicate, cooperate with the City in correcting the nuisance, or is unavailable to the City; or</p>
+
+            <p class="P3">f.&nbsp;&nbsp;&nbsp;&nbsp;When a nuisance that constitutes a crime has occurred or is occurring.</p>
+
+            <p class="P2">2.&nbsp;&nbsp;&nbsp;&nbsp;The violation of any of the provisions listed above is a misdemeanor and may result in criminal prosecution in addition to possible administrative or civil penalties or costs.</p>
+
+            <p class="P2">3.&nbsp;&nbsp;&nbsp;&nbsp;Each such person shall be guilty of a separate offense for each and every day during any portion of which any violation of any provision of the RMC is committed, continued, or permitted by any such person, and such person shall be punished accordingly and to the full extent of the law.</p>
+
+            <p class="P3">a.&nbsp;&nbsp;&nbsp;&nbsp;The first criminal violation shall have a mandatory minimum sentence of five (5) days in jail without the option of electronic home detention, and the minimum penalty for the first violation shall be five hundred dollars ($500), not including costs, court costs, fees, and assessments; however, if such person brings the property into full compliance as determined by the prosecutor, the court shall have the authority, at the prosecutor&rsquo;s request, to impose a deferred or suspended sentence in lieu of the mandatory minimum sentence of five (5) days in jail;</p>
+
+            <p class="P3">b.&nbsp;&nbsp;&nbsp;&nbsp;The second criminal violation shall have a mandatory minimum sentence of fifteen (15) days in jail without the option of electronic home detention, and the minimum penalty for the second violation shall be six hundred twenty-five dollars ($625), not including costs, court costs, fees, and assessments;</p>
+
+            <p class="P3">c.&nbsp;&nbsp;&nbsp;&nbsp;The third criminal violation for any individual shall have a mandatory minimum sentence of thirty (30) days in jail without the option of electronic home detention, and the minimum penalty for the third violation shall be seven hundred fifty dollars ($750), not including costs, court costs, fees, and assessments; and</p>
+
+            <p class="P3">d.&nbsp;&nbsp;&nbsp;&nbsp;All other criminal violations shall have a mandatory minimum sentence of forty-five (45) days in jail without the option of electronic home detention, and the minimum penalty shall be one thousand dollars ($1,000), not including costs, court costs, fees, and assessments.</p>
+
+            <p class="P2">4.&nbsp;&nbsp;&nbsp;&nbsp;Penalties Against The Person In Control: A person in control of a premises, including but not limited to landlords, property owners, business owners, and property managers, shall ensure that the premises, rental or leased property is not used for criminal conduct. The failure to eliminate or prevent chronic criminal conduct or chronic criminal use of a premises committed by a tenant, guest, owner or a person in charge on premises may result in a criminal citation to the owner and/or person in control. A person in control of a premises is presumed to know what is occurring in, on, or around the premises. Additional notice is not required. However, if a person in control is notified by the City or by law enforcement that criminal conduct has occurred on the premises, the person in control shall take reasonable steps to reduce the likelihood that criminal conduct will reoccur on the premises.</p>
+
+            <p class="P3">a.&nbsp;&nbsp;&nbsp;&nbsp;When possible, notification should include the following:</p>
+
+            <p class="P4">i.&nbsp;&nbsp;&nbsp;&nbsp;The name and address of the person in control;</p>
+
+            <p class="P4">ii.&nbsp;&nbsp;&nbsp;&nbsp;The name of any person responsible for the nuisance;</p>
+
+            <p class="P4">iii.&nbsp;&nbsp;&nbsp;&nbsp;The day(s) of the nuisance;</p>
+
+            <p class="P4">iv.&nbsp;&nbsp;&nbsp;&nbsp;The street address or other description sufficient for identification of the premises or property upon or within which the nuisance has occurred or is occurring; and</p>
+
+            <p class="P4">v.&nbsp;&nbsp;&nbsp;&nbsp;A concise description of the nuisance and a reference to the violated law, ordinance, rule or regulation.</p>
+
+            <p class="P4">vi.&nbsp;&nbsp;&nbsp;&nbsp;A failure to take reasonable steps shall constitute nuisance.</p>
+
+            <p class="P3">b.&nbsp;&nbsp;&nbsp;&nbsp;It shall be an affirmative defense that the person in control must plead and prove beyond a preponderance of the evidence that (a) the person has taken reasonable steps to reduce the likelihood that criminal conduct will occur in or on the premises or rental housing or property, as or consistent with the conditions provided in RMC <a href="#a1x3x3">1-3-3</a>.F.8, or (b) had no knowledge of, was not in contempt of court, and will immediately abate any such nuisance that may exist. (Ord. 5752, 2-9-15)</p>
+
+            <p class="P1">E.&nbsp;&nbsp;&nbsp;&nbsp;Additional Enforcement Procedures: The provisions of this Chapter are not exclusive, and may be used in addition to other enforcement provisions authorized by the RCW, RMC or other applicable law, rule or provision.</p>
+
+            <p class="P1">F.&nbsp;&nbsp;&nbsp;&nbsp;Voluntary Abatement:</p>
+
+            <p class="P2">1.&nbsp;&nbsp;&nbsp;&nbsp;Applicability: After a conviction or finding of guilt for a violation of this Section of the code or any criminal RCW or RMC code, the City of Renton may abate or request that the person in control abate the premises. The conviction or finding of guilt is sufficient to satisfy due process requirements and to establish that a nuisance exists or has occurred at the referenced premises. (Ord. 5752, 2-9-15)</p>
+
+            <p class="P2">2.&nbsp;&nbsp;&nbsp;&nbsp;This Section shall also apply to a person in control of rental housing or a property owner who is taking steps to eliminate or reduce the likelihood of criminal, gang or gang-related activities in or around the premises or rental housing.</p>
+
+            <p class="P2">3.&nbsp;&nbsp;&nbsp;&nbsp;General: With some exceptions, the Administrator or law enforcement officer will initially request that a person in charge agree to voluntarily abate a nuisance. </p>
+
+            <p class="P2">If the Administrator or law enforcement officer reasonably believes that person in charge refuses to agree, fails to answer, fails to cooperate, or is or makes him or herself unavailable, the City is not required to wait before compelling compliance. </p>
+
+            <p class="P2">4.&nbsp;&nbsp;&nbsp;&nbsp;Agreeing To Voluntarily Abate A Nuisance: A person in control may agree to voluntarily abate a nuisance with the approval of an Administrator or law enforcement officer. </p>
+
+            <p class="P2">If a person in control is a tenant seeking voluntary abatement, the tenant shall endeavor to also notify the property owner about the nature of the nuisance violation and the proposed voluntary abatement.</p>
+
+            <p class="P2">5.&nbsp;&nbsp;&nbsp;&nbsp;Voluntary Abatement Agreement: It is a contract between the City and at least one (1) person in control where such person agrees to abate the nuisance within a specified time and according to specified conditions, in exchange, if successful, for not having a nuisance or criminal action initiated. (Ord. 5752, 2-9-15)</p>
+
+            <p class="P2">6.&nbsp;&nbsp;&nbsp;&nbsp;The Voluntary Abatement Agreement should include the following:</p>
+
+            <p class="P3">a.&nbsp;&nbsp;&nbsp;&nbsp;The name and address of the person(s) in control;</p>
+
+            <p class="P3">b.&nbsp;&nbsp;&nbsp;&nbsp;The name or names of the person(s) who were responsible for the nuisance, if known;</p>
+
+            <p class="P3">c.&nbsp;&nbsp;&nbsp;&nbsp;The day(s) or duration of the nuisance;</p>
+
+            <p class="P3">d.&nbsp;&nbsp;&nbsp;&nbsp;The street address or other identification of the premises upon or within which the nuisance has occurred or is occurring;</p>
+
+            <p class="P3">e.&nbsp;&nbsp;&nbsp;&nbsp;A description of the nuisance and a reference to the violated law, ordinance, rule or regulation;</p>
+
+            <p class="P3">f.&nbsp;&nbsp;&nbsp;&nbsp;The abatement option(s) available, and a date and time by which correction must be completed;</p>
+
+            <p class="P3">g.&nbsp;&nbsp;&nbsp;&nbsp;Signatures of one or more person(s) in control and the City, acting through the appropriate Administrator or law enforcement officer;</p>
+
+            <p class="P3">h.&nbsp;&nbsp;&nbsp;&nbsp;An agreement by the person in control that grants consent for the City to enter and inspect the premises without a warrant as may be necessary to determine complete compliance with the Voluntary Abatement Agreement;</p>
+
+            <p class="P3">i.&nbsp;&nbsp;&nbsp;&nbsp;An agreement by the person in control that the City may abate the nuisance and recover its costs and expenses (including, but not limited to, its attorney fees, expert witness fees, filing fees and court costs) and/or a monetary penalty pursuant to this Chapter from the person in control if the person in control fails to do so;</p>
+
+            <p class="P3">j.&nbsp;&nbsp;&nbsp;&nbsp;By entering into the Voluntary Abatement Agreement, the person in control waives the right to contest the nuisance at a hearing before any court or hearing examiner under this Chapter or otherwise, regarding the matter of the nuisance and/or the required corrective action; and</p>
+
+            <p class="P3">k.&nbsp;&nbsp;&nbsp;&nbsp;The person(s) in charge that signs the Voluntary Abatement Agreement assumes complete responsibility for entering into the agreement, and if any other person(s) in charge or third-party makes a claim against the City for the abatement of the property, the signing person(s) in charge agrees to hold harmless the City, its representatives, agents, employees, and/or volunteers, and to indemnify any of the above if a claim is successfully made against them.</p>
+
+            <p class="P2">7.&nbsp;&nbsp;&nbsp;&nbsp;In the context of rental housing or property the landlord and rental manager(s) of the rental housing or property must show proof that they have attended an approved landlord training class concerning rental property management, crime-free property, and tenant screening. The class may be in person or online as long as it is approved by the King County Sheriff&rsquo;s Office or the Renton Police Department.</p>
+
+            <p class="P2">8.&nbsp;&nbsp;&nbsp;&nbsp;A person in charge of a premises or rental housing is encouraged to take steps to eliminate or reduce the likelihood that the premises is used as a premises for illegal activity. Those steps include but are not limited to:</p>
+
+            <p class="P3">a.&nbsp;&nbsp;&nbsp;&nbsp;Attending approved landlord training;</p>
+
+            <p class="P3">b.&nbsp;&nbsp;&nbsp;&nbsp;Pursuing eviction to judgment whether the eviction proceeding is successful or not;</p>
+
+            <p class="P3">c.&nbsp;&nbsp;&nbsp;&nbsp;Requesting Law Enforcement&rsquo;s Assistance: The person(s) in charge must cooperate with law enforcement and must make reasonable measures to implement the suggested methods to reduce the recurrence of criminal conduct. Assistance may include, but is not limited to:</p>
+
+            <p class="P4">i.&nbsp;&nbsp;&nbsp;&nbsp;Providing some information about the unlawful conduct on or in the premises and/or rental housing;</p>
+
+            <p class="P4">ii.&nbsp;&nbsp;&nbsp;&nbsp;Permitting and/or assisting law enforcement officers to speak directly with the tenant;</p>
+
+            <p class="P4">iii.&nbsp;&nbsp;&nbsp;&nbsp;Providing resources to assist in the eviction of the tenant.</p>
+
+            <p class="P2">9.&nbsp;&nbsp;&nbsp;&nbsp;Extension And Modification: An Administrator may grant an extension of the time limit for abatement or a modification of the required corrective action if the person(s) in control has shown due diligence and substantial progress in correcting the nuisance, but unforeseen circumstances delayed abatement under the original conditions.</p>
+
+            <p class="P1">G.&nbsp;&nbsp;&nbsp;&nbsp;City Abatement (Involuntary Abatement): </p>
+
+            <p class="P2">1.&nbsp;&nbsp;&nbsp;&nbsp;After a conviction or finding of guilt for a violation of this Section of the code or any criminal RCW or RMC code, the City of Renton may abate a nuisance condition or premises when:</p>
+
+            <p class="P3">a.&nbsp;&nbsp;&nbsp;&nbsp;The terms of Voluntary Abatement Agreement pursuant to subsection F of this Section have not been met; or</p>
+
+            <p class="P3">b.&nbsp;&nbsp;&nbsp;&nbsp;One or more person(s) in control fails to or refuses to enter into a Voluntary Abatement Agreement pursuant to subsection F.5 of this Section; or</p>
+
+            <p class="P3">c.&nbsp;&nbsp;&nbsp;&nbsp;It learns of or receives a judgment and sentence or equivalent proof or evidence that the person(s) in charge have been convicted of a nuisance and the nuisance is related in some form to the premises; or</p>
+
+            <p class="P3">d.&nbsp;&nbsp;&nbsp;&nbsp;The nuisance is subject to summary abatement as provided for in subsection G.3 of this Section.</p>
+
+            <p class="P2">2.&nbsp;&nbsp;&nbsp;&nbsp;Standards For Repair, Vacation Or Demolition:</p>
+
+            <p class="P3">a.&nbsp;&nbsp;&nbsp;&nbsp;The following standards shall be followed when ordering the evacuation, repair, or demolition of an unfit premises:</p>
+
+            <p class="P4">i.&nbsp;&nbsp;&nbsp;&nbsp;If an unfit premises can reasonably be repaired so that it will comply with the terms of this Chapter, it must be repaired or demolished.</p>
+
+            <p class="P4">ii.&nbsp;&nbsp;&nbsp;&nbsp;If an unfit premises is in such condition as to make it dangerous to the health, morals, safety or general welfare of its occupants, neighbors or the general public, it must be vacated and repaired or demolished.</p>
+
+            <p class="P4">iii.&nbsp;&nbsp;&nbsp;&nbsp;If an unfit premises is fifty percent (50%) or more damaged, decayed, or deteriorated in value, it shall be demolished. </p>
+
+            <p class="P4">iv.&nbsp;&nbsp;&nbsp;&nbsp;If an unfit premises cannot be repaired so that it will comply with terms of this Chapter it shall be demolished.</p>
+
+            <p class="P4">v.&nbsp;&nbsp;&nbsp;&nbsp;If an unfit premises is a fire hazard, existing or erected in violation of the terms of this Chapter, the RMC, or any the laws of the State of Washington, it shall be demolished, provided the fire hazard is not abated by the owner within a reasonable time (which shall be no more than sixty (60) days).</p>
+
+            <p class="P3">b.&nbsp;&nbsp;&nbsp;&nbsp;If the unfit premises is to be demolished, it must be immediately vacated and secured, and after it is demolished the land shall be suitably filled and cleared.</p>
+
+            <p class="P3">c.&nbsp;&nbsp;&nbsp;&nbsp;Complaint: If a CCI or Administrator finds that a premises is unfit, he or she may initiate an abatement action by:</p>
+
+            <p class="P4">i.&nbsp;&nbsp;&nbsp;&nbsp;Attempting to serve the person(s) in charge either personally or, if personal service cannot be obtained, by first class and certified mail, with return receipt requested; and </p>
+
+            <p class="P4">ii.&nbsp;&nbsp;&nbsp;&nbsp;Posting in a conspicuous place on such premises a complaint stating why it is unfit for human habitation or other use, together with the abatement action to be taken and the fees and costs to be paid; or </p>
+
+            <p class="P4">iii.&nbsp;&nbsp;&nbsp;&nbsp;If the whereabouts of such person(s) in charge are unknown and cannot be ascertained in the exercise of reasonable diligence, the City shall:</p>
+
+            <p class="P5">(a)&nbsp;&nbsp;&nbsp;&nbsp;Make an affidavit to that effect; and </p>
+
+            <p class="P5">(b)&nbsp;&nbsp;&nbsp;&nbsp;Serve the complaint or order upon such person(s) in control either by personal service or by mailing a copy of the notice and orders by certified mail, postage prepaid, return receipt requested, to each person at the address appearing on the last equalized tax assessment roll of the county where the unfit premises is located, or at the address known to the county assessor;</p>
+
+            <p class="P5">(c)&nbsp;&nbsp;&nbsp;&nbsp;A copy of the notice and order shall also be mailed, addressed to each person in control, at the address of the unfit premises involved in the proceedings, if different, and to each person or party having a recorded right, title, estate, lien, or interest in the property; and</p>
+
+            <p class="P5">(d)&nbsp;&nbsp;&nbsp;&nbsp;A copy of the complaint shall be posted in a conspicuous place on the property.</p>
+
+            <p class="P4">iv.&nbsp;&nbsp;&nbsp;&nbsp;The complaint shall contain:</p>
+
+            <p class="P5">(a)&nbsp;&nbsp;&nbsp;&nbsp;A notice that a hearing will be held before the director at a place therein fixed; </p>
+
+            <p class="P5">(b)&nbsp;&nbsp;&nbsp;&nbsp;Not less than ten (10) days nor more than thirty (30) days after the service of such complaint;</p>
+
+            <p class="P5">(c)&nbsp;&nbsp;&nbsp;&nbsp;That all parties in interest may file an answer to the complaint, appear at, give testimony or call witnesses, at the time and place fixed in the complaint; and</p>
+
+            <p class="P5">(d)&nbsp;&nbsp;&nbsp;&nbsp;A copy of such complaint shall also be filed with the Auditor of King County, and such filing of the complaint or order shall have the force and effect of a lis pendens.</p>
+
+            <p class="P2">3.&nbsp;&nbsp;&nbsp;&nbsp;Summary Abatement: The provisions of this Chapter shall not prevent the director or any other officer of the City of Renton or other governmental unit from taking any other action, summary or otherwise, necessary to eliminate or minimize an imminent danger to the health or safety of any person or property. </p>
+
+            <p class="P2">The City may summarily abate, without prior notice, any nuisance that constitutes an immediate threat to the public health, safety or welfare or to the environment. No right of action shall lie against the City, its agents, officers, employees, or volunteers for actions reasonably taken to prevent or cure any such immediate threats.</p>
+
+            <p class="P2">4.&nbsp;&nbsp;&nbsp;&nbsp;Authorized City Action: Using any lawful means, the City may enter upon the subject premises or property and may remove or correct the nuisance which is subject to abatement. The City may seek judicial process required to abate such nuisance. </p>
+
+            <p class="P2">5.&nbsp;&nbsp;&nbsp;&nbsp;Monetary Penalty: Any monetary penalty incurred to correct the nuisance shall be paid by the person(s) in control to the City within ten (10) calendar days following actual service or mailing by first class mail. </p>
+
+            <p class="P2">6.&nbsp;&nbsp;&nbsp;&nbsp;Lien &ndash; Authorized: The City shall have a lien for any monetary penalty, fee or expense related to any aspect of the abatement of any nuisance or chronic nuisance premises as well as the revocation of a business license. The lien shall be subordinate to all previously existing special assessment liens imposed on the same premises or real property and shall be superior to all other liens, except for state and county taxes, with which it shall be on parity.</p>
+
+            <p class="P3">a.&nbsp;&nbsp;&nbsp;&nbsp;A lien for any monetary penalty, including the cost of abatement proceedings under this Chapter, shall be filed for record with the King County Recorder&rsquo;s Office against the premises or real property where the work of abatement was performed. A lien under this Chapter shall be filed within ninety (90) days from the later of the date that the monetary penalty is due or the date the work is completed or the nuisance abated.</p>
+
+            <p class="P3">b.&nbsp;&nbsp;&nbsp;&nbsp;The lien shall contain sufficient information regarding the criminal violation, a legal description of the property to be charged with the lien and the owner of record, and the total amount of the lien.</p>
+
+            <p class="P3">c.&nbsp;&nbsp;&nbsp;&nbsp;Any lien under this Chapter shall be verified by the applicable Administrator or law enforcement officer, and may be amended from time to time to reflect changed conditions or monetary amount.</p>
+
+            <p class="P3">d.&nbsp;&nbsp;&nbsp;&nbsp;No liens filed under this Chapter shall bind the affected property for a period longer than ten (10) years, without foreclosure or extension agreed to by the property owner. (Ord. 5705, 3-17-14)</p>
+
+            <p class="P2">7.&nbsp;&nbsp;&nbsp;&nbsp;Abatement By Civil Lawsuit: Whenever a nuisance exists, or voluntary correction of a nuisance has failed, or when a nuisance has continued, or when summary abatement is not merited, the City may proceed by a civil lawsuit in the King County Superior Court to enjoin and abate the nuisance in the manner provided by Chapter 7.48 RCW, as now or hereafter may be amended. </p>
+
+            <p class="P2">8.&nbsp;&nbsp;&nbsp;&nbsp;If the City obtains an order of abatement, an injunction or a similar remedy, the City shall be entitled to recover all costs of abatement set forth in subsection G.6 of this Section, including but not limited to any monetary penalty imposed.</p>
+
+            <p class="P2">9.&nbsp;&nbsp;&nbsp;&nbsp;If the person(s) responsible for the costs of abatement fail(s) to remit in a timely manner, the City may file a lien against the real property for the cost of any abatement proceedings under this Chapter, except no lien shall attach to the real property if the person in control was found not responsible. A notice of the City&rsquo;s lien specifying the expenses incurred in abating the nuisance and giving the legal description of the premises sought to be charged shall be filed with the County Auditor within ninety (90) days from the date of the abatement. Such lien may at any time thereafter be collected in the manner provided for foreclosure of mechanic&rsquo;s liens under the laws of the State of Washington.</p>
+
+            <p class="P2">10.&nbsp;&nbsp;&nbsp;&nbsp;Appeal Of The Costs Of Abatement:</p>
+
+            <p class="P3">a.&nbsp;&nbsp;&nbsp;&nbsp;Any person sent an invoice for the costs due for the abatement of a nuisance may request a hearing to determine if the costs should be assessed, or reduced.</p>
+
+            <p class="P3">b.&nbsp;&nbsp;&nbsp;&nbsp;A request for a hearing shall be made in writing and filed with the City Clerk no later than ten (10) calendar days from the date of the invoice.</p>
+
+            <p class="P3">c.&nbsp;&nbsp;&nbsp;&nbsp;Each request for hearing shall contain the address and telephone number of the person requesting the hearing and the name and/or the name and address of any person who will be present to represent him or her.</p>
+
+            <p class="P3">d.&nbsp;&nbsp;&nbsp;&nbsp;Each request for hearing shall set out the basis for the appeal.</p>
+
+            <p class="P3">e.&nbsp;&nbsp;&nbsp;&nbsp;Failure to request a hearing within ten (10) calendar days from the date of the invoice shall be a waiver of the right to contest the validity of the costs incurred in abatement of the violation.</p>
+
+            <p class="P3">f.&nbsp;&nbsp;&nbsp;&nbsp;If a hearing is requested, the Hearing Examiner will conduct the hearing no more than eighteen (18) calendar days after the Hearing Examiner or Administrator issues the notice of hearing, unless the Hearing Examiner or Administrator finds good cause to continue the matter to another date. </p>
+
+            <p class="P3">g.&nbsp;&nbsp;&nbsp;&nbsp;If a hearing is requested, the Hearing Examiner or Administrator shall mail a notice giving the time, location, and date of the hearing, by first class mail, to the person or persons to whom the invoice for the costs of abatement was directed.</p>
+
+            <p class="P3">h.&nbsp;&nbsp;&nbsp;&nbsp;The Hearing Examiner shall conduct a hearing. The Administrator, as well as the person to whom the invoice for abatement costs was directed, may participate as parties in the hearing and each party may call witnesses. The City shall have the burden at the hearing to establish, by a preponderance of the evidence (meaning &ldquo;more likely than not&rdquo;), that the abatement costs were reasonable.</p>
+
+            <p class="P3">i.&nbsp;&nbsp;&nbsp;&nbsp;The Hearing Examiner shall issue an order and determine whether the costs of abatement were reasonable and necessary. The Hearing Examiner may uphold the amount billed for the costs of abatement, or reduce the amount billed, but the Hearing Examiner may never reduce the costs of abatement below the amount that has been verified, proven or reasonably established.</p>
+
+            <p class="P3">j.&nbsp;&nbsp;&nbsp;&nbsp;The order of the Hearing Examiner is the final administrative decision.</p>
+
+            <p class="P2">11.&nbsp;&nbsp;&nbsp;&nbsp;Any court of competent jurisdiction may retain authority over any abated property as is appropriate and as provided by law. The City of Renton will not take ownership unless it is for the purpose of abating and then liquidating any abated property for the purpose of recovering abatement costs or any other monetary costs, penalties and/or assessments.</p>
+
+            <p class="P1">H.&nbsp;&nbsp;&nbsp;&nbsp;Conflicts: In the event of a conflict between this and any other provision of this code or City ordinance providing for a civil penalty, the more specific provision shall control.</p>
+
+            <p class="P1">I.&nbsp;&nbsp;&nbsp;&nbsp;Severability: If any one (1) or more subsections or sentences of this Chapter are held to be unconstitutional or invalid, such decision shall not affect the validity of the remaining portion of this Chapter and the same shall remain in full force and effect.</p>
+
+            <p class="P1">J.&nbsp;&nbsp;&nbsp;&nbsp;Permit Required: Any work including construction, repairs or alterations under this Chapter to rehabilitate any building or structure may require a permit in accord with the provisions of RMC Title <a href="#a4">4</a>. </p>
+
+            <p class="P1">K.&nbsp;&nbsp;&nbsp;&nbsp;Rules And Regulations: The director may make and promulgate such rules and regulations as will effectuate the purposes of this Chapter and do substantial justice. (Ord. 5629, 10-3-11)</p>
+
+      <h3 class="Cite"><a id="a1x3x4">1-3-4:</a> DEFINITIONS:</h3>
+            <p class="P0">(Rep. by Ord. 5629, 10-3-11)</p>
+
+      <h3 class="Cite"><a id="a1x3x5">1-3-5</a> UNFIT DWELLINGS, BUILDINGS AND STRUCTURES:<sup><a id="awwfootnote_inline_94" href="#94">2</a ></sup></h3>
+            <p class="P0">(Rep. by Ord. 5629, 10-3-11)</p>
+
+      <hr />
+      <div style="font-size: smaller; float: left; padding-right: 10px">
+        <a id="a93" href="#wwfootnote_inline_93">1</a>
+      </div>
+            <p class="Footnote">Code reviser&rsquo;s note: Section 1-3-3C.2.e, as set out in Ordinance No. 5629, has been renumbered to Section 1-3-3C.4 to correct a scrivener&rsquo;s error.</p>
+
+      <br  />
+      <div style="font-size: smaller; float: left; padding-right: 10px">
+        <a id="a94" href="#wwfootnote_inline_94">2</a>
+      </div>
+            <p class="Footnote">Code reviser&rsquo;s note: Section <a href="#a1x3x5">1-3-5</a>, renumbered to Section <a href="#a1x3x4">1-3-4</a> by Ordinance No. 5629, has been repealed to correct a scrivener&rsquo;s error.</p>
+
+      <br  />
+    <h2 headertitle="Renton Municipal Code" headerdisc="The Renton Municipal Code is current through Ordinance 6197, passed August 10, 2026." class="CH"><a id="a4"></a>CHAPTER 4<br />MAYOR</h2>
+            <p class="ctoc">SECTION:</p>
+
+            <p class="CiteTOC"><a href="#a1x4x1">1-4-1:&nbsp;&nbsp;&nbsp;&nbsp;Duties</a></p>
+
+            <p class="CiteTOC"><a href="#a1x4x2">1-4-2:&nbsp;&nbsp;&nbsp;&nbsp;Full-Time Basis</a></p>
+
+            <p class="CiteTOC"><a href="#a1x4x3">1-4-3:&nbsp;&nbsp;&nbsp;&nbsp;Rules For Appointing Officers</a></p>
+
+      <h3 class="Cite"><a id="a1x4x1">1-4-1</a> DUTIES:</h3>
+            <p class="P0">The duties and powers of the Mayor of the City shall be those prescribed by the laws of the State and by the regulations of the City, in addition to the provisions hereinafter made applicable. (Ord. 1536, Sec. 2, 2-14-56)</p>
+
+      <h3 class="Cite"><a id="a1x4x2">1-4-2</a> FULL-TIME BASIS:</h3>
+            <p class="P0">The office of the Mayor shall be conducted an a full-time basis and he shall be the chief executive officer of the City government and as such have general supervision over the several departments of the City and over all its interests. (Ord. 1536, Sec. 2, 2-14-56)</p>
+
+      <h3 class="Cite"><a id="a1x4x3">1-4-3</a> RULES FOR APPOINTING OFFICERS:</h3>
+            <p class="P0">The Department officers and administrators listed in RMC Title 3 shall be appointed by the Mayor, and subject to confirmation by a majority of the members of the City Council. If the Council shall refuse to confirm any such nomination of the Mayor, then the Mayor shall appoint another person to fill the office, and the Mayor may continue to appoint until the appointee is confirmed. The Council shall have up to two regularly scheduled council meetings, but not less than ten (10) days, to act upon the Mayor&rsquo;s appointment, but should the Council fail to act within that period of time, the appointment will be deemed confirmed. The Mayor shall have the ability to make interim appointments for up to six months without Council confirmation. Each administrator appointed shall, before entering upon the duties of that office, take the oath of office, if required, and further, if required, shall give bond and file the same within ten (10) days after receiving notice of appointment and confirmation, or if no notice is received, then on or before the date fixed for the assumption of the duties of the office to which that person has been appointed. (Ord. 1536, Sec. 3, 2-14-56; amd. Ord. 2608, 12-28-70; Ord. 5079, 6-7-2004)</p>
+
+    <h2 headertitle="Renton Municipal Code" headerdisc="The Renton Municipal Code is current through Ordinance 6197, passed August 10, 2026." class="CH"><a id="a5"></a>CHAPTER 5<br />COUNCIL</h2>
+            <p class="ctoc">SECTION:</p>
+
+            <p class="CiteTOC"><a href="#a1x5x1">1-5-1:&nbsp;&nbsp;&nbsp;&nbsp;Number Of Councilmembers; Duties; Salaries</a></p>
+
+            <p class="CiteTOC"><a href="#a1x5x2">1-5-2:&nbsp;&nbsp;&nbsp;&nbsp;Executive Sessions</a></p>
+
+            <p class="CiteTOC"><a href="#a1x5x3">1-5-3:&nbsp;&nbsp;&nbsp;&nbsp;Conflict Of Interest, Disqualification, Exemptions; Voting Requirements</a></p>
+
+            <p class="CiteTOC"><a href="#a1x5x4">1-5-4:&nbsp;&nbsp;&nbsp;&nbsp;Exemption From Open Public Meetings Act</a></p>
+
+      <h3 class="Cite"><a id="a1x5x1">1-5-1</a> NUMBER OF COUNCILMEMBERS; DUTIES; SALARIES:</h3>
+            <p class="P1">A.&nbsp;&nbsp;&nbsp;&nbsp;The City of Renton is a noncharter code city under the laws and statutes of the State, and its City Council shall consist of seven (7) members who shall be elected at large.</p>
+
+            <p class="P1">B.&nbsp;&nbsp;&nbsp;&nbsp;The duties of Councilmembers shall be those prescribed in RCW 35A.12.010 et seq., and as otherwise provided by law.</p>
+
+            <p class="P1">C.&nbsp;&nbsp;&nbsp;&nbsp;The salaries of the Councilmembers are hereby fixed at nine hundred fifty dollars ($950.00) per month plus two percent (2%) of salary for deferred compensation, plus for those Councilmembers not participating in PERS, an extra one point four percent (1.4%) of salary for deferred compensation. However, the compensation of such elected officials who fix their own compensation shall not be increased during their terms of office, and as limited by the Constitution and statutes of the State of Washington. The salaries of Councilmembers may also be adjusted according to the procedures and rules established by chapter RMC 2-20, Independent Salary Commission. (Ord. 4514, 5-8-95; amd. Ord. 4757, 12-14-98; Ord. 5090, 7-19-04; Ord. 5773, 10-19-15)</p>
+
+      <h3 class="Cite"><a id="a1x5x2">1-5-2</a> EXECUTIVE SESSIONS:</h3>
+            <p class="P1">A.&nbsp;&nbsp;&nbsp;&nbsp;The President or majority of members of the City Council may hold executive sessions during a regular or special meeting:</p>
+
+            <p class="P2">1.&nbsp;&nbsp;&nbsp;&nbsp;To consider matters affecting national security;</p>
+
+            <p class="P2">2.&nbsp;&nbsp;&nbsp;&nbsp;To consider the selection of a site or the acquisition of real estate by lease or purchase when public knowledge regarding such consideration could cause a likelihood of increased price;</p>
+
+            <p class="P2">3.&nbsp;&nbsp;&nbsp;&nbsp;To consider the minimum price at which real estate will be offered for sale or lease when public knowledge regarding such consideration would cause a likelihood of decreased price. However, final action selling or leasing public property shall be taken in a meeting open to the public;</p>
+
+            <p class="P2">4.&nbsp;&nbsp;&nbsp;&nbsp;To review negotiations on the performance of publicly bid contracts when public knowledge regarding such consideration would cause a likelihood of increased costs;</p>
+
+            <p class="P2">5.&nbsp;&nbsp;&nbsp;&nbsp;To consider, in the case of an export trading company, financial and commercial information supplied by private persons to the export trading company;</p>
+
+            <p class="P2">6.&nbsp;&nbsp;&nbsp;&nbsp;To receive and evaluate complaints or charges brought against a public officer or employee. However, upon the request of such officer or employee, a public hearing or a meeting open to the public shall be conducted upon such complaint or charge;</p>
+
+            <p class="P2">7.&nbsp;&nbsp;&nbsp;&nbsp;To evaluate the qualifications of an applicant for public employment or to review the performance of a public employee. However, subject to RCW 42.30.140(4), discussion by a governing body of salaries, wages and other conditions of employment to be generally applied within the agency shall occur in a meeting open to the public, and when a governing body elects to take final action hiring, setting the salary of an individual employee or class of employees, or discharging or disciplining an employee, that action shall be taken in a meeting open to the public;</p>
+
+            <p class="P2">8.&nbsp;&nbsp;&nbsp;&nbsp;To evaluate the qualifications of a candidate for appointment to elective office. However, any interview of such candidate and final action appointing a candidate to elective office shall be in a meeting open to the public;</p>
+
+            <p class="P2">9.&nbsp;&nbsp;&nbsp;&nbsp;To discuss with legal counsel representing the agency matters relating to agency enforcement actions, or to discuss with legal counsel representing the agency litigation or potential litigation to which the agency, the governing body, or a member acting in an official capacity is, or is likely to become, a party, when public knowledge regarding the discussion is likely to result in an adverse legal or financial consequence to the agency.</p>
+
+            <p class="P2">Executive sessions, to the extent permitted by law, shall be limited to members of the City Council unless the presence of nonmembers is requested by a majority of City Council members.</p>
+
+            <p class="P1">B.&nbsp;&nbsp;&nbsp;&nbsp;Except as otherwise provided for herein, all regular or special Council meetings shall be open to the public as set forth in RCW 42.30.010 et seq. No official action shall be taken at any executive session, as herein specified; provided, however, that nothing herein shall be deemed to prevent the taking of an informal vote on any matter under discussions.</p>
+
+            <p class="P1">C.&nbsp;&nbsp;&nbsp;&nbsp;In the event of any executive session as hereinabove specified, no member of the City Council, employee of the City, or any other person present during executive session of the City Council, shall disclose to any person the content or substance of any discussion or action which took place during said executive session, unless a majority of the City Council shall authorize such disclosure.</p>
+
+            <p class="P1">D.&nbsp;&nbsp;&nbsp;&nbsp;Before convening in executive session, the presiding officer of a governing body shall publicly announce the purpose for excluding the public from the meeting place, and the time when the executive session will be concluded. The executive session may be extended to a stated later time by announcement of the presiding officer. (Ord. 4136, 3-7-88)</p>
+
+      <h3 class="Cite"><a id="a1x5x3">1-5-3</a> CONFLICT OF INTEREST, DISQUALIFICATION, EXEMPTIONS; VOTING REQUIREMENTS:</h3>
+            <p class="P1">A.&nbsp;&nbsp;&nbsp;&nbsp;No member of the City Council shall be beneficially interested, directly or indirectly, in any contract which may be made by, through or under the supervision or direction of the City Council, in whole or in substantial part, and as otherwise provided for in Chapter 6 of Title 1 (Administrative) of Ordinance No. 4260 entitled &ldquo;Code of General Ordinances of the City of Renton&rdquo; (generally referred to as the City&rsquo;s &ldquo;Code of Ethics&rdquo; ordinance), or as otherwise regulated by any other law, rule or regulation pertaining to Municipal officers.</p>
+
+            <p class="P1">B.&nbsp;&nbsp;&nbsp;&nbsp;In the event of any private interest by such Councilman, he shall be required to make the disclosures as set forth in Section <a href="#a1x6x7">1-6-7</a> of said Code of Ethics Ordinance. Upon disclosure of such private or personal interest the Councilman so disqualified shall promptly leave his seat during the debate or discussion and vote on such matter and leave the Council chambers until the total subject matter in which he has such personal or private interest has been disposed of. A Councilman stating such disqualification shall not be counted as a part of a quorum and shall be considered absent for the purpose of determining the outcome of any vote on such matter. (Ord. 2897, 12-16-74)</p>
+
+      <h3 class="Cite"><a id="a1x5x4">1-5-4</a> EXEMPTION FROM OPEN PUBLIC MEETINGS ACT:</h3>
+            <p class="P0">The provisions of the Open Public Meetings Act shall not apply to any meeting attended by less than a majority of the members of the City Council in which no final action is taken or commitment made. All preliminary decisions or recommendations made by any such committee consisting of less than a majority of the City Council members shall be submitted in due course to the City Council at a regular or special meeting for final action. Notwithstanding the foregoing, the chairman of any such subcommittee consisting of less than a majority of all the Councilmen elected, shall have discretion to allow members of the public to attend and/or participate in any such committee meeting.</p>
+
+            <p class="P01">The aforestated exemption from the Open Public Meetings Act shall likewise apply to any advisory committee created by or pursuant to ordinance as long as said committee does not have authority to establish definite policies or rules, but its function is merely advisory. (Ord. 2822, 1-21-74)</p>
+
+    <h2 headertitle="Renton Municipal Code" headerdisc="The Renton Municipal Code is current through Ordinance 6197, passed August 10, 2026." class="CH"><a id="a6"></a>CHAPTER 6<br />CODE OF ETHICS</h2>
+            <p class="ctoc">SECTION:</p>
+
+            <p class="CiteTOC"><a href="#a1x6x1">1-6-1:&nbsp;&nbsp;&nbsp;&nbsp;Declaration Of Purpose</a></p>
+
+            <p class="CiteTOC"><a href="#a1x6x2">1-6-2:&nbsp;&nbsp;&nbsp;&nbsp;Definitions</a></p>
+
+            <p class="CiteTOC"><a href="#a1x6x3">1-6-3:&nbsp;&nbsp;&nbsp;&nbsp;Statement Of Expense Of Candidate</a></p>
+
+            <p class="CiteTOC"><a href="#a1x6x4">1-6-4:&nbsp;&nbsp;&nbsp;&nbsp;Acceptance Of Gifts</a></p>
+
+            <p class="CiteTOC"><a href="#a1x6x5">1-6-5:&nbsp;&nbsp;&nbsp;&nbsp;Interest In Contracts Prohibited; Exceptions</a></p>
+
+            <p class="CiteTOC"><a href="#a1x6x6">1-6-6:&nbsp;&nbsp;&nbsp;&nbsp;Incompatible Service; Confidential Information</a></p>
+
+            <p class="CiteTOC"><a href="#a1x6x7">1-6-7:&nbsp;&nbsp;&nbsp;&nbsp;Personal Or Private Interests</a></p>
+
+            <p class="CiteTOC"><a href="#a1x6x8">1-6-8:&nbsp;&nbsp;&nbsp;&nbsp;False Charge Of Misconduct (Rep. by Ord. 5157)</a></p>
+
+            <p class="CiteTOC"><a href="#a1x6x9">1-6-9:&nbsp;&nbsp;&nbsp;&nbsp;Penalty</a></p>
+
+      <h3 class="Cite"><a id="a1x6x1">1-6-1</a> DECLARATION OF PURPOSE:</h3>
+            <p class="P0">It is hereby recognized and established that high moral and ethical standards among City officials are vital and essential to provide unbiased, open and honest conduct within all phases and levels of government; that a code of ethics is a helpful aid in guiding City officials and to eliminate actual conflicts of interest in public office and to improve and elevate standards of public service so as to promote and strengthen the confidence, faith and trust of the people of the City of Renton in their local government.</p>
+
+      <h3 class="Cite"><a id="a1x6x2">1-6-2</a> DEFINITIONS:</h3>
+            <p class="P0">For the purpose of this Chapter:</p>
+
+            <p class="P01">CANDIDATE: Any individual who declares himself to be a candidate for an elective office and who, if elected thereto, would meet the definition of a public official hereinabove set forth.</p>
+
+            <p class="P01">COMPENSATION: Anything of economic value, however designated, which is paid, loaned, advanced, granted, transferred, or to be paid, loaned, advanced, granted or transferred for or in consideration of personal services to any person.</p>
+
+            <p class="P01">CONTRACT: Includes any contract or agreement, sale, lease, purchase, or any combination of the foregoing.</p>
+
+            <p class="P01">CONTRACTING PARTY: Any person, partnership, association, cooperative, corporation, whether for profit or otherwise or other business entity which is a party to a contract with a municipality.</p>
+
+            <p class="P01">PUBLIC OFFICIAL: All of the elected City officials, together with all appointed officers including their deputies and assistants of such an officer who determine or are authorized to determine policy making decisions within their respective department or office, including appointive members of all municipal boards, commissions and agencies and whose appointment has been made by the Mayor and confirmed by the City Council. (Ord. 2586, 9-28-70)</p>
+
+      <h3 class="Cite"><a id="a1x6x3">1-6-3</a> STATEMENT OF EXPENSE OF CANDIDATE:</h3>
+            <p class="P0">Every candidate for election at a primary and/or general election within the City shall comply with RCW Chapter 42.17A, Public Disclosure Law. Campaign disclosure reports must be filed online with the Public Disclosure Commission at www.pdc.wa.gov in accordance with State law. (Ord. 4315, 6-10-91; Ord. 5802, 5-16-16)</p>
+
+      <h3 class="Cite"><a id="a1x6x4">1-6-4</a> ACCEPTANCE OF GIFTS:</h3>
+            <p class="P0">No public official shall receive, accept, take, seek, or solicit, directly or indirectly, anything of economic value as a gift, gratuity, or favor, from any person if such public official has reason to believe the donor would not grant or give such gift, gratuity, or favor, but for such public official&rsquo;s office or position within the City of Renton.</p>
+
+            <p class="P01">No public official shall receive, accept, take, seek, or solicit, whether directly or indirectly, anything of economic value as a gift, gratuity, or favor, from any person or from any officer or director of such person if such public official has reason to believe such person:</p>
+
+            <p class="P1">A.&nbsp;&nbsp;&nbsp;&nbsp;Has, or is seeking to obtain contractual or other business or financial relationship with the City of Renton; or</p>
+
+            <p class="P1">B.&nbsp;&nbsp;&nbsp;&nbsp;Conducts operations or activities which are regulated by the City Council, its committees or any board or commission of the City of Renton; or</p>
+
+            <p class="P1">C.&nbsp;&nbsp;&nbsp;&nbsp;Has interests which may be substantially affected by such public official&rsquo;s performance or nonperformance of his or her official duty.</p>
+
+      <h3 class="Cite"><a id="a1x6x5">1-6-5</a> INTEREST IN CONTRACTS PROHIBITED; EXCEPTIONS:</h3>
+            <p class="P0">No public official shall be beneficially interested, directly or indirectly, in any contract which may be made by, through, or under the supervision or direction of such public official, in whole or in substantial part, or which may be made for the benefit of his office, or accept, directly or indirectly, any compensation, gratuity or reward in connection with such contract from any other person beneficially interested therein. The foregoing shall not apply to the exceptions specified in RCW 42.23.030 which are incorporated herein as if fully set forth. Remote Interest: A public official shall not be deemed to be interested in a contract as specified in the immediately preceding paragraph if he has only a remote interest in the contract and if the fact and extent of such interest is disclosed to the governing body of the City of Renton of which he is a member and noted in the official minutes or similar records of the City prior to the consummation of the contract, and thereafter the governing body authorizes, approves or ratifies the contract in good faith by a vote of its membership sufficient for the purpose without counting the vote or votes of the public official having a remote interest therein.</p>
+
+            <p class="P01">As used in this Section &ldquo;remote interest&rdquo; means:</p>
+
+            <p class="P1">A.&nbsp;&nbsp;&nbsp;&nbsp;That of a nonsalaried officer of a nonprofit corporation;</p>
+
+            <p class="P1">B.&nbsp;&nbsp;&nbsp;&nbsp;That of an employee or agent of contracting party where the compensation of such employee or agent consists entirely of fixed wages or salary;</p>
+
+            <p class="P1">C.&nbsp;&nbsp;&nbsp;&nbsp;That of the landlord or tenant of a contracting party;</p>
+
+            <p class="P1">D.&nbsp;&nbsp;&nbsp;&nbsp;That of a holder of less than one percent (1%) of the shares of a corporation or cooperative which is a contracting party.</p>
+
+            <p class="P01">None of the provisions of this Section shall be applicable to any public official interested in a contract, though his interest be only remote as hereinabove defined, who influences or attempts to influence, any other public official of the City of which he is an officer to enter into such contract.</p>
+
+            <p class="P01">Any contract made in violation of the above provisions shall be void and as otherwise provided in RCW 42.23.050 and the provisions thereof being expressly incorporated herein as if fully set forth.</p>
+
+      <h3 class="Cite"><a id="a1x6x6">1-6-6</a> INCOMPATIBLE SERVICE; CONFIDENTIAL INFORMATION:</h3>
+            <p class="P0">No elected public official shall engage in or accept private employment or render services for any person or engage in any business or professional activity when such employment, service or activity is incompatible with the proper and faithful discharge of his official duties as such elected official, or when it would require or induce him to disclose confidential information acquired by him by reason of his official position. No such official shall disclose confidential information gained by reason of his official position, nor shall he otherwise use such information for his personal gain or benefit.</p>
+
+      <h3 class="Cite"><a id="a1x6x7">1-6-7</a> PERSONAL OR PRIVATE INTERESTS:</h3>
+            <p class="P0">Every elected public official who has a financial or other private or personal interest in any ordinance, resolution, contract, proceeding, or other action pending before the City Council or any of its committees, shall promptly disclose such interest at the first public meeting when such matter is being considered by the City Council, on the records of the official Council minutes, the nature and extent of such personal or private interest and same shall be incorporated in the official minutes of the City Council proceedings. Such disclosure shall include, but not be limited to, the following information which shall be submitted in writing by such Councilman, sworn to under penalty of perjury, to-wit:</p>
+
+            <p class="P1">A.&nbsp;&nbsp;&nbsp;&nbsp;The name and address of any private business corporation, firm or enterprise affected by such councilmanic action of which the Councilman or other elected public official is or has been during the preceding twelve (12) months a shareholder, bond holder, secured creditor, partner, joint entrepreneur or sole proprietor, whenever the total value of his individual or undivided legal and equitable financial interest therein is and at any time during the preceding twelve (12) months has been in excess of one thousand five hundred dollars ($1,500.00).</p>
+
+            <p class="P1">B.&nbsp;&nbsp;&nbsp;&nbsp;The name of any such private business or corporation, firm or enterprise of which such elected public official or his relatives are or have been during the preceding twelve (12) months as officer, director, partner, attorney, agent, or employee, who, for services rendered during such preceding twelve (12) months or to be rendered in any such capacity, has received or has been promised compensation in excess of one thousand five hundred dollars ($1,500.00).</p>
+
+            <p class="P1">C.&nbsp;&nbsp;&nbsp;&nbsp;Every office or directorship held by such elected public official or his spouse in any corporation, partnership, sole proprietorship or like business enterprise, which conducts its business activities within the boundaries of the Renton School District and which is subject to any regulation or control by the City of Renton, and from which such elected public official has received compensation or has been promised compensation during the preceding twelve (12) month period in excess of one thousand five hundred dollars ($1,500.00), or services; or any other thing of value in excess of said amount.</p>
+
+            <p class="P1">D.&nbsp;&nbsp;&nbsp;&nbsp;A list containing a correct legal description of any and all real property located within the City limits of Renton in which any such elected public official has any interest whatsoever, as owner, purchaser, optionee, optionor, or any other proprietary interest, acquired during the preceding twelve (12) month period whenever such proprietary interest is in excess of one thousand five hundred dollars ($1,500.00). This subsection shall not apply to the residence home of such official.</p>
+
+            <p class="P01">The foregoing provisions shall not apply to policies of life insurance issued to such public official or his spouse or members of his family, accounts in any commercial bank, savings and loan association or credit unions, or similar financial institutions subject to regulation by the State of Washington or any other governmental agency having jurisdiction thereover.</p>
+
+            <p class="P01">Any such elected public official who is disqualified by reason of such personal, private or similar conflict of interest in any matter as hereinabove defined, shall, after having made the required disclosure as herein set forth, remove himself from his customary seat during such debate and, by permission of the presiding officer, leave the Council chamber until such time as the matter at hand, from which such public official has been disqualified, has been disposed of in the regular course of business.</p>
+
+      <h3 class="Cite"><a id="a1x6x8">1-6-8</a> FALSE CHARGE OF MISCONDUCT:</h3>
+            <p class="P0">(Rep. by Ord. 5157, 9-26-05)</p>
+
+      <h3 class="Cite"><a id="a1x6x9">1-6-9</a> PENALTY:</h3>
+            <p class="P0">Any person who wilfully, knowingly and intentionally violates any provisions of this chapter shall be guilty of a misdemeanor and penalized in accordance with RMC <a href="#a1x3x1">1-3-1</a>. (Ord. 2586, 9-28-70; Ord. 5831, 1-23-17)</p>
+
+    <h2 headertitle="Renton Municipal Code" headerdisc="The Renton Municipal Code is current through Ordinance 6197, passed August 10, 2026." class="CH"><a id="a7"></a>CHAPTER 7<br />REPRESENTATIVES TO LEGISLATIVE AND ADMINISTRATIVE BODIES</h2>
+            <p class="ctoc">SECTION:</p>
+
+            <p class="CiteTOC"><a href="#a1x7x1">1-7-1:&nbsp;&nbsp;&nbsp;&nbsp;Legislative Service Necessary</a></p>
+
+            <p class="CiteTOC"><a href="#a1x7x2">1-7-2:&nbsp;&nbsp;&nbsp;&nbsp;City Employees Designated</a></p>
+
+            <p class="CiteTOC"><a href="#a1x7x3">1-7-3:&nbsp;&nbsp;&nbsp;&nbsp;Duty, Authority Of Representative</a></p>
+
+            <p class="CiteTOC"><a href="#a1x7x4">1-7-4:&nbsp;&nbsp;&nbsp;&nbsp;Compensation Of Representative</a></p>
+
+            <p class="CiteTOC"><a href="#a1x7x5">1-7-5:&nbsp;&nbsp;&nbsp;&nbsp;Expenditures From City Funds</a></p>
+
+            <p class="CiteTOC"><a href="#a1x7x6">1-7-6:&nbsp;&nbsp;&nbsp;&nbsp;State And City Regulations Enforced</a></p>
+
+      <h3 class="Cite"><a id="a1x7x1">1-7-1</a> LEGISLATIVE SERVICE NECESSARY:</h3>
+            <p class="P0">It is hereby determined by the City Council of the City of Renton that the study and collection of information, data and opinions of the administrative and enforcement efficiency and costs attendant therewith, and the societal effects of proposed, pending or enacted legislation is necessary and desirable for legislative planning or revision. A prompt, informative response to inquiries from legislators and public administrators, and attendance at legislative committee hearings relating to the effect of legislation on municipal finances, services, authority and planning is necessary and helpful to the legislator in the enlightened performance of the legislative function and serves the best interests of the citizens and the public, and is hereby declared a proper municipal purpose.</p>
+
+      <h3 class="Cite"><a id="a1x7x2">1-7-2</a> CITY EMPLOYEES DESIGNATED:</h3>
+            <p class="P0">The Mayor is hereby authorized to designate City employees or representatives from time to time to collect, accumulate and analyze information concerning the effect of enacted legislation or the anticipated effect of proposed or pending legislation, to consult with employees or representatives of other municipalities or counties and associations thereof; to respond and provide data and information and give testimony to members of the State Legislature, its legislative committees, State and regional administrative officers, or other municipalities investigating the City&rsquo;s experience or anticipated costs, benefits or problems from such enacted or proposed legislation.</p>
+
+      <h3 class="Cite"><a id="a1x7x3">1-7-3</a> DUTY, AUTHORITY OF REPRESENTATIVE:</h3>
+            <p class="P0">In all matters in which an official, staff employee or other representative appears on behalf of the City, such representative shall observe, carry out or support the known relevant policies as declared by the Renton City Council and shall consult the Mayor and/or the City Council for advice and guidance when required. All such informational activities shall be conducted with prudence and good judgment and within all legal regulation of such activity. Such representative shall not have any authority to make any statements, commitments or promises binding upon the City, but may speak to influence the passage, defeat or amendment of legislation affecting the City in accordance with the policy or position approved by the City Council.</p>
+
+      <h3 class="Cite"><a id="a1x7x4">1-7-4</a> COMPENSATION OF REPRESENTATIVE:</h3>
+            <p class="P0">While engaged in such informational, educational and testimonial activity, a City employee shall continue to receive his or her regular current salary as such City employee. No additional compensation of any type shall be paid or accrue to an elected official during his or her term of office with the City for such research, informational or lobbying services to the City. An employee or official shall receive reimbursement for the reasonable costs of travel, lodging and personal meals reasonably incurred in the course of such service in accordance with the City&rsquo;s regular policies and rates as established by ordinance.</p>
+
+            <p class="P01">Whenever such official, staff employee, or other representative appears on behalf of the City before any such legislative or administrative body as hereinabove specified, he shall thereafter make a report in writing addressed to the Mayor and City Council summarizing his testimony or other activity, together with copies of any written memoranda or briefs submitted to such agency.</p>
+
+      <h3 class="Cite"><a id="a1x7x5">1-7-5</a> EXPENDITURES FROM CITY FUNDS:</h3>
+            <p class="P0">No expenditures from City funds for the hosting, entertainment or campaign assistance of any legislator or State officer shall be authorized, expended or reimbursed at any time.</p>
+
+      <h3 class="Cite"><a id="a1x7x6">1-7-6</a> STATE AND CITY REGULATIONS ENFORCED:</h3>
+            <p class="P0">The City&rsquo;s employee or representative in such informational or lobbying activities shall comply fully with all State and City regulations relating to ethical practices and conduct, and comply with all regulations relating to the reporting of expenditures in connection therewith. (Ord. 3014, 3-1-76, eff. 3-10-76)</p>
+
+    <h2 headertitle="Renton Municipal Code" headerdisc="The Renton Municipal Code is current through Ordinance 6197, passed August 10, 2026." class="CH"><a id="a8"></a>CHAPTER 8<br />HOLIDAYS</h2>
+            <p class="ctoc">SECTION:</p>
+
+            <p class="CiteTOC"><a href="#a1x8x1">1-8-1:&nbsp;&nbsp;&nbsp;&nbsp;Establishing Legal Holidays</a></p>
+
+      <h3 class="Cite"><a id="a1x8x1">1-8-1</a> ESTABLISHING LEGAL HOLIDAYS:</h3>
+            <p class="P1">A.&nbsp;&nbsp;&nbsp;&nbsp;The following are hereby declared and established as legal holidays in the City and recognized as such legal holidays for the employees of the City, without loss of pay:</p>
+
+            <p class="P2">1.&nbsp;&nbsp;&nbsp;&nbsp;The first day of January, commonly called New Year&rsquo;s Day.</p>
+
+            <p class="P2">2.&nbsp;&nbsp;&nbsp;&nbsp;The third Monday of January, commonly known as Martin Luther King, Jr. Day.</p>
+
+            <p class="P2">3.&nbsp;&nbsp;&nbsp;&nbsp;The last Monday in May, commonly known as Memorial Day.</p>
+
+            <p class="P2">4.&nbsp;&nbsp;&nbsp;&nbsp;The nineteenth day of June, commonly known as Juneteenth.</p>
+
+            <p class="P2">5.&nbsp;&nbsp;&nbsp;&nbsp;The fourth day of July, being the anniversary of the Declaration of Independence.</p>
+
+            <p class="P2">6.&nbsp;&nbsp;&nbsp;&nbsp;The first Monday in September, to be known as Labor Day.</p>
+
+            <p class="P2">7.&nbsp;&nbsp;&nbsp;&nbsp;The eleventh day of November, to be known as Veterans&rsquo; Day.</p>
+
+            <p class="P2">8.&nbsp;&nbsp;&nbsp;&nbsp;The fourth Thursday in November, to be known as Thanksgiving Day.</p>
+
+            <p class="P2">9.&nbsp;&nbsp;&nbsp;&nbsp;The day immediately following Thanksgiving Day.</p>
+
+            <p class="P2">10.&nbsp;&nbsp;&nbsp;&nbsp;The twenty fifth of December, commonly called Christmas Day.</p>
+
+            <p class="P2">11.&nbsp;&nbsp;&nbsp;&nbsp;When Christmas Day is observed on a Tuesday, Wednesday, or Friday, the previous day shall be a holiday for City employees. When Christmas day is observed on a Monday or Thursday, the next day shall be a holiday for City employees.</p>
+
+            <p class="P1">B.&nbsp;&nbsp;&nbsp;&nbsp;Nothing in this Section shall have the effect of adding or deleting the number of paid holidays provided for in any existing bargaining agreements between the City and its employees.</p>
+
+            <p class="P1">C.&nbsp;&nbsp;&nbsp;&nbsp;If any of the above specified State legal holidays are also Federal legal holidays but observed on different dates, only the State legal holidays shall be recognized as a paid legal holiday for the employees of the City as hereinabove set forth.</p>
+
+            <p class="P1">D.&nbsp;&nbsp;&nbsp;&nbsp;Whenever any of the above legal holidays fall upon a Sunday, the holiday shall be observed on the following Monday as a legal holiday; likewise, when any such legal holiday falls upon a Saturday, the holiday shall be observed on the preceding Friday as a legal holiday. (Ord. 4435, 2-14-94; Ord. 6028, 10-18-21)</p>
+
+    <h2 headertitle="Renton Municipal Code" headerdisc="The Renton Municipal Code is current through Ordinance 6197, passed August 10, 2026." class="CH"><a id="a9"></a>CHAPTER 9<br />DEFENSE OF EMPLOYEES, OFFICERS AND VOLUNTEERS</h2>
+            <p class="ctoc">SECTION:</p>
+
+            <p class="CiteTOC"><a href="#a1x9x1">1-9-1:&nbsp;&nbsp;&nbsp;&nbsp;Investigation And Defense</a></p>
+
+            <p class="CiteTOC"><a href="#a1x9x2">1-9-2:&nbsp;&nbsp;&nbsp;&nbsp;Determination Of Acts Within Scope Of Duty</a></p>
+
+            <p class="CiteTOC"><a href="#a1x9x3">1-9-3:&nbsp;&nbsp;&nbsp;&nbsp;Defense Of Claims Against Volunteers</a></p>
+
+            <p class="CiteTOC"><a href="#a1x9x4">1-9-4:&nbsp;&nbsp;&nbsp;&nbsp;Limitations And Reservations</a></p>
+
+            <p class="CiteTOC"><a href="#a1x9x5">1-9-5:&nbsp;&nbsp;&nbsp;&nbsp;Administrative Proceedings</a></p>
+
+            <p class="CiteTOC"><a href="#a1x9x6">1-9-6:&nbsp;&nbsp;&nbsp;&nbsp;Punitive Damages</a></p>
+
+            <p class="CiteTOC"><a href="#a1x9x7">1-9-7:&nbsp;&nbsp;&nbsp;&nbsp;Ratification Of Prior Acts</a></p>
+
+      <h3 class="Cite"><a id="a1x9x1">1-9-1</a> INVESTIGATION AND DEFENSE:</h3>
+            <p class="P1">A.&nbsp;&nbsp;&nbsp;&nbsp;It shall be a condition of employment of City officers and employees that in the event there is made against such officers or employees any claims and/or litigation arising from any conduct, acts or omissions of such officers or employees in the scope and course of their City employment, the Claims Administrator shall investigate, at the request of or on behalf of the officer or employee, and the City Attorney shall, where litigation is involved, investigate and defend such claims and/or litigation. If a claim be deemed a proper one, and if judgment be rendered against such officer or employee, the claim or judgment shall be paid by the City in accordance with procedures established in this Chapter for the settlement of claims and payments of judgments.</p>
+
+            <p class="P1">B.&nbsp;&nbsp;&nbsp;&nbsp;As a condition of such defense and/or payment, the officers or employees shall, in the event of any incident or course of conduct giving rise to a claim for damage and/or litigation, as soon as practicable give the Risk Manager written notice thereof. Such notice shall identify the officers or employees involved and contain information with respect to time, place and circumstances thereof and the names and addresses of persons allegedly injured or otherwise damaged thereby and of available witnesses. The officer or employee shall also forward to the Risk Manager every demand, notice, summons or other process relating to any such incident or course of conduct received by him or his representative and shall cooperate with the Risk Manager and, upon request, assist in making settlements in the conduct of suits and in enforcing any claim or any right of contribution or indemnity against any person or organization who may be liable to the City because of any damage or alleged loss arising from the incident or course of conduct.</p>
+
+            <p class="P1">C.&nbsp;&nbsp;&nbsp;&nbsp;The officers or employees shall attend interviews, depositions, hearings and trials and assist in securing and giving evidence and obtaining the attendance of witnesses.</p>
+
+            <p class="P1">D.&nbsp;&nbsp;&nbsp;&nbsp;The officers and employees shall not, except at their own cost, voluntarily make any payment, assume any obligation or incur any expense other than for first-aid to others at the time of any incident or course of conduct giving rise to any such alleged loss or damage.</p>
+
+            <p class="P01">In the event any such officer or employee fails or refuses to cooperate as specified in the above proviso or elects to provide his own legal representation with respect to any such claims and/or litigation, then the provisions of this Chapter will be inapplicable and of no force and effect with respect to any such claim and/or litigation. (Ord. 4509, 4-24-95)</p>
+
+      <h3 class="Cite"><a id="a1x9x2">1-9-2</a> DETERMINATION OF ACTS WITHIN SCOPE OF DUTY:</h3>
+            <p class="P0">The determination whether the officer or employee was acting within the scope and course of his employment by the City shall be made by his department head, and in the case of such a claim or litigation against a department head such determination shall be made by the City Attorney. (Ord. 4509, 4-24-95)</p>
+
+      <h3 class="Cite"><a id="a1x9x3">1-9-3</a> DEFENSE OF CLAIMS AGAINST VOLUNTEERS:</h3>
+            <p class="P0">To encourage the participation of volunteers in carrying out City projects and activities for the public, the City shall appear and defend a claim or action made against a volunteer personally and pay the claim if judgment is rendered against the volunteer or a settlement is made requiring a payment from the volunteer when all of these conditions are met:</p>
+
+            <p class="P1">A.&nbsp;&nbsp;&nbsp;&nbsp;The department head determines that the claim arises out of the actions or omissions of the volunteer in the scope and course of carrying out an assignment for a City project or activity or out of the actions or omissions of the volunteer in carrying out an assignment under the direction of a City officer for a joint project or activity of the City and another association or corporation;</p>
+
+            <p class="P1">B.&nbsp;&nbsp;&nbsp;&nbsp;The volunteer has registered in writing with the responsible City department and has been authorized to perform the assignment or such assignments;</p>
+
+            <p class="P1">C.&nbsp;&nbsp;&nbsp;&nbsp;The volunteer gives the City information about the accident or claim as soon as practicable. This includes the time, place and circumstances of the damage or injury, the persons or property involved, the extent of the injuries or damages, the names of witnesses, and other facts requested by the City Attorney; and</p>
+
+            <p class="P1">D.&nbsp;&nbsp;&nbsp;&nbsp;The volunteer authorizes the City to defend the claim on his or her behalf and to represent him or her in any litigation that may arise; and the volunteer cooperates fully and assists the City in its defense. This condition includes forwarding to the City Attorney any and every demand, notice, summons or other process received which may relate to the incident or lawsuit; attending interviews, depositions, hearings and trials; assisting in securing evidence and the attendance of witnesses; filing and enforcing claims against others who may be liable; and obeying instructions of the City Attorney related to the defense of the claim.</p>
+
+            <p class="P01">The City&rsquo;s defense of a claim made against a volunteer includes claims made against a volunteer and his or her marital community on account of the volunteer&rsquo;s actions or omissions in the scope and course of carrying out a City assignment and it covers claims or lawsuits made against the City and the volunteer jointly. (Ord. 4509, 4-24-95)</p>
+
+      <h3 class="Cite"><a id="a1x9x4">1-9-4</a> LIMITATIONS AND RESERVATIONS:</h3>
+            <p class="P0">The City&rsquo;s undertakings and obligations under this Chapter are subject to these limitations and reservations:</p>
+
+            <p class="P1">A.&nbsp;&nbsp;&nbsp;&nbsp;This Chapter does not apply to claims arising out of the volunteer&rsquo;s use of a motor vehicle. Eligibility for City defense and payment of claims against a volunteer arising from his or her use of a motor vehicle will be determined by consideration of whether or not the use of the motor vehicle was in furtherance of the volunteer&rsquo;s activities on behalf of the City. The commute to and from the voluntary activities will not be covered by this Chapter.</p>
+
+            <p class="P1">B.&nbsp;&nbsp;&nbsp;&nbsp;The City&rsquo;s defense of a claim and its obligation to pay a judgment or settlement shall be of no force and effect if the volunteer fails or refuses to cooperate fully and assist in the City&rsquo;s defense of the claim.</p>
+
+            <p class="P1">C.&nbsp;&nbsp;&nbsp;&nbsp;To the extent that the City makes payment on a claim for the benefit of the volunteer, the City will succeed to rights and claims of the volunteer against others, who may be responsible in whole or in part for the damages or injury.</p>
+
+            <p class="P1">D.&nbsp;&nbsp;&nbsp;&nbsp;When the volunteer is a spouse or a member of the immediate family of a department head or the department head is disqualified or declines to make the determination contemplated by Section 1-9-3A, the City Attorney will make the determination for the City.</p>
+
+            <p class="P1">E.&nbsp;&nbsp;&nbsp;&nbsp;The City Attorney may retain counsel to represent the volunteer rather than undertake the representation through the City Attorney&rsquo;s office.</p>
+
+            <p class="P1">F.&nbsp;&nbsp;&nbsp;&nbsp;Section <a href="#a1x9x3">1-9-3</a> does not apply to prosecutions to enforce criminal or civil penalties for violations of law or City ordinances.</p>
+
+            <p class="P1">G.&nbsp;&nbsp;&nbsp;&nbsp;Section <a href="#a1x9x1">1-9-1</a> does not apply to, and the City shall have no obligation to defend or indemnify with respect to claims and/or litigation arising from any dishonest, fraudulent, criminal or malicious acts or omissions of officers or employees of the City.</p>
+
+            <p class="P1">H.&nbsp;&nbsp;&nbsp;&nbsp;Nothing contained in this Chapter shall be constructed to modify or amend any provision of any policy of insurance wherein the City or any official or employee thereof is the named insured. In the event of any conflict between this Chapter and the provisions of any such policy of insurance, the policy provision shall be controlling; provided, however, that nothing contained in this Section shall be deemed to limit or restrict any employee&rsquo;s or official&rsquo;s rights to full coverage pursuant to this Chapter, it being the intention of this Section to provide complete coverage outside and beyond insurance policies which may be in effect while not compromising the terms and conditions of such policies by any conflicting provision contained in this Chapter.</p>
+
+            <p class="P1">I.&nbsp;&nbsp;&nbsp;&nbsp;If a bargaining unit contract covers any of the provisions of this Chapter, all employees under such contract shall be governed by the provisions thereof, rather than by the provisions of this Chapter, and where any conflict exists between the provisions of any such contract and this Chapter, such contract shall control.</p>
+
+            <p class="P1">J.&nbsp;&nbsp;&nbsp;&nbsp;Nothing in Section <a href="#a1x9x1">1-9-1</a> shall preclude the City from undertaking an officer or employee&rsquo;s defense under a reservation of rights. (Ord. 4509, 4-24-95)</p>
+
+      <h3 class="Cite"><a id="a1x9x5">1-9-5</a> ADMINISTRATIVE PROCEEDINGS:</h3>
+            <p class="P1">A.&nbsp;&nbsp;&nbsp;&nbsp;In the event there is made against any City officers or employees any administrative charge of misconduct which may be the subject of any proceedings before any administrative tribunal of any city, state, or Federal agency which may lead to the administrative imposition of a monetary penalty, the making of any recommendation regarding the City employment of the officer or employee, or the imposition of any discipline or sanction related to a professional license, the officer or employee shall be entitled to request that the City investigate and defend the officer or employee in such administrative proceedings. The request for investigation and defense shall be made to Risk Management. Thereafter, the Risk Manager in consultation with the City Attorney shall, after receiving a report and recommendation regarding the request from the relevant department head, make a determination as to whether it would be in the City&rsquo;s interest and in the interest of justice for the City to provide investigation and defense for the officer or employee in such administrative proceedings, including any judicial review of such proceeding. There shall be no appeal from such determinations. If the determination is made that the City will defend in administrative proceedings the City will indemnify the officer or employee with respect to any monetary penalty imposed.</p>
+
+            <p class="P1">B.&nbsp;&nbsp;&nbsp;&nbsp;In general, defense will not be provided for such things as WISHA citations, unemployment claims or collective bargaining disputes. Defense may be provided in those areas where the defense is deemed merited and the charge affects the employee&rsquo;s licensing or questions the employee&rsquo;s professional judgment. (Ord. 4509, 4-24-95)</p>
+
+      <h3 class="Cite"><a id="a1x9x6">1-9-6</a> PUNITIVE DAMAGES:</h3>
+            <p class="P0">When an officer or employee of the City will be represented in a claim and/or litigation by the City pursuant to Section <a href="#a1x9x1">1-9-1</a>, and there is a claim made against such officer or employee for punitive damages, the officer or employee may make a request to the Mayor that the City pay any award of punitive damages on behalf of the officer or employee. Upon receiving a request made by or on behalf of a City officer or employee that the City should pay any award of punitive damages, the Mayor shall receive a report and recommendation from the officer or employee&rsquo;s department head. Following receipt of the report and recommendation of the relevant department head, the Mayor shall determine whether the best interests of the City and justice will be served by payment by the City of any award for punitive damages, from which determination there shall be no appeal. The Mayor shall communicate his determination with respect to the officer or employee&rsquo;s request that the City pay the award of punitive damages to the officer or employee and to the City Attorney. Thereafter, the City Attorney shall authorize payment of any punitive damages award or decline to pay any punitive damages award, in conformity with the Mayor&rsquo;s determination. (Ord. 4509, 4-24-95)</p>
+
+      <h3 class="Cite"><a id="a1x9x7">1-9-7</a> RATIFICATION OF PRIOR ACTS:</h3>
+            <p class="P0">Any acts consistent with the authority and prior to the effective date hereof are hereby ratified and confirmed. (Ord. 4509, 4-24-95)</p>
+
+    <h2 headertitle="Renton Municipal Code" headerdisc="The Renton Municipal Code is current through Ordinance 6197, passed August 10, 2026." class="CH"><a id="a10"></a>CHAPTER 10<br />CODE ENFORCEMENT</h2>
+            <p class="ctoc">SECTION:</p>
+
+            <p class="CiteTOC"><a href="#a1x10x1">1-10-1:&nbsp;&nbsp;&nbsp;&nbsp;System Of Non-Judicial Code Enforcement</a></p>
+
+            <p class="CiteTOC"><a href="#a1x10x2">1-10-2:&nbsp;&nbsp;&nbsp;&nbsp;Definitions</a></p>
+
+            <p class="CiteTOC"><a href="#a1x10x3">1-10-3:&nbsp;&nbsp;&nbsp;&nbsp;Enforcement Of Violations</a></p>
+
+            <p class="CiteTOC"><a href="#a1x10x4">1-10-4:&nbsp;&nbsp;&nbsp;&nbsp;Voluntary Correction Agreement</a></p>
+
+            <p class="CiteTOC"><a href="#a1x10x5">1-10-5:&nbsp;&nbsp;&nbsp;&nbsp;Hearing Procedures</a></p>
+
+            <p class="CiteTOC"><a href="#a1x10x6">1-10-6:&nbsp;&nbsp;&nbsp;&nbsp;Abatement</a></p>
+
+            <p class="CiteTOC"><a href="#a1x10x7">1-10-7:&nbsp;&nbsp;&nbsp;&nbsp;Failure To Comply</a></p>
+
+            <p class="CiteTOC"><a href="#a1x10x8">1-10-8:&nbsp;&nbsp;&nbsp;&nbsp;Additional Provisions</a></p>
+
+      <h3 class="Cite"><a id="a1x10x1">1-10-1</a> SYSTEM OF NON-JUDICIAL CODE ENFORCEMENT:</h3>
+            <p class="P1">A.&nbsp;&nbsp;&nbsp;&nbsp;Purpose: To protect and promote the health, safety, sanitation, and aesthetics in the City of Renton by providing, in normal circumstances, an expedited and cost-effective process to address civil code violations, provide for prompt hearings and decisions, and for the collection of appropriate fines, costs, and fees.</p>
+
+            <p class="P1">B.&nbsp;&nbsp;&nbsp;&nbsp;Authority: Pursuant to RCW 7.80.010(5), the City elects to establish a non-judicial hearing and determination system to enforce Renton Municipal Code (&ldquo;RMC&rdquo;) civil code violations.</p>
+
+            <p class="P1">C.&nbsp;&nbsp;&nbsp;&nbsp;Not a Basis for Liability: This code does not create or imply any duty upon the City or any of its officers, employees, or volunteers that may be construed to be the basis of civil or criminal liability on the part of the City, its officers, employees, agents, or volunteers, for any injury, loss, or damage resulting from any action or inaction on their part. (Ord. 6034, 11-15-21)</p>
+
+      <h3 class="Cite"><a id="a1x10x2">1-10-2</a> DEFINITIONS:</h3>
+            <p class="P1">A.&nbsp;&nbsp;&nbsp;&nbsp;Abate or Abatement: means to cure the Violation. Abatement shall not be deemed to be complete until the Violator or Person in Control has notified the CCI of the abatement and the CCI has been afforded a reasonable opportunity to inspect the Violation and deem the Abatement complete.</p>
+
+            <p class="P1">B.&nbsp;&nbsp;&nbsp;&nbsp;Administrator: shall mean a City of Renton department administrator or his or her designee.</p>
+
+            <p class="P1">C.&nbsp;&nbsp;&nbsp;&nbsp;Code Compliance Inspector: (hereafter CCI) means any employee or designee of the City of Renton who is directed, authorized, or responsible for finding, responding to, evaluating, or considering Violations and/or alleged Violations of the Renton Municipal Code herein.</p>
+
+            <p class="P1">D.&nbsp;&nbsp;&nbsp;&nbsp;Civil Enforcement Action: Any appealable action taken by the City or its designee to commence an enforcement proceeding for any Violation of the Renton Municipal Code, including, but not limited to: a notice of violation, a notice and order, an order to correct, a stop work order, an order not to occupy premises, or any other civil enforcement mechanism or order authorized by this Code.</p>
+
+            <p class="P1">E.&nbsp;&nbsp;&nbsp;&nbsp;Cost: includes and is not limited to reasonable legal fees and costs (including but not limited to any legal personnel costs, filing fees, travel costs, etc.), administrative personnel costs, abatement costs (including but not limited to filing fees, truck rental fees, hiring or contracting fees, overtime costs, etc.), actual expenses and costs, and reimbursement for any and all expenses related to the code enforcement process.</p>
+
+            <p class="P1">F.&nbsp;&nbsp;&nbsp;&nbsp;Fines: are any monetary assessment, recovery, or reimbursement related to the City&rsquo;s civil code enforcement. Fines shall accrue for each day or portion thereof that each Violation occurs. A Violator may be responsible for multiple fines for each Violation. Fines are intended to be remedial in nature and should be distinguished from any penalties that may be separately imposed through a judicial process.</p>
+
+            <p class="P1">G.&nbsp;&nbsp;&nbsp;&nbsp;Hearing Examiner: shall mean the neutral adjudicator designated by the Administrator to oversee and establish rules for any hearings requested pursuant to this Chapter.</p>
+
+            <p class="P1">H.&nbsp;&nbsp;&nbsp;&nbsp;Notice of Violation: is a determination made by the CCI that a Violator has committed or permitted a Violation of the Renton Municipal Code. A Notice of Violation is a civil code violation, punishable in accordance with the terms of this chapter.</p>
+
+            <p class="P1">I.&nbsp;&nbsp;&nbsp;&nbsp;Ongoing Violation: is a Violation that is in continuous violation of the Renton Municipal Code until the condition has been abated.</p>
+
+            <p class="P1">J.&nbsp;&nbsp;&nbsp;&nbsp;Order to Correct: is an order issued to a Violator(s) which orders the Violator(s) to abate the Violation/condition. The Order to Correct shall set the time and manner in which the condition must be abated. An Order to Correct shall remain in effect until the Violation/condition is abated and the City is notified of the abatement and has been afforded a reasonable opportunity to inspect the Violation/condition.</p>
+
+            <p class="P1">K.&nbsp;&nbsp;&nbsp;&nbsp;Person in Control: means any person who lives in or stays at a premises, or any person who literally possesses or has his or her name on a title, deed, mortgage, or an agreement related to the premises, or any person who has control over the premises, or who is responsible for creating, maintaining or permitting a civil code violation, whether as owner, tenant, occupant, or otherwise. There may be more than one Person in Control for purposes of this chapter. If the Person in Control is not the legal owner, the Person in Control and owner are both jointly liable and subject to the provisions and remedies of this chapter. Application of this chapter against one party does not preclude application to another party who is an owner or Person in Control. There is a presumption that a Person in Control is aware of or has knowledge of the condition at a premises.</p>
+
+            <p class="P1">L.&nbsp;&nbsp;&nbsp;&nbsp;Serve or Service: means delivery of any Warning of Violation, Notice of Violation, and/or order upon persons having any known interest in the property where a Violation exists. Service is deemed to be completed pursuant to any of the following means:</p>
+
+            <p class="P2">1.&nbsp;&nbsp;&nbsp;&nbsp;Personal service; or</p>
+
+            <p class="P2">2.&nbsp;&nbsp;&nbsp;&nbsp;Certified mail with return receipt requested; or</p>
+
+            <p class="P2">3.&nbsp;&nbsp;&nbsp;&nbsp;Electronic transmission; or</p>
+
+            <p class="P2">4.&nbsp;&nbsp;&nbsp;&nbsp;If the whereabouts of any person having any known interest in the property where the Violation exists are unknown and the same cannot be ascertained in the exercise of reasonable diligence, and the CCI makes an affidavit to the effect, then service may be deemed to be completed by posting the Warning of Violation, Notice of Violation, and/or order on the property in a conspicuous place; and mailing a copy via first-class mail to the last known address for persons having any known interest in the property where the Violation exists; and mailing a copy via first-class mail to the taxpayer of record at the taxpayer&rsquo;s listed address in the records of the King County Assessor&rsquo;s Office.</p>
+
+            <p class="P1">M.&nbsp;&nbsp;&nbsp;&nbsp;Violation: is an act, error, omission, location, property, structure, or condition that is contrary to any provision of the Renton Municipal Code and/or endangers the health, sanitation, or safety of the residents, neighborhood, or community. Each day that a Violation exists shall constitute a separate and actionable Violation. Multiple simultaneous Violations at one location shall be administered jointly for administrative and fiscal economy.</p>
+
+            <p class="P1">N.&nbsp;&nbsp;&nbsp;&nbsp;Violator: is any person(s), entity, or organization(s), including the possessor, and/or owner of a property, any person(s) having any interest in the property, and/or the Person in Control or owner&rsquo;s agent for a property where a civil code violation exists or is alleged to exist, and/or any person(s) who has received notice of a Violation or Order to Correct.</p>
+
+            <p class="P1">O.&nbsp;&nbsp;&nbsp;&nbsp;Warning of Violation: is an informal oral or written warning that provides notice to a Violator that the CCI has found, seen, or discovered a potential RMC civil code violation that a Violator has created, permitted to exist, maintained, or failed to eliminate. A Warning of Violation is non-appealable and used to inform the Person(s) in Control regarding the potential of a Violation which does not impose a threat to public health, safety, or welfare. (Ord. 6034, 11-15-21)</p>
+
+      <h3 class="Cite"><a id="a1x10x3">1-10-3</a> ENFORCEMENT OF VIOLATIONS:</h3>
+            <p class="P1">A.&nbsp;&nbsp;&nbsp;&nbsp;Code Compliance Authority: A CCI is authorized to initiate a Civil Enforcement Action whenever all facts and circumstances known to the CCI lead the CCI to form a reasonable belief that, in the CCI&rsquo;s professional judgment and experience, the Renton Municipal Code (RMC) is being violated by any person, property, act, omission, error, or condition.</p>
+
+            <p class="P1">B.&nbsp;&nbsp;&nbsp;&nbsp;Initiating Enforcement Proceedings: When a CCI initiates a Civil Enforcement Action, the CCI is authorized to take any of the following actions:</p>
+
+            <p class="P2">1.&nbsp;&nbsp;&nbsp;&nbsp;Order the Violator(s) to Abate the Condition: The CCI may order the property Abated by persons working under the City&rsquo;s authority with costs assessed to the Violator(s).</p>
+
+            <p class="P2">2.&nbsp;&nbsp;&nbsp;&nbsp;Assess Fines: The CCI may assess any applicable costs and/or Fines for each Violation based on the following criteria: the nature of the offense; the history of the condition of the property; the history of the Violator; the impact on the neighbors, neighborhood, or community; and the need to discourage such conduct, inactivity, or neglect.</p>
+
+            <p class="P2">Alternatively, the CCI may stay the accrual of costs and/or civil fines, upon an actual showing that the Violator, acting in good faith, is unable to bring the condition into compliance within the required time.</p>
+
+            <p class="P2">3.&nbsp;&nbsp;&nbsp;&nbsp;Issue a Stop Work Order: The CCI may order that work stop immediately if that work is inconsistent with a permit or license, has not been approved, is being done without a permit, or has not been inspected, or a Violator has refused a request to inspect.</p>
+
+            <p class="P2">4.&nbsp;&nbsp;&nbsp;&nbsp;Deny, Revoke, Suspend, or Modify a Permit or License, or Application Therefor: The City may deny, revoke, suspend, or modify a permit or license when a Violator has failed to comply with the terms of the permit or license or efforts to bring the condition or property into compliance, a Violator has exceeded the scope of work set forth in the permit or license, or if a Violator has failed to undertake the project in the manner set forth in the approved application.</p>
+
+            <p class="P1">C.&nbsp;&nbsp;&nbsp;&nbsp;Notice of Violation: When initiating a Civil Enforcement Action, the CCI shall inform the Violator of:</p>
+
+            <p class="P2">1.&nbsp;&nbsp;&nbsp;&nbsp;The relevant details that form the basis of the Violation;</p>
+
+            <p class="P2">2.&nbsp;&nbsp;&nbsp;&nbsp;The section or sections of the RMC that have been violated;</p>
+
+            <p class="P2">3.&nbsp;&nbsp;&nbsp;&nbsp;The time in which the Violation must be corrected;</p>
+
+            <p class="P2">4.&nbsp;&nbsp;&nbsp;&nbsp;The fine amount for the Violation, if any; and also that,</p>
+
+            <p class="P2">5.&nbsp;&nbsp;&nbsp;&nbsp;Any Violator who wants a hearing to challenge the Notice of Violation may have a hearing before the Hearing Examiner, pursuant to the provisions of this chapter. The request for a hearing must be timely and must satisfy all of the other requirements of this chapter.</p>
+
+            <p class="P1">D.&nbsp;&nbsp;&nbsp;&nbsp;Ongoing Violations: Every Violation of this code of a continuous or ongoing nature shall be subject to daily Fines to begin when the Civil Enforcement Action is initiated and shall not end until the Violation is Abated to the satisfaction of the CCI.</p>
+
+            <p class="P1">E.&nbsp;&nbsp;&nbsp;&nbsp;Criminal Violation: When a CCI discovers or is made aware of a RMC Violation, and where the Violation carries a criminal penalty, the CCI is authorized to refer the matter to the City Attorney for consideration of criminal charges. Pursuing criminal charges does not preclude the City from pursuing additional remedies as warranted by law. See RMC <a href="#a1x3x1">1-3-1</a>. (Ord. 6034, 11-15-21)</p>
+
+      <h3 class="Cite"><a id="a1x10x4">1-10-4</a> VOLUNTARY CORRECTION AGREEMENT:</h3>
+            <p class="P1">A.&nbsp;&nbsp;&nbsp;&nbsp;Voluntary Correction Agreement: If the CCI determines that a code Violation has occurred, the City may enter into a voluntary correction agreement with any Violator, if the CCI determines it would be appropriate. The Administrator, or his or her designee, shall administer a procedure to manage an expedited voluntary compliance process.</p>
+
+            <p class="P1">B.&nbsp;&nbsp;&nbsp;&nbsp;Contents: The voluntary correction agreement form or document must contain, at a minimum:</p>
+
+            <p class="P2">1.&nbsp;&nbsp;&nbsp;&nbsp;All of the relevant information identifying the Violator(s);</p>
+
+            <p class="P2">2.&nbsp;&nbsp;&nbsp;&nbsp;The Violation location(s);</p>
+
+            <p class="P2">3.&nbsp;&nbsp;&nbsp;&nbsp;Details about the Violation(s);</p>
+
+            <p class="P2">4.&nbsp;&nbsp;&nbsp;&nbsp;What must be done to eliminate the Violation(s);</p>
+
+            <p class="P2">5.&nbsp;&nbsp;&nbsp;&nbsp;How long the Violator(s) has to eliminate the Violation(s);</p>
+
+            <p class="P2">6.&nbsp;&nbsp;&nbsp;&nbsp;Whether there have been any known prior Violations involving the Violator(s) in the City in the last ten (10) years;</p>
+
+            <p class="P2">7.&nbsp;&nbsp;&nbsp;&nbsp;A signed right of entry to inspect until the Violation has been eliminated, and/or correct or abate the property if the voluntary correction agreement is not satisfied;</p>
+
+            <p class="P2">8.&nbsp;&nbsp;&nbsp;&nbsp;The minimum amount of civil fines owed at the point the agreement is entered; and</p>
+
+            <p class="P2">9.&nbsp;&nbsp;&nbsp;&nbsp;In bold print, that if the voluntary correction agreement is not satisfied the City may, without any additional notice or hearing, impose any remedy authorized by this chapter; order the abatement of the Violation by the Violator(s) or the City&rsquo;s employees or agents; and assess any abatement, investigation, or enforcement costs to the Violator(s) and against the property.</p>
+
+            <p class="P1">C.&nbsp;&nbsp;&nbsp;&nbsp;Hearing:</p>
+
+            <p class="P2">1.&nbsp;&nbsp;&nbsp;&nbsp;As a condition to entering into a voluntary correction agreement, a Violator expressly waives the right to a hearing, or any other review to challenge the determination of a Violation, or the allegations contained in any Notice of Violation, as the Violator concedes that the Violator is responsible for the Violation of the Renton Municipal Code, and that the City has the right to use any lawful means provided by this code or applicable state or municipal law to investigate, enforce, and eliminate the Violation.</p>
+
+            <p class="P2">2.&nbsp;&nbsp;&nbsp;&nbsp;The Violator(s) may request a hearing to challenge the computation of the costs and/or Fines, and/or the Violator(s) may ask for a hearing to ask for mitigation of the costs and/or Fines.</p>
+
+            <p class="P3">a.&nbsp;&nbsp;&nbsp;&nbsp;If there are multiple requests for a hearing, those hearings may be consolidated if the Hearing Examiner finds it reasonable to do so.</p>
+
+            <p class="P3">b.&nbsp;&nbsp;&nbsp;&nbsp;The rules and procedures of the hearing shall be governed by the relevant provisions of this chapter.</p>
+
+            <p class="P1">D.&nbsp;&nbsp;&nbsp;&nbsp;Additional Criteria and Requirements:</p>
+
+            <p class="P2">1.&nbsp;&nbsp;&nbsp;&nbsp;No Violator may enter into a second voluntary correction agreement if that Violator has already failed to comply with a voluntary correction agreement for a prior Violation of the same code provision.</p>
+
+            <p class="P2">2.&nbsp;&nbsp;&nbsp;&nbsp;The voluntary correction agreement acts as a stay of the accrual of costs and/or fines, but if a Violator fails to eliminate the Violation in accordance with the voluntary correction agreement, the costs and/or fines shall become due and payable, and the Violator waives any right to a hearing to challenge the determination of a Violation.</p>
+
+            <p class="P2">3.&nbsp;&nbsp;&nbsp;&nbsp;If a Violator is unable or unwilling to eliminate the Violation within the time prescribed by the Notice of Violation or Order to Correct, then a voluntary correction agreement is not appropriate.</p>
+
+            <p class="P2">4.&nbsp;&nbsp;&nbsp;&nbsp;A voluntary correction agreement is not a settlement agreement.</p>
+
+            <p class="P2">5.&nbsp;&nbsp;&nbsp;&nbsp;The Administrator may use whatever type of voluntary correction agreement form as is appropriate in his or her judgment to mitigate and ultimately eliminate the Violation. The Administrator may modify the voluntary correction agreement form on an individual case basis as needed to best respond to the facts, circumstances, and conditions of a Violation. The Administrator may grant an extension to a Violator only if, in the Administrator&rsquo;s judgment, the Violator has taken prompt and substantial steps to eliminate the Violation.</p>
+
+            <p class="P2">6.&nbsp;&nbsp;&nbsp;&nbsp;The voluntary correction agreement must be in writing and signed by at least one (1) Violator. Any disagreement between Violators shall be addressed between the Violators and, if necessary, in judicial hearings without requiring the participation or presence of the City of Renton.</p>
+
+            <p class="P2">7.&nbsp;&nbsp;&nbsp;&nbsp;If the Violator fails to satisfy one (1) or more term(s) of the voluntary correction agreement, after a Notice of Violation, the City may, without notice or further hearings, order the abatement of the Violation by the Violator(s) or by City employees or agents and assess any other costs related to the investigation, enforcement, and resolution of this process to the Violator(s) and/or against the property. (Ord. 6034, 11-15-21)</p>
+
+      <h3 class="Cite"><a id="a1x10x5">1-10-5</a> HEARING PROCEDURES:</h3>
+            <p class="P1">A.&nbsp;&nbsp;&nbsp;&nbsp;Opportunity for a Hearing:</p>
+
+            <p class="P2">1.&nbsp;&nbsp;&nbsp;&nbsp;In order to provide due process and to achieve the purpose of this chapter, a Violator or the CCI may request a hearing before the Hearing Examiner to raise any challenge to the Civil Enforcement Action, the City&rsquo;s application of this code, and/or to challenge or mitigate the costs and/or Fines.</p>
+
+            <p class="P2">2.&nbsp;&nbsp;&nbsp;&nbsp;The opportunity for a hearing is available for each Civil Enforcement Action and the Fines imposed for multiple Violations at one (1) site or at multiple sites by one (1) or more Violators.</p>
+
+            <p class="P2">3.&nbsp;&nbsp;&nbsp;&nbsp;The failure to request, submit a written argument, and/or appear at a hearing makes the Civil Enforcement Action a final determination unless a Violator timely requests a hearing under the process described in this chapter. If a hearing is requested, the final determination of the Notice of Violation shall be made by the Hearing Examiner following the conclusion of the hearing.</p>
+
+            <p class="P1">B.&nbsp;&nbsp;&nbsp;&nbsp;Hearing Requirements:</p>
+
+            <p class="P2">1.&nbsp;&nbsp;&nbsp;&nbsp;Timeliness: Any Violator and/or persons having any claim against the title or contractual interest in the property where the Violation exists or the CCI may request a hearing to challenge the notice, order, or application of the code, or challenge or mitigate the costs and/or Fines. Any such request for a hearing must be filed and filed with the City Clerk within fifteen (15) days of the issuance of the Notice of Violation and/or Order to Correct. Any request for a hearing that is not timely filed with the City in accordance with this section shall be denied.</p>
+
+            <p class="P2">2.&nbsp;&nbsp;&nbsp;&nbsp;Timing of a Hearing: If a Violator and/or persons having any claim against the title or contractual interest in the property where the Violation exists or the CCI submits a timely request for a hearing pursuant to this section, the City Clerk shall set the date of the hearing to be held no more than ninety (90) days after the request for a hearing is filed. There shall be no fee to request a hearing pursuant to this section.</p>
+
+            <p class="P2">3.&nbsp;&nbsp;&nbsp;&nbsp;Costs: A Violator or multiple Violators who request a hearing but who fail to appear or participate in the hearing are responsible for any costs incurred by the City to hold the hearing. The Hearing Examiner may assess the costs to the Violator in writing within fifteen (15) days of the Violator&rsquo;s failure to appear or participate in the hearing.</p>
+
+            <p class="P2">4.&nbsp;&nbsp;&nbsp;&nbsp;Withdrawal of Request for Hearing: A Violator may withdraw their request for a hearing no later than five (5) days prior to the scheduled hearing. The Violator will not be charged the costs of the hearing if the Violator&rsquo;s request to withdraw the request is timely.</p>
+
+            <p class="P2">5.&nbsp;&nbsp;&nbsp;&nbsp;Final Determination: If no hearing is timely requested, the CCI&rsquo;s determination of the Violation is deemed final, and any costs and/or Fines become due.</p>
+
+            <p class="P1">C.&nbsp;&nbsp;&nbsp;&nbsp;Hearing Procedures:</p>
+
+            <p class="P2">1.&nbsp;&nbsp;&nbsp;&nbsp;Hearing Procedure: The Hearing Examiner may choose to hear the matter orally, in person, electronically, or based solely on the parties&rsquo; written submissions. The Notice of Violation and/or Order to Correct may satisfy the City&rsquo;s burden of production, but the City may submit additional written testimony. If the Hearing Examiner determines that the matter requires an in-person hearing, such a hearing may be scheduled, and appropriate and reasonable notice shall be provided to the parties.</p>
+
+            <p class="P2">2.&nbsp;&nbsp;&nbsp;&nbsp;Who May Appear: If the owner and the possessor or Person in Control of the property are not the same, and if the owner fails to respond in writing or fails to appear at an oral hearing after service of the Notice of Violation, there is a presumption that the owner has given the Violator(s) the authority to act as his/her agent for purposes of the hearing or that the owner has chosen not to participate. Any Violator who has been issued a Notice of Violation, Order to Correct, or any Fines and/or costs may appear as a party or designate a representative for the hearing. The CCI or his or her designee shall appear on behalf of the City. Any party who does not appear at a hearing forfeits the right to challenge the Violation, and the Violation shall be deemed final as against that party.</p>
+
+            <p class="P2">3.&nbsp;&nbsp;&nbsp;&nbsp;Scope of Hearing: The scope of the hearing is limited to the conditions of the property on the date listed on the Notice of Violation. Re-litigation of previously imposed costs and/or Fines is prohibited.</p>
+
+            <p class="P2">4.&nbsp;&nbsp;&nbsp;&nbsp;Preponderance of Evidence Standard: The Hearing Examiner shall determine by a preponderance of the evidence whether the facts are sufficient to prove a Violation of the code, if all of the costs and/or fines should be imposed, or that a Violation exists that must be corrected, and which Violator(s) is responsible for the Violation. Multiple Violators may be held responsible. The Notice of Violation, if signed and dated by the CCI, shall be deemed admissible evidence to prove the Violation. If the Hearing Examiner determines that the evidence supports that a Violation was committed after reviewing the Notice of Violation, then the burden of proof shall shift to the Violator(s) to show by a preponderance of the evidence that a Violation has not occurred. The City is not required to call witnesses to testify at the hearing.</p>
+
+            <p class="P2">5.&nbsp;&nbsp;&nbsp;&nbsp;Final Determination: The Hearing Examiner, after reviewing the written submissions, exhibits, testimony, and other admitted evidence, may confirm, dismiss, or modify the Civil Enforcement Action, and/or mitigate any costs and/or Fines issued. The Hearing Examiner&rsquo;s decision is deemed to be a final determination and may only be appealed in accordance with relevant provisions of law. The final determination should be issued within thirty (30) days of the hearing, unless reasonable cause requires additional time.</p>
+
+            <p class="P2">6.&nbsp;&nbsp;&nbsp;&nbsp;Imposition of Fines: The Violator(s) found to be responsible for an RMC civil code violation shall be liable for the payment of any costs and/or Fines assessed. Payment is due within fifteen (15) days of the date on the Notice of Violation. If a hearing is requested, the due date for payment shall be tolled until after the Hearing Examiner issues a final determination of the Notice of Violation. The payment of any cost and/or Fine shall be made to the City of Renton Finance Department. It is the responsibility of the Violator(s) to provide the Administrator or CCI with proof of the payment of any costs and/or fines, as is appropriate.</p>
+
+            <p class="P2">The Hearing Examiner is authorized to impose Fines up to and including the maximum fines, or to mitigate the Fines, as the Hearing Examiner sees fit based on the following criteria: the nature of the offense; the history of the condition of the property; the history of the Violator; the ability of the Violator to pay the fines; the impact on the neighbors, neighborhood, or community; and the need to discourage such conduct, inactivity or neglect. The payment of a Fine does not prevent the City from asserting that the Violation continues to exist or from asserting that a new Violation has been found.</p>
+
+            <p class="P2">7.&nbsp;&nbsp;&nbsp;&nbsp;It shall be the responsibility of the Violator(s) found responsible for a Violation to completely eliminate the Violation and to achieve complete civil code compliance. Payment of civil Fines, applications for permits, acknowledgement of stop work orders, and compliance with other remedies do not substitute for performing the corrective work required and bringing the property into compliance to the satisfaction of the Administrator, or his or her designee. (Ord. 6034, 11-15-21)</p>
+
+      <h3 class="Cite"><a id="a1x10x6">1-10-6</a> ABATEMENT:</h3>
+            <p class="P1">A.&nbsp;&nbsp;&nbsp;&nbsp;In order to enforce the Hearing Examiner&rsquo;s decision, the City may get an order from Superior Court to enter onto a Violator&rsquo;s property for the purpose of inspecting and/or Abating the Violation.</p>
+
+            <p class="P1">B.&nbsp;&nbsp;&nbsp;&nbsp;The cost of abatement, cleaning up the property, removing hazards, and/or bringing the property into compliance shall be borne by the Violator. All costs shall be paid by the Violator to the City of Renton Finance Department within thirty (30) days from the final determination of the Finding of Violation, or thirty (30) days following the service of an invoice, whichever is later.</p>
+
+            <p class="P1">C.&nbsp;&nbsp;&nbsp;&nbsp;It shall be a misdemeanor to impede, delay, obstruct, or interfere with the City&rsquo;s employees or agents designated to perform the abatement. Any physical efforts to impede, delay, obstruct, or interfere with City employees or agents will be forwarded to the prosecutor for appropriate criminal filing. (Ord. 6034, 11-15-21)</p>
+
+      <h3 class="Cite"><a id="a1x10x7">1-10-7</a> FAILURE TO COMPLY:</h3>
+            <p class="P1">A.&nbsp;&nbsp;&nbsp;&nbsp;Criminal Penalty: It shall be unlawful to fail to comply with the terms of this chapter, in accordance with the penalties prescribed by RMC <a href="#a1x3x1">1-3-1</a>.</p>
+
+            <p class="P2">1.&nbsp;&nbsp;&nbsp;&nbsp;A Violator who fails to comply with the terms of a Civil Enforcement Action shall be guilty of a misdemeanor. To prove a failure to comply, the prosecutor&rsquo;s burden is to prove beyond a reasonable doubt as to each Violator, that (a) The Violator owns or was the Person in Control of a property in the City of Renton; and (b) The Violator was Served with a Notice and Order (or other Civil Enforcement Action) related to that property and was ordered to correct the Violation(s) within a prescribed time period; and (c) The Violator failed to eliminate the Violation within the prescribed time period.</p>
+
+            <p class="P2">2.&nbsp;&nbsp;&nbsp;&nbsp;If a Violator is found guilty beyond a reasonable doubt, the Violator shall serve no less than five (5) days in jail for the first conviction, no less than ten (10) days for the second conviction, and no less than thirty (30) days for any subsequent conviction. A Violator shall not be eligible for Electronic Home Detention or any other alternative to jail time.</p>
+
+            <p class="P2">3.&nbsp;&nbsp;&nbsp;&nbsp;A Violator shall remain responsible for the RMC civil code violation Fines and/or any costs assessed by the City, not to include the cost of prosecution.</p>
+
+            <p class="P1">B.&nbsp;&nbsp;&nbsp;&nbsp;Civil Remediation: A Violation, as described in this chapter, is a civil code violation, and Violator(s) may be issued a Fine of up to two hundred fifty dollars ($250) for each final determination of a Violation. For Ongoing Violations, a new Fine shall be issued for each day (or portion thereof) in which the violation exists. Nothing in this chapter is intended to limit or prevent the pursuit of any other remedies or penalties permitted under the law, including criminal prosecution. The payment of any fees, Fines, or assessments pursuant to this chapter does not relieve a potential Violator of the duty to correct the Violation as ordered by the Administrator, or his or her designee. (Ord. 6034, 11-15-21)</p>
+
+      <h3 class="Cite"><a id="a1x10x8">1-10-8</a> ADDITIONAL PROVISIONS:</h3>
+            <p class="P1">A.&nbsp;&nbsp;&nbsp;&nbsp;Assessment Lien Authorized: Following the authorization by the Administrator, when permitted by law, the City shall cause to have recorded a lien with the King County Recorder&rsquo;s Office, which lien may be foreclosed pursuant to the laws of the State of Washington. The City may file an action to reduce the lien to a judgment.</p>
+
+            <p class="P1">B.&nbsp;&nbsp;&nbsp;&nbsp;Written Expense Report: Where costs are assessed under this code and a Violator fails to pay within the thirty (30) day period, the CCI shall prepare a written itemized report to the Administrator showing the cost of abatement, including rehabilitation, demolition, restoration, or repair of such property, including such salvage value relating thereto plus the amount of any outstanding fines. A copy of the report and a notice of the time and date when the report shall be reviewed by the Administrator shall be served on the Violator(s) at least five (5) days prior to the review by the Administrator, or verified as being previously provided to the Violator(s).</p>
+
+            <p class="P1">C.&nbsp;&nbsp;&nbsp;&nbsp;Additional Remedies:</p>
+
+            <p class="P2">1.&nbsp;&nbsp;&nbsp;&nbsp;Emergencies: Nothing in this chapter shall be read to limit or prohibit the City from exercising its police powers by taking any appropriate action when an emergency or dangerous or potentially dangerous location, property, structure, or condition exists in the City. Not as a limitation, but for the purpose of clarification, the City may abate, declare unsafe or unfit, or take some other appropriate action when:</p>
+
+            <p class="P3">a.&nbsp;&nbsp;&nbsp;&nbsp;Dangerous Condition: A Violation poses an immediate danger to safety, health, or welfare of the possessor of the property, occupants, neighbors, neighborhood, community, public utilities, or the environment. The City may assess costs and file a lien or seek a judgment in accordance with this Chapter.</p>
+
+            <p class="P3">b.&nbsp;&nbsp;&nbsp;&nbsp;Vacant Premises: After inquiry, if it appears that a premises has been vacated and the owner and any Person in Control cannot be located or refuses to abate the code Violation and the premises are either not secured against entry or have been entered by trespassers, the City, pursuant to its community caretaking and police powers, may enter the premises, secure the premises against entry, and place a lien against the property for its administrative costs, to include materials, staff time, attorney&rsquo;s fees, and whatever additional costs may accrue in order that the premises may be secured.</p>
+
+            <p class="P3">c.&nbsp;&nbsp;&nbsp;&nbsp;Costs: If the Superior Court or court of competent jurisdiction decides, grants, and/or agrees that emergency action is warranted by the City, the City shall seek costs if appropriate.</p>
+
+            <p class="P2">2.&nbsp;&nbsp;&nbsp;&nbsp;Remedies Not Exclusive: The remedies noted in this chapter are not exclusive and may be used in conjunction with any other remedies provided or allowed under the Renton Municipal Code, the Revised Code of Washington, or any other provision of law.</p>
+
+            <p class="P3">a.&nbsp;&nbsp;&nbsp;&nbsp;The City is not prohibited from remedying, abating, or mitigating any condition that falls under this chapter by any other means authorized by law or by enforcing its findings, remedies, costs, and/or fines by any means authorized by law.</p>
+
+            <p class="P3">b.&nbsp;&nbsp;&nbsp;&nbsp;The City will seek all costs, including attorney&rsquo;s fees, if it must appear in a court of law to address a Violator&rsquo;s failure to abate a Violation or failure to pay any costs and/or fines. Unless otherwise precluded by law, the provisions of this chapter may be used in lieu of or in addition to other enforcement provisions, including, but not limited to, other provisions in the Renton Municipal Code, the use of collection agencies, or other civil actions including but not limited to injunctions.</p>
+
+            <p class="P1">D.&nbsp;&nbsp;&nbsp;&nbsp;Revocation, Suspension, Modification, or Denial of Permit or License:</p>
+
+            <p class="P2">1.&nbsp;&nbsp;&nbsp;&nbsp;Public Health and Safety: The City, without a hearing, may suspend, revoke, or modify any valid permit or license issued by the City if or when it reasonably believes:</p>
+
+            <p class="P3">a.&nbsp;&nbsp;&nbsp;&nbsp;That a Violator knows, or reasonably should know, of a Violation, but the Violator continues to violate the permit or license or exacerbate a Violation, and the CCI makes a finding of an imminent threat or substantial threat to safety, health, or welfare of others, property of others, or City property including, but not limited to, utilities such as water and sewer; or</p>
+
+            <p class="P3">b.&nbsp;&nbsp;&nbsp;&nbsp;That a Violator misrepresented any material or significant fact in applying for a permit or license.</p>
+
+            <p class="P2">2.&nbsp;&nbsp;&nbsp;&nbsp;Performing Work Without Authorization: The City, without a hearing, may deny a request for a permit or license or to renew a permit or license or revoke a permit or license when it reasonably believes that a Violator knows or reasonably should have known, of a Violation, but continues to work, operate, or exacerbate a Violation without a valid permit or license.</p>
+
+            <p class="P2">3.&nbsp;&nbsp;&nbsp;&nbsp;Post-Deprivation Hearing: Any revocation, suspension, modification, or denial of a permit or license under this section may allow the person who possessed or sought the relevant permit or license and had the permit or license revoked, suspended, modified, or denied an opportunity to request a hearing in a manner detailed in this chapter after the City has revoked, suspended, or modified the permit or license.</p>
+
+            <p class="P1">E.&nbsp;&nbsp;&nbsp;&nbsp;Conflicts: In the event of a conflict between this and any other provision of this chapter or City ordinance, the more specific provision shall control.</p>
+
+            <p class="P1">F.&nbsp;&nbsp;&nbsp;&nbsp;Severability: If any one or more subsections or sentences of this chapter are held to be unconstitutional or invalid, such decision shall not affect the validity of the remaining portion of this chapter and the same shall remain in full force and effect. (Ord. 6034, 11-15-21)</p>
+
+    
+    </div>
+    <div id="pgFooter">
+    <!--BeginNoIndex-->
+
+<p id="current">The Renton Municipal Code is current through Ordinance 6197, passed August 10, 2026.</p>
+<p id="disclaimer">Disclaimer: The City Clerk's Office has the official version of the Renton Municipal Code. Users should contact the City Clerk's Office for ordinances passed subsequent to the ordinance cited above.</p>
+
+<p>City Website: <a href="https://rentonwa.gov/" target="_top">https://rentonwa.gov/</a><br />
+City Telephone: (425) 430-6502</p>
+<p>Codification services provided by <a href="https://www.generalcode.com/" target="top">General Code</a></p>
+    <!--EndNoIndex-->
+
+</div>
+</body></html>

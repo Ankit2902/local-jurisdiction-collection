@@ -1,0 +1,22 @@
+{
+  "purpose": "Second-pass bounded live method validation; full corpus extraction and database import remain out of scope",
+  "levels": {
+    "standalone_e2e_pass": "Delivered standalone program acquired fresh current public source, retained bytes/receipts, parsed and verified bounded outputs in this run without manually supplying source bodies",
+    "cua_script_e2e_pass": "Delivered script executed through supported Codex CUA APIs to acquire fresh source and persisted it programmatically; delivered parser and verifier then ran. Requires CUA runtime, not proof of standalone browser transport",
+    "operator_assisted_live_pass": "Fresh source acquisition included explicit human/agent manual capture or download stages; downstream delivered parser verified; manual stage and exact replay commands documented",
+    "offline_only": "Parser/replay verified on retained source, live acquisition pipeline not established",
+    "blocked": "Actual bounded live method attempt failed; exact stage, error, evidence and legitimate next action retained"
+  },
+  "required_evidence": [
+    "actual script entry point and invocation, runtime/dependency versions",
+    "fresh retrieval timestamp and requested/final source URL",
+    "raw source artifact path and SHA256",
+    "observed readiness and identity check, transport responses where exposed",
+    "parser/output verification invocation and result",
+    "source-node/output counts with denominator and scope",
+    "initial/final source version or inventory markers, or explicit unavailable status",
+    "no silent fallback to old retained source, mock transport or manual body substitution",
+    "unresolved semantic/scope/access conditions stay explicit",
+    "code frozen before final tests; final script hashes bind the actual executed revision"
+  ]
+}

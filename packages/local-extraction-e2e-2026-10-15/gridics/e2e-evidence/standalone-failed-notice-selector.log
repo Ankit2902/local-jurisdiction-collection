@@ -1,0 +1,27 @@
+{"phase": "launch", "at": "2026-10-15T18:50:04.645705+00:00"}
+{"phase": "launched", "browser_version": "148.0.7778.96"}
+{"phase": "goto", "url": "https://codehub.gridics.com/us/ca/cupertino#/90d493fe-25f4-4aef-a519-710b1e0055c6"}
+{"phase": "document_loaded", "url": "https://codehub.gridics.com/us/ca/cupertino#/90d493fe-25f4-4aef-a519-710b1e0055c6", "status": 200}
+Traceback (most recent call last):
+  File "/Users/oliverflint/My Drive/Claude/Projects/CompliSolv 2.00/outputs/local-extraction-e2e-2026-10-15/gridics/acquire.py", line 148, in <module>
+    if __name__=='__main__':main()
+  File "/Users/oliverflint/My Drive/Claude/Projects/CompliSolv 2.00/outputs/local-extraction-e2e-2026-10-15/gridics/acquire.py", line 132, in main
+    if a.dismiss_notices:dismiss_notices(page,out)
+  File "/Users/oliverflint/My Drive/Claude/Projects/CompliSolv 2.00/outputs/local-extraction-e2e-2026-10-15/gridics/acquire.py", line 43, in dismiss_notices
+    text=page.locator('.popup-container').inner_text()
+  File "/Users/oliverflint/My Drive/Claude/Projects/CompliSolv 2.00/outputs/local-extraction-e2e-2026-10-15/gridics/.venv/lib/python3.9/site-packages/playwright/sync_api/_generated.py", line 18970, in inner_text
+    self._sync(self._impl_obj.inner_text(timeout=to_milliseconds(timeout)))
+  File "/Users/oliverflint/My Drive/Claude/Projects/CompliSolv 2.00/outputs/local-extraction-e2e-2026-10-15/gridics/.venv/lib/python3.9/site-packages/playwright/_impl/_sync_base.py", line 115, in _sync
+    return task.result()
+  File "/Users/oliverflint/My Drive/Claude/Projects/CompliSolv 2.00/outputs/local-extraction-e2e-2026-10-15/gridics/.venv/lib/python3.9/site-packages/playwright/_impl/_locator.py", line 493, in inner_text
+    return await self._frame.inner_text(
+  File "/Users/oliverflint/My Drive/Claude/Projects/CompliSolv 2.00/outputs/local-extraction-e2e-2026-10-15/gridics/.venv/lib/python3.9/site-packages/playwright/_impl/_frame.py", line 717, in inner_text
+    return await self._channel.send(
+  File "/Users/oliverflint/My Drive/Claude/Projects/CompliSolv 2.00/outputs/local-extraction-e2e-2026-10-15/gridics/.venv/lib/python3.9/site-packages/playwright/_impl/_connection.py", line 69, in send
+    return await self._connection.wrap_api_call(
+  File "/Users/oliverflint/My Drive/Claude/Projects/CompliSolv 2.00/outputs/local-extraction-e2e-2026-10-15/gridics/.venv/lib/python3.9/site-packages/playwright/_impl/_connection.py", line 559, in wrap_api_call
+    raise rewrite_error(error, f"{parsed_st['apiName']}: {error}") from None
+playwright._impl._errors.TimeoutError: Locator.inner_text: Timeout 30000ms exceeded.
+Call log:
+  - waiting for locator(".popup-container")
+

@@ -1,0 +1,79 @@
+{
+  "job": {
+    "slug": "everett-wa",
+    "section_url": "https://everett.municipal.codes/EMC/1.01.010",
+    "expected_id": "1.01.010",
+    "export_url": "https://everett.municipal.codes/EMC/1.01.010/export.html?download=true",
+    "advertised_exports": [
+      {
+        "url": "https://everett.municipal.codes/EMC/1.01.010/export.pdf?download=true",
+        "label": "Adobe Reader (PDF)"
+      },
+      {
+        "url": "https://everett.municipal.codes/EMC/1.01.010/export.rtf?download=true",
+        "label": "Microsoft Word (RTF)"
+      },
+      {
+        "url": "https://everett.municipal.codes/EMC/1.01.010/export.pdf?print=true",
+        "label": "Print"
+      },
+      {
+        "url": "https://everett.municipal.codes/EMC/1.01.010/export.html?download=true",
+        "label": "Web Page (HTML)"
+      },
+      {
+        "url": "https://everett.municipal.codes/EMC/1.01.010/export.txt?download=true",
+        "label": "Plain Text"
+      }
+    ],
+    "discovery_receipt": "export-discovery/everett-wa/share-dialog-stable.receipt.json",
+    "discovery_raw_sha256": "69b563024d2213ce028f8143c20a132f7943bd1b979800ad5226b3d747e0f14e"
+  },
+  "transport": "standalone ordinary headed Playwright",
+  "node": "v24.19.0",
+  "playwright": "1.62.1",
+  "browser": "155.0.8059.41",
+  "script_sha256": "1c6d10db6ee85085661611af0e54fa8150f1c04f40a474b6b2a67dd571c83cad",
+  "started_at": "2026-10-15T19:22:49.465Z",
+  "operator_actions": [],
+  "operator_assisted": false,
+  "stages": [
+    {
+      "kind": "page",
+      "requested_url": "https://everett.municipal.codes/EMC/1.01.010",
+      "final_url": "https://everett.municipal.codes/EMC/1.01.010",
+      "http_status": 200,
+      "started_at": "2026-10-15T19:22:49.468Z",
+      "finished_at": "2026-10-15T19:23:00.451Z",
+      "error": "TimeoutError: locator.waitFor: Timeout 10000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('article[id=\"1.01.010\"]')\u001b[22m\n",
+      "download_filename": null,
+      "raw_artifact_path": "page.html",
+      "raw_sha256": "bacdc6e9688414416da86b510f8bfe5bb3b8997c0d85a4b7d407c65257761e62",
+      "bytes": 28894,
+      "title": "Just a moment...",
+      "expected_identity_present": false,
+      "access_challenge": true,
+      "accepted": false
+    },
+    {
+      "kind": "html-export",
+      "requested_url": "https://everett.municipal.codes/EMC/1.01.010/export.html?download=true",
+      "final_url": "chrome-error://chromewebdata/",
+      "http_status": null,
+      "started_at": "2026-10-15T19:23:00.461Z",
+      "finished_at": "2026-10-15T19:23:10.567Z",
+      "error": "Error: page.goto: Download is starting\nCall log:\n\u001b[2m  - navigating to \"https://everett.municipal.codes/EMC/1.01.010/export.html?download=true\", waiting until \"domcontentloaded\"\u001b[22m\n",
+      "download_filename": null,
+      "raw_artifact_path": "html-export.html",
+      "raw_sha256": "c36b69fce928065f7d8dfddb2085443072c48bc379fc80c3658f727c4980a9e7",
+      "bytes": 185435,
+      "title": "everett.municipal.codes",
+      "expected_identity_present": false,
+      "access_challenge": false,
+      "accepted": false
+    }
+  ],
+  "whole_corpus_validated": false,
+  "finished_at": "2026-10-15T19:23:10.575Z",
+  "accepted": false
+}

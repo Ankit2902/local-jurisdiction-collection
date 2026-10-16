@@ -1,0 +1,7 @@
+{
+  "test": "standalone immutable existing-output guard",
+  "returncode": 1,
+  "expected_failure": true,
+  "stdout": "",
+  "stderr": "/private/tmp/complisolv-codepublishing-e2e-venv/lib/python3.9/site-packages/urllib3/__init__.py:35: NotOpenSSLWarning: urllib3 v2 only supports OpenSSL 1.1.1+, currently the 'ssl' module is compiled with 'LibreSSL 2.8.3'. See: https://github.com/urllib3/urllib3/issues/3020\n  warnings.warn(\nTraceback (most recent call last):\n  File \"/Users/oliverflint/My Drive/Claude/Projects/CompliSolv 2.00/outputs/local-extraction-e2e-2026-10-15/codepublishing/acquire_playwright.py\", line 47, in <module>\n    print(json.dumps(run(json.loads(Path(args.jobs).read_text()),args.out,args.channel,args.headed),indent=2))\n  File \"/Users/oliverflint/My Drive/Claude/Projects/CompliSolv 2.00/outputs/local-extraction-e2e-2026-10-15/codepublishing/acquire_playwright.py\", line 14, in run\n    if out.exists() and any(out.iterdir()): raise ValueError('Immutable output must be new or empty; use fresh --out')\nValueError: Immutable output must be new or empty; use fresh --out\n"
+}
