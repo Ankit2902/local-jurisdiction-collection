@@ -1,0 +1,15 @@
+This package qualifies the final standalone full-publication Municode implementation on one pinned publisher book: Henderson, Nevada, Code of Ordinances, API ProductID14896, job475955 (Supplement59). The final fresh live source and outputs are in `live-henderson-policy-final`. Images are deliberately replaced with literal `[IMAGE]`; no separate image bodies were acquired in the final run. This is publisher-publication completeness, not whole-jurisdiction completeness. The separate Title19 development-code website and24 uncodified ordinances are outside the selected book.
+
+Read-only portable replay, from this directory, needs only Python3.9+ standard library:
+
+```sh
+python3 -B verification-tools/verify.py live-henderson-policy-final --offline
+```
+
+`verification-tools` contains current portable hardening source copies; the original full-run exact executed revisions remain inside that run’s checkpoint and executed-source snapshots. Each live run also retains executed modules under their individual SHA-256 paths and pins their hashes in its checkpoint. `qa/offline-replay.json` records original and relocated read-only verification; `qa/final-table-qa.json` checks all table-bearing final records without network; `qa/final-rate-gate.json` records final-run reservation timing and zero image URLs. Final metrics and source hashes are in `validation-summary.json`.
+
+Historical source evidence remains unchanged: `attempts/henderson-before-explicit-reference-policy` and `live-henderson-final` acquired four PNGs each before the clarified image policy. Their image acquisition behavior is superseded. `live-henderson-no-images-final` is an intermediate image-free revision before the final heading-image edge repair. `policy-replay-for-parser-qa` is retained-source replay under the new parser, not fresh live acquisition. The two `probe-*` directories show discovery: ordinary root content is a landing page; the normal Print root endpoint is the full bulk document response. Only `live-henderson-policy-final` is the exact final full live qualification.
+
+Direct HTTP remains stopped after earlier publisher access challenges. The final live run used the already authorized ordinary headed Chrome workflow and the shared 3.5-second POSIX rate gate. No access-stop reset, cookie import, masking or challenge interaction was used. No further publisher requests are required for offline replay.
+
+Post-capture hardening is qualified separately: required PDF attachments now remain unqualified without a complete format-integrity parser, and inline image payloads are redacted from normalized omission/reference metadata into MIME/hash/locator information. The acquisition/browser path is unchanged. `final-hardening-single-node-smoke` is a fresh current-code legal-node smoke with no separate image acquisition; it is not full-publication proof. The current stronger verifier reproduces the original full Henderson outputs unchanged, because that book has zero required nonimage attachments and no inline image data payloads. See the current/full-run revision distinction in `validation-summary.json` and `qa/final-hardening-replay.json`.

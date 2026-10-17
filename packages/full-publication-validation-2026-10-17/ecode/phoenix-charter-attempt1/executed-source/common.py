@@ -1,0 +1,30 @@
+"""Atomic, hash-bound source artifacts and conservative shared ICC-family gate."""
+from __future__ import annotations
+import datetime,fcntl,hashlib,json,os,time
+from pathlib import Path
+from email.utils import parsedate_to_datetime
+
+def now():return datetime.datetime.now(datetime.timezone.utc).isoformat()
+def digest(data):return hashlib.sha256(data).hexdigest()
+def canon(x):return json.dumps(x,sort_keys=True,ensure_ascii=False,separators=(',',':')).encode()
+def read(p):return json.loads(Path(p).read_text())
+def atomic(p,data):
+ p=Path(p);p.parent.mkdir(parents=True,exist_ok=True);tmp=p.with_name(p.name+'.tmp-'+str(os.getpid()));tmp.write_bytes(data);os.replace(tmp,p)
+def save(p,x):atomic(p,json.dumps(x,ensure_ascii=False,indent=2).encode()+b'\n')
+class QualificationError(ValueError):pass
+class AccessStop(RuntimeError):pass
+class Gate:
+ def __init__(self,family,root=None,spacing=3.5):self.root=Path(root or os.environ.get('ICC_GATE_DIR','/tmp/complisolv-icc-full-gate'))/family;self.root.mkdir(parents=True,exist_ok=True);self.spacing=max(3.5,spacing)
+ def check(self):
+  if (self.root/'STOP.json').exists():raise AccessStop('Shared family access stop retained: '+str(self.root/'STOP.json'))
+ def reserve(self,url):
+  with (self.root/'gate.lock').open('a') as f:
+   fcntl.flock(f,fcntl.LOCK_EX);self.check();p=self.root/'state.json';s=read(p) if p.exists() else {};time.sleep(max(0,s.get('last_start',0)+self.spacing-time.time()));self.check();save(p,{'last_start':time.time(),'url':url})
+ def stop(self,event):
+  retry=event.get('retry_after');delay=300
+  if retry:
+   try:delay=max(300,float(retry))
+   except ValueError:
+    try:delay=max(300,parsedate_to_datetime(retry).timestamp()-time.time())
+    except Exception:pass
+  save(self.root/'STOP.json',{'observed_at':now(),'event':event,'retry_after_seconds_minimum':delay,'operator_review_required':True,'automatic_retry':False})

@@ -1,0 +1,314 @@
+
+    <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+    <html>
+    <head>
+
+        <title>ARTICLE IX-A MERIT SYSTEM</title>
+        <link type="text/css" rel="Stylesheet" href="jqueryui/css/jqueryui.css" media="all" />
+        <link type="text/css" rel="Stylesheet" href="css/ui.css" media="all" />
+        <link type="text/css" rel="Stylesheet" href="css/customui.css" media="all" />
+        <link type="text/css" rel="Stylesheet" href="css/document.css" media="all" />
+        <link type="text/css" rel="Stylesheet" href="css/customdoc.css" media="all" />
+        <link type="text/css" rel="Stylesheet" href="tablestyles.aspx" media="all" />
+        <link rel="StyleSheet" type="text/css" href="/common/font-awesome/css/all.min.css">
+        <link type="text/css" rel="Stylesheet" href="css/docprint.css" media="print" />
+        <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+        <script type="text/javascript" src="jqueryui/js/jquery-ui-1.8.21.custom.min.js"></script>
+        <script type="text/javascript" src="js/doc-view.js?_t=290"></script>
+        <script type="text/javascript" src="js/tabletools.js"></script>
+        <script type="text/javascript" src="js/tabs.js"></script>
+        <script type="text/javascript">
+            var iframeReady = false;
+        </script>
+        
+    </head>
+    <body class='doc-view'>
+        <script type="text/javascript">
+            $(document).ready(function () {
+                ZP.DocView.InitDef();
+                ZP.DocView.OpenDefinitionPage = null;
+                ZP.DocView.OpenDefinitionMode = '_self';
+                ZP.DocView.OpenXRefPage = 'doc-viewer.aspx#$2-';
+                ZP.DocView.OpenXRefMode = '_blank';
+                $(window).bind('hashchange', ZP.DocView.HashChanged);
+        
+        if (typeof ZP.DocView.ZoomClasses == 'undefined') {
+            ZP.DocView.ZoomClasses = ["Unzoom1", "", "Zoom1", "Zoom2", "Zoom3", "Zoom4"];
+        }
+        ZP.DocView.InitializeZoom();
+        EC.SortedTable.Init(".ord-tbl, .stat-tbl", ".sortable");
+        EC.Tabs.PositionLeftTabs();
+    });
+
+
+        </script>
+
+
+    <div id="doc-viewer">
+        
+
+<div id="doc-view">
+    <div id="doc-view-content">
+        
+<div id="pageControls">
+<script type="text/javascript" >
+    function clearEffDate() {
+        jQuery.get("doc-view-helper.aspx?task=currentversion", function () {
+            window.location.reload();
+        });
+        return false;
+    }
+</script>
+     <div class="pageControls psuedoTable" role="navigation" aria-label="Document Navigation">  
+        <div class="psuedoTableBody" >     
+            <div class="psuedoTableRow">         
+                <div class="pageControls_outer" ></div>
+                <div class="pageControls_inner left">
+                    <a id='button1' onclick='ZP.DocView.PrintDoc("011",false);return false;' href="#" title="Print" role="button"> 
+                        <img alt="Print" src="resources/btn-print-white.png" /></a>
+                    <a id='Button2' onclick='ZP.DocView.OpenPDF("011",false);return false;' href="#" title="Export PDF" role="button">
+                        <img alt="Generate PDF" src="resources/btn-makepdf-white.png" /></a>
+                        <a class="email-popup" href="mailto:?subject=ARTICLE%20IX-A%20MERIT%20SYSTEM&amp;body=Lincoln%20NE%20City%20Charter https://online.encodeplus.com/regs/lincoln-ne-cc/doc-viewer.aspx?secid=908"><img src="resources/email-white.png" alt="Click to Share By Email" /></a>     
+                </div>
+                <div  class="pageControls_inner breadCrumbs" title="Navigation 'breadcrumbs'">
+                     <div class='breadCrumbs'><a href='/regs/lincoln-ne-cc/doc-viewer.aspx?tocid=011' >ARTICLE IX-A MERIT SYSTEM</a></div>
+                </div>
+                 <div  class="pageControls_inner right">       
+                     <ul >  
+                         <li>
+                            <a id='button3' class="nav" onclick="ZP.DocView.LoadPrevDoc('011');return false;" href="#"  title="Previous Section" accesskey="," role="button"><img alt="Go to Previous Section" src="resources/btn-back-white.png" /></a>
+                         </li>  
+                         <li>
+                             <a id='Button4'  class="nav" onclick="ZP.DocView.LoadNextDoc('011');return false;" href="#"  title="Next Section" accesskey="." role="button"> <img alt="Go to Next Section" src="resources/btn-forward-white.png" /></a>
+                         </li>   
+                         <li>
+                             <a id="pageControls-overflow" onclick="ZP.DocView.PgCntrlOverflowClick(event);return false;" href="#" title="Click for more options" role="button" >
+                            <img src="resources/overflow-btn-white.png" alt="Click for more options" /></a>
+                               
+  <ul class="submenu" role="dialog">
+            <li><a href="/regs/lincoln-ne-cc/doc-viewer.aspx?secid=908" onclick="javascript:alert('Right click this icon and select \'add to favorites\' or \'Bookmark this Link\' to bookmark this page');return false;" title="Bookmark this page" >Bookmark</a></li>
+            <li>
+                                        
+                <a id="zoomMinus" onclick="ZP.DocView.DecreaseZoom();return false;" href="#" title="Decrease Zoom" class="zoomLink glyphicon" >&#x2212;</a>
+                <a onclick="ZP.DocView.DefaultZoom();return false;"  href="#" title="Default Zoom"  class="zoomLink" >100%</a>
+                <a id="zoomPlus" onclick="ZP.DocView.IncreaseZoom();return false;" href="#" title="Increase Zoom"  class="zoomLink glyphicon" > &#x2b; </a>
+            </li>
+           
+                           
+                
+                <li><a id="subscribe-btn" onclick="ZP.DocView.OpenSubscribeDlg();return false;" title="Subscribe to Notifications" href="subscribe.aspx" role="button">Subscribe</a></li>
+                <li><a id="unsubscribe-btn" onclick="ZP.DocView.OpenUnsubscribeDlg();return false;" title="Cancel Notifications Subscription" href="unsubscribe.aspx" role="button" >Unsubscribe</a></li>
+                
+</ul>
+                         </li>        
+                        
+                        </ul>   
+                </div>
+                <div class="pageControls_outer"></div>
+            </div>
+        </div>
+    </div> 
+    <div id="subscribe-dialog" title="" aria-live="polite" >
+        <div id="sub-message"></div>
+        <div id="sub-form-cntr"></div>
+    </div>
+</div>
+
+
+        <div id="thePage-outer" >
+            <div id="thePage-wrap" class="thePage-wrap ">
+                <div id="outer-doc-banner"></div>
+                <div id="thePage-border">
+                    <div id="thePage" class="textPage " tocid="011" secid="908" role="main" aria-label="Document">
+                        <img id="sectionBanner" title="Document text banner" src="resources/docbanner.png" width="720" valign="Top" alt="Document text banner">
+                        
+                        <section id='secid-908' class='secLvl1 _011' tabindex='-1' data-secid='908'> 
+<h2>ARTICLE IX-A MERIT SYSTEM</h2>
+
+<div class="mini-TOC" data-endlevel="2" data-id="mini-TOC" data-startlevel="2">
+<div class="mini-TOC-label"><strong>Contents:</strong></div>
+
+<ul><li><a class="tocLink" href="doc-viewer.aspx#secid-909">	Sec. 1.	Classes of Service.</a></li>
+<li><a class="tocLink" href="doc-viewer.aspx#secid-910">	Sec. 2.	Personnel Department.</a></li>
+<li><a class="tocLink" href="doc-viewer.aspx#secid-911">	Sec. 3.	Personnel Board.</a></li>
+<li><a class="tocLink" href="doc-viewer.aspx#secid-912">	Sec. 4.	Personnel Director.</a></li>
+<li><a class="tocLink" href="doc-viewer.aspx#secid-913">	Sec. 5.	Rules and Regulations.</a></li>
+<li><a class="tocLink" href="doc-viewer.aspx#secid-914">	Sec. 6.	Plan of Duties of Position.</a></li>
+<li><a class="tocLink" href="doc-viewer.aspx#secid-915">	Sec. 7. 	Salary Schedule.</a></li>
+<li><a class="tocLink" href="doc-viewer.aspx#secid-916">	Sec. 8.	No Discrimination, Political Activities.</a></li>
+<li><a class="tocLink" href="doc-viewer.aspx#secid-917">	Sec. 8a.	 Employee Becoming a Candidate for City Office.</a></li>
+<li><a class="tocLink" href="doc-viewer.aspx#secid-918">	Sec. 9.	Power of Personnel Board.</a></li>
+</ul>
+</div>
+
+
+</section> 
+<section id='secid-909' class='secLvl2 _011 _011-001' tabindex='-1' data-secid='909'> 
+<h3>Sec. 1. Classes of Service.</h3>
+
+<p>The selection, promotion, and retention of personnel in all departments of the city government shall be based solely upon the merit and fitness of the applicants or employees involved. All regularly paid employees in the city service shall be included in either the unclassified or classified services. The unclassified service shall consist of:</p>
+
+<ol style="list-style-type:decimal">
+	<li>All officers elected by the people.</li>
+	<li>The directors or heads of all departments established pursuant to this charter.</li>
+	<li>Members of boards or commissions.</li>
+	<li>All probationary or temporary employees.</li>
+	<li>Administrative assistants to elected officials.</li>
+	<li>Persons employed on an individualized contract basis.</li>
+</ol>
+
+<p>The council may by ordinance provide for the transfer to the classified service of the employees of any agencies which now, or in the future, spend money appropriated or borrowed by the council or city, or over which the council exercises budget control.</p>
+
+<p>The classified service shall consist of positions not specifically included in the unclassified service. All personnel actions relating to positions in the classified service shall be consistent with the provisions of this article and subject to the supervision and control of the personnel department established in this article, and no employees in the classified service shall be discharged, suspended, or demoted except for just cause.</p>
+
+<p>The provisions of this section shall apply and govern notwithstanding any existing provisions of this charter to the contrary. (Amendment of May 15, 1984; effective July 15, 1984).</p>
+
+<p class='archiveNotice nullValue '></p>
+</section> 
+<section id='secid-910' class='secLvl2 _011 _011-002' tabindex='-1' data-secid='910'> 
+<h3>Sec. 2. Personnel Department.</h3>
+
+<p>There is hereby created a personnel department consisting of a personnel board, a personnel director, and such subordinate employees as are required to administer the personnel program prescribed in this article. (Amendment of March 3, 1959).</p>
+
+<p class='archiveNotice nullValue '></p>
+</section> 
+<section id='secid-911' class='secLvl2 _011 _011-003' tabindex='-1' data-secid='911'> 
+<h3>Sec. 3. Personnel Board.</h3>
+
+<p>There shall be a personnel board comprised of five members who shall be appointed by the mayor and confirmed by the council. The first appointees shall be appointed for terms of one, two, three, four, and five years, respectively. Thereafter all appointments shall be for five-year terms. Vacancies in an unexpired term shall be filled by the mayor by appointment for the remainder of the term, and such appointments shall require the council&#39;s conformation.</p>
+
+<p>Members shall be appointed from among persons having the qualifications established in article III, section 4, and one member shall be a city employee but no other officer or employee of the city shall be eligible for appointment to this board. A member of the board may be removed by the affirmative vote of four members of the council after being given a written statement of the charges against him and a hearing which shall be a public hearing if he so requests.</p>
+
+<p>The board shall annually elect its chairman and such other officers as it desires from among its members and shall establish its own rules of procedure, provided that three members shall constitute a quorum for the transaction of business and three affirmative votes shall be required for final action on any matter acted upon by the board.</p>
+
+<p>The board shall have power and shall be required to:</p>
+
+<ol style="list-style-type:decimal">
+	<li>Advise the mayor, council, and personnel director on matters concerning personnel administration, including training programs and the fostering of interest by educational institutions and civic, professional, and employee organizations in the improvement of the city service.</li>
+	<li>Review the personnel rules and regulations and amendments thereto developed and recommended by the personnel director; conduct hearings thereon, approve or reject such rules in whole or in part and with or without modifications; and transmit such rules with recommendations to the council for its consideration and legislative action.</li>
+	<li>Hear appeals by any employee in the classified service from a decision by the appointing authority with respect to discharge, suspension, or a reduction in classification or pay; and report in writing to the appealing employee and the appointing authority its findings and decisions, which decision shall be binding upon the appointing authority.</li>
+	<li>Make any investigation which it may consider desirable concerning personnel administration in the city service and report to the mayor and council its findings, conclusions, and recommendations.</li>
+	<li>Perform such other related duties as may be necessary to fulfill its responsibilities under this charter or as may be assigned by the mayor or council.</li>
+</ol>
+
+<p>The personnel board, for purposes of conducting any hearing or investigation authorized by this article, shall have the power to administer oaths, subpoena witnesses and compel the production of pertinent books and records. Any person who shall fail to appear in response to subpoena, shall fail to answer any question or produce any books or records pertinent to any such hearing or investigation, or shall knowingly give false testimony therein shall be guilty of a misdemeanor and shall be subject to such penalties as may be fixed by an ordinance, which the council is hereby authorized to pass, and such other penalties as may be provided by law.</p>
+
+<p>Members of the board shall serve without pay. (Amendment of March 3, 1959).</p>
+
+<p class='archiveNotice nullValue '></p>
+</section> 
+<section id='secid-912' class='secLvl2 _011 _011-004' tabindex='-1' data-secid='912'> 
+<h3>Sec. 4. Personnel Director.</h3>
+
+<p>The personnel director shall be the secretary of the Personnel Board and the administrative head of the personnel department. He shall be responsible for the proper conduct of all administrative affairs of the department and for the execution of the personnel program prescribed in this charter and in ordinances consistent therewith. (Amendment of March 3, 1959).</p>
+
+<p class='archiveNotice nullValue '></p>
+</section> 
+<section id='secid-913' class='secLvl2 _011 _011-005' tabindex='-1' data-secid='913'> 
+<h3>Sec. 5. Rules and Regulations.</h3>
+
+<p>As soon as practicable after the appointment of the first Personnel Board and personnel director under this article, the director shall prepare and submit to the board a set of rules and regulations to carry out the provisions of this article. The board shall expeditiously consider these rules as provided in section 3 of this article and shall transmit them to the council for its consideration and legislative action. The personnel rules and regulation shall, among other things, provide for:</p>
+
+<ol style="list-style-type:decimal">
+	<li>The methods of publicizing, holding, and grading competitive examinations.</li>
+	<li>The establishment, maintenance, consolidation, and cancellation of eligible lists and the methods of certifying eligibles for appointment.</li>
+	<li>The administration of position classification and pay plans and the methods of awarding pay increases and promotions based on merit and seniority.</li>
+	<li>Temporary appointments. Probationary periods of employment, which shall not exceed six months.</li>
+	<li>Hours of work, vacation and sick leaves, other leaves of absence, and overtime pay.</li>
+	<li>The manner in which lay-offs and reductions in force shall be affected and the reemployment rights of employees so released.</li>
+	<li>The manner in which disciplinary actions may be taken and the penalties permitted for specific causes.</li>
+	<li>The manner in which employee appeals shall be made and heard.</li>
+	<li>The procedures and assignments of responsibility for bringing charges and taking other necessary actions in connection with violations of section 8 of this article.</li>
+</ol>
+
+<p>These rules and regulations shall have the force and effect of law when enacted as an ordinance by the council, and all amendments thereto shall be made in the same manner as is prescribed herein for the adoption of the first set of personnel rules and regulations. (Amendment of May 9, 1978; effective date July 9, 1978).</p>
+
+<p class='archiveNotice nullValue '></p>
+</section> 
+<section id='secid-914' class='secLvl2 _011 _011-006' tabindex='-1' data-secid='914'> 
+<h3>Sec. 6. Plan of Duties of Position.</h3>
+
+<p>The personnel director shall prepare and maintain a current record of the duties and responsibilities of each position in the classified service. As soon as practicable after the appointment of the first personnel director under this article, he shall prepare and submit to the personnel board a plan classifying and grading all such positions on the basis of assigned duties and responsibilities. The personnel board shall review and approve such plan, with or without amendments. After adoption of the plan, the director shall allocate each position to its appropriate class. Affected employees shall be given the opportunity to request a review and hearing on the allocations so made, and the allocations shall be subject to the approval of the personnel board. The plan, once adopted, shall be maintained on a current basis by the director so that it will reflect changes in the duties and responsibilities of existing positions and classes and so that needed new classes are established and obsolete classes are abolished. The plan shall serve as the basis for the pay plan, examination and training programs, examination and training progress, and other personnel actions. Amendments to the plan shall be made in the same manner as is provided herein for the original adoption of the plan.</p>
+
+<p>The provisions of this section shall govern and apply notwithstanding any existing provisions of this charter to the contrary. (Amendment of March 3, 1959).</p>
+
+<p class='archiveNotice nullValue '></p>
+</section> 
+<section id='secid-915' class='secLvl2 _011 _011-007' tabindex='-1' data-secid='915'> 
+<h3>Sec. 7. Salary Schedule.</h3>
+
+<p>The personnel director shall be responsible for developing a recommended pay plan and for periodically reviewing that plan, which shall cover all positions in the classified service and shall be based upon the principle of equal pay for equal work. The plan shall prescribe the manner of its administration, including the methods of fixing individual pay rates and of rewarding pay increases within established ranges. The plan shall also, as necessary, reflect those negotiated pay rates included in collective bargaining agreements which have been approved by the city council.</p>
+
+<p>As soon as practicable after the appointment of the first personnel director under this article, the personnel director shall prepare a recommended pay plan and, except for those portions of the pay plan reflecting pay rates included in collective bargaining agreements approved by the city council, shall submit it to the Personnel Board for its consideration and approval. When approved by the Personnel Board, with or without amendments, the plan shall be submitted to the mayor, who in turn shall submit it along with his comments to the council. The plan, including portions reflecting pay rates included in collective bargaining agreements approved by the city council, shall become effective when adopted as an ordinance by the council. Amendments to the plan shall be made in the same manner as is prescribed herein for the original adoption of the plan.</p>
+
+<p>The provisions of this section shall govern and apply notwithstanding any existing provisions of this charter to the contrary. (Amendment of May 7, 1985; effective July 6, 1985).</p>
+
+<p class='archiveNotice nullValue '></p>
+</section> 
+<section id='secid-916' class='secLvl2 _011 _011-008' tabindex='-1' data-secid='916'> 
+<h3>Sec. 8. No Discrimination, Political Activities.</h3>
+
+<p>No action affecting the employment status of an employee or applicant for a position in the city service, including appointment, promotion, demotion, suspension, or removal, shall be taken or withheld by reason of the race, creed, color, or political opinions or affiliation of the affected person, except that no person shall be employed or retained in the city service who advocates or belongs to an organization that advocates the overthrow or change of our government by force or violence.</p>
+
+<p>No person in the city service, except elected officials, and members of election boards and unpaid advisory boards and commissions, shall engage in the following activities in connection with any city issue to be voted upon or any candidate to be nominated for, or elected to, any city office:</p>
+
+<ol style="list-style-type:decimal">
+	<li>Manage a campaign or be a member of a campaign committee for a candidate for nomination for or election to city office or for or against any city issue; provided, however, nothing herein shall prevent the dissemination of facts or information relating to a city issue by persons in the city service acting in their official capacity.</li>
+	<li>Circulate petitions for candidates for city office, although an employee may sign such a petition;</li>
+	<li>Wear campaign buttons or similar emblems, or distribute campaign literature, at work or in a city uniform or in the offices or buildings of the City of Lincoln.</li>
+</ol>
+
+<p>In elections other than city elections, an employee of the city may not wear campaign buttons or distribute campaign literature while wearing a city uniform.</p>
+
+<p>Nothing herein shall be construed as preventing or prohibiting such persons in the city service from exercising their rights as citizens to publicly or privately express their opinions or to cast their votes.</p>
+
+<p>No person seeking appointment to, or promotion in, the city service shall give, render, or pay any money, service, or other valuable thing to any person in connection with his test, appointment, or promotion.</p>
+
+<p>Any person who willfully or corruptly violates any of the provisions of this section shall be subject to dismissal and such other punishment as may be provided by law. (Amendment of May 15, 1984; effective July 15, 1984).</p>
+
+<p class='archiveNotice nullValue '></p>
+</section> 
+<section id='secid-917' class='secLvl2 _011 _011-009' tabindex='-1' data-secid='917'> 
+<h3>Sec. 8a. Employee Becoming a Candidate for City Office.</h3>
+
+<p>Any person in the city service, except elected officials and members of election boards and unpaid advisory boards and commissions, who seeks nomination or who becomes a candidate for any elective city office shall be required to take a leave of absence, which shall be an unpaid leave in accordance with the rules governing leaves of absence, (unless such person chooses to utilize accrued vacation leave), which leave shall commence at least sixty days prior to the date of the election or from the date of filing for office, whichever is lesser. Election or appointment of a person in the city service to an elective city office shall constitute an automatic resignation of such person from his or her position in the city service. No individual shall hold both an elective city office and a paid position in the city service. (Amendment of May 15, 1984; effective July 15, 1984).</p>
+
+<p class='archiveNotice nullValue '></p>
+</section> 
+<section id='secid-918' class='secLvl2 _011 _011-010' tabindex='-1' data-secid='918'> 
+<h3>Sec. 9. Power of Personnel Board.</h3>
+
+<p>All powers, duties and rights of the personnel board or the personnel director under this article shall be provided in this article, notwithstanding any existing provisions of this charter to the contrary. (Amendment of August 27, 1962; effective May 20, 1963).</p>
+
+<p class='archiveNotice nullValue '></p>
+</section> 
+
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- hidden div below is for definition popup -->
+<div id="defFrame">
+    <img alt='loading progress' src="resources/progress.gif" /></div>
+<!-- hidden div below is for ajax loading progress-->
+<div id='progress-template' style='display: none;'>
+    <div class="progress" style='padding: 100px;'>
+        <div style='margin: auto; display: block; width: 200px; border: 1px solid #ccc; background-color: #eee; padding: 10px;'>
+            <img alt='loading progress' src='resources/progress.gif' style='margin: auto; display: block;' />
+            <br />
+            <span style='margin: auto; display: block; width: 75px; padding-left: 10px;'>Loading...</span>
+        </div>
+    </div>
+</div>
+<iframe style="width: 1px; height: 1px" src="" id="printiframe" name="printiframe" onload="ZP.DocView.IFrameReady();" title="Print frame" aria-hidden="true" role="presentation"></iframe>
+
+    </div>
+
+
+    </body>
+</html>

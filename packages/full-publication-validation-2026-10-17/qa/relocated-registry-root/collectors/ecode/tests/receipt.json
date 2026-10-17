@@ -1,0 +1,41 @@
+{
+  "completed_at": "2026-10-17T20:06:18.997531+00:00",
+  "command": "python -m unittest collectors.ecode.tests.test_faults -q",
+  "test_count": 18,
+  "tests": [
+    "collectors.ecode.tests.test_faults.FaultTests.test_access_stop_readonly_replay",
+    "collectors.ecode.tests.test_faults.FaultTests.test_corrupt_raw",
+    "collectors.ecode.tests.test_faults.FaultTests.test_duplicate_record",
+    "collectors.ecode.tests.test_faults.FaultTests.test_explicit_migration_only",
+    "collectors.ecode.tests.test_faults.FaultTests.test_full_and_tables",
+    "collectors.ecode.tests.test_faults.FaultTests.test_graphics_and_unknown_empty_types",
+    "collectors.ecode.tests.test_faults.FaultTests.test_hard_interruption_after_raw_before_inventory_commit",
+    "collectors.ecode.tests.test_faults.FaultTests.test_heading_only_and_unowned_visuals",
+    "collectors.ecode.tests.test_faults.FaultTests.test_image_only_no_fetch_and_nonimage_failure",
+    "collectors.ecode.tests.test_faults.FaultTests.test_interruption_and_resume",
+    "collectors.ecode.tests.test_faults.FaultTests.test_limit_never_complete",
+    "collectors.ecode.tests.test_faults.FaultTests.test_missing_artifact",
+    "collectors.ecode.tests.test_faults.FaultTests.test_missing_checkpoint_artifact",
+    "collectors.ecode.tests.test_faults.FaultTests.test_nonimage_head_and_image_head_no_get",
+    "collectors.ecode.tests.test_faults.FaultTests.test_retry_after_and_visible_refusal_shared_stop",
+    "collectors.ecode.tests.test_faults.FaultTests.test_wrong_edition_even_with_rehashed_raw",
+    "collectors.ecode.tests.test_faults.FaultTests.test_wrong_requested_node",
+    "collectors.ecode.tests.test_faults.MunicipalTests.test_complete_crawl_and_missing_descendant"
+  ],
+  "passed": true,
+  "python": "3.12.14 (main, Aug 25 2026, 13:50:33) [Clang 22.1.3 ]",
+  "platform": "macOS-26.6.2-arm64-arm-64bit",
+  "source_fingerprint": {
+    "__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "adapters.py": "3b73ba9437037ec848b60b7ab44cc2a3571a630b33d9f0d824bb5ca69f41a0b9",
+    "browser.py": "dfc3a5000c03e3776cdef239bb5ac85a53de9f2de48374fb6f21ee7504ec1040",
+    "cli.py": "8d51ba0b98db85c21b2eafb61c2f6f079f1174050298df8640c58a88c71bd771",
+    "common.py": "b5293cc27d152f1264eac1935d81fc492b98ab2b8b889ce0d241c255167ad43c",
+    "engine.py": "8feac8ff3c20608fc7a49fb9c944a331aab1d173e9bcbf9bee64bef0fa6945cd",
+    "legacy_ecode.py": "33ab8dd27c0c89dff86dbddf8602b826e44e4be19a66822a5a0530e51e6208d7",
+    "legacy_municipal.py": "6570af84a062a434085273d4649deb1bb8c20f1a78f10b650e2d98d160cdbb63"
+  },
+  "log_path": "fault-tests.log",
+  "log_sha256": "b64ac82a1093568567f15e649fba2954061652856400cacff6e7bb225a9c0834",
+  "scope": "Network-free synthetic collector, replay, image-policy and fault-injection tests; not live municipality completion."
+}

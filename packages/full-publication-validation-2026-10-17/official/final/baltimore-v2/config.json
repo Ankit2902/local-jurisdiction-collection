@@ -1,0 +1,21 @@
+{
+  "schema": 1,
+  "id": "20-baltimore-code",
+  "jurisdiction": "Baltimore City",
+  "state": "MD",
+  "publication": "Baltimore City Code (entire current repository code subtree, including zoning and building-code amendments)",
+  "source_url": "https://codes.baltimorecity.gov/",
+  "mode": "github_archive",
+  "repository": "baltimore-legref/law-html",
+  "archive_prefix": "/us/md/cities/baltimore/code",
+  "public_origin": "https://codes.baltimorecity.gov",
+  "transport": "http",
+  "coverage_level": "publication_text",
+  "reference_rules": [
+    {
+      "url_regex": "^https://mgaleg[.]maryland[.]gov/.*Statute_Web/",
+      "context_regex": "Annotated Code of Maryland|Maryland Code|State Real Property Article|Tax-Property Article|State Tax-Property Article|tax lien",
+      "reason": "Source paragraph cites an independent Maryland state statute layer, not a supplied attachment to this local publication. State law applicability/complete incorporated-law coverage remains outside selected local publication scope."
+    }
+  ]
+}

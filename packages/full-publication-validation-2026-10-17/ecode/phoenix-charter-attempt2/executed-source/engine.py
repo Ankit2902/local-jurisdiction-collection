@@ -1,0 +1,199 @@
+"""Durable collection and independent source replay; never treats a sample limit as complete."""
+from __future__ import annotations
+import base64,csv,io,json,shutil,re
+from pathlib import Path
+from urllib.parse import urlsplit,urljoin
+from .common import *
+from .adapters import *
+
+VERSION='icc-full-1.0'
+
+def code_fingerprint():
+ return {p.name:digest(p.read_bytes()) for p in sorted(Path(__file__).parent.glob('*.py'))}
+
+def artifact(out,state,role,raw,meta):
+ index=len(state['artifacts']);name=f'raw/{index:05d}-{role}.bin';atomic(out/name,raw)
+ item={'path':name,'sha256':digest(raw),'bytes':len(raw),'role':role,**meta};state['artifacts'].append(item);save(out/'checkpoint.json',state);return item
+
+def load_artifact(out,a):
+ p=(out/a['path']).resolve()
+ if not p.is_relative_to(out.resolve()):raise QualificationError('Artifact path escape')
+ raw=p.read_bytes()
+ if len(raw)!=a['bytes'] or digest(raw)!=a['sha256']:raise QualificationError('Artifact corruption '+a['path'])
+ return raw
+
+def rebuild(out,state):
+ """Recompute graph, ownership and bodies only from hash-checked retained source."""
+ cfg=state['config'];family=cfg['family'];base=state.get('publication_url');expected=state.get('identity');nodes={};records={};dispositions={};witnesses={};conflicts=[];duplicates=[];assets={};start=None;end=None;toc_start=None;toc_end=None
+ def addnode(n):
+  nid=n['id']
+  if nid in nodes and nodes[nid]['url']!=n['url']:raise QualificationError('Inventory identity conflict '+nid)
+  nodes.setdefault(nid,n)
+ for a in state['artifacts']:
+  raw=load_artifact(out,a);role=a['role']
+  if role not in ['root-start','root-end','contents-start','contents-end','content','native','asset']:continue
+  if role=='asset':
+   assets[a['requested_url']]=a;continue
+  if a.get('status',200)!=200:continue
+  if role in ['root-start','root-end']:
+   got=identity(raw,a['url'],family,base)
+   if edition(got)!=edition(expected):raise QualificationError('Start/end edition drift')
+   if role=='root-start':start=got
+   else:end=got
+  if role in ['contents-start','contents-end']:
+   got=identity(raw,a['url'],family,base)
+   if edition(got)!=edition(expected):raise QualificationError('Contents edition drift')
+   ns=municipal_inventory(raw,a['url'],base)
+   fingerprint=digest(canon(sorted((n['id'],n['heading']) for n in ns)))
+   if role=='contents-start':toc_start=fingerprint
+   else:toc_end=fingerprint
+   for n in ns:addnode(n)
+   continue
+  if role=='root-end':
+   if family=='ecode360':
+    _,ns=ecode_inventory(raw,a['url']);toc_end=digest(canon(sorted((n['id'],n['heading'],n['kind']) for n in ns)))
+   continue
+  if family=='ecode360':
+   parsed=parse_ecode(raw,a['url'],expected)
+   if role=='root-start':toc_start=digest(canon(sorted((n['id'],n['heading'],n['kind']) for n in parsed['nodes'])))
+  elif role=='native' or role=='content':parsed=parse_municipal(raw,a['url'],base,expected)
+  else:
+   # Root is independent source evidence of publication scope; native export owns the text.
+   addnode({'id':base,'url':base,'heading':got['name'],'kind':'publication','observed_on':a['url']});dispositions[base]={'id':base,'classification':'structural_empty','evidence':'Publication navigation wrapper; native typed articles own legal content'};continue
+  for n in parsed['nodes']:addnode(n)
+  for d in parsed['dispositions']:
+   nid=d['id'];prior=dispositions.get(nid)
+   if prior and prior['classification']=='owned_content' and d['classification']!='owned_content':continue
+   dispositions[nid]=d
+  for r in parsed['records']:
+   nid=r['id'];witnesses.setdefault(nid,[]).append(a['path'])
+   if nid in records:
+    if records[nid]['body_sha256']!=r['body_sha256']:conflicts.append({'id':nid,'sources':witnesses[nid]})
+    else:duplicates.append({'id':nid,'same_body':True,'source':a['path']})
+   else:records[nid]=r
+ # Attach provenance and resolve logical ancestry from retained descriptors/source URLs.
+ for nid,r in records.items():
+  r['raw_witnesses']=witnesses[nid];r['jurisdiction']=cfg.get('jurisdiction');r['state']=cfg.get('state');r['edition']=edition(expected)
+  r['path']=[nodes[nid]['heading']] if nid in nodes else [r['heading']]
+  seen={nid};parent=r.get('parent_id')
+  while parent and parent not in seen:
+   seen.add(parent)
+   if parent in nodes:r['path'].insert(0,nodes[parent]['heading'])
+   parent=records.get(parent,{}).get('parent_id')
+  for ref in r['assets']:assets.setdefault(ref['url'],None)
+ return {'nodes':nodes,'records':records,'dispositions':dispositions,'conflicts':conflicts,'duplicate_witnesses':duplicates,'assets':assets,'start':start,'end':end,'toc_start':toc_start,'toc_end':toc_end}
+
+def coverage(state,data):
+ ids=set(data['nodes']);done=set(data['dispositions']);missing=sorted(ids-done);extra=sorted(done-ids);unknown=sorted(n for n,d in data['dispositions'].items() if d['classification']=='unresolved_empty')
+ required={ref['url'] for r in data['records'].values() for ref in r['assets'] if ref['required']};missing_assets=sorted(u for u in required if not data['assets'].get(u));edition_ok=bool(data['start'] and data['end'] and data['toc_start'] and data['toc_start']==data['toc_end']);limited=bool(state.get('limited') or state['config'].get('subtree'));failures=state.get('errors',[])
+ text_ok=bool(ids and data['records'] and not missing and not extra and not unknown and not data['conflicts'] and not failures and not limited and edition_ok)
+ attachment_ok=not missing_assets and not failures and edition_ok and not limited
+ return {'schema_version':VERSION,'scope':'subtree' if state['config'].get('subtree') else 'whole_publication','publication_url':state.get('publication_url'),'identity':state.get('identity'),'inventory_nodes':len(ids),'owned_content_nodes':len(data['records']),'disposition_counts':{k:sum(d['classification']==k for d in data['dispositions'].values()) for k in sorted({d['classification'] for d in data['dispositions'].values()})},'inventory_sha256':digest(canon(sorted(data['nodes'].values(),key=lambda n:n['id']))),'missing_ids':missing,'extra_ids':extra,'unresolved_ids':unknown,'conflicting_duplicate_bodies':data['conflicts'],'identical_duplicate_witnesses':len(data['duplicate_witnesses']),'required_assets':len(required),'acquired_assets':len(required)-len(missing_assets),'missing_assets':missing_assets,'errors':failures,'limits_applied':limited,'start_end_inventory_consistent':edition_ok,'publication_text_complete':text_ok,'attachments_complete':attachment_ok,'edition_complete':edition_ok and text_ok and attachment_ok,'jurisdiction_complete':False,'jurisdiction_limitation':'One selected publication only; other publication tabs, unincorporated ordinances and external adopted codes are not certified.','complete':text_ok and attachment_ok,'resumable':not any(e.get('access_stop') for e in failures)}
+
+def write_outputs(out,state,data):
+ rows=[data['records'][k] for k in sorted(data['records'])];atomic(out/'records.jsonl',b''.join(canon(r)+b'\n' for r in rows))
+ fields=['id','jurisdiction','state','heading','kind','parent_id','path','text','source_url','body_sha256'];stream=io.StringIO(newline='');w=csv.DictWriter(stream,fieldnames=fields);w.writeheader()
+ for r in rows:w.writerow({k:json.dumps(r[k],ensure_ascii=False) if isinstance(r.get(k),(list,dict)) else r.get(k) for k in fields})
+ atomic(out/'records.csv',stream.getvalue().encode());save(out/'inventory.json',sorted(data['nodes'].values(),key=lambda n:n['id']));save(out/'dispositions.json',sorted(data['dispositions'].values(),key=lambda n:n['id']));report=coverage(state,data);save(out/'coverage.json',report);return report
+
+def check_cache(out,state):
+ if state.get('schema_version')!=VERSION:raise QualificationError('Unsupported checkpoint version')
+ for a in state['artifacts']:load_artifact(out,a)
+ if state.get('code_fingerprint')!=code_fingerprint():raise QualificationError('Executed collector changed; resume requires the exact source version')
+ if state.get('inventory_sha256'):
+  data=rebuild(out,state)
+  if digest(canon(sorted(data['nodes'].values(),key=lambda n:n['id'])))!=state['inventory_sha256']:raise QualificationError('Checkpoint inventory binding mismatch')
+
+def collect(cfg,out,resume=False):
+ from .browser import Browser
+ out=Path(out).resolve()
+ if out.exists() and any(out.iterdir()) and not resume:raise QualificationError('Output is nonempty; choose a fresh directory or --resume')
+ out.mkdir(parents=True,exist_ok=True)
+ if resume:
+  state=read(out/'checkpoint.json');check_cache(out,state)
+  old={k:v for k,v in state['config'].items() if k not in ['max_items','gate_dir']};new={k:v for k,v in cfg.items() if k not in ['max_items','gate_dir']}
+  if old!=new:raise QualificationError('Resume configuration/identity mismatch')
+  if any(e.get('access_stop') for e in state.get('errors',[])):raise AccessStop('Retained access stop requires operator review; no automatic resume')
+  state['errors']=[];state['limited']=False;state['config']=cfg
+ else:
+  state={'schema_version':VERSION,'created_at':now(),'config':cfg,'artifacts':[],'errors':[],'limited':False,'code_fingerprint':code_fingerprint()};save(out/'checkpoint.json',state)
+  snap=out/'executed-source';snap.mkdir()
+  for p in Path(__file__).parent.glob('*.py'):shutil.copyfile(p,snap/p.name)
+ data=None
+ try:
+  with Browser(cfg['family'],out,cfg.get('gate_dir')) as browser:
+   def get(role,url,bootstrap=False):
+    raw,meta=browser.bootstrap(url) if bootstrap else browser.fetch(url);a=artifact(out,state,role,raw,meta);browser.check(raw,meta);return raw,a
+   if not state.get('identity'):
+    raw,a=get('discovery',cfg['url'],True);base=clean_url(a['url'])
+    if family_of(base)!=cfg['family']:raise QualificationError('Publisher migration requires explicit source review')
+    if cfg['family']=='ecode360':
+     got=identity(raw,base,cfg['family']);alias='https://ecode360.com/'+str(got['customer_id'])
+     if not cfg.get('subtree') and base!=alias:raw,a=get('discovery',alias,True);base=alias;got=identity(raw,base,cfg['family'])
+    else:
+     pubs=municipal_publications(raw,base);save(out/'publications.json',pubs)
+     selected=cfg.get('publication')
+     if selected:
+      target=clean_url(selected if selected.startswith('https://') else 'https://'+urlsplit(base).netloc+'/'+selected.strip('/'))
+      if target not in {p['url'] for p in pubs} and target!=base:raise QualificationError('Publication selector not observed on publisher page')
+      if target!=base:raw,a=get('discovery',target,True);base=target
+     elif len(urlsplit(base).path.strip('/').split('/'))!=1 or base.endswith('/'):
+      raise QualificationError('Select an observed publication root with --publication')
+     else:base='https://'+urlsplit(base).netloc+'/'+urlsplit(base).path.strip('/').split('/')[0]
+     if clean_url(a['url'])!=base:raw,a=get('discovery',base,True)
+     got=identity(raw,base,cfg['family'],base)
+    jurisdiction_check(got,cfg.get('jurisdiction'),cfg.get('state'));state['identity']=got;state['publication_url']=base;save(out/'checkpoint.json',state)
+    # Preserve exact independent start source even when bootstrap served as discovery.
+    artifact(out,state,'root-start',raw,{k:v for k,v in a.items() if k not in ['role','path','sha256','bytes']})
+   else:
+    # Browser needs an ordinary document origin; retained source is not network authority for a new session.
+    raw,a=get('resume-bootstrap',state['publication_url'],True)
+    if edition(identity(raw,a['url'],cfg['family'],state['publication_url']))!=edition(state['identity']):raise QualificationError('Resume edition drift')
+   base=state['publication_url']
+   if cfg['family']=='municipal.codes':
+    if not any(a['role']=='contents-start' for a in state['artifacts']):
+     # The contents route must be present in the retained root DOM.
+     root=next(a for a in state['artifacts'] if a['role']=='root-start');sp=soup(load_artifact(out,root));candidates=[urljoin(base,x.get('href') or x.get('data-source')) for x in sp.select('[href],[data-source]') if (x.get('href') or x.get('data-source') or '').split('?')[0].rstrip('/').endswith('/contents')]
+     contents=next((u.split('?')[0] for u in candidates if clean_url(u).startswith(base+'/contents')),None)
+     if not contents:raise QualificationError('Independent complete contents route not observed')
+     state['contents_url']=contents;save(out/'checkpoint.json',state);get('contents-start',contents)
+    if not any(a['role']=='native' for a in state['artifacts']):
+     raw,meta=browser.native_html();artifact(out,state,'native',raw,{**meta,'status':200,'headers':{'content-type':'text/html'}});browser.check(raw,{**meta,'status':200,'headers':{'content-type':'text/html'}})
+   data=rebuild(out,state);count=0
+   if cfg['family']=='ecode360':
+    while True:
+     pending=[n for nid,n in data['nodes'].items() if nid not in data['dispositions']]
+     if not pending:break
+     if cfg.get('max_items') is not None and count>=cfg['max_items']:state['limited']=True;break
+     n=pending[0];get('content',n['url']);count+=1;data=rebuild(out,state);state['inventory_sha256']=digest(canon(sorted(data['nodes'].values(),key=lambda n:n['id'])));save(out/'checkpoint.json',state);print(json.dumps({'event':'progress','pages':count,'inventory':len(data['nodes']),'owned':len(data['records']),'remaining':len(set(data['nodes'])-set(data['dispositions']))}),flush=True)
+   elif cfg.get('max_items') is not None:state['limited']=True
+   if not state['limited']:
+    # Required assets are individually hash-bound. Access stops terminate all subsequent traffic.
+    for u,a in data['assets'].items():
+     if a:continue
+     if u.startswith('data:'):
+      head,payload=u.split(',',1);raw=base64.b64decode(payload) if ';base64' in head else __import__('urllib.parse').parse.unquote_to_bytes(payload);artifact(out,state,'asset',raw,{'url':u,'requested_url':u,'status':200,'headers':{'content-type':head[5:].split(';')[0]},'retrieved_at':now(),'transport':'embedded data URI'});continue
+     get('asset',u)
+    get('root-end',base)
+    if cfg['family']=='municipal.codes':get('contents-end',state['contents_url'])
+ except Exception as e:
+  state['errors'].append({'type':type(e).__name__,'message':str(e),'at':now(),'access_stop':isinstance(e,AccessStop)});save(out/'checkpoint.json',state)
+ try:
+  data=rebuild(out,state) if state.get('identity') else {'nodes':{},'records':{},'dispositions':{},'conflicts':[],'duplicate_witnesses':[],'assets':{},'start':None,'end':None,'toc_start':None,'toc_end':None}
+  state['inventory_sha256']=digest(canon(sorted(data['nodes'].values(),key=lambda n:n['id'])));save(out/'checkpoint.json',state);report=write_outputs(out,state,data)
+ except Exception as e:
+  state['errors'].append({'type':type(e).__name__,'message':str(e),'at':now(),'access_stop':False});save(out/'checkpoint.json',state);report={'complete':False,'publication_text_complete':False,'attachments_complete':False,'edition_complete':False,'jurisdiction_complete':False,'errors':state['errors']};save(out/'coverage.json',report)
+ return report
+
+def verify(out):
+ out=Path(out).resolve();state=read(out/'checkpoint.json');check_cache(out,state);data=rebuild(out,state);report=coverage(state,data)
+ expected=[data['records'][k] for k in sorted(data['records'])];actual=[json.loads(line) for line in (out/'records.jsonl').read_text().splitlines()]
+ if len({r['id'] for r in actual})!=len(actual):raise QualificationError('Duplicate normalized IDs')
+ if actual!=expected:raise QualificationError('Normalized records disagree with retained source')
+ if read(out/'inventory.json')!=sorted(data['nodes'].values(),key=lambda n:n['id']):raise QualificationError('Published inventory disagrees with source')
+ if read(out/'dispositions.json')!=sorted(data['dispositions'].values(),key=lambda n:n['id']):raise QualificationError('Published dispositions disagree with source')
+ if read(out/'coverage.json')!=report:raise QualificationError('Coverage claim disagrees with independent recomputation')
+ fields=['id','jurisdiction','state','heading','kind','parent_id','path','text','source_url','body_sha256'];stream=io.StringIO(newline='');w=csv.DictWriter(stream,fieldnames=fields);w.writeheader()
+ for r in expected:w.writerow({k:json.dumps(r[k],ensure_ascii=False) if isinstance(r.get(k),(list,dict)) else r.get(k) for k in fields})
+ if (out/'records.csv').read_bytes()!=stream.getvalue().encode():raise QualificationError('CSV disagrees with source')
+ return {'verified':True,**report}

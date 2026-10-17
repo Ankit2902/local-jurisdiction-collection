@@ -1,0 +1,233 @@
+
+    <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+    <html>
+    <head>
+
+        <title>CODE OF ORDINANCES SAVANNAH, GEORGIA</title>
+        <link type="text/css" rel="Stylesheet" href="jqueryui/css/jqueryui.css" media="all" />
+        <link type="text/css" rel="Stylesheet" href="css/ui.css" media="all" />
+        <link type="text/css" rel="Stylesheet" href="css/customui.css" media="all" />
+        <link type="text/css" rel="Stylesheet" href="css/document.css" media="all" />
+        <link type="text/css" rel="Stylesheet" href="css/customdoc.css" media="all" />
+        <link type="text/css" rel="Stylesheet" href="tablestyles.aspx" media="all" />
+        <link rel="StyleSheet" type="text/css" href="/common/font-awesome/css/all.min.css">
+        <link type="text/css" rel="Stylesheet" href="css/docprint.css" media="print" />
+        <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+        <script type="text/javascript" src="jqueryui/js/jquery-ui-1.8.21.custom.min.js"></script>
+        <script type="text/javascript" src="js/doc-view.js?_t=290"></script>
+        <script type="text/javascript" src="js/tabletools.js"></script>
+        <script type="text/javascript" src="js/tabs.js"></script>
+        <script type="text/javascript">
+            var iframeReady = false;
+        </script>
+        
+    </head>
+    <body class='doc-view'>
+        <script type="text/javascript">
+            $(document).ready(function () {
+                ZP.DocView.InitDef();
+                ZP.DocView.OpenDefinitionPage = null;
+                ZP.DocView.OpenDefinitionMode = '_self';
+                ZP.DocView.OpenXRefPage = 'doc-viewer.aspx#$2-';
+                ZP.DocView.OpenXRefMode = '_blank';
+                $(window).bind('hashchange', ZP.DocView.HashChanged);
+        
+        if (typeof ZP.DocView.ZoomClasses == 'undefined') {
+            ZP.DocView.ZoomClasses = ["Unzoom1", "", "Zoom1", "Zoom2", "Zoom3", "Zoom4"];
+        }
+        ZP.DocView.InitializeZoom();
+        EC.SortedTable.Init(".ord-tbl, .stat-tbl", ".sortable");
+        EC.Tabs.PositionLeftTabs();
+    });
+
+
+        </script>
+
+
+    <div id="doc-viewer">
+        
+
+<div id="doc-view">
+    <div id="doc-view-content">
+        
+<div id="pageControls">
+<script type="text/javascript" >
+    function clearEffDate() {
+        jQuery.get("doc-view-helper.aspx?task=currentversion", function () {
+            window.location.reload();
+        });
+        return false;
+    }
+</script>
+     <div class="pageControls psuedoTable" role="navigation" aria-label="Document Navigation">  
+        <div class="psuedoTableBody" >     
+            <div class="psuedoTableRow">         
+                <div class="pageControls_outer" ></div>
+                <div class="pageControls_inner left">
+                    <a id='button1' onclick='ZP.DocView.PrintDoc("001.001",false);return false;' href="#" title="Print" role="button"> 
+                        <img alt="Print" src="resources/btn-print.png" /></a>
+                    <a id='Button2' onclick='ZP.DocView.OpenPDF("001.001",false);return false;' href="#" title="Export PDF" role="button">
+                        <img alt="Generate PDF" src="resources/btn-makepdf.png" /></a>
+                        <a class="popup" params="toobar=0,menubar=0,scrollbars=1,height=436,width=626" href="https://www.facebook.com/sharer/sharer.php?s=100&p[title]=CODE+OF+ORDINANCES+SAVANNAH%2c+GEORGIA&p[summary]=Savannah%2c+Georgia+City+of+Savannah+Code+of+Ordinances&p[url]=https%3a%2f%2fonline.encodeplus.com%2fregs%2fsavannah-ga%2fdoc-viewer.aspx%3fsecid%3d1" title="Click to Share this page" style="text-decoration:none;border:none;" ><img src="resources/share-icon.png" alt="Click to Share this page on facebook" /></a>     
+                </div>
+                <div  class="pageControls_inner breadCrumbs" title="Navigation 'breadcrumbs'">
+                     <div class='breadCrumbs'><a href='/regs/savannah-ga/doc-viewer.aspx?tocid=001' >CODE OF ORDINANCES SAVANNAH, GEORGIA</a> &gt; <a href='/regs/savannah-ga/doc-viewer.aspx?tocid=001.001' >PREFACE</a></div>
+                </div>
+                 <div  class="pageControls_inner right">       
+                     <ul >  
+                         <li>
+                            <a id='button3' class="nav" onclick="ZP.DocView.LoadPrevDoc('001.001');return false;" href="#"  title="Previous Section" accesskey="," role="button"><img alt="Go to Previous Section" src="resources/btn-back.png" /></a>
+                         </li>  
+                         <li>
+                             <a id='Button4'  class="nav" onclick="ZP.DocView.LoadNextDoc('001.001');return false;" href="#"  title="Next Section" accesskey="." role="button"> <img alt="Go to Next Section" src="resources/btn-forward.png" /></a>
+                         </li>   
+                         <li>
+                             <a id="pageControls-overflow" onclick="ZP.DocView.PgCntrlOverflowClick(event);return false;" href="#" title="Click for more options" role="button" >
+                            <img src="resources/overflow-btn.png" alt="Click for more options" /></a>
+                               
+  <ul class="submenu" role="dialog">
+            <li><a href="/regs/savannah-ga/doc-viewer.aspx?secid=1" onclick="javascript:alert('Right click this icon and select \'add to favorites\' or \'Bookmark this Link\' to bookmark this page');return false;" title="Bookmark this page" >Bookmark</a></li>
+            <li>
+                                        
+                <a id="zoomMinus" onclick="ZP.DocView.DecreaseZoom();return false;" href="#" title="Decrease Zoom" class="zoomLink glyphicon" >&#x2212;</a>
+                <a onclick="ZP.DocView.DefaultZoom();return false;"  href="#" title="Default Zoom"  class="zoomLink" >100%</a>
+                <a id="zoomPlus" onclick="ZP.DocView.IncreaseZoom();return false;" href="#" title="Increase Zoom"  class="zoomLink glyphicon" > &#x2b; </a>
+            </li>
+           
+                           
+                
+                <li><a id="subscribe-btn" onclick="ZP.DocView.OpenSubscribeDlg();return false;" title="Subscribe to Notifications" href="subscribe.aspx" role="button">Subscribe</a></li>
+                <li><a id="unsubscribe-btn" onclick="ZP.DocView.OpenUnsubscribeDlg();return false;" title="Cancel Notifications Subscription" href="unsubscribe.aspx" role="button" >Unsubscribe</a></li>
+                
+</ul>
+                         </li>        
+                        
+                        </ul>   
+                </div>
+                <div class="pageControls_outer"></div>
+            </div>
+        </div>
+    </div> 
+    <div id="subscribe-dialog" title="" aria-live="polite" >
+        <div id="sub-message"></div>
+        <div id="sub-form-cntr"></div>
+    </div>
+</div>
+
+
+        <div id="thePage-outer" >
+            <div id="thePage-wrap" class="thePage-wrap ">
+                <div id="outer-doc-banner"></div>
+                <div id="thePage-border">
+                    <div id="thePage" class="textPage " tocid="001.001" secid="1" role="main" aria-label="Document">
+                        <img id="sectionBanner" title="Document text banner" src="resources/docbanner.png" width="720" valign="Top" alt="Document text banner">
+                        
+                        <section id='secid-1' class='secLvl1 _001' tabindex='-1' data-secid='1'> 
+<h1>CODE OF ORDINANCES SAVANNAH, GEORGIA</h1>
+
+
+
+
+</section> 
+<section id='secid-2' class='secLvl2 _001 _001-001' tabindex='-1' data-secid='2'> 
+<h2>PREFACE</h2>
+
+
+</section> 
+<section id='secid-3814' class='secLvl3 _001 _001-001 _001-001-001' tabindex='-1' data-secid='3814'> 
+<p>This Code constitutes a recodification of the general and permanent ordinances of the City of Savannah, Georgia.</p>
+
+<p>Source materials used in the preparation of the Code were the 1977 Code, as supplemented through October 28, 1993, and ordinances subsequently adopted by the mayor and aldermen. The source of each section is included in the history note appearing in parentheses at the end thereof. The absence of such a note indicates that the section is new and was adopted for the first time with the adoption of the Code. By use of the comparative tables appearing in the back of this Code, the reader can locate any section of the 1977 Code, as supplemented, and any subsequent ordinance included herein.</p>
+
+<p>The chapters of the Code have been conveniently arranged in alphabetical order, and the various sections within each chapter have been catchlined to facilitate usage. Notes which tie related sections of the Code together and which refer to relevant state law have been included. A table listing the state law citations and setting forth their location within the Code is included at the back of this Code.</p>
+
+<p class='archiveNotice nullValue '>Effective on:&nbsp;1/1/1901</p>
+</section> 
+<section id='secid-3' class='secLvl3 _001 _001-001 _001-001-002' tabindex='-1' data-secid='3'> 
+<h4>Page Numbering System</h4><p>The page numbering system used in this Code is a prefix system. The letters to the left of the colon are an abbreviation which represents a certain portion of the volume. The number to the right of the colon represents the number of the page in that portion. In the case of a part of the Code, the number to the left of the colon indicates the number of the part. In the case of an appendix to the Code, the letter immediately to the left of the colon indicates the letter of the appendix. The following are typical parts of codes of ordinances, which may or may not appear in this Code at this time, and their corresponding prefixes:</p><table class="general"><tbody><tr class="alt1"><td style="width:50.1%;">CHARTER</td><td style="width:49.9%;">CHT:1</td></tr><tr class="alt2"><td>CHARTER COMPARATIVE TABLE</td><td>CHTCT:1</td></tr><tr class="alt1"><td>CODE</td><td>CD1:1</td></tr><tr class="alt2"><td>CODE APPENDIX</td><td>CDA:1</td></tr><tr class="alt1"><td>CODE COMPARATIVE TABLES</td><td>CCT:1</td></tr><tr class="alt2"><td>STATE LAW REFERENCE TABLE</td><td>SLT:1</td></tr><tr class="alt1"><td>CHARTER INDEX</td><td>CHTi:1</td></tr><tr class="alt2"><td>CODE INDEX</td><td>CDi:1</td></tr></tbody></table>
+
+<p class='archiveNotice nullValue '>Effective on:&nbsp;1/1/1901</p>
+</section> 
+<section id='secid-4' class='secLvl3 _001 _001-001 _001-001-003' tabindex='-1' data-secid='4'> 
+<h4>Indexes</h4><p>The indexes have been prepared with the greatest of care. Each particular item has been placed under several headings, some of which are couched in lay phraseology, others in legal terminology, and still others in language generally used by local government officials and employees. There are numerous cross references within the indexes themselves which stand as guideposts to direct the user to the particular item in which the user is interested.</p>
+
+<p class='archiveNotice nullValue '>Effective on:&nbsp;1/1/1901</p>
+</section> 
+<section id='secid-5' class='secLvl3 _001 _001-001 _001-001-004' tabindex='-1' data-secid='5'> 
+<h4>Looseleaf Supplements</h4><p>A special feature of this publication is the looseleaf system of binding and supplemental servicing of the publication. With this system, the publication will be kept up-to-date. Subsequent amendatory legislation will be properly edited, and the affected page or pages will be reprinted. These new pages will be distributed to holders of copies of the publication, with instructions for the manner of inserting the new pages and deleting the obsolete pages.</p><p>Keeping this publication up-to-date at all times will depend largely upon the holder of the publication. As revised pages are received, it will then become the responsibility of the holder to have the amendments inserted according to the attached instructions. It is strongly recommended by the publisher that all such amendments be inserted immediately upon receipt to avoid misplacing them and, in addition, that all deleted pages be saved and filed for historical reference purposes.</p>
+
+<p class='archiveNotice nullValue '>Effective on:&nbsp;1/1/1901</p>
+</section> 
+<section id='secid-6' class='secLvl3 _001 _001-001 _001-001-005' tabindex='-1' data-secid='6'> 
+<h4>Acknowledgments</h4><p>This publication was under the direct supervision of Roger D. Merriam, Senior Code Attorney, and Linda G. Davis, Director of Editorial Services, of the Municipal Code Corporation, Tallahassee, Florida. Credit is gratefully given to the other members of the publisher's staff for their sincere interest and able assistance throughout the project.</p><p>The publisher is most grateful to Ms. Dyanne C. Reese, Clerk of Council, for her cooperation and assistance during the progress of the work on this publication. It is hoped that their efforts and those of the publisher have resulted in a Code of Ordinances which will make the active law of the city readily accessible to all citizens and which will be a valuable tool in the day-to-day administration of the city's affairs.</p>
+
+<p class='archiveNotice nullValue '>Effective on:&nbsp;1/1/1901</p>
+</section> 
+<section id='secid-7' class='secLvl3 _001 _001-001 _001-001-006' tabindex='-1' data-secid='7'> 
+<h4>Copyright</h4><p>All editorial enhancements of this Code are copyrighted by Municipal Code Corporation and the City of Savannah, Georgia. Editorial enhancements include, but are not limited to: organization; table of contents; section catchlines; prechapter section analyses; editor's notes; cross references; state law references; numbering system; code comparative table; state law reference table; and index. Such material may not be used or reproduced for commercial purposes without the express written consent of Municipal Code Corporation and the City of Savannah, Georgia.</p><p>© Copyrighted material.</p><p>Municipal Code Corporation and the City of Savannah, Georgia. 2003.</p>
+
+<p class='archiveNotice nullValue '>Effective on:&nbsp;1/1/1901</p>
+</section> 
+<section id='secid-8' class='secLvl3 _001 _001-001 _001-001-007' tabindex='-1' data-secid='8'> 
+<h4>ADOPTING ORDINANCE</h4>
+
+<p style="text-align:center">ORD. OF 6-12-2003</p>
+
+<p>AN ORDINANCE ADOPTING AND ENACTING A NEW CODE FOR THE CITY OF SAVANNAH, GEORGIA; PROVIDING FOR THE REPEAL OF CERTAIN ORDINANCES NOT INCLUDE THEREIN; PROVIDING A PENALTY FOR THE VIOLATION THEREOF; PROVIDING FOR THE MANNER OF AMENDING SUCH CODE; AND PROVIDING WHEN SUCH CODE AND THIS ORDINANCE SHALL BECOME EFFECTIVE.</p>
+
+<p>BE IT ORDAINED, by the Mayor and Aldermen of the City of Savannah, Georgia:</p>
+
+<p><em>SECTION 1</em>: The Code entitled, &quot;Code of Ordinances, Savannah, Georgia,&quot; published by Municipal Code Corporation, [consisting] of parts 1 through 9, each [inclusive] is adopted.</p>
+
+<p><em>SECTION 2</em>: All ordinances of a general and permanent nature enacted on or before December 12, 2002, and not included in the Code or recognized and continued in force by reference therein, are repealed.</p>
+
+<p><em>SECTION 3</em>: The repeal provided for in Section 2 hereof shall not be construed to revive any ordinance or part thereof that has been repealed by a subsequent ordinance that is repealed by this ordinance.</p>
+
+<p><em>SECTION 4</em>: Unless another penalty is expressly provided, every person convicted of any provision of the Code or any ordinance, rule or regulation adopted or issued in pursuance thereof, shall be punished by a fine not to exceed $1,000.00 or imprisonment for not more than 30 days. The penalty provided by this section, unless another penalty is expressly provided, shall apply to the amendment of any Code section, whether or not such penalty is re-enacted in the amendatory ordinance. In addition to the penalty prescribed above, the City may pursue other remedies such as abatement of nuisances, injunctive relief and revocation of licenses or permits.</p>
+
+<p><em>SECTION 5</em>: Additions or amendments to the Code when passed in such form as to indicate the intention of the City to make the same a part of the Code shall be deemed to be incorporated in the Code, so the reference to the Code includes the additions and amendments.</p>
+
+<p><em>SECTION 6</em>: Ordinances adopted after December 12, 2002, that amend or refer to ordinances that have been codified in the Code shall be construed as if they amend or refer to like provisions of the Code.</p>
+
+<p><em>SECTION 7</em>: This ordinance shall become effective upon adoption.</p>
+
+<p>&nbsp;</p>
+
+<p>ADOPTED AND APPROVED: JUNE 12, 2003</p>
+
+<p class='archiveNotice nullValue '>Effective on:&nbsp;1/1/1901</p>
+</section> 
+
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<button id="commentsCTA" title="Add a Comment" aria-label="Add a Comment" role="button" tabindex="2">
+    COMMENTS
+</button>
+
+<!-- hidden div below is for definition popup -->
+<div id="defFrame">
+    <img alt='loading progress' src="resources/progress.gif" /></div>
+<!-- hidden div below is for ajax loading progress-->
+<div id='progress-template' style='display: none;'>
+    <div class="progress" style='padding: 100px;'>
+        <div style='margin: auto; display: block; width: 200px; border: 1px solid #ccc; background-color: #eee; padding: 10px;'>
+            <img alt='loading progress' src='resources/progress.gif' style='margin: auto; display: block;' />
+            <br />
+            <span style='margin: auto; display: block; width: 75px; padding-left: 10px;'>Loading...</span>
+        </div>
+    </div>
+</div>
+<iframe style="width: 1px; height: 1px" src="" id="printiframe" name="printiframe" onload="ZP.DocView.IFrameReady();" title="Print frame" aria-hidden="true" role="presentation"></iframe>
+
+    </div>
+
+
+    </body>
+</html>

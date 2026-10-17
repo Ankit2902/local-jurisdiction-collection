@@ -1,0 +1,75 @@
+{
+  "synthetic": true,
+  "network_requests_sent": 0,
+  "image_policy": "literal [IMAGE]; no separate image acquisition",
+  "source_module_sha256": {
+    "model.py": "464a2a51bcf5159c09fe6e3dac4f0c59f2f4ed997bd6758b9e6b5eba450c83ab",
+    "image_policy.py": "ac6eb1393212f9c620e23d6fcde08af530d99451a7a1fba82a5e1ee9234cf848"
+  },
+  "probes": [
+    {
+      "test": "baseline",
+      "expected_complete": true,
+      "actual_complete": true,
+      "passed": true,
+      "error": null
+    },
+    {
+      "test": "omitted_direct_image",
+      "expected_complete": true,
+      "actual_complete": true,
+      "passed": true,
+      "error": null
+    },
+    {
+      "test": "svg_image_href",
+      "expected_complete": true,
+      "actual_complete": true,
+      "passed": true,
+      "error": null
+    },
+    {
+      "test": "svg_image_xlink",
+      "expected_complete": true,
+      "actual_complete": true,
+      "passed": true,
+      "error": null
+    },
+    {
+      "test": "image_only_leaf",
+      "expected_complete": true,
+      "actual_complete": true,
+      "passed": true,
+      "error": null
+    },
+    {
+      "test": "mixed_images_nested_table",
+      "expected_complete": true,
+      "actual_complete": true,
+      "passed": true,
+      "error": null
+    },
+    {
+      "test": "required_nonimage_attachment",
+      "expected_complete": false,
+      "actual_complete": false,
+      "passed": true,
+      "error": null
+    },
+    {
+      "test": "heading_only_leaf",
+      "expected_complete": false,
+      "actual_complete": false,
+      "passed": true,
+      "error": null
+    },
+    {
+      "test": "unknown_empty_container",
+      "expected_complete": false,
+      "actual_complete": false,
+      "passed": true,
+      "error": null
+    }
+  ],
+  "passed": true
+}

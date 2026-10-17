@@ -1,0 +1,81 @@
+{
+  "schema": 1,
+  "config_sha256": "01e1a41c812697c72f933c4e39e39fa412e4e0bcf9dce73a931eb17f8e9436e2",
+  "code_binding": "f2f5de2965ab44ccb1250444f908e7310e9c424bb801ffb7d739e9bf6609fb9e",
+  "scripts": {
+    "collect.py": "57a2debfcb757c052d422a7de39959ee6062272a39f23905a5491a63bae72661",
+    "model.py": "c62379cea171f7179f78bf259a97b1d52a3064ed330209ddd4e6a67f3c62118c",
+    "transport.py": "856f00a0de7d561839ba8842af7ae49483fd5efd31fb0352dbe7cbccc011a148",
+    "legacy_html.py": "0e10fe08406788f8540bcb232c927bcffb547f0ae072a68684ea313afb08cde6",
+    "browser_fetch.cjs": "1541bbdb1e0c98034af584c0f0a3e37788ab54c09d35bc8379d73f4b1ff39a87"
+  },
+  "started_at": "2026-10-17T20:10:31.502122+00:00",
+  "items": [
+    {
+      "id": "https://czo.nola.gov/print-all/",
+      "url": "https://czo.nola.gov/print-all/",
+      "heading": "Entire official Comprehensive Zoning Ordinance publisher-native print-all HTML",
+      "kind": "html",
+      "raw_ref": "raw/339dae6190618d9cb73b.bin"
+    }
+  ],
+  "done": [
+    "https://czo.nola.gov/print-all/"
+  ],
+  "completed": true,
+  "identity": {
+    "source_ref": "raw/fa44132b238e67958fb1.bin",
+    "source_sha256": "f3344aeb53dc9dd28f22e93dfc177612fa6a518cfd29a8061b3434197f5fe28a",
+    "source_url": "https://czo.nola.gov/print-all/",
+    "edition": null,
+    "kind": "html_single",
+    "identity": "new-orleans-czo-native-html"
+  },
+  "consistency": {
+    "kind": "html_single",
+    "raw_ref": "raw/822dcab2bf9cc737af59.bin",
+    "sha256": "664ec12b06cf6d65c7e025722f73f50e408a94a31c3a070393dd2d2f7b5ba4a5",
+    "consistent": true,
+    "comparison": "Native bytes or selected full inventory link URL+label projection; no codewide effective-date assertion"
+  },
+  "limits_history": [],
+  "command": [
+    "collectors/official/collect.py",
+    "--config",
+    "collectors/official/configs/new-orleans-czo.json",
+    "--out",
+    "/Users/oliverflint/My Drive/Claude/Projects/CompliSolv 2.00/outputs/full-publication-validation-2026-10-17/official/final/czo-v3"
+  ],
+  "runtime": {
+    "python": "3.12.14 (main, Aug 25 2026, 13:50:33) [Clang 22.1.3 ]",
+    "platform": "macOS-26.6.2-arm64-arm-64bit",
+    "node": "/Users/oliverflint/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/bin/node"
+  },
+  "invocations": [
+    {
+      "command": [
+        "collectors/official/collect.py",
+        "--config",
+        "collectors/official/configs/new-orleans-czo.json",
+        "--out",
+        "/Users/oliverflint/My Drive/Claude/Projects/CompliSolv 2.00/outputs/full-publication-validation-2026-10-17/official/final/czo-v3"
+      ],
+      "resume": false,
+      "max_items": null,
+      "interrupt_after": null,
+      "started_at": "2026-10-17T20:10:31.516091+00:00"
+    }
+  ],
+  "inventory_sha256": "3fe47f22e8d321554b93d1f98b47ef9e7a301f78b7142bf081f95ed26c438032",
+  "item_consistency": [
+    {
+      "kind": "item",
+      "id": "https://czo.nola.gov/print-all/",
+      "url": "https://czo.nola.gov/print-all/",
+      "raw_ref": "raw/822dcab2bf9cc737af59.bin",
+      "sha256": "664ec12b06cf6d65c7e025722f73f50e408a94a31c3a070393dd2d2f7b5ba4a5",
+      "matches_initial_content": true
+    }
+  ],
+  "finished_at": "2026-10-17T20:11:46.995823+00:00"
+}

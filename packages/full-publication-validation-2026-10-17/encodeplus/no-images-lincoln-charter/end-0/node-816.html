@@ -1,0 +1,241 @@
+
+    <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+    <html>
+    <head>
+
+        <title>ARTICLE VII CONTRACTS AND PURCHASES</title>
+        <link type="text/css" rel="Stylesheet" href="jqueryui/css/jqueryui.css" media="all" />
+        <link type="text/css" rel="Stylesheet" href="css/ui.css" media="all" />
+        <link type="text/css" rel="Stylesheet" href="css/customui.css" media="all" />
+        <link type="text/css" rel="Stylesheet" href="css/document.css" media="all" />
+        <link type="text/css" rel="Stylesheet" href="css/customdoc.css" media="all" />
+        <link type="text/css" rel="Stylesheet" href="tablestyles.aspx" media="all" />
+        <link rel="StyleSheet" type="text/css" href="/common/font-awesome/css/all.min.css">
+        <link type="text/css" rel="Stylesheet" href="css/docprint.css" media="print" />
+        <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+        <script type="text/javascript" src="jqueryui/js/jquery-ui-1.8.21.custom.min.js"></script>
+        <script type="text/javascript" src="js/doc-view.js?_t=290"></script>
+        <script type="text/javascript" src="js/tabletools.js"></script>
+        <script type="text/javascript" src="js/tabs.js"></script>
+        <script type="text/javascript">
+            var iframeReady = false;
+        </script>
+        
+    </head>
+    <body class='doc-view'>
+        <script type="text/javascript">
+            $(document).ready(function () {
+                ZP.DocView.InitDef();
+                ZP.DocView.OpenDefinitionPage = null;
+                ZP.DocView.OpenDefinitionMode = '_self';
+                ZP.DocView.OpenXRefPage = 'doc-viewer.aspx#$2-';
+                ZP.DocView.OpenXRefMode = '_blank';
+                $(window).bind('hashchange', ZP.DocView.HashChanged);
+        
+        if (typeof ZP.DocView.ZoomClasses == 'undefined') {
+            ZP.DocView.ZoomClasses = ["Unzoom1", "", "Zoom1", "Zoom2", "Zoom3", "Zoom4"];
+        }
+        ZP.DocView.InitializeZoom();
+        EC.SortedTable.Init(".ord-tbl, .stat-tbl", ".sortable");
+        EC.Tabs.PositionLeftTabs();
+    });
+
+
+        </script>
+
+
+    <div id="doc-viewer">
+        
+
+<div id="doc-view">
+    <div id="doc-view-content">
+        
+<div id="pageControls">
+<script type="text/javascript" >
+    function clearEffDate() {
+        jQuery.get("doc-view-helper.aspx?task=currentversion", function () {
+            window.location.reload();
+        });
+        return false;
+    }
+</script>
+     <div class="pageControls psuedoTable" role="navigation" aria-label="Document Navigation">  
+        <div class="psuedoTableBody" >     
+            <div class="psuedoTableRow">         
+                <div class="pageControls_outer" ></div>
+                <div class="pageControls_inner left">
+                    <a id='button1' onclick='ZP.DocView.PrintDoc("008",false);return false;' href="#" title="Print" role="button"> 
+                        <img alt="Print" src="resources/btn-print-white.png" /></a>
+                    <a id='Button2' onclick='ZP.DocView.OpenPDF("008",false);return false;' href="#" title="Export PDF" role="button">
+                        <img alt="Generate PDF" src="resources/btn-makepdf-white.png" /></a>
+                        <a class="email-popup" href="mailto:?subject=ARTICLE%20VII%20CONTRACTS%20AND%20PURCHASES&amp;body=Lincoln%20NE%20City%20Charter https://online.encodeplus.com/regs/lincoln-ne-cc/doc-viewer.aspx?secid=816"><img src="resources/email-white.png" alt="Click to Share By Email" /></a>     
+                </div>
+                <div  class="pageControls_inner breadCrumbs" title="Navigation 'breadcrumbs'">
+                     <div class='breadCrumbs'><a href='/regs/lincoln-ne-cc/doc-viewer.aspx?tocid=008' >ARTICLE VII CONTRACTS AND PURCHASES</a></div>
+                </div>
+                 <div  class="pageControls_inner right">       
+                     <ul >  
+                         <li>
+                            <a id='button3' class="nav" onclick="ZP.DocView.LoadPrevDoc('008');return false;" href="#"  title="Previous Section" accesskey="," role="button"><img alt="Go to Previous Section" src="resources/btn-back-white.png" /></a>
+                         </li>  
+                         <li>
+                             <a id='Button4'  class="nav" onclick="ZP.DocView.LoadNextDoc('008');return false;" href="#"  title="Next Section" accesskey="." role="button"> <img alt="Go to Next Section" src="resources/btn-forward-white.png" /></a>
+                         </li>   
+                         <li>
+                             <a id="pageControls-overflow" onclick="ZP.DocView.PgCntrlOverflowClick(event);return false;" href="#" title="Click for more options" role="button" >
+                            <img src="resources/overflow-btn-white.png" alt="Click for more options" /></a>
+                               
+  <ul class="submenu" role="dialog">
+            <li><a href="/regs/lincoln-ne-cc/doc-viewer.aspx?secid=816" onclick="javascript:alert('Right click this icon and select \'add to favorites\' or \'Bookmark this Link\' to bookmark this page');return false;" title="Bookmark this page" >Bookmark</a></li>
+            <li>
+                                        
+                <a id="zoomMinus" onclick="ZP.DocView.DecreaseZoom();return false;" href="#" title="Decrease Zoom" class="zoomLink glyphicon" >&#x2212;</a>
+                <a onclick="ZP.DocView.DefaultZoom();return false;"  href="#" title="Default Zoom"  class="zoomLink" >100%</a>
+                <a id="zoomPlus" onclick="ZP.DocView.IncreaseZoom();return false;" href="#" title="Increase Zoom"  class="zoomLink glyphicon" > &#x2b; </a>
+            </li>
+           
+                           
+                
+                <li><a id="subscribe-btn" onclick="ZP.DocView.OpenSubscribeDlg();return false;" title="Subscribe to Notifications" href="subscribe.aspx" role="button">Subscribe</a></li>
+                <li><a id="unsubscribe-btn" onclick="ZP.DocView.OpenUnsubscribeDlg();return false;" title="Cancel Notifications Subscription" href="unsubscribe.aspx" role="button" >Unsubscribe</a></li>
+                
+</ul>
+                         </li>        
+                        
+                        </ul>   
+                </div>
+                <div class="pageControls_outer"></div>
+            </div>
+        </div>
+    </div> 
+    <div id="subscribe-dialog" title="" aria-live="polite" >
+        <div id="sub-message"></div>
+        <div id="sub-form-cntr"></div>
+    </div>
+</div>
+
+
+        <div id="thePage-outer" >
+            <div id="thePage-wrap" class="thePage-wrap ">
+                <div id="outer-doc-banner"></div>
+                <div id="thePage-border">
+                    <div id="thePage" class="textPage " tocid="008" secid="816" role="main" aria-label="Document">
+                        <img id="sectionBanner" title="Document text banner" src="resources/docbanner.png" width="720" valign="Top" alt="Document text banner">
+                        
+                        <section id='secid-816' class='secLvl1 _008' tabindex='-1' data-secid='816'> 
+<h2>ARTICLE VII CONTRACTS AND PURCHASES</h2>
+
+<div class="mini-TOC" data-endlevel="2" data-id="mini-TOC" data-startlevel="2">
+<div class="mini-TOC-label"><strong>Contents:</strong></div>
+
+<ul><li><a class="tocLink" href="doc-viewer.aspx#secid-817">	Sec. 1. Purchasing Division Created.</a></li>
+<li><a class="tocLink" href="doc-viewer.aspx#secid-818">	Sec. 2.	Purchasing Division, Powers and Duties.</a></li>
+<li><a class="tocLink" href="doc-viewer.aspx#secid-819">	Sec. 3.	Contracts, Limiting Term.</a></li>
+<li><a class="tocLink" href="doc-viewer.aspx#secid-820">	Sec. 4.	Appropriation Preceding Contracts.</a></li>
+<li><a class="tocLink" href="doc-viewer.aspx#secid-821">	Sec. 5.	City Contract - Conflict of Interest.</a></li>
+<li><a class="tocLink" href="doc-viewer.aspx#secid-822">	Sec. 6.	City Printing, Rate.</a></li>
+<li><a class="tocLink" href="doc-viewer.aspx#secid-823">	Sec. 7.	Notices; Posting in Lieu of Publication.</a></li>
+</ul>
+</div>
+
+
+</section> 
+<section id='secid-817' class='secLvl2 _008 _008-001' tabindex='-1' data-secid='817'> 
+<h3>Sec. 1. Purchasing Division Created.</h3>
+
+<p>There shall be established and maintained in the finance department a purchasing division, the head of which shall be the purchasing agent of the city. The purchasing agent, acting in accordance with provisions of this charter and rules and regulations established by ordinance, shall purchase all materials, parts, supplies, and equipment required by any department or agency of the city government.</p>
+
+<p>The provisions of this section shall govern and apply notwithstanding any existing provisions of this charter to the contrary. (Amendment of May 13, 2008; prior amendment of May 15, 1990) (Previously Sec. 5)</p>
+
+<p class='archiveNotice nullValue '></p>
+</section> 
+<section id='secid-818' class='secLvl2 _008 _008-002' tabindex='-1' data-secid='818'> 
+<h3>Sec. 2. Purchasing Division, Powers and Duties.</h3>
+
+<p>The purchasing division, in making any purchase in the amount of $50,000.00 or more, or any other department or agency, in making any contract committing the city to any expenditure of $50,000.00 or more, shall advertise for formal sealed bids to be opened in public and to be the basis for awards. All advertisements soliciting bids shall be published at least once in the official paper of the city, if there be one, and if there be no official newspaper, then in at least one daily newspaper published and in general circulation in the city. Purchases and contracts involving the expenditure of less than $50,000.00 may be made without calling for formal sealed bids, but informal bids shall be secured and recorded by the City Purchasing Division.</p>
+
+<p>Competitive bidding shall not be required in purchasing unique or noncompetitive articles or in contracting for professional services. The mayor, or council by the affirmative vote of six of its members, or by a unanimous vote, if fewer than six but at least four members are present, may waive the competitive bidding requirement if such waiver is necessary to meet an emergency threatening serious loss of life, health or property in the community.</p>
+
+<p>The city council may by unanimous vote of the members present authorize the purchase of supplies or the expenditure of funds for the operation or maintenance of any utility operated by the city without estimate or advertising for bids, in which event supplies so authorized may be purchased in the open market. The mayor may, without formal sealed bids, authorize the construction of public works and utilities infrastructures by private entities when the city&rsquo;s payment of reimbursement or subsidies for such construction does not exceed $100,000.00.</p>
+
+<p>All awards shall be made to the lowest, responsive, responsible bidder. The city council shall by ordinance establish those criteria to be considered in determining the lowest, responsive, responsible bidder. The city shall always have the power to reject all bids and to rebid&nbsp;if it wishes to do so. The mayor may delegate the execution of any purchase, contract award, or other document which has a direct financial impact to the city of less than $50,000.00.</p>
+
+<p>The city may require that successful bidders provide good and sufficient bonds of appropriate types to ensure deliveries and faithful performance in connection with the purchases or contracts involved.</p>
+
+<p>The provisions of this section shall govern and apply notwithstanding any existing provisions of this charter to the contrary. (Amendment of May 12, 2020: prior Amendments of May 13, 2008;&nbsp;May 15, 1990; and November 7, 1978). (Previously Sec. 6). (Editor&#39;s Note: Prior &sect;2 of Art. VII was repealed on May 15, 1990).</p>
+
+<p class='archiveNotice  '></p>
+</section> 
+<section id='secid-819' class='secLvl2 _008 _008-003' tabindex='-1' data-secid='819'> 
+<h3>Sec. 3. Contracts, Limiting Term.</h3>
+
+<p>No contract involving the expenditure of money from appropriations of more than one year, other than appropriations of borrowed money, shall be valid unless approved by ordinance or resolution of the council, and no such contract shall be made for a period of more than four years except contracts executed pursuant to Article II, Section 5, and except as otherwise provided in this section. Contracts in connection with properties or operations of the city&#39;s proprietary functions, and leases in which the city is to be either the lessee or lessor, may be consummated for such periods and on such terms as the council may by ordinance authorize. (Amendment of November 5, 1996: prior Amendment of May 15, 1990) (Previously Sec. 10).</p>
+
+<p class='archiveNotice nullValue '></p>
+</section> 
+<section id='secid-820' class='secLvl2 _008 _008-004' tabindex='-1' data-secid='820'> 
+<h3>Sec. 4. Appropriation Preceding Contracts.</h3>
+
+<p>No contract shall be made and no expense shall be incurred by any department, agency, officer, or employee of the city, whether the expenditure shall have been ordered by the council or not, unless an appropriation shall have been previously made concerning such expenditure, except as is herein otherwise provided. (Amendment of May 15, 1990) (Previously Sec. 4).</p>
+
+<p class='archiveNotice nullValue '></p>
+</section> 
+<section id='secid-821' class='secLvl2 _008 _008-005' tabindex='-1' data-secid='821'> 
+<h3>Sec. 5. City Contract - Conflict of Interest.</h3>
+
+<p>A council member or the mayor or any city department director shall not have a significant financial interest in any contract or other business dealing with the city. This section shall not apply to officials in office on June 7, 2013, for interests that existed prior to that date, except that all such interests of those officials shall be disclosed by filing a sworn disclosure statement, and he or she shall refrain from voting upon or otherwise participating in the administration of the contract in which he or she has a financial interest.</p>
+
+<p>If any officer or employee of the city not described in the prior paragraph of this section has a significant financial interest, direct or indirect or by reason of ownership of stock, in any contract or other business dealings with the city, or in any action of the city government relating to the public or private development of land, or if any member of any city board or commission has a significant financial interest, direct or indirect or by reason of ownership of stock, in any matter before the body on which he serves, then that person shall declare that interest by filing a sworn disclosure statement and shall refrain from voting upon or otherwise participating in the making of the contract or the taking of the action, in which he or she has a financial interest.</p>
+
+<p>Procedures for the making and filing of declarations of financial interest shall be established by ordinance.</p>
+
+<p>Any officer or employee designated in this section who willfully conceals such financial interest or willfully conceals the requirements of this section shall forfeit her or his office or position and shall be guilty of a misdemeanor, punishable by a fine not to exceed $100 or by imprisonment for not to exceed six months. Any violation of this section with the actual knowledge of any person or corporation contracting with the city shall render the unfulfilled portion of the contract voidable by a court of competent jurisdiction.</p>
+
+<p>No officer or employee of the city shall receive any pay from the city other than his or her salary. The council shall not appropriate or pay any money or other valuable thing to any person not an officer or employee for the performance of any act, service, or duty, the performance of which is within the proper scope of the duties of an officer or employee of the city, unless the same is specially appropriated and ordered by majority vote of the council. (Amendment of May 7, 2013: Amendment of May 15, 1990) (Previously Sec. 3).</p>
+
+<p class='archiveNotice nullValue '></p>
+</section> 
+<section id='secid-822' class='secLvl2 _008 _008-006' tabindex='-1' data-secid='822'> 
+<h3>Sec. 6. City Printing, Rate.</h3>
+
+<p>The purchasing agent shall issue an invitation to bid for the publication in a legal newspaper of general circulation in the city of all public advertisements, notices, ordinances and all other matters on account of the city, for a period of three years. In preparing the specifications for the invitation to bid and in awarding the publishing contract, consideration shall be given to rates, circulation, and general ability to provide the publishing services required by the city, and need not be awarded to the lowest bidder. Whenever deemed advisable the city council may, by resolution, order any notice or advertisement to be published in one or more papers in addition to the official newspaper. (Amendment of May 15, 1990) (Previously Sec. 4, part).</p>
+
+<p class='archiveNotice nullValue '></p>
+</section> 
+<section id='secid-823' class='secLvl2 _008 _008-007' tabindex='-1' data-secid='823'> 
+<h3>Sec. 7. Notices; Posting in Lieu of Publication.</h3>
+
+<p>In case of the refusal or neglect of any legal newspaper to advertise public notices at rates or under conditions acceptable to the city council, or in any case where directed by the city council, in lieu of and in place of newspaper publication, such notices shall be posted on the official bulletin board of the city, which shall be maintained in a conspicuous place at the city hall on which shall be kept such notices required to be published by law under proper classified headings, to-wit: Proposals for bids on public works, meetings of boards of equalization, notices relating to franchises, and all ordinances, notices and other proceedings required by law to be published. Notwithstanding any other provisions of this charter to the contrary, such posting shall of itself be deemed as meeting all the requirements of advertisements under this charter. All such posting shall be done by the city clerk, duly witnessed on his record book by not less than two persons. Such record books shall show the date of such posting and its expiration. The record of such posting shall be evidence that the same was done as required by this section; provided, the proof of the compliance with either of the above methods shall be held sufficient proof of publication of all official notices required by this section. (Amendment of May 15, 1990) (Previously Sec. 4, part).</p>
+
+<p class='archiveNotice nullValue '></p>
+</section> 
+
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- hidden div below is for definition popup -->
+<div id="defFrame">
+    <img alt='loading progress' src="resources/progress.gif" /></div>
+<!-- hidden div below is for ajax loading progress-->
+<div id='progress-template' style='display: none;'>
+    <div class="progress" style='padding: 100px;'>
+        <div style='margin: auto; display: block; width: 200px; border: 1px solid #ccc; background-color: #eee; padding: 10px;'>
+            <img alt='loading progress' src='resources/progress.gif' style='margin: auto; display: block;' />
+            <br />
+            <span style='margin: auto; display: block; width: 75px; padding-left: 10px;'>Loading...</span>
+        </div>
+    </div>
+</div>
+<iframe style="width: 1px; height: 1px" src="" id="printiframe" name="printiframe" onload="ZP.DocView.IFrameReady();" title="Print frame" aria-hidden="true" role="presentation"></iframe>
+
+    </div>
+
+
+    </body>
+</html>

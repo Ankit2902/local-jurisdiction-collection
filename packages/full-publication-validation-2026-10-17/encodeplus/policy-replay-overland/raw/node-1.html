@@ -1,0 +1,853 @@
+
+    <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+    <html>
+    <head>
+
+        <title>Title 1 - General Provisions</title>
+        <link type="text/css" rel="Stylesheet" href="jqueryui/css/jqueryui.css" media="all" />
+        <link type="text/css" rel="Stylesheet" href="css/ui.css" media="all" />
+        <link type="text/css" rel="Stylesheet" href="css/customui.css" media="all" />
+        <link type="text/css" rel="Stylesheet" href="css/document.css" media="all" />
+        <link type="text/css" rel="Stylesheet" href="css/customdoc.css" media="all" />
+        <link type="text/css" rel="Stylesheet" href="tablestyles.aspx" media="all" />
+        <link rel="StyleSheet" type="text/css" href="/common/font-awesome/css/all.min.css">
+        <link type="text/css" rel="Stylesheet" href="css/docprint.css" media="print" />
+        <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+        <script type="text/javascript" src="jqueryui/js/jquery-ui-1.8.21.custom.min.js"></script>
+        <script type="text/javascript" src="js/doc-view.js?_t=290"></script>
+        <script type="text/javascript" src="js/tabletools.js"></script>
+        <script type="text/javascript" src="js/tabs.js"></script>
+        <script type="text/javascript">
+            var iframeReady = false;
+        </script>
+        
+    </head>
+    <body class='doc-view'>
+        <script type="text/javascript">
+            $(document).ready(function () {
+                ZP.DocView.InitDef();
+                ZP.DocView.OpenDefinitionPage = null;
+                ZP.DocView.OpenDefinitionMode = '_self';
+                ZP.DocView.OpenXRefPage = 'doc-viewer.aspx#$2-';
+                ZP.DocView.OpenXRefMode = '_blank';
+                $(window).bind('hashchange', ZP.DocView.HashChanged);
+        
+        if (typeof ZP.DocView.ZoomClasses == 'undefined') {
+            ZP.DocView.ZoomClasses = ["Unzoom1", "", "Zoom1", "Zoom2", "Zoom3", "Zoom4"];
+        }
+        ZP.DocView.InitializeZoom();
+        EC.SortedTable.Init(".ord-tbl, .stat-tbl", ".sortable");
+        EC.Tabs.PositionLeftTabs();
+    });
+
+
+        </script>
+
+
+    <div id="doc-viewer">
+        
+
+<div id="doc-view">
+    <div id="doc-view-content">
+        
+<div id="pageControls">
+<script type="text/javascript" >
+    function clearEffDate() {
+        jQuery.get("doc-view-helper.aspx?task=currentversion", function () {
+            window.location.reload();
+        });
+        return false;
+    }
+</script>
+     <div class="pageControls psuedoTable" role="navigation" aria-label="Document Navigation">  
+        <div class="psuedoTableBody" >     
+            <div class="psuedoTableRow">         
+                <div class="pageControls_outer" ></div>
+                <div class="pageControls_inner left">
+                    <a id='button1' onclick='ZP.DocView.PrintDoc("001",false);return false;' href="#" title="Print" role="button"> 
+                        <img alt="Print" src="resources/btn-print-white.png" /></a>
+                    <a id='Button2' onclick='ZP.DocView.OpenPDF("001",false);return false;' href="#" title="Export PDF" role="button">
+                        <img alt="Generate PDF" src="resources/btn-makepdf-white.png" /></a>
+                        <a class="popup" params="toobar=0,menubar=0,scrollbars=1,height=436,width=626" href="https://www.facebook.com/sharer/sharer.php?s=100&p[title]=Title+1+-+General+Provisions&p[summary]=Overland+Park%2c+Kansas+Municipal+Code&p[url]=https%3a%2f%2fcodes.opkansas.org%2fmunicipal-code%2fdoc-viewer.aspx%3fsecid%3d1" title="Click to Share this page" style="text-decoration:none;border:none;" ><img src="resources/share-icon-white.png" alt="Click to Share this page on facebook" /></a>     
+                </div>
+                <div  class="pageControls_inner breadCrumbs" title="Navigation 'breadcrumbs'">
+                     <div class='breadCrumbs'><a href='/municipal-code/doc-viewer.aspx?tocid=001' >Title 1 - General Provisions</a></div>
+                </div>
+                 <div  class="pageControls_inner right">       
+                     <ul >  
+                         <li>
+                            <a id='button3' class="nav" onclick="ZP.DocView.LoadPrevDoc('001');return false;" href="#"  title="Previous Section" accesskey="," role="button"><img alt="Go to Previous Section" src="resources/btn-back-white.png" /></a>
+                         </li>  
+                         <li>
+                             <a id='Button4'  class="nav" onclick="ZP.DocView.LoadNextDoc('001');return false;" href="#"  title="Next Section" accesskey="." role="button"> <img alt="Go to Next Section" src="resources/btn-forward-white.png" /></a>
+                         </li>   
+                         <li>
+                             <a id="pageControls-overflow" onclick="ZP.DocView.PgCntrlOverflowClick(event);return false;" href="#" title="Click for more options" role="button" >
+                            <img src="resources/overflow-btn-white.png" alt="Click for more options" /></a>
+                               
+  <ul class="submenu" role="dialog">
+            <li><a href="/municipal-code/doc-viewer.aspx?secid=1" onclick="javascript:alert('Right click this icon and select \'add to favorites\' or \'Bookmark this Link\' to bookmark this page');return false;" title="Bookmark this page" >Bookmark</a></li>
+            <li>
+                                        
+                <a id="zoomMinus" onclick="ZP.DocView.DecreaseZoom();return false;" href="#" title="Decrease Zoom" class="zoomLink glyphicon" >&#x2212;</a>
+                <a onclick="ZP.DocView.DefaultZoom();return false;"  href="#" title="Default Zoom"  class="zoomLink" >100%</a>
+                <a id="zoomPlus" onclick="ZP.DocView.IncreaseZoom();return false;" href="#" title="Increase Zoom"  class="zoomLink glyphicon" > &#x2b; </a>
+            </li>
+           
+                           
+                
+                <li><a id="subscribe-btn" onclick="ZP.DocView.OpenSubscribeDlg();return false;" title="Subscribe to Notifications" href="subscribe.aspx" role="button">Subscribe</a></li>
+                <li><a id="unsubscribe-btn" onclick="ZP.DocView.OpenUnsubscribeDlg();return false;" title="Cancel Notifications Subscription" href="unsubscribe.aspx" role="button" >Unsubscribe</a></li>
+                
+</ul>
+                         </li>        
+                        
+                        </ul>   
+                </div>
+                <div class="pageControls_outer"></div>
+            </div>
+        </div>
+    </div> 
+    <div id="subscribe-dialog" title="" aria-live="polite" >
+        <div id="sub-message"></div>
+        <div id="sub-form-cntr"></div>
+    </div>
+</div>
+
+
+        <div id="thePage-outer" >
+            <div id="thePage-wrap" class="thePage-wrap ">
+                <div id="outer-doc-banner"></div>
+                <div id="thePage-border">
+                    <div id="thePage" class="textPage " tocid="001" secid="1" role="main" aria-label="Document">
+                        <img id="sectionBanner" title="Document text banner" src="resources/docbanner.png" width="720" valign="Top" alt="Document text banner">
+                        
+                        <section id='secid-1' class='secLvl1 _001' tabindex='-1' data-secid='1'> 
+<h1>
+	Title 1 - General Provisions</h1>
+<div class="mini-TOC" data-endlevel="2" data-id="mini-TOC" data-startlevel="2">
+	<div class="mini-TOC-label">
+		<strong>Contents:</strong></div>
+	<ul><li><a class="tocLink" href="doc-viewer.aspx#secid-2">1.01  Code Adoption.</a></li>
+<li><a class="tocLink" href="doc-viewer.aspx#secid-14">1.04  General Provisions</a></li>
+<li><a class="tocLink" href="doc-viewer.aspx#secid-44">1.08  Right of Entry for Inspection</a></li>
+<li><a class="tocLink" href="doc-viewer.aspx#secid-5117">1.12  General Penalty</a></li>
+<li><a class="tocLink" href="doc-viewer.aspx#secid-56">1.24  Citations for Violations</a></li>
+<li><a class="tocLink" href="doc-viewer.aspx#secid-7735">Repealed Sections of Title 1 General Provisions</a></li>
+</ul>
+</div>
+
+<p>
+	&nbsp;</p>
+
+
+</section> 
+<section id='secid-2' class='secLvl2 _001 _001-001' tabindex='-1' data-secid='2'> 
+<h2>
+	1.01 - Code Adoption<sup>1</sup></h2>
+<ol start="1" style="list-style-type: decimal;" class="list-v2">
+	<li><div class='li-num'>1.</div><div class='li-cont'>
+		For the statutory provisions regarding compilation, revision and codification of the general ordinances of cities, see K.S.A. 12-3014 <i>et seq</i>.</div></li>
+</ol>
+<div class="mini-TOC" data-endlevel="3" data-id="mini-TOC" data-startlevel="3">
+	<div class="mini-TOC-label">
+		<strong>Contents:</strong></div>
+	<ul><li><a class="tocLink" href="doc-viewer.aspx#secid-3">1.01.010 Generally.</a></li>
+<li><a class="tocLink" href="doc-viewer.aspx#secid-4">1.01.020 Publication-Effect.</a></li>
+<li><a class="tocLink" href="doc-viewer.aspx#secid-5">1.01.030 Short Title-Citation-Reference.</a></li>
+<li><a class="tocLink" href="doc-viewer.aspx#secid-6">1.01.040 Reference Applies to Amendments.</a></li>
+<li><a class="tocLink" href="doc-viewer.aspx#secid-7">1.01.050 Title, Chapter and Section Headings.</a></li>
+<li><a class="tocLink" href="doc-viewer.aspx#secid-8">1.01.060 Reference to Specific Ordinances.</a></li>
+<li><a class="tocLink" href="doc-viewer.aspx#secid-9">1.01.070 Supplements Authorized.</a></li>
+<li><a class="tocLink" href="doc-viewer.aspx#secid-10">1.01.080 Effect of Code on Past Actions and Obligations.</a></li>
+<li><a class="tocLink" href="doc-viewer.aspx#secid-11">1.01.090 Effective Date of Code.</a></li>
+<li><a class="tocLink" href="doc-viewer.aspx#secid-12">1.01.100 Ordinance Book Designated.</a></li>
+<li><a class="tocLink" href="doc-viewer.aspx#secid-13">1.01.110 Constitutionality.</a></li>
+</ul>
+</div>
+
+
+</section> 
+<section id='secid-3' class='secLvl3 _001 _001-001 _001-001-001' tabindex='-1' data-secid='3'> 
+<h3>
+	1.01.010 Generally.</h3>
+<p>
+	Pursuant to the provisions of Sections 12-3014 and 12-3015 of Kansas Statutes Annotated, as amended, there is adopted the &quot;Overland Park Municipal Code&quot; as published by Book Publishing Company, Seattle, Washington, together with those secondary codes adopted by reference as authorized by K.S.A. 12-3015, as amended, save and except those portions of the secondary codes as are deleted or modified by the provisions of the &quot;Overland Park Municipal Code.&quot;</p>
+<p>
+	(History: Ord. MC-750 &sect;1, 73; Eff. 6-1-73)</p>
+
+<p class='archiveNotice nullValue '>Effective on:&nbsp;1/1/1901</p>
+</section> 
+<section id='secid-4' class='secLvl3 _001 _001-001 _001-001-002' tabindex='-1' data-secid='4'> 
+<h3>
+	1.01.020 Publication-Effect.</h3>
+<p>
+	Said code, in conjunction with the adopting ordinance codified herein and with a certificate of the City Clerk that said code and ordinance are true and correct copies when published in book form shall import absolute verity and be received in evidence in all courts and places without further proof.</p>
+<p>
+	(History: Ord. MC-2288 &sect;1, 2001; MC-750 &sect;2, 73; Eff. 6-1-73)</p>
+
+<p class='archiveNotice nullValue '>Effective on:&nbsp;1/1/1901</p>
+</section> 
+<section id='secid-5' class='secLvl3 _001 _001-001 _001-001-003' tabindex='-1' data-secid='5'> 
+<h3>
+	1.01.030 Short Title-Citation-Reference.</h3>
+<p>
+	This code shall be known as the &quot;Overland Park Municipal Code&quot; and it is sufficient to refer to said code as the &quot;Overland Park Municipal Code&quot; in any prosecution for the violation of any provision thereof or in any proceeding at law or equity. It shall be sufficient to designate any ordinance adding to, amending, correcting or repealing all or any part or portion thereof as an addition to, amendment to, correction or repeal of the &quot;Overland Park Municipal Code.&quot; Any such ordinance shall effectively add to, amend, correct or repeal the ordinance section which is the basis for the appropriate code provision. Further reference may be had to the titles, chapters, sections and subsections of the &quot;Overland Park Municipal Code&quot; and such reference shall apply to that numbered title, chapter, section or subsection as it appears in the code.</p>
+<p>
+	(History: Ord. MC-750 &sect;3, 73; Eff. 6-1-73)</p>
+
+<p class='archiveNotice nullValue '>Effective on:&nbsp;1/1/1901</p>
+</section> 
+<section id='secid-6' class='secLvl3 _001 _001-001 _001-001-004' tabindex='-1' data-secid='6'> 
+<h3>
+	<strong>1.01.040 Reference Applies to Amendments.</strong></h3>
+<p>
+	Whenever a reference is made to this code as the &quot;Overland Park Municipal Code&quot; or to any portion thereof, or to any ordinance of the city, the reference shall apply to all amendments, corrections and additions heretofore, now or hereafter made.</p>
+<p>
+	(History: Ord. MC-750 &sect;4, 73; Eff. 6-1-73)</p>
+
+<p class='archiveNotice nullValue '>Effective on:&nbsp;1/1/1901</p>
+</section> 
+<section id='secid-7' class='secLvl3 _001 _001-001 _001-001-005' tabindex='-1' data-secid='7'> 
+<h3>
+	<strong>1.01.050 Title, Chapter and Section Headings.</strong></h3>
+<p>
+	Title, chapter and section headings contained herein shall not be deemed to govern, limit, modify or in any manner affect the scope, meaning or intent of the provisions of any title, chapter or section hereof.</p>
+<p>
+	(History: Ord. MC-750 &sect;5, 73; Eff. 6-1-73)</p>
+
+<p class='archiveNotice nullValue '>Effective on:&nbsp;1/1/1901</p>
+</section> 
+<section id='secid-8' class='secLvl3 _001 _001-001 _001-001-006' tabindex='-1' data-secid='8'> 
+<h3>
+	<strong>1.01.060 Reference to Specific Ordinances.</strong></h3>
+<p>
+	The provisions of this code shall not in any manner affect deposits or other matters of record which refer to, or are otherwise connected with ordinances which are therein specifically designated by number or otherwise and which are included within the code, but such reference shall be construed to apply to the corresponding provisions contained within this code.</p>
+<p>
+	(History: Ord. MC-750 &sect;6, 73; Eff. 6-1-73)</p>
+
+<p class='archiveNotice nullValue '>Effective on:&nbsp;1/1/1901</p>
+</section> 
+<section id='secid-9' class='secLvl3 _001 _001-001 _001-001-007' tabindex='-1' data-secid='9'> 
+<h3>
+	<strong>1.01.070 Supplements Authorized.</strong></h3>
+<p>
+	This code may be kept current and the City Attorney is authorized to prepare and distribute supplements to the code from time to time. The supplements may be added to this code by insertion of new pages for omitted sections, amended sections, and new provisions. The City Attorney is further authorized and directed to reprint or republish the code, as supplemented, &nbsp;on the City&#39;s Internet website and on its Intranet.</p>
+<p>
+	(History: Ord.&nbsp;<span style="font-size: 14.6666669845581px; line-height: 18.3333339691162px;">MC-3136 &sect;1, 2016;&nbsp;</span><span style="font-size: 11pt; line-height: 18.3333339691162px;">MC-2288 &sect;2, 2001; MC-750 &sect;7, 73; </span>Eff<span style="font-size: 11pt; line-height: 18.3333339691162px;">. 6-1-73)</span></p>
+
+<p class='archiveNotice  '>Effective on:&nbsp;12/20/2016</p>
+</section> 
+<section id='secid-10' class='secLvl3 _001 _001-001 _001-001-008' tabindex='-1' data-secid='10'> 
+<h3>
+	<strong>1.01.080 Effect of Code on Past Actions and Obligations.</strong></h3>
+<p>
+	Neither the adoption of this code nor the repeal or amendments of any ordinance or part or portion of any ordinances of the City shall in any manner affect the prosecution for violations of ordinances, which violations were committed prior to the effective date hereof, nor be construed as a waiver of any license, fee or penalty at said effective date due and unpaid under such ordinances, nor be construed as affecting any of the provisions of such ordinances relating to the collection of any such license, fee or penalty, on the penal provisions applicable to any violation thereof, nor to affect the validity of any bond or cash deposit in lieu thereof required to be posted, filed or deposited pursuant to any ordinance, and all rights and obligations thereunder appertaining shall continue in full force and effect.</p>
+<p>
+	(History: Ord. MC-750 &sect;8, 73; Eff. 6-1-73)</p>
+
+<p class='archiveNotice nullValue '>Effective on:&nbsp;1/1/1901</p>
+</section> 
+<section id='secid-11' class='secLvl3 _001 _001-001 _001-001-009' tabindex='-1' data-secid='11'> 
+<h3>
+	<strong>1.01.090 Effective Date of Code.</strong></h3>
+<p>
+	This code shall become effective on June 1, 1973, and the City Clerk is directed to date her certificate and cause those things to be done that are set forth in Section <a class="xref" target="_blank" href="doc-viewer.aspx#secid-4">1.01.020</a> on said date.</p>
+<p>
+	(History: Ord. MC-750 &sect;9, 73; Eff. 6-1-73)</p>
+
+<p class='archiveNotice nullValue '>Effective on:&nbsp;1/1/1901</p>
+</section> 
+<section id='secid-12' class='secLvl3 _001 _001-001 _001-001-010' tabindex='-1' data-secid='12'> 
+<h3><strong>1.01.100 Ordinance Book Designated.</strong></h3>
+
+<p>In accordance with K.S.A. 12-3015, as amended, the City Clerk shall designate one of the three copies of the Overland Park Municipal Code in her custody as the &quot;Ordinance Book&quot; of the city. This shall be the master and official version of the codification of ordinances of the City and its text shall control in determining the official text of the Overland Park Municipal Code.</p>
+
+<p>(History: Ord. MC-750 &sect;10, 73; Eff. 6-1-73)</p>
+
+<p class='archiveNotice nullValue '>Effective on:&nbsp;1/1/1901</p>
+</section> 
+<section id='secid-13' class='secLvl3 _001 _001-001 _001-001-011' tabindex='-1' data-secid='13'> 
+<h3>
+	<strong>1.01.110 Constitutionality.</strong></h3>
+<p>
+	If any section, subsection, sentence, clause or phrase of this code is for any reason held to be invalid or unconstitutional, such decision shall not affect the validity of the remaining portions of this code. The Governing Body hereby declares that it would have passed this code, and each section, subsection, sentence, clause and phrase thereof, irrespective of the fact that any one or more sections, subsections, sentences, clauses or phrases had been declared invalid or unconstitutional. If for any reason this entire code should be declared invalid or unconstitutional, then the original ordinance or ordinances as they existed prior to passage of this code shall be in full force and effect.</p>
+<p>
+	(History: Ord. MC-750 &sect;12, 73; Eff. 6-1-73)</p>
+
+<p class='archiveNotice nullValue '>Effective on:&nbsp;1/1/1901</p>
+</section> 
+<section id='secid-14' class='secLvl2 _001 _001-002' tabindex='-1' data-secid='14'> 
+<h2>
+	<strong>1.04 </strong>- <strong>General Provisions</strong></h2>
+<div class="mini-TOC" data-endlevel="3" data-id="mini-TOC" data-startlevel="3">
+	<div class="mini-TOC-label">
+		<strong>Contents:</strong></div>
+	<ul><li><a class="tocLink" href="doc-viewer.aspx#secid-15">1.04.010 Definitions.</a></li>
+<li><a class="tocLink" href="doc-viewer.aspx#secid-40">1.04.020  Grammatical Interpretation.</a></li>
+<li><a class="tocLink" href="doc-viewer.aspx#secid-41">1.04.030  Prohibited Acts Include Causing, Permitting, and Related Acts.</a></li>
+<li><a class="tocLink" href="doc-viewer.aspx#secid-42">1.04.040 Construction.</a></li>
+<li><a class="tocLink" href="doc-viewer.aspx#secid-43">1.04.050  Repeal Not To Revive Any Ordinances.</a></li>
+</ul>
+</div>
+
+
+</section> 
+<section id='secid-15' class='secLvl3 _001 _001-002 _001-002-001' tabindex='-1' data-secid='15'> 
+<h3>
+	<strong>1.04.010 Definitions.</strong></h3>
+<p>
+	The following words and phrases whenever used in the ordinances of the city of Overland Park, Kansas, shall be constructed as defined in this section unless from the context a different meaning is intended or unless a different meaning is specifically defined and more particularly directed to the use of such words or phrases:</p>
+
+
+</section> 
+<section id='secid-16' class='secLvl4 _001 _001-002 _001-002-001 _001-002-001-001' tabindex='-1' data-secid='16'> 
+<ol start="1" style="list-style-type: decimal;" class="list-v2">
+	<li><div class='li-num'>1.</div><div class='li-cont'>
+		<strong class="def">City</strong> means the city of Overland Park, Kansas, or the area within the territorial limits of the city of Overland Park, Kansas, and such territory outside of the city over which the city has jurisdiction or control by virtue of any constitutional or statutory provision.</div></li>
+</ol>
+
+<p class='archiveNotice nullValue '>Effective on:&nbsp;1/1/1901</p>
+</section> 
+<section id='secid-17' class='secLvl4 _001 _001-002 _001-002-001 _001-002-001-002' tabindex='-1' data-secid='17'> 
+<ol start="2" style="list-style-type: decimal;" class="list-v2">
+	<li><div class='li-num'>2.</div><div class='li-cont'>
+		<strong class="def">Computation of time</strong> means the time within which an act is to be done. It shall be computed by excluding the first day and including the last day; and if the last day be Sunday or a legal holiday, that day shall be excluded.</div></li>
+</ol>
+
+<p class='archiveNotice nullValue '>Effective on:&nbsp;1/1/1901</p>
+</section> 
+<section id='secid-18' class='secLvl4 _001 _001-002 _001-002-001 _001-002-001-003' tabindex='-1' data-secid='18'> 
+<ol start="3" style="list-style-type: decimal;" class="list-v2">
+	<li><div class='li-num'>3.</div><div class='li-cont'>
+		<strong class="def">Council</strong> means the city council of the city of Overland Park, Kansas. &quot;All its members&quot; or &quot;all councilmen&quot; mean the total number of councilmen provided by the general laws of the state of Kansas.</div></li>
+</ol>
+
+<p class='archiveNotice nullValue '>Effective on:&nbsp;1/1/1901</p>
+</section> 
+<section id='secid-19' class='secLvl4 _001 _001-002 _001-002-001 _001-002-001-004' tabindex='-1' data-secid='19'> 
+<ol start="4" style="list-style-type: decimal;" class="list-v2">
+	<li><div class='li-num'>4.</div><div class='li-cont'>
+		<strong class="def">County</strong> means the county of Johnson, Kansas.</div></li>
+</ol>
+
+<p class='archiveNotice nullValue '>Effective on:&nbsp;1/1/1901</p>
+</section> 
+<section id='secid-20' class='secLvl4 _001 _001-002 _001-002-001 _001-002-001-005' tabindex='-1' data-secid='20'> 
+<ol start="5" style="list-style-type: decimal;" class="list-v2">
+	<li><div class='li-num'>5.</div><div class='li-cont'>
+		<strong class="def">Law</strong> denotes applicable federal law, the Constitution and Statutes of the state of Kansas, the ordinances of the city of Overland Park, and when appropriate, any and all rules and regulations which may be promulgated thereunder.</div></li>
+</ol>
+
+<p class='archiveNotice nullValue '>Effective on:&nbsp;1/1/1901</p>
+</section> 
+<section id='secid-21' class='secLvl4 _001 _001-002 _001-002-001 _001-002-001-006' tabindex='-1' data-secid='21'> 
+<ol start="6" style="list-style-type: decimal;" class="list-v2">
+	<li><div class='li-num'>6.</div><div class='li-cont'>
+		<strong class="def">May</strong> is permissive.</div></li>
+</ol>
+
+<p class='archiveNotice nullValue '>Effective on:&nbsp;1/1/1901</p>
+</section> 
+<section id='secid-22' class='secLvl4 _001 _001-002 _001-002-001 _001-002-001-007' tabindex='-1' data-secid='22'> 
+<ol start="7" style="list-style-type: decimal;" class="list-v2">
+	<li><div class='li-num'>7.</div><div class='li-cont'>
+		<p>
+			<strong class="def">Month</strong> means a calendar month.</p>
+	</div></li>
+</ol>
+
+<p class='archiveNotice nullValue '>Effective on:&nbsp;1/1/1901</p>
+</section> 
+<section id='secid-23' class='secLvl4 _001 _001-002 _001-002-001 _001-002-001-008' tabindex='-1' data-secid='23'> 
+<ol start="8" style="list-style-type: decimal;" class="list-v2">
+	<li><div class='li-num'>8.</div><div class='li-cont'>
+		<strong class="def">Must and Shall </strong>Each is mandatory.</div></li>
+</ol>
+
+<p class='archiveNotice nullValue '>Effective on:&nbsp;1/1/1901</p>
+</section> 
+<section id='secid-24' class='secLvl4 _001 _001-002 _001-002-001 _001-002-001-009' tabindex='-1' data-secid='24'> 
+<ol start="9" style="list-style-type: decimal;" class="list-v2">
+	<li><div class='li-num'>9.</div><div class='li-cont'>
+		<strong class="def">Oath</strong> includes an affirmation or declaration in all cases in which, by law, affirmation may be substituted for an oath, and in such cases the words &quot;swear&quot; and &quot;sworn&quot; are equivalent to the words &quot;affirm&quot; and &quot;affirmed&quot;.</div></li>
+</ol>
+
+<p class='archiveNotice nullValue '>Effective on:&nbsp;1/1/1901</p>
+</section> 
+<section id='secid-25' class='secLvl4 _001 _001-002 _001-002-001 _001-002-001-010' tabindex='-1' data-secid='25'> 
+<ol start="10" style="list-style-type: decimal;" class="list-v2">
+	<li><div class='li-num'>10.</div><div class='li-cont'>
+		<strong class="def">Or</strong> may be read &quot;and&quot; and &quot;and&quot; may be read &quot;or&quot; if the sense requires it.</div></li>
+</ol>
+
+<p class='archiveNotice nullValue '>Effective on:&nbsp;1/1/1901</p>
+</section> 
+<section id='secid-26' class='secLvl4 _001 _001-002 _001-002-001 _001-002-001-011' tabindex='-1' data-secid='26'> 
+<ol start="11" style="list-style-type: decimal;" class="list-v2">
+	<li><div class='li-num'>11.</div><div class='li-cont'>
+		<strong class="def">Ordinance</strong> means a law of the city; provided that a temporary or special law, administrative action, order or directive, may be in the form of a resolution.</div></li>
+</ol>
+
+<p class='archiveNotice nullValue '>Effective on:&nbsp;1/1/1901</p>
+</section> 
+<section id='secid-27' class='secLvl4 _001 _001-002 _001-002-001 _001-002-001-012' tabindex='-1' data-secid='27'> 
+<ol start="12" style="list-style-type: decimal;" class="list-v2">
+	<li><div class='li-num'>12.</div><div class='li-cont'>
+		<strong class="def">Owner</strong> applied to a building or land includes any part owner, joint owner, tenant in common, joint tenant or tenant by the entirety, of the whole or a part of such building or land.</div></li>
+</ol>
+
+<p class='archiveNotice nullValue '>Effective on:&nbsp;1/1/1901</p>
+</section> 
+<section id='secid-28' class='secLvl4 _001 _001-002 _001-002-001 _001-002-001-013' tabindex='-1' data-secid='28'> 
+<ol start="13" style="list-style-type: decimal;" class="list-v2">
+	<li><div class='li-num'>13.</div><div class='li-cont'>
+		<strong class="def">Person</strong> means natural person, joint venture, joint stock company, partnership, association, club, company, corporation, business, trust, organization, or the manager, lessee, agent, servant, officer or employee of any of them.</div></li>
+</ol>
+
+<p class='archiveNotice nullValue '>Effective on:&nbsp;1/1/1901</p>
+</section> 
+<section id='secid-29' class='secLvl4 _001 _001-002 _001-002-001 _001-002-001-014' tabindex='-1' data-secid='29'> 
+<ol start="14" style="list-style-type: decimal;" class="list-v2">
+	<li><div class='li-num'>14.</div><div class='li-cont'>
+		<strong class="def">Personal property</strong> includes money, goods, chattels, things in action and evidences of debt.</div></li>
+</ol>
+
+<p class='archiveNotice nullValue '>Effective on:&nbsp;1/1/1901</p>
+</section> 
+<section id='secid-30' class='secLvl4 _001 _001-002 _001-002-001 _001-002-001-015' tabindex='-1' data-secid='30'> 
+<ol start="15" style="list-style-type: decimal;" class="list-v2">
+	<li><div class='li-num'>15.</div><div class='li-cont'>
+		<strong class="def">Preceding and following</strong> mean next before and next after, respectively.</div></li>
+</ol>
+
+<p class='archiveNotice nullValue '>Effective on:&nbsp;1/1/1901</p>
+</section> 
+<section id='secid-31' class='secLvl4 _001 _001-002 _001-002-001 _001-002-001-016' tabindex='-1' data-secid='31'> 
+<ol start="16" style="list-style-type: decimal;" class="list-v2">
+	<li><div class='li-num'>16.</div><div class='li-cont'>
+		<strong class="def">Property</strong> includes real and personal property.</div></li>
+</ol>
+
+<p class='archiveNotice nullValue '>Effective on:&nbsp;1/1/1901</p>
+</section> 
+<section id='secid-32' class='secLvl4 _001 _001-002 _001-002-001 _001-002-001-017' tabindex='-1' data-secid='32'> 
+<ol start="17" style="list-style-type: decimal;" class="list-v2">
+	<li><div class='li-num'>17.</div><div class='li-cont'>
+		<strong class="def">Real property</strong> includes lands, tenements and hereditaments.</div></li>
+</ol>
+
+<p class='archiveNotice nullValue '>Effective on:&nbsp;1/1/1901</p>
+</section> 
+<section id='secid-33' class='secLvl4 _001 _001-002 _001-002-001 _001-002-001-018' tabindex='-1' data-secid='33'> 
+<ol start="18" style="list-style-type: decimal;" class="list-v2">
+	<li><div class='li-num'>18.</div><div class='li-cont'>
+		<strong class="def">Sidewalk </strong>means that portion of a street between the curb line and the adjacent property line intended for the use of pedestrians</div></li>
+</ol>
+
+<p class='archiveNotice nullValue '>Effective on:&nbsp;1/1/1901</p>
+</section> 
+<section id='secid-34' class='secLvl4 _001 _001-002 _001-002-001 _001-002-001-019' tabindex='-1' data-secid='34'> 
+<ol start="19" style="list-style-type: decimal;" class="list-v2">
+	<li><div class='li-num'>19.</div><div class='li-cont'>
+		<strong class="def">State</strong> means the state of Kansas.</div></li>
+</ol>
+
+<p class='archiveNotice nullValue '>Effective on:&nbsp;1/1/1901</p>
+</section> 
+<section id='secid-35' class='secLvl4 _001 _001-002 _001-002-001 _001-002-001-020' tabindex='-1' data-secid='35'> 
+<ol start="20" style="list-style-type: decimal;" class="list-v2">
+	<li><div class='li-num'>20.</div><div class='li-cont'>
+		<strong class="def">Street</strong> includes all streets, highways, avenues, lanes, alleys, courts, places, squares, curbs, or other public ways in this city which have been or may hereafter be dedicated and open to public use, or such other public property so designated in any law of this state.</div></li>
+</ol>
+
+<p class='archiveNotice nullValue '>Effective on:&nbsp;1/1/1901</p>
+</section> 
+<section id='secid-36' class='secLvl4 _001 _001-002 _001-002-001 _001-002-001-021' tabindex='-1' data-secid='36'> 
+<ol start="21" style="list-style-type: decimal;" class="list-v2">
+	<li><div class='li-num'>21.</div><div class='li-cont'>
+		<strong class="def">Tenant and occupant</strong>, applied to a building or land, includes any person who occupies whole or a part of such building or land, whether alone or with others.</div></li>
+</ol>
+
+<p class='archiveNotice nullValue '>Effective on:&nbsp;1/1/1901</p>
+</section> 
+<section id='secid-37' class='secLvl4 _001 _001-002 _001-002-001 _001-002-001-022' tabindex='-1' data-secid='37'> 
+<ol start="22" style="list-style-type: decimal;" class="list-v2">
+	<li><div class='li-num'>22.</div><div class='li-cont'>
+		<strong class="def">Title of Office.</strong> Use of the title of officer, employee, board or commission means that officer, employee, department, board or commission of the city.</div></li>
+</ol>
+
+<p class='archiveNotice nullValue '>Effective on:&nbsp;1/1/1901</p>
+</section> 
+<section id='secid-38' class='secLvl4 _001 _001-002 _001-002-001 _001-002-001-023' tabindex='-1' data-secid='38'> 
+<ol start="23" style="list-style-type: decimal;" class="list-v2">
+	<li><div class='li-num'>23.</div><div class='li-cont'>
+		<strong class="def">Written</strong> includes printed, typewritten, mimeographed or multigraphed.</div></li>
+</ol>
+
+<p class='archiveNotice nullValue '>Effective on:&nbsp;1/1/1901</p>
+</section> 
+<section id='secid-39' class='secLvl4 _001 _001-002 _001-002-001 _001-002-001-024' tabindex='-1' data-secid='39'> 
+<ol start="24" style="list-style-type: decimal;" class="list-v2">
+	<li><div class='li-num'>24.</div><div class='li-cont'>
+		<strong class="def">Year</strong> means a calendar year.</div></li>
+	<li><div class='li-num'>25.</div><div class='li-cont'>
+		All words and phrases shall be construed and understood according to the common and approved usage of the language; but technical words and phrases and such others as may have acquired a peculiar and appropriate meaning in the law shall be construed and understood according to such peculiar and appropriate meaning.</div></li>
+	<li><div class='li-num'>26.</div><div class='li-cont'>
+		When an act is required by an ordinance the same being such that it may be done as well by an agent as by the principal, such requirement shall be construed as to include all such acts performed by an authorized agent.</div></li>
+</ol>
+<p>
+	(History: Ord. MC-2384 &sect;1, 2002; MC-2377 &sect;1, 2002; Added during codification in accordance with K.S.A. 12-3015.)</p>
+
+<p class='archiveNotice nullValue '>Effective on:&nbsp;1/1/1901</p>
+</section> 
+<section id='secid-40' class='secLvl3 _001 _001-002 _001-002-002' tabindex='-1' data-secid='40'> 
+<h3>1.04.020 Grammatical Interpretation.</h3>
+
+<p>The following grammatical rules shall apply in the ordinances of the city of Overland Park, Kansas:</p>
+
+<ol class="list-v2" start="1" style="list-style-type:decimal">
+	<li>
+	<div class="li-num">1.</div>
+
+	<div class="li-cont"><strong>Gender</strong>. Any gender includes the other genders;</div>
+	</li>
+	<li>
+	<div class="li-num">2.</div>
+
+	<div class="li-cont"><strong>Singular and Plural</strong>. The singular number includes the plural and the plural includes singular;</div>
+	</li>
+	<li>
+	<div class="li-num">3.</div>
+
+	<div class="li-cont"><strong>Tenses</strong>. Words uses in the present tense include the past and the future tenses and vice versa;</div>
+	</li>
+	<li>
+	<div class="li-num">4.</div>
+
+	<div class="li-cont"><strong>Use of Words and Phrases</strong>. Words and phrases not specifically defined shall be construed according to the context and approved usage of the language.</div>
+	</li>
+</ol>
+
+<p>(History: Ord. MC-2384 &sect;2, 2002; MC-2377 &sect;2, 2002; Added during codification in accordance with K.S.A. 12-3015.)</p>
+
+<p class='archiveNotice nullValue '>Effective on:&nbsp;1/1/1901</p>
+</section> 
+<section id='secid-41' class='secLvl3 _001 _001-002 _001-002-003' tabindex='-1' data-secid='41'> 
+<h3>
+	<strong>1.04.030 </strong><strong>Prohibited Acts Include Causing, Permitting, and Related Acts</strong><strong>.</strong></h3>
+<p>
+	Whenever in this code any act or omission is made unlawful, it includes causing, allowing, permitting, aiding, abetting, suffering, or concealing the fact of such act or omission.</p>
+<p>
+	(History: Added during codification in accordance with K.S.A. 12-3015.)</p>
+
+<p class='archiveNotice nullValue '>Effective on:&nbsp;1/1/1901</p>
+</section> 
+<section id='secid-42' class='secLvl3 _001 _001-002 _001-002-004' tabindex='-1' data-secid='42'> 
+<h3>
+	<strong>1.04.040 Construction.</strong></h3>
+<p>
+	The provisions of this code and proceedings under it are to be construed with view to effect its objects and to promote justice.</p>
+<p>
+	(History: Added during codification in accordance with K.S.A. 12-3015.)</p>
+
+<p class='archiveNotice nullValue '>Effective on:&nbsp;1/1/1901</p>
+</section> 
+<section id='secid-43' class='secLvl3 _001 _001-002 _001-002-005' tabindex='-1' data-secid='43'> 
+<h3>
+	<strong>1.04.050 </strong><strong>Repeal Not To Revive Any Ordinances</strong><strong>.</strong></h3>
+<p>
+	The repeal of an ordinance shall not repeal the repealing clause of such ordinance or revive any ordinance which has been repealed thereby.</p>
+<p>
+	(History: Added during codification in accordance with K.S.A. 12-3015.)</p>
+
+<p class='archiveNotice nullValue '>Effective on:&nbsp;1/1/1901</p>
+</section> 
+<section id='secid-44' class='secLvl2 _001 _001-003' tabindex='-1' data-secid='44'> 
+<h2>
+	<strong>1.08 </strong>- <strong>Right of Entry for Inspection</strong></h2>
+<div class="mini-TOC" data-endlevel="4" data-id="mini-TOC" data-startlevel="3">
+	<div class="mini-TOC-label">
+		<strong>Contents:</strong></div>
+	<ul><li><a class="tocLink" href="doc-viewer.aspx#secid-45">1.08.010  Regulations Generally.</a></li>
+</ul>
+</div>
+
+
+</section> 
+<section id='secid-45' class='secLvl3 _001 _001-003 _001-003-001' tabindex='-1' data-secid='45'> 
+<h3>
+	<strong>1.08.010 Regulations Generally.</strong></h3>
+<p>
+	Whenever it is necessary to make an inspection to enforce any ordinance or resolution, or whenever there is reasonable cause to believe there exists an ordinance or resolution violation in any building or upon any premises within the jurisdiction of the city, any authorized official of the city may, upon presentation of proper credentials, enter such building or premises at all reasonable times to inspect the same or to perform any duty imposed upon him by ordinance; provided that, except in emergency situations or when consent of the owner and/or occupant to the inspection has been otherwise obtained, he shall give the owner and/or occupant, if they can be located after reasonable effort, twenty-four hours written notice of the authorized official&#39;s intention to inspect. The notice transmitted to the owner and/or occupant shall state that the property owner has the right to refuse entry and that in the event such entry is refused, inspection may be made only upon issuance of a search warrant duly authorized by law. In the event the owner and/or occupant refuses entry after such request has been made, the official is hereby empowered to seek assistance from any court of competent jurisdiction in obtaining such entry.</p>
+<p>
+	(History: Added during codification in accordance with K.S.A. 12-3015).</p>
+
+<p class='archiveNotice nullValue '>Effective on:&nbsp;1/1/1901</p>
+</section> 
+<section id='secid-5117' class='secLvl2 _001 _001-004' tabindex='-1' data-secid='5117'> 
+<h2>
+	1.12 - General Penalty<sup>1</sup></h2>
+<div class="mini-TOC" data-endlevel="3" data-id="mini-TOC" data-startlevel="3">
+	<div class="mini-TOC-label">
+		<strong>Contents:</strong></div>
+	<ul><li><a class="tocLink" href="doc-viewer.aspx#secid-47">1.12.010 Designated.</a></li>
+</ul>
+</div>
+
+<ol start="1" style="list-style-type: decimal;" class="list-v2">
+	<li><div class='li-num'>1.</div><div class='li-cont'>
+		For statutory provisions indicating that certain sections of K.S.A. 13-101 <em>et seq</em>. (mayor-council first class cities) are applicable to cities operating under the commission form, see K.S.A. 13-2904; for statutory provision authorizing a first class city to impose fines, forfeitures and penalties for violation of its ordinances, see K.S.A. 13-424.</div></li>
+</ol>
+
+
+</section> 
+<section id='secid-47' class='secLvl3 _001 _001-004 _001-004-001' tabindex='-1' data-secid='47'> 
+<h3>
+	<strong>1.12.010 Designated.</strong></h3>
+<p>
+	Any person convicted of a violation of any of the provisions of or failing to comply with any of the mandatory requirements of the ordinances of the city for which another penalty is not specifically provided is guilty of a public offense and punishable by a fine of not more than five hundred dollars or by imprisonment not to exceed six months, or by both such fine and imprisonment. Each such person is guilty of a separate offense for each and every day during any portion of which any violation of any provision of the city ordinances is committed, continued or permitted by any such person; and he shall be punished accordingly.</p>
+<p>
+	(History: Added during codification in accordance with K.S.A. 12-3015). (Ord. POC-625 &sect;4, 72)</p>
+
+<p class='archiveNotice nullValue '>Effective on:&nbsp;1/1/1901</p>
+</section> 
+<section id='secid-56' class='secLvl2 _001 _001-005' tabindex='-1' data-secid='56'> 
+<h2>
+	<strong>1.24 - Citations </strong><strong>for</strong><strong> Violations</strong></h2>
+<div class="mini-TOC" data-endlevel="3" data-id="mini-TOC" data-startlevel="3">
+	<div class="mini-TOC-label">
+		<strong>Contents:</strong></div>
+	<ul><li><a class="tocLink" href="doc-viewer.aspx#secid-66">Legal Basis for Overland Park, Kansas</a></li>
+</ul>
+</div>
+
+
+</section> 
+<section id='secid-66' class='secLvl3 _001 _001-005 _001-005-001' tabindex='-1' data-secid='66'> 
+<h3><strong>Legal Basis for Overland Park, Kansas</strong></h3>
+
+<p>The City was incorporated May 20, 1960, as a result of a referendum held on May 17, 1960. The authority for the election and incorporation is found in Chapter 413, Laws of Kansas 1959. This law related to urban class townships, authorized their dissolution, provided for the attachment of part of their territory to existing cities and included the remainder in a city of the first class to be created. This law was later designated as K.S.A. 80-2309 through 80-2323 and was repealed by Chapter 509, Section 12, Laws of Kansas 1963.</p>
+
+<p>The 1959 law designated that the new city created would have the mayor and council form of government, with the councilmen being elected from not less than four contiguous and compact wards (K.S.A. 13-205). The 1959 law also provided, &quot;All ordinances of the urban township in effect at the time of the incorporation of the new city and proper to have been passed by a city of the first class shall continue in effect in the new city until amended or repealed by the governing body of the city.&quot;</p>
+
+<p>On November 6, 1962, by special election, the city adopted the provisions of the mayor-council-manager plan now found in K.S.A. 12-1036a through 12-1036h. Thereafter, a number of the provisions of this law were changed by various charter ordinances passed by the city under authority of Article 12, Section 5 of the Kansas Constitution. For the various changes, see the charter ordinances listed in the back.</p>
+
+<p class='archiveNotice nullValue '>Effective on:&nbsp;1/1/1901</p>
+</section> 
+<section id='secid-7735' class='secLvl2 _001 _001-006' tabindex='-1' data-secid='7735'> 
+<h2>Repealed Sections of Title 1 General Provisions</h2>
+
+
+</section> 
+<section id='secid-48' class='secLvl3 _001 _001-006 _001-006-001' tabindex='-1' data-secid='48'> 
+<h2>
+	<strong>1.16</strong><strong> - Ward Boundaries (Repealed)</strong></h2>
+<p>
+	(This entire chapter has been repealed.)</p>
+<div class="mini-TOC" data-endlevel="3" data-id="mini-TOC" data-startlevel="3">
+	<div class="mini-TOC-label">
+		<strong>Contents:</strong></div>
+	<ul><li><a class="tocLink" href="doc-viewer.aspx#secid-48">1.16  Ward Boundaries (Repealed)</a></li>
+</ul>
+</div>
+
+
+</section> 
+<section id='secid-49' class='secLvl4 _001 _001-006 _001-006-001 _001-006-001-001' tabindex='-1' data-secid='49'> 
+<h3>
+	<strong>1.16.010 Division - Boundaries - Renumbering - Boundary </strong><strong>A</strong><strong>djustment.</strong></h3>
+<p>
+	Repealed.</p>
+<p>
+	(History: Charter Ord. 34 &sect;10, 84; Charter Ord. 1 &sect;3, 62).</p>
+
+<p class='archiveNotice nullValue '>Effective on:&nbsp;1/1/1901</p>
+</section> 
+<section id='secid-50' class='secLvl3 _001 _001-006 _001-006-002' tabindex='-1' data-secid='50'> 
+<h2>
+	<strong>1.20 - Official Newspaper&nbsp; (Repealed)<sup>1</sup></strong></h2>
+<p>
+	(This entire chapter has been repealed.)</p>
+<div class="mini-TOC" data-endlevel="3" data-id="mini-TOC" data-startlevel="3">
+	<div class="mini-TOC-label">
+		<strong>Contents:</strong></div>
+	<ul><li><a class="tocLink" href="doc-viewer.aspx#secid-50">1.20  Official Newspaper  (Repealed)</a></li>
+</ul>
+</div>
+
+<ol start="1" style="list-style-type: decimal;" class="list-v2">
+	<li><div class='li-num'>1.</div><div class='li-cont'>
+		For constitutional home rule provision, see KANSAS CONSTITUTION, Article 12 &sect;5.</div></li>
+</ol>
+
+
+</section> 
+<section id='secid-51' class='secLvl4 _001 _001-006 _001-006-002 _001-006-002-001' tabindex='-1' data-secid='51'> 
+<h3>
+	<strong>1.20.010 Exemption from K.S.A. 13-1420.</strong></h3>
+<p>
+	Repealed. See Charter Ordinance.</p>
+<p>
+	(History: Ord. NEW-1705 &sect;1, 91; Ch. Ord. 15)</p>
+
+<p class='archiveNotice nullValue '>Effective on:&nbsp;1/1/1901</p>
+</section> 
+<section id='secid-52' class='secLvl4 _001 _001-006 _001-006-002 _001-006-002-002' tabindex='-1' data-secid='52'> 
+<h3>
+	<strong>1.20.020 </strong><strong>Governing Body to Designate Official Newspaper</strong><strong>.</strong></h3>
+<p>
+	Repealed. See Charter Ordinance.</p>
+<p>
+	(History: Ord. NEW-1705 &sect;1, 91; Ch. Ord. 15)</p>
+
+<p class='archiveNotice nullValue '>Effective on:&nbsp;1/1/1901</p>
+</section> 
+<section id='secid-53' class='secLvl4 _001 _001-006 _001-006-002 _001-006-002-003' tabindex='-1' data-secid='53'> 
+<h3>
+	<strong>1.20.030 </strong><strong>Official Designation</strong><strong>.</strong></h3>
+<p>
+	Repealed. See Charter Ordinance.</p>
+<p>
+	(History: Ord. NEW-1705 &sect;1, 91; Ch. Ord. 15)</p>
+
+<p class='archiveNotice nullValue '>Effective on:&nbsp;1/1/1901</p>
+</section> 
+<section id='secid-54' class='secLvl4 _001 _001-006 _001-006-002 _001-006-002-004' tabindex='-1' data-secid='54'> 
+<h3>
+	<strong>1.20.040 </strong><strong>Official Newspaper To Have Been Published for a Year</strong><strong>.</strong></h3>
+<p>
+	Repealed. See Charter Ordinance.</p>
+<p>
+	(History: Ord. NEW-1705 &sect;1, 91; Ch. Ord. 15)</p>
+
+<p class='archiveNotice nullValue '>Effective on:&nbsp;1/1/1901</p>
+</section> 
+<section id='secid-55' class='secLvl4 _001 _001-006 _001-006-002 _001-006-002-005' tabindex='-1' data-secid='55'> 
+<h3>
+	<strong>1.20.050 </strong><strong>More Than One Official Newspaper</strong><strong>.</strong></h3>
+<p>
+	Repealed. See Charter Ordinance</p>
+<p>
+	(History: Ord. NEW-1705 &sect;1, 91; Ch. Ord. 15)</p>
+
+<p class='archiveNotice nullValue '>Effective on:&nbsp;1/1/1901</p>
+</section> 
+<section id='secid-57' class='secLvl3 _001 _001-006 _001-006-003' tabindex='-1' data-secid='57'> 
+<h3>
+	<strong>1.24.010 Definitions. </strong></h3>
+
+
+</section> 
+<section id='secid-58' class='secLvl4 _001 _001-006 _001-006-003 _001-006-003-001' tabindex='-1' data-secid='58'> 
+<ol start="1" class="list-v2">
+	<li><div class='li-num'>A.</div><div class='li-cont'>
+		<strong class="def">Law enforcement officer</strong> means any person holding a valid police commission issued pursuant to <a class="xref" target="_blank" href="doc-viewer.aspx#secid-275">2.66</a>.</div></li>
+</ol>
+
+<p class='archiveNotice nullValue '>Effective on:&nbsp;1/1/1901</p>
+</section> 
+<section id='secid-59' class='secLvl4 _001 _001-006 _001-006-003 _001-006-003-002' tabindex='-1' data-secid='59'> 
+<ol start="2" style="list-style-type: upper-alpha;" class="list-v2">
+	<li><div class='li-num'>B.</div><div class='li-cont'>
+		<strong class="def">Notice to appear</strong> means a written request issued by a law enforcement officer that a person appear before the municipal court at a stated time and place.</div></li>
+</ol>
+<p>
+	(History: Ord. NA-714 &sect;1, 72)</p>
+
+<p class='archiveNotice nullValue '>Effective on:&nbsp;1/1/1901</p>
+</section> 
+<section id='secid-60' class='secLvl3 _001 _001-006 _001-006-004' tabindex='-1' data-secid='60'> 
+<h3>
+	<strong>1.24.020 Notice To Appear.</strong></h3>
+<p>
+	A law enforcement officer may serve a notice to appear upon any person who commits an act punishable as a violation of city ordinance. Such notice to appear shall contain the name and address of the person, the violation charged, and the time and place when and where such person shall appear in court.</p>
+<p>
+	(History: Ord. NA-714 &sect;2, 72)</p>
+
+<p class='archiveNotice nullValue '>Effective on:&nbsp;1/1/1901</p>
+</section> 
+<section id='secid-61' class='secLvl3 _001 _001-006 _001-006-005' tabindex='-1' data-secid='61'> 
+<h3>
+	<strong>1.24.030 Time Specified.</strong></h3>
+<p>
+	The time specified in such notice to appear must be at least five days after such notice is given unless the person shall demand an earlier hearing.</p>
+<p>
+	(History: Ord. NA-714 &sect;3, 72)</p>
+
+<p class='archiveNotice nullValue '>Effective on:&nbsp;1/1/1901</p>
+</section> 
+<section id='secid-62' class='secLvl3 _001 _001-006 _001-006-006' tabindex='-1' data-secid='62'> 
+<h3>
+	<strong>1.24.040 Municipal Court.</strong></h3>
+<p>
+	The place specified in such Notice to appear must be the Municipal Court of the City of Overland Park, 12400 Foster, Overland Park, Kansas.</p>
+<p>
+	(History: Ord. NA-2749 &sect;1, 2008; NA-1105 &sect;1, 81; NA-714 &sect; 4, 72)</p>
+
+<p class='archiveNotice nullValue '>Effective on:&nbsp;1/1/1901</p>
+</section> 
+<section id='secid-63' class='secLvl3 _001 _001-006 _001-006-007' tabindex='-1' data-secid='63'> 
+<h3>
+	<strong>1.24.050 Distribution of Notice.</strong></h3>
+<p>
+	A copy of the notice to appear shall be delivered to the person who violates a city ordinance and the original of the notice shall be retained by the officer.</p>
+<p>
+	(History: Ord. NA-714 &sect;5, 72).</p>
+
+<p class='archiveNotice nullValue '>Effective on:&nbsp;1/1/1901</p>
+</section> 
+<section id='secid-64' class='secLvl3 _001 _001-006 _001-006-008' tabindex='-1' data-secid='64'> 
+<h3>
+	<strong>1.24.060 </strong><strong>Complaint To Be Filed</strong><strong>.</strong></h3>
+<p>
+	The law enforcement officer shall cause to be filed, without unnecessary delay, a complaint in the municipal court charging the ordinance violation stated in the notice. If the person receiving the notice fails to appear at the time and place stated, a warrant may be issued for his arrest.</p>
+<p>
+	(History: Ord. NA-714 &sect;6, 72).</p>
+
+<p class='archiveNotice nullValue '>Effective on:&nbsp;1/1/1901</p>
+</section> 
+<section id='secid-65' class='secLvl3 _001 _001-006 _001-006-009' tabindex='-1' data-secid='65'> 
+<h3>
+	<strong>1.24.070 </strong><strong>Chapter Inapplicable To Certain Violations</strong><strong>.</strong></h3>
+<p>
+	The procedures prescribed by this chapter shall not apply to violation of any ordinance regulating traffic upon the highway of the city or the violation of <a class="xref" target="_blank" href="doc-viewer.aspx#secid-1187">Title 6</a>, as amended.</p>
+<p>
+	(History: Ord. NA-714 &sect;7, 72).</p>
+
+<p class='archiveNotice nullValue '>Effective on:&nbsp;1/1/1901</p>
+</section> 
+
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<button id="commentsCTA" title="Add a Comment" aria-label="Add a Comment" role="button" tabindex="2">
+    COMMENTS
+</button>
+
+<!-- hidden div below is for definition popup -->
+<div id="defFrame">
+    <img alt='loading progress' src="resources/progress.gif" /></div>
+<!-- hidden div below is for ajax loading progress-->
+<div id='progress-template' style='display: none;'>
+    <div class="progress" style='padding: 100px;'>
+        <div style='margin: auto; display: block; width: 200px; border: 1px solid #ccc; background-color: #eee; padding: 10px;'>
+            <img alt='loading progress' src='resources/progress.gif' style='margin: auto; display: block;' />
+            <br />
+            <span style='margin: auto; display: block; width: 75px; padding-left: 10px;'>Loading...</span>
+        </div>
+    </div>
+</div>
+<iframe style="width: 1px; height: 1px" src="" id="printiframe" name="printiframe" onload="ZP.DocView.IFrameReady();" title="Print frame" aria-hidden="true" role="presentation"></iframe>
+
+    </div>
+
+
+    </body>
+</html>

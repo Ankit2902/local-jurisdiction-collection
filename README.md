@@ -1,6 +1,16 @@
 # Local jurisdiction collection
 
-Technical handoff for source discovery, acquisition scripts, parsing, and validation of the **original 30-jurisdiction backlog and 100 additional local jurisdictions**. The expansion adds major cities, populous counties, and coverage in states missing from the earlier inventory. This is a collection-method handoff: its live tests use bounded substantive samples, and no completed full-jurisdiction corpus or new database audit is claimed.
+Technical handoff for source discovery, acquisition scripts, parsing, and validation of the **original 30-jurisdiction backlog and 100 additional local jurisdictions**. The expansion adds major cities, populous counties, and coverage in states missing from the earlier inventory. The newest stage provides standalone full-publication collectors, a target registry, resume workflows, and source-derived completeness checks. Earlier sealed packages retain their bounded sample results. Representative whole-publication tests qualify specific collector paths; no completed collection of all 100 jurisdictions or new database audit is claimed.
+
+## Full-publication collectors
+
+Start with the [full-collection runbook](collectors/README.md), [target registry](collectors/registry/targets.json), and [completeness criteria](collectors/COMPLETENESS.md). These are the current implementation layer for the 100 expansion targets, with 100 runnable primary configurations and 45 qualified secondary configurations. They supersede bounded script defaults where a supported adapter is configured, while preserving the historical validation evidence below.
+
+**Image policy:** the current collectors omit separate image downloads and replace images with `[IMAGE]` in normalized output; see the [policy and verification requirements](collectors/IMAGE-POLICY.md).
+
+The registry resolves each publication to an explicit source and collector configuration. Plans identify unsupported sources and unresolved publication families before acquisition. Full traversal is the default; limited, interrupted, or source-inconsistent runs cannot silently become complete. Publication text, attachments, edition consistency, native-file coverage, and jurisdiction scope remain separate measures.
+
+The [new full-publication release](https://github.com/OliverFlint-98/local-jurisdiction-collection/releases/tag/full-publication-collectors-2026-10-17) contains the sealed validation evidence and a self-contained current collector snapshot. See the [measured validation scopes](collectors/README.md#validated-publication-runs) and [evidence index](packages/full-publication-validation-2026-10-17/README.md). The independent offline suite passed 126 cases; selected live and retained-source replays preserve incomplete results where documents, source consistency, or semantic qualification remain unresolved.
 
 ## Expanded scope: 100 additional jurisdictions
 
@@ -43,7 +53,7 @@ The current non-eCode360 distinctions remain explicit: Berkeley, Petaluma, Sonom
 
 Follow the per-package dependency installation and commands. Run against new output directories, preserve original evidence, and distinguish fresh acquisition from offline replay. The tested headed path requires a graphical Chrome session; Linux/Windows execution and headless scheduling were not established by the macOS headed-browser result. Rate limits stop the affected host rather than triggering automatic retries.
 
-Full collection still requires publication-wide enumeration, source-node disposition reconciliation, attachments and full-run edition checks. Database import was outside this work.
+The current collectors implement publication-wide enumeration, source-node disposition reconciliation, checkpoints, and edition checks for their supported source structures. Consult the current runbook for tested paths and remaining source or semantic gaps. Database import is outside this work.
 
 ## Complete package history and downloads
 
@@ -72,9 +82,9 @@ python3 fetch_evidence.py
 python3 verify_delivery.py --full
 ```
 
-These helpers require Python 3.10 or later and only the standard library. The verifier checks delivered package/archive files against [DELIVERY-MANIFEST.json](DELIVERY-MANIFEST.json). Before release evidence is restored, it reports `PASS_GIT_FILES` and lists the deferred files. `--full` requires every byte, including the full release archives. The download helper checks archive SHA-256, then restores only the manifest’s exact missing large files and verifies their hashes. It refuses to overwrite altered evidence.
+These helpers require Python 3.10 or later and only the standard library. The verifier checks delivered collector/package/archive files against [DELIVERY-MANIFEST.json](DELIVERY-MANIFEST.json). Before release evidence is restored, it reports `PASS_GIT_FILES` and lists the deferred files. `--full` requires every byte, including the full release archives. The download helper checks archive SHA-256, then restores only the manifest’s exact missing large files and verifies their hashes. It refuses to overwrite altered evidence.
 
-You can restrict restoration with `--package expanded57-validation-2026-10-17` or `--package wave3-validation-2026-10-17`. For a ZIP downloaded separately, use `--package NAME --from-archive /path/to/NAME.zip`. Private releases require repository access; no credentials are included in this handoff.
+You can restrict restoration with `--package full-publication-validation-2026-10-17`, `--package expanded57-validation-2026-10-17` or `--package wave3-validation-2026-10-17`. For a ZIP downloaded separately, use `--package NAME --from-archive /path/to/NAME.zip`. Private releases require repository access; no credentials are included in this handoff.
 
 Individual sealed packages also have manifests and offline verification commands. Run any tests that write files in a working copy or fresh output directory so that original evidence remains verifiable. Hash checks establish byte integrity, not legal completeness or ongoing publisher availability.
 

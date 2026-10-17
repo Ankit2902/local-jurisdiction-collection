@@ -1,0 +1,662 @@
+
+    <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+    <html>
+    <head>
+
+        <title>ARTICLE IX FINANCE AND TAXATION</title>
+        <link type="text/css" rel="Stylesheet" href="jqueryui/css/jqueryui.css" media="all" />
+        <link type="text/css" rel="Stylesheet" href="css/ui.css" media="all" />
+        <link type="text/css" rel="Stylesheet" href="css/customui.css" media="all" />
+        <link type="text/css" rel="Stylesheet" href="css/document.css" media="all" />
+        <link type="text/css" rel="Stylesheet" href="css/customdoc.css" media="all" />
+        <link type="text/css" rel="Stylesheet" href="tablestyles.aspx" media="all" />
+        <link rel="StyleSheet" type="text/css" href="/common/font-awesome/css/all.min.css">
+        <link type="text/css" rel="Stylesheet" href="css/docprint.css" media="print" />
+        <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+        <script type="text/javascript" src="jqueryui/js/jquery-ui-1.8.21.custom.min.js"></script>
+        <script type="text/javascript" src="js/doc-view.js?_t=290"></script>
+        <script type="text/javascript" src="js/tabletools.js"></script>
+        <script type="text/javascript" src="js/tabs.js"></script>
+        <script type="text/javascript">
+            var iframeReady = false;
+        </script>
+        
+    </head>
+    <body class='doc-view'>
+        <script type="text/javascript">
+            $(document).ready(function () {
+                ZP.DocView.InitDef();
+                ZP.DocView.OpenDefinitionPage = null;
+                ZP.DocView.OpenDefinitionMode = '_self';
+                ZP.DocView.OpenXRefPage = 'doc-viewer.aspx#$2-';
+                ZP.DocView.OpenXRefMode = '_blank';
+                $(window).bind('hashchange', ZP.DocView.HashChanged);
+        
+        if (typeof ZP.DocView.ZoomClasses == 'undefined') {
+            ZP.DocView.ZoomClasses = ["Unzoom1", "", "Zoom1", "Zoom2", "Zoom3", "Zoom4"];
+        }
+        ZP.DocView.InitializeZoom();
+        EC.SortedTable.Init(".ord-tbl, .stat-tbl", ".sortable");
+        EC.Tabs.PositionLeftTabs();
+    });
+
+
+        </script>
+
+
+    <div id="doc-viewer">
+        
+
+<div id="doc-view">
+    <div id="doc-view-content">
+        
+<div id="pageControls">
+<script type="text/javascript" >
+    function clearEffDate() {
+        jQuery.get("doc-view-helper.aspx?task=currentversion", function () {
+            window.location.reload();
+        });
+        return false;
+    }
+</script>
+     <div class="pageControls psuedoTable" role="navigation" aria-label="Document Navigation">  
+        <div class="psuedoTableBody" >     
+            <div class="psuedoTableRow">         
+                <div class="pageControls_outer" ></div>
+                <div class="pageControls_inner left">
+                    <a id='button1' onclick='ZP.DocView.PrintDoc("010",false);return false;' href="#" title="Print" role="button"> 
+                        <img alt="Print" src="resources/btn-print-white.png" /></a>
+                    <a id='Button2' onclick='ZP.DocView.OpenPDF("010",false);return false;' href="#" title="Export PDF" role="button">
+                        <img alt="Generate PDF" src="resources/btn-makepdf-white.png" /></a>
+                        <a class="email-popup" href="mailto:?subject=ARTICLE%20IX%20FINANCE%20AND%20TAXATION&amp;body=Lincoln%20NE%20City%20Charter https://online.encodeplus.com/regs/lincoln-ne-cc/doc-viewer.aspx?secid=861"><img src="resources/email-white.png" alt="Click to Share By Email" /></a>     
+                </div>
+                <div  class="pageControls_inner breadCrumbs" title="Navigation 'breadcrumbs'">
+                     <div class='breadCrumbs'><a href='/regs/lincoln-ne-cc/doc-viewer.aspx?tocid=010' >ARTICLE IX FINANCE AND TAXATION</a></div>
+                </div>
+                 <div  class="pageControls_inner right">       
+                     <ul >  
+                         <li>
+                            <a id='button3' class="nav" onclick="ZP.DocView.LoadPrevDoc('010');return false;" href="#"  title="Previous Section" accesskey="," role="button"><img alt="Go to Previous Section" src="resources/btn-back-white.png" /></a>
+                         </li>  
+                         <li>
+                             <a id='Button4'  class="nav" onclick="ZP.DocView.LoadNextDoc('010');return false;" href="#"  title="Next Section" accesskey="." role="button"> <img alt="Go to Next Section" src="resources/btn-forward-white.png" /></a>
+                         </li>   
+                         <li>
+                             <a id="pageControls-overflow" onclick="ZP.DocView.PgCntrlOverflowClick(event);return false;" href="#" title="Click for more options" role="button" >
+                            <img src="resources/overflow-btn-white.png" alt="Click for more options" /></a>
+                               
+  <ul class="submenu" role="dialog">
+            <li><a href="/regs/lincoln-ne-cc/doc-viewer.aspx?secid=861" onclick="javascript:alert('Right click this icon and select \'add to favorites\' or \'Bookmark this Link\' to bookmark this page');return false;" title="Bookmark this page" >Bookmark</a></li>
+            <li>
+                                        
+                <a id="zoomMinus" onclick="ZP.DocView.DecreaseZoom();return false;" href="#" title="Decrease Zoom" class="zoomLink glyphicon" >&#x2212;</a>
+                <a onclick="ZP.DocView.DefaultZoom();return false;"  href="#" title="Default Zoom"  class="zoomLink" >100%</a>
+                <a id="zoomPlus" onclick="ZP.DocView.IncreaseZoom();return false;" href="#" title="Increase Zoom"  class="zoomLink glyphicon" > &#x2b; </a>
+            </li>
+           
+                           
+                
+                <li><a id="subscribe-btn" onclick="ZP.DocView.OpenSubscribeDlg();return false;" title="Subscribe to Notifications" href="subscribe.aspx" role="button">Subscribe</a></li>
+                <li><a id="unsubscribe-btn" onclick="ZP.DocView.OpenUnsubscribeDlg();return false;" title="Cancel Notifications Subscription" href="unsubscribe.aspx" role="button" >Unsubscribe</a></li>
+                
+</ul>
+                         </li>        
+                        
+                        </ul>   
+                </div>
+                <div class="pageControls_outer"></div>
+            </div>
+        </div>
+    </div> 
+    <div id="subscribe-dialog" title="" aria-live="polite" >
+        <div id="sub-message"></div>
+        <div id="sub-form-cntr"></div>
+    </div>
+</div>
+
+
+        <div id="thePage-outer" >
+            <div id="thePage-wrap" class="thePage-wrap ">
+                <div id="outer-doc-banner"></div>
+                <div id="thePage-border">
+                    <div id="thePage" class="textPage " tocid="010" secid="861" role="main" aria-label="Document">
+                        <img id="sectionBanner" title="Document text banner" src="resources/docbanner.png" width="720" valign="Top" alt="Document text banner">
+                        
+                        <section id='secid-861' class='secLvl1 _010' tabindex='-1' data-secid='861'> 
+<h2>ARTICLE IX FINANCE AND TAXATION</h2>
+
+<div class="mini-TOC" data-endlevel="2" data-id="mini-TOC" data-startlevel="2">
+<div class="mini-TOC-label"><strong>Contents:</strong></div>
+
+<ul><li><a class="tocLink" href="doc-viewer.aspx#secid-862">	Sec. 1. Fiscal Year.</a></li>
+<li><a class="tocLink" href="doc-viewer.aspx#secid-863">	Sec. 2. 	Dog Tax, Road Tax.</a></li>
+<li><a class="tocLink" href="doc-viewer.aspx#secid-864">	Sec. 3.	Taxes, Maximum Levy.</a></li>
+<li><a class="tocLink" href="doc-viewer.aspx#secid-865">	Sec. 3a.	 Taxes-Agreement for Collection.</a></li>
+<li><a class="tocLink" href="doc-viewer.aspx#secid-866">	Sec. 3f.</a></li>
+<li><a class="tocLink" href="doc-viewer.aspx#secid-867">	Sec. 3g. Storm Sewer Bonds.</a></li>
+<li><a class="tocLink" href="doc-viewer.aspx#secid-868">	Sec. 4.	Equalization.</a></li>
+<li><a class="tocLink" href="doc-viewer.aspx#secid-869">	Sec. 5.	Powers of Board of Equalization.</a></li>
+<li><a class="tocLink" href="doc-viewer.aspx#secid-870">	Sec. 6.	Equalization of Special Assessments.</a></li>
+<li><a class="tocLink" href="doc-viewer.aspx#secid-871">	Sec. 7.	Testimony Before Council or Board of Equalization.</a></li>
+<li><a class="tocLink" href="doc-viewer.aspx#secid-872">	Sec. 8.	Waterworks Revenue Bonds.</a></li>
+<li><a class="tocLink" href="doc-viewer.aspx#secid-873">	Sec. 9.	Property Escaping Taxation, How Assessed.</a></li>
+<li><a class="tocLink" href="doc-viewer.aspx#secid-874">	Sec. 10.	Tax List, Delivery to Treasurer.</a></li>
+<li><a class="tocLink" href="doc-viewer.aspx#secid-875">	Sec. 11. Tax List, Warrant Annexed.</a></li>
+<li><a class="tocLink" href="doc-viewer.aspx#secid-876">	Sec. 12.	 Authority Under Tax List Warrant.</a></li>
+<li><a class="tocLink" href="doc-viewer.aspx#secid-877">	Sec. 13.	 Same.</a></li>
+<li><a class="tocLink" href="doc-viewer.aspx#secid-878">	Sec. 14.	 Taxes, When Delinquent.</a></li>
+<li><a class="tocLink" href="doc-viewer.aspx#secid-879">	Sec. 15.	 Funds Inviolate.</a></li>
+<li><a class="tocLink" href="doc-viewer.aspx#secid-880">	Sec. 16.	 Special Assessments, How Devoted.</a></li>
+<li><a class="tocLink" href="doc-viewer.aspx#secid-881">	Sec. 17.	 Taxes, From What Property Collected.</a></li>
+<li><a class="tocLink" href="doc-viewer.aspx#secid-882">	Sec. 18.	 Ordinances Aiding Tax Collection.</a></li>
+<li><a class="tocLink" href="doc-viewer.aspx#secid-883">	Sec. 19.	 Taxes, How Paid.</a></li>
+<li><a class="tocLink" href="doc-viewer.aspx#secid-884">	Sec. 20.	 Lien of General Taxes.</a></li>
+<li><a class="tocLink" href="doc-viewer.aspx#secid-885">	Sec. 21.	 Delinquent Real Estate Taxes, Advertisement, Sale.</a></li>
+<li><a class="tocLink" href="doc-viewer.aspx#secid-886">	Sec. 22.	 Lien of Special Assessments.</a></li>
+<li><a class="tocLink" href="doc-viewer.aspx#secid-887">	Sec. 23.	 Reassessments.</a></li>
+<li><a class="tocLink" href="doc-viewer.aspx#secid-888">	Sec. 24.	 Idle Funds, Investment.</a></li>
+<li><a class="tocLink" href="doc-viewer.aspx#secid-889">	Sec. 25.	 Formulation of Annual Budget.</a></li>
+<li><a class="tocLink" href="doc-viewer.aspx#secid-890">	Sec. 25a. Annual Budget, Contents.</a></li>
+<li><a class="tocLink" href="doc-viewer.aspx#secid-891">	Sec. 26.	 Annual Budget, Adoption.</a></li>
+<li><a class="tocLink" href="doc-viewer.aspx#secid-892">		Sec. 26a.  Biennial (Two-Year) Budget.</a></li>
+<li><a class="tocLink" href="doc-viewer.aspx#secid-893">		Sec. 27.	 Appropriations.</a></li>
+<li><a class="tocLink" href="doc-viewer.aspx#secid-894">		Sec. 28.	 Payments.</a></li>
+<li><a class="tocLink" href="doc-viewer.aspx#secid-895">		Sec. 29.	 Accounting Systems.</a></li>
+<li><a class="tocLink" href="doc-viewer.aspx#secid-896">		Sec. 30.	 Finance Director Report to Council.</a></li>
+<li><a class="tocLink" href="doc-viewer.aspx#secid-897">		Sec. 31.	 Separate Funds, Private Use Forbidden.</a></li>
+<li><a class="tocLink" href="doc-viewer.aspx#secid-898">		Sec. 35.	 Claims and Accounts, Approval.</a></li>
+<li><a class="tocLink" href="doc-viewer.aspx#secid-899">	Sec. 36.	 Claims, Appeal.</a></li>
+<li><a class="tocLink" href="doc-viewer.aspx#secid-900">	Sec. 37.	 Unliquidated Claims, Filing.</a></li>
+<li><a class="tocLink" href="doc-viewer.aspx#secid-901">	Sec. 38.	 Defective Public Ways, Notice Essential.</a></li>
+<li><a class="tocLink" href="doc-viewer.aspx#secid-902">	Sec. 39.	 General Obligation Bonds and Notes.</a></li>
+<li><a class="tocLink" href="doc-viewer.aspx#secid-903">	Sec. 40.	 Same, Authorization.</a></li>
+<li><a class="tocLink" href="doc-viewer.aspx#secid-904">	Sec. 41. Same, Debt Limitation.</a></li>
+<li><a class="tocLink" href="doc-viewer.aspx#secid-905">	Sec. 42.	 Same, Term Limitation.</a></li>
+<li><a class="tocLink" href="doc-viewer.aspx#secid-906">	Sec. 43.	 General Obligation Bonds; Form, Sale, Issuance, Etc.</a></li>
+<li><a class="tocLink" href="doc-viewer.aspx#secid-907">	Sec. 44.	 Revenue Bonds.</a></li>
+</ul>
+</div>
+
+
+</section> 
+<section id='secid-862' class='secLvl2 _010 _010-001' tabindex='-1' data-secid='862'> 
+<h3>Sec. 1. Fiscal Year.</h3>
+
+<p>The fiscal and budget year of the city government shall begin on the first day of September and shall end on the last day of August of the following year unless the council by ordinance establishes a different fiscal and budget year. (Amendment of March 3, 1959).</p>
+
+<p class='archiveNotice nullValue '></p>
+</section> 
+<section id='secid-863' class='secLvl2 _010 _010-002' tabindex='-1' data-secid='863'> 
+<h3>Sec. 2. Dog Tax, Road Tax.</h3>
+
+<p>The council shall have the power to assess, levy and collect a special tax on all dogs in the city, and the fund so arising shall be paid to the city treasurer and expended as the council may direct. Road taxes collected from property in the city shall be paid to city treasurer and expended as the council may direct. (Amendment of May 7, 1985, effective July 6, 1985).</p>
+
+<p class='archiveNotice nullValue '></p>
+</section> 
+<section id='secid-864' class='secLvl2 _010 _010-003' tabindex='-1' data-secid='864'> 
+<h3>Sec. 3. Taxes, Maximum Levy.</h3>
+
+<p>The city shall have power to levy a tax each year for general revenue purposes upon all property subject to taxation; provided that the maximum amount of taxes that can be levied by the city in any one year for general revenue purposes shall not exceed an amount known as the city tax limit. The city tax limit is a tax ceiling established by using the September 1, 1966, city dollar tax limit as an initial tax limit, and increasing the tax limit after 1966 each following year by seven percent, so that in each fiscal year thereafter the amount of the city tax limit shall be the amount of the city tax limit for the previous year plus seven percent thereof. In addition, the city shall also have power to levy taxes each year sufficient to pay any judgment existing against the city and the interest on the bonded debt and the principal on any bonded debt maturing during the fiscal year or within six months thereafter, as well as taxes authorized by state law. The city is also authorized to receive all taxes collected and distributed pursuant to state law, and in lieu of tax payments imposed by law. (Amendment of May 14, 1968).</p>
+
+<p class='archiveNotice nullValue '></p>
+</section> 
+<section id='secid-865' class='secLvl2 _010 _010-004' tabindex='-1' data-secid='865'> 
+<h3>Sec. 3a. Taxes-Agreement for Collection.</h3>
+
+<p>Notwithstanding any existing provisions in this charter to the contrary, whenever the city has completed agreement with the county of Lancaster for the collection of city taxes, the officials of the county as designated by state law shall constitute a board of equalization for the city except as to special assessments of the city, and the dates when taxes of the city except special taxes shall be a lien or shall be due and payable or shall be delinquent, shall be as provided by state law for taxes otherwise collected by the county. (Amendment of May 10, 1966).</p>
+
+<p class='archiveNotice nullValue '></p>
+</section> 
+<section id='secid-866' class='secLvl2 _010 _010-005' tabindex='-1' data-secid='866'> 
+<h2>SEC. 3f.</h2>
+
+<p>Repealed by voters at the General Election held on May 7, 2019.</p>
+
+<p class='archiveNotice  '></p>
+</section> 
+<section id='secid-867' class='secLvl2 _010 _010-006' tabindex='-1' data-secid='867'> 
+<h3>Sec. 3g. Storm Sewer Bonds.</h3>
+
+<p>Notwithstanding any existing provisions in this charter to the contrary and in addition to the power and authority elsewhere in this charter provided, the city council, for the purpose of constructing additions to, extensions of, improvements or betterments to the storm sewer system of said city, is hereby authorized to borrow money and pledge the credit and property of the city upon its negotiable bonds in an amount not to exceed $3,500,000.00 without further consent of voters. Said bonds shall mature serially beginning one year after date and continuing thereafter for not to exceed thirty years, in such annual installments as the city council shall determine, said bonds to bear interest at a rate not to exceed three percent per annum, payable semi-annually, and to be redeemable with or without premium, at the option of the city, at any time after five years from their date, and the city council shall annually provide for the levy of a tax upon all taxable property located in said city sufficient to pay the principal of said bonds and the interest thereon as the same mature, which tax shall be in excess of and in addition to all other taxes now or hereafter authorized to be levied by said city. (Amendment of June 15, 1954).</p>
+
+<p class='archiveNotice nullValue '></p>
+</section> 
+<section id='secid-868' class='secLvl2 _010 _010-007' tabindex='-1' data-secid='868'> 
+<h3>Sec. 4. Equalization.</h3>
+
+<p>The city council shall constitute the board of equalization for the city, and shall have power as such board to equalize all taxes and assessments, and to correct any errors in the listing or valuation of property, and to supply any omissions in the same. A majority of all the members elected to the council shall constitute a quorum for the transaction of business properly before the board, but a less number may adjourn from time to time and compel the attendance of absent members. When sitting as a board of equalization on general or special taxes the council may adopt rules ad regulations as to the manner of presenting complaints and applying for relief. It shall not invalidate or prejudice the proceedings of the board that a majority of the members thereof after organization as a board do not in fact continue present during the advertised hours for the sitting of such board; provided, however, the city clerk and some member of the board shall be present to receive complaints or applications for relief, and provided, further, no final action shall be taken with respect to any taxes or assessments by the board until a majority of the members of the council sitting as a board of equalization shall be present and in open session.</p>
+
+<p class='archiveNotice nullValue '></p>
+</section> 
+<section id='secid-869' class='secLvl2 _010 _010-008' tabindex='-1' data-secid='869'> 
+<h3>Sec. 5. Powers of Board of Equalization.</h3>
+
+<p>The city council sitting as a board of equalization shall hold a session of not less than three nor more than thirty days annually commencing on the first Tuesday after the third Monday in June, and shall have power:</p>
+
+<p>First: To assess all property real and personal not assessed and which is not exempt.</p>
+
+<p>Second: To review assessments made and correct the same as shall appear to be just; provided, however, the board shall not increase the assessment of any person, partnership or corporation until such person, partnership or corporation shall have been notified by the board to appear before the board and show cause if any why the assessment should not be increased. In case personal service of such notice cannot be made in the city, notice may be given by publication, and it shall be sufficient if such notice is published in one issue of a daily paper of general circulation within the city.</p>
+
+<p>Third: To equalize the assessments of all real and personal property in the city and to correct any errors in the listing or valuation thereof.</p>
+
+<p class='archiveNotice nullValue '></p>
+</section> 
+<section id='secid-870' class='secLvl2 _010 _010-009' tabindex='-1' data-secid='870'> 
+<h3>Sec. 6. Equalization of Special Assessments.</h3>
+
+<p>The council shall act as a board to equalize all special assessments, except for sidewalks, affecting single properties, before special taxes for local improvements be finally levied, distributed and apportioned, and to correct any errors therein, upon notice as provided herein. The board shall organize and be in session until it hears all complaints owners may make to the proposed distribution and levy of the tax, and shall equalize the tax and correct errors therein. If by reduction of the amount charged on any property it be necessary to increase the proposed amount upon other property, the owner shall be notified in person or at his residence, or by five days&#39; publication if not a resident, or if changes be many, another distribution may be submitted by any member or any owner interested, and notice by five days&#39; publication be given of a second session for equalization, at which time the equalization shall be completed. (Amendment of April 7, 1981; effective June 6, 1981).</p>
+
+<p class='archiveNotice nullValue '></p>
+</section> 
+<section id='secid-871' class='secLvl2 _010 _010-010' tabindex='-1' data-secid='871'> 
+<h3>Sec. 7. Testimony Before Council or Board of Equalization.</h3>
+
+<p>The council or any committee of the members thereof, or the council when sitting as a board of equalization shall have power to compel the attendance of witnesses for the investigation of matters that may come before them, and the presiding officer of the council or chairman of such committee for the time being, may administer the requisite oaths, and such council or committee, or the council when sitting as a board of equalization, shall have the same authority to compel the giving of testimony as is conferred on courts of justice.</p>
+
+<p class='archiveNotice nullValue '></p>
+</section> 
+<section id='secid-872' class='secLvl2 _010 _010-011' tabindex='-1' data-secid='872'> 
+<h3>Sec. 8. Waterworks Revenue Bonds.</h3>
+
+<p>In addition to any existing charter provision authorizing the issuance of general obligation bonds of the city and the levy of taxes to pay for the same for the purpose of constructing or aiding in the construction of a system of waterworks, additions thereto or extensions thereof, or any other betterments, and notwithstanding any existing charter provisions to the contrary, the city council may borrow money and in evidence thereof issue bonds for the purpose of constructing additions, extensions, improvements or betterments to the waterworks system of said city, and to refund such bonds from time to time at maturity or prior to maturity with the consent of the holders thereof unless said bonds are subject to redemption prior to maturity, all of which bonds shall be payable solely and only from the revenues derived and to be derived from the operation of the waterworks system of said city. Such revenue bonds shall not be general obligations of the city and no taxes shall be levied for the payment of either principal or interest on such bonds, but said bonds shall be payable solely and only from the revenues to be derived from the operation of the waterworks system of said city, and whenever any such revenue bonds are issued the revenues derived from the operation of the waterworks system shall be deposited in a separate fund designated as the &quot;water fund&quot; of the city, and shall be used and may be pledged to pay the cost of operation and maintenance of the waterworks system and to pay the principal of and interest upon the revenue bonds of the city issued under this section of the charter, and to carry out any covenants that may be made in and by the ordinance authorizing the issuance of such bonds for the assurance of the payment of such bonds, and it shall be the duty of the governing body of the city to charge rates for water and service of said waterworks system sufficient at all times to pay the cost of operation and maintenance thereof and to pay the principal of and interest upon all revenue bonds issued under this section of the charter, and to carry out any covenants that may be provided in the ordinance authorizing the issuance of any such bonds. Such revenue bonds shall be subject to the provisions of Section 44 of this Article IX.</p>
+
+<p>The holders of any of the revenue bonds or any of the coupons of any revenue bonds issued under this section in any civil action, mandamus or other proceeding may enforce and compel the performance of all duties required by this section and the covenants made by the city in the ordinance providing for the issuance of such bonds, including the making and collecting of sufficient water rates for the specified purposes and for the proper application of the income therefrom. (Amendment of May 15, 1990: prior Amendment of May 5, 1953).</p>
+
+<p class='archiveNotice nullValue '></p>
+</section> 
+<section id='secid-873' class='secLvl2 _010 _010-012' tabindex='-1' data-secid='873'> 
+<h3>Sec. 9. Property Escaping Taxation, How Assessed.</h3>
+
+<p>If for any reason any taxable property in the city shall escape taxation in any year, it shall be the duty of the city council when sitting as a board of equalization in any subsequent year to assess such property at a fair valuation for the year or years for which such property should have been assessed, and to levy thereon under such assessment a tax at the same rate and upon the same basis that other taxable property was assessed for the year in which such property escaped taxation, which tax and levy shall be in addition to all current or other taxes on the same property, and shall be added thereto.</p>
+
+<p class='archiveNotice nullValue '></p>
+</section> 
+<section id='secid-874' class='secLvl2 _010 _010-013' tabindex='-1' data-secid='874'> 
+<h3>Sec. 10. Tax List, Delivery to Treasurer.</h3>
+
+<p>As soon as the assessment roll shall have been equalized, and the annual levy made thereon, the city clerk shall immediately make out a tax list, which shall be as nearly as practicable in the form prescribed by law for the tax list to be furnished to the county treasurer, and he shall deliver such tax list to the city treasurer on or before the first day of October next after the date of the levy in each year; errors in the name of persons assessed may be corrected by the treasurer, and the tax collected from the person intended, and in case the treasurer find that any land has been omitted in the assessment, he shall report that fact to the council, who may assess the same and direct the correction of the tax list as in this charter provided.</p>
+
+<p class='archiveNotice nullValue '></p>
+</section> 
+<section id='secid-875' class='secLvl2 _010 _010-014' tabindex='-1' data-secid='875'> 
+<h3>Sec. 11. Tax List, Warrant Annexed.</h3>
+
+<p>To each tax list so delivered a warrant under the hand of the city clerk shall be annexed, to be substantially in the following form, to wit:</p>
+
+<p>&nbsp;</p>
+
+<p style="text-align:center">In the name and by the authority of the State of Nebraska:</p>
+
+<p style="text-align:center">To ____________________, City Treasurer of the City of Lincoln, Nebraska.</p>
+
+<p>You are hereby commanded to collect from each of the persons and corporations named in the annexed tax list and owners of real estate described therein the taxes set down in such list opposite their respective names, and the several parcels of land described therein; and in case any person or corporation upon whom any such tax or sum is imposed, or who by law is required to pay the same, shall refuse or neglect to pay the full amount thereof before the first day of January next, you are to levy and collect the same by distress and sale of the goods and chattels of the person or corporation so taxed as are by law required to pay such tax.</p>
+
+<p style="text-align:right">Given under my hand and official seal this _____ day of _________, A.D. 19___.</p>
+
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+
+<p style="text-align:right">_____________________________________</p>
+
+<p style="text-align:right">City Clerk of the City of Lincoln</p>
+
+<p class='archiveNotice nullValue '></p>
+</section> 
+<section id='secid-876' class='secLvl2 _010 _010-015' tabindex='-1' data-secid='876'> 
+<h3>Sec. 12. Authority Under Tax List Warrant.</h3>
+
+<p>Such warrant shall fully authorize and empower the city treasurer to levy on any personal property belonging to such delinquent, and such warrant shall be a full and complete justification of the treasurer in any action brought to recover damages or costs for any act or proceeding by him done or taken in conformity with the commands thereof.</p>
+
+<p class='archiveNotice nullValue '></p>
+</section> 
+<section id='secid-877' class='secLvl2 _010 _010-016' tabindex='-1' data-secid='877'> 
+<h3>Sec. 13. Same.</h3>
+
+<p>The powers, rights, duties and proceedings of the city treasurer and of his assistants shall in all respects, except as herein otherwise provided, and as far as applicable, be the same in respect to the collection of municipal taxes and assessments as those of the county treasurer in like cases with reference to the collection of county taxes.</p>
+
+<p class='archiveNotice nullValue '></p>
+</section> 
+<section id='secid-878' class='secLvl2 _010 _010-017' tabindex='-1' data-secid='878'> 
+<h3>Sec. 14. Taxes, When Delinquent.</h3>
+
+<p>On the first day of December next succeeding the levy thereof, all unpaid city taxes shall become delinquent and shall thereafter draw interest at the same rate as fixed by the laws of the State of Nebraska for delinquent taxes. Provided, if one-half of such tax is paid on or before the same becomes delinquent, and the remaining one-half on or before the first day of June following, no interest shall be charged thereon. It shall be the duty of the city treasurer to proceed, as soon as practicable after the first day of January, to make such delinquent personal tax out of the personal property of such delinquent, if any such property can be found within the city, but it shall be the duty of every person owing municipal tax in the city to pay the same at the treasurer&#39;s office and no demand for the payment thereof shall be necessary. (Amendment of May 7, 1935).</p>
+
+<p class='archiveNotice nullValue '></p>
+</section> 
+<section id='secid-879' class='secLvl2 _010 _010-018' tabindex='-1' data-secid='879'> 
+<h3>Sec. 15. Funds Inviolate.</h3>
+
+<p>Each and every fund created by this charter shall be strictly devoted to the purpose for which it was created and shall not be diverted therefrom, and any member of the city council voting so to divert the money in any fund shall be liable for the amount of funds so diverted; provided, any surplus remaining in any fund after all obligations against the same have been satisfied, which surplus is no longer required for the purpose for which such fund was created, may be transferred to the general fund by order of the council. (Amendment of March 3, 1959).</p>
+
+<p class='archiveNotice nullValue '></p>
+</section> 
+<section id='secid-880' class='secLvl2 _010 _010-019' tabindex='-1' data-secid='880'> 
+<h3>Sec. 16. Special Assessments, How Devoted.</h3>
+
+<p>All moneys received from any special assessment shall be held by the treasurer as a special fund to be applied to the payment of the improvement for which the assessment was made, and such money shall be used for no other purpose; provided, however, any surplus remaining in any such fund after all obligations against the same shall have been satisfied, may be transferred to any other fund by order of the council.</p>
+
+<p class='archiveNotice nullValue '></p>
+</section> 
+<section id='secid-881' class='secLvl2 _010 _010-020' tabindex='-1' data-secid='881'> 
+<h3>Sec. 17. Taxes, From What Property Collected.</h3>
+
+<p>All municipal personal taxes shall be collected from the personal property of the person, partnership or corporation owning the same. All delinquent municipal taxes levied on any real estate within such city shall be collected by sale of such real estate in the same manner as in case of sale for delinquent county taxes.</p>
+
+<p class='archiveNotice nullValue '></p>
+</section> 
+<section id='secid-882' class='secLvl2 _010 _010-021' tabindex='-1' data-secid='882'> 
+<h3>Sec. 18. Ordinances Aiding Tax Collection.</h3>
+
+<p>The city council shall have full power and authority to pass ordinances not inconsistent with the laws of this state which they may deem necessary to secure a speedy and thorough collection of all municipal taxes and special assessments.</p>
+
+<p class='archiveNotice nullValue '></p>
+</section> 
+<section id='secid-883' class='secLvl2 _010 _010-022' tabindex='-1' data-secid='883'> 
+<h3>Sec. 19. Taxes, How Paid.</h3>
+
+<p>All municipal taxes and special assessments in the city shall be paid in cash, check, or electronic transfers. (Amendment of May 1, 2007).</p>
+
+<p class='archiveNotice nullValue '></p>
+</section> 
+<section id='secid-884' class='secLvl2 _010 _010-023' tabindex='-1' data-secid='884'> 
+<h3>Sec. 20. Lien of General Taxes.</h3>
+
+<p>Taxes assessed upon personal property in the city shall be a lien upon the personal property of the person, partnership or corporation assessed from and after the time the tax books are received by the treasurer; such lien shall be prior and superior to all other liens thereon except liens for taxes. All municipal taxes assessed upon real estate shall be a lien upon such real estate from and including the first day of October in the year in which they are levied until the same are paid.</p>
+
+<p class='archiveNotice nullValue '></p>
+</section> 
+<section id='secid-885' class='secLvl2 _010 _010-024' tabindex='-1' data-secid='885'> 
+<h3>Sec. 21. Delinquent Real Estate Taxes, Advertisement, Sale.</h3>
+
+<p>It shall be the duty of the city treasurer on or before the fifteenth day of September of each year, to make out a complete delinquent list of all lots, lands or parcels of real estate, the taxes and assessments on which for the previous year remain uncollected at that time, with the amount of such taxes or assessments, together with penalties and interest due from each lot or parcel of real estate set opposite the same arranging the several lots, lands or parcels of real estate in the order that they appear on the tax list, stating also in each case the purpose for which the tax or assessment was levied. The city treasurer shall thereupon deliver the same to the county treasurer who shall advertise the real estate therein described for sale for such delinquent taxes or assessments at the same time he advertises the sale of real estate for delinquent county taxes, by adding the amount of such delinquent city taxes and assessments to the amount of the delinquent state, county or other taxes, and he shall sell such lots, lands or parcels of real estate for the purpose of paying all such delinquent taxes or assessments, which shall be subject to the order of the city treasurer. In the sale of real estate as above provided and in the giving of certificates of sale and tax deeds therefor, the county treasurer shall proceed in the same manner as provided by law for proceeding in the sale of real estate for delinquent county taxes, and with like power and authority; and the real estate so sold may be redeemed within the time and upon the same terms and conditions as provided by law for the redemption of real estate sold for delinquent county taxes; provided, under this charter the county treasurer shall be authorized to collect only by sale of real estate; and provided further, it shall be the duty of the city treasurer upon any taxes being collected by him after the delinquent tax list shall have been delivered to the county treasurer, to forthwith notify the county treasurer of such collection, that the same may be cancelled on the delinquent tax list; provided, further, the failure, neglect or refusal of the city treasurer to make the tax assessed against any real estate by distress and sale of personal property of the owners thereof shall not in any wise affect or invalidate the sale of such lands for such tax.</p>
+
+<p class='archiveNotice nullValue '></p>
+</section> 
+<section id='secid-886' class='secLvl2 _010 _010-025' tabindex='-1' data-secid='886'> 
+<h3>Sec. 22. Lien of Special Assessments.</h3>
+
+<p>Special assessments on real estate shall be a lien from the date of the levy, and interest on all unpaid installments shall be payable annually; such lien shall be perpetual and superior to all other liens upon the property except liens for general taxes or other special assessments equal therewith. In case of sale of any property for such tax or special assessment the same shall be governed by the general revenue law of Nebraska, except as herein otherwise provided, and the rights and limitations shall be the same as in other tax sales.</p>
+
+<p class='archiveNotice nullValue '></p>
+</section> 
+<section id='secid-887' class='secLvl2 _010 _010-026' tabindex='-1' data-secid='887'> 
+<h3>Sec. 23. Reassessments.</h3>
+
+<p>The council shall have power in all cases where special assessments heretofore made or which may hereafter be made for any purpose have been or may be declared void or invalid, for want of jurisdiction in making or levying such special assessments or on account of any defect or irregularity in the manner of levying or equalizing the same, or for any cause whatever, to reassess and relevy a new assessment equal to the special benefits and not exceeding the cost of the improvement for which the assessment was made upon the property originally assessed and such reassessment and relevy shall be made substantially in the manner provided for making original assessments or like nature, and when so made shall constitute a lien upon the property prior and superior to all other liens except liens for taxes or other special assessments, and taxes so reassessed shall be enforced and collected as other special taxes; provided, in all cases under the provisions of this section the council before making any such reassessment or relevy shall give five (5) days&#39; notice in a newspaper published and of general circulation in the city, of the time when the council will meet to determine the matter of reassessing or relevying all such special assessments; and in making such reassessments the council shall take into consideration payments, if any, made on behalf of the property reassessed, under such prior void assessment; and if such prior payments exceed the special assessment on the given property as finally determined, the excess, with lawful interest thereon, shall be refunded to the party paying the same.</p>
+
+<p class='archiveNotice nullValue '></p>
+</section> 
+<section id='secid-888' class='secLvl2 _010 _010-027' tabindex='-1' data-secid='888'> 
+<h3>Sec. 24. Idle Funds, Investment.</h3>
+
+<p>Whenever the city has accumulated a surplus in any fund in excess of its current needs or has accumulated a sinking fund for the payment of its bonds and the money in such sinking fund exceeds the amount necessary to pay the principal and interest of any such bonds which become due during the current year, the city council may invest any such surplus in excess of current needs or such excess in its sinking fund in certificates of deposit, in time deposits, and in any securities in which the state investment officer is authorized to invest pursuant to the Nebraska Capital Expansion Act and the Nebraska State Funds Investment Act and as provided in the authorized investment guidelines of the Nebraska Investment Council in effect on the date the investment is made. (Amendment of November 7, 2000: prior Amendment of June 15, 1954).</p>
+
+<p class='archiveNotice nullValue '></p>
+</section> 
+<section id='secid-889' class='secLvl2 _010 _010-028' tabindex='-1' data-secid='889'> 
+<h3>Sec. 25. Formulation of Annual Budget.</h3>
+
+<p>The procedure and calendar for the formulation of the annual proposed executive budget and for its submission to the council shall be as follows:</p>
+
+<ol style="list-style-type:decimal">
+	<li>On or before a date to be prescribed by the mayor, each city department and agency head shall compile and transmit to the finance director estimates for the ensuing year of revenue and operating expenditure for the department or agency concerned, along with such work program information and other supporting data as the mayor may require.</li>
+	<li>The mayor, with the assistance of the finance director, shall review all estimates and the capital improvements program, and shall formulate the proposed budget, making such revisions of estimates as the mayor deems desirable.</li>
+	<li>Not later than forty days prior to the end of the fiscal and budget year, the mayor shall submit to the council for its consideration and action his proposed budget. Upon submission the budget shall become a public record and shall be open to inspection.</li>
+</ol>
+
+<p>The provisions of this section shall govern and apply notwithstanding any existing provisions of this charter to the contrary. (Amendment of August 27, 1962; effective May 20, 1963). (Prior Sec. 25 repealed, effective May 20, 1963).</p>
+
+<p class='archiveNotice nullValue '></p>
+</section> 
+<section id='secid-890' class='secLvl2 _010 _010-029' tabindex='-1' data-secid='890'> 
+<h3>Sec. 25a. Annual Budget, Contents.</h3>
+
+<p>The annual budget shall be a complete financial plan for the ensuing budget year and shall consist of an operating budget and a capital budget. The capital budget shall provide for the acquisition of real property; the acquisition, construction, reconstruction, improvement, extension, equipping, or furnishing of any capital improvement, but not routine maintenance work thereon; and equipment with a probable useful life of fifteen or more years. The operating budget shall provide for all classes of expenditures not provided for in the capital budget.</p>
+
+<p>The proposed budget submitted by the mayor to the council shall contain at least the following:</p>
+
+<ol style="list-style-type:decimal">
+	<li>A budget message in which the mayor shall discuss the city&#39;s financial condition and prospects, explain both in terms of money and work programs the important features of the operating budget, and outline the financial policies he proposes for the ensuing budget year.</li>
+	<li>Appropriate statements showing for each fund the estimated transaction and balances for the ensuing budget year and comparative data for the current year and the immediate past budget year.</li>
+	<li>Schedules of all estimated revenues itemized by sources for the ensuing budget year and comparative data for the current and the immediately past budget year.</li>
+	<li>Operating budget schedules showing by activity or program the proposed operating expenditures for the ensuing budget year, and in a separate column or section entitled &quot;Proposed Appropriations,&quot; the lump sum recommended for appropriation, which lump sums need not be itemized further than by departments, divisions, or major activities and programs. Comparative expenditures data for the current year and the immediately past budget year and information on work programs and work loads shall also be presented.</li>
+	<li>A schedule or schedules showing principal and interest requirements for the ensuing budget year and for at least five years thereafter on each outstanding note and bond issue comprising the city debt.</li>
+	<li>Capital budget schedules showing the total amount proposed for expenditure on each capital improvement project during the ensuing budget year and a complete analysis of the sources of funds by projects showing balances available and amounts to be appropriated, borrowed, or derived from other sources.</li>
+</ol>
+
+<p>The provisions of this section shall govern and apply notwithstanding any existing provisions of this charter to the contrary. (Amendment of March 3, 1959).</p>
+
+<p class='archiveNotice nullValue '></p>
+</section> 
+<section id='secid-891' class='secLvl2 _010 _010-030' tabindex='-1' data-secid='891'> 
+<h3>Sec. 26. Annual Budget, Adoption.</h3>
+
+<p>At the meeting of the council at which the mayor submits the proposed budget, the council shall determine the time and place at which it will hold a public hearing on the proposed budget. The date for a public hearing shall be scheduled for not later than ten days prior to the budget adoption date prescribed in this section, and the time and place of the hearing, together with a copy of a summary of the proposed budget, shall, not less than five days before such hearing, be published in one issue of the official paper of the city, if there be one, and if there be no official paper, then in one newspaper published and of general circulation in the city.</p>
+
+<p>The council shall have full power at any time prior to the adoption of the budget to revise revenue estimates and to increase, decrease, insert, or delete appropriation items.</p>
+
+<p>Not later than five days prior to the end of the fiscal and budget year, the council shall by a vote of four of its members adopt a budget by resolution and thereby authorize appropriations for the ensuing budget year. Should the council fail to adopt a budget on or before the prescribed budget adoption date, the budget proposed by the mayor shall be deemed to have been adopted by the council and shall become the basis for expenditure during the ensuing budget year and for the tax levy for such ensuing year.</p>
+
+<p>Not more than ninety percent of the total levy for any fiscal year shall be included in the budget revenue estimates for such year, but each annual budget shall be balanced in that total estimated revenues, including applicable borrowing proceeds, shall be equal in amount to total appropriations.</p>
+
+<p>&nbsp;</p>
+
+<p>The provisions of this section shall govern and apply notwithstanding any existing provisions of this charter to the contrary. (Amendment of March 3, 1959).</p>
+
+<p class='archiveNotice nullValue '></p>
+</section> 
+<section id='secid-892' class='secLvl2 _010 _010-031' tabindex='-1' data-secid='892'> 
+<h3>Sec. 26a. Biennial (Two-Year) Budget.</h3>
+
+<p>The City may by ordinance establish a process for the adoption of a balanced biennial budget for biennial periods, which biennial periods shall consist of two fiscal and budget years commencing in odd-numbered years or even-numbered years, notwithstanding any existing provisions of this charter referencing an annual budget. The biennial period shall begin on the first day of September and shall end on the last day of August unless the council by ordinance establishes a different biennial period. Each biennial budget shall be balanced.</p>
+
+<p>The ordinance shall include, but not necessarily be limited to, the procedure and calendar for the formulation of the biennial budget, its contents, the procedure and calendar for the formulation of the biennial capital improvement program budget, the procedure for the presentation to the council including the time and place at which the council will hold a public hearing on the proposed biennial budget, the procedure for the transfer and reduction of funds and authorization of emergency appropriations, and the manner in which the property tax rate will be determined for the second year of the biennial period.</p>
+
+<p>The mayor shall have the power and shall be required to submit to the council for its consideration a recommended biennial operating and capital improvement program budget. The mayor shall submit the recommended biennial budget no later than forty days prior to the beginning of the biennial period. Amendments provided by the mayor to the recommended biennial budget no later than forty days prior to the beginning of the biennial period shall be considered part of the mayor&rsquo;s recommended budget as if they were part of the original submission to the city council. The council shall have full power at any time prior to the adoption of the biennial budget to revise revenue estimates and to increase or decrease appropriations of departments or divisions or capital improvement program projects. No later than five days prior to the beginning of the biennial period the council shall, by a vote of four of its members, adopt the biennial budget by resolution and thereafter authorize appropriations for the ensuing biennial period. Any legislation pertaining to the biennial budget shall be subject to the power provided in Article IV, Section 13 of this charter. Should the council fail to adopt the biennial budget on or before the prescribed adoption date, the biennial budget proposed and submitted by the mayor shall be deemed to have been adopted by the council and shall become the basis for expenditure during the ensuing biennial budget period and for the property tax rates for the ensuing biennial period.</p>
+
+<p>After a biennial budget is adopted, neither the mayor nor the council can adopt a new annual budget in the second year of the biennial period. The power to amend or revise the biennial budget shall be as provided in Article IX, Section 27 of this charter. (Amendment of November 2, 2010).</p>
+
+<p class='archiveNotice nullValue '></p>
+</section> 
+<section id='secid-893' class='secLvl2 _010 _010-032' tabindex='-1' data-secid='893'> 
+<h3>Sec. 27. Appropriations.</h3>
+
+<p>The finance director shall not allow any commitments or expenditures to be made except as charges against appropriation authorized in the budget or pursuant to Article VII, Section 4. If, at any time, during the budget year, the mayor determines that the available income for the year of any specific fund will be less than the total appropriations authorized from such fund, the mayor&nbsp;shall have the power to reduce appropriations from such fund so as to prevent the incurring of a budget deficit for that year.</p>
+
+<p>The mayor may at any time authorize the transfer of an unencumbered appropriation balance or portion thereof between appropriations of the same department or agency, but the mayor shall inform the council of all such transfers by filing an appropriate written statement with the city clerk within seven days. Appropriation transfers between departments or agencies may only be authorized by resolution of the council.</p>
+
+<p>The council shall not make any appropriation in addition to those authorized in the annual budget, except that it may authorize emergency appropriations in the event of an emergency threatening serious loss of life, health, or property in the community. If there are no unappropriated moneys available from which to make such appropriations, the council may by&nbsp;resolution authorize the issuance of emergency notes, provided that the emergency notes issued shall not exceed fifteen percent of the total appropriations made in the operating budget for the year concerned, and provided further that the first budget adopted after the issuance of such emergency notes shall provide for their redemption in full. The affirmative vote of six members of the council or a unanimous vote, if fewer than six but at least four members are present, shall be required to pass resolutions authorizing emergency appropriations or the issuance of emergency notes.</p>
+
+<p>Unencumbered balances of operating appropriations shall lapse at the end of the budget year for which authorized. Capital appropriations shall be continuing appropriations, but the council may by ordinance transfer at any time the unencumbered balances of such capital appropriations to other capital appropriations or to an appropriate fund.</p>
+
+<p>The provisions of this section shall govern and apply notwithstanding any existing provisions of this charter to the contrary. (Amendment of May 12, 2020: prior Amendment of March 3, 1959).</p>
+
+<p class='archiveNotice  '></p>
+</section> 
+<section id='secid-894' class='secLvl2 _010 _010-033' tabindex='-1' data-secid='894'> 
+<h3>Sec. 28. Payments.</h3>
+
+<p>The finance director shall be responsible for the payment of approved claims. Any payment made by check or warrant shall be signed by the mayor and countersigned by the finance director. The use of facsimile signatures on checks or warrants is hereby authorized. Any warrant not paid upon presentation by reason of lack of funds shall be registered and shall draw interest at a rate not to exceed five percent per year from date of registration. (Amendment of May 1, 2007: prior Amendment of November 5, 1996: March 3, 1959).</p>
+
+<p class='archiveNotice nullValue '></p>
+</section> 
+<section id='secid-895' class='secLvl2 _010 _010-034' tabindex='-1' data-secid='895'> 
+<h3>Sec. 29. Accounting Systems.</h3>
+
+<p>The finance director shall have the responsibility and authority under the mayor for prescribing accounting systems for all departments and agencies of the city government; for prescribing rules governing the selection, use and location of accounting equipment and machinery; and for prohibiting any department or agency from keeping accounts which the finance director deems to be an unnecessary duplication of the accounts maintained in the Finance Department or elsewhere. Such books and accounts shall at all times be subject to examination by members of the council and by such other persons as they may designate during business hours.</p>
+
+<p>The provisions of this section shall govern and apply notwithstanding any existing provisions of this charter to the contrary. (Amendment of March 3, 1959).</p>
+
+<p class='archiveNotice nullValue '></p>
+</section> 
+<section id='secid-896' class='secLvl2 _010 _010-035' tabindex='-1' data-secid='896'> 
+<h3>Sec. 30. Finance Director Report to Council.</h3>
+
+<p>The finance director shall report to the council annually, and at such other times as may be required by the council, a full and detailed account of the city&#39;s financial condition and of all receipts and disbursements during the year or other period concerned. The finance director shall be responsible for the keeping of a register or other appropriate record of all payments made. Such register or record shall show the date, amount, and number of each payment made and the payee name to whom paid. Such register or record shall be kept subject to examination by the council at any time. (Amendment of May 1, 2007: prior Amendment of March 3, 1959).</p>
+
+<p class='archiveNotice nullValue '></p>
+</section> 
+<section id='secid-897' class='secLvl2 _010 _010-036' tabindex='-1' data-secid='897'> 
+<h3>Sec. 31. Separate Funds, Private Use Forbidden.</h3>
+
+<p>The city treasurer shall keep all money belonging to the city in such separate funds as may be created by this charter or ordered by the council. The city treasurer is hereby expressly prohibited from using either directly or indirectly city money or checks or warrants or securities for his or her own use and benefit or that of any other person. (Amendment of May 1, 2007).</p>
+
+<p class='archiveNotice nullValue '></p>
+</section> 
+<section id='secid-898' class='secLvl2 _010 _010-037' tabindex='-1' data-secid='898'> 
+<h3>Sec. 35. Claims and Accounts, Approval.</h3>
+
+<p>All claims and accounts payable against the city other than a tort claim as defined by state law shall be presented in writing and shall fully and accurately identify the items or services for which payment is claimed. The finance director shall be responsible for the pre-auditing and approval of all claims and accounts payable, and no check or warrant in payment of any claim or account payable shall be drawn or paid without such approval. Publication of claims shall be accomplished in accordance with the laws of the state of Nebraska. (Amendment of May 1, 2007; prior Amendment of May 15, 1984; effective July 15, 1984).</p>
+
+<p class='archiveNotice nullValue '></p>
+</section> 
+<section id='secid-899' class='secLvl2 _010 _010-038' tabindex='-1' data-secid='899'> 
+<h3>Sec. 36. Claims, Appeal.</h3>
+
+<p>Any taxpayer of the city, after the allowance in whole or in part of any claim required to be published, or the claimant, after the disallowance in whole or in part of any such claim, may appeal therefrom in accordance with the statutory procedures provided for such appeals. (Amendment of May 15, 1984; effective July 15, 1984).</p>
+
+<p class='archiveNotice nullValue '></p>
+</section> 
+<section id='secid-900' class='secLvl2 _010 _010-039' tabindex='-1' data-secid='900'> 
+<h3>Sec. 37. Unliquidated Claims, Filing.</h3>
+
+<p>(Repealed, May 15, 1984; effective July 15, 1984).</p>
+
+<p class='archiveNotice nullValue '></p>
+</section> 
+<section id='secid-901' class='secLvl2 _010 _010-040' tabindex='-1' data-secid='901'> 
+<h3>Sec. 38. Defective Public Ways, Notice Essential.</h3>
+
+<p>The city shall be absolutely exempt from liability for damages or injuries suffered or sustained by reason of defective public ways or the sidewalks thereof within the city, unless actual notice in writing of such defect shall have been filed with the city clerk at least five days before the occurrence of such injury or damage, which notice shall describe with particularity the place and nature of the defects of which complaint is made.</p>
+
+<p class='archiveNotice nullValue '></p>
+</section> 
+<section id='secid-902' class='secLvl2 _010 _010-041' tabindex='-1' data-secid='902'> 
+<h3>Sec. 39. General Obligation Bonds and Notes.</h3>
+
+<p>In this charter the term &quot;note&quot; shall mean &quot;a written evidence of indebtedness maturing not later than two years after the date of its issuance,&quot; and the term &quot;bond&quot; shall mean &quot;a written evidence of indebtedness maturing later than two years after the date of issuance.&quot;</p>
+
+<p>The city shall have the power to issue general obligation notes to temporarily provide cash to pay operating expenses authorized in the budget; to meet expenses arising from an emergency threatening serious loss of life, health, or property when it is determined by resolution that such an emergency exists; and to pay for improvements and items ultimately to be financed from the proceeds of bonds that have been authorized pursuant to this charter.</p>
+
+<p>The city shall have the power to issue general obligation bonds only for the purpose of acquiring real property; for acquiring, constructing, reconstructing, improving, extending, equipping, or furnishing any capital improvement which the city has the power to acquire, construct, reconstruct, extend, equip, improve, or operate under this charter, including improvements, the cost of which is to be assessed against property; for providing working capital for the special improvement fund established in Article VIII, Section 10a of this charter; or for refunding outstanding indebtedness.</p>
+
+<p>The provisions of this section shall govern and apply notwithstanding any existing provisions of this charter to the contrary, but this section shall not in any way govern, impair, or restrict the issuance of bonds authorized by the electors of the city prior to the effective date of this section. (Amendment of March 3, 1959).</p>
+
+<p class='archiveNotice nullValue '></p>
+</section> 
+<section id='secid-903' class='secLvl2 _010 _010-042' tabindex='-1' data-secid='903'> 
+<h3>Sec. 40. Same, Authorization.</h3>
+
+<p>No general obligation bonds of the city, except refunding bonds, bonds to provide working capital for the special improvement fund, and bonds to finance improvements the cost of which is to be assessed against property, shall be issued until authorized by a majority of the electors voting on the question as to their issuance. Bond authorization questions shall be submitted to the electors by the council of its own motion or in accordance with the initiative procedure in cases where a sufficient initiative petition is filed, and each such question shall relate to not more than one subject and shall specify the purpose for which moneys are to be borrowed, and the maximum amount of bonds to be issued for that purpose.</p>
+
+<p>With respect to bond issues authorized by a vote of the electors, all such authorization shall expire six years after the date of the authorizing vote if such bonds are still unissued at that time, but should the council, before such six-year period has elapsed, determine that any portion of an authorized bond issue is not required for the accomplishment of the objectives in connection therewith, it may by ordinance cancel the unneeded portion of such authorization, provided that the bonds comprising the cancelled portion are still unissued.</p>
+
+<p>The provisions of this section shall govern and apply notwithstanding any existing provisions of this charter to the contrary. Any general obligation bonds previously approved by a majority of the electors in accordance with the above, but which have not as yet been issued, shall not be subject to any interest limitations that might have been specified in the proposition voted upon. (Amendment of April 7, 1981; effective June 6, 1981: amendment of March 3, 1959).</p>
+
+<p class='archiveNotice nullValue '></p>
+</section> 
+<section id='secid-904' class='secLvl2 _010 _010-043' tabindex='-1' data-secid='904'> 
+<h3>Sec. 41. Same, Debt Limitation.</h3>
+
+<p>Debt limits relating to the various types of general obligation notes which the city is authorized to issue shall be as follows:</p>
+
+<ol style="list-style-type:decimal">
+	<li>Notes issued in anticipation of the receipt of revenues of any fund shall not exceed twenty-five percent of the revenues officially estimated to be collected for that fund during the remainder of the fiscal year concerned.</li>
+	<li>Notes issued to meet expenses arising from an emergency shall not exceed fifteen percent of the total appropriations made in the operating budget for the fiscal year concerned.</li>
+	<li>Notes issued in anticipation of the sale of bonds previously authorized shall not exceed ninety percent of the principal amount of such bonds.</li>
+</ol>
+
+<p>The provisions of this section shall govern and apply notwithstanding any provisions of this charter to the contrary. (Amendment of March 3, 1959).</p>
+
+<p class='archiveNotice nullValue '></p>
+</section> 
+<section id='secid-905' class='secLvl2 _010 _010-044' tabindex='-1' data-secid='905'> 
+<h3>Sec. 42. Same, Term Limitation.</h3>
+
+<p>Limitations on the term of the various types of general obligation debt instruments which the city is authorized to issue shall be as follows:</p>
+
+<ol style="list-style-type:decimal">
+	<li>The term of any general obligation bond issue shall not exceed the estimated life of the property or improvement to be acquired from the proceeds thereof, said estimated life to be determined by the council, and no general obligation bonds of any type shall mature later than thirty years after the date of issuance thereof.</li>
+	<li>Notes issued in anticipation of the receipt of revenues of any fund shall mature within the same fiscal year in which issued.</li>
+	<li>Notes issued to meet expenses arising from an emergency shall mature within one year, and an appropriation sufficient to pay off such notes shall be included in the first budget adopted after the issuance of such notes, except in cases where an alternative means of paying off such notes is found in advance of the date on which such budget is adopted.</li>
+	<li>Notes issued in anticipation of the sale of bonds previously authorized shall mature within two years.</li>
+</ol>
+
+<p>The provisions of this section shall govern and apply notwithstanding any existing provisions of this charter to the contrary. (Amendment of March 3, 1959).</p>
+
+<p class='archiveNotice nullValue '></p>
+</section> 
+<section id='secid-906' class='secLvl2 _010 _010-045' tabindex='-1' data-secid='906'> 
+<h3>Sec. 43. General Obligation Bonds; Form, Sale, Issuance, Etc.</h3>
+
+<p>General provisions relating to the form, sale, issuance, interest rates, and other matters concerning general obligation bonds shall be as follows:</p>
+
+<ol style="list-style-type:decimal">
+	<li>The form, denomination, and other features of such bond issues shall be as prescribed by the council in the ordinance pertaining to the issuance of such bonds. The finance director shall be responsible for the sale and issuance of such bonds, for their delivery, for promptly and properly depositing the proceeds therefrom, and for other ministerial acts relating to such bonds.</li>
+	<li>The provisions of Section 40 of this article requiring a separate vote of the electors on each purpose for which moneys are to be borrowed shall not be construed as preventing the sale and issuance of single general obligation bond issues for multiple purposes, provided that each such purpose has been authorized by the necessary separate vote. The purpose or purposes of each bond issue shall be stated on the bond, and the proceeds received from the sale thereof shall not be used for any other purpose or purposes.</li>
+	<li>Bond maturities shall be scheduled so as to require substantially equal annual or semi-annual principal installments or substantially equal annual or semi-annual installments covering both principal and interest, and installments on any issue shall commence not later than two years after the date of issuance. Interest shall be payable annually or semi-annually.</li>
+	<li>Bonds shall be sold for such price as shall be determined by the city council.</li>
+	<li>Bonds may contain such provisions for call in advance of maturity as the council may prescribe in the bond ordinance concerned but all premiums, if any, shall not exceed four percent.</li>
+	<li>The council may provide in the bond ordinance concerned for the registration of such bonds as to principal only, or as to both principal and interest.</li>
+	<li>Such bonds shall be signed by the mayor and countersigned by the finance director. Signatures upon such bonds and coupons shall be in such form as the council may prescribe in the bond ordinance concerned. All required signatures may be affixed as facsimile signatures. The use on bonds and coupons of a printed facsimile of the city seal is also authorized.</li>
+</ol>
+
+<p>The provisions of this section shall govern and apply notwithstanding any existing provisions of this charter to the contrary, but this section shall not in any way govern, impair, or restrict the issuance of bonds authorized by the electors of the city prior to the effective date of this section. (Amendment of November 5, 1996; Amendment of November 6, 1990: Amendment of March 3, 1959).</p>
+
+<p class='archiveNotice nullValue '></p>
+</section> 
+<section id='secid-907' class='secLvl2 _010 _010-046' tabindex='-1' data-secid='907'> 
+<h3>Sec. 44. Revenue Bonds.</h3>
+
+<p>The city shall have the power to issue revenue bonds for the purpose of acquiring, constructing, reconstructing, improving, extending, equipping, or furnishing any revenue-producing facility within or without the city that the city has power to acquire, construct, reconstruct, extend, equip, improve, or operate under this charter and for the purpose of refunding any such bonds.</p>
+
+<p>General provisions relating to the form, sale, issuance, and other matters concerning revenue bonds shall be as follows:</p>
+
+<ol style="list-style-type:decimal">
+	<li>The form, denominations, and other features of such bond issues shall be as prescribed by the council in the ordinance authorizing the issuance of such bonds. The Finance Director shall be responsible for the sale and issuance of such bonds, for their delivery, for promptly and properly depositing the proceeds therefrom, and for other ministerial acts relating to bonds.</li>
+	<li>Revenue bonds shall be issued for such terms as the ordinance authorizing them shall prescribe but shall not mature later than fifty years after the date of issuance thereof.</li>
+	<li>Revenue bonds shall be sold for such price, and bear interest at such rate or rates payable at such time or times within or without the state as shall be determined by the City Council.</li>
+	<li>Any ordinance authorizing revenue bonds may contain such covenants and provisions to protect and safeguard the security of the holders of such bonds as shall be deemed necessary to assure the prompt payment of the principal thereof and the interest thereon. Such covenants and provisions may establish or provide for, but shall not be limited to, the payment of interest on such bonds from the proceeds thereof for such period as the council deems advisable, the creation of reserve funds from bond proceeds, revenues of the facility for which the bonds were issued or other available monies, the creation of trust funds, and the appointment of trustees for the purpose of receiving and disbursing bond proceeds or the collection and disbursement of revenues from the facility for which the bonds were issued; the limitations or conditions upon the issuance of additional bonds payable from the revenues of the facility for which the bonds were issued; the operation, maintenance, management, accounting and auditing procedures to be followed in the operation of the facility; and the conditions under which any trustee or bondholders&#39; committee shall be entitled to the appointment of a receiver to take possession of the facility, to manage it, and receive and apply revenues from the facility.</li>
+	<li>The provisions of this section and any ordinances authorizing the issuance of revenue bonds pursuant to this section shall constitute a contract of the city with every holder of said bonds and shall be enforceable by any bondholder by mandamus or other appropriate action at law or in equity in any court of competent jurisdiction.</li>
+	<li>Bonds issued pursuant to this section or notes issued pending permanent revenue bond financing shall not be a debt of the city within the meaning of any constitutional, statutory, or charter limitation upon the creation of general obligation indebtedness of the city, and the city shall not be liable for the payment thereof out of any monies of the city other than the revenues pledged to the payment thereof, and all bonds or notes issued pursuant to this section shall contain a recital to that effect. The holders of all revenue bonds or notes shall have a lien on the revenues of the project with respect to which they are issued subject to conditions provided in the ordinance authorizing the issuance of such bonds or notes.</li>
+	<li>Whenever the council shall have issued any revenue bonds or notes, it shall establish, maintain, revise and collect charges and rates throughout the life of the bonds at least sufficient to provide for all costs associated with the ownership, operation, maintenance, renewal and replacement of the facility for which the bonds were issued, the payment of the principal and interest on all indebtedness incurred with respect thereto and to provide adequate reserves therefor, to maintain such coverage for the payment of such indebtedness as the council may deem advisable, to maintain such other reserves as provided in the ordinances authorizing the issuance of such bonds and to carry out the provisions of such ordinances.</li>
+	<li>Such bonds shall be signed by the mayor and countersigned by the finance director. Signatures upon such bonds and coupons shall be in such form as the council may prescribe in the bond ordinance concerned. All required signatures may be affixed as facsimile signatures. The use on bonds and coupons of a printed facsimile of the city seal is also authorized.</li>
+</ol>
+
+<p>The provisions of this section shall govern and apply notwithstanding any existing provisions of this charter to the contrary, but this section shall not in any way govern, impair or restrict the issuance of revenue bonds authorized by the city prior to the effective date of this section.</p>
+
+<p>Unless authorized by the majority of the voters of the city voting upon the question, no revenue bonds shall be issued for the purpose of engaging in public transportation, natural gas distribution, or telephone fields or functions. (Amendment of November 6, 1990: prior amendment of September 9, 1974, effective November 18, 1974).</p>
+
+<p class='archiveNotice nullValue '></p>
+</section> 
+
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- hidden div below is for definition popup -->
+<div id="defFrame">
+    <img alt='loading progress' src="resources/progress.gif" /></div>
+<!-- hidden div below is for ajax loading progress-->
+<div id='progress-template' style='display: none;'>
+    <div class="progress" style='padding: 100px;'>
+        <div style='margin: auto; display: block; width: 200px; border: 1px solid #ccc; background-color: #eee; padding: 10px;'>
+            <img alt='loading progress' src='resources/progress.gif' style='margin: auto; display: block;' />
+            <br />
+            <span style='margin: auto; display: block; width: 75px; padding-left: 10px;'>Loading...</span>
+        </div>
+    </div>
+</div>
+<iframe style="width: 1px; height: 1px" src="" id="printiframe" name="printiframe" onload="ZP.DocView.IFrameReady();" title="Print frame" aria-hidden="true" role="presentation"></iframe>
+
+    </div>
+
+
+    </body>
+</html>

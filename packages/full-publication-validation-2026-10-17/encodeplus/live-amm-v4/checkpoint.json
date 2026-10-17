@@ -1,0 +1,109 @@
+{
+  "asset_failures": {
+    "http://www.syracuse.ny.us/pdfs/DPW/TIS_guidelines_ITE.pdf": {
+      "raw_path": "assets/6cc2696fefcf1398304fbf4f6c5b190b0e34d99301ba2759d06fb235c2270de8.bin",
+      "reason": "HTTP/challenge stop: None http://www.syracuse.ny.us/pdfs/DPW/TIS_guidelines_ITE.pdf"
+    }
+  },
+  "assets": {
+    "https://online.encodeplus.com/regs/lincoln-ne-amm/media/images/AccessManagement122424.jpg": {
+      "content_type": "image/jpeg",
+      "kind": "linked-binary",
+      "path": "assets/f493fb52f7c59601b5a49fae08e33da833746989965a15934728881cbaf9f9e1.bin",
+      "sha256": "1316aaf5b9118adf6dbc02718181504b343b5a3111d2cd9901b0bf5c960d00b9",
+      "url": "https://online.encodeplus.com/regs/lincoln-ne-amm/media/images/AccessManagement122424.jpg"
+    }
+  },
+  "blocks": [
+    {
+      "path": "raw/node-5.html",
+      "record_ids": [
+        "5",
+        "6",
+        "7",
+        "8",
+        "9",
+        "10",
+        "11",
+        "12",
+        "13",
+        "14",
+        "15",
+        "16",
+        "17",
+        "18"
+      ],
+      "requested": "5",
+      "sha256": "dc53b1033a7aa209d038329f0e0615433c41d4e430fe7f8e5ef9f19226676161",
+      "url": "https://online.encodeplus.com/regs/lincoln-ne-amm/doc-view.aspx?secid=5&ajax=0"
+    }
+  ],
+  "code_hashes": {
+    "__init__.py": "b694a5d9aaec3d14d60b33a1633fcc183ac03862b6226f4fd0d2fe62ff4354e3",
+    "collect.py": "009e5195b8bd59f18f2d4b5d87acbbd77ef9d6350bf9271657361acc632976e3",
+    "model.py": "42f74f2a7c835f2ce5ddadd9103e34086a5b1b56909a852194a722d775c8af86",
+    "targets.json": "a49ef8ea245588ceb30a2e654295566ae3b4d6b6d0afd1a8900abd72bd094163",
+    "transport.py": "a0fb15d72a70c8e141cf9d02cc2800a5c5a901f737b8a32299f12a33b05799df",
+    "util.py": "bb5e1ed76e2f81e5d2e41f8f5578b657616f18ce6e6b955a6ff8077ff0f2e920",
+    "verify.py": "456add60b579a6a67aaa1782435c00f9f4acc74d24fcd63c24761f06bc25587c"
+  },
+  "command": [
+    "/Users/oliverflint/My Drive/Claude/Projects/CompliSolv 2.00/github/local-jurisdiction-collection/collectors/encodeplus/collect.py",
+    "lincoln-access-management",
+    "--out",
+    "/Users/oliverflint/My Drive/Claude/Projects/CompliSolv 2.00/outputs/full-publication-validation-2026-10-17/encodeplus/live-amm-v4",
+    "--native-export"
+  ],
+  "config": {
+    "base": "https://online.encodeplus.com/regs/lincoln-ne-amm/",
+    "identity": "Lincoln NE Access Management Policy",
+    "jurisdiction": "Lincoln, NE",
+    "scope": "Separately published City of Lincoln Access Management Policy only; not Municipal Code"
+  },
+  "config_sha256": "f569c39cc4f2427cd67ecef5888382242bb0745b1f6d373bc681d0ec4d275e13",
+  "end_blocks": [
+    {
+      "path": "end-0/node-5.html",
+      "requested": "5",
+      "sha256": "dc53b1033a7aa209d038329f0e0615433c41d4e430fe7f8e5ef9f19226676161",
+      "url": "https://online.encodeplus.com/regs/lincoln-ne-amm/doc-view.aspx?secid=5&ajax=0"
+    }
+  ],
+  "end_inventory": {
+    "path": "inventory/end-0.html",
+    "sha256": "755853bc6aba99f6391136276119b178d598900bc5ff3c729dbcaf73db0e3976",
+    "url": "https://online.encodeplus.com/regs/lincoln-ne-amm/doc-view.aspx"
+  },
+  "end_inventory_sha256": "d5c1d42ba2839d71454f5996ce9f17144fbc9777b2a1fd8b6f62f2a3d8c565a5",
+  "failures": [],
+  "generation": 0,
+  "inventory_raw": {
+    "path": "inventory/start.html",
+    "sha256": "755853bc6aba99f6391136276119b178d598900bc5ff3c729dbcaf73db0e3976",
+    "url": "https://online.encodeplus.com/regs/lincoln-ne-amm/doc-view.aspx"
+  },
+  "inventory_sha256": "d5c1d42ba2839d71454f5996ce9f17144fbc9777b2a1fd8b6f62f2a3d8c565a5",
+  "native_export": {
+    "bytes": 65368,
+    "content_completeness": "Unverified native file: transport alone does not establish text/asset completeness",
+    "path": "native/publication.pdf",
+    "scope": "Entire observed TOCroot control 000",
+    "sha256": "bfd60d939069f3212b36ef03994024246c004b685920d4e80ab1d8833603a96b",
+    "status": "downloaded",
+    "tocid": "000",
+    "url": "https://online.encodeplus.com/regs/lincoln-ne-amm/export2doc.aspx?pdf=1&tocid=000"
+  },
+  "options": {
+    "max_items": null,
+    "native_export": true,
+    "skip_assets": false
+  },
+  "phase": "finished",
+  "runtime": {
+    "os": "macOS-26.6.2-arm64-arm-64bit",
+    "python": "3.12.14"
+  },
+  "schema_version": 1,
+  "started_at": "2026-10-17T19:42:02.615222+00:00",
+  "target": "lincoln-access-management"
+}

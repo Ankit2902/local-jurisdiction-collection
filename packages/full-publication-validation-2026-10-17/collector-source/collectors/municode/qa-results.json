@@ -1,0 +1,75 @@
+{
+  "kind": "network-free-final-hardening-regressions",
+  "python": "3.9.6 (default, May 22 2026, 11:13:45) \n[Clang 21.0.0 (clang-2100.1.1.101)]",
+  "python_executable": "/Library/Developer/CommandLineTools/usr/bin/python3",
+  "network_requests": 0,
+  "passed": true,
+  "checks": [
+    {
+      "argv": [
+        "/Library/Developer/CommandLineTools/usr/bin/python3",
+        "-B",
+        "collectors/municode/test_faults.py"
+      ],
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": "test_baseline_and_container_ownership (__main__.FaultTests) ... ok\ntest_corrupt_asset (__main__.FaultTests) ... ok\ntest_corrupt_body (__main__.FaultTests) ... ok\ntest_corrupt_resume_cache_refused_before_network (__main__.FaultTests) ... ok\ntest_duplicated_document (__main__.FaultTests) ... ok\ntest_extensionless_image_head_omission (__main__.FaultTests) ... ok\ntest_image_forms_and_image_only_leaf (__main__.FaultTests) ... ok\ntest_image_omission_no_download (__main__.FaultTests) ... ok\ntest_inline_image_payload_not_in_normalized_metadata (__main__.FaultTests) ... ok\ntest_interrupted_cannot_pass (__main__.FaultTests) ... ok\ntest_limit_always_incomplete (__main__.FaultTests) ... ok\ntest_missing_asset (__main__.FaultTests) ... ok\ntest_missing_document (__main__.FaultTests) ... ok\ntest_required_pdf_truncated_or_unqualified_cannot_complete (__main__.FaultTests) ... ok\ntest_resume_identity_mismatch_refused (__main__.FaultTests) ... ok\ntest_resume_matches_uninterrupted_outputs (__main__.FaultTests) ... ok\ntest_source_drift (__main__.FaultTests) ... ok\ntest_wrong_edition_request (__main__.FaultTests) ... ok\ntest_zip_prefix_only_cannot_qualify (__main__.FaultTests) ... ok\n\n----------------------------------------------------------------------\nRan 19 tests in 1.483s\n\nOK\n"
+    },
+    {
+      "argv": [
+        "/Users/oliverflint/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/bin/node",
+        "collectors/municode/test_transport.cjs"
+      ],
+      "exit_code": 0,
+      "stdout": "{\"passed\":true,\"network_requests\":0,\"actual_browser_module_executed\":true,\"known_image_requests\":0,\"extensionless_image_body_requests\":0,\"nonimage_attachment_head_and_get\":true,\"ordinary_image_resources_blocked\":true,\"security_resources_untouched\":true}\n",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "/Library/Developer/CommandLineTools/usr/bin/python3",
+        "-B",
+        "collectors/municode/check_fixture.py"
+      ],
+      "exit_code": 0,
+      "stdout": "{\n  \"passed\": true,\n  \"evidence_kind\": \"retained-single-provision-not-publication\",\n  \"network_requests\": 0,\n  \"node_id\": \"TIT4BURELI_CH4.05BULIFESC_4.05.420BULISUFE\",\n  \"table_count\": 1,\n  \"row_count\": 176,\n  \"cell_count\": 528,\n  \"internal_link_count\": 105\n}\n",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "/Library/Developer/CommandLineTools/usr/bin/python3",
+        "-B",
+        "collectors/municode/verify.py",
+        "collectors/municode/fixtures/synthetic-complete",
+        "--offline"
+      ],
+      "exit_code": 0,
+      "stdout": "{\n  \"passed\": true,\n  \"checks\": 58,\n  \"network_requests\": 0,\n  \"package_writes\": false,\n  \"record_count\": 3,\n  \"publication_complete\": true,\n  \"publication_text_complete\": true,\n  \"publication_attachments_complete\": true,\n  \"jurisdiction_complete\": false,\n  \"phase\": \"finished\"\n}\n",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "/Library/Developer/CommandLineTools/usr/bin/python3",
+        "-B",
+        "collectors/qa/test_municode_edges.py"
+      ],
+      "exit_code": 0,
+      "stdout": "{\n  \"synthetic\": true,\n  \"network_requests_sent\": 0,\n  \"image_policy\": \"literal [IMAGE]; no separate image acquisition\",\n  \"source_module_sha256\": {\n    \"model.py\": \"39c08c00a9429cefadd082f3e1b7d5ec02a8d40b7beda0b0fc789908eb289048\",\n    \"image_policy.py\": \"082ced37bb2c2f7be5cdf9a77a12ce734e98e1b469626e206faf337beba29390\"\n  },\n  \"probes\": [\n    {\n      \"test\": \"baseline\",\n      \"expected_complete\": true,\n      \"actual_complete\": true,\n      \"passed\": true,\n      \"error\": null\n    },\n    {\n      \"test\": \"omitted_direct_image\",\n      \"expected_complete\": true,\n      \"actual_complete\": true,\n      \"passed\": true,\n      \"error\": null\n    },\n    {\n      \"test\": \"svg_image_href\",\n      \"expected_complete\": true,\n      \"actual_complete\": true,\n      \"passed\": true,\n      \"error\": null\n    },\n    {\n      \"test\": \"svg_image_xlink\",\n      \"expected_complete\": true,\n      \"actual_complete\": true,\n      \"passed\": true,\n      \"error\": null\n    },\n    {\n      \"test\": \"image_only_leaf\",\n      \"expected_complete\": true,\n      \"actual_complete\": true,\n      \"passed\": true,\n      \"error\": null\n    },\n    {\n      \"test\": \"mixed_images_nested_table\",\n      \"expected_complete\": true,\n      \"actual_complete\": true,\n      \"passed\": true,\n      \"error\": null\n    },\n    {\n      \"test\": \"required_nonimage_attachment\",\n      \"expected_complete\": false,\n      \"actual_complete\": false,\n      \"passed\": true,\n      \"error\": null\n    },\n    {\n      \"test\": \"heading_only_leaf\",\n      \"expected_complete\": false,\n      \"actual_complete\": false,\n      \"passed\": true,\n      \"error\": null\n    },\n    {\n      \"test\": \"unknown_empty_container\",\n      \"expected_complete\": false,\n      \"actual_complete\": false,\n      \"passed\": true,\n      \"error\": null\n    }\n  ],\n  \"passed\": true\n}\n",
+      "stderr": ""
+    }
+  ],
+  "source_hashes": {
+    "collect.py": "505443170e71b082ff0bfae97f6e94482f2aa68999dc4bf778a1fb175ea79209",
+    "table_qa.cjs": "c05e86bfd17af907453ae0b345e14eff8a0a7c304b525445ed29ab6e2e93aa72",
+    "browser.cjs": "3ed9da37fa4e7e4b5c868afbff37425ddc77d6a41caab551ea24858631138c0c",
+    "gate_cli.py": "1f358d2d9a4f8851b5e37437164152724606fb711be4e032aeea7a44277d65df",
+    "normalize.py": "a730839b7c4620f19ed8556af8671ba67d1b2ef5df29e7df23935c4e8c4e02fb",
+    "image_policy.py": "082ced37bb2c2f7be5cdf9a77a12ce734e98e1b469626e206faf337beba29390",
+    "test_faults.py": "dd33d37b6b15d57942a54ecfea8c697973fff9adb95d29ebad91f3817a8f14d7",
+    "model.py": "39c08c00a9429cefadd082f3e1b7d5ec02a8d40b7beda0b0fc789908eb289048",
+    "check_fixture.py": "a6cb928a6e876813a8fcb0aa83145215991fa71270150a63f0150a29e60c490a",
+    "test_transport.cjs": "81f99b0a560828ac316498b2d760bd06e9505b9e2ee1250133c5d9870fc2cec7",
+    "verify.py": "3d86e885f1695fc45371747397bf9edbded67caabb9d1cf636a220c7cf763c60",
+    "probe_container.cjs": "6e62a02e5ac2fecdcd72173feb2dc7a1e08099d749c8996cea5fb0b2db51e0af",
+    "smoke.py": "1383dc188bc284905116ec974da26e887c6295591986aee6d46f9dc8de375a5b"
+  }
+}

@@ -1,0 +1,39 @@
+test_al_heading_only_not_operative (__main__.Tests.test_al_heading_only_not_operative) ... ok
+test_al_native_middle_branch_omission_rejected (__main__.Tests.test_al_native_middle_branch_omission_rejected) ... ok
+test_ecode_heading_only_operative_unresolved (__main__.Tests.test_ecode_heading_only_operative_unresolved) ... FAIL
+test_ecode_unowned_visual_fails (__main__.Tests.test_ecode_unowned_visual_fails) ... FAIL
+test_municipal_unowned_visual_fails (__main__.Tests.test_municipal_unowned_visual_fails) ... FAIL
+test_official_heading_only_single_document_rejected (__main__.Tests.test_official_heading_only_single_document_rejected) ... ok
+test_required_asset_reference_forms_all_four (__main__.Tests.test_required_asset_reference_forms_all_four) ... ok
+
+======================================================================
+FAIL: test_ecode_heading_only_operative_unresolved (__main__.Tests.test_ecode_heading_only_operative_unresolved)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/oliverflint/My Drive/Claude/Projects/CompliSolv 2.00/github/local-jurisdiction-collection/collectors/qa/test_cross_family_edges.py", line 23, in test_ecode_heading_only_operative_unresolved
+    raw=ecode_page('<h2>Section 1</h2>');parsed=ec.parse_ecode(raw,'https://ecode360.com/101',ec.identity(raw,'https://ecode360.com/101','ecode360'));self.assertFalse(any(d['classification']=='owned_content' for d in parsed['dispositions']))
+                                                                                                                                                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: True is not false
+
+======================================================================
+FAIL: test_ecode_unowned_visual_fails (__main__.Tests.test_ecode_unowned_visual_fails)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/oliverflint/My Drive/Claude/Projects/CompliSolv 2.00/github/local-jurisdiction-collection/collectors/qa/test_cross_family_edges.py", line 26, in test_ecode_unowned_visual_fails
+    with self.assertRaises(Exception):ec.parse_ecode(raw,'https://ecode360.com/101',ec.identity(raw,'https://ecode360.com/101','ecode360'))
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: Exception not raised
+
+======================================================================
+FAIL: test_municipal_unowned_visual_fails (__main__.Tests.test_municipal_unowned_visual_fails)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/oliverflint/My Drive/Claude/Projects/CompliSolv 2.00/github/local-jurisdiction-collection/collectors/qa/test_cross_family_edges.py", line 29, in test_municipal_unowned_visual_fails
+    with self.assertRaises(Exception):ec.parse_municipal(raw,base+'/1',base,ec.identity(raw,base,'municipal.codes',base))
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: Exception not raised
+
+----------------------------------------------------------------------
+Ran 7 tests in 0.031s
+
+FAILED (failures=3)

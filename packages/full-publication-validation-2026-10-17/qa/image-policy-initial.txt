@@ -1,0 +1,34 @@
+test_explicit_nonimage_incorporation_remains_required (__main__.Tests.test_explicit_nonimage_incorporation_remains_required) ... ok
+test_image_only_source_identity_retained (__main__.Tests.test_image_only_source_identity_retained) ... ok
+test_mixed_images_tables_normalized_html_and_text (__main__.Tests.test_mixed_images_tables_normalized_html_and_text) ... 
+  test_mixed_images_tables_normalized_html_and_text (__main__.Tests.test_mixed_images_tables_normalized_html_and_text) (family='american-legal') ... FAIL
+  test_mixed_images_tables_normalized_html_and_text (__main__.Tests.test_mixed_images_tables_normalized_html_and_text) (family='official') ... FAIL
+
+======================================================================
+FAIL: test_mixed_images_tables_normalized_html_and_text (__main__.Tests.test_mixed_images_tables_normalized_html_and_text) (family='american-legal')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/oliverflint/My Drive/Claude/Projects/CompliSolv 2.00/github/local-jurisdiction-collection/collectors/qa/test_image_policy.py", line 23, in test_mixed_images_tables_normalized_html_and_text
+    self.assertTrue(r[idkey]);self.assertTrue(r['heading']);self.assert_safe(r[key]);self.assertIn('[IMAGE]',r['text']);self.assertIn('Before image text.',r['text']);self.assertIn('After image text.',r['text']);self.assertGreaterEqual(r['text'].count('[IMAGE]'),8)
+                                                            ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/oliverflint/My Drive/Claude/Projects/CompliSolv 2.00/github/local-jurisdiction-collection/collectors/qa/test_image_policy.py", line 18, in assert_safe
+    s=BeautifulSoup(html,'html.parser');self.assertFalse(s.select('img,picture,svg,image,use,source[srcset],video[poster]'),html);self.assertNotRegex(html,r'data:image/|url\s*\(',html)
+                                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: [<video poster="poster.png"></video>] is not false : <h2 id="rid-A">§ 1 Map provision</h2><p>Before image text.</p><span id="i1">[IMAGE]</span><span>[IMAGE]</span><span id="vector">[IMAGE]</span><p style="background-image:url([IMAGE])">[IMAGE]CSS label</p><span>[IMAGE]</span><video poster="poster.png"></video>[IMAGE]<object data="data:image/png;base64,AAAA" type="image/png"></object><table><tr><td>Outer cell<span>[IMAGE]</span><table><tr><td>Nested cell<span>[IMAGE]</span></td></tr></table></td></tr></table><p>After image text.</p>
+
+======================================================================
+FAIL: test_mixed_images_tables_normalized_html_and_text (__main__.Tests.test_mixed_images_tables_normalized_html_and_text) (family='official')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/oliverflint/My Drive/Claude/Projects/CompliSolv 2.00/github/local-jurisdiction-collection/collectors/qa/test_image_policy.py", line 23, in test_mixed_images_tables_normalized_html_and_text
+    self.assertTrue(r[idkey]);self.assertTrue(r['heading']);self.assert_safe(r[key]);self.assertIn('[IMAGE]',r['text']);self.assertIn('Before image text.',r['text']);self.assertIn('After image text.',r['text']);self.assertGreaterEqual(r['text'].count('[IMAGE]'),8)
+                                                            ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/oliverflint/My Drive/Claude/Projects/CompliSolv 2.00/github/local-jurisdiction-collection/collectors/qa/test_image_policy.py", line 18, in assert_safe
+    s=BeautifulSoup(html,'html.parser');self.assertFalse(s.select('img,picture,svg,image,use,source[srcset],video[poster]'),html);self.assertNotRegex(html,r'data:image/|url\s*\(',html)
+                                                                                                                                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: Regex matched: 'data:image/' matches 'data:image/|url\\s*\\(' in '<main><h2>§ 1 Map provision</h2><p>Before image text.</p><span data-source-image-id="i1">[IMAGE]</span><span>[IMAGE]</span><span data-source-image-id="vector">[IMAGE]</span>[IMAGE]<p style="background-image:none">CSS label</p><span>[IMAGE]</span>[IMAGE]<video></video><object data="data:image/png;base64,AAAA" type="image/png"></object><table><tr><td>Outer cell<span>[IMAGE]</span><table><tr><td>Nested cell<span>[IMAGE]</span></td></tr></table></td></tr></table><p>After image text.</p></main>' : <main><h2>§ 1 Map provision</h2><p>Before image text.</p><span data-source-image-id="i1">[IMAGE]</span><span>[IMAGE]</span><span data-source-image-id="vector">[IMAGE]</span>[IMAGE]<p style="background-image:none">CSS label</p><span>[IMAGE]</span>[IMAGE]<video></video><object data="data:image/png;base64,AAAA" type="image/png"></object><table><tr><td>Outer cell<span>[IMAGE]</span><table><tr><td>Nested cell<span>[IMAGE]</span></td></tr></table></td></tr></table><p>After image text.</p></main>
+
+----------------------------------------------------------------------
+Ran 3 tests in 0.050s
+
+FAILED (failures=2)

@@ -1,0 +1,66 @@
+{"event": "progress", "pages": 1, "inventory": 98, "owned": 1, "remaining": 96}
+{"event": "progress", "pages": 2, "inventory": 154, "owned": 2, "remaining": 151}
+{"event": "progress", "pages": 3, "inventory": 154, "owned": 2, "remaining": 150}
+{"event": "progress", "pages": 4, "inventory": 154, "owned": 3, "remaining": 149}
+{"event": "progress", "pages": 5, "inventory": 170, "owned": 20, "remaining": 148}
+{"event": "progress", "pages": 6, "inventory": 174, "owned": 25, "remaining": 147}
+{"event": "progress", "pages": 7, "inventory": 178, "owned": 30, "remaining": 146}
+{"event": "progress", "pages": 8, "inventory": 191, "owned": 44, "remaining": 145}
+{"event": "progress", "pages": 9, "inventory": 197, "owned": 51, "remaining": 144}
+{"event": "progress", "pages": 10, "inventory": 210, "owned": 52, "remaining": 156}
+{"event": "progress", "pages": 11, "inventory": 210, "owned": 53, "remaining": 155}
+{"event": "progress", "pages": 12, "inventory": 213, "owned": 57, "remaining": 154}
+{"event": "progress", "pages": 13, "inventory": 237, "owned": 58, "remaining": 177}
+{"event": "progress", "pages": 14, "inventory": 241, "owned": 63, "remaining": 176}
+{"event": "progress", "pages": 15, "inventory": 244, "owned": 67, "remaining": 175}
+{"event": "progress", "pages": 16, "inventory": 247, "owned": 71, "remaining": 174}
+{"event": "progress", "pages": 17, "inventory": 259, "owned": 84, "remaining": 173}
+{"event": "progress", "pages": 18, "inventory": 305, "owned": 85, "remaining": 218}
+{"event": "progress", "pages": 19, "inventory": 336, "owned": 86, "remaining": 248}
+{"event": "progress", "pages": 20, "inventory": 354, "owned": 87, "remaining": 265}
+{"event": "progress", "pages": 21, "inventory": 369, "owned": 103, "remaining": 264}
+{"event": "progress", "pages": 22, "inventory": 375, "owned": 110, "remaining": 263}
+{"event": "progress", "pages": 23, "inventory": 393, "owned": 111, "remaining": 280}
+{"event": "progress", "pages": 24, "inventory": 398, "owned": 117, "remaining": 279}
+{"event": "progress", "pages": 25, "inventory": 413, "owned": 118, "remaining": 293}
+{"event": "progress", "pages": 26, "inventory": 413, "owned": 119, "remaining": 292}
+Error occurred in event listener
+Traceback (most recent call last):
+  File "/Users/oliverflint/My Drive/Claude/Projects/CompliSolv 2.00/github/local-jurisdiction-collection/collectors/ecode/engine.py", line 197, in collect
+    n=pending[0];get('content',n['url']);count+=1;data=rebuild(out,state);state['inventory_sha256']=digest(canon(sorted(data['nodes'].values(),key=lambda n:n['id'])));save(out/'checkpoint.json',state);print(json.dumps({'event':'progress','pages':count,'inventory':len(data['nodes']),'owned':len(data['records']),'remaining':len(set(data['nodes'])-set(data['dispositions']))}),flush=True)
+                 ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/oliverflint/My Drive/Claude/Projects/CompliSolv 2.00/github/local-jurisdiction-collection/collectors/ecode/engine.py", line 147, in get
+    raw,meta=browser.bootstrap(url) if bootstrap else browser.fetch(url);a=artifact(out,state,role,raw,meta);browser.check(raw,meta);return raw,a
+                                                      ^^^^^^^^^^^^^^^^^^
+  File "/Users/oliverflint/My Drive/Claude/Projects/CompliSolv 2.00/github/local-jurisdiction-collection/collectors/ecode/browser.py", line 53, in fetch
+    result=self.page.evaluate("""async u=>{const r=await fetch(u,{redirect:'error'});const b=new Uint8Array(await r.arrayBuffer());let s='';for(let i=0;i<b.length;i+=16384)s+=String.fromCharCode(...b.subarray(i,i+16384));return {url:r.url,status:r.status,headers:Object.fromEntries(r.headers),data:btoa(s)}}""",url)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/oliverflint/My Drive/Claude/Projects/CompliSolv 2.00/outputs/full-publication-validation-2026-10-17/ecode/.venv/lib/python3.12/site-packages/playwright/sync_api/_generated.py", line 16843, in evaluate
+    self._sync(
+  File "/Users/oliverflint/My Drive/Claude/Projects/CompliSolv 2.00/outputs/full-publication-validation-2026-10-17/ecode/.venv/lib/python3.12/site-packages/playwright/_impl/_sync_base.py", line 110, in _sync
+    wait_for_future(self._loop, self._dispatcher_fiber, task)
+  File "/Users/oliverflint/My Drive/Claude/Projects/CompliSolv 2.00/outputs/full-publication-validation-2026-10-17/ecode/.venv/lib/python3.12/site-packages/playwright/_impl/_greenlets.py", line 84, in wait_for_future
+    dispatcher_fiber.switch()
+KeyboardInterrupt
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "/Users/oliverflint/My Drive/Claude/Projects/CompliSolv 2.00/github/local-jurisdiction-collection/collectors/ecode/cli.py", line 20, in <module>
+    if __name__=='__main__':sys.exit(main())
+                                     ^^^^^^
+  File "/Users/oliverflint/My Drive/Claude/Projects/CompliSolv 2.00/github/local-jurisdiction-collection/collectors/ecode/cli.py", line 16, in main
+    r=collect(cfg,a.out,a.resume)
+      ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/oliverflint/My Drive/Claude/Projects/CompliSolv 2.00/github/local-jurisdiction-collection/collectors/ecode/engine.py", line 145, in collect
+    with Browser(cfg['family'],out,cfg.get('gate_dir')) as browser:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/oliverflint/My Drive/Claude/Projects/CompliSolv 2.00/github/local-jurisdiction-collection/collectors/ecode/browser.py", line 66, in __exit__
+    try:self.context.close()
+        ^^^^^^^^^^^^^^^^^^^^
+  File "/Users/oliverflint/My Drive/Claude/Projects/CompliSolv 2.00/outputs/full-publication-validation-2026-10-17/ecode/.venv/lib/python3.12/site-packages/playwright/sync_api/_generated.py", line 2201, in close
+    self._sync(self._impl_obj.close(reason=reason))
+  File "/Users/oliverflint/My Drive/Claude/Projects/CompliSolv 2.00/outputs/full-publication-validation-2026-10-17/ecode/.venv/lib/python3.12/site-packages/playwright/_impl/_sync_base.py", line 110, in _sync
+    wait_for_future(self._loop, self._dispatcher_fiber, task)
+  File "/Users/oliverflint/My Drive/Claude/Projects/CompliSolv 2.00/outputs/full-publication-validation-2026-10-17/ecode/.venv/lib/python3.12/site-packages/playwright/_impl/_greenlets.py", line 84, in wait_for_future
+    dispatcher_fiber.switch()
+KeyboardInterrupt

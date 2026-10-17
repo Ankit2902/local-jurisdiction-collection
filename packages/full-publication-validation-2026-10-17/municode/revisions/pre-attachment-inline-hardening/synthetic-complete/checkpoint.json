@@ -1,0 +1,271 @@
+{
+  "schema_version": 1,
+  "evidence_kind": "synthetic_unit_fixture",
+  "binding": {
+    "source_url": "https://library.municode.com/zz/fixture/codes/test_publication",
+    "client_names": [
+      "Fixture Municipality"
+    ],
+    "state": "ZZ",
+    "jurisdiction": "Fixture Municipality",
+    "target_id": null,
+    "expected_client_id": 2,
+    "reference_policy": {},
+    "product_ids": [
+      17
+    ],
+    "implementation": {
+      "collect.py": "505443170e71b082ff0bfae97f6e94482f2aa68999dc4bf778a1fb175ea79209",
+      "model.py": "464a2a51bcf5159c09fe6e3dac4f0c59f2f4ed997bd6758b9e6b5eba450c83ab",
+      "normalize.py": "a730839b7c4620f19ed8556af8671ba67d1b2ef5df29e7df23935c4e8c4e02fb",
+      "browser.cjs": "3ed9da37fa4e7e4b5c868afbff37425ddc77d6a41caab551ea24858631138c0c",
+      "gate_cli.py": "1f358d2d9a4f8851b5e37437164152724606fb711be4e032aeea7a44277d65df",
+      "verify.py": "3d86e885f1695fc45371747397bf9edbded67caabb9d1cf636a220c7cf763c60",
+      "image_policy.py": "ac6eb1393212f9c620e23d6fcde08af530d99451a7a1fba82a5e1ee9234cf848"
+    }
+  },
+  "source_url": "https://library.municode.com/zz/fixture/codes/test_publication",
+  "expected_identity": {
+    "client_names": [
+      "Fixture Municipality"
+    ],
+    "state": "ZZ"
+  },
+  "units": {
+    "org-start": {
+      "request": {
+        "url": "https://library.municode.com/localapi/Organizations/GetByUrlEncodedNames/zz/fixture",
+        "binary": false
+      },
+      "receipt": "raw/aef08a3ab2c849c793576210f980d979.json",
+      "sha256": "9a67e14802006c950667e8490fcd83d5ba5b44a7f3ad6037b4e80aee88fa9fe4"
+    },
+    "inventory-start": {
+      "request": {
+        "url": "https://library.municode.com/api/ClientContent/2",
+        "binary": false
+      },
+      "receipt": "raw/b1eb70a7373b44749611010a25206e41.json",
+      "sha256": "159c65cea4a66796f9899c8139d907a9e9ec1e733e984623e851dc541a9e431e"
+    },
+    "product-start:17": {
+      "request": {
+        "url": "https://library.municode.com/api/Products/name?clientId=2&productName=Test+Publication",
+        "binary": false
+      },
+      "receipt": "raw/7b07c2bbe2ca49889ea8c08ac8418f12.json",
+      "sha256": "0d99aa5fc7cd449a6fe583f0d8081328f8b5354e8d7b25db9c13c2814d86fb3b"
+    },
+    "job-start:17": {
+      "request": {
+        "url": "https://library.municode.com/api/Jobs/latest/17",
+        "binary": false
+      },
+      "receipt": "raw/0031128bb4cc4cddbd0e5e8a270164c6.json",
+      "sha256": "d5c0ad3a05628c3adf0701dd85ebc4b91d645681b4bea8d00a17168c5449724a"
+    },
+    "toc-start:17": {
+      "request": {
+        "url": "https://library.municode.com/api/codesToc/fullTree?productId=17&jobId=99&nodeId=17",
+        "binary": false
+      },
+      "receipt": "raw/2af5771656cc4d958385c3407b838fb0.json",
+      "sha256": "6cdd4c79fc6c8baad8781551b30243456a7a5e92a9296c6830791744429958fa"
+    },
+    "landing:17": {
+      "request": {
+        "url": "https://library.municode.com/api/CodesContent?productId=17&jobId=99&nodeId=17&groupChunks=false",
+        "binary": false
+      },
+      "receipt": "raw/4402ca7fa74d4e65be3d95c961754b7d.json",
+      "sha256": "a39bce638cca2823058680426a4241e06da3c6e937eb73e5cfc4589ddd930dd7"
+    },
+    "content-root:17": {
+      "request": {
+        "url": "https://library.municode.com/api/CodesContent/docIds?productId=17&jobId=99&docIds=17&showChanges=false",
+        "binary": false
+      },
+      "receipt": "raw/56e57bf364dd435c860e21fe264c52d1.json",
+      "sha256": "1c83f6c0ea036feb422d9b8b8715e24538f83070d51a352bc560182ac845c867"
+    },
+    "asset:013ad60931df6d4a9d0b685e38d4d53329d431e69e511df6f503799dc6a07512": {
+      "request": {
+        "url": "https://mcclibrary.blob.core.usgovcloudapi.net/fixture/appendix.pdf",
+        "binary": true
+      },
+      "receipt": "raw/e202a91e1f77451da03ae66c6d001cc9.json",
+      "sha256": "802c7262ef3674165861c3914be02b2cfef95b7a7dd8be3d4284d79d3c5e59f3"
+    },
+    "inventory-end": {
+      "request": {
+        "url": "https://library.municode.com/api/ClientContent/2",
+        "binary": false
+      },
+      "receipt": "raw/fab9f43ef82d4cf18830c8e78973f104.json",
+      "sha256": "159c65cea4a66796f9899c8139d907a9e9ec1e733e984623e851dc541a9e431e"
+    },
+    "product-end:17": {
+      "request": {
+        "url": "https://library.municode.com/api/Products/name?clientId=2&productName=Test+Publication",
+        "binary": false
+      },
+      "receipt": "raw/251e91fb573c4f2f88f2c6b6d138dd0c.json",
+      "sha256": "0d99aa5fc7cd449a6fe583f0d8081328f8b5354e8d7b25db9c13c2814d86fb3b"
+    },
+    "job-end:17": {
+      "request": {
+        "url": "https://library.municode.com/api/Jobs/latest/17",
+        "binary": false
+      },
+      "receipt": "raw/3b3128d618204665857cd3f1baeec0fe.json",
+      "sha256": "d5c0ad3a05628c3adf0701dd85ebc4b91d645681b4bea8d00a17168c5449724a"
+    },
+    "toc-end:17": {
+      "request": {
+        "url": "https://library.municode.com/api/codesToc/fullTree?productId=17&jobId=99&nodeId=17",
+        "binary": false
+      },
+      "receipt": "raw/e8b0d612b48d42d486a523b03ca663ec.json",
+      "sha256": "6cdd4c79fc6c8baad8781551b30243456a7a5e92a9296c6830791744429958fa"
+    }
+  },
+  "responses": [
+    {
+      "request": {
+        "url": "https://library.municode.com/localapi/Organizations/GetByUrlEncodedNames/zz/fixture",
+        "binary": false
+      },
+      "receipt": "raw/aef08a3ab2c849c793576210f980d979.json",
+      "sha256": "9a67e14802006c950667e8490fcd83d5ba5b44a7f3ad6037b4e80aee88fa9fe4"
+    },
+    {
+      "request": {
+        "url": "https://library.municode.com/api/ClientContent/2",
+        "binary": false
+      },
+      "receipt": "raw/b1eb70a7373b44749611010a25206e41.json",
+      "sha256": "159c65cea4a66796f9899c8139d907a9e9ec1e733e984623e851dc541a9e431e"
+    },
+    {
+      "request": {
+        "url": "https://library.municode.com/api/Products/name?clientId=2&productName=Test+Publication",
+        "binary": false
+      },
+      "receipt": "raw/7b07c2bbe2ca49889ea8c08ac8418f12.json",
+      "sha256": "0d99aa5fc7cd449a6fe583f0d8081328f8b5354e8d7b25db9c13c2814d86fb3b"
+    },
+    {
+      "request": {
+        "url": "https://library.municode.com/api/Jobs/latest/17",
+        "binary": false
+      },
+      "receipt": "raw/0031128bb4cc4cddbd0e5e8a270164c6.json",
+      "sha256": "d5c0ad3a05628c3adf0701dd85ebc4b91d645681b4bea8d00a17168c5449724a"
+    },
+    {
+      "request": {
+        "url": "https://library.municode.com/api/codesToc/fullTree?productId=17&jobId=99&nodeId=17",
+        "binary": false
+      },
+      "receipt": "raw/2af5771656cc4d958385c3407b838fb0.json",
+      "sha256": "6cdd4c79fc6c8baad8781551b30243456a7a5e92a9296c6830791744429958fa"
+    },
+    {
+      "request": {
+        "url": "https://library.municode.com/api/CodesContent?productId=17&jobId=99&nodeId=17&groupChunks=false",
+        "binary": false
+      },
+      "receipt": "raw/4402ca7fa74d4e65be3d95c961754b7d.json",
+      "sha256": "a39bce638cca2823058680426a4241e06da3c6e937eb73e5cfc4589ddd930dd7"
+    },
+    {
+      "request": {
+        "url": "https://library.municode.com/api/CodesContent/docIds?productId=17&jobId=99&docIds=17&showChanges=false",
+        "binary": false
+      },
+      "receipt": "raw/56e57bf364dd435c860e21fe264c52d1.json",
+      "sha256": "1c83f6c0ea036feb422d9b8b8715e24538f83070d51a352bc560182ac845c867"
+    },
+    {
+      "request": {
+        "url": "https://mcclibrary.blob.core.usgovcloudapi.net/fixture/appendix.pdf",
+        "binary": true
+      },
+      "receipt": "raw/e202a91e1f77451da03ae66c6d001cc9.json",
+      "sha256": "802c7262ef3674165861c3914be02b2cfef95b7a7dd8be3d4284d79d3c5e59f3"
+    },
+    {
+      "request": {
+        "url": "https://library.municode.com/api/ClientContent/2",
+        "binary": false
+      },
+      "receipt": "raw/fab9f43ef82d4cf18830c8e78973f104.json",
+      "sha256": "159c65cea4a66796f9899c8139d907a9e9ec1e733e984623e851dc541a9e431e"
+    },
+    {
+      "request": {
+        "url": "https://library.municode.com/api/Products/name?clientId=2&productName=Test+Publication",
+        "binary": false
+      },
+      "receipt": "raw/251e91fb573c4f2f88f2c6b6d138dd0c.json",
+      "sha256": "0d99aa5fc7cd449a6fe583f0d8081328f8b5354e8d7b25db9c13c2814d86fb3b"
+    },
+    {
+      "request": {
+        "url": "https://library.municode.com/api/Jobs/latest/17",
+        "binary": false
+      },
+      "receipt": "raw/3b3128d618204665857cd3f1baeec0fe.json",
+      "sha256": "d5c0ad3a05628c3adf0701dd85ebc4b91d645681b4bea8d00a17168c5449724a"
+    },
+    {
+      "request": {
+        "url": "https://library.municode.com/api/codesToc/fullTree?productId=17&jobId=99&nodeId=17",
+        "binary": false
+      },
+      "receipt": "raw/e8b0d612b48d42d486a523b03ca663ec.json",
+      "sha256": "6cdd4c79fc6c8baad8781551b30243456a7a5e92a9296c6830791744429958fa"
+    }
+  ],
+  "publications": {
+    "17": {
+      "job_id": 99,
+      "toc_hash": "46a91e2ecde245b81b0d42d673ed793579891396f1a2a4baf68cf1fd8c4c86b7",
+      "start_signature": "8e8e9c93acd488ca97d032cc32775e698a08828031cea2f70feae02f6f7aefe7",
+      "product_unit": "product-start:17",
+      "job_unit": "job-start:17",
+      "toc_unit": "toc-start:17",
+      "content_units": [
+        "content-root:17"
+      ],
+      "root_landing_unit": "landing:17",
+      "end_units": {
+        "product": "product-end:17",
+        "job": "job-end:17",
+        "toc": "toc-end:17",
+        "inventory": "inventory-end"
+      },
+      "end_signature": "8e8e9c93acd488ca97d032cc32775e698a08828031cea2f70feae02f6f7aefe7"
+    }
+  },
+  "assets": {
+    "013ad60931df6d4a9d0b685e38d4d53329d431e69e511df6f503799dc6a07512": {
+      "unit": "asset:013ad60931df6d4a9d0b685e38d4d53329d431e69e511df6f503799dc6a07512",
+      "url": "https://mcclibrary.blob.core.usgovcloudapi.net/fixture/appendix.pdf"
+    }
+  },
+  "phase": "finished",
+  "limit": null,
+  "errors": [],
+  "document_base_url": "https://library.municode.com/zz/fixture/codes/test_publication",
+  "client_id": 2,
+  "inventory_hash": "6e201edcaccb9f98e4388753cbe28f528930b1304ad1f29a963a5371efdac3f2",
+  "visible_publications": [
+    {
+      "productId": 17,
+      "productName": "Test Publication",
+      "contentTypeId": "CODES",
+      "hideInLibrary": false
+    }
+  ]
+}

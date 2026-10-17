@@ -1,0 +1,469 @@
+
+    <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+    <html>
+    <head>
+
+        <title>ARTICLE VIII STREETS, PUBLIC IMPROVEMENTS, PUBLIC UTILITIES, SPECIAL ASSESSMENTS</title>
+        <link type="text/css" rel="Stylesheet" href="jqueryui/css/jqueryui.css" media="all" />
+        <link type="text/css" rel="Stylesheet" href="css/ui.css" media="all" />
+        <link type="text/css" rel="Stylesheet" href="css/customui.css" media="all" />
+        <link type="text/css" rel="Stylesheet" href="css/document.css" media="all" />
+        <link type="text/css" rel="Stylesheet" href="css/customdoc.css" media="all" />
+        <link type="text/css" rel="Stylesheet" href="tablestyles.aspx" media="all" />
+        <link rel="StyleSheet" type="text/css" href="/common/font-awesome/css/all.min.css">
+        <link type="text/css" rel="Stylesheet" href="css/docprint.css" media="print" />
+        <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+        <script type="text/javascript" src="jqueryui/js/jquery-ui-1.8.21.custom.min.js"></script>
+        <script type="text/javascript" src="js/doc-view.js?_t=290"></script>
+        <script type="text/javascript" src="js/tabletools.js"></script>
+        <script type="text/javascript" src="js/tabs.js"></script>
+        <script type="text/javascript">
+            var iframeReady = false;
+        </script>
+        
+    </head>
+    <body class='doc-view'>
+        <script type="text/javascript">
+            $(document).ready(function () {
+                ZP.DocView.InitDef();
+                ZP.DocView.OpenDefinitionPage = null;
+                ZP.DocView.OpenDefinitionMode = '_self';
+                ZP.DocView.OpenXRefPage = 'doc-viewer.aspx#$2-';
+                ZP.DocView.OpenXRefMode = '_blank';
+                $(window).bind('hashchange', ZP.DocView.HashChanged);
+        
+        if (typeof ZP.DocView.ZoomClasses == 'undefined') {
+            ZP.DocView.ZoomClasses = ["Unzoom1", "", "Zoom1", "Zoom2", "Zoom3", "Zoom4"];
+        }
+        ZP.DocView.InitializeZoom();
+        EC.SortedTable.Init(".ord-tbl, .stat-tbl", ".sortable");
+        EC.Tabs.PositionLeftTabs();
+    });
+
+
+        </script>
+
+
+    <div id="doc-viewer">
+        
+
+<div id="doc-view">
+    <div id="doc-view-content">
+        
+<div id="pageControls">
+<script type="text/javascript" >
+    function clearEffDate() {
+        jQuery.get("doc-view-helper.aspx?task=currentversion", function () {
+            window.location.reload();
+        });
+        return false;
+    }
+</script>
+     <div class="pageControls psuedoTable" role="navigation" aria-label="Document Navigation">  
+        <div class="psuedoTableBody" >     
+            <div class="psuedoTableRow">         
+                <div class="pageControls_outer" ></div>
+                <div class="pageControls_inner left">
+                    <a id='button1' onclick='ZP.DocView.PrintDoc("009",false);return false;' href="#" title="Print" role="button"> 
+                        <img alt="Print" src="resources/btn-print-white.png" /></a>
+                    <a id='Button2' onclick='ZP.DocView.OpenPDF("009",false);return false;' href="#" title="Export PDF" role="button">
+                        <img alt="Generate PDF" src="resources/btn-makepdf-white.png" /></a>
+                        <a class="email-popup" href="mailto:?subject=ARTICLE%20VIII%20STREETS,%20PUBLIC%20IMPROVEMENTS,%20PUBLIC%20UTILITIES,%20SPECIAL%20ASSESSMENTS&amp;body=Lincoln%20NE%20City%20Charter https://online.encodeplus.com/regs/lincoln-ne-cc/doc-viewer.aspx?secid=824"><img src="resources/email-white.png" alt="Click to Share By Email" /></a>     
+                </div>
+                <div  class="pageControls_inner breadCrumbs" title="Navigation 'breadcrumbs'">
+                     <div class='breadCrumbs'><a href='/regs/lincoln-ne-cc/doc-viewer.aspx?tocid=009' >ARTICLE VIII STREETS, PUBLIC IMPROVEMENTS, PUBLIC UTILITIES, SPECIAL ASSESSMENTS</a></div>
+                </div>
+                 <div  class="pageControls_inner right">       
+                     <ul >  
+                         <li>
+                            <a id='button3' class="nav" onclick="ZP.DocView.LoadPrevDoc('009');return false;" href="#"  title="Previous Section" accesskey="," role="button"><img alt="Go to Previous Section" src="resources/btn-back-white.png" /></a>
+                         </li>  
+                         <li>
+                             <a id='Button4'  class="nav" onclick="ZP.DocView.LoadNextDoc('009');return false;" href="#"  title="Next Section" accesskey="." role="button"> <img alt="Go to Next Section" src="resources/btn-forward-white.png" /></a>
+                         </li>   
+                         <li>
+                             <a id="pageControls-overflow" onclick="ZP.DocView.PgCntrlOverflowClick(event);return false;" href="#" title="Click for more options" role="button" >
+                            <img src="resources/overflow-btn-white.png" alt="Click for more options" /></a>
+                               
+  <ul class="submenu" role="dialog">
+            <li><a href="/regs/lincoln-ne-cc/doc-viewer.aspx?secid=824" onclick="javascript:alert('Right click this icon and select \'add to favorites\' or \'Bookmark this Link\' to bookmark this page');return false;" title="Bookmark this page" >Bookmark</a></li>
+            <li>
+                                        
+                <a id="zoomMinus" onclick="ZP.DocView.DecreaseZoom();return false;" href="#" title="Decrease Zoom" class="zoomLink glyphicon" >&#x2212;</a>
+                <a onclick="ZP.DocView.DefaultZoom();return false;"  href="#" title="Default Zoom"  class="zoomLink" >100%</a>
+                <a id="zoomPlus" onclick="ZP.DocView.IncreaseZoom();return false;" href="#" title="Increase Zoom"  class="zoomLink glyphicon" > &#x2b; </a>
+            </li>
+           
+                           
+                
+                <li><a id="subscribe-btn" onclick="ZP.DocView.OpenSubscribeDlg();return false;" title="Subscribe to Notifications" href="subscribe.aspx" role="button">Subscribe</a></li>
+                <li><a id="unsubscribe-btn" onclick="ZP.DocView.OpenUnsubscribeDlg();return false;" title="Cancel Notifications Subscription" href="unsubscribe.aspx" role="button" >Unsubscribe</a></li>
+                
+</ul>
+                         </li>        
+                        
+                        </ul>   
+                </div>
+                <div class="pageControls_outer"></div>
+            </div>
+        </div>
+    </div> 
+    <div id="subscribe-dialog" title="" aria-live="polite" >
+        <div id="sub-message"></div>
+        <div id="sub-form-cntr"></div>
+    </div>
+</div>
+
+
+        <div id="thePage-outer" >
+            <div id="thePage-wrap" class="thePage-wrap ">
+                <div id="outer-doc-banner"></div>
+                <div id="thePage-border">
+                    <div id="thePage" class="textPage " tocid="009" secid="824" role="main" aria-label="Document">
+                        <img id="sectionBanner" title="Document text banner" src="resources/docbanner.png" width="720" valign="Top" alt="Document text banner">
+                        
+                        <section id='secid-824' class='secLvl1 _009' tabindex='-1' data-secid='824'> 
+<h2>ARTICLE VIII STREETS, PUBLIC IMPROVEMENTS, PUBLIC UTILITIES, SPECIAL ASSESSMENTS</h2>
+
+<div class="mini-TOC" data-endlevel="2" data-id="mini-TOC" data-startlevel="2">
+<div class="mini-TOC-label"><strong>Contents:</strong></div>
+
+<ul><li><a class="tocLink" href="doc-viewer.aspx#secid-825">	Sec. 1.	Streets.</a></li>
+<li><a class="tocLink" href="doc-viewer.aspx#secid-826">	Sec. 2.	Viaducts.</a></li>
+<li><a class="tocLink" href="doc-viewer.aspx#secid-827">	Sec. 3.	Streets; Grading, Curbing, Guttering.</a></li>
+<li><a class="tocLink" href="doc-viewer.aspx#secid-828">	Sec. 3a.	 Same; Create by Ordinance.</a></li>
+<li><a class="tocLink" href="doc-viewer.aspx#secid-829">	Sec. 3b. Same; Without Petition.</a></li>
+<li><a class="tocLink" href="doc-viewer.aspx#secid-830">	Sec. 3c. Same; With Petition.</a></li>
+<li><a class="tocLink" href="doc-viewer.aspx#secid-831">	Sec. 3d. Same; Advertise for Bids.</a></li>
+<li><a class="tocLink" href="doc-viewer.aspx#secid-832">	Sec. 3e. Same; Assess Cost.</a></li>
+<li><a class="tocLink" href="doc-viewer.aspx#secid-833">	Sec. 3f.	Same; Real Estate Belonging to County, Municipal or Quasi-Municipal Corporations.</a></li>
+<li><a class="tocLink" href="doc-viewer.aspx#secid-834">	Sec. 3g. Same; Sewer, Gas and Water Service Pipes.</a></li>
+<li><a class="tocLink" href="doc-viewer.aspx#secid-835">	Sec. 3h. Same; Bonds.</a></li>
+<li><a class="tocLink" href="doc-viewer.aspx#secid-836"> Sec. 3i. Same;</a></li>
+<li><a class="tocLink" href="doc-viewer.aspx#secid-837">	Sec. 3j.	Same; Intersections, Curb and Gutter Bonds.</a></li>
+<li><a class="tocLink" href="doc-viewer.aspx#secid-838">	Sec. 3k.	 Same; Contractor's Bonds.</a></li>
+<li><a class="tocLink" href="doc-viewer.aspx#secid-839">	Sec. 4 1/4. Graveling Districts.</a></li>
+<li><a class="tocLink" href="doc-viewer.aspx#secid-840">	Sec. 4 1/2. Improvement Districts.</a></li>
+<li><a class="tocLink" href="doc-viewer.aspx#secid-841">	Sec. 4 3/4. Shade and Ornamental Trees.</a></li>
+<li><a class="tocLink" href="doc-viewer.aspx#secid-842">	Sec. 5. Contract to Lowest Bidder.</a></li>
+<li><a class="tocLink" href="doc-viewer.aspx#secid-843">	Sec. 6. Repairing Paving.</a></li>
+<li><a class="tocLink" href="doc-viewer.aspx#secid-844">	Sec. 7. Sewer Districts.</a></li>
+<li><a class="tocLink" href="doc-viewer.aspx#secid-845">	Sec. 8. Sewer Assessments.</a></li>
+<li><a class="tocLink" href="doc-viewer.aspx#secid-846">	Sec. 9. Sewer District Bonds.</a></li>
+<li><a class="tocLink" href="doc-viewer.aspx#secid-847">	Sec. 10.	 Sewer Fund.</a></li>
+<li><a class="tocLink" href="doc-viewer.aspx#secid-848">	Sec. 10a. Special Assessment Revolving Fund.</a></li>
+<li><a class="tocLink" href="doc-viewer.aspx#secid-849">	Sec. 10b. Delinquent Special Assessments.</a></li>
+<li><a class="tocLink" href="doc-viewer.aspx#secid-850">	Sec. 11a. Garbage and Refuse.</a></li>
+<li><a class="tocLink" href="doc-viewer.aspx#secid-851">	Sec. 12. Income Public Utilities, How Applied.</a></li>
+<li><a class="tocLink" href="doc-viewer.aspx#secid-852">	Sec. 13. Public Market.</a></li>
+<li><a class="tocLink" href="doc-viewer.aspx#secid-853">	Sec. 13a.</a></li>
+<li><a class="tocLink" href="doc-viewer.aspx#secid-854">	Sec. 13b. Municipal Gasoline Station.</a></li>
+<li><a class="tocLink" href="doc-viewer.aspx#secid-855">	Sec. 14.	 Special Assessments, How Levied.</a></li>
+<li><a class="tocLink" href="doc-viewer.aspx#secid-856">	Sec. 15.	 Special Assessments, Certification to Treasurer.</a></li>
+<li><a class="tocLink" href="doc-viewer.aspx#secid-857">	Sec. 16.	Special Assessments, Diverse Ownership.</a></li>
+<li><a class="tocLink" href="doc-viewer.aspx#secid-858">	Sec. 19.	Sidewalks, Sidewalk Assessments.</a></li>
+<li><a class="tocLink" href="doc-viewer.aspx#secid-859">	Sec. 20.	 Sidewalk Assessments, Collection.</a></li>
+<li><a class="tocLink" href="doc-viewer.aspx#secid-860">	Sec. 22.	 Special Assessments, Interest Rate.</a></li>
+</ul>
+</div>
+
+
+</section> 
+<section id='secid-825' class='secLvl2 _009 _009-001' tabindex='-1' data-secid='825'> 
+<h3>Sec. 1. Streets.</h3>
+
+<p>The city council shall have power by ordinance to create, open, widen, or otherwise improve, vacate, name and rename any street, alley, public way or ways, including the sidewalk space, provided all damages sustained by the owners of the property thereon by opening or widening shall be ascertained in the manner herein provided for the exercise of the power of eminent domain; provided, further, whenever any street, alley or public way shall be vacated the same shall revert to the owners of the adjacent real estate, one-half one each side thereof, unless the city reserves title thereto in the ordinance so vacating such street, alley or public way. In the event title is retained by the city, such property may be sold, conveyed, exchanged or leased upon such terms and conditions as shall be deemed to be in the best interests of the city, as otherwise authorized in the charter. (Amendment of May 10, 1966).</p>
+
+<p class='archiveNotice nullValue '></p>
+</section> 
+<section id='secid-826' class='secLvl2 _009 _009-002' tabindex='-1' data-secid='826'> 
+<h3>Sec. 2. Viaducts.</h3>
+
+<p>The city council shall have power, by ordinance, to provide for grading ore repairing of any street or public way, construction, renewal or repair of bridges, culverts and sewers, and to defray costs thereof from the proper city fund. The city council shall have power, by ordinance, to require any company owning or operating any railroad track on or across any public way to erect, construct, reconstruct, complete, and keep in repair any viaduct on or along such public way, under or over such track including viaduct approaches, as may be declared necessary for public safety. The city council shall also have power, by ordinance, to require any company owning or operating any railroad track within the city limits which crosses any public way to elevate all or any part of said railroad track. Whenever the construction of any viaduct, including its approaches, over any street or under any track or the elevation of any railroad track, within the city limits, be by ordinance declared necessary for public safety and protection, the city council shall provide for appraising, assessing and determining the damages that may be caused to any property by the construction thereof. The proceedings shall be like those for damages to property owners by grading a street, and such damages may be paid by the city and assessed against the property benefitted. The width, height, strength, material and manner of construction of any such viaduct, including its approaches or the elevation of any such railroad tracks, shall be as required by the city council. When two or more railroad companies own or operate lines of track to be crossed by such viaduct, the proportion thereof and of the approaches thereto, to be constructed by each, shall be determined by the city council. It shall be the duty of any railroad company or companies on being required as herein provided to construct, reconstruct, erect or repair any viaduct or to elevate any railroad track to proceed with the work within the time and in the manner required by the city council, and it shall be a misdemeanor for any railroad company to fail, neglect, or refuse to perform such duty, and upon conviction, any such company shall be fined one hundred dollars, and each day such company shall fail, refuse, or neglect to perform such duty, shall be a distinct offense. In addition to such penalty, any such company or companies shall be compelled by mandamus, or by other appropriate remedy, to do such work as may be required by ordinance. The city council shall have power whenever any railroad company shall fail, neglect, or refuse to erect, construct, reconstruct, or repair any viaduct or viaducts, or to elevate any railroad track, after being required so to do as herein provided, to proceed with such work by contract or in such manner as may be provided by ordinance and assess the cost thereof against the property of the railroad company or companies required to do the same, and such cost shall be a valid lien against such property and be also a legal indebtedness against such company or companies in favor of the city and be enforced and collected by suit in the proper court. (Amendment of November 4, 1919).</p>
+
+<p class='archiveNotice nullValue '></p>
+</section> 
+<section id='secid-827' class='secLvl2 _009 _009-003' tabindex='-1' data-secid='827'> 
+<h3>Sec. 3. Streets; Grading, Curbing, Guttering.</h3>
+
+<p>The city council shall have power to grade partially, or to an established grade, curb, recurb, gutter, construct sidewalks, or otherwise improve or repair any street or street, alley or alleys, public grounds, public way or ways, or parts thereof, including the sidewalk space, at public cost, or by levy of special benefits on the property specially benefitted thereby, proportionate to benefits. When the streets, public ways or public grounds shall have been brought to an established grade, the council shall have power to bring sidewalks and sidewalk space therein to a grade and to construct sidewalks, and shall have power and authority to levy special assessments against the property specially benefitted, not to exceed the cost of improvement. Ordinary repairs, not including repaving or resurfacing or relaying existing pavement or making sidewalk repairs, shall be at public cost. (Amendment of March 3, 1959).</p>
+
+<p class='archiveNotice nullValue '></p>
+</section> 
+<section id='secid-828' class='secLvl2 _009 _009-004' tabindex='-1' data-secid='828'> 
+<h3>Sec. 3a. Same; Create by Ordinance.</h3>
+
+<p>The city council shall have power to pave, repave, macadamize, curb, recurb, change grade, widen or narrow streets or roadways, gutter, resurface, or relay existing pavement or otherwise improve any street, streets, alley, alleys, public grounds, public way or ways, or parts thereof, including the sidewalk space and by ordinance to create paving, repaving, grading, curbing, recurbing, resurfacing, sidewalks or improvement districts thereof, to be consecutively numbered and such districts may include two or more connecting or intersecting streets, alleys or public ways and may include two or more improvements, in this section mentioned, in one proceeding. (Amendment of March 3, 1959).</p>
+
+<p class='archiveNotice nullValue '></p>
+</section> 
+<section id='secid-829' class='secLvl2 _009 _009-005' tabindex='-1' data-secid='829'> 
+<h3>Sec. 3b. Same; Without Petition.</h3>
+
+<p>The city council may order such improvements of any street, alley, alleys, public way or public grounds and cause them to be made:</p>
+
+<ol style="list-style-type:decimal">
+	<li>When it is embraced within a district, the outer boundaries of which are within a distance of one and one-half miles from the block in which the city hall is situated, or</li>
+	<li>When the street is part of a street designated by ordinances as an arterial street, or</li>
+	<li>As authorized by state law.</li>
+</ol>
+
+<p>The city council may also, without petition, order the streets, alleys, and sidewalk space in any grading district to be graded to the established grade and construct sidewalks.</p>
+
+<p>The city council may also, without petition, order the improvement in any ornamental lighting district when the improvement is embraced within a district, the outer boundaries of which are within a distance of one-half mile from the block in which the city hall is situated. (Amendment of November 7, 1978; effective January 6, 1979).</p>
+
+<p class='archiveNotice nullValue '></p>
+</section> 
+<section id='secid-830' class='secLvl2 _009 _009-006' tabindex='-1' data-secid='830'> 
+<h3>Sec. 3c. Same; With Petition.</h3>
+
+<p>Except as otherwise authorized by state law, when the street sought to be improved is not part of a street designated by ordinance as an arterial street and such improvements are embraced within a district, the outer boundaries of which are more than one and one-half miles distant from the block in which is situated the city hall, no such improvement except grading or sidewalks shall be finally ordered by the city council until a petition, signed by the owners of the record title, representing a majority of the feet frontage of property directly abutting upon the street, streets, alley, alleys, public way or public grounds proposed to be improved, shall be presented and filed with the city clerk petitioning therefor. The sufficiency of the petitions so presented shall be determined by the city council and their determination thereof shall be conclusive in the absence of objections made and presented to the city council prior to the letting of the contract for the improvement. In determining the sufficiency of the petitions so presented, intersections shall be disregarded and any lot or ground owned by the city shall not be counted for or against such improvement. (Amendment of November 7, 1978; effective January 6, 1979).</p>
+
+<p class='archiveNotice nullValue '></p>
+</section> 
+<section id='secid-831' class='secLvl2 _009 _009-007' tabindex='-1' data-secid='831'> 
+<h3>Sec. 3d. Same; Advertise for Bids.</h3>
+
+<p>The city shall advertise for and receive formal sealed bids for such improvements, in the manner prescribed in Article VII, Section 6. (Amendment of May 10, 1966).</p>
+
+<p class='archiveNotice nullValue '></p>
+</section> 
+<section id='secid-832' class='secLvl2 _009 _009-008' tabindex='-1' data-secid='832'> 
+<h3>Sec. 3e. Same; Assess Cost.</h3>
+
+<p>Cost of so improving the street, streets, alley, alleys, public grounds or public ways, including sidewalks, may be in whole or in part assessed, proportionate to benefits, on the property specially benefitted. The total amount shall be levied at once one-tenth to be delinquent in fifty days, one-tenth annually thereafter, each installment to draw six percent interest from levy, payable annually, installments delinquent to draw interest at the rate of seven percent per annum after the delinquent date; provided, however, that the city council shall have power and authority to fix the period of time, not to exceed twenty years, in which special assessments against any property for the payment of the cost of such improvements may be made in accordance with the provisions of Article VIII, Section 10a. If abutting property is not of uniform depth, or it be just and proper, the city council may fix the depth to which property may be charged and assessed for benefits, and to greater depth than the lots fronting on the street, streets, alley, alleys, public grounds or public ways so improved and the determination thereof by the city council shall be conclusive. (Amendment of March 3, 1959).</p>
+
+<p class='archiveNotice nullValue '></p>
+</section> 
+<section id='secid-833' class='secLvl2 _009 _009-009' tabindex='-1' data-secid='833'> 
+<h3>Sec. 3f. Same; Real Estate Belonging to County, Municipal or Quasi-Municipal Corporations.</h3>
+
+<p>If there shall be any real estate belonging to any county, school district, municipal or quasi-municipal corporation, cemetery association, library board or other public board of association, abutting upon the street, streets, alley, alleys, public way or grounds proposed to be improved, the proper officer or officers having control and jurisdiction over such real estate or authorized to purchase, lease, hold or convey real estate, shall have power to sign a petition for paving, repaving, curbing, recurbing, grading, changing grade, guttering, resurfacing or relaying existing pavement, or otherwise improving any street, streets, alley, alleys, public ways or public grounds or improvement districts, and when such improvements have been ordered; it shall be the duty of the county board, board of education, library board, cemetery trustees, or other proper officers controlling and having jurisdiction over said real estate benefitted on account of said improvement, to pay such special taxes or assessments, or its proportionate share of the cost of said improvement; and in the event of neglect or refusal so to do, the city may recover the amount of such special taxes or assessment, or proportionate share of the cost, in any proper action, and the judgment thus obtained may be enforced in the usual manner. (Amendment of November 4, 1949).</p>
+
+<p class='archiveNotice nullValue '></p>
+</section> 
+<section id='secid-834' class='secLvl2 _009 _009-010' tabindex='-1' data-secid='834'> 
+<h3>Sec. 3g. Same; Sewer, Gas and Water Service Pipes.</h3>
+
+<p>The city council may order the owner of lots abutting on a street to be paved to lay sewer, gas and water service pipes, to connect with mains, and, if they neglect so to do, after five days&#39; notice, by publication in a newspaper of general circulation in the city, or in place thereof, personal service of such notice as the city council in its discretion may direct, the city council shall have the power to cause the same to be laid, along with and as part of the work of the improvement district, and assess the cost thereof against the property of such owner, along with and in the manner provided for making the assessment to pay the cost of the pavement or improvements in the improvement district, and to be collected and enforced as special taxes. (Amendment of November 4, 1919).</p>
+
+<p class='archiveNotice nullValue '></p>
+</section> 
+<section id='secid-835' class='secLvl2 _009 _009-011' tabindex='-1' data-secid='835'> 
+<h3>Sec. 3h. Same; Bonds.</h3>
+
+<p>For the amount of special assessments, the council may, by ordinance, issue bonds, called &quot;__________ bonds of District No. ____&quot;, payable in not over twenty years at such rate or rates of interest as the council shall determine at the time of their issuance, and such special assessment shall be a sinking fund for the payment thereof, and the total special assessment on any lot may be paid without interest within fifty (50) days of its levy and the money so paid shall go to the sinking fund; provided, however, that if the city council exercises the power and authority to fix the period of time for the payment of special assessments in accordance with the provisions of Article VIII, Section 10a, the city council shall have power and authority to issue bonds in accordance with the provisions of Article VIII, Section 10a. (Amendment of April 7, 1981; effective June 6, 1981: prior amendment of March 3, 1959).</p>
+
+<p class='archiveNotice nullValue '></p>
+</section> 
+<section id='secid-836' class='secLvl2 _009 _009-012' tabindex='-1' data-secid='836'> 
+<h3>Sec. 3i. Same; Street Railways.</h3>
+
+<p>Cost of improving intersections may be paid by the city or assessed against the lots or lands in said district as the city council may determine; but street railways shall be charged with the cost of all paving or improvements included between and to one foot beyond the outer rails in any part of the street as provided in Section 17 of this article. (Amendment of November 4, 1919).</p>
+
+<p class='archiveNotice nullValue '></p>
+</section> 
+<section id='secid-837' class='secLvl2 _009 _009-013' tabindex='-1' data-secid='837'> 
+<h3>Sec. 3j. Same; Intersections, Curb and Gutter Bonds.</h3>
+
+<p>To pay the cost of improvement of intersections, if not included in special assessments on benefitted property and along public property not assessable, the city may issue bonds called &quot;paving bonds&quot; to run not over twenty years, the proceeds whereof shall be used only for paying the cost of such improvements, the aggregate sum issued in any one year not to exceed fifty thousand dollars ($50,000.00). Such bonds shall not be issued until submitted to the electors and authorized by a majority of those voting thereon. To pay the cost of curbing and guttering streets, alleys, or public ways, the city council may issue bonds called &quot;curbing-guttering bonds, District No. _____&quot; payable in not over twenty years with interest at not to exceed six percent and assess the cost thereof, not exceeding the special benefits, against the abutting property, said assessments to become due, delinquent, draw interest, and be subject to like penalty and collected as other special taxes, and constitute a sinking fund for the payment of such bonds. No bonds of either class shall be sold or delivered until necessary to make payments for work done on such improvements. (Amendment of March 3, 1959).</p>
+
+<p class='archiveNotice nullValue '></p>
+</section> 
+<section id='secid-838' class='secLvl2 _009 _009-014' tabindex='-1' data-secid='838'> 
+<h3>Sec. 3k. Same; Contractor&#39;s Bonds.</h3>
+
+<p>Whenever the city enters into a contract for the improvement of any street or other public way, or for the construction of any public building or other public structure or improvement, it shall require the person, persons, firm or corporation to whom the contract is awarded to give bond in an amount not less than the contract price with a corporate surety company for the faithful performance of the contract, and also conditioned for payment of all laborers and mechanics for labor that shall be performed, and for the payment for material and for equipment rental which is actually used or rented in performing the contract with the city. (Amendment of May 10, 1966).</p>
+
+<p class='archiveNotice nullValue '></p>
+</section> 
+<section id='secid-839' class='secLvl2 _009 _009-015' tabindex='-1' data-secid='839'> 
+<h3>Sec. 4 1/4. Graveling Districts.</h3>
+
+<p>The city council shall have power and authority to create graveling or regraveling districts for the purpose of improving streets with gravel, crushed rock or other similar material, and such districts may include two or more connecting or intersecting streets, alleys or public ways and may include two or more such improvements in one proceeding. All such districts to be known as graveling or regraveling districts, shall be created by ordinance, and be consecutively numbered, and shall designate the property in the district benefitted. Upon the creation of any graveling or regraveling district, the city council shall have power to order such improvement and cause it to be made, without petition, either by contract with the lowest responsible bidder or directly by the city, and to assess the cost thereof against the property in such district, not exceeding the special benefits accruing on account thereof, in the manner provided in Section 3e of Article VIII, except that one-third of such special assessment shall be delinquent in fifty days after the levy and one-third annually thereafter; provided, however, that the city council shall have power and authority to fix the period of time, not to exceed twenty years, in which special assessments against any property for the payment of the cost of such improvements may be made in accordance with Article VIII, Section 10a. If one-third of such special assessment shall be delinquent in fifty days after the levy and one-third annually thereafter, for the amount of special assessments, bonds of the city known as &quot;graveling district bonds&quot; or &quot;regraveling district bonds&quot; may be issued by the city council payable in not to exceed three years from date with interest not exceeding six percent per annum, payable annually, and such special tax and assessment shall constitute a sinking fund for the payment thereof. If the city council exercises the power and authority to fix the period of time for the payment of special assessments in accordance with the provisions of Article VIII, Section 10a, the city council shall have power and authority to issue bonds in accordance with the provisions of Article VIII, Section 10a. (Amendment of March 3, 1959).</p>
+
+<p class='archiveNotice nullValue '></p>
+</section> 
+<section id='secid-840' class='secLvl2 _009 _009-016' tabindex='-1' data-secid='840'> 
+<h3>Sec. 4 1/2. Improvement Districts.</h3>
+
+<p>The city council shall have power, by ordinance, to create public improvement districts for the opening, widening, or enlarging of any street, alley, boulevard, or public way or for the establishing or enlarging of any park or parkway within the city. Such special improvement district having been created, the city council may acquire, by purchase or by condemnation proceedings, the necessary lands, lots, or grounds to carry out the purposes of the district. The cost thereof may be, in whole or in part, assessed proportionate to benefits on the property specially benefitted. The special assessment shall be levied and assessed as provided by Section 14 of Article VIII. The cost, if any, above such special assessments shall be paid out of funds appropriated for that purpose or out of the general fund. The total amount of the special assessments shall be levied, one-tenth to be delinquent in fifty days from the levy and one-tenth annually thereafter, each installment to draw six percent interest from the date of levy, payable annually. Installments delinquent shall draw interest at the rate of seven percent per annum after the delinquent date; provided, however, that the city council shall have power and authority to fix the period of time, not to exceed twenty years, in which special assessments against any property for the payment of the cost of such improvements may be made in accordance with the provisions of Article VIII, Section 10a. If one-tenth of such special assessments shall be delinquent in fifty days after the levy and one-tenth annually thereafter, for the amount of special assessments the city council may, by ordinance, issue bonds called &quot;special improvement bonds,&quot; payable in not to exceed ten years from date, with interest not exceeding six percent per annum, payable annually, and such special assessments shall be a sinking fund for the payment thereof. If the city council exercises the power and authority to fix the period of time for the payment of special assessments in accordance with the provisions of Article VIII, Section 10a, the city council shall have the power and authority to issue bonds in accordance with the provisions of Article VIII, Section 10a. (Amendment of March 3, 1959).</p>
+
+<p class='archiveNotice nullValue '></p>
+</section> 
+<section id='secid-841' class='secLvl2 _009 _009-017' tabindex='-1' data-secid='841'> 
+<h3>Sec. 4 3/4. Shade and Ornamental Trees.</h3>
+
+<p>The city council shall have power to provide for the planting and protection of shade or ornamental trees upon the streets or boulevards or public ways, including the sidewalk ways, in the city and to assess the cost thereof, to the extent of special benefits, against the abutting property, and to provide for the removal or trimming of trees located upon the streets, boulevards or public ways, including the sidewalk space, and to trim the branches of trees overhanging the same and to assess the cost thereof against abutting property as a special assessment. Any such special assessment shall be levied and assessed as provided in Section 14 of Article VIII. (Amendment of November 4, 1919).</p>
+
+<p class='archiveNotice nullValue '></p>
+</section> 
+<section id='secid-842' class='secLvl2 _009 _009-018' tabindex='-1' data-secid='842'> 
+<h3>Sec. 5. Contract to Lowest Bidder.</h3>
+
+<p>All street improvements, the cost of which, or any part thereof, is to be levied as a special tax on property, shall be done by contract with the lowest, responsive, responsible bidder, provided, however, that if the city received no bids, the city may make improvements costing not to exceed $50,000.00 on a force account basis. (Amendment of May 12, 2020: prior Amendments of May 13, 2008 and&nbsp;March 3, 1959).</p>
+
+<p class='archiveNotice  '></p>
+</section> 
+<section id='secid-843' class='secLvl2 _009 _009-019' tabindex='-1' data-secid='843'> 
+<h3>Sec. 6. Repairing Paving.</h3>
+
+<p>The city council may levy a tax on all taxable property in the city to provide a fund for the repairing of paving in the city. The foregoing, however, shall not be construed or deemed to include the power to levy such tax for the purpose of repaving, but shall only include the cost of repairing. The city council may do or cause to be done the work of repairing such paving, and may provide the necessary plant and material for such work out of the fund herein provided. The foregoing, however, shall not be held or deemed to exempt any railway or street railway company from its duty to pave, repave, and keep in repair that portion of the paved street between its tracks and to one foot outside of its outer rails.</p>
+
+<p class='archiveNotice nullValue '></p>
+</section> 
+<section id='secid-844' class='secLvl2 _009 _009-020' tabindex='-1' data-secid='844'> 
+<h3>Sec. 7. Sewer Districts.</h3>
+
+<p>The city council shall have the power to lay off the city into suitable districts for the purpose of establishing a system of sewerage and drainage; to provide such system and regulate the construction, repairs and use of sewers and drains, and to provide penalties for any obstruction of, or injury to, any sewers or drains, and for any violation of the rules and regulations with respect thereto that may be prescribed by the city council. The city council shall have power to create, by ordinance, sewer districts and designate the property to be benefitted on account of the construction of sewers in such districts. Thereupon, the city council shall have power to construct or cause to be constructed, either by contract with the lowest responsible bidder or directly by the city, such sewer or sewers in such district or districts and assess the cost thereof against the property in such district or districts. (Amendment of November 4, 1919).</p>
+
+<p class='archiveNotice nullValue '></p>
+</section> 
+<section id='secid-845' class='secLvl2 _009 _009-021' tabindex='-1' data-secid='845'> 
+<h3>Sec. 8. Sewer Assessments.</h3>
+
+<p>Special taxes may be levied by the city council for the purpose of paying the cost of constructing such sewers and drains within the city, such taxes to be levied upon the real estate lying and being within the sewerage districts in which such sewer or drain may be, to the extent of benefits to such property by reason of such improvements, the benefits to such property to be determined by the city council as in other cases of special assessments; and all taxes or assessments made for sewerage or drainage purposes shall be levied and collected in the same manner as other special assessments in paving districts, except that such special assessments shall be levied in two installments maturing in one and two years respectively, and shall be subject to the same penalty; provided, however, that the city council shall have power and authority to fix the period of time, not to exceed twenty years, in which special assessments against any property for the payment of the cost of such improvements may be made in accordance with the provisions of Article VIII, Section 10a, and if the city council exercises such power and authority, it shall also have the power and authority to issue bonds in accordance with the provisions of Article VIII, Section 10a. (Amendment of March 3, 1959).</p>
+
+<p class='archiveNotice nullValue '></p>
+</section> 
+<section id='secid-846' class='secLvl2 _009 _009-022' tabindex='-1' data-secid='846'> 
+<h3>Sec. 9. Sewer District Bonds.</h3>
+
+<p>The city council may issue sewer district bonds to cover the cost of the work of constructing sewers in sewer districts, and the special assessment levied on account of such work shall constitute a sinking fund for the payment of such bonds.</p>
+
+<p class='archiveNotice nullValue '></p>
+</section> 
+<section id='secid-847' class='secLvl2 _009 _009-023' tabindex='-1' data-secid='847'> 
+<h3>Sec. 10. Sewer Fund.</h3>
+
+<p>The city council may levy a special tax on all property in the city in addition to the tax levy provided for in this charter of five thousand dollars, and the assessments made on account of the construction of such sewers in such district shall be credited to said fund and when paid may be used again by the city council for the construction of district sewers. When the amount in said fund, including the assessments credited thereto, shall exceed the sum of five thousand dollars no levy shall be made, and no levy shall be made at any time to increase the amount of said fund, including the credits belonging thereto, above the sum of five thousand dollars. The purpose being that said five thousand dollar fund may be used in place of a bond issue and the special assessments shall be used to reimburse said fund, and that said fund created by tax levy shall at no time, including credits thereto, exceed the sum of five thousand dollars.</p>
+
+<p class='archiveNotice nullValue '></p>
+</section> 
+<section id='secid-848' class='secLvl2 _009 _009-024' tabindex='-1' data-secid='848'> 
+<h3>	Sec. 10a. Special Assessment Revolving Fund. </h3><p>Notwithstanding any existing provision to the contrary, and in addition to the powers and authority elsewhere provided, for the method of creation or operation of, or its application to special improvement districts, including grading, paving, repaving, resurfacing, ornamental lighting, water, sewer, gravel, sidewalk or any other improvement district where the cost of any such improvement is assessed in whole or in part against the property in said district benefitted by such improvement, the city council shall have power and authority to:</p><ol style="list-style-type:decimal;"><li>Fix the period of time, not to exceed twenty years, in which special assessments against any property for the payment of the cost of such improvements may be made.  The city council shall fix such period at the time the district is created or at the time the benefits are assessed.  The special assessment may be paid without interest within fifty days after the date on which the levy of the assessment is made.  If not so paid, then the amount of such assessment shall be payable in equal annual installments during the period so fixed by the council.  The first installment of any such special assessment shall become delinquent fifty days after the date of levy of the tax, and subsequent installments shall become delinquent annually thereafter.</li><li>Create and establish a special assessment revolving fund for the purpose of paying from said fund the cost of such special improvements as completed and accepted and to retire, when due, outstanding special assessment obligations.  The city council shall have the power to appropriate money for said fund and augment same by depositing to its credit existing special assessment funds and all special assessment collections, including interest.</li><li>Without further vote of the people, and notwithstanding any existing provision to the contrary, to issue negotiable bonds of the city from time to time for the purpose of creating, maintaining, and replenishing such special assessment revolving fund.  Such bonds shall be known as "special assessment revolving fund bonds" and be issued to mature serially beginning one year after date and continuing thereafter not to exceed twenty years, and bear interest, payable semiannually, at such annual rate or rates as shall be established by the city council, and the full faith and credit of the city shall be pledged for the payment of the principal of and interest on said bonds so issued from time to time, and the city council shall annually provide for the levy of a tax upon all the taxable property located in said city sufficient to pay the principal of said bonds, and the interest thereon, as the same mature, which tax shall be in excess of and in addition to all other taxes now or hereafter authorized to be levied by said city.  (Amendment of September 9, 1974; effective November 18, 1974: prior Sec. 10a repealed, effective November 18, 1974).</li></ol>
+
+<p class='archiveNotice nullValue '></p>
+</section> 
+<section id='secid-849' class='secLvl2 _009 _009-025' tabindex='-1' data-secid='849'> 
+<h3>Sec. 10b. Delinquent Special Assessments.</h3>
+
+<p>Notwithstanding any existing provision in this charter to the contrary, whenever two installments of an assessment made under the provisions of Article VIII, Section 10a, shall become delinquent, all remaining unpaid installments of such assessment, if any, shall thereupon become delinquent and be due and payable forthwith. (Amendment of March 3, 1959).</p>
+
+<p class='archiveNotice nullValue '></p>
+</section> 
+<section id='secid-850' class='secLvl2 _009 _009-026' tabindex='-1' data-secid='850'> 
+<h3>Sec. 11a. Garbage and Refuse.</h3>
+
+<p>The city shall also have power to provide for garbage and refuse collection and utilization or disposal. The city council shall have power, by ordinance, to prescribe and enforce methods of segregation of different kinds of garbage by the residents of the city, to provide for the collection of garbage and refuse either by equipment owned and operated by the city or by letting contracts therefor; to divide the city into convenient garbage districts. If contracts are let, notice of intention to let such contracts shall be published for at least ten days and sealed bids received. The notice shall specify the district or districts to be covered by the contract and the term thereof, which in no case shall exceed one year. The council shall determine the lowest and best bid and may reject all bids for any district. If all bids for a district are rejected, the council may readvertise or at its option, may provide for the collection of garbage or refuse within such district by equipment, owned and operated by the city. If the city provides for the collection of garbage and refuse in a district, either by city equipment or by contract, it may prohibit collection thereof within such district by any other person.</p>
+
+<p>The council may by ordinance fix charges for the collection of garbage to be paid by the persons, firms or corporations causing the same to accumulate and may make the same a lien upon the premises where the same is accumulated enforceable, as water rates or other municipally furnished utilities, or such collection and disposal may be paid for in whole or in part from funds raised by general taxation as shall be deemed best by the city council from time to time.</p>
+
+<p>The city council may also provide for the utilization of any garbage or refuse in whatever manner deemed by the council expedient. The council may sell the garbage or refuse adapted for animal feed or other beneficial use and likewise the garbage or refuse valuable for lot filling or other purposes, or the council may, at its option, use any such garbage or refuse for city purposes. The council may establish feed plants, at any point within ten miles of the city limits, where garbage or refuse shall be conserved or utilized and stock the same or establish any other form of garbage disposal plants. All the powers possessed by the city under Section 11, Article VIII, for the purchase, construction, acquisition, ownership and operation of other public utilities shall extend to and include the purchase, construction, acquisition, ownership and operation of garbage feed plants or garbage or refuse disposal plants of whatever kind or character determined upon, and the question as to bonds for such purposes shall be submitted in the manner and form therein provided. (Amendment of November 5, 1918).</p>
+
+<p class='archiveNotice nullValue '></p>
+</section> 
+<section id='secid-851' class='secLvl2 _009 _009-027' tabindex='-1' data-secid='851'> 
+<h3>Sec. 12. Income Public Utilities, How Applied.</h3>
+
+<p>The revenue received by the city from its utility operations shall be applied (1) first, to the payment of the expenses of the operation and maintenance thereof, (2) second, to the payment as the same shall become due of the principal of, redemption premium, if any, and interest on any bonds issued for the purchase, acquisition, construction, reconstruction, improvement, extension, equipping or furnishing of such utility and payable from the revenues generated from the city&#39;s ownership and operation of such utility, together with any reserves established for the payment of such principal, redemption premium and interest, and (3) third, to the establishment of such reserves as may be required for any lawful purpose in connection with such utility; provided, however, that after the payments required in (1) and (2) above and prior to the establishment of any reserve permitted in (3) above, five percent of the total gross revenue received from the sale of electricity within the corporate limits of the city of Lincoln and any incorporated city or village within which it sells electricity at retail, less an amount equivalent to the payments required to be made by the city directly or indirectly with respect to property within or operations conducted by the city shall be paid annually in lieu of taxes, and divided among the county of Lancaster, the municipality and the school district within which the tax is collected, in the proportion that their respective property tax levy rates in each such year bear to the total of such tax levy rates. The council shall have the exclusive power to fix the rates and charges for all such public utilities which rates and charges shall be sufficient to provide the funds necessary to make all payments required by this Section 12. (Amendment of November 5, 1996: prior Amendment of May 10, 1966).</p>
+
+<p class='archiveNotice nullValue '></p>
+</section> 
+<section id='secid-852' class='secLvl2 _009 _009-028' tabindex='-1' data-secid='852'> 
+<h3>Sec. 13. Public Market.</h3>
+
+<p>The city council may by ordinance purchase grounds for, and erect and establish, market houses and market places and regulate and govern the same, and prescribe the fees to be charged persons for stalls therein; provided, the revenue so derived shall be applied: First, to the payment of the salaries of the officers appointed to take charge of said market; second, to the payment of repairs of the market house; and third, to the payment of the cost of erecting said market house. After all salaries, repairs and costs of construction have been paid, the surplus, if any remaining, shall be disposed of as the council shall direct. The city council may contract with any person or persons, or association of persons, companies or corporations for the erection and regulation of said market house and market place on such terms and conditions and in such manner as the council may prescribe and raise all necessary revenue therefor as herein provided; and locate market houses and market places and buildings aforesaid on any street, alley, or public ground, or any land purchased for such purpose; and provide for the erection of all other useful and necessary buildings for the use of the city and for the protection and safety of all property owned by the city; provided, any such improvement, costing in the aggregate a sum greater than five hundred dollars, shall not be authorized until the ordinance providing therefor shall be first submitted to and ratified by a majority of the legal voters thereof.</p>
+
+<p class='archiveNotice nullValue '></p>
+</section> 
+<section id='secid-853' class='secLvl2 _009 _009-029' tabindex='-1' data-secid='853'> 
+<h2>Sec. 13a.</h2>
+
+<p>Repealed by voters at the General Election held on May 7, 2019.</p>
+
+<p class='archiveNotice  '></p>
+</section> 
+<section id='secid-854' class='secLvl2 _009 _009-030' tabindex='-1' data-secid='854'> 
+<h3>Sec. 13b. Municipal Gasoline Station.</h3>
+
+<p>The city council shall have power to engage in the business of selling gasoline and oil to the inhabitants of the city, both at retail and wholesale, and for that purpose shall have power to acquire and own such real and personal property as may be necessary and incident thereto. The city shall not charge for gasoline and oil sold by it more than the cost thereof to the city plus the cost of handling the same, including contingencies; provided any surplus remaining in the gasoline department fund in excess of fifteen thousand dollars at the end of the present fiscal year, 1933, may be transferred to a special fund to be used for the purpose of furnishing employment by the city of Lincoln, or to purchase materials in meeting federal allotments for employment relief in the city; provided further that commencing September 1, 1935, and thereafter, only such surplus as is in excess of twenty thousand dollars may be so transferred for said purposes only and said sum of twenty thousand dollars shall be retained in said gasoline department fund as a revolving fund. (Amendment of August 14, 1934).</p>
+
+<p class='archiveNotice nullValue '></p>
+</section> 
+<section id='secid-855' class='secLvl2 _009 _009-031' tabindex='-1' data-secid='855'> 
+<h3>Sec. 14. Special Assessments, How Levied.</h3>
+
+<p>Special tax assessments to pay cost of local improvements shall be made in the following manner:</p>
+
+<p>First: Assessment shall be made on the district by resolution of the council at any meeting, stating cost of the improvement and benefit accruing to the property in the district to be taxed which, with the vote by yeas and nays, shall be recorded in the minutes. Therewith shall be submitted a proposed distribution of the tax on each separate property to be taxed subject to action of the board of equalization as prescribed therein.</p>
+
+<p>Second: Notice of the time of assessment shall be published once in some newspaper published and of general circulation in the city at least ten days before the assessment, or posted as elsewhere herein provided, and that the council will sit as a board of equalization to distribute the tax at a time in such notice fixed, not less than five days after such assessment, and the proper distribution of such special tax shall be open to examination of all persons interested.</p>
+
+<p>Property shall not be specially taxed for more than the total cost of the improvement and no property shall be taxed more than the special benefit accruing thereto by the improvement. If the aggregate tax be less than the cost of improvement, the excess shall be paid from the general fund. Special taxes may be assessed as the improvement progresses and as soon as completed in front of or along property taxed, or when the whole is completed, as the council shall determine. No special tax or assessment which the city council acquires jurisdiction to make, shall be void or invalidated or affected in any way, for any irregularity, defect, error or informality in procedure, in levy, returns, equalization, collection, or the mode and manner of advertising the sale of property therefor. (Amendment of November 6, 1956).</p>
+
+<p class='archiveNotice nullValue '></p>
+</section> 
+<section id='secid-856' class='secLvl2 _009 _009-032' tabindex='-1' data-secid='856'> 
+<h3>Sec. 15. Special Assessments, Certification to Treasurer.</h3>
+
+<p>When any special tax is levied, unless otherwise in this charter provided, it shall be the duty of the clerk to issue a certificate describing such lot or piece of ground by number and block, and stating the amount of special tax levied thereon and the purpose for which such tax was levied, and when the same shall become due and delinquent; and he shall forthwith deliver a duplicate or such certificate to the city treasurer, who shall without delay give at least five days&#39; notice through a newspaper published in the city, of the time when such tax will become delinquent. To every such certificate the clerk shall append a warrant in the usual form, requiring such city treasurer to collect such special tax or taxes, by distress and sale of goods and chattels of the person, persons or bodies corporate owing any such special tax or taxes, if the same be not paid before the time fixed for the same to become delinquent, and to make his return of such warrants with his doings thereon on or before the fifteenth day of July next thereafter.</p>
+
+<p class='archiveNotice nullValue '></p>
+</section> 
+<section id='secid-857' class='secLvl2 _009 _009-033' tabindex='-1' data-secid='857'> 
+<h3>Sec. 16. Special Assessments, Diverse Ownership.</h3>
+
+<p>It shall be sufficient in any case to describe the lot or piece of ground as the same is platted or recorded, although the same belong to several persons, but in case any lot or piece of ground belong to different persons, the owner of any part thereof may pay his portion of the tax on such lot or piece of ground, and his proper share may be determined by the city treasurer.</p>
+
+<p class='archiveNotice nullValue '></p>
+</section> 
+<section id='secid-858' class='secLvl2 _009 _009-034' tabindex='-1' data-secid='858'> 
+<h3>Sec. 19. Sidewalks, Sidewalk Assessments.</h3>
+
+<p>The owner of abutting property on public streets is hereby primarily charged with the duty of constructing and keeping the sidewalks thereon free from snow, ice, and other obstruction, and in default thereof, upon notice to such abutting property owner as hereinafter provided, such abutting property owner shall be liable for injuries or damages sustained by reason thereof. The city shall have general charge, control and supervision of the streets and sidewalks thereof; and shall have full power to require owners of abutting property to keep the sidewalks thereof free from snow, ice, and other obstructions, and to require such abutting property owners to construct the sidewalks of such material and of such dimensions and upon such grade as may be determined by the council. In case such abutting property owner refuses or neglects, after notice, the length and sufficiency of which is to be determined by ordinance by the city council, to construct such sidewalk, or clear snow, ice, or other obstructions from such sidewalk, the city through the proper officers may construct such sidewalk or cause the same to be constructed, or cleared of snow, ice, or other obstructions, and report the cost thereof to the council, whereupon the council shall levy and assess the same against such abutting property as provided in article VIII, section 14. The cost of constructing, grading, or clearing thereof shall be assessed at a regular council meeting by resolution, fixing the cost along abutting property as a special assessment against such property, and the amount charged or the cost thereof, with the vote by yeas and nays shall be spread upon the minutes. Notice of the time of such meeting of the council and its purpose shall be published once in a newspaper published and of general circulation in the city at least five days before the meeting of the council is to be held, and personal notice delivered by United States mail to the property owner&#39;s last known address shall be given such abutting property owner in place thereof. The city shall be responsible for maintaining, repairing and replacing sidewalks on public streets, and the cost of all such maintenance, repair and replacement shall be paid by the city from the city&#39;s general funds. (Amendment of November 6, 1990: prior amendment of November 7, 1978; effective January 6, 1979).</p>
+
+<p class='archiveNotice nullValue '></p>
+</section> 
+<section id='secid-859' class='secLvl2 _009 _009-035' tabindex='-1' data-secid='859'> 
+<h3>	Sec. 20.	 Sidewalk Assessments, Collection. </h3><p>Special sidewalk assessments may be collected in either of the following ways:</p><p>	First:  In the matter usual for the collection or foreclosure of county or state taxes against real estate.</p><p>	Second: 	By foreclosure as in case of county or state taxes against real estate; provided, however, in the foreclosure of such special sidewalk assessments any number of parties, owners of abutting property against which property a special sidewalk assessment has been made may be made parties defendant, and any number of special sidewalk assessments may be foreclosed in one action, the decree, however, to be separate as to each particular piece of abutting property against which such special sidewalk assessments have been levied; provided, further, a copy of the action of the council in making such special sidewalk assessments certified by the city clerk, shall be received in evidence as prima facie evidence of the regularity of all proceedings in the matter of the making and levying of such special sidewalk assessments.  Such special sidewalk assessments shall constitute a lien prior and superior to all other liens except liens for taxes or other special assessments upon such abutting property.  Provided, further, in the foreclosure of such special assessments, the action may be brought in the name of the city against any and all parties subject to the payment of such special sidewalk assessments in one or more actions, and the city may become a purchaser thereof for an amount not exceeding the amount of the special sidewalk assessment, interest and penalties thereon.</p><p>	Third:	Or the city clerk upon request of the council, shall, under seal of the city, make out a statement containing a description of the property against which special sidewalk assessments are delinquent, the amount of such special sidewalk assessments, together with interest and penalties thereon, the name of the owner of such abutting property at the time of the levy and the date of the levy, and shall transmit the same to the clerk of the district court; and upon request of the city, the clerk of the district court shall issue an order of sale of such abutting property and deliver the same to the sheriff, who shall thereupon cause such property to be advertised and sold as in case of sale of real estate under judgment and execution, except that it shall not be necessary for the sheriff to cause such property to be appraised, and upon sale the sheriff shall report the sale thereof to the district court for confirmation.</p><p></p>
+
+<p class='archiveNotice nullValue '></p>
+</section> 
+<section id='secid-860' class='secLvl2 _009 _009-036' tabindex='-1' data-secid='860'> 
+<h3>Sec. 22. Special Assessments, Interest Rate.</h3>
+
+<p>In addition to all existing charter provisions, and notwithstanding any charter provisions to the contrary, in making the levy for special assessments for street and alley paving, repaving, resurfacing, grading, improvements, graveling, sewer, water, ornamental lighting and all other improvement districts, the cost of which is to be paid for from special assessments against the property benefitted, the city council shall fix the rate of interest charge per annum at the time of making the said levy, payable annually, on unpaid installments which are not delinquent. Installments which are delinquent shall bear interest at the same annual rate as that established by law for delinquent general real property taxes. (Amendment of September 9, 1974; effective November 18, 1974).</p>
+
+<p class='archiveNotice nullValue '></p>
+</section> 
+
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- hidden div below is for definition popup -->
+<div id="defFrame">
+    <img alt='loading progress' src="resources/progress.gif" /></div>
+<!-- hidden div below is for ajax loading progress-->
+<div id='progress-template' style='display: none;'>
+    <div class="progress" style='padding: 100px;'>
+        <div style='margin: auto; display: block; width: 200px; border: 1px solid #ccc; background-color: #eee; padding: 10px;'>
+            <img alt='loading progress' src='resources/progress.gif' style='margin: auto; display: block;' />
+            <br />
+            <span style='margin: auto; display: block; width: 75px; padding-left: 10px;'>Loading...</span>
+        </div>
+    </div>
+</div>
+<iframe style="width: 1px; height: 1px" src="" id="printiframe" name="printiframe" onload="ZP.DocView.IFrameReady();" title="Print frame" aria-hidden="true" role="presentation"></iframe>
+
+    </div>
+
+
+    </body>
+</html>

@@ -1,0 +1,43 @@
+{
+  "schema": 1,
+  "frozen_at": "2026-10-17T20:18:03.395120+00:00",
+  "family": "official",
+  "runtime_and_configs_frozen": true,
+  "repo_implementation": "github/local-jurisdiction-collection/collectors/official",
+  "self_contained_implementation": "implementation",
+  "selected_final_paths": [
+    "final/worcester-v3",
+    "final/milwaukee-v2",
+    "final/baltimore-v2",
+    "final/spokane-chapter",
+    "final/czo-v3",
+    "final/portland-v2",
+    "final/burlington-v3",
+    "final/county-v2",
+    "final/arlington-tx",
+    "final/spokane"
+  ],
+  "current_runtime_hashes": {
+    "collect.py": "8dd9dbb0776a586e152c530d7e6935103f6d86c98c1dfd494c8cda98b5355bab",
+    "model.py": "19e6e27cc50637cafa9048f704e23b238deb9f748395507fb9a392ebd362e550",
+    "transport.py": "856f00a0de7d561839ba8842af7ae49483fd5efd31fb0352dbe7cbccc011a148",
+    "legacy_html.py": "0e10fe08406788f8540bcb232c927bcffb547f0ae072a68684ea313afb08cde6",
+    "browser_fetch.cjs": "1541bbdb1e0c98034af584c0f0a3e37788ab54c09d35bc8379d73f4b1ff39a87"
+  },
+  "offline_aggregate": "qa/final-replay.json",
+  "offline_relocated_aggregate": "qa/relocated-replay.json",
+  "readonly_relocation_check": "qa/relocation-check.json",
+  "fault_tests": "qa/offline-tests.txt",
+  "independent_source_table_audit": "qa/archive-tables.json",
+  "exact_table_audit_script": "qa/audit-archive-tables.py",
+  "gate_snapshot_audit": "qa/gate-audit.json",
+  "exact_runtime": "qa/runtime.json",
+  "manifest": "MANIFEST.sha256",
+  "manifest_excludes": [
+    ".venv/**",
+    "**/__pycache__/**",
+    "MANIFEST.sha256"
+  ],
+  "publication_limit": "Only selected scope flags in validation-summary.json are established. Incomplete runs remain incomplete; no whole-jurisdiction coverage or PDF legal semantics established.",
+  "image_policy": "No separately acquired/extracted images; literal[IMAGE] normalized placeholders. Original legal PDF/HTML/ZIP sources may contain embedded originals."
+}

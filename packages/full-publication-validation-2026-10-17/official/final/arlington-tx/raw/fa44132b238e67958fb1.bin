@@ -1,0 +1,1066 @@
+<!DOCTYPE html><html class="js t-chrome t-chrome155 no-applicationcache audio audio-ogg audio-mp3 audio-opus audio-wav audio-m4a canvas canvastext geolocation hashchange history inputtypes-search inputtypes-tel inputtypes-url inputtypes-email no-inputtypes-datetime inputtypes-date inputtypes-month inputtypes-week inputtypes-time inputtypes-datetime-local inputtypes-number inputtypes-range inputtypes-color postmessage postmessage-structuredclones svg video no-video-ogg video-h264 no-video-h265 video-webm video-vp9 video-hls no-video-av1 webgl websockets cssanimations backgroundsize borderimage borderradius boxshadow csscolumns csscolumns-width csscolumns-span csscolumns-fill csscolumns-gap csscolumns-rule csscolumns-rulecolor csscolumns-rulestyle csscolumns-rulewidth csscolumns-breakbefore csscolumns-breakafter csscolumns-breakinside flexbox flexboxlegacy fontface generatedcontent cssgradients hsla multiplebgs opacity cssreflections rgba textshadow csstransforms supports csstransforms3d csstransitions localstorage sessionstorage no-websqldatabase svgclippaths inlinesvg smil webworkers indexeddb tablesaw-enhanced no-os-high-contrast breakpoint-sc-size-1" lang="en-US"><!--<![endif]--><head>
+	<!-- Published by OpenCities, 1.38.0.1 -->
+
+    
+        
+    
+    
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="theme-color" content="#FFFFFF">
+    <title>City Charter &amp; Code of Ordinances | City of Arlington, TX</title>
+	<meta name="generator" content="OpenCities - https://granicus.com/product/opencities">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Using mobile-web-app-capable for now to enable full-screen experience on supported platforms -->
+    <!-- Note: This tag works mainly on Android Chrome. It does NOT enable full-screen mode on iOS Safari. -->
+    <!-- For iOS, the correct tag is: <meta name="apple-mobile-web-app-capable" content="yes"> -->
+    <!-- TODO: Monitor for updated meta tag standards from Apple or other browser vendors -->
+    <meta name="mobile-web-app-capable" content="yes">
+        <meta name="description" content="The City of Arlington provides an online copy of the City Charter and Code of Ordinances for reference.">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://www.arlingtontx.gov/Government/City-Government/City-Secretary/City-Charter-Code-of-Ordinances">
+    <meta property="og:title" content="City Charter &amp; Code of Ordinances">
+    <meta property="og:description" content="The City of Arlington provides an online copy of the City Charter and Code of Ordinances for reference.">
+    <meta property="og:image" content="https://www.arlingtontx.gov/files/ocwebsite/City/HeroImage/mineral%20well%201200x630.jpg?w=1200">
+    <meta property="twitter:card" content="summary">
+    <meta property="twitter:title" content="City Charter &amp; Code of Ordinances">
+    <meta property="twitter:description" content="The City of Arlington provides an online copy of the City Charter and Code of Ordinances for reference.">
+    <meta property="twitter:image" content="https://www.arlingtontx.gov/files/ocwebsite/City/HeroImage/mineral%20well%201200x630.jpg?w=1080">
+    <link rel="canonical" href="https://www.arlingtontx.gov/Government/City-Government/City-Secretary/City-Charter-Code-of-Ordinances">
+
+    
+    <link rel="icon" type="image/png" href="/files/ocfavicon/City/favicon-48x48.png" sizes="48x48">
+<link rel="icon" type="image/svg+xml" href="/files/ocfavicon/City/favicon.svg">
+<link rel="shortcut icon" href="/files/ocfavicon/City/favicon.ico">
+<link rel="apple-touch-icon" sizes="180x180" href="/files/ocfavicon/City/apple-touch-icon.png">
+<link rel="manifest" href="/files/ocfavicon/City/site.webmanifest">
+    <script>
+        (function () {
+            if (window.__UNLOAD_LAZY_PATCH__) return;
+            window.__UNLOAD_LAZY_PATCH__ = true;
+
+            var supportsPageHide = ("onpagehide" in window);
+            var mappedType = supportsPageHide ? "pagehide" : "beforeunload";
+            var nativeAdd = window.addEventListener;
+            var nativeRemove = window.removeEventListener;
+            var unloadMap = null;
+            var patched = false;
+
+            function ensurePatched() {
+                if (patched) return;
+                unloadMap = new WeakMap();
+
+                window.addEventListener = function (type, listener, options) {
+                    if (type === "unload") {
+                        var wrapped = function (evt) {
+                            if (supportsPageHide && evt.persisted) return;
+                            listener.call(this, evt);
+                        };
+                        unloadMap.set(listener, wrapped);
+                        return nativeAdd.call(this, mappedType, wrapped, options);
+                    }
+                    return nativeAdd.call(this, type, listener, options);
+                };
+
+                window.removeEventListener = function (type, listener, options) {
+                    if (type === "unload") {
+                        var wrapped = unloadMap.get(listener);
+                        if (wrapped) {
+                            nativeRemove.call(this, mappedType, wrapped, options);
+                            unloadMap.delete(listener);
+                        }
+                        return;
+                    }
+                    return nativeRemove.call(this, type, listener, options);
+                };
+
+                var orig = null;
+                Object.defineProperty(window, "onunload", {
+                    configurable: true, enumerable: true,
+                    get: function () { return orig; },
+                    set: function (h) {
+                        orig = h;
+                        if (typeof h === "function") window.addEventListener("unload", h);
+                    }
+                });
+                patched = true;
+            }
+
+            window.addEventListener = function (type, listener, options) {
+                if (type === "unload") {
+                    ensurePatched();
+                    return window.addEventListener(type, listener, options);
+                }
+                return nativeAdd.call(this, type, listener, options);
+            };
+
+            window.removeEventListener = function (type, listener, options) {
+                if (type === "unload" && !patched) {
+                    return;
+                }
+                return nativeRemove.call(this, type, listener, options);
+            };
+
+            function patchTelerik() {
+                ensurePatched();
+                var ns = window.RadAjaxNamespace;
+                if (!ns || !ns.EventManager || !ns.EventManager.Add || ns.EventManager.__UnloadPatched) return;
+                var origAdd = ns.EventManager.Add;
+                ns.EventManager.Add = function (el, evtName, handler, clientId) {
+                    if (el === window && evtName === "unload") {
+                        return window.addEventListener("unload", handler);
+                    }
+                    return origAdd.call(this, el, evtName, handler, clientId);
+                };
+                ns.EventManager.__UnloadPatched = true;
+            }
+
+            if (window.RadAjaxNamespace)
+                patchTelerik();
+            else (window.requestIdleCallback || function (cb)
+            {
+                setTimeout(cb, 120);
+            })(patchTelerik);
+        })();
+    </script>
+    <!-- Preconnecting to Google Fonts servers -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+
+    <!-- Defer Roboto font loading to avoid render-blocking -->
+    <script>
+        window.addEventListener('DOMContentLoaded', () => {
+            const robotoLink = document.createElement('link');
+            robotoLink.rel = 'stylesheet';
+            robotoLink.href = 'https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap';
+            document.head.appendChild(robotoLink);
+        });
+    </script>
+
+    <style>
+        .gm-style, .gm-style * {
+            font-family: 'Roboto', system-ui, -apple-system, "Segoe UI", Arial, sans-serif !important;
+        }
+    </style>
+
+    <script>
+        document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, "js");
+    </script>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@48,400,0,0">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&amp;display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="https://use.typekit.net/fjy8saf.css">
+    
+        
+            <script type="text/javascript">
+                window.__oc_flags_ImprovedBreakpointEventHandling = true;
+            </script>
+            
+        
+    
+    
+    
+        <script type="text/javascript">
+            var __metaQueryBreakpoints = {
+                'sc-size-4': '(max-width: 480px)',
+                'sc-size-3': '(min-width: 480px) and (max-width: 768px)',
+                'sc-size-2': '(min-width: 768px) and (max-width: 992px)',
+                'sc-size-1': '(min-width: 992px)'
+            }
+
+            var __ocSizePoints = [
+                { min: 0, name: 'sc-size-4' },
+                { min: 480, name: 'sc-size-3' },
+                { min: 768, name: 'sc-size-2' },
+                { min: 992, name: 'sc-size-1' }
+            ];
+
+        </script>
+    
+
+    <!-- Framework Section -->
+    
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script>window.jQuery || document.write('<script src="/files/templates/00000000-0000-0000-0000-000000000000/1e57e76d-1919-4c46-a066-ed414e8610c1/v/236/jquery-3.7.1.min.js?seamlessts=639263242697144811" ><\/script>')</script>
+
+    <!--Google Maps API Loader – Improved Version to avoid Warning
+    This script loads the Google Maps JavaScript API using a dynamic and async method.
+    It replaces the old static <script> tag to avoid performance warnings from Google.
+
+    Dynamically creates the <script> tag with loading = async for better performance
+    Builds the API URL with required libraries(places, geometry, marker, geocoding)
+    Uses a Promise and callback(google.maps.__ib__) to confirm when the script is ready
+
+    It Avoids Google’s warning about direct script loading
+    Improves page load speed by loading the API asynchronously-->
+
+    
+        <script>
+            (function (root) {
+                root.OpenCities = root.OpenCities || {};
+                if (!root.OpenCities.GoogleMapsLoader) {
+                    root.OpenCities.GoogleMapsLoader = {
+                        _cbs: [],
+                        _ready: false,
+                        onReady: function (cb) {
+                            if (this._ready) { try { cb(); } catch (e) { console.error(e); } }
+                            else if (typeof cb === 'function') this._cbs.push(cb);
+                        },
+                        _fire: function () {
+                            if (this._ready) return;
+                            this._ready = true;
+                            var q = this._cbs.splice(0);
+                            for (var i = 0; i < q.length; i++) {
+                                try { q[i](); } catch (e) { console.error(e); }
+                            }
+                        }
+                    };
+                }
+            })(window);
+
+            (g => {
+                var h, a, k, p = "The Google Maps JavaScript API", c = "google", l = "importLibrary", q = "__ib__",
+                    m = document, b = window;
+                b = b[c] || (b[c] = {});
+                var d = b.maps || (b.maps = {}), r = new Set, e = new URLSearchParams,
+                    u = () => h || (h = new Promise(async (resolve, reject) => {
+                        a = m.createElement("script");
+                        e.set("libraries", [...r] + "");
+                        for (k in g) e.set(k.replace(/[A-Z]/g, t => "_" + t[0].toLowerCase()), g[k]);
+                        e.set("callback", c + ".maps." + q);
+                        a.src = "https://maps." + c + "apis.com/maps/api/js?" + e.toString();
+                        a.loading = "async";
+                        a.async = true;
+                        a.defer = true;
+                        d[q] = resolve;
+                        a.onerror = () => reject(Error(p + " could not load."));
+                        a.nonce = m.querySelector("script[nonce]")?.nonce || "";
+                        m.head.append(a);
+                    }));
+                if (d[l]) {
+                    console.warn(p + " only loads once. Ignoring duplicate load.");
+                } else {
+                    d[l] = (f, ...n) => (r.add(f), u().then(() => d[l](f, ...n)));
+                }
+            })({
+                key: "AIzaSyC5spyrOUNr_0OLk_yEJVNZs5pcx7ywSf4",
+                v: "3.65"
+            });
+
+            (async () => {
+                try {
+                    if (!google?.maps?.importLibrary) return;
+
+                    if (!window.OpenCities.__mapsLibsPromise) {
+                        window.OpenCities.__mapsLibsPromise = Promise.all([
+                            google.maps.importLibrary('maps'),
+                            google.maps.importLibrary('places'),
+                            google.maps.importLibrary('geocoding'),
+                            google.maps.importLibrary('marker'),
+                            google.maps.importLibrary('geometry')
+                        ]);
+                    }
+                    await window.OpenCities.__mapsLibsPromise;
+
+                    if (window.OpenCities?.GoogleMapsLoader) {
+                        window.OpenCities.GoogleMapsLoader._fire();
+                    }
+                } catch (err) {
+                    console.error('Google Maps failed to initialise', err);
+                }
+            })();
+        </script><script src="https://maps.googleapis.com/maps/api/js?libraries=maps&amp;key=AIzaSyC5spyrOUNr_0OLk_yEJVNZs5pcx7ywSf4&amp;v=3.65&amp;callback=google.maps.__ib__" async="" defer=""></script>
+    
+    <script src="/files/templates/00000000-0000-0000-0000-000000000000/1e57e76d-1919-4c46-a066-ed414e8610c1/v/236/modernizr.custom.710f3bf.js?seamlessts=639263242697144811" defer=""></script>
+    
+    <!--// End Framework Section -->
+    <!-- OpenCities Section -->
+    <script>
+        var OpenCities = OpenCities || {};
+        OpenCities.Paths = {
+            SiteTemplate: '/files/templates/00000000-0000-0000-0000-000000000000/1e57e76d-1919-4c46-a066-ed414e8610c1/v/236/',
+            ThemePath: '/files/templates/00000000-0000-0000-0000-000000000000/1e57e76d-1919-4c46-a066-ed414e8610c1/v/236/'
+        };
+    </script>
+    <script src="/ocapi/304a4b08-480a-4220-87c2-77f70609911c/en-US/websitesettings.js"></script>
+    <script src="/files/templates/00000000-0000-0000-0000-000000000000/1e57e76d-1919-4c46-a066-ed414e8610c1/v/236/oc_head.js?applied=20250708053717"></script>
+    <!-- Script Combine. To enter debug mode for this browser session, enter OcScriptCombineDebug=true as a querystring -->
+<link href="/files/oc-templates/00000000-0000-0000-0000-000000000000/1e57e76d-1919-4c46-a066-ed414e8610c1/v/236/oc_grid.css~oc_style.css~oc_wizard_style.css~oc_main.css~oc_forms.css~oc_wizard.css~oc_wizard_menu.css~oc_main_s1.css~oc_wizard_s1.css~oc_wizard_menu_s1.css~oc_grid_s1.css~OcScriptCombine_Minify0?uniqueid=20250708053717" rel="stylesheet" type="text/css">
+    <!-- Script Combine. To enter debug mode for this browser session, enter OcScriptCombineDebug=true as a querystring -->
+<link href="/files/oc-templates/00000000-0000-0000-0000-000000000000/1e57e76d-1919-4c46-a066-ed414e8610c1/v/236/client_style.css~client.css~client_menu.css~client_s1.css~client_menu_s1.css~client_forms.css~OcScriptCombine_Minify0?uniqueid=20250708053717" rel="stylesheet" type="text/css">
+    <script>
+(function (BackgroundSettings, $, undefined) {
+    BackgroundSettings.initialise = function () {
+        this.Application = {"CSSSelector":".content-outer-container","EnableFade":false,"MediaType":"image"};
+    };
+} (OpenCities.BackgroundSettings = OpenCities.BackgroundSettings || {}, jQuery));
+OpenCities.BackgroundSettings.initialise();
+</script>
+    
+    <!-- Script Combine. To enter debug mode for this browser session, enter OcScriptCombineDebug=true as a querystring -->
+<link href="/files/oc-templates/00000000-0000-0000-0000-000000000000/1e57e76d-1919-4c46-a066-ed414e8610c1/v/236/oc_print.css~client_print.css~OcScriptCombine_Minify0?uniqueid=20250708053717" rel="stylesheet" type="text/css" media="print">
+    <!-- Script Combine. To enter debug mode for this browser session, enter OcScriptCombineDebug=true as a querystring -->
+<script src="/files/oc-templates/00000000-0000-0000-0000-000000000000/1e57e76d-1919-4c46-a066-ed414e8610c1/v/236/external_plugins.js~oc_form_helper.js~oc_main.js~plugins.js~oc_main_init.js~OcScriptCombine_Minify0?uniqueid=20250708053717" defer="true"></script>
+    
+    
+
+                                <script>!function(e){var n="https://s.go-mpulse.net/boomerang/";if("False"=="True")e.BOOMR_config=e.BOOMR_config||{},e.BOOMR_config.PageParams=e.BOOMR_config.PageParams||{},e.BOOMR_config.PageParams.pci=!0,n="https://s2.go-mpulse.net/boomerang/";if(window.BOOMR_API_key="DYTCK-JM9C8-ED4EP-C3GGK-Z575H",function(){function e(){if(!r){var e=document.createElement("script");e.id="boomr-scr-as",e.src=window.BOOMR.url,e.async=!0,o.appendChild(e),r=!0}}function t(e){r=!0;var n,t,a,i,d=document,O=window;if(window.BOOMR.snippetMethod=e?"if":"i",t=function(e,n){var t=d.createElement("script");t.id=n||"boomr-if-as",t.src=window.BOOMR.url,BOOMR_lstart=(new Date).getTime(),e=e||d.body,e.appendChild(t)},!window.addEventListener&&window.attachEvent&&navigator.userAgent.match(/MSIE [67]\./))return window.BOOMR.snippetMethod="s",void t(o,"boomr-async");a=document.createElement("IFRAME"),a.src="about:blank",a.title="",a.role="presentation",a.loading="eager",i=(a.frameElement||a).style,i.width=0,i.height=0,i.border=0,i.display="none",o.appendChild(a);try{O=a.contentWindow,d=O.document.open()}catch(_){n=document.domain,a.src="javascript:var d=document.open();d.domain='"+n+"';void 0;",O=a.contentWindow,d=O.document.open()}if(n)d._boomrl=function(){this.domain=n,t()},d.write("<bo"+"dy onload='document._boomrl();'>");else if(O._boomrl=function(){t()},O.addEventListener)O.addEventListener("load",O._boomrl,!1);else if(O.attachEvent)O.attachEvent("onload",O._boomrl);d.close()}function a(e){window.BOOMR_onload=e&&e.timeStamp||(new Date).getTime()}if(!window.BOOMR||!window.BOOMR.version&&!window.BOOMR.snippetExecuted){window.BOOMR=window.BOOMR||{},window.BOOMR.snippetStart=(new Date).getTime(),window.BOOMR.snippetExecuted=!0,window.BOOMR.snippetVersion=14,window.BOOMR.url=n+"DYTCK-JM9C8-ED4EP-C3GGK-Z575H";var i=document.currentScript||document.getElementsByTagName("script")[0],o=i.parentNode,r=!1,d=document.createElement("link");if(d.relList&&"function"==typeof d.relList.supports&&d.relList.supports("preload")&&"as"in d)window.BOOMR.snippetMethod="p",d.href=window.BOOMR.url,d.rel="preload",d.as="script",d.addEventListener("load",e),d.addEventListener("error",function(){t(!0)}),setTimeout(function(){if(!r)t(!0)},3e3),BOOMR_lstart=(new Date).getTime(),o.appendChild(d);else t(!1);if(window.addEventListener)window.addEventListener("load",a,!1);else if(window.attachEvent)window.attachEvent("onload",a)}}(),"".length>0)if(e&&"performance"in e&&e.performance&&"function"==typeof e.performance.setResourceTimingBufferSize)e.performance.setResourceTimingBufferSize();!function(){if(BOOMR=e.BOOMR||{},BOOMR.plugins=BOOMR.plugins||{},!BOOMR.plugins.AK){var n=""=="true"?1:0,t="",a="eyaqesmsaa3wajqacqdxiaaacrvnhvmj-f-5d8f227eb-clienttons-s.akamaihd.net",i="false"=="true"?2:1,o={"ak.v":"41","ak.cp":"1793056","ak.ai":parseInt("1075935",10),"ak.ol":"0","ak.cr":16,"ak.ipv":6,"ak.proto":"h2","ak.rid":"2b03d414","ak.r":48121,"ak.a2":n,"ak.m":"dscb","ak.n":"essl","ak.cport":51685,"ak.gh":"23.62.38.243","ak.quicv":"","ak.tlsv":"tls1.3","ak.0rtt":"","ak.0rtt.ed":"","ak.csrc":"-","ak.acc":"","ak.t":"1792267657","ak.ak":"hOBiQwZUYzCg5VSAfCLimQ==qYqeQW9a7MjZYpa2/qJIql/l9ASU4E3mD8PCOIfRf5ZZ8zFLzaO5FR8pZPpDnm7fGz76XOaqhd/u6H6JLoOqGXSrDn3VHfe1gSSw6eMKi9O8hpt0gjucGOt0YZl4Rzf9Ky/WSC2GNF0pJGjI7x61qKDFybTXLu17XncFrED6KFbsIexoyvEotg1K+E7yNDa7OSrgHT6exu0lXDW93behu69YPYEkJ20bTzJM3JSBijvSyR5T98pZIgqmBSP0WvsByAIv4EdJu4KOQCAUrofMliF88mz7sn+iHcx86fg7ZscRB+U7kyLtUz7qNuEYmsB5S3pIHs+MTkny38ssSAftANT82yPJ79wVNt92icgXYhfI50C9h3d+TrQpxjm6MfpDw6EJnt3kq1EUFXUsBx2oiBPynmZ6I85VrxJhv3wAl2g=","ak.pv":"355","ak.dpoabenc":"","ak.tf":i};if(""!==t)o["ak.ruds"]=t;var r={i:!1,av:function(n){var t="http.initiator";if(n&&(!n[t]||"spa_hard"===n[t]))o["ak.feo"]=void 0!==e.aFeoApplied?1:0,BOOMR.addVar(o)},rv:function(){var e=["ak.cport","ak.cr","ak.csrc","ak.gh","ak.ipv","ak.m","ak.n","ak.ol","ak.proto","ak.quicv","ak.tlsv","ak.0rtt","ak.0rtt.ed","ak.r","ak.acc","ak.t","ak.tf"];BOOMR.removeVar(e)}};BOOMR.plugins.AK={akVars:o,akDNSPreFetchDomain:a,init:function(){if(!r.i){var e=BOOMR.subscribe;e("before_beacon",r.av,null,null),e("onbeacon",r.rv,null,null),r.i=!0}return this},is_complete:function(){return!0}}}}()}(window);</script><link href="https://s.go-mpulse.net/boomerang/DYTCK-JM9C8-ED4EP-C3GGK-Z575H" rel="preload" as="script"><script id="boomr-scr-as" src="https://s.go-mpulse.net/boomerang/DYTCK-JM9C8-ED4EP-C3GGK-Z575H" async=""></script><script src="https://maps.googleapis.com/maps-api-v3/api/js/65/14a/main.js"></script><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&amp;display=swap"><script type="text/javascript" charset="UTF-8" src="https://maps.googleapis.com/maps-api-v3/api/js/65/14a/common.js"></script><script type="text/javascript" charset="UTF-8" src="https://maps.googleapis.com/maps-api-v3/api/js/65/14a/map.js"></script><script type="text/javascript" charset="UTF-8" src="https://maps.googleapis.com/maps-api-v3/api/js/65/14a/util.js"></script><script type="text/javascript" charset="UTF-8" src="https://maps.googleapis.com/maps-api-v3/api/js/65/14a/controls.js"></script><script type="text/javascript" charset="UTF-8" src="https://maps.googleapis.com/maps-api-v3/api/js/65/14a/places_impl.js"></script><script type="text/javascript" charset="UTF-8" src="https://maps.googleapis.com/maps-api-v3/api/js/65/14a/places.js"></script><script type="text/javascript" charset="UTF-8" src="https://maps.googleapis.com/maps-api-v3/api/js/65/14a/geocoder.js"></script><script type="text/javascript" charset="UTF-8" src="https://maps.googleapis.com/maps-api-v3/api/js/65/14a/marker.js"></script><script type="text/javascript" charset="UTF-8" src="https://maps.googleapis.com/maps-api-v3/api/js/65/14a/geometry.js"></script></head>
+<body class="body layout-modern site-search-always-visble content-type-oc-general content-template-oc-full-width-without-image group-template-oc-full-width-with-default-header page-name-city-charter-code-of-ordinances page-sequence-3 page-depth-4 page-section-2 website-type-primary device-desktop featured-site-section" id="body-top"><div id="skip-to-content-container">
+        <a href="#main-content" class="visuallyhidden focusable" id="skip-to-content-link">Skip to main content</a>
+    </div>
+    
+    <script>
+        // OCNOW-11988 (Cursor): Proactively focus skip link when returning from browser chrome.
+        // Must run inline (not deferred oc_main.js) so focus is intercepted before NVDA speaks footer.
+        (function () {
+            var awaitingReentry = false;
+            var inertSupported = 'inert' in HTMLElement.prototype;
+
+            function isExplicitlyOutsideDocument(node) {
+                return node != null && !document.documentElement.contains(node);
+            }
+
+            function getSkipContainer() {
+                return document.getElementById('skip-to-content-container');
+            }
+
+            function getSkipLink() {
+                return document.getElementById('skip-to-content-link');
+            }
+
+            function applyGuard() {
+                awaitingReentry = true;
+                if (!inertSupported) {
+                    return;
+                }
+                var skipContainer = getSkipContainer();
+                var children = document.body.children;
+                for (var i = 0; i < children.length; i++) {
+                    if (children[i] !== skipContainer) {
+                        children[i].setAttribute('inert', '');
+                    }
+                }
+            }
+
+            function clearGuard() {
+                awaitingReentry = false;
+                if (!inertSupported) {
+                    return;
+                }
+                var children = document.body.children;
+                for (var i = 0; i < children.length; i++) {
+                    children[i].removeAttribute('inert');
+                }
+            }
+
+            function isSkipLinkElement(target) {
+                if (!target) {
+                    return false;
+                }
+                var skipContainer = getSkipContainer();
+                return target.id === 'skip-to-content-link' ||
+                    (skipContainer && skipContainer.contains(target));
+            }
+
+            function focusSkipLink() {
+                var skipLink = getSkipLink();
+                if (!skipLink) {
+                    return;
+                }
+                if (window.scrollY > 0) {
+                    window.scrollTo(0, 0);
+                }
+                skipLink.focus({ preventScroll: true });
+            }
+
+            function scheduleGuardIfDocumentLostFocus() {
+                window.setTimeout(function () {
+                    if (!document.hasFocus()) {
+                        applyGuard();
+                    }
+                }, 0);
+            }
+
+            document.addEventListener('focusout', function (e) {
+                if (isExplicitlyOutsideDocument(e.relatedTarget)) {
+                    applyGuard();
+                }
+            }, true);
+
+            document.addEventListener('keydown', function (e) {
+                if (e.key === 'Tab') {
+                    scheduleGuardIfDocumentLostFocus();
+                } else if (e.key === 'F6' || (e.key === 'l' && e.ctrlKey)) {
+                    scheduleGuardIfDocumentLostFocus();
+                }
+            }, true);
+
+            window.addEventListener('focus', function () {
+                if (!awaitingReentry) {
+                    return;
+                }
+                applyGuard();
+                focusSkipLink();
+            }, true);
+
+            document.addEventListener('focusin', function (e) {
+                var reentryFromChrome = awaitingReentry || isExplicitlyOutsideDocument(e.relatedTarget);
+                if (!reentryFromChrome) {
+                    return;
+                }
+                if (isSkipLinkElement(e.target)) {
+                    clearGuard();
+                    return;
+                }
+                applyGuard();
+                focusSkipLink();
+                clearGuard();
+            }, true);
+        })();
+    </script>
+    <form name="mainForm" method="post" action="/Government/City-Government/City-Secretary/City-Charter-Code-of-Ordinances" id="mainForm">
+<div>
+<input type="hidden" name="ctl04_seamless_script_manager_TSM" id="ctl04_seamless_script_manager_TSM" value=";;System.Web.Extensions, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35:en-GB:dd3ac3d5-1e29-4112-8fed-529caffa8f24:ea597d4b:b25378d2;;OpenCities.CustomControls:en-GB:7197b077-b068-4a69-9481-a6cf2e7718f9:8e1d32bf">
+<input type="hidden" name="__EVENTTARGET" id="__EVENTTARGET" value="">
+<input type="hidden" name="__EVENTARGUMENT" id="__EVENTARGUMENT" value="">
+<input type="hidden" name="__SEAMLESSVIEWSTATE" id="__SEAMLESSVIEWSTATE" value="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">
+<input type="hidden" name="__VIEWSTATE" id="__VIEWSTATE" value="">
+</div>
+
+<script type="text/javascript">
+//<![CDATA[
+var theForm = document.forms['mainForm'];
+if (!theForm) {
+    theForm = document.mainForm;
+}
+function __doPostBack(eventTarget, eventArgument) {
+    if (!theForm.onsubmit || (theForm.onsubmit() != false)) {
+        theForm.__EVENTTARGET.value = eventTarget;
+        theForm.__EVENTARGUMENT.value = eventArgument;
+        theForm.submit();
+    }
+}
+//]]>
+</script>
+
+
+<script src="/WebResource.axd?d=pynGkmcFUV13He1Qd6_TZEwxevNHYVPiVa1Imd_CfwV7Ab8FE1aS0qMo2VVt5LKJo2QwSrlAqlF7-BPzzVxibA2&amp;t=639190653332169432" type="text/javascript"></script>
+
+
+<script src="/Telerik.Web.UI.WebResource.axd?_TSM_HiddenField_=ctl04_seamless_script_manager_TSM&amp;compress=1&amp;_TSM_CombinedScripts_=%3b%3bSystem.Web.Extensions%2c+Version%3d4.0.0.0%2c+Culture%3dneutral%2c+PublicKeyToken%3d31bf3856ad364e35%3aen-GB%3add3ac3d5-1e29-4112-8fed-529caffa8f24%3aea597d4b%3ab25378d2" type="text/javascript"></script>
+<script src="/ScriptResource.axd?d=EYVjNsQ7oYmzBqCI0dkEyYe0LYmPcVFL4WPcQCXhKfQwUqkAT7lLra0za-OLMuUUcCyPINdTVMHIWti96-8R_oN-trjXUUZnJRzckxTjid4ecctwwEJyNI-05jZYvXHBRiEKL0MUQMEyEJ2FXanyE1uBk88RxZ1wVK6AUn9D4v8rW-LNx2OOtB8vE3hC8P0jk4XZt7GAPiCeYQolxUlwFZA8cuOfgd4u08OASxFdh8mChz3A0YHhuwRrXGVlulfs9SJVkAvulhjdHYIIp1SRohDxt9acTwxUQrOlxuxC847b00zOOWg9SlpwD_iBuQQ1rOK9WH9O_wN9c2TXm4GeXaQHHT4yQ9IlzZXw6th8ch3f-k_n1yYeeurDMbwChXW1Vh_7rpu00kgmegsg9w2J3ququXIPfy2Gq8IscVTmtwouupfmUzAOicU_yESgQ-dG0" type="text/javascript"></script>
+<script src="/Telerik.Web.UI.WebResource.axd?_TSM_HiddenField_=ctl04_seamless_script_manager_TSM&amp;compress=1&amp;_TSM_CombinedScripts_=%3b%3bOpenCities.CustomControls%3aen-GB%3a7197b077-b068-4a69-9481-a6cf2e7718f9%3a8e1d32bf" type="text/javascript"></script>
+    <script type="text/javascript">
+//<![CDATA[
+Sys.WebForms.PageRequestManager._initialize('ctl04$seamless_script_manager', 'mainForm', [], [], [], 90, '');
+//]]>
+</script>
+
+<script type="text/javascript">
+    try{
+        function SeamlessEndRequestHandler(sender, args) {
+            try {
+                var dataItems = args.get_dataItems();
+                if(dataItems.ctl04_seamless_script_manager)
+                    document.getElementById('__SEAMLESSVIEWSTATE').value = dataItems.ctl04_seamless_script_manager;
+            }
+            catch (e) { }
+        }
+
+        Sys.WebForms.PageRequestManager.getInstance().add_endRequest(SeamlessEndRequestHandler);
+    }
+    catch (e) { }
+</script>
+
+    
+    
+    <div hidden="">
+        <span id="new-window-0">opens in new tab or window </span>
+    </div>
+    <div class="overlay-container"></div>
+    
+    <div role="region" aria-label="Site announcements" class="emergency-container emergency-container-position-1"><div id="PublicEmergencyAnnouncementList" data-cookiekeydismisseditems="OC_EA_EmergencyAnnouncementList_Dismissed" data-querykeydismisseditem="OC_EA_EmergencyAnnouncementList_Dismiss">
+   <div class="oc-emergency-announcement-container">
+  <div class="oc-emergency-undismissed max-severity-30 results-1">
+    <div class="side-box message-box emergency-message-box oc-emergency-severity-30 ">
+   <h3 class="side-box-title">Sign up for MyArlingtonTX News</h3>
+   <div class="side-box-content">
+      <p>Stay informed with this twice-weekly e-newsletter sent right to your inbox.</p>
+      <a href="https://public.govdelivery.com/accounts/TXARLINGTON/subscriber/topics?qsp=TXARLINGTON_1" target="_self">Sign Up Here</a>
+      
+   </div>
+   <button type="button" class="emergency-announcement-item-dismiss" aria-label="Close this announcement" data-cvid="d6384cea-be50-47fe-925b-431c024cdd64"></button>
+</div>
+        
+  </div><div class="oc-emergency-dismissed results-0"></div></div></div></div>
+    <div class="background-container">
+        <div class="page-container">
+            <!-- OC Layout Element GROUP TEMPLATE -->
+            <!--groupTemplateStart--><header><div class="print-header-outer-container print-element">
+<img src="/files/templates/00000000-0000-0000-0000-000000000000/1e57e76d-1919-4c46-a066-ed414e8610c1/v/235/print-logo.svg" alt="City of Arlington, TX - Logo">
+<div class="qr-code" id="qr-code"><img src="data:image/png;base64,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" alt="QR code to access this page"></div></div>
+            <div class="toolbar-outer-container">
+  <div class="toolbar-inner-container clearfix">
+    <div class="toolbar-item toolbar-quicklinks loaded toolbar-item-list toolbar-display-links"><div class="toolbar-item-list-heading visuallyhidden">Quick Links: </div>
+	<button type="button" aria-controls="toolbar-quicklinks-drop-down" aria-expanded="false" class="toolbar-button toolbar-button-quicklinks js-element"><span>Quick Links</span><i aria-hidden="true"></i></button>	
+	<div id="toolbar-quicklinks-drop-down" class="toolbar-quicklinks-drop-down clearfix toolbar-link-list" style="">
+		<ul>
+		  <li><a href="https://www.arlingtontx.gov/Government/Data-Information/Data-Information-Directory/Accessibility" class="oc-icon-b oc-i--none link-type-internal"><span>Accessibility</span></a></li><li><a href="https://www.arlingtontx.gov/News-Events" class="oc-icon-b oc-i--none link-type-internal"><span>News</span></a></li><li><a href="https://www.arlingtontx.gov/Government/Contact-Us" class="oc-icon-b oc-i--none link-type-internal"><span>Contact Us</span></a></li><li><a href="https://www.facebook.com/CityofArlington" class="oc-icon-b oc-i-facebook link-type-external link-hide-text opens-in-new-tab" target="_blank" aria-describedby="new-window-0"><span>Facebook</span></a></li><li><a href="https://x.com/cityofarlington" class="oc-icon-b oc-i-x link-type-external link-hide-text opens-in-new-tab" target="_blank" aria-describedby="new-window-0"><span>X</span></a></li><li><a href="http://www.instagram.com/cityofarlington" class="oc-icon-b oc-i-instagram link-type-external link-hide-text opens-in-new-tab" target="_blank" aria-describedby="new-window-0"><span>Instagram</span></a></li><li><a href="http://www.youtube.com/cityofarlington" class="oc-icon-b oc-i-youtube link-type-external link-hide-text opens-in-new-tab" target="_blank" aria-describedby="new-window-0"><span>YouTube</span></a></li><li><a href="https://www.linkedin.com/company/city-of-arlington/" class="oc-icon-b oc-i-linkedin link-type-external link-hide-text opens-in-new-tab" target="_blank" aria-describedby="new-window-0"><span>LinkedIn</span></a></li>
+		</ul>
+	</div>
+</div><div class="toolbar-item toolbar-language notranslate toolbar-display-dropdown"><div class="no-js-element">
+		  <ul>
+		    <li id="toolbar-language-option-en-us-noscript"><a href="https://www.arlingtontx.gov/Government/City-Government/City-Secretary/City-Charter-Code-of-Ordinances?oc_lang=en-US" class="lang-item lang-en-us" data-translate-to="en-us" lang="en-US">English<span class="visuallyhidden"> Select this as your preferred language</span></a></li><li id="toolbar-language-option-es-noscript"><a href="https://www.arlingtontx.gov/Government/City-Government/City-Secretary/City-Charter-Code-of-Ordinances?oc_lang=es" class="lang-item lang-es" data-translate-to="es" lang="en">Spanish<span class="visuallyhidden"> Select this as your preferred language</span></a></li><li id="toolbar-language-option-vi-noscript"><a href="https://www.arlingtontx.gov/Government/City-Government/City-Secretary/City-Charter-Code-of-Ordinances?oc_lang=vi" class="lang-item lang-vi" data-translate-to="vi" lang="en">Vietnamese<span class="visuallyhidden"> Select this as your preferred language</span></a></li>
+          </ul>
+		</div>
+	<button type="button" role="combobox" aria-controls="toolbar-language-drop-down" aria-expanded="false" aria-haspopup="listbox" aria-autocomplete="none" aria-labelledby="toolbar-language-label" class="toolbar-button toolbar-button-language js-element">  
+        <span class="toolbar-language-globe-icon" aria-hidden="true"></span>
+        <span id="toolbar-language-label" class="current-language">English</span><span class="visuallyhidden"> is your current preferred language.</span>
+		<i aria-hidden="true"></i>
+	</button>
+	<div id="toolbar-language-drop-down" role="listbox" aria-label="Available languages" class="toolbar-drop-down toolbar-language-drop-down js-element clearfix">
+		<ul role="group">
+		    <li role="presentation"><a id="toolbar-language-option-es" role="option" aria-selected="false" href="https://www.arlingtontx.gov/Government/City-Government/City-Secretary/City-Charter-Code-of-Ordinances?oc_lang=es" class="lang-item lang-es" data-translate-to="es" lang="en">Spanish<span class="visuallyhidden"> Select this as your preferred language</span></a></li><li role="presentation"><a id="toolbar-language-option-vi" role="option" aria-selected="false" href="https://www.arlingtontx.gov/Government/City-Government/City-Secretary/City-Charter-Code-of-Ordinances?oc_lang=vi" class="lang-item lang-vi" data-translate-to="vi" lang="en">Vietnamese<span class="visuallyhidden"> Select this as your preferred language</span></a></li>
+        </ul>
+	</div></div>
+  </div>
+</div>
+            <div class="header-outer-container">
+    <div class="header-container header-layout-4  clearfix">
+			<div class="header-site-logo">
+				<a href="https://www.arlingtontx.gov/Home" lang="en-US" aria-label="City of Arlington, TX - Home - Logo">
+				</a>
+			</div>
+      
+		    <div class="mobile-search-btn js-element" style="display: none;">
+		        <button aria-expanded="false" class="not-pressed"><i aria-hidden="true"></i><span class="mobile-search-btn-text"><span class="visuallyhidden">Open </span>Search</span></button>
+		    </div>
+		    <div class="header-website-settings">
+                <button id="btn-mob-nav" type="button" aria-expanded="false" aria-controls="nav" aria-label="Open side Menu" class="not-pressed">
+                    <i aria-hidden="true"></i><span class="side-menu-btn-text" aria-hidden="true">Menu</span>
+                </button>
+        	</div><div class="navigation-outer-container">
+	<div id="nav" role="navigation" class="navigation-container  navigation-container-option-8" data-menu-type="horizontal" aria-label="primary">
+        <div class="grid">
+            <div class="col-xs-12">              
+                <ul class="sf-menu mega-menu sf-js-enabled sf-arrows level-1 sf-desktop" id="sc-main-menu" aria-describedby="horizontal-menu-description" style="touch-action: pan-y;"><li class="nav-section-quarters-1 nav-active-path first-item nav-item-seq-1">
+<a href="https://www.arlingtontx.gov/Government" class="nav-level-1 nav-has-children sf-with-ul" target="">
+	<i class="item-icon" aria-hidden="true"></i><span class="item-text">Government</span>
+</a>
+<button aria-label="Expand 
+	Government
+" aria-controls="sc-menu-second-level-nav-item-seq-1" aria-haspopup="true" class="mobnav-subarrow" aria-expanded="false"><i aria-hidden="true"></i></button>
+<ul id="sc-menu-second-level-nav-item-seq-1" class="second-level-container ch-11" style="display: none;">
+
+          
+            <li class="second-level-item nav-active-path "><a href="https://www.arlingtontx.gov/Government/City-Government" class="nav-has-children" target="">City Government</a><button aria-label="Expand City Government" aria-controls="sc-menu-third-level-nav-item-seq-1-nav-item-seq-1" class="mobnav-subarrow-child" aria-expanded="false"><i aria-hidden="true"></i>
+              </button>
+<ul id="sc-menu-third-level-nav-item-seq-1-nav-item-seq-1" class="third-level-container">
+          
+            <li class="third-level-item  "><a href="https://www.arlingtontx.gov/Government/City-Government/Mayor-Jim-Ross" target="_self">Mayor Jim Ross</a></li><li class="third-level-item  "><a href="https://www.arlingtontx.gov/Government/City-Government/City-Council" target="">City Council</a></li><li class="third-level-item  "><a href="https://www.arlingtontx.gov/Government/City-Government/City-Attorney" target="">City Attorney</a></li><li class="third-level-item  "><a href="https://www.arlingtontx.gov/Government/City-Government/City-Auditor" target="">City Auditor</a></li><li class="third-level-item  "><a href="https://www.arlingtontx.gov/Government/City-Government/City-Manager" target="">City Manager</a></li><li class="third-level-item nav-active-path "><a href="https://www.arlingtontx.gov/Government/City-Government/City-Secretary" target="">City Secretary</a></li><li class="third-level-item  "><a href="https://www.arlingtontx.gov/Government/City-Government/Boards-Commissions" target="">Boards &amp; Commissions</a></li></ul></li><li class="second-level-item  "><a href="https://www.arlingtontx.gov/Government/Meetings-Agendas" class="nav-has-children" target="">Meetings &amp; Agendas</a><button aria-label="Expand Meetings &amp; Agendas" aria-controls="sc-menu-third-level-nav-item-seq-1-nav-item-seq-2" class="mobnav-subarrow-child" aria-expanded="false"><i aria-hidden="true"></i>
+              </button>
+<ul id="sc-menu-third-level-nav-item-seq-1-nav-item-seq-2" class="third-level-container">
+          
+            <li class="third-level-item  "><a href="https://www.arlingtontx.gov/Government/Meetings-Agendas/City-Council-Meeting-Agendas" target="">City Council Meeting Agendas</a></li><li class="third-level-item  "><a href="https://www.arlingtontx.gov/Government/Meetings-Agendas/City-Council-Meeting-Minutes" target="">City Council Meeting Minutes</a></li><li class="third-level-item  "><a href="https://www.arlingtontx.gov/Government/Meetings-Agendas/City-Council-Meeting-Schedule" target="">City Council Meeting Schedule</a></li><li class="third-level-item  "><a href="https://www.arlingtontx.gov/Government/Meetings-Agendas/City-Council-Meeting-Process" target="">City Council Meeting Process</a></li><li class="third-level-item  "><a href="https://www.arlingtontx.gov/Government/Meetings-Agendas/Watch-Meetings" target="">Watch Meetings</a></li></ul></li><li class="second-level-item  "><a href="https://www.arlingtontx.gov/Government/Departments" class="" target="_self">Departments</a></li><li class="second-level-item  "><a href="https://www.arlingtontx.gov/Government/Elections-Voting" class="nav-has-children" target="">Elections &amp; Voting</a><button aria-label="Expand Elections &amp; Voting" aria-controls="sc-menu-third-level-nav-item-seq-1-nav-item-seq-4" class="mobnav-subarrow-child" aria-expanded="false"><i aria-hidden="true"></i>
+              </button>
+<ul id="sc-menu-third-level-nav-item-seq-1-nav-item-seq-4" class="third-level-container">
+          
+            <li class="third-level-item  "><a href="https://www.arlingtontx.gov/Government/Elections-Voting/Election-Information" target="">Election Information</a></li><li class="third-level-item  "><a href="https://www.arlingtontx.gov/Government/Elections-Voting/Council-District-Maps" target="_self">Council District Maps</a></li><li class="third-level-item  "><a href="https://www.arlingtontx.gov/Government/Elections-Voting/Campaign-Finance-Reports" target="">Campaign Finance Reports</a></li></ul></li><li class="second-level-item  "><a href="https://www.arlingtontx.gov/Government/Public-Safety" class="" target="_self">Public Safety</a></li><li class="second-level-item  "><a href="https://www.arlingtontx.gov/Government/Municipal-Court" class="nav-has-children" target="">Municipal Court</a><button aria-label="Expand Municipal Court" aria-controls="sc-menu-third-level-nav-item-seq-1-nav-item-seq-6" class="mobnav-subarrow-child" aria-expanded="false"><i aria-hidden="true"></i>
+              </button>
+<ul id="sc-menu-third-level-nav-item-seq-1-nav-item-seq-6" class="third-level-container">
+          
+            <li class="third-level-item  "><a href="https://www.arlingtontx.gov/Government/Municipal-Court/Municipal-Court-Options" target="">Municipal Court Options</a></li><li class="third-level-item  "><a href="https://www.arlingtontx.gov/Government/Municipal-Court/Citation-Search" target="_blank" aria-describedby="new-window-0" class="opens-in-new-tab">Citation Search</a></li><li class="third-level-item  "><a href="https://www.arlingtontx.gov/Government/Municipal-Court/Warrants-or-Posting-Bond" target="">Warrants or Posting Bond</a></li><li class="third-level-item  "><a href="https://www.arlingtontx.gov/Government/Municipal-Court/Court-Information" target="">Court Information</a></li></ul></li><li class="second-level-item  "><a href="https://www.arlingtontx.gov/Government/Budget-Finance" class="nav-has-children" target="">Budget &amp; Finance</a><button aria-label="Expand Budget &amp; Finance" aria-controls="sc-menu-third-level-nav-item-seq-1-nav-item-seq-7" class="mobnav-subarrow-child" aria-expanded="false"><i aria-hidden="true"></i>
+              </button>
+<ul id="sc-menu-third-level-nav-item-seq-1-nav-item-seq-7" class="third-level-container">
+          
+            <li class="third-level-item  "><a href="https://www.arlingtontx.gov/Government/Budget-Finance/Budget-Business-Plan" target="">Budget &amp; Business Plan</a></li><li class="third-level-item  "><a href="https://www.arlingtontx.gov/Government/Budget-Finance/Treasury" target="">Treasury</a></li><li class="third-level-item  "><a href="https://www.arlingtontx.gov/Government/Budget-Finance/Purchasing" target="">Purchasing</a></li><li class="third-level-item  "><a href="https://www.arlingtontx.gov/Government/Budget-Finance/Financial-Transparency" target="">Financial Transparency</a></li><li class="third-level-item  "><a href="https://www.arlingtontx.gov/Government/Budget-Finance/Accounts-Payable-Payroll" target="">Accounts Payable &amp; Payroll</a></li><li class="third-level-item  "><a href="https://www.arlingtontx.gov/Government/Budget-Finance/Annual-Financial-Reports" target="">Annual Financial Reports</a></li></ul></li><li class="second-level-item  "><a href="https://www.arlingtontx.gov/Government/Records" class="nav-has-children" target="">Records</a><button aria-label="Expand Records" aria-controls="sc-menu-third-level-nav-item-seq-1-nav-item-seq-8" class="mobnav-subarrow-child" aria-expanded="false"><i aria-hidden="true"></i>
+              </button>
+<ul id="sc-menu-third-level-nav-item-seq-1-nav-item-seq-8" class="third-level-container">
+          
+            <li class="third-level-item  "><a href="https://www.arlingtontx.gov/Government/Records/Vital-Records" target="">Vital Records</a></li><li class="third-level-item  "><a href="https://www.arlingtontx.gov/Government/Records/Open-Records-Request" target="_blank" aria-describedby="new-window-0" class="opens-in-new-tab">Open Records Request</a></li><li class="third-level-item  "><a href="https://www.arlingtontx.gov/Government/Records/Police-Records" target="_self">Police Records</a></li></ul></li><li class="second-level-item  "><a href="https://www.arlingtontx.gov/Government/Jobs-Volunteering" class="" target="_self">Jobs &amp; Volunteering</a></li><li class="second-level-item  "><a href="https://www.arlingtontx.gov/Government/Contact-Us" class="nav-has-children" target="">Contact Us</a><button aria-label="Expand Contact Us" aria-controls="sc-menu-third-level-nav-item-seq-1-nav-item-seq-10" class="mobnav-subarrow-child" aria-expanded="false"><i aria-hidden="true"></i>
+              </button>
+<ul id="sc-menu-third-level-nav-item-seq-1-nav-item-seq-10" class="third-level-container">
+          
+            <li class="third-level-item  "><a href="https://www.arlingtontx.gov/Government/Contact-Us/Action-Center" target="_self">Action Center</a></li><li class="third-level-item  "><a href="https://www.arlingtontx.gov/Government/Contact-Us/City-Phones-Emails-Directory" target="">City Phones &amp; Emails Directory</a></li><li class="third-level-item  "><a href="https://www.arlingtontx.gov/Government/Contact-Us/Mobile-Apps" target="">Mobile Apps</a></li></ul></li><li class="second-level-item  "><a href="https://www.arlingtontx.gov/Government/Data-Information" class="nav-has-children" target="_self">Data &amp; Information</a><button aria-label="Expand Data &amp; Information" aria-controls="sc-menu-third-level-nav-item-seq-1-nav-item-seq-11" class="mobnav-subarrow-child" aria-expanded="false"><i aria-hidden="true"></i>
+              </button>
+<ul id="sc-menu-third-level-nav-item-seq-1-nav-item-seq-11" class="third-level-container">
+          
+            <li class="third-level-item  "><a href="https://www.arlingtontx.gov/Government/Data-Information/City-Facts" target="_self">City Facts</a></li><li class="third-level-item  "><a href="https://www.arlingtontx.gov/Government/Data-Information/Open-Data" target="_self">Open Data</a></li><li class="third-level-item  "><a href="https://www.arlingtontx.gov/Government/Data-Information/Interactive-Maps" target="_self">Interactive Maps</a></li></ul></li></ul></li>
+          
+            <li class="nav-section-quarters-1 nav-item-seq-2">
+<a href="https://www.arlingtontx.gov/Business" class="nav-level-1 nav-has-children sf-with-ul" target="">Business</a>
+<button aria-label="Expand Business" aria-controls="sc-menu-second-level-nav-item-seq-2" aria-haspopup="true" class="mobnav-subarrow" aria-expanded="false"><i aria-hidden="true"></i></button>
+<ul id="sc-menu-second-level-nav-item-seq-2" class="second-level-container ch-9" style="display: none;">
+
+          
+            <li class="second-level-item  "><a href="https://www.arlingtontx.gov/Business/Economic-Development-Corporation" class="opens-in-new-tab" target="_blank" aria-describedby="new-window-0">Economic Development Corporation</a></li><li class="second-level-item  "><a href="https://www.arlingtontx.gov/Business/Economic-Development" class="nav-has-children" target="_self">Economic Development</a><button aria-label="Expand Economic Development" aria-controls="sc-menu-third-level-nav-item-seq-2-nav-item-seq-2" class="mobnav-subarrow-child" aria-expanded="false"><i aria-hidden="true"></i>
+              </button>
+<ul id="sc-menu-third-level-nav-item-seq-2-nav-item-seq-2" class="third-level-container">
+          
+            <li class="third-level-item  "><a href="https://www.arlingtontx.gov/Business/Economic-Development/Site-Selection-Resources" target="_self">Site Selection Resources</a></li></ul></li><li class="second-level-item  "><a href="https://www.arlingtontx.gov/Business/Small-Business-Assistance" class="" target="_self">Small Business Assistance</a></li><li class="second-level-item  "><a href="https://www.arlingtontx.gov/Business/Development-Resources" class="nav-has-children" target="">Development Resources</a><button aria-label="Expand Development Resources" aria-controls="sc-menu-third-level-nav-item-seq-2-nav-item-seq-4" class="mobnav-subarrow-child" aria-expanded="false"><i aria-hidden="true"></i>
+              </button>
+<ul id="sc-menu-third-level-nav-item-seq-2-nav-item-seq-4" class="third-level-container">
+          
+            <li class="third-level-item  "><a href="https://www.arlingtontx.gov/Business/Development-Resources/Water-Utilities-Resources-for-Engineers-Builders-and-Contractors" target="_self">Water Utilities Resources for Engineers, Builders and Contractors</a></li><li class="third-level-item  "><a href="https://www.arlingtontx.gov/Business/Development-Resources/Zoning" target="_self">Zoning</a></li><li class="third-level-item  "><a href="https://www.arlingtontx.gov/Business/Development-Resources/Commercial-Site-Plan-Public-Improvements" target="">Commercial Site Plan/Public Improvements</a></li><li class="third-level-item  "><a href="https://www.arlingtontx.gov/Business/Development-Resources/Land-Development" target="">Land Development</a></li></ul></li><li class="second-level-item  "><a href="https://www.arlingtontx.gov/Business/Planning-Development" class="nav-has-children" target="_self">Planning &amp; Development</a><button aria-label="Expand Planning &amp; Development" aria-controls="sc-menu-third-level-nav-item-seq-2-nav-item-seq-5" class="mobnav-subarrow-child" aria-expanded="false"><i aria-hidden="true"></i>
+              </button>
+<ul id="sc-menu-third-level-nav-item-seq-2-nav-item-seq-5" class="third-level-container">
+          
+            <li class="third-level-item  "><a href="https://www.arlingtontx.gov/Business/Planning-Development/Building-Codes" target="_self">Building Codes</a></li><li class="third-level-item  "><a href="https://www.arlingtontx.gov/Business/Planning-Development/Permit-Applications-Forms" target="_self">Permit Applications &amp; Forms</a></li><li class="third-level-item  "><a href="https://www.arlingtontx.gov/Business/Planning-Development/Long-Range-Planning" target="_self">Long Range Planning</a></li><li class="third-level-item  "><a href="https://www.arlingtontx.gov/Business/Planning-Development/Permitting-Inspections" target="_self">Permitting &amp; Inspections</a></li><li class="third-level-item  "><a href="https://www.arlingtontx.gov/Business/Planning-Development/Planning-Development-Boards-Commissions" target="_self">Boards &amp; Commissions</a></li></ul></li><li class="second-level-item  "><a href="https://www.arlingtontx.gov/Business/Health-Services" class="" target="_self">Health Services</a></li><li class="second-level-item  "><a href="https://www.arlingtontx.gov/Business/Work-With-the-City" class="nav-has-children" target="">Work With the City</a><button aria-label="Expand Work With the City" aria-controls="sc-menu-third-level-nav-item-seq-2-nav-item-seq-7" class="mobnav-subarrow-child" aria-expanded="false"><i aria-hidden="true"></i>
+              </button>
+<ul id="sc-menu-third-level-nav-item-seq-2-nav-item-seq-7" class="third-level-container">
+          
+            <li class="third-level-item  "><a href="https://www.arlingtontx.gov/Business/Work-With-the-City/Bid-Opportunities" target="_blank" aria-describedby="new-window-0" class="opens-in-new-tab">Bid Opportunities</a></li><li class="third-level-item  "><a href="https://www.arlingtontx.gov/Business/Work-With-the-City/Office-of-Business-Outreach" target="">Office of Business Outreach</a></li></ul></li><li class="second-level-item  "><a href="https://www.arlingtontx.gov/Business/Real-Estate-Services" class="" target="">Real Estate Services</a></li><li class="second-level-item  "><a href="https://www.arlingtontx.gov/Business/Arlington-TX-Film-Commission" class="" target="">Arlington, TX Film Commission</a></li></ul></li>
+          
+            <li class="nav-section-quarters-2 nav-item-seq-3">
+<a href="https://www.arlingtontx.gov/City-Services" class="nav-level-1 nav-has-children sf-with-ul" target="">City Services</a>
+<button aria-label="Expand City Services" aria-controls="sc-menu-second-level-nav-item-seq-3" aria-haspopup="true" class="mobnav-subarrow" aria-expanded="false"><i aria-hidden="true"></i></button>
+<ul id="sc-menu-second-level-nav-item-seq-3" class="second-level-container ch-13" style="display: none;">
+
+          
+            <li class="second-level-item  "><a href="https://www.arlingtontx.gov/City-Services/Action-Center" class="nav-has-children" target="">Action Center</a><button aria-label="Expand Action Center" aria-controls="sc-menu-third-level-nav-item-seq-3-nav-item-seq-1" class="mobnav-subarrow-child" aria-expanded="false"><i aria-hidden="true"></i>
+              </button>
+<ul id="sc-menu-third-level-nav-item-seq-3-nav-item-seq-1" class="third-level-container">
+          
+            <li class="third-level-item  "><a href="https://www.arlingtontx.gov/City-Services/Action-Center/Contact-the-Action-Center" target="">Contact the Action Center</a></li><li class="third-level-item  "><a href="https://www.arlingtontx.gov/City-Services/Action-Center/Ask-Arlington-App" target="">Ask Arlington App</a></li><li class="third-level-item  "><a href="https://www.arlingtontx.gov/City-Services/Action-Center/Report-an-Issue" target="_blank" aria-describedby="new-window-0" class="opens-in-new-tab">Report an Issue</a></li></ul></li><li class="second-level-item  "><a href="https://www.arlingtontx.gov/City-Services/Water-Utilities" class="nav-has-children" target="_self">Water Utilities</a><button aria-label="Expand Water Utilities" aria-controls="sc-menu-third-level-nav-item-seq-3-nav-item-seq-2" class="mobnav-subarrow-child" aria-expanded="false"><i aria-hidden="true"></i>
+              </button>
+<ul id="sc-menu-third-level-nav-item-seq-3-nav-item-seq-2" class="third-level-container">
+          
+            <li class="third-level-item  "><a href="https://www.arlingtontx.gov/City-Services/Water-Utilities/Pay-Your-Water-Bill" target="_blank" aria-describedby="new-window-0" class="opens-in-new-tab">Pay Your Water Bill</a></li><li class="third-level-item  "><a href="https://www.arlingtontx.gov/City-Services/Water-Utilities/My-Water-Account" target="_self">My Water Account</a></li><li class="third-level-item  "><a href="https://www.arlingtontx.gov/City-Services/Water-Utilities/Common-Water-Issues" target="_self">Common Water Issues</a></li><li class="third-level-item  "><a href="https://www.arlingtontx.gov/City-Services/Water-Utilities/Water-Conservation" target="_self">Water Conservation</a></li></ul></li><li class="second-level-item  "><a href="https://www.arlingtontx.gov/City-Services/Garbage-Recycling" class="" target="_self">Garbage &amp; Recycling</a></li><li class="second-level-item  "><a href="https://www.arlingtontx.gov/City-Services/Public-Safety" class="nav-has-children" target="">Public Safety</a><button aria-label="Expand Public Safety" aria-controls="sc-menu-third-level-nav-item-seq-3-nav-item-seq-4" class="mobnav-subarrow-child" aria-expanded="false"><i aria-hidden="true"></i>
+              </button>
+<ul id="sc-menu-third-level-nav-item-seq-3-nav-item-seq-4" class="third-level-container">
+          
+            <li class="third-level-item  "><a href="https://www.arlingtontx.gov/City-Services/Public-Safety/Police-Department" target="">Police Department</a></li><li class="third-level-item  "><a href="https://www.arlingtontx.gov/City-Services/Public-Safety/Fire-Department" target="">Fire Department</a></li><li class="third-level-item  "><a href="https://www.arlingtontx.gov/City-Services/Public-Safety/Emergency-Preparedness" target="">Emergency Preparedness</a></li></ul></li><li class="second-level-item  "><a href="https://www.arlingtontx.gov/City-Services/Code-Compliance" class="nav-has-children" target="_self">Code Compliance</a><button aria-label="Expand Code Compliance" aria-controls="sc-menu-third-level-nav-item-seq-3-nav-item-seq-5" class="mobnav-subarrow-child" aria-expanded="false"><i aria-hidden="true"></i>
+              </button>
+<ul id="sc-menu-third-level-nav-item-seq-3-nav-item-seq-5" class="third-level-container">
+          
+            <li class="third-level-item  "><a href="https://www.arlingtontx.gov/City-Services/Code-Compliance/Tool-Sharing-Program" target="_self">Tool Sharing Program</a></li><li class="third-level-item  "><a href="https://www.arlingtontx.gov/City-Services/Code-Compliance/Garage-Sales-Permit" target="_self">Garage Sales Permit</a></li><li class="third-level-item  "><a href="https://www.arlingtontx.gov/City-Services/Code-Compliance/Graffiti-Removal" target="_self">Graffiti Removal</a></li></ul></li><li class="second-level-item  "><a href="https://www.arlingtontx.gov/City-Services/Your-Home-Neighborhood" class="nav-has-children" target="">Your Home &amp; Neighborhood</a><button aria-label="Expand Your Home &amp; Neighborhood" aria-controls="sc-menu-third-level-nav-item-seq-3-nav-item-seq-6" class="mobnav-subarrow-child" aria-expanded="false"><i aria-hidden="true"></i>
+              </button>
+<ul id="sc-menu-third-level-nav-item-seq-3-nav-item-seq-6" class="third-level-container">
+          
+            <li class="third-level-item  "><a href="https://www.arlingtontx.gov/City-Services/Your-Home-Neighborhood/Neighborhood-Programs" target="">Neighborhood Programs</a></li><li class="third-level-item  "><a href="https://www.arlingtontx.gov/City-Services/Your-Home-Neighborhood/Home-Improvement" target="">Home Improvement</a></li></ul></li><li class="second-level-item  "><a href="https://www.arlingtontx.gov/City-Services/Animals-Pets" class="nav-has-children" target="">Animals &amp; Pets</a><button aria-label="Expand Animals &amp; Pets" aria-controls="sc-menu-third-level-nav-item-seq-3-nav-item-seq-7" class="mobnav-subarrow-child" aria-expanded="false"><i aria-hidden="true"></i>
+              </button>
+<ul id="sc-menu-third-level-nav-item-seq-3-nav-item-seq-7" class="third-level-container">
+          
+            <li class="third-level-item  "><a href="https://www.arlingtontx.gov/City-Services/Animals-Pets/Animal-Services" target="">Animal Services</a></li><li class="third-level-item  "><a href="https://www.arlingtontx.gov/City-Services/Animals-Pets/Adoptable-Animals" target="">Adoptable Animals</a></li><li class="third-level-item  "><a href="https://www.arlingtontx.gov/City-Services/Animals-Pets/Lost-and-Found-Pets" target="">Lost and Found Pets</a></li><li class="third-level-item  "><a href="https://www.arlingtontx.gov/City-Services/Animals-Pets/Pet-Information" target="">Pet Information</a></li><li class="third-level-item  "><a href="https://www.arlingtontx.gov/City-Services/Animals-Pets/Urban-Wildlife" target="">Urban Wildlife</a></li><li class="third-level-item  "><a href="https://www.arlingtontx.gov/City-Services/Animals-Pets/Animal-Control" target="">Animal Control</a></li><li class="third-level-item  "><a href="https://www.arlingtontx.gov/City-Services/Animals-Pets/Breeder-Information" target="">Breeder Information</a></li></ul></li><li class="second-level-item  "><a href="https://www.arlingtontx.gov/City-Services/Housing" class="nav-has-children" target="_self">Housing</a><button aria-label="Expand Housing" aria-controls="sc-menu-third-level-nav-item-seq-3-nav-item-seq-8" class="mobnav-subarrow-child" aria-expanded="false"><i aria-hidden="true"></i>
+              </button>
+<ul id="sc-menu-third-level-nav-item-seq-3-nav-item-seq-8" class="third-level-container">
+          
+            <li class="third-level-item  "><a href="https://www.arlingtontx.gov/City-Services/Housing/Housing-Choice-Voucher-Program" target="_self">Housing Choice Voucher Program</a></li><li class="third-level-item  "><a href="https://www.arlingtontx.gov/City-Services/Housing/Rental-Assistance" target="_self">Rental Assistance</a></li><li class="third-level-item  "><a href="https://www.arlingtontx.gov/City-Services/Housing/Housing-Rehabilitation" target="_self">Housing Rehabilitation</a></li><li class="third-level-item  "><a href="https://www.arlingtontx.gov/City-Services/Housing/Homeless-Services" target="_self">Homeless Services</a></li></ul></li><li class="second-level-item  "><a href="https://www.arlingtontx.gov/City-Services/Library" class="nav-has-children" target="">Library</a><button aria-label="Expand Library" aria-controls="sc-menu-third-level-nav-item-seq-3-nav-item-seq-9" class="mobnav-subarrow-child" aria-expanded="false"><i aria-hidden="true"></i>
+              </button>
+<ul id="sc-menu-third-level-nav-item-seq-3-nav-item-seq-9" class="third-level-container">
+          
+            <li class="third-level-item  "><a href="https://www.arlingtontx.gov/City-Services/Library/Library-Account" target="_blank" aria-describedby="new-window-0" class="opens-in-new-tab">Library Account</a></li><li class="third-level-item  "><a href="https://www.arlingtontx.gov/City-Services/Library/Library-Card" target="_blank" aria-describedby="new-window-0" class="opens-in-new-tab">Library Card</a></li><li class="third-level-item  "><a href="https://www.arlingtontx.gov/City-Services/Library/Library-Programs-Events" target="_blank" aria-describedby="new-window-0" class="opens-in-new-tab">Library Programs &amp; Events</a></li><li class="third-level-item  "><a href="https://www.arlingtontx.gov/City-Services/Library/Library-Locations" target="_blank" aria-describedby="new-window-0" class="opens-in-new-tab">Library Locations</a></li><li class="third-level-item  "><a href="https://www.arlingtontx.gov/City-Services/Library/Library-Catalog" target="_blank" aria-describedby="new-window-0" class="opens-in-new-tab">Library Catalog</a></li></ul></li><li class="second-level-item  "><a href="https://www.arlingtontx.gov/City-Services/Permits" class="" target="">Permits</a></li><li class="second-level-item  "><a href="https://www.arlingtontx.gov/City-Services/Public-Projects-Construction" class="nav-has-children" target="">Public Projects &amp; Construction</a><button aria-label="Expand Public Projects &amp; Construction" aria-controls="sc-menu-third-level-nav-item-seq-3-nav-item-seq-11" class="mobnav-subarrow-child" aria-expanded="false"><i aria-hidden="true"></i>
+              </button>
+<ul id="sc-menu-third-level-nav-item-seq-3-nav-item-seq-11" class="third-level-container">
+          
+            <li class="third-level-item  "><a href="https://www.arlingtontx.gov/City-Services/Public-Projects-Construction/Southeast-Connector-Project" target="_blank" aria-describedby="new-window-0" class="opens-in-new-tab">Southeast Connector Project</a></li><li class="third-level-item  "><a href="https://www.arlingtontx.gov/City-Services/Public-Projects-Construction/A-Z-List-of-Public-Projects" target="">A-Z List of Public Projects</a></li><li class="third-level-item  "><a href="https://www.arlingtontx.gov/City-Services/Public-Projects-Construction/Project-Tracker" target="">Project Tracker</a></li><li class="third-level-item  "><a href="https://www.arlingtontx.gov/City-Services/Public-Projects-Construction/Bond-Tracker" target="">Bond Tracker</a></li></ul></li><li class="second-level-item  "><a href="https://www.arlingtontx.gov/City-Services/Transportation-Streets-Traffic" class="nav-has-children" target="">Transportation, Streets &amp; Traffic</a><button aria-label="Expand Transportation, Streets &amp; Traffic" aria-controls="sc-menu-third-level-nav-item-seq-3-nav-item-seq-12" class="mobnav-subarrow-child" aria-expanded="false"><i aria-hidden="true"></i>
+              </button>
+<ul id="sc-menu-third-level-nav-item-seq-3-nav-item-seq-12" class="third-level-container">
+          
+            <li class="third-level-item  "><a href="https://www.arlingtontx.gov/City-Services/Transportation-Streets-Traffic/Airport" target="">Arlington Municipal Airport</a></li><li class="third-level-item  "><a href="https://www.arlingtontx.gov/City-Services/Transportation-Streets-Traffic/Arlington-On-Demand" target="">Arlington On-Demand</a></li><li class="third-level-item  "><a href="https://www.arlingtontx.gov/City-Services/Transportation-Streets-Traffic/Handitran" target="">Handitran</a></li><li class="third-level-item  "><a href="https://www.arlingtontx.gov/City-Services/Transportation-Streets-Traffic/Streets-and-Traffic" target="">Streets and Traffic</a></li></ul></li><li class="second-level-item  "><a href="https://www.arlingtontx.gov/City-Services/Arlington-Tomorrow-Foundation" class="" target="_self">Arlington Tomorrow Foundation</a></li></ul></li>
+          
+            <li class="nav-section-quarters-2 nav-item-seq-4">
+<a href="https://www.arlingtontx.gov/Parks-Places" class="nav-level-1 nav-has-children sf-with-ul" target="">Parks &amp; Places</a>
+<button aria-label="Expand Parks &amp; Places" aria-controls="sc-menu-second-level-nav-item-seq-4" aria-haspopup="true" class="mobnav-subarrow" aria-expanded="false"><i aria-hidden="true"></i></button>
+<ul id="sc-menu-second-level-nav-item-seq-4" class="second-level-container ch-6" style="display: none;">
+
+          
+            <li class="second-level-item  "><a href="https://www.arlingtontx.gov/Parks-Places/Parks-Trails" class="nav-has-children" target="">Parks &amp; Trails</a><button aria-label="Expand Parks &amp; Trails" aria-controls="sc-menu-third-level-nav-item-seq-4-nav-item-seq-1" class="mobnav-subarrow-child" aria-expanded="false"><i aria-hidden="true"></i>
+              </button>
+<ul id="sc-menu-third-level-nav-item-seq-4-nav-item-seq-1" class="third-level-container">
+          
+            <li class="third-level-item  "><a href="https://www.arlingtontx.gov/Parks-Places/Parks-Trails/Park-Finder" target="">Park Finder</a></li><li class="third-level-item  "><a href="https://www.arlingtontx.gov/Parks-Places/Parks-Trails/Urban-Forestry" target="">Urban Forestry</a></li><li class="third-level-item  "><a href="https://www.arlingtontx.gov/Parks-Places/Parks-Trails/Lake-Arlington" target="">Lake Arlington</a></li></ul></li><li class="second-level-item  "><a href="https://www.arlingtontx.gov/Parks-Places/Facilities" class="nav-has-children" target="">Facilities</a><button aria-label="Expand Facilities" aria-controls="sc-menu-third-level-nav-item-seq-4-nav-item-seq-2" class="mobnav-subarrow-child" aria-expanded="false"><i aria-hidden="true"></i>
+              </button>
+<ul id="sc-menu-third-level-nav-item-seq-4-nav-item-seq-2" class="third-level-container">
+          
+            <li class="third-level-item  "><a href="https://www.arlingtontx.gov/Parks-Places/Facilities/Arlington-Tennis-Center" target="">Arlington Tennis Center</a></li><li class="third-level-item  "><a href="https://www.arlingtontx.gov/Parks-Places/Facilities/Event-Centers" target="">Event Centers</a></li><li class="third-level-item  "><a href="https://www.arlingtontx.gov/Parks-Places/Facilities/Arlington-Expo-Center" target="">Arlington Expo Center</a></li><li class="third-level-item  "><a href="https://www.arlingtontx.gov/Parks-Places/Facilities/Golf" target="_blank" aria-describedby="new-window-0" class="opens-in-new-tab">Golf</a></li><li class="third-level-item  "><a href="https://www.arlingtontx.gov/Parks-Places/Facilities/Park-Pavilions" target="">Park Pavilions</a></li><li class="third-level-item  "><a href="https://www.arlingtontx.gov/Parks-Places/Facilities/Aquatics" target="">Aquatics</a></li><li class="third-level-item  "><a href="https://www.arlingtontx.gov/Parks-Places/Facilities/Recreation-Centers" target="">Recreation Centers</a></li><li class="third-level-item  "><a href="https://www.arlingtontx.gov/Parks-Places/Facilities/Athletic-Fields" target="">Athletic Fields</a></li><li class="third-level-item  "><a href="https://www.arlingtontx.gov/Parks-Places/Facilities/Arlington-Cemetery" target="">Arlington Cemetery</a></li><li class="third-level-item  "><a href="https://www.arlingtontx.gov/Parks-Places/Facilities/Pickleball" target="">Pickleball</a></li></ul></li><li class="second-level-item  "><a href="https://www.arlingtontx.gov/Parks-Places/Activities" class="nav-has-children" target="">Activities</a><button aria-label="Expand Activities" aria-controls="sc-menu-third-level-nav-item-seq-4-nav-item-seq-3" class="mobnav-subarrow-child" aria-expanded="false"><i aria-hidden="true"></i>
+              </button>
+<ul id="sc-menu-third-level-nav-item-seq-4-nav-item-seq-3" class="third-level-container">
+          
+            <li class="third-level-item  "><a href="https://www.arlingtontx.gov/Parks-Places/Activities/Register-for-Parks-Recreation-Culture-Programs" target="">Register for Parks, Recreation &amp; Culture Programs</a></li><li class="third-level-item  "><a href="https://www.arlingtontx.gov/Parks-Places/Activities/Special-Events" target="_self">Special Events</a></li><li class="third-level-item  "><a href="https://www.arlingtontx.gov/Parks-Places/Activities/50-Programs" target="">50+ Programs</a></li></ul></li><li class="second-level-item  "><a href="https://www.arlingtontx.gov/Parks-Places/Tourism" class="" target="_self">Tourism</a></li><li class="second-level-item  "><a href="https://www.arlingtontx.gov/Parks-Places/History-of-Arlington" class="" target="_self">History of Arlington</a></li><li class="second-level-item  "><a href="https://www.arlingtontx.gov/Parks-Places/Sister-Cities" class="" target="">Sister Cities</a></li></ul></li>
+          
+            <li class="nav-section-quarters-3 nav-item-seq-5">
+<a href="https://www.arlingtontx.gov/News-Events" class="nav-level-1 nav-has-children sf-with-ul" target="">News &amp; Events</a>
+<button aria-label="Expand News &amp; Events" aria-controls="sc-menu-second-level-nav-item-seq-5" aria-haspopup="true" class="mobnav-subarrow" aria-expanded="false"><i aria-hidden="true"></i></button>
+<ul id="sc-menu-second-level-nav-item-seq-5" class="second-level-container ch-4" style="display: none;">
+
+          
+            <li class="second-level-item  "><a href="https://www.arlingtontx.gov/News-Events/All-News" class="" target="">All News</a></li><li class="second-level-item  "><a href="https://www.arlingtontx.gov/News-Events/MyArlingtonTV" class="" target="_self">MyArlingtonTV</a></li><li class="second-level-item  "><a href="https://www.arlingtontx.gov/News-Events/Espanol" class="nav-has-children" target="">Español</a><button aria-label="Expand Español" aria-controls="sc-menu-third-level-nav-item-seq-5-nav-item-seq-3" class="mobnav-subarrow-child" aria-expanded="false"><i aria-hidden="true"></i>
+              </button>
+<ul id="sc-menu-third-level-nav-item-seq-5-nav-item-seq-3" class="third-level-container">
+          
+            <li class="third-level-item  "><a href="https://www.arlingtontx.gov/News-Events/Espanol/Calendario-de-Eventos-en-Español" target="">Calendario de Eventos en Español</a></li></ul></li><li class="second-level-item  "><a href="https://www.arlingtontx.gov/News-Events/Events" class="" target="_self">Events</a></li></ul></li>
+          
+            </ul><div class="visuallyhidden list_help" id="horizontal-menu-description"><p>Select the Escape key to close the menu. Focus will then be set to the first menu item.</p></div>
+            </div>
+        </div>
+    </div>
+</div>
+          
+			
+			<div class="header-search-control-container" id="header-search" role="search" aria-label="Sitewide search">
+				<div class="search-inner-container">
+					<div class="sc-search-panel" onkeypress="javascript:return WebForm_FireDefaultButton(event, 'ctl08_btnSearch')">
+	<label for="ctl08_txtSearch" id="ctl08_lblSearch" class="sc-search-label">Search</label><input name="ctl08$txtSearch" type="text" id="ctl08_txtSearch" class="sc-search-text" placeholder="What are you looking for?" autocomplete="off"><input type="submit" name="ctl08$btnSearch" value="Search" id="ctl08_btnSearch" class="sc-search-button" aria-label="Activate Search">
+</div>
+					<div role="status" id="predictiveResults"></div>
+				</div>
+			</div>
+    </div>
+</div>
+
+            
+            </header>
+            <div class="content-outer-container">
+                <div id="main" role="main" class="main-outer-container clearfix">
+                        
+                        <div class="content-main-container">
+                            <div class="grid">
+					            <div class="col-xs-12">
+						            <nav id="breadcrumbs-container" aria-label="You Are Here :">
+							            <span role="list">
+<span role="listitem">
+	<a href="https://www.arlingtontx.gov/Home" lang="en-US">Home</a>
+	<span class="nav-separator" aria-hidden="true" role="presentation">/</span>
+</span>
+          <span role="listitem"><a href="https://www.arlingtontx.gov/Government">Government</a><span class="nav-separator" aria-hidden="true" role="presentation">/</span></span><span role="listitem">
+	<a href="https://www.arlingtontx.gov/Government/City-Government">
+		City Government
+	</a>
+	<span class="nav-separator" aria-hidden="true" role="presentation">/</span>
+</span>
+<span role="listitem">
+	<a href="https://www.arlingtontx.gov/Government/City-Government/City-Secretary">
+		City Secretary
+	</a>
+	<span class="nav-separator" aria-hidden="true" role="presentation">/</span>
+</span>
+<span class="current-page" role="listitem" aria-current="page">City Charter &amp; Code of Ordinances</span>
+          
+          </span>
+						            </nav>
+					            </div>
+                      <div class="col-xs-12">
+                                                <div class="featured-section-header-outer clearfix"><div class="featured-section-header-inner clearfix"><div class="featured-section-header-logo"><span class="featured-section-header-logo-span"><span class="featured-section-header-logo-text">City Secretary Navigation</span></span></div><div class="section-menu-btn js-element">
+		    <button aria-controls="nav" aria-expanded="false" class="not-pressed"><i aria-hidden="true"></i><span class="section-menu-btn-text">Menu</span></button>
+		    </div></div></div><div class="section-nav-outer-container clearfix"><div id="section-nav" role="navigation" class="navigation-container" aria-label="secondary"><ul class="featured-section-menu" id="fs-menu"><li class="  nav-item-seq-1">
+<a href="https://www.arlingtontx.gov/Government/City-Government/City-Secretary/Alcohol-Permits" class="nav-level-1 " target="">Alcohol Permits</a>
+</li>
+          
+          <li class="  nav-item-seq-2">
+<a href="https://www.arlingtontx.gov/Government/City-Government/City-Secretary/Claims-Against-the-City" class="nav-level-1 " target="">Claims Against the City</a>
+</li>
+          
+          <li class="nav-active-path nav-active-page nav-item-seq-3">
+<a href="https://www.arlingtontx.gov/Government/City-Government/City-Secretary/City-Charter-Code-of-Ordinances" class="nav-level-1 " target="">City Charter &amp; Code of Ordinances</a>
+</li>
+          
+          <li class="  nav-item-seq-4">
+<a href="https://www.arlingtontx.gov/Government/City-Government/City-Secretary/Posted-Meetings" class="nav-level-1 " target="">Posted Meetings</a>
+</li>
+          
+          <li class="  nav-item-seq-5">
+<a href="https://www.arlingtontx.gov/Government/City-Government/City-Secretary/Archived-Cowboys-Stadium-Documents" class="nav-level-1 " target="">Archived Cowboys Stadium Documents</a>
+</li>
+          
+          </ul></div></div> </div>
+					            <div class="col-xs-12">
+						            <div class="main-inner-container">
+							            <div id="main-content" class="main-container clearfix">
+							              
+                            <!-- OC Layout Element Conent Template -->
+							              <!--normalTemplateStart--><div class="grid">
+    <div class="col-xs-12">
+        <h1 class="oc-page-title ">City Charter &amp; Code of Ordinances</h1>
+        
+        <h2>City of Arlington Charter</h2>
+<p>The City Charter is considered the fundamental law of a Home Rule municipality and is sometimes referred to as the local constitution.</p>
+<p>The City Charter describes city boundaries, provides for the form of government, establishes the number of representatives on the City Council and defines the terms of office and how the City Council will be elected. The City Charter also describes the powers of the City Council and officers appointed by the City Council, and their compensation.</p>
+<p>This important document was first adopted under the Home Rule amendment to the State Constitution on January 17, 1920. This definition only summarizes a portion of the contents of the City Charter.</p>
+<p><a href="/files/assets/city/v/3/city-secretary/documents/city-code-of-ordinances/charter-of-the-city-chapter.pdf" target="_blank" title="Open in new tab" class="styled-button-calltoaction document ext-pdf opens-in-new-tab" aria-describedby="new-window-0"><i aria-hidden="true"></i>View the City of Arlington Charter<span class="file-info">(PDF,&nbsp;8MB)</span></a></p>
+<h2>Adopted Ordinances Not Yet Codified</h2>
+<p>The listing below includes all legislation that has been enacted, but that is pending codification into the Code of the City of Arlington, Texas.</p>
+<ul>
+<li><a title="Administration-Chapter-Ord.-25-069.pdf" href="/files/assets/city/v/1/city-secretary/documents/city-code-of-ordinances/adopted-ordinances-not-yet-codified/administration-chapter-ord.-25-069.pdf" target="_blank" class="document ext-pdf opens-in-new-tab" aria-describedby="new-window-0"><i aria-hidden="true"></i>Administration Chapter Ord. 25-069<span class="file-info">(PDF,&nbsp;639KB)</span></a></li>
+<li><a title="Anti-Discrimination-Chapter-Ord.-26-011.pdf" href="/files/assets/city/v/1/city-secretary/documents/city-code-of-ordinances/adopted-ordinances-not-yet-codified/anti-discrimination-chapter-ord.-26-011.pdf" target="_blank" class="document ext-pdf opens-in-new-tab" aria-describedby="new-window-0"><i aria-hidden="true"></i>Anti-Discrimination Chapter Ord. 26-011<span class="file-info">(PDF,&nbsp;2MB)</span></a></li>
+<li><a title="Construction-Chapter-Ord.-25-075.pdf" href="/files/assets/city/v/1/city-secretary/documents/city-code-of-ordinances/adopted-ordinances-not-yet-codified/construction-chapter-ord.-25-075.pdf" target="_blank" class="document ext-pdf opens-in-new-tab" aria-describedby="new-window-0"><i aria-hidden="true"></i>Construction Chapter Ord. 25-075<span class="file-info">(PDF,&nbsp;3MB)</span></a></li>
+<li><a title="Fire-Prevention-Chapter-Ord.-26-004.pdf" href="/files/assets/city/v/1/city-secretary/documents/city-code-of-ordinances/adopted-ordinances-not-yet-codified/fire-prevention-chapter-ord.-26-004.pdf" target="_blank" class="document ext-pdf opens-in-new-tab" aria-describedby="new-window-0"><i aria-hidden="true"></i>Fire Prevention Chapter Ord. 26-004<span class="file-info">(PDF,&nbsp;858KB)</span></a></li>
+<li><a title="Health-Chapter-Ord.-25-063.pdf" href="/files/assets/city/v/1/city-secretary/documents/city-code-of-ordinances/adopted-ordinances-not-yet-codified/health-chapter-ord.-25-063.pdf" target="_blank" class="document ext-pdf opens-in-new-tab" aria-describedby="new-window-0"><i aria-hidden="true"></i>Health Chapter Ord. 25-063<span class="file-info">(PDF,&nbsp;4MB)</span></a></li>
+<li><a title="Health Ordinance 26-024" href="/files/assets/city/v/1/city-secretary/documents/city-code-of-ordinances/health-ordinance-26-024.pdf" target="_blank" class="document ext-pdf opens-in-new-tab" aria-describedby="new-window-0"><i aria-hidden="true"></i>Health Chapter Ord. 26-024<span class="file-info">(PDF,&nbsp;1MB)</span></a></li>
+<li><a title="Major Sports Complex Ord. 26-027" href="/files/assets/city/v/1/city-secretary/documents/city-code-of-ordinances/adopted-ordinances-not-yet-codified/major-sports-complex-ord.-26-027.pdf" target="_blank" class="document ext-pdf opens-in-new-tab" aria-describedby="new-window-0"><i aria-hidden="true"></i>Major Sports Complex Ord. 26-027<span class="file-info">(PDF,&nbsp;888KB)</span></a></li>
+<li><a title="Municipal-Court-Chapter-Ord.-25-074.pdf" href="/files/assets/city/v/1/city-secretary/documents/city-code-of-ordinances/adopted-ordinances-not-yet-codified/municipal-court-chapter-ord.-25-074.pdf" target="_blank" class="document ext-pdf opens-in-new-tab" aria-describedby="new-window-0"><i aria-hidden="true"></i>Municipal Court Chapter Ord. 25-074<span class="file-info">(PDF,&nbsp;537KB)</span></a></li>
+<li><a title="Traffic-and-Motor-Vehicles-Chapter-Ord.-25-084.pdf" href="/files/assets/city/v/1/city-secretary/documents/city-code-of-ordinances/adopted-ordinances-not-yet-codified/traffic-and-motor-vehicles-chapter-ord.-25-084.pdf" target="_blank" class="document ext-pdf opens-in-new-tab" aria-describedby="new-window-0"><i aria-hidden="true"></i>Traffic and Motor Vehicles Chapter Ord. 25-084<span class="file-info">(PDF,&nbsp;532KB)</span></a></li>
+<li><a title="Traffic-and-Motor-Vehicles-Chapter-Ord.-26-003.pdf" href="/files/assets/city/v/1/city-secretary/documents/city-code-of-ordinances/adopted-ordinances-not-yet-codified/traffic-and-motor-vehicles-chapter-ord.-26-003.pdf" target="_blank" class="document ext-pdf opens-in-new-tab" aria-describedby="new-window-0"><i aria-hidden="true"></i>Traffic and Motor Vehicles Chapter Ord. 26-003<span class="file-info">(PDF,&nbsp;2MB)</span></a></li>
+<li><a title="Unified Development Code Ord. 26-019" href="/files/assets/city/v/1/city-secretary/documents/city-code-of-ordinances/adopted-ordinances-not-yet-codified/unified-development-code-ord.-26-019.pdf" target="_blank" class="document ext-pdf opens-in-new-tab" aria-describedby="new-window-0"><i aria-hidden="true"></i>Unified Development Code Ord. 26-019<span class="file-info">(PDF,&nbsp;42MB)</span></a></li>
+<li><a title="Water-and-Sewer-Chapter-Ord.-25-073.pdf" href="/files/assets/city/v/1/city-secretary/documents/city-code-of-ordinances/adopted-ordinances-not-yet-codified/water-and-sewer-chapter-ord.-25-073.pdf" target="_blank" class="document ext-pdf opens-in-new-tab" aria-describedby="new-window-0"><i aria-hidden="true"></i>Water and Sewer Chapter Ord. 25-073<span class="file-info">(PDF,&nbsp;939KB)</span></a></li>
+</ul>
+<h2>City of Arlington Code of Ordinances</h2>
+<p>This copy of the Code of the City of Arlington, Texas, is provided solely for convenience; the Code provisions contained herein are NOT the official Code of the City of Arlington, Texas. You are urged to verify the current status and wording or content of any code provision or graphics contained herein against the official Code of the City of Arlington, Texas, before relying on any provision or graphic. At the time of distribution, this copy of the Code was current. Provisions herein may have since been amended by the City Council. The official Code of the City of Arlington, Texas, is retained in the City Secretary's Office and may be viewed during regular business hours. Current copies of the Code of the City of Arlington, Texas, may be obtained from the City of Arlington, Texas.</p>
+<p>For further information regarding the official version of any of the City of Arlington Code of Ordinances, please contact the City Secretary's Office.&nbsp;&nbsp;</p>
+<div data-type="0" data-title-level="2" class="oc-wysiwyg-container">
+<div class="oc-wysiwyg-container-panel">
+
+
+</div>
+<div class="oc-wysiwyg-container-panel">
+
+
+</div>
+<div class="accordion-list-container"><div class="accordion-list-item-container multi-accrodion"><div class="accordion-item-header"><a data-accordion-all-device="true" data-open="false" class="accordion-trigger contains-heading accordion-closed" role="button" data-accordion-use-cookie="true" data-accordion-body="#accord-1-1" aria-controls="accord-1-1" aria-expanded="false" tabindex="0"><i aria-hidden="true"></i><h2 class="item-text">Chapters A through L</h2></a></div><div class="accordion-item-body multi-accordion-body clearfix rs_skip" id="accord-1-1" style="display: none;"><div class="oc-wysiwyg-container-panel-content">
+<ul>
+<li><a href="/files/assets/city/v/3/city-secretary/documents/city-code-of-ordinances/administration-chapter.pdf" target="_blank" class="document ext-pdf opens-in-new-tab" aria-describedby="new-window-0"><i aria-hidden="true"></i>Administration<span class="file-info">(PDF,&nbsp;24MB)</span></a></li>
+<li><a href="/files/assets/city/v/2/city-secretary/documents/city-code-of-ordinances/airport-chapter.pdf" target="_blank" class="document ext-pdf opens-in-new-tab" aria-describedby="new-window-0"><i aria-hidden="true"></i>Airport<span class="file-info">(PDF,&nbsp;6MB)</span></a></li>
+<li><a href="/files/assets/city/v/2/city-secretary/documents/city-code-of-ordinances/alarm-systems-chapter.pdf" target="_blank" class="document ext-pdf opens-in-new-tab" aria-describedby="new-window-0"><i aria-hidden="true"></i>Alarm Systems<span class="file-info">(PDF,&nbsp;1MB)</span></a></li>
+<li><a href="/files/assets/city/v/2/city-secretary/documents/city-code-of-ordinances/ambulance-service-chapter.pdf" target="_blank" class="document ext-pdf opens-in-new-tab" aria-describedby="new-window-0"><i aria-hidden="true"></i>Ambulance Service<span class="file-info">(PDF,&nbsp;1MB)</span></a></li>
+<li><a href="/files/assets/city/v/4/city-secretary/documents/city-code-of-ordinances/animals-chapter.pdf" target="_blank" class="document ext-pdf opens-in-new-tab" aria-describedby="new-window-0"><i aria-hidden="true"></i>Animals<span class="file-info">(PDF,&nbsp;41MB)</span></a></li>
+<li><a title="Anti-Discrimination Chapter" href="/files/assets/city/v/5/city-secretary/documents/city-code-of-ordinances/anti-discrimination-chapter.pdf" target="_blank" class="document ext-pdf opens-in-new-tab" aria-describedby="new-window-0"><i aria-hidden="true"></i>Anti-Discrimination<span class="file-info">(PDF,&nbsp;2MB)</span></a></li>
+<li><a href="/files/assets/city/v/2/city-secretary/documents/city-code-of-ordinances/backflow-prevention-chapter.pdf" target="_blank" class="document ext-pdf opens-in-new-tab" aria-describedby="new-window-0"><i aria-hidden="true"></i>Backflow Prevention<span class="file-info">(PDF,&nbsp;2MB)</span></a></li>
+<li><a href="/files/assets/city/v/1/city-secretary/documents/city-code-of-ordinances/boarding-home-facility-chapter.pdf" target="_blank" title="Opens in a new window" class="document ext-pdf opens-in-new-tab" aria-describedby="new-window-0"><i aria-hidden="true"></i>Boarding Home Facility<span class="file-info">(PDF,&nbsp;10MB)</span></a></li>
+<li><a href="/files/assets/city/v/2/city-secretary/documents/city-code-of-ordinances/cable-television-chapter.pdf" target="_blank" title="Cable Television Chapter" class="document ext-pdf opens-in-new-tab" aria-describedby="new-window-0"><i aria-hidden="true"></i>Cable Television<span class="file-info">(PDF,&nbsp;340KB)</span></a></li>
+<li><a href="/files/assets/city/v/1/city-secretary/documents/city-code-of-ordinances/cemetery-chapter.pdf" target="_blank" title="Cemetery Chapter" class="document ext-pdf opens-in-new-tab" aria-describedby="new-window-0"><i aria-hidden="true"></i>Cemetery<span class="file-info">(PDF,&nbsp;3MB)</span></a></li>
+<li><a href="/files/assets/city/v/3/city-secretary/documents/city-code-of-ordinances/charter-of-the-city-chapter.pdf" target="_self" class="document ext-pdf"><i aria-hidden="true"></i>Charter of the City<span class="file-info">(PDF,&nbsp;8MB)</span></a></li>
+<li><a href="/files/assets/city/v/3/city-secretary/documents/city-code-of-ordinances/construction-chapter.pdf" target="_blank" class="document ext-pdf opens-in-new-tab" aria-describedby="new-window-0"><i aria-hidden="true"></i>Construction<span class="file-info">(PDF,&nbsp;88MB)</span></a></li>
+<li><a href="/files/assets/city/v/2/city-secretary/documents/city-code-of-ordinances/municipal-court-chapter.pdf" target="_blank" class="document ext-pdf opens-in-new-tab" aria-describedby="new-window-0"><i aria-hidden="true"></i>Court - Municipal Court<span class="file-info">(PDF,&nbsp;27MB)</span></a></li>
+<li><a href="/files/assets/city/v/3/city-secretary/documents/city-code-of-ordinances/credit-access-business-chapter.pdf" target="_blank" class="document ext-pdf opens-in-new-tab" aria-describedby="new-window-0"><i aria-hidden="true"></i>Credit Access Business<span class="file-info">(PDF,&nbsp;3MB)</span></a></li>
+<li><a href="/files/assets/city/v/2/city-secretary/documents/city-code-of-ordinances/donation-boxes-chapter.pdf" target="_blank" class="document ext-pdf opens-in-new-tab" aria-describedby="new-window-0"><i aria-hidden="true"></i>Donation Boxes<span class="file-info">(PDF,&nbsp;5MB)</span></a></li>
+<li><a href="/files/assets/city/v/2/city-secretary/documents/city-code-of-ordinances/door-to-door-selling-chapter.pdf" target="_blank" class="document ext-pdf opens-in-new-tab" aria-describedby="new-window-0"><i aria-hidden="true"></i>Door-To-Door Selling<span class="file-info">(PDF,&nbsp;5MB)</span></a></li>
+<li><a href="/files/assets/city/v/2/city-secretary/documents/city-code-of-ordinances/municipal-elections-chapter.pdf" target="_blank" class="document ext-pdf opens-in-new-tab" aria-describedby="new-window-0"><i aria-hidden="true"></i>Election - Municipal Elections<span class="file-info">(PDF,&nbsp;10MB)</span></a></li>
+<li><a href="/files/assets/city/v/2/city-secretary/documents/city-code-of-ordinances/electrical-code-chapter.pdf" target="_blank" class="document ext-pdf opens-in-new-tab" aria-describedby="new-window-0"><i aria-hidden="true"></i>Electrical Code<span class="file-info">(PDF,&nbsp;9MB)</span></a></li>
+<li><a href="/files/assets/city/v/2/city-secretary/documents/city-code-of-ordinances/emergency-management-chapter.pdf" target="_blank" class="document ext-pdf opens-in-new-tab" aria-describedby="new-window-0"><i aria-hidden="true"></i>Emergency Management<span class="file-info">(PDF,&nbsp;84KB)</span></a></li>
+<li><a href="/files/assets/city/v/2/city-secretary/documents/city-code-of-ordinances/fair-housing-code-chapter.pdf" target="_blank" class="document ext-pdf opens-in-new-tab" aria-describedby="new-window-0"><i aria-hidden="true"></i>Fair Housing Code<span class="file-info">(PDF,&nbsp;10MB)</span></a></li>
+<li><a href="/files/assets/city/v/3/city-secretary/documents/city-code-of-ordinances/fire-prevention-chapter.pdf" target="_blank" class="document ext-pdf opens-in-new-tab" aria-describedby="new-window-0"><i aria-hidden="true"></i>Fire Prevention<span class="file-info">(PDF,&nbsp;64MB)</span></a></li>
+<li><a href="/files/assets/city/v/2/city-secretary/documents/city-code-of-ordinances/flag-and-logo-chapter.pdf" target="_blank" class="document ext-pdf opens-in-new-tab" aria-describedby="new-window-0"><i aria-hidden="true"></i>Flag and Logo<span class="file-info">(PDF,&nbsp;2MB)</span></a></li>
+<li><a href="/files/assets/city/v/3/city-secretary/documents/city-code-of-ordinances/flood-damage-prevention-chapter.pdf" target="_blank" class="document ext-pdf opens-in-new-tab" aria-describedby="new-window-0"><i aria-hidden="true"></i>Flood Damage Prevention<span class="file-info">(PDF,&nbsp;6MB)</span></a></li>
+<li><a href="/files/assets/city/v/2/city-secretary/documents/city-code-of-ordinances/garage-sales-chapter.pdf" target="_blank" class="document ext-pdf opens-in-new-tab" aria-describedby="new-window-0"><i aria-hidden="true"></i>Garage Sales<span class="file-info">(PDF,&nbsp;2MB)</span></a></li>
+<li><a href="/files/assets/city/v/2/city-secretary/documents/city-code-of-ordinances/gas-drilling-and-production-chapter.pdf" target="_blank" class="document ext-pdf opens-in-new-tab" aria-describedby="new-window-0"><i aria-hidden="true"></i>Gas Drilling and Production<span class="file-info">(PDF,&nbsp;35MB)</span></a></li>
+<li><a href="/files/assets/city/v/2/city-secretary/documents/city-code-of-ordinances/general-provisions-chapter.pdf" target="_blank" class="document ext-pdf opens-in-new-tab" aria-describedby="new-window-0"><i aria-hidden="true"></i>General Provisions<span class="file-info">(PDF,&nbsp;3MB)</span></a></li>
+<li><a href="/files/assets/city/v/2/city-secretary/documents/city-code-of-ordinances/health-and-sanitation-chapter.pdf" target="_blank" class="document ext-pdf opens-in-new-tab" aria-describedby="new-window-0"><i aria-hidden="true"></i>Health and Sanitation<span class="file-info">(PDF,&nbsp;40MB)</span></a></li>
+<li><a href="/files/assets/city/v/2/city-secretary/documents/city-code-of-ordinances/impact-fees-chapter.pdf" target="_blank" class="document ext-pdf opens-in-new-tab" aria-describedby="new-window-0"><i aria-hidden="true"></i>Impact Fees<span class="file-info">(PDF,&nbsp;35MB)</span></a></li>
+<li><a href="/files/assets/city/v/3/city-secretary/documents/city-code-of-ordinances/industrial-waste-and-water-pollution-chapter.pdf" target="_blank" class="document ext-pdf opens-in-new-tab" aria-describedby="new-window-0"><i aria-hidden="true"></i>Industrial Waste and Water Pollution Control<span class="file-info">(PDF,&nbsp;40MB)</span></a></li>
+<li><a href="/files/assets/city/v/2/city-secretary/documents/city-code-of-ordinances/irrigation-chapter.pdf" target="_blank" class="document ext-pdf opens-in-new-tab" aria-describedby="new-window-0"><i aria-hidden="true"></i>Irrigation<span class="file-info">(PDF,&nbsp;2MB)</span></a></li>
+<li><a href="/files/assets/city/v/2/city-secretary/documents/city-code-of-ordinances/lake-arlington-chapter.pdf" target="_blank" class="document ext-pdf opens-in-new-tab" aria-describedby="new-window-0"><i aria-hidden="true"></i>Lake Arlington<span class="file-info">(PDF,&nbsp;2MB)</span></a></li>
+</ul>
+</div></div></div><div class="accordion-list-item-container multi-accrodion"><div class="accordion-item-header"><a data-accordion-all-device="true" data-open="false" class="accordion-trigger contains-heading accordion-closed" role="button" data-accordion-use-cookie="true" data-accordion-body="#accord-1-2" aria-controls="accord-1-2" aria-expanded="false" tabindex="0"><i aria-hidden="true"></i><h2 class="item-text">Chapters M through Z</h2></a></div><div class="accordion-item-body multi-accordion-body clearfix rs_skip" id="accord-1-2" style="display: none;"><div class="oc-wysiwyg-container-panel-content">
+<ul>
+<li><a href="/files/assets/city/v/2/city-secretary/documents/city-code-of-ordinances/major-sports-complex-chapter.pdf" target="_blank" class="document ext-pdf opens-in-new-tab" aria-describedby="new-window-0"><i aria-hidden="true"></i>Major Sports Complex<span class="file-info">(PDF,&nbsp;12MB)</span></a></li>
+<li><a href="/files/assets/city/v/2/city-secretary/documents/city-code-of-ordinances/mechanical-code-chapter.pdf" target="_blank" class="document ext-pdf opens-in-new-tab" aria-describedby="new-window-0"><i aria-hidden="true"></i>Mechanical Code<span class="file-info">(PDF,&nbsp;10MB)</span></a></li>
+<li><a href="/files/assets/city/v/3/city-secretary/documents/city-code-of-ordinances/miscellaneous-offenses-chapter.pdf" target="_blank" class="document ext-pdf opens-in-new-tab" aria-describedby="new-window-0"><i aria-hidden="true"></i>Miscellaneous Offenses<span class="file-info">(PDF,&nbsp;9MB)</span></a></li>
+<li><a href="/files/assets/city/v/2/city-secretary/documents/city-code-of-ordinances/mobile-homes-and-travel-trailers-chapter.pdf" target="_blank" class="document ext-pdf opens-in-new-tab" aria-describedby="new-window-0"><i aria-hidden="true"></i>Mobile Homes and Travel Trailers<span class="file-info">(PDF,&nbsp;739KB)</span></a></li>
+<li><a href="/files/assets/city/v/3/city-secretary/documents/city-code-of-ordinances/nuisance-chapter.pdf" target="_blank" class="document ext-pdf opens-in-new-tab" aria-describedby="new-window-0"><i aria-hidden="true"></i>Nuisance<span class="file-info">(PDF,&nbsp;9MB)</span></a></li>
+<li><a href="/files/assets/city/v/2/city-secretary/documents/city-code-of-ordinances/occupation-taxes-and-licenses-chapter.pdf" target="_blank" class="document ext-pdf opens-in-new-tab" aria-describedby="new-window-0"><i aria-hidden="true"></i>Occupation Taxes and Licenses<span class="file-info">(PDF,&nbsp;2MB)</span></a></li>
+<li><a href="/files/assets/city/v/3/city-secretary/documents/city-code-of-ordinances/parks-and-recreation-chapter.pdf" target="_blank" class="document ext-pdf opens-in-new-tab" aria-describedby="new-window-0"><i aria-hidden="true"></i>Parks and Recreation<span class="file-info">(PDF,&nbsp;14MB)</span></a></li>
+<li><a href="/files/assets/city/v/2/city-secretary/documents/city-code-of-ordinances/plumbing-chapter.pdf" target="_blank" class="document ext-pdf opens-in-new-tab" aria-describedby="new-window-0"><i aria-hidden="true"></i>Plumbing<span class="file-info">(PDF,&nbsp;25MB)</span></a></li>
+<li><a href="/files/assets/city/v/2/city-secretary/documents/city-code-of-ordinances/police-department-chapter.pdf" target="_blank" class="document ext-pdf opens-in-new-tab" aria-describedby="new-window-0"><i aria-hidden="true"></i>Police Department<span class="file-info">(PDF,&nbsp;56KB)</span></a></li>
+<li><a href="/files/assets/city/v/2/city-secretary/documents/city-code-of-ordinances/public-works-chapter.pdf" target="_blank" class="document ext-pdf opens-in-new-tab" aria-describedby="new-window-0"><i aria-hidden="true"></i>Public Works<span class="file-info">(PDF,&nbsp;31KB)</span></a></li>
+<li><a href="/files/assets/city/v/2/city-secretary/documents/city-code-of-ordinances/railroads-chapter.pdf" target="_blank" class="document ext-pdf opens-in-new-tab" aria-describedby="new-window-0"><i aria-hidden="true"></i>Railroads<span class="file-info">(PDF,&nbsp;37KB)</span></a></li>
+<li><a href="/files/assets/city/v/2/city-secretary/documents/city-code-of-ordinances/regulated-property-chapter.pdf" target="_blank" class="document ext-pdf opens-in-new-tab" aria-describedby="new-window-0"><i aria-hidden="true"></i>Regulated Property<span class="file-info">(PDF,&nbsp;50KB)</span></a></li>
+<li><a href="/files/assets/city/v/2/city-secretary/documents/city-code-of-ordinances/right-of-way-management-chapter.pdf" target="_blank" class="document ext-pdf opens-in-new-tab" aria-describedby="new-window-0"><i aria-hidden="true"></i>Right-of-Way Management<span class="file-info">(PDF,&nbsp;14MB)</span></a></li>
+<li><a href="/files/assets/city/v/2/city-secretary/documents/city-code-of-ordinances/sexually-oriented-business-chapter.pdf" target="_blank" class="document ext-pdf opens-in-new-tab" aria-describedby="new-window-0"><i aria-hidden="true"></i>Sexually Oriented Business<span class="file-info">(PDF,&nbsp;6MB)</span></a></li>
+<li><a href="/files/assets/city/v/2/city-secretary/documents/city-code-of-ordinances/short-term-rental-chapter.pdf" target="_blank" class="document ext-pdf opens-in-new-tab" aria-describedby="new-window-0"><i aria-hidden="true"></i>Short-Term Rental<span class="file-info">(PDF,&nbsp;4MB)</span></a></li>
+<li><a href="/files/assets/city/v/2/city-secretary/documents/city-code-of-ordinances/special-event-parking-chapter.pdf" target="_blank" class="document ext-pdf opens-in-new-tab" aria-describedby="new-window-0"><i aria-hidden="true"></i>Special Event Parking<span class="file-info">(PDF,&nbsp;1MB)</span></a></li>
+<li><a href="/files/assets/city/v/3/city-secretary/documents/city-code-of-ordinances/special-event-chapter.pdf" target="_blank" class="document ext-pdf opens-in-new-tab" aria-describedby="new-window-0"><i aria-hidden="true"></i>Special Events<span class="file-info">(PDF,&nbsp;2MB)</span></a></li>
+<li><a href="/files/assets/city/v/2/city-secretary/documents/city-code-of-ordinances/storm-water-pollution-control-chapter.pdf" target="_blank" class="document ext-pdf opens-in-new-tab" aria-describedby="new-window-0"><i aria-hidden="true"></i>Storm Water Pollution Control<span class="file-info">(PDF,&nbsp;10MB)</span></a></li>
+<li><a href="/files/assets/city/v/3/city-secretary/documents/city-code-of-ordinances/streets-and-sidewalks-chapter.pdf" target="_blank" class="document ext-pdf opens-in-new-tab" aria-describedby="new-window-0"><i aria-hidden="true"></i>Streets and Sidewalks<span class="file-info">(PDF,&nbsp;2MB)</span></a></li>
+<li><a href="/files/assets/city/v/2/city-secretary/documents/city-code-of-ordinances/taxation-chapter.pdf" target="_blank" class="document ext-pdf opens-in-new-tab" aria-describedby="new-window-0"><i aria-hidden="true"></i>Taxation<span class="file-info">(PDF,&nbsp;16MB)</span></a></li>
+<li><a href="/files/assets/city/v/2/city-secretary/documents/city-code-of-ordinances/telecommunications-chapter.pdf" target="_blank" class="document ext-pdf opens-in-new-tab" aria-describedby="new-window-0"><i aria-hidden="true"></i>Telecommunications<span class="file-info">(PDF,&nbsp;315KB)</span></a></li>
+<li><a href="/files/assets/city/v/5/city-secretary/documents/city-code-of-ordinances/traffic-and-motor-vehicles-chapter.pdf" target="_blank" class="document ext-pdf opens-in-new-tab" aria-describedby="new-window-0"><i aria-hidden="true"></i>Traffic and Motor Vehicles<span class="file-info">(PDF,&nbsp;55MB)</span></a></li>
+<li><a href="/files/assets/city/v/5/city-secretary/documents/city-code-of-ordinances/transportation-chapter.pdf" target="_blank" class="document ext-pdf opens-in-new-tab" aria-describedby="new-window-0"><i aria-hidden="true"></i>Transportation<span class="file-info">(PDF,&nbsp;24MB)</span></a></li>
+<li><a title="Unified Development Code Chapter (ADA Compliant Document)" href="/files/assets/city/v/8/city-secretary/documents/city-code-of-ordinances/unified-development-code-chapter.pdf" target="_blank" class="document ext-pdf opens-in-new-tab" aria-describedby="new-window-0"><i aria-hidden="true"></i>Unified Development Code (ADA Compliant Document)<span class="file-info">(PDF,&nbsp;20MB)</span></a></li>
+<li><a href="/files/assets/city/v/2/city-secretary/documents/city-code-of-ordinances/uniform-housing-code-chapter.pdf" target="_blank" class="document ext-pdf opens-in-new-tab" aria-describedby="new-window-0"><i aria-hidden="true"></i>Uniform Housing Code<span class="file-info">(PDF,&nbsp;12MB)</span></a></li>
+<li><a href="/files/assets/city/v/4/city-secretary/documents/city-code-of-ordinances/utilities-chapter.pdf" target="_blank" class="document ext-pdf opens-in-new-tab" aria-describedby="new-window-0"><i aria-hidden="true"></i>Utilities<span class="file-info">(PDF,&nbsp;22MB)</span></a></li>
+<li><a href="/files/assets/city/v/2/city-secretary/documents/city-code-of-ordinances/vacant-structure-registration-chapter.pdf" target="_blank" class="document ext-pdf opens-in-new-tab" aria-describedby="new-window-0"><i aria-hidden="true"></i>Vacant Structure Registration<span class="file-info">(PDF,&nbsp;643KB)</span></a></li>
+<li><a href="/files/assets/city/v/4/city-secretary/documents/city-code-of-ordinances/water-and-sewer-chapter.pdf" target="_blank" class="document ext-pdf opens-in-new-tab" aria-describedby="new-window-0"><i aria-hidden="true"></i>Water and Sewer<span class="file-info">(PDF,&nbsp;1MB)</span></a></li>
+<li><a href="/files/assets/city/v/4/city-secretary/documents/city-code-of-ordinances/wrecker-operations-chapter.pdf" target="_blank" class="document ext-pdf opens-in-new-tab" aria-describedby="new-window-0"><i aria-hidden="true"></i>Wrecker Operations<span class="file-info">(PDF,&nbsp;15MB)</span></a></li>
+</ul>
+</div></div></div></div></div>
+
+
+      
+        
+            
+        
+    </div>
+    
+    
+</div><!--normalTemplateEnd-->
+                            
+                            
+                            
+							            </div>
+						            </div>
+					            </div>
+                        
+                            </div>
+                        </div>
+                        <div class="back-to-top-container text-center">
+                            <a href="#body-top" id="back-to-top" style="right: -50px;"><i aria-hidden="true"></i><span class="js-visuallyhidden">Back to top</span></a>
+                        </div>
+                </div>
+            </div><!--groupTemplateEnd-->
+            <footer>
+                
+                    <div class="footer-outer-container footer-first-row">
+                        <div class="footer-container clearfix">
+                            <div class="grid grid-pad">
+                                <div class="col-xs-12 col-s-6 col-m-3 col-lg-3 footer-logo-widget">
+	
+	<div><img alt="COA-Vertical.png" src="/files/sharedassets/city/v/1/coa-vertical.png"></div>
+
+
+	
+	
+</div><div class="col-xs-12 col-s-6 col-m-3 col-lg-3 contact-us">
+	
+			<h2 class="visuallyhidden">Site Footer</h2>
+			<h3 class="footer-title">Contact Us</h3>
+			
+	<p>101 W. Abram St.<br>
+Arlington TX 76010</p>
+<p><a href="https://maps.app.goo.gl/u56WxVvxiwhDwWGv9" target="_blank" aria-describedby="new-window-0" class="opens-in-new-tab">View on Map</a></p>
+<p><a href="https://www.arlingtontx.gov/Government/Contact-Us">Contact Us</a></p>
+<p><a href="tel:8174596777">817-459-6777</a></p>
+
+
+	<ul class="footer-links without-icons ">   </ul>
+	
+</div><div class="col-xs-12 col-s-6 col-m-3 col-lg-3 share-and-connect">
+	
+			<h2 class="visuallyhidden">Site Footer</h2>
+			<h3 class="footer-title">Share &amp; Connect</h3>
+			
+	
+	<ul class="footer-links with-icons social-media-links">  <li class="footer-link-facebook">
+	<a href="https://www.facebook.com/CityofArlington" target="_blank" aria-describedby="new-window-0" class="opens-in-new-tab">
+<i aria-hidden="true"></i>Like us on Facebook
+</a>
+</li>
+          <li class="footer-link-twitter">
+	<a href="https://x.com/cityofarlington" target="_blank" aria-describedby="new-window-0" class="opens-in-new-tab">
+<i aria-hidden="true"></i>Follow us on X
+</a>
+</li>
+          <li class="footer-link-instagram">
+	<a href="https://www.instagram.com/cityofarlington/?hl=en" target="_blank" aria-describedby="new-window-0" class="opens-in-new-tab">
+<i aria-hidden="true"></i>Follow us on Instagram
+</a>
+</li>
+          <li class="footer-link-youtube">
+	<a href="http://www.youtube.com/cityofarlington" target="_blank" aria-describedby="new-window-0" class="opens-in-new-tab">
+<i aria-hidden="true"></i>Follow us on YouTube
+</a>
+</li>
+          <li class="footer-link-linkedin">
+	<a href="https://www.linkedin.com/company/city-of-arlington/" target="_blank" aria-describedby="new-window-0" class="opens-in-new-tab">
+<i aria-hidden="true"></i>Follow us on LinkedIn
+</a>
+</li>
+           </ul>
+	
+</div><div class="col-xs-12 col-s-6 col-m-3 col-lg-3 quick-links">
+	
+			<h2 class="visuallyhidden">Site Footer</h2>
+			<h3 class="footer-title">Quick Links</h3>
+			
+	
+	<ul class="footer-links without-icons ">  <li>
+<a href="https://www.arlingtontx.gov/Government/Data-Information/Data-Information-Directory/Open-Data" target="_self">Open Data</a>
+</li>
+          <li>
+<a href="https://arlingtontx.govqa.us/WEBAPP/_rs/(S(412yz3mcenbudxwrp003wqb3))/SupportHome.aspx" target="_blank" aria-describedby="new-window-0" class="opens-in-new-tab">Open Records Request</a>
+</li>
+          <li>
+<a href="https://www.arlingtontx.gov/Government/Budget-Finance/Financial-Transparency" target="_self">Financial Transparency</a>
+</li>
+          <li>
+<a href="https://policerecords-arlingtontx.govqa.us/WEBAPP/_rs/(S(wfp2j0e3rxq55zxnj2fv0pys))/SupportHome.aspx?lp=3" target="_blank" aria-describedby="new-window-0" class="opens-in-new-tab">Police Records Request</a>
+</li>
+          <li>
+<a href="https://www.arlingtontx.gov/Government/Budget-Finance/Purchasing/Bidding-Procurement" target="_self">Bidding Opportunities</a>
+</li>
+          <li>
+<a href="https://www.arlingtontx.gov/Government/City-Government/City-Auditor/Report-Fraud-Waste-Abuse" target="_self">Report Fraud, Waste &amp; Abuse</a>
+</li>
+          <li>
+<a href="https://www.arlingtontx.gov/Government/Budget-Finance/Treasury/Property-Tax/Property-Tax-Rate" target="_self">Property Tax Rate</a>
+</li>
+           </ul>
+	
+</div>
+                            </div>
+                        </div>
+                    </div>
+                
+                <div class="footer-outer-container footer-second-row">
+                    <div class="footer-container clearfix">
+                        <div class="grid grid-pad footer-secondary-links">
+                            <div class="col-xs-12 col-m-7">
+                                
+                                    <div><a href="https://www.arlingtontx.gov/Government/Data-Information/Data-Information-Directory/Terms-of-Use" target="_self">Terms of Use</a>&nbsp;| <a href="https://www.arlingtontx.gov/Government/Data-Information/Data-Information-Directory/Privacy-Policy" target="_self">Privacy Policy</a>&nbsp;| <a href="https://www.arlingtontx.gov/Government/Data-Information/Data-Information-Directory/Accessibility" target="_self">Accessibility</a>&nbsp;| <a href="https://www.arlingtontx.gov/Government/Departments/Department-Directory/Human-Resources/Employee-Center" target="_self">Employee Center</a></div>
+                                
+                            </div>
+                            <div class="col-xs-12 col-m-5 powered-by">
+                                <div class="right">
+                                    © 2026 City of Arlington, TX&nbsp;|&nbsp;<span class="powered-by">Powered by <a href="https://granicus.com/solution/govaccess/opencities/" target="_blank" aria-describedby="new-window-0" class="opens-in-new-tab">Granicus</a></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            <div id="oc-aria-status" role="status" class="visuallyhidden"></div></footer>
+        </div>
+    </div>
+
+    <script src="/files/oc-resources/4d9218f4-9f02-4583-82d3-ac37007582e2/JsTextSnippets.js?ocsvclang=en-US" type="text/javascript"></script><script></script>
+    
+    <script id="citibot-chatscript" type="text/javascript" src="https://webchat-ui.citibot.net/script.js?account_id=6752cf54ca51334d5c9c6c9a"></script>
+<script type="text/javascript">
+    window._monsido = window._monsido || {
+        token: "rIKuaP3UPTz4ESNnJKi0bA",
+        statistics: {
+            enabled: true,
+            cookieLessTracking: true,
+            documentTracking: {
+                enabled: true,
+                documentCls: "monsido_download",
+                documentIgnoreCls: "monsido_ignore_download",
+                documentExt: [],
+            },
+        },
+    };
+</script>
+<script type="text/javascript" async="" src="https://app-script.monsido.com/v2/monsido-script.js"></script>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+<script async="" src="https://www.googletagmanager.com/gtag/js?id=G-MTFDFNNKK6"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+
+gtag('config', 'G-MTFDFNNKK6');
+</script>
+    
+    
+
+<script type="text/javascript">
+//<![CDATA[
+window.__TsmHiddenField = $get('ctl04_seamless_script_manager_TSM');//]]>
+</script>
+</form>
+
+<iframe title="Support chatbot" id="citibot-chat-frame" srcdoc="&lt;!doctype html&gt;
+    &lt;html lang=&quot;en&quot;&gt;
+      &lt;head&gt;
+        &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;
+        &lt;title&gt;Support chatbot&lt;/title&gt;
+        &lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;https://webchat-ui.citibot.net/index.css&quot; /&gt;
+      &lt;/head&gt;
+      &lt;body&gt;
+        &lt;div id=&quot;citibot_support_chat&quot; data-account_id=&quot;6752cf54ca51334d5c9c6c9a&quot;&gt;&lt;/div&gt;
+        &lt;script type=&quot;text/javascript&quot; src=&quot;https://webchat-ui.citibot.net/index.js&quot;&gt;&lt;/script&gt;
+      &lt;/body&gt;
+    &lt;/html&gt;
+  " style="position: fixed; bottom: 20px; right: 15px; border-width: medium; border-style: none; border-color: currentcolor; border-image: none; z-index: 2147483000; width: 140px; height: 165px;"></iframe></body></html>

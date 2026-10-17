@@ -1,0 +1,83 @@
+{
+  "schema": 1,
+  "config_sha256": "fc652817ff140c3b4ea64825474f351c9538cd05f3130ab87d458c5713445a16",
+  "code_binding": "861294dc92d7a06df0699cee2ec53ced749c5099e527f45e8756c14cf130e8a0",
+  "scripts": {
+    "collect.py": "57a2debfcb757c052d422a7de39959ee6062272a39f23905a5491a63bae72661",
+    "model.py": "6c573b9a6e24c05c3ed561498cbf2bf239e7733a36150ddf8b4e5437a5d520db",
+    "transport.py": "856f00a0de7d561839ba8842af7ae49483fd5efd31fb0352dbe7cbccc011a148",
+    "legacy_html.py": "0e10fe08406788f8540bcb232c927bcffb547f0ae072a68684ea313afb08cde6",
+    "browser_fetch.cjs": "1541bbdb1e0c98034af584c0f0a3e37788ab54c09d35bc8379d73f4b1ff39a87"
+  },
+  "started_at": "2026-10-17T20:07:07.805758+00:00",
+  "items": [
+    {
+      "id": "https://city.milwaukee.gov/ImageLibrary/Groups/ccClerk/Ordinances/Volume-2/Master-V2.pdf",
+      "url": "https://city.milwaukee.gov/ImageLibrary/Groups/ccClerk/Ordinances/Volume-2/Master-V2.pdf",
+      "heading": "Volume 2",
+      "kind": "pdf",
+      "raw_ref": "raw/9cc0d5ed5ff3a210b2bb.bin"
+    }
+  ],
+  "done": [
+    "https://city.milwaukee.gov/ImageLibrary/Groups/ccClerk/Ordinances/Volume-2/Master-V2.pdf"
+  ],
+  "completed": true,
+  "identity": {
+    "source_ref": "raw/fa44132b238e67958fb1.bin",
+    "source_sha256": "3afdf7df901f970d90599472ec7f1b86efe6e9bbb6742fbfee1b279a534e4359",
+    "identity": "21-milwaukee-volume2",
+    "kind": "html_inventory",
+    "inventory_selector": "a[href]",
+    "excluded_components": [],
+    "aliases": [],
+    "edition": null
+  },
+  "consistency": {
+    "kind": "html_inventory",
+    "raw_ref": "raw/2666ef7a61fb948b3c99.bin",
+    "sha256": "ac4b07d56f278084b0c230a8b50dbefdc52081953ed54da815457395a31c8eb9",
+    "consistent": true,
+    "comparison": "Native bytes or selected full inventory link URL+label projection; no codewide effective-date assertion"
+  },
+  "limits_history": [],
+  "command": [
+    "collectors/official/collect.py",
+    "--config",
+    "collectors/official/configs/milwaukee-volume2.json",
+    "--out",
+    "/Users/oliverflint/My Drive/Claude/Projects/CompliSolv 2.00/outputs/full-publication-validation-2026-10-17/official/final/milwaukee-v2"
+  ],
+  "runtime": {
+    "python": "3.12.14 (main, Aug 25 2026, 13:50:33) [Clang 22.1.3 ]",
+    "platform": "macOS-26.6.2-arm64-arm-64bit",
+    "node": "/Users/oliverflint/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/bin/node"
+  },
+  "invocations": [
+    {
+      "command": [
+        "collectors/official/collect.py",
+        "--config",
+        "collectors/official/configs/milwaukee-volume2.json",
+        "--out",
+        "/Users/oliverflint/My Drive/Claude/Projects/CompliSolv 2.00/outputs/full-publication-validation-2026-10-17/official/final/milwaukee-v2"
+      ],
+      "resume": false,
+      "max_items": null,
+      "interrupt_after": null,
+      "started_at": "2026-10-17T20:07:07.816269+00:00"
+    }
+  ],
+  "inventory_sha256": "395fa81f716e0e011a50213b9f53b6e4e6d068ad0534090e441068ccde822908",
+  "item_consistency": [
+    {
+      "kind": "item",
+      "id": "https://city.milwaukee.gov/ImageLibrary/Groups/ccClerk/Ordinances/Volume-2/Master-V2.pdf",
+      "url": "https://city.milwaukee.gov/ImageLibrary/Groups/ccClerk/Ordinances/Volume-2/Master-V2.pdf",
+      "raw_ref": "raw/8f299e55699dd0f9a162.bin",
+      "sha256": "4ff313b0170573328377ed115583cd51cfbefb131f3b04ac070ae6986f4e8ed6",
+      "matches_initial_content": true
+    }
+  ],
+  "finished_at": "2026-10-17T20:09:07.267178+00:00"
+}

@@ -1,0 +1,238 @@
+{
+  "schema_version": 1,
+  "test_kind": "Independent network-disabled offline replay and synthetic faults; not live publication proof",
+  "network_disabled": true,
+  "read_only_sources": true,
+  "passed": true,
+  "runtime": {
+    "python": "3.12.14",
+    "os": "macOS-26.6.2-arm64-arm-64bit"
+  },
+  "image_policy": "No separate image requests/downloads. Literal [IMAGE] in normalized HTML/text; original native files remain source evidence. Required nonimage documents separate.",
+  "results": [
+    {
+      "name": "registry",
+      "command": [
+        "python3",
+        "-B",
+        "collectors/registry/verify.py"
+      ],
+      "exit_code": 0,
+      "passed": true,
+      "stdout_sha256": "f0f339ed7bf6ff49ff20e06c2fc2ec88c9f8ef4257848965a3c348972ab74174",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "name": "registry_faults",
+      "command": [
+        "python3",
+        "-B",
+        "collectors/registry/test_registry.py"
+      ],
+      "exit_code": 0,
+      "passed": true,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "a3b5e73aaa598fb7c2b54883e3b05020a1ff70c24c15f05a56dce9bfd6b15deb",
+      "unittest_cases": 8
+    },
+    {
+      "name": "independent_municode",
+      "command": [
+        "python3",
+        "-B",
+        "collectors/qa/test_municode_edges.py"
+      ],
+      "exit_code": 0,
+      "passed": true,
+      "stdout_sha256": "55a6464e244f8b7c2da6badcda1a2daa9b9dbe54ee7d0f1b6502bdd9e4e3182e",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "reported_cases": 9
+    },
+    {
+      "name": "independent_cross_family",
+      "command": [
+        "python3",
+        "-B",
+        "collectors/qa/test_cross_family_edges.py"
+      ],
+      "exit_code": 0,
+      "passed": true,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "5052e9417f7bc3d054b56ca986c41e26f4df8ebe6d3982a0160b5a5ad0f0bcd3",
+      "unittest_cases": 7
+    },
+    {
+      "name": "independent_image_policy",
+      "command": [
+        "python3",
+        "-B",
+        "collectors/qa/test_image_policy.py"
+      ],
+      "exit_code": 0,
+      "passed": true,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "137556dae9d551cc59704637506f5251f12171cd6772fc2a7c3f4eface2be62c",
+      "unittest_cases": 3
+    },
+    {
+      "name": "independent_official_no_image_transport",
+      "command": [
+        "python3",
+        "-B",
+        "collectors/qa/test_official_image_transport.py"
+      ],
+      "exit_code": 0,
+      "passed": true,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "a95792209b47dc5dbcc57f85df2b10d3725240989f387c8d61fbdd7bfcd24dc4",
+      "unittest_cases": 1
+    },
+    {
+      "name": "independent_american_no_image_transport",
+      "command": [
+        "python3",
+        "-B",
+        "collectors/qa/test_american_image_transport.py"
+      ],
+      "exit_code": 0,
+      "passed": true,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "044e15e479653bf6ff9276eece13e02937a450c8b590dc6ae94cac089bdb4c19",
+      "unittest_cases": 1
+    },
+    {
+      "name": "municode_faults",
+      "command": [
+        "python3",
+        "-B",
+        "collectors/municode/test_faults.py"
+      ],
+      "exit_code": 0,
+      "passed": true,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "9e700b32a69b9096e215d4803ecbcc18049e4130be842c6cb6fd2cc6ddd4fff9",
+      "unittest_cases": 16
+    },
+    {
+      "name": "american_legal_faults",
+      "command": [
+        "python3",
+        "-B",
+        "collectors/american-legal/test_faults.py"
+      ],
+      "exit_code": 0,
+      "passed": true,
+      "stdout_sha256": "8e5a97ab1bcd580a87be734796ff9538364f8c4c300b8f63c0b93636d7009e3e",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "reported_cases": 17
+    },
+    {
+      "name": "ecode_faults",
+      "command": [
+        "python3",
+        "-B",
+        "-m",
+        "unittest",
+        "collectors.ecode.tests.test_faults"
+      ],
+      "exit_code": 0,
+      "passed": true,
+      "stdout_sha256": "b266f8810e2c3522d04b70e1163e5381c87de03ad2c93caf5634b5fa5056e266",
+      "stderr_sha256": "b0906c137aaabea8c82b0734ce68aa6c0de4fe900dc5a892f751ffd05896f015",
+      "unittest_cases": 13
+    },
+    {
+      "name": "encodeplus_faults",
+      "command": [
+        "python3",
+        "-B",
+        "-m",
+        "collectors.encodeplus.tests"
+      ],
+      "exit_code": 0,
+      "passed": true,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "949ae1f46b7ed21510992c41476d468c08f657d90730049781f120cc61a8bae4",
+      "unittest_cases": 11
+    },
+    {
+      "name": "official_faults",
+      "command": [
+        "python3",
+        "-B",
+        "collectors/official/test_offline.py"
+      ],
+      "exit_code": 0,
+      "passed": true,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "0b170e092f4ba049b90ebf9423ca3d424befd983437ceee650b1b5c103b66c02",
+      "unittest_cases": 11
+    }
+  ],
+  "source_sha256": {
+    "collectors/registry/build_registry.py": "bda899b8902c0453277073daf3e4c3758e56a68c4a73a345a38ee1d0af4db3ef",
+    "collectors/registry/collect.py": "7283bb1beaabbac66f009f16f591b3c3fd60c374f2fb3fd683f2d2c183d0df8e",
+    "collectors/registry/dispatch.py": "a16df8b5eb1bae0e622fe032c1f32d7552ec10408b7fc29c7b794f01725ca838",
+    "collectors/registry/test_registry.py": "c3aa441d7e198bce08c20038e9fd51fada793cf1984648ca2eba7fbcdb697383",
+    "collectors/registry/verify.py": "acc6bc647a546f2d1997f8866a5778120b43d2856702e7e22ed05c35fe747a30",
+    "collectors/qa/audit_images.py": "3de0246e982ddffe5f642dcfc3fe26b29bbde7f3f586620f2748c0c8d464106a",
+    "collectors/qa/run_offline.py": "8c5323b444c6392fcadd98bacbcd8695dbe020063356b331cc13a3152789c4c1",
+    "collectors/qa/test_american_image_transport.py": "7f8f4d61ed702ab3ae12645b9705793a19b1af9e1527e63e5bba9c2620e00067",
+    "collectors/qa/test_cross_family_edges.py": "ed2f12054106965697ed915e52187e68d3919d3119e343bb6b005951d45f55dc",
+    "collectors/qa/test_image_policy.py": "dab8a15ddd1b62e5efcb1b888a427de28934dc9dfe0734baffae8d11456827af",
+    "collectors/qa/test_municode_edges.py": "4f70840dd9af17c77aae0cfa9e326afbfb0dfd8278c425e16b54ad22b9b1bc8a",
+    "collectors/qa/test_official_image_transport.py": "67960b4043f473f9e017b3363436bbbb02ba8e323035015c1ad7f3ff7029178e",
+    "collectors/municode/browser.cjs": "3ed9da37fa4e7e4b5c868afbff37425ddc77d6a41caab551ea24858631138c0c",
+    "collectors/municode/check_fixture.py": "a6cb928a6e876813a8fcb0aa83145215991fa71270150a63f0150a29e60c490a",
+    "collectors/municode/collect.py": "505443170e71b082ff0bfae97f6e94482f2aa68999dc4bf778a1fb175ea79209",
+    "collectors/municode/fixtures/synthetic-complete/executed-sources/1f358d2d9a4f8851b5e37437164152724606fb711be4e032aeea7a44277d65df/gate_cli.py": "1f358d2d9a4f8851b5e37437164152724606fb711be4e032aeea7a44277d65df",
+    "collectors/municode/fixtures/synthetic-complete/executed-sources/3d86e885f1695fc45371747397bf9edbded67caabb9d1cf636a220c7cf763c60/verify.py": "3d86e885f1695fc45371747397bf9edbded67caabb9d1cf636a220c7cf763c60",
+    "collectors/municode/fixtures/synthetic-complete/executed-sources/3ed9da37fa4e7e4b5c868afbff37425ddc77d6a41caab551ea24858631138c0c/browser.cjs": "3ed9da37fa4e7e4b5c868afbff37425ddc77d6a41caab551ea24858631138c0c",
+    "collectors/municode/fixtures/synthetic-complete/executed-sources/505443170e71b082ff0bfae97f6e94482f2aa68999dc4bf778a1fb175ea79209/collect.py": "505443170e71b082ff0bfae97f6e94482f2aa68999dc4bf778a1fb175ea79209",
+    "collectors/municode/fixtures/synthetic-complete/executed-sources/a730839b7c4620f19ed8556af8671ba67d1b2ef5df29e7df23935c4e8c4e02fb/normalize.py": "a730839b7c4620f19ed8556af8671ba67d1b2ef5df29e7df23935c4e8c4e02fb",
+    "collectors/municode/fixtures/synthetic-complete/executed-sources/ac6eb1393212f9c620e23d6fcde08af530d99451a7a1fba82a5e1ee9234cf848/image_policy.py": "ac6eb1393212f9c620e23d6fcde08af530d99451a7a1fba82a5e1ee9234cf848",
+    "collectors/municode/fixtures/synthetic-complete/executed-sources/b23f58afc7860c599ee29193bb5e9d684555ac2e3f4785617baae5198fc92906/model.py": "b23f58afc7860c599ee29193bb5e9d684555ac2e3f4785617baae5198fc92906",
+    "collectors/municode/gate_cli.py": "1f358d2d9a4f8851b5e37437164152724606fb711be4e032aeea7a44277d65df",
+    "collectors/municode/image_policy.py": "ac6eb1393212f9c620e23d6fcde08af530d99451a7a1fba82a5e1ee9234cf848",
+    "collectors/municode/model.py": "bb1662a5344b0a215b49106772853a94716c16205ed1044b8d192744fccb49fb",
+    "collectors/municode/normalize.py": "a730839b7c4620f19ed8556af8671ba67d1b2ef5df29e7df23935c4e8c4e02fb",
+    "collectors/municode/probe_container.cjs": "6e62a02e5ac2fecdcd72173feb2dc7a1e08099d749c8996cea5fb0b2db51e0af",
+    "collectors/municode/table_qa.cjs": "c05e86bfd17af907453ae0b345e14eff8a0a7c304b525445ed29ab6e2e93aa72",
+    "collectors/municode/test_faults.py": "aa3dbd8c14253efee8fb028748d55ccab6ca0d8b7cce2e33e70aa4cdf9012196",
+    "collectors/municode/test_transport.cjs": "81f99b0a560828ac316498b2d760bd06e9505b9e2ee1250133c5d9870fc2cec7",
+    "collectors/municode/verify.py": "3d86e885f1695fc45371747397bf9edbded67caabb9d1cf636a220c7cf763c60",
+    "collectors/american-legal/browser.cjs": "da5d2183e060c4f83d9e4e11156dfc344d0c83266b7369405fa4fbfa504d8252",
+    "collectors/american-legal/collect.py": "5528d610fc829c17f65125e30eccc7d0214f6ab4d35fa7ce07e8f2b3aaf227ba",
+    "collectors/american-legal/gate.py": "191dc8be23b19d357bd7bb8f49a2001219a2ee9be5795edebb09fad7fc2d7d45",
+    "collectors/american-legal/model.py": "5b2cb26a283aa670627106dfb2aee3b5c7e6abe9c9ad092b49bf60cbed121635",
+    "collectors/american-legal/probe.py": "1743ab8e9721181c194a0daad7b544f8e8353bcc456b728d85bb804c8cde3540",
+    "collectors/american-legal/probe_bulk.py": "df3b7fe18876637e94a2632228a7de9f332366d724340acd5c9076cd4b6e0e20",
+    "collectors/american-legal/probe_routes.py": "5eea9a9db7e8c126f52bf96cd271059ffe12dfacc3c8e42d010a42d59cbd47d6",
+    "collectors/american-legal/test_faults.py": "1dc186d9b319cabf97710ddcca74a2114a9f3e0130b0620116fca7b5e59d9987",
+    "collectors/american-legal/transport.py": "a8aa618ce7c6b1a6636bc4f9964d79259196130ee11a1ed02b142ae4a8674d05",
+    "collectors/american-legal/verify.py": "abe4cc8c4bc1f3b6f43a09d79a62bcc484fa553430767f93fdfac3fd0a594515",
+    "collectors/ecode/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "collectors/ecode/adapters.py": "c82ffcc79fdac982b579aaaa13fb78aedab9fe9ae3002ec4569d8d56c42f3398",
+    "collectors/ecode/browser.py": "76529572af23728d732fe3fc50c0ea49fab9c3a15dac678cef66545bf39b9913",
+    "collectors/ecode/cli.py": "1f5a32cc40c7d1f319cb25b91910cb5fbec6edd98337b72aa896b63047dca4cc",
+    "collectors/ecode/common.py": "b5293cc27d152f1264eac1935d81fc492b98ab2b8b889ce0d241c255167ad43c",
+    "collectors/ecode/engine.py": "fb7dbbee348d3d4ff1f2cdcb07f817f25c9f020112cf207c05ba8fd429f600cd",
+    "collectors/ecode/legacy_ecode.py": "33ab8dd27c0c89dff86dbddf8602b826e44e4be19a66822a5a0530e51e6208d7",
+    "collectors/ecode/legacy_municipal.py": "6570af84a062a434085273d4649deb1bb8c20f1a78f10b650e2d98d160cdbb63",
+    "collectors/ecode/tests/test_faults.py": "ea6d4dbdfec136b53575baa4a778108a95dd1968e0fda484ef5b2ebe2c55b0b6",
+    "collectors/encodeplus/__init__.py": "b694a5d9aaec3d14d60b33a1633fcc183ac03862b6226f4fd0d2fe62ff4354e3",
+    "collectors/encodeplus/collect.py": "448e1413c7aef450a4b31cc98b237d95f7056599edd79a730ec4095e80566623",
+    "collectors/encodeplus/model.py": "474ebbe9cb28b4254ad9e1c7b88a4056c71fa70b305df2b925ca1ecc01116ec9",
+    "collectors/encodeplus/tests.py": "b8d5eaf09d03fd7b53cdc1958ab595d9493ed223270081fe7343986e91e91d0d",
+    "collectors/encodeplus/transport.py": "62dc4f7e3756ef2f56f3a84f21d265597074341975fdb7a3cbb2e69ae7ac274b",
+    "collectors/encodeplus/util.py": "bb5e1ed76e2f81e5d2e41f8f5578b657616f18ce6e6b955a6ff8077ff0f2e920",
+    "collectors/encodeplus/verify.py": "78104bb83f1d5ee2881fd5792acbc0aba0cef52aa167783a84eb183e5e60afa5",
+    "collectors/official/browser_fetch.cjs": "1541bbdb1e0c98034af584c0f0a3e37788ab54c09d35bc8379d73f4b1ff39a87",
+    "collectors/official/collect.py": "c74f4288501041241475f516efe3c6b82e12386adc57ce78d90a880a34e47cf2",
+    "collectors/official/legacy_html.py": "07a60b7487d92e3d38caa3482e5e53ad5d0c45c17a5a7b59ecc12ecb3ffc00a8",
+    "collectors/official/model.py": "be17260add6c49f909a75427d42678efb5a138bd6322f957e851d309c7fc1bef",
+    "collectors/official/test_offline.py": "a3b560f921276f0604bb5cdfe2d4289b58be0879d2df5f9c6ce0c0188baf5285",
+    "collectors/official/transport.py": "856f00a0de7d561839ba8842af7ae49483fd5efd31fb0352dbe7cbccc011a148",
+    "collectors/official/verify.py": "431674f3ca0aabfb5c4f390020956ccde4580d9690248310cc9f2d53f2c19c5f"
+  }
+}

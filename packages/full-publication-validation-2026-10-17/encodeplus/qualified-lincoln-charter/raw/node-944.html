@@ -1,0 +1,209 @@
+
+    <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+    <html>
+    <head>
+
+        <title>ARTICLE XI - MUNICIPAL CORPORATIONS</title>
+        <link type="text/css" rel="Stylesheet" href="jqueryui/css/jqueryui.css" media="all" />
+        <link type="text/css" rel="Stylesheet" href="css/ui.css" media="all" />
+        <link type="text/css" rel="Stylesheet" href="css/customui.css" media="all" />
+        <link type="text/css" rel="Stylesheet" href="css/document.css" media="all" />
+        <link type="text/css" rel="Stylesheet" href="css/customdoc.css" media="all" />
+        <link type="text/css" rel="Stylesheet" href="tablestyles.aspx" media="all" />
+        <link rel="StyleSheet" type="text/css" href="/common/font-awesome/css/all.min.css">
+        <link type="text/css" rel="Stylesheet" href="css/docprint.css" media="print" />
+        <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+        <script type="text/javascript" src="jqueryui/js/jquery-ui-1.8.21.custom.min.js"></script>
+        <script type="text/javascript" src="js/doc-view.js?_t=290"></script>
+        <script type="text/javascript" src="js/tabletools.js"></script>
+        <script type="text/javascript" src="js/tabs.js"></script>
+        <script type="text/javascript">
+            var iframeReady = false;
+        </script>
+        
+    </head>
+    <body class='doc-view'>
+        <script type="text/javascript">
+            $(document).ready(function () {
+                ZP.DocView.InitDef();
+                ZP.DocView.OpenDefinitionPage = null;
+                ZP.DocView.OpenDefinitionMode = '_self';
+                ZP.DocView.OpenXRefPage = 'doc-viewer.aspx#$2-';
+                ZP.DocView.OpenXRefMode = '_blank';
+                $(window).bind('hashchange', ZP.DocView.HashChanged);
+        
+        if (typeof ZP.DocView.ZoomClasses == 'undefined') {
+            ZP.DocView.ZoomClasses = ["Unzoom1", "", "Zoom1", "Zoom2", "Zoom3", "Zoom4"];
+        }
+        ZP.DocView.InitializeZoom();
+        EC.SortedTable.Init(".ord-tbl, .stat-tbl", ".sortable");
+        EC.Tabs.PositionLeftTabs();
+    });
+
+
+        </script>
+
+
+    <div id="doc-viewer">
+        
+
+<div id="doc-view">
+    <div id="doc-view-content">
+        
+<div id="pageControls">
+<script type="text/javascript" >
+    function clearEffDate() {
+        jQuery.get("doc-view-helper.aspx?task=currentversion", function () {
+            window.location.reload();
+        });
+        return false;
+    }
+</script>
+     <div class="pageControls psuedoTable" role="navigation" aria-label="Document Navigation">  
+        <div class="psuedoTableBody" >     
+            <div class="psuedoTableRow">         
+                <div class="pageControls_outer" ></div>
+                <div class="pageControls_inner left">
+                    <a id='button1' onclick='ZP.DocView.PrintDoc("017",false);return false;' href="#" title="Print" role="button"> 
+                        <img alt="Print" src="resources/btn-print-white.png" /></a>
+                    <a id='Button2' onclick='ZP.DocView.OpenPDF("017",false);return false;' href="#" title="Export PDF" role="button">
+                        <img alt="Generate PDF" src="resources/btn-makepdf-white.png" /></a>
+                        <a class="email-popup" href="mailto:?subject=ARTICLE%20XI%20-%20MUNICIPAL%20CORPORATIONS&amp;body=Lincoln%20NE%20City%20Charter https://online.encodeplus.com/regs/lincoln-ne-cc/doc-viewer.aspx?secid=944"><img src="resources/email-white.png" alt="Click to Share By Email" /></a>     
+                </div>
+                <div  class="pageControls_inner breadCrumbs" title="Navigation 'breadcrumbs'">
+                     <div class='breadCrumbs'><a href='/regs/lincoln-ne-cc/doc-viewer.aspx?tocid=017' >ARTICLE XI - MUNICIPAL CORPORATIONS</a></div>
+                </div>
+                 <div  class="pageControls_inner right">       
+                     <ul >  
+                         <li>
+                            <a id='button3' class="nav" onclick="ZP.DocView.LoadPrevDoc('017');return false;" href="#"  title="Previous Section" accesskey="," role="button"><img alt="Go to Previous Section" src="resources/btn-back-white.png" /></a>
+                         </li>  
+                         <li>
+                             <a id='Button4'  class="nav" onclick="ZP.DocView.LoadNextDoc('017');return false;" href="#"  title="Next Section" accesskey="." role="button"> <img alt="Go to Next Section" src="resources/btn-forward-white.png" /></a>
+                         </li>   
+                         <li>
+                             <a id="pageControls-overflow" onclick="ZP.DocView.PgCntrlOverflowClick(event);return false;" href="#" title="Click for more options" role="button" >
+                            <img src="resources/overflow-btn-white.png" alt="Click for more options" /></a>
+                               
+  <ul class="submenu" role="dialog">
+            <li><a href="/regs/lincoln-ne-cc/doc-viewer.aspx?secid=944" onclick="javascript:alert('Right click this icon and select \'add to favorites\' or \'Bookmark this Link\' to bookmark this page');return false;" title="Bookmark this page" >Bookmark</a></li>
+            <li>
+                                        
+                <a id="zoomMinus" onclick="ZP.DocView.DecreaseZoom();return false;" href="#" title="Decrease Zoom" class="zoomLink glyphicon" >&#x2212;</a>
+                <a onclick="ZP.DocView.DefaultZoom();return false;"  href="#" title="Default Zoom"  class="zoomLink" >100%</a>
+                <a id="zoomPlus" onclick="ZP.DocView.IncreaseZoom();return false;" href="#" title="Increase Zoom"  class="zoomLink glyphicon" > &#x2b; </a>
+            </li>
+           
+                           
+                
+                <li><a id="subscribe-btn" onclick="ZP.DocView.OpenSubscribeDlg();return false;" title="Subscribe to Notifications" href="subscribe.aspx" role="button">Subscribe</a></li>
+                <li><a id="unsubscribe-btn" onclick="ZP.DocView.OpenUnsubscribeDlg();return false;" title="Cancel Notifications Subscription" href="unsubscribe.aspx" role="button" >Unsubscribe</a></li>
+                
+</ul>
+                         </li>        
+                        
+                        </ul>   
+                </div>
+                <div class="pageControls_outer"></div>
+            </div>
+        </div>
+    </div> 
+    <div id="subscribe-dialog" title="" aria-live="polite" >
+        <div id="sub-message"></div>
+        <div id="sub-form-cntr"></div>
+    </div>
+</div>
+
+
+        <div id="thePage-outer" >
+            <div id="thePage-wrap" class="thePage-wrap ">
+                <div id="outer-doc-banner"></div>
+                <div id="thePage-border">
+                    <div id="thePage" class="textPage " tocid="017" secid="944" role="main" aria-label="Document">
+                        <img id="sectionBanner" title="Document text banner" src="resources/docbanner.png" width="720" valign="Top" alt="Document text banner">
+                        
+                        <section id='secid-944' class='secLvl1 _017' tabindex='-1' data-secid='944'> 
+<h1>STATE CONSTITUTION</h1>
+
+<h2>ARTICLE XI - MUNICIPAL CORPORATIONS</h2>
+
+<div class="mini-TOC" data-endlevel="2" data-id="mini-TOC" data-startlevel="2">
+<div class="mini-TOC-label"><strong>Contents:</strong></div>
+
+<ul><li><a class="tocLink" href="doc-viewer.aspx#secid-945">	Sec. 1.	Subscription to Corporations Prohibited.</a></li>
+<li><a class="tocLink" href="doc-viewer.aspx#secid-946">	Sec. 2.	Charters, Submission.</a></li>
+<li><a class="tocLink" href="doc-viewer.aspx#secid-947">	Sec. 3. 	Same Rejected; Subsequent Submission.</a></li>
+<li><a class="tocLink" href="doc-viewer.aspx#secid-948">	Sec. 4.	Charter, Amendment; Convention.</a></li>
+<li><a class="tocLink" href="doc-viewer.aspx#secid-949">	Sec. 5.	Charter of city of 100,000; home rule charter authorized.</a></li>
+</ul>
+</div>
+
+
+</section> 
+<section id='secid-945' class='secLvl2 _017 _017-001' tabindex='-1' data-secid='945'> 
+<h3>Sec. 1. Subscription to Corporations Prohibited.</h3>
+
+<p>No city, county, town, precinct, municipality, or other subdivision of the state shall ever become a subscriber to the capital stock, or owner of such stock, or any portion or interest therein of any railroad, or private corporation, or association.</p>
+
+<p class='archiveNotice nullValue '></p>
+</section> 
+<section id='secid-946' class='secLvl2 _017 _017-002' tabindex='-1' data-secid='946'> 
+<h3>Sec. 2. Charters, Submission.</h3>
+
+<p>Any city having a population of more than five thousand (5000) inhabitants may frame a charter for its own government, consistent with and subject to the constitution and laws of this state, by causing a convention of fifteen (15) freeholders, who shall have been for a least five (5) years qualified electors thereof, to be elected by the qualified voters of said city at any general or special election, whose duty it shall be within four (4) months after such election, to prepare and propose a charter for such city, which charter, when completed, with a prefatory synopsis, shall be signed by the officers and members of the convention, or a majority thereof, and delivered to the clerk of said city, who shall publish the same in full, with his official certification, in the official paper of said city, if there be one, and if there be no official paper, then in at least one newspaper published and in general circulation in said city, three times, and a week apart, and within not less than thirty days after such publication it shall be submitted to the qualified electors of said city at a general or special election, and if a majority of such qualified voters, voting thereon, shall ratify the same, it shall at the end of sixty days thereafter, become the charter of said city, and supersede any existing charter and all amendments thereof. A duplicate certificate shall be made, setting forth the charter proposed and its ratification (together with the vote for and against) and duly certified by the city clerk, and authenticated by the corporate seal of said city and one copy thereof shall be filed with the Secretary of State and the other deposited among the archives of the city, and shall thereupon become and be the charter of said city, and all amendments of such charter, shall be authenticated in the same manner, and filed with the Secretary of State, and deposited in the archives of the city.</p>
+
+<p class='archiveNotice nullValue '></p>
+</section> 
+<section id='secid-947' class='secLvl2 _017 _017-003' tabindex='-1' data-secid='947'> 
+<h3>Sec. 3. Same Rejected; Subsequent Submission.</h3>
+
+<p>But if said charter be rejected, then within six months thereafter, the mayor and council or governing authorities of said city may call a special election at which fifteen members of a new charter convention shall be elected to be called and held as above in such city, and they shall proceed as above to frame a charter which shall in like manner and to the like end be published and submitted to a vote of said voters for their approval or rejection. If again rejected, the procedure herein designated may be repeated until a charter is finally approved by a majority of those voting thereon, and certified (together with the vote for and against) to the Secretary of State as aforesaid, and a copy thereof deposited in the archives of the city, whereupon it shall become the charter of said city. Members of each of said charter conventions shall be elected at large; and they shall complete their labors within sixty days after their respective election. The charter shall make proper provision for continuing, amending or repealing the ordinances of the city.</p>
+
+<p class='archiveNotice nullValue '></p>
+</section> 
+<section id='secid-948' class='secLvl2 _017 _017-004' tabindex='-1' data-secid='948'> 
+<h3>Sec. 4. Charter, Amendment; Convention.</h3>
+
+<p>Such charter so ratified and adopted may be amended, or a charter convention called, by a proposal therefor made by the lawmaking body of such city or by the qualified electors in number not less than five percent of the next preceding gubernatorial vote in such city, by petition filed with the council or governing authorities. The council or governing authorities shall submit the same to a vote of the qualified electors at the next general or special election not held within thirty days after such petition is filed. In submitting any such charter or charter amendments, any alternative article or section may be presented for the choice of the voters and may be voted on separately without prejudice to others. Whenever the question of a charter convention is carried by a majority of those voting thereon a charter convention shall be called through a special election ordinance, and the same shall be constituted and held and the proposed charter submitted to a vote of the qualified electors, approved or rejected, as provided in section 2 hereof. The city clerk of said city shall publish with his official certification, for three times, a week apart in the official paper of said city, if there be one and if there be no official paper, then in at least one newspaper, published and in general circulation in said city, the full text of any charter or charter amendment to be voted on at any general or special election.</p>
+
+<p>No charter or charter amendment adopted under the provisions of this amendment shall be amended or repealed except by electoral vote. And no such charter or charter amendment shall diminish the tax rate for state purposes fixed by act of the legislature, or interfere in any wise with the collection of state taxes.</p>
+
+<p class='archiveNotice nullValue '></p>
+</section> 
+<section id='secid-949' class='secLvl2 _017 _017-005' tabindex='-1' data-secid='949'> 
+<h3>Sec. 5. Charter of city of 100,000; home rule charter authorized.</h3>
+
+<p>The charter of any city having a population of more than one hundred thousand inhabitants may be adopted as the home rule charter of such city by a majority vote of the qualified electors of such city voting upon the question, and when so adopted may thereafter be changed or amended as provided in Section 4 of this article, subject to the Constitution and laws of the state.</p>
+
+<p class='archiveNotice nullValue '></p>
+</section> 
+
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- hidden div below is for definition popup -->
+<div id="defFrame">
+    <img alt='loading progress' src="resources/progress.gif" /></div>
+<!-- hidden div below is for ajax loading progress-->
+<div id='progress-template' style='display: none;'>
+    <div class="progress" style='padding: 100px;'>
+        <div style='margin: auto; display: block; width: 200px; border: 1px solid #ccc; background-color: #eee; padding: 10px;'>
+            <img alt='loading progress' src='resources/progress.gif' style='margin: auto; display: block;' />
+            <br />
+            <span style='margin: auto; display: block; width: 75px; padding-left: 10px;'>Loading...</span>
+        </div>
+    </div>
+</div>
+<iframe style="width: 1px; height: 1px" src="" id="printiframe" name="printiframe" onload="ZP.DocView.IFrameReady();" title="Print frame" aria-hidden="true" role="presentation"></iframe>
+
+    </div>
+
+
+    </body>
+</html>

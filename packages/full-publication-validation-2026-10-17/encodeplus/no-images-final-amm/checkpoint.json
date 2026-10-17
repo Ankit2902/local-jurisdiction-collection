@@ -1,0 +1,115 @@
+{
+  "asset_failures": {
+    "http://www.syracuse.ny.us/pdfs/DPW/TIS_guidelines_ITE.pdf": {
+      "raw_path": null,
+      "reason": "Publisher stopped: {'evidence': 'live-amm-v3/assets/6cc2696fefcf1398304fbf4f6c5b190b0e34d99301ba2759d06fb235c2270de8.bin.receipt.json', 'reason': 'Retained DNS resolution failure; do not retry external asset. No publisher access challenge occurred.', 'status': None, 'url': 'http://www.syracuse.ny.us/pdfs/DPW/TIS_guidelines_ITE.pdf'}"
+    }
+  },
+  "assets": {},
+  "blocks": [
+    {
+      "path": "raw/node-5.html",
+      "record_ids": [
+        "5",
+        "6",
+        "7",
+        "8",
+        "9",
+        "10",
+        "11",
+        "12",
+        "13",
+        "14",
+        "15",
+        "16",
+        "17",
+        "18"
+      ],
+      "requested": "5",
+      "sha256": "dc53b1033a7aa209d038329f0e0615433c41d4e430fe7f8e5ef9f19226676161",
+      "url": "https://online.encodeplus.com/regs/lincoln-ne-amm/doc-view.aspx?secid=5&ajax=0"
+    }
+  ],
+  "code_hashes": {
+    "__init__.py": "b694a5d9aaec3d14d60b33a1633fcc183ac03862b6226f4fd0d2fe62ff4354e3",
+    "collect.py": "448e1413c7aef450a4b31cc98b237d95f7056599edd79a730ec4095e80566623",
+    "model.py": "474ebbe9cb28b4254ad9e1c7b88a4056c71fa70b305df2b925ca1ecc01116ec9",
+    "targets.json": "a49ef8ea245588ceb30a2e654295566ae3b4d6b6d0afd1a8900abd72bd094163",
+    "transport.py": "62dc4f7e3756ef2f56f3a84f21d265597074341975fdb7a3cbb2e69ae7ac274b",
+    "util.py": "bb5e1ed76e2f81e5d2e41f8f5578b657616f18ce6e6b955a6ff8077ff0f2e920",
+    "verify.py": "78104bb83f1d5ee2881fd5792acbc0aba0cef52aa167783a84eb183e5e60afa5"
+  },
+  "command": [
+    "/Users/oliverflint/My Drive/Claude/Projects/CompliSolv 2.00/github/local-jurisdiction-collection/collectors/encodeplus/collect.py",
+    "lincoln-access-management",
+    "--out",
+    "/Users/oliverflint/My Drive/Claude/Projects/CompliSolv 2.00/outputs/full-publication-validation-2026-10-17/encodeplus/no-images-final-amm",
+    "--native-export"
+  ],
+  "config": {
+    "base": "https://online.encodeplus.com/regs/lincoln-ne-amm/",
+    "identity": "Lincoln NE Access Management Policy",
+    "jurisdiction": "Lincoln, NE",
+    "scope": "Separately published City of Lincoln Access Management Policy only; not Municipal Code"
+  },
+  "config_sha256": "f569c39cc4f2427cd67ecef5888382242bb0745b1f6d373bc681d0ec4d275e13",
+  "custom_config": false,
+  "end_blocks": [
+    {
+      "path": "end-0/node-5.html",
+      "requested": "5",
+      "sha256": "dc53b1033a7aa209d038329f0e0615433c41d4e430fe7f8e5ef9f19226676161",
+      "url": "https://online.encodeplus.com/regs/lincoln-ne-amm/doc-view.aspx?secid=5&ajax=0"
+    }
+  ],
+  "end_inventory": {
+    "path": "inventory/end-0.html",
+    "sha256": "755853bc6aba99f6391136276119b178d598900bc5ff3c729dbcaf73db0e3976",
+    "url": "https://online.encodeplus.com/regs/lincoln-ne-amm/doc-view.aspx"
+  },
+  "end_inventory_sha256": "d5c1d42ba2839d71454f5996ce9f17144fbc9777b2a1fd8b6f62f2a3d8c565a5",
+  "failures": [],
+  "generation": 0,
+  "image_skips": {},
+  "inventory_raw": {
+    "path": "inventory/start.html",
+    "sha256": "755853bc6aba99f6391136276119b178d598900bc5ff3c729dbcaf73db0e3976",
+    "url": "https://online.encodeplus.com/regs/lincoln-ne-amm/doc-view.aspx"
+  },
+  "inventory_sha256": "d5c1d42ba2839d71454f5996ce9f17144fbc9777b2a1fd8b6f62f2a3d8c565a5",
+  "native_export": {
+    "bytes": 393605,
+    "content_completeness": "Unverified native file: transport alone does not establish text/asset completeness",
+    "covers_all_toc_ids": true,
+    "image_semantic_equivalence": false,
+    "metadata": {
+      "/Creator": "Aspose.Words",
+      "/Producer": "Aspose.Words for .NET 20.5",
+      "/Title": "Lincoln NE Access Management Policy"
+    },
+    "missing_body_anchors": [],
+    "missing_headings": [],
+    "pages": 17,
+    "path": "native/publication.pdf",
+    "scope": "Entire observed body-container 5 covering every TOC ID; not TOC000",
+    "sha256": "eac77b25eed77f876187eb1f191515b06af285e0b6d8ff47d4aa74c15befaa16",
+    "source_container": "5",
+    "status": "downloaded",
+    "text_anchor_qualification": true,
+    "tocid": "001",
+    "url": "https://online.encodeplus.com/regs/lincoln-ne-amm/export2doc.aspx?pdf=1&tocid=001"
+  },
+  "options": {
+    "max_items": null,
+    "native_export": true,
+    "skip_assets": false
+  },
+  "phase": "finished",
+  "runtime": {
+    "os": "macOS-26.6.2-arm64-arm-64bit",
+    "python": "3.12.14"
+  },
+  "schema_version": 1,
+  "started_at": "2026-10-17T19:58:09.539991+00:00",
+  "target": "lincoln-access-management"
+}

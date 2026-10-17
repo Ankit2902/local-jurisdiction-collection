@@ -1,0 +1,575 @@
+
+    <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+    <html>
+    <head>
+
+        <title></title>
+        <link type="text/css" rel="Stylesheet" href="jqueryui/css/jqueryui.css" media="all" />
+        <link type="text/css" rel="Stylesheet" href="css/ui.css" media="all" />
+        <link type="text/css" rel="Stylesheet" href="css/customui.css" media="all" />
+        <link type="text/css" rel="Stylesheet" href="css/document.css" media="all" />
+        <link type="text/css" rel="Stylesheet" href="css/customdoc.css" media="all" />
+        <link type="text/css" rel="Stylesheet" href="tablestyles.aspx" media="all" />
+        <link rel="StyleSheet" type="text/css" href="/common/font-awesome/css/all.min.css">
+        <link type="text/css" rel="Stylesheet" href="css/docprint.css" media="print" />
+        <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+        <script type="text/javascript" src="jqueryui/js/jquery-ui-1.8.21.custom.min.js"></script>
+        <script type="text/javascript" src="js/doc-view.js?_t=290"></script>
+        <script type="text/javascript" src="js/tabletools.js"></script>
+        <script type="text/javascript" src="js/tabs.js"></script>
+        <script type="text/javascript">
+            var iframeReady = false;
+        </script>
+        
+    </head>
+    <body class='doc-view'>
+        <script type="text/javascript">
+            $(document).ready(function () {
+                ZP.DocView.InitDef();
+                ZP.DocView.OpenDefinitionPage = null;
+                ZP.DocView.OpenDefinitionMode = '_self';
+                ZP.DocView.OpenXRefPage = 'doc-viewer.aspx#$2-';
+                ZP.DocView.OpenXRefMode = '_blank';
+                $(window).bind('hashchange', ZP.DocView.HashChanged);
+        
+        if (typeof ZP.DocView.ZoomClasses == 'undefined') {
+            ZP.DocView.ZoomClasses = ["Unzoom1", "", "Zoom1", "Zoom2", "Zoom3", "Zoom4"];
+        }
+        ZP.DocView.InitializeZoom();
+        EC.SortedTable.Init(".ord-tbl, .stat-tbl", ".sortable");
+        EC.Tabs.PositionLeftTabs();
+    });
+
+
+        </script>
+
+
+    <div id="doc-viewer">
+        
+
+<div id="doc-view">
+    <div id="doc-view-content">
+        
+<div id="pageControls">
+<script type="text/javascript" >
+    function clearEffDate() {
+        jQuery.get("doc-view-helper.aspx?task=currentversion", function () {
+            window.location.reload();
+        });
+        return false;
+    }
+</script>
+     <div class="pageControls psuedoTable" role="navigation" aria-label="Document Navigation">  
+        <div class="psuedoTableBody" >     
+            <div class="psuedoTableRow">         
+                <div class="pageControls_outer" ></div>
+                <div class="pageControls_inner left">
+                    <a id='button1' onclick='ZP.DocView.PrintDoc("000",false);return false;' href="#" title="Print" role="button"> 
+                        <img alt="Print" src="resources/btn-print-white.png" /></a>
+                    <a id='Button2' onclick='ZP.DocView.OpenPDF("000",false);return false;' href="#" title="Export PDF" role="button">
+                        <img alt="Generate PDF" src="resources/btn-makepdf-white.png" /></a>
+                        <a class="email-popup" href="mailto:?subject=Table%20of%20Contents&amp;body=Lincoln%20NE%20City%20Charter https://online.encodeplus.com/regs/lincoln-ne-cc/doc-viewer.aspx?secid=-1"><img src="resources/email-white.png" alt="Click to Share By Email" /></a>     
+                </div>
+                <div  class="pageControls_inner breadCrumbs" title="Navigation 'breadcrumbs'">
+                     <div class='breadCrumbs'></div>
+                </div>
+                 <div  class="pageControls_inner right">       
+                     <ul >  
+                         <li>
+                            <a id='button3' class="nav" onclick="ZP.DocView.LoadPrevDoc('000');return false;" href="#"  title="Previous Section" accesskey="," role="button"><img alt="Go to Previous Section" src="resources/btn-back-white.png" /></a>
+                         </li>  
+                         <li>
+                             <a id='Button4'  class="nav" onclick="ZP.DocView.LoadNextDoc('000');return false;" href="#"  title="Next Section" accesskey="." role="button"> <img alt="Go to Next Section" src="resources/btn-forward-white.png" /></a>
+                         </li>   
+                         <li>
+                             <a id="pageControls-overflow" onclick="ZP.DocView.PgCntrlOverflowClick(event);return false;" href="#" title="Click for more options" role="button" >
+                            <img src="resources/overflow-btn-white.png" alt="Click for more options" /></a>
+                               
+  <ul class="submenu" role="dialog">
+            <li><a href="/regs/lincoln-ne-cc/doc-viewer.aspx?secid=-1" onclick="javascript:alert('Right click this icon and select \'add to favorites\' or \'Bookmark this Link\' to bookmark this page');return false;" title="Bookmark this page" >Bookmark</a></li>
+            <li>
+                                        
+                <a id="zoomMinus" onclick="ZP.DocView.DecreaseZoom();return false;" href="#" title="Decrease Zoom" class="zoomLink glyphicon" >&#x2212;</a>
+                <a onclick="ZP.DocView.DefaultZoom();return false;"  href="#" title="Default Zoom"  class="zoomLink" >100%</a>
+                <a id="zoomPlus" onclick="ZP.DocView.IncreaseZoom();return false;" href="#" title="Increase Zoom"  class="zoomLink glyphicon" > &#x2b; </a>
+            </li>
+           
+                           
+                
+                <li><a id="subscribe-btn" onclick="ZP.DocView.OpenSubscribeDlg();return false;" title="Subscribe to Notifications" href="subscribe.aspx" role="button">Subscribe</a></li>
+                <li><a id="unsubscribe-btn" onclick="ZP.DocView.OpenUnsubscribeDlg();return false;" title="Cancel Notifications Subscription" href="unsubscribe.aspx" role="button" >Unsubscribe</a></li>
+                
+</ul>
+                         </li>        
+                        
+                        </ul>   
+                </div>
+                <div class="pageControls_outer"></div>
+            </div>
+        </div>
+    </div> 
+    <div id="subscribe-dialog" title="" aria-live="polite" >
+        <div id="sub-message"></div>
+        <div id="sub-form-cntr"></div>
+    </div>
+</div>
+
+
+        <div id="thePage-outer" >
+            <div id="thePage-wrap" class="thePage-wrap ">
+                <div id="outer-doc-banner"></div>
+                <div id="thePage-border">
+                    <div id="thePage" class="textPage " tocid="000" secid="-1" role="main" aria-label="Document">
+                        <img id="sectionBanner" title="Document text banner" src="resources/docbanner.png" width="720" valign="Top" alt="Document text banner">
+                        
+<div id="toc-pageview" class="toc-pageview" >
+<div id="toc-pageview1" >
+<div id="toc-pageview2">
+<div id="toc-pagehead">
+Lincoln NE City Charter
+</div>
+<div id="toc-list" >
+<span class="h1">Table Of Contents</span>
+    <ul class='toc-level0' >
+
+    <li id="secid-x762" class="tocLink"><a href="/regs/lincoln-ne-cc/doc-viewer.aspx?secid=762" onclick="ZP.TOCView.SelectTOC('762',false); return false;"><span class="toc-item">PREAMBLE</span></a></li>
+    
+    <li id="secid-x763" class="tocLink"><a href="/regs/lincoln-ne-cc/doc-viewer.aspx?secid=763" onclick="ZP.TOCView.SelectTOC('763',true); return false;"><span class="toc-item">ARTICLE I PRIOR CORPORATE ENTITY PRESERVED</span></a></li>
+    <ul class='toc-level1' >
+
+    <li id="secid-x764" class="tocLink"><a href="/regs/lincoln-ne-cc/doc-viewer.aspx?secid=764" onclick="ZP.TOCView.SelectTOC('764',false); return false;"><span class="toc-item">	Sec. 1. Name.</span></a></li>
+    
+    <li id="secid-x765" class="tocLink"><a href="/regs/lincoln-ne-cc/doc-viewer.aspx?secid=765" onclick="ZP.TOCView.SelectTOC('765',false); return false;"><span class="toc-item">	Sec. 2. Boundaries.</span></a></li>
+    
+    <li id="secid-x766" class="tocLink"><a href="/regs/lincoln-ne-cc/doc-viewer.aspx?secid=766" onclick="ZP.TOCView.SelectTOC('766',false); return false;"><span class="toc-item">	Sec. 3. Rights and Liabilities, Existing Ordinances and Officers.</span></a></li>
+    
+    <li id="secid-x767" class="tocLink"><a href="/regs/lincoln-ne-cc/doc-viewer.aspx?secid=767" onclick="ZP.TOCView.SelectTOC('767',false); return false;"><span class="toc-item">	Sec. 4. Form of Government.</span></a></li>
+    </ul>
+
+    <li id="secid-x768" class="tocLink"><a href="/regs/lincoln-ne-cc/doc-viewer.aspx?secid=768" onclick="ZP.TOCView.SelectTOC('768',true); return false;"><span class="toc-item">ARTICLE II GENERAL POWERS OF THE CITY</span></a></li>
+    <ul class='toc-level1' >
+
+    <li id="secid-x769" class="tocLink"><a href="/regs/lincoln-ne-cc/doc-viewer.aspx?secid=769" onclick="ZP.TOCView.SelectTOC('769',false); return false;"><span class="toc-item">	Sec. 1. General Powers of City; Exercise Thereof.</span></a></li>
+    
+    <li id="secid-x770" class="tocLink"><a href="/regs/lincoln-ne-cc/doc-viewer.aspx?secid=770" onclick="ZP.TOCView.SelectTOC('770',false); return false;"><span class="toc-item">	Sec. 2. Sale of City Property.</span></a></li>
+    
+    <li id="secid-x771" class="tocLink"><a href="/regs/lincoln-ne-cc/doc-viewer.aspx?secid=771" onclick="ZP.TOCView.SelectTOC('771',false); return false;"><span class="toc-item">	Sec. 3. Pension and Retirement System.</span></a></li>
+    
+    <li id="secid-x772" class="tocLink"><a href="/regs/lincoln-ne-cc/doc-viewer.aspx?secid=772" onclick="ZP.TOCView.SelectTOC('772',false); return false;"><span class="toc-item">	Sec. 4. Code of Ethics.</span></a></li>
+    
+    <li id="secid-x773" class="tocLink"><a href="/regs/lincoln-ne-cc/doc-viewer.aspx?secid=773" onclick="ZP.TOCView.SelectTOC('773',false); return false;"><span class="toc-item">	Sec. 5. Join Other Political Subdivisions.</span></a></li>
+    </ul>
+
+    <li id="secid-x774" class="tocLink"><a href="/regs/lincoln-ne-cc/doc-viewer.aspx?secid=774" onclick="ZP.TOCView.SelectTOC('774',true); return false;"><span class="toc-item">ARTICLE III ELECTIONS AND QUALIFICATIONS OF ELECTORS AND OFFICERS</span></a></li>
+    <ul class='toc-level1' >
+
+    <li id="secid-x775" class="tocLink"><a href="/regs/lincoln-ne-cc/doc-viewer.aspx?secid=775" onclick="ZP.TOCView.SelectTOC('775',false); return false;"><span class="toc-item">	Sec. 1. City Elections.</span></a></li>
+    
+    <li id="secid-x776" class="tocLink"><a href="/regs/lincoln-ne-cc/doc-viewer.aspx?secid=776" onclick="ZP.TOCView.SelectTOC('776',false); return false;"><span class="toc-item">	Sec. 2. Electors.</span></a></li>
+    
+    <li id="secid-x777" class="tocLink"><a href="/regs/lincoln-ne-cc/doc-viewer.aspx?secid=777" onclick="ZP.TOCView.SelectTOC('777',false); return false;"><span class="toc-item">	Sec. 3. Canvass Returns.</span></a></li>
+    
+    <li id="secid-x778" class="tocLink"><a href="/regs/lincoln-ne-cc/doc-viewer.aspx?secid=778" onclick="ZP.TOCView.SelectTOC('778',false); return false;"><span class="toc-item">	Sec. 4. Officers&#39; Qualifications.</span></a></li>
+    </ul>
+
+    <li id="secid-x779" class="tocLink"><a href="/regs/lincoln-ne-cc/doc-viewer.aspx?secid=779" onclick="ZP.TOCView.SelectTOC('779',true); return false;"><span class="toc-item">ARTICLE IV ELECTION AND ORGANIZATION OF ADMINISTRATION RECALL, INITIATIVE AND REFERENDUM</span></a></li>
+    <ul class='toc-level1' >
+
+    <li id="secid-x780" class="tocLink"><a href="/regs/lincoln-ne-cc/doc-viewer.aspx?secid=780" onclick="ZP.TOCView.SelectTOC('780',false); return false;"><span class="toc-item">	Sec. 1. Elective Officers.</span></a></li>
+    
+    <li id="secid-x781" class="tocLink"><a href="/regs/lincoln-ne-cc/doc-viewer.aspx?secid=781" onclick="ZP.TOCView.SelectTOC('781',false); return false;"><span class="toc-item">	Sec. 2. Primary.</span></a></li>
+    
+    <li id="secid-x782" class="tocLink"><a href="/regs/lincoln-ne-cc/doc-viewer.aspx?secid=782" onclick="ZP.TOCView.SelectTOC('782',false); return false;"><span class="toc-item">	Sec. 2a. Council Districts.</span></a></li>
+    
+    <li id="secid-x783" class="tocLink"><a href="/regs/lincoln-ne-cc/doc-viewer.aspx?secid=783" onclick="ZP.TOCView.SelectTOC('783',false); return false;"><span class="toc-item">	Sec. 3. Primary Ballot.</span></a></li>
+    
+    <li id="secid-x784" class="tocLink"><a href="/regs/lincoln-ne-cc/doc-viewer.aspx?secid=784" onclick="ZP.TOCView.SelectTOC('784',false); return false;"><span class="toc-item">	Sec. 4. General Election.</span></a></li>
+    
+    <li id="secid-x785" class="tocLink"><a href="/regs/lincoln-ne-cc/doc-viewer.aspx?secid=785" onclick="ZP.TOCView.SelectTOC('785',false); return false;"><span class="toc-item">	Sec. 5. Ballot.</span></a></li>
+    
+    <li id="secid-x786" class="tocLink"><a href="/regs/lincoln-ne-cc/doc-viewer.aspx?secid=786" onclick="ZP.TOCView.SelectTOC('786',false); return false;"><span class="toc-item">	Sec. 6.</span></a></li>
+    
+    <li id="secid-x787" class="tocLink"><a href="/regs/lincoln-ne-cc/doc-viewer.aspx?secid=787" onclick="ZP.TOCView.SelectTOC('787',false); return false;"><span class="toc-item">	Sec. 7. Compensation.</span></a></li>
+    
+    <li id="secid-x788" class="tocLink"><a href="/regs/lincoln-ne-cc/doc-viewer.aspx?secid=788" onclick="ZP.TOCView.SelectTOC('788',false); return false;"><span class="toc-item">	Sec. 8. Council Powers and Duties.</span></a></li>
+    
+    <li id="secid-x789" class="tocLink"><a href="/regs/lincoln-ne-cc/doc-viewer.aspx?secid=789" onclick="ZP.TOCView.SelectTOC('789',false); return false;"><span class="toc-item">	Sec. 9.	Chairman and Vice Chairman of Council.</span></a></li>
+    
+    <li id="secid-x790" class="tocLink"><a href="/regs/lincoln-ne-cc/doc-viewer.aspx?secid=790" onclick="ZP.TOCView.SelectTOC('790',false); return false;"><span class="toc-item">	Sec. 11.	 Council Meetings.</span></a></li>
+    
+    <li id="secid-x791" class="tocLink"><a href="/regs/lincoln-ne-cc/doc-viewer.aspx?secid=791" onclick="ZP.TOCView.SelectTOC('791',false); return false;"><span class="toc-item">	Sec. 12.	 Duties of Mayor.</span></a></li>
+    
+    <li id="secid-x792" class="tocLink"><a href="/regs/lincoln-ne-cc/doc-viewer.aspx?secid=792" onclick="ZP.TOCView.SelectTOC('792',false); return false;"><span class="toc-item">	Sec. 13. Legislative Power and Veto of Mayor.</span></a></li>
+    
+    <li id="secid-x793" class="tocLink"><a href="/regs/lincoln-ne-cc/doc-viewer.aspx?secid=793" onclick="ZP.TOCView.SelectTOC('793',false); return false;"><span class="toc-item">	Sec. 14. Composition of Executive Branch.</span></a></li>
+    
+    <li id="secid-x794" class="tocLink"><a href="/regs/lincoln-ne-cc/doc-viewer.aspx?secid=794" onclick="ZP.TOCView.SelectTOC('794',false); return false;"><span class="toc-item">	Sec. 15.	 City Attorney; Deputy City Attorney.</span></a></li>
+    
+    <li id="secid-x795" class="tocLink"><a href="/regs/lincoln-ne-cc/doc-viewer.aspx?secid=795" onclick="ZP.TOCView.SelectTOC('795',false); return false;"><span class="toc-item">	Sec. 16.	 Directors to be Qualified.</span></a></li>
+    
+    <li id="secid-x796" class="tocLink"><a href="/regs/lincoln-ne-cc/doc-viewer.aspx?secid=796" onclick="ZP.TOCView.SelectTOC('796',false); return false;"><span class="toc-item">	Sec. 17.</span></a></li>
+    
+    <li id="secid-x797" class="tocLink"><a href="/regs/lincoln-ne-cc/doc-viewer.aspx?secid=797" onclick="ZP.TOCView.SelectTOC('797',false); return false;"><span class="toc-item">	Sec. 18.	 Pardons.</span></a></li>
+    
+    <li id="secid-x798" class="tocLink"><a href="/regs/lincoln-ne-cc/doc-viewer.aspx?secid=798" onclick="ZP.TOCView.SelectTOC('798',false); return false;"><span class="toc-item">	Sec. 19.	 Recall, Grounds for.</span></a></li>
+    
+    <li id="secid-x799" class="tocLink"><a href="/regs/lincoln-ne-cc/doc-viewer.aspx?secid=799" onclick="ZP.TOCView.SelectTOC('799',false); return false;"><span class="toc-item">	Sec. 19a. Purchase of Surplus Property.</span></a></li>
+    
+    <li id="secid-x800" class="tocLink"><a href="/regs/lincoln-ne-cc/doc-viewer.aspx?secid=800" onclick="ZP.TOCView.SelectTOC('800',false); return false;"><span class="toc-item">	Sec. 20.	 Filling Offices in Case of Disaster.</span></a></li>
+    
+    <li id="secid-x801" class="tocLink"><a href="/regs/lincoln-ne-cc/doc-viewer.aspx?secid=801" onclick="ZP.TOCView.SelectTOC('801',false); return false;"><span class="toc-item">	Sec. 21	 Recall of Council Member; Procedure.</span></a></li>
+    
+    <li id="secid-x802" class="tocLink"><a href="/regs/lincoln-ne-cc/doc-viewer.aspx?secid=802" onclick="ZP.TOCView.SelectTOC('802',false); return false;"><span class="toc-item">	Sec. 22. Initiative.</span></a></li>
+    
+    <li id="secid-x803" class="tocLink"><a href="/regs/lincoln-ne-cc/doc-viewer.aspx?secid=803" onclick="ZP.TOCView.SelectTOC('803',false); return false;"><span class="toc-item">	Sec. 23. Referendum.</span></a></li>
+    
+    <li id="secid-x804" class="tocLink"><a href="/regs/lincoln-ne-cc/doc-viewer.aspx?secid=804" onclick="ZP.TOCView.SelectTOC('804',false); return false;"><span class="toc-item">	Sec. 24.	 Form of Petitions.</span></a></li>
+    
+    <li id="secid-x805" class="tocLink"><a href="/regs/lincoln-ne-cc/doc-viewer.aspx?secid=805" onclick="ZP.TOCView.SelectTOC('805',false); return false;"><span class="toc-item">	Sec. 24a. Petition, Withdrawal of Name From.</span></a></li>
+    
+    <li id="secid-x806" class="tocLink"><a href="/regs/lincoln-ne-cc/doc-viewer.aspx?secid=806" onclick="ZP.TOCView.SelectTOC('806',false); return false;"><span class="toc-item">	Sec. 25.	 Assignment of Departmental Duties.</span></a></li>
+    
+    <li id="secid-x807" class="tocLink"><a href="/regs/lincoln-ne-cc/doc-viewer.aspx?secid=807" onclick="ZP.TOCView.SelectTOC('807',false); return false;"><span class="toc-item">	Sec. 29.	 Meetings and Records Open to Public.</span></a></li>
+    </ul>
+
+    <li id="secid-x808" class="tocLink"><a href="/regs/lincoln-ne-cc/doc-viewer.aspx?secid=808" onclick="ZP.TOCView.SelectTOC('808',true); return false;"><span class="toc-item">ARTICLE V ORDINANCES</span></a></li>
+    <ul class='toc-level1' >
+
+    <li id="secid-x809" class="tocLink"><a href="/regs/lincoln-ne-cc/doc-viewer.aspx?secid=809" onclick="ZP.TOCView.SelectTOC('809',false); return false;"><span class="toc-item">	Sec. 1.	Passage, How Proved.</span></a></li>
+    
+    <li id="secid-x810" class="tocLink"><a href="/regs/lincoln-ne-cc/doc-viewer.aspx?secid=810" onclick="ZP.TOCView.SelectTOC('810',false); return false;"><span class="toc-item">	Sec. 2.	Advertisement, When in Force.</span></a></li>
+    
+    <li id="secid-x811" class="tocLink"><a href="/regs/lincoln-ne-cc/doc-viewer.aspx?secid=811" onclick="ZP.TOCView.SelectTOC('811',false); return false;"><span class="toc-item">	Sec. 3.	How Enacted.</span></a></li>
+    </ul>
+
+    <li id="secid-x812" class="tocLink"><a href="/regs/lincoln-ne-cc/doc-viewer.aspx?secid=812" onclick="ZP.TOCView.SelectTOC('812',true); return false;"><span class="toc-item">ARTICLE VI UTILITIES</span></a></li>
+    <ul class='toc-level1' >
+
+    <li id="secid-x813" class="tocLink"><a href="/regs/lincoln-ne-cc/doc-viewer.aspx?secid=813" onclick="ZP.TOCView.SelectTOC('813',false); return false;"><span class="toc-item">	Sec. 1. 	Waterworks.</span></a></li>
+    
+    <li id="secid-x814" class="tocLink"><a href="/regs/lincoln-ne-cc/doc-viewer.aspx?secid=814" onclick="ZP.TOCView.SelectTOC('814',false); return false;"><span class="toc-item">	Sec. 2. 	Water Districts.</span></a></li>
+    
+    <li id="secid-x815" class="tocLink"><a href="/regs/lincoln-ne-cc/doc-viewer.aspx?secid=815" onclick="ZP.TOCView.SelectTOC('815',false); return false;"><span class="toc-item">	Sec. 3.	Ornamental Lighting Districts.</span></a></li>
+    </ul>
+
+    <li id="secid-x816" class="tocLink"><a href="/regs/lincoln-ne-cc/doc-viewer.aspx?secid=816" onclick="ZP.TOCView.SelectTOC('816',true); return false;"><span class="toc-item">ARTICLE VII CONTRACTS AND PURCHASES</span></a></li>
+    <ul class='toc-level1' >
+
+    <li id="secid-x817" class="tocLink"><a href="/regs/lincoln-ne-cc/doc-viewer.aspx?secid=817" onclick="ZP.TOCView.SelectTOC('817',false); return false;"><span class="toc-item">	Sec. 1. Purchasing Division Created.</span></a></li>
+    
+    <li id="secid-x818" class="tocLink"><a href="/regs/lincoln-ne-cc/doc-viewer.aspx?secid=818" onclick="ZP.TOCView.SelectTOC('818',false); return false;"><span class="toc-item">	Sec. 2.	Purchasing Division, Powers and Duties.</span></a></li>
+    
+    <li id="secid-x819" class="tocLink"><a href="/regs/lincoln-ne-cc/doc-viewer.aspx?secid=819" onclick="ZP.TOCView.SelectTOC('819',false); return false;"><span class="toc-item">	Sec. 3.	Contracts, Limiting Term.</span></a></li>
+    
+    <li id="secid-x820" class="tocLink"><a href="/regs/lincoln-ne-cc/doc-viewer.aspx?secid=820" onclick="ZP.TOCView.SelectTOC('820',false); return false;"><span class="toc-item">	Sec. 4.	Appropriation Preceding Contracts.</span></a></li>
+    
+    <li id="secid-x821" class="tocLink"><a href="/regs/lincoln-ne-cc/doc-viewer.aspx?secid=821" onclick="ZP.TOCView.SelectTOC('821',false); return false;"><span class="toc-item">	Sec. 5.	City Contract - Conflict of Interest.</span></a></li>
+    
+    <li id="secid-x822" class="tocLink"><a href="/regs/lincoln-ne-cc/doc-viewer.aspx?secid=822" onclick="ZP.TOCView.SelectTOC('822',false); return false;"><span class="toc-item">	Sec. 6.	City Printing, Rate.</span></a></li>
+    
+    <li id="secid-x823" class="tocLink"><a href="/regs/lincoln-ne-cc/doc-viewer.aspx?secid=823" onclick="ZP.TOCView.SelectTOC('823',false); return false;"><span class="toc-item">	Sec. 7.	Notices; Posting in Lieu of Publication.</span></a></li>
+    </ul>
+
+    <li id="secid-x824" class="tocLink"><a href="/regs/lincoln-ne-cc/doc-viewer.aspx?secid=824" onclick="ZP.TOCView.SelectTOC('824',true); return false;"><span class="toc-item">ARTICLE VIII STREETS, PUBLIC IMPROVEMENTS, PUBLIC UTILITIES, SPECIAL ASSESSMENTS</span></a></li>
+    <ul class='toc-level1' >
+
+    <li id="secid-x825" class="tocLink"><a href="/regs/lincoln-ne-cc/doc-viewer.aspx?secid=825" onclick="ZP.TOCView.SelectTOC('825',false); return false;"><span class="toc-item">	Sec. 1.	Streets.</span></a></li>
+    
+    <li id="secid-x826" class="tocLink"><a href="/regs/lincoln-ne-cc/doc-viewer.aspx?secid=826" onclick="ZP.TOCView.SelectTOC('826',false); return false;"><span class="toc-item">	Sec. 2.	Viaducts.</span></a></li>
+    
+    <li id="secid-x827" class="tocLink"><a href="/regs/lincoln-ne-cc/doc-viewer.aspx?secid=827" onclick="ZP.TOCView.SelectTOC('827',false); return false;"><span class="toc-item">	Sec. 3.	Streets; Grading, Curbing, Guttering.</span></a></li>
+    
+    <li id="secid-x828" class="tocLink"><a href="/regs/lincoln-ne-cc/doc-viewer.aspx?secid=828" onclick="ZP.TOCView.SelectTOC('828',false); return false;"><span class="toc-item">	Sec. 3a.	 Same; Create by Ordinance.</span></a></li>
+    
+    <li id="secid-x829" class="tocLink"><a href="/regs/lincoln-ne-cc/doc-viewer.aspx?secid=829" onclick="ZP.TOCView.SelectTOC('829',false); return false;"><span class="toc-item">	Sec. 3b. Same; Without Petition.</span></a></li>
+    
+    <li id="secid-x830" class="tocLink"><a href="/regs/lincoln-ne-cc/doc-viewer.aspx?secid=830" onclick="ZP.TOCView.SelectTOC('830',false); return false;"><span class="toc-item">	Sec. 3c. Same; With Petition.</span></a></li>
+    
+    <li id="secid-x831" class="tocLink"><a href="/regs/lincoln-ne-cc/doc-viewer.aspx?secid=831" onclick="ZP.TOCView.SelectTOC('831',false); return false;"><span class="toc-item">	Sec. 3d. Same; Advertise for Bids.</span></a></li>
+    
+    <li id="secid-x832" class="tocLink"><a href="/regs/lincoln-ne-cc/doc-viewer.aspx?secid=832" onclick="ZP.TOCView.SelectTOC('832',false); return false;"><span class="toc-item">	Sec. 3e. Same; Assess Cost.</span></a></li>
+    
+    <li id="secid-x833" class="tocLink"><a href="/regs/lincoln-ne-cc/doc-viewer.aspx?secid=833" onclick="ZP.TOCView.SelectTOC('833',false); return false;"><span class="toc-item">	Sec. 3f.	Same; Real Estate Belonging to County, Municipal or Quasi-Municipal Corporations.</span></a></li>
+    
+    <li id="secid-x834" class="tocLink"><a href="/regs/lincoln-ne-cc/doc-viewer.aspx?secid=834" onclick="ZP.TOCView.SelectTOC('834',false); return false;"><span class="toc-item">	Sec. 3g. Same; Sewer, Gas and Water Service Pipes.</span></a></li>
+    
+    <li id="secid-x835" class="tocLink"><a href="/regs/lincoln-ne-cc/doc-viewer.aspx?secid=835" onclick="ZP.TOCView.SelectTOC('835',false); return false;"><span class="toc-item">	Sec. 3h. Same; Bonds.</span></a></li>
+    
+    <li id="secid-x836" class="tocLink"><a href="/regs/lincoln-ne-cc/doc-viewer.aspx?secid=836" onclick="ZP.TOCView.SelectTOC('836',false); return false;"><span class="toc-item"> Sec. 3i. Same;</span></a></li>
+    
+    <li id="secid-x837" class="tocLink"><a href="/regs/lincoln-ne-cc/doc-viewer.aspx?secid=837" onclick="ZP.TOCView.SelectTOC('837',false); return false;"><span class="toc-item">	Sec. 3j.	Same; Intersections, Curb and Gutter Bonds.</span></a></li>
+    
+    <li id="secid-x838" class="tocLink"><a href="/regs/lincoln-ne-cc/doc-viewer.aspx?secid=838" onclick="ZP.TOCView.SelectTOC('838',false); return false;"><span class="toc-item">	Sec. 3k.	 Same; Contractor&#39;s Bonds.</span></a></li>
+    
+    <li id="secid-x839" class="tocLink"><a href="/regs/lincoln-ne-cc/doc-viewer.aspx?secid=839" onclick="ZP.TOCView.SelectTOC('839',false); return false;"><span class="toc-item">	Sec. 4 1/4. Graveling Districts.</span></a></li>
+    
+    <li id="secid-x840" class="tocLink"><a href="/regs/lincoln-ne-cc/doc-viewer.aspx?secid=840" onclick="ZP.TOCView.SelectTOC('840',false); return false;"><span class="toc-item">	Sec. 4 1/2. Improvement Districts.</span></a></li>
+    
+    <li id="secid-x841" class="tocLink"><a href="/regs/lincoln-ne-cc/doc-viewer.aspx?secid=841" onclick="ZP.TOCView.SelectTOC('841',false); return false;"><span class="toc-item">	Sec. 4 3/4. Shade and Ornamental Trees.</span></a></li>
+    
+    <li id="secid-x842" class="tocLink"><a href="/regs/lincoln-ne-cc/doc-viewer.aspx?secid=842" onclick="ZP.TOCView.SelectTOC('842',false); return false;"><span class="toc-item">	Sec. 5. Contract to Lowest Bidder.</span></a></li>
+    
+    <li id="secid-x843" class="tocLink"><a href="/regs/lincoln-ne-cc/doc-viewer.aspx?secid=843" onclick="ZP.TOCView.SelectTOC('843',false); return false;"><span class="toc-item">	Sec. 6. Repairing Paving.</span></a></li>
+    
+    <li id="secid-x844" class="tocLink"><a href="/regs/lincoln-ne-cc/doc-viewer.aspx?secid=844" onclick="ZP.TOCView.SelectTOC('844',false); return false;"><span class="toc-item">	Sec. 7. Sewer Districts.</span></a></li>
+    
+    <li id="secid-x845" class="tocLink"><a href="/regs/lincoln-ne-cc/doc-viewer.aspx?secid=845" onclick="ZP.TOCView.SelectTOC('845',false); return false;"><span class="toc-item">	Sec. 8. Sewer Assessments.</span></a></li>
+    
+    <li id="secid-x846" class="tocLink"><a href="/regs/lincoln-ne-cc/doc-viewer.aspx?secid=846" onclick="ZP.TOCView.SelectTOC('846',false); return false;"><span class="toc-item">	Sec. 9. Sewer District Bonds.</span></a></li>
+    
+    <li id="secid-x847" class="tocLink"><a href="/regs/lincoln-ne-cc/doc-viewer.aspx?secid=847" onclick="ZP.TOCView.SelectTOC('847',false); return false;"><span class="toc-item">	Sec. 10.	 Sewer Fund.</span></a></li>
+    
+    <li id="secid-x848" class="tocLink"><a href="/regs/lincoln-ne-cc/doc-viewer.aspx?secid=848" onclick="ZP.TOCView.SelectTOC('848',false); return false;"><span class="toc-item">	Sec. 10a. Special Assessment Revolving Fund.</span></a></li>
+    
+    <li id="secid-x849" class="tocLink"><a href="/regs/lincoln-ne-cc/doc-viewer.aspx?secid=849" onclick="ZP.TOCView.SelectTOC('849',false); return false;"><span class="toc-item">	Sec. 10b. Delinquent Special Assessments.</span></a></li>
+    
+    <li id="secid-x850" class="tocLink"><a href="/regs/lincoln-ne-cc/doc-viewer.aspx?secid=850" onclick="ZP.TOCView.SelectTOC('850',false); return false;"><span class="toc-item">	Sec. 11a. Garbage and Refuse.</span></a></li>
+    
+    <li id="secid-x851" class="tocLink"><a href="/regs/lincoln-ne-cc/doc-viewer.aspx?secid=851" onclick="ZP.TOCView.SelectTOC('851',false); return false;"><span class="toc-item">	Sec. 12. Income Public Utilities, How Applied.</span></a></li>
+    
+    <li id="secid-x852" class="tocLink"><a href="/regs/lincoln-ne-cc/doc-viewer.aspx?secid=852" onclick="ZP.TOCView.SelectTOC('852',false); return false;"><span class="toc-item">	Sec. 13. Public Market.</span></a></li>
+    
+    <li id="secid-x853" class="tocLink"><a href="/regs/lincoln-ne-cc/doc-viewer.aspx?secid=853" onclick="ZP.TOCView.SelectTOC('853',false); return false;"><span class="toc-item">	Sec. 13a.</span></a></li>
+    
+    <li id="secid-x854" class="tocLink"><a href="/regs/lincoln-ne-cc/doc-viewer.aspx?secid=854" onclick="ZP.TOCView.SelectTOC('854',false); return false;"><span class="toc-item">	Sec. 13b. Municipal Gasoline Station.</span></a></li>
+    
+    <li id="secid-x855" class="tocLink"><a href="/regs/lincoln-ne-cc/doc-viewer.aspx?secid=855" onclick="ZP.TOCView.SelectTOC('855',false); return false;"><span class="toc-item">	Sec. 14.	 Special Assessments, How Levied.</span></a></li>
+    
+    <li id="secid-x856" class="tocLink"><a href="/regs/lincoln-ne-cc/doc-viewer.aspx?secid=856" onclick="ZP.TOCView.SelectTOC('856',false); return false;"><span class="toc-item">	Sec. 15.	 Special Assessments, Certification to Treasurer.</span></a></li>
+    
+    <li id="secid-x857" class="tocLink"><a href="/regs/lincoln-ne-cc/doc-viewer.aspx?secid=857" onclick="ZP.TOCView.SelectTOC('857',false); return false;"><span class="toc-item">	Sec. 16.	Special Assessments, Diverse Ownership.</span></a></li>
+    
+    <li id="secid-x858" class="tocLink"><a href="/regs/lincoln-ne-cc/doc-viewer.aspx?secid=858" onclick="ZP.TOCView.SelectTOC('858',false); return false;"><span class="toc-item">	Sec. 19.	Sidewalks, Sidewalk Assessments.</span></a></li>
+    
+    <li id="secid-x859" class="tocLink"><a href="/regs/lincoln-ne-cc/doc-viewer.aspx?secid=859" onclick="ZP.TOCView.SelectTOC('859',false); return false;"><span class="toc-item">	Sec. 20.	 Sidewalk Assessments, Collection.</span></a></li>
+    
+    <li id="secid-x860" class="tocLink"><a href="/regs/lincoln-ne-cc/doc-viewer.aspx?secid=860" onclick="ZP.TOCView.SelectTOC('860',false); return false;"><span class="toc-item">	Sec. 22.	 Special Assessments, Interest Rate.</span></a></li>
+    </ul>
+
+    <li id="secid-x861" class="tocLink"><a href="/regs/lincoln-ne-cc/doc-viewer.aspx?secid=861" onclick="ZP.TOCView.SelectTOC('861',true); return false;"><span class="toc-item">ARTICLE IX FINANCE AND TAXATION</span></a></li>
+    <ul class='toc-level1' >
+
+    <li id="secid-x862" class="tocLink"><a href="/regs/lincoln-ne-cc/doc-viewer.aspx?secid=862" onclick="ZP.TOCView.SelectTOC('862',false); return false;"><span class="toc-item">	Sec. 1. Fiscal Year.</span></a></li>
+    
+    <li id="secid-x863" class="tocLink"><a href="/regs/lincoln-ne-cc/doc-viewer.aspx?secid=863" onclick="ZP.TOCView.SelectTOC('863',false); return false;"><span class="toc-item">	Sec. 2. 	Dog Tax, Road Tax.</span></a></li>
+    
+    <li id="secid-x864" class="tocLink"><a href="/regs/lincoln-ne-cc/doc-viewer.aspx?secid=864" onclick="ZP.TOCView.SelectTOC('864',false); return false;"><span class="toc-item">	Sec. 3.	Taxes, Maximum Levy.</span></a></li>
+    
+    <li id="secid-x865" class="tocLink"><a href="/regs/lincoln-ne-cc/doc-viewer.aspx?secid=865" onclick="ZP.TOCView.SelectTOC('865',false); return false;"><span class="toc-item">	Sec. 3a.	 Taxes-Agreement for Collection.</span></a></li>
+    
+    <li id="secid-x866" class="tocLink"><a href="/regs/lincoln-ne-cc/doc-viewer.aspx?secid=866" onclick="ZP.TOCView.SelectTOC('866',false); return false;"><span class="toc-item">	Sec. 3f.</span></a></li>
+    
+    <li id="secid-x867" class="tocLink"><a href="/regs/lincoln-ne-cc/doc-viewer.aspx?secid=867" onclick="ZP.TOCView.SelectTOC('867',false); return false;"><span class="toc-item">	Sec. 3g. Storm Sewer Bonds.</span></a></li>
+    
+    <li id="secid-x868" class="tocLink"><a href="/regs/lincoln-ne-cc/doc-viewer.aspx?secid=868" onclick="ZP.TOCView.SelectTOC('868',false); return false;"><span class="toc-item">	Sec. 4.	Equalization.</span></a></li>
+    
+    <li id="secid-x869" class="tocLink"><a href="/regs/lincoln-ne-cc/doc-viewer.aspx?secid=869" onclick="ZP.TOCView.SelectTOC('869',false); return false;"><span class="toc-item">	Sec. 5.	Powers of Board of Equalization.</span></a></li>
+    
+    <li id="secid-x870" class="tocLink"><a href="/regs/lincoln-ne-cc/doc-viewer.aspx?secid=870" onclick="ZP.TOCView.SelectTOC('870',false); return false;"><span class="toc-item">	Sec. 6.	Equalization of Special Assessments.</span></a></li>
+    
+    <li id="secid-x871" class="tocLink"><a href="/regs/lincoln-ne-cc/doc-viewer.aspx?secid=871" onclick="ZP.TOCView.SelectTOC('871',false); return false;"><span class="toc-item">	Sec. 7.	Testimony Before Council or Board of Equalization.</span></a></li>
+    
+    <li id="secid-x872" class="tocLink"><a href="/regs/lincoln-ne-cc/doc-viewer.aspx?secid=872" onclick="ZP.TOCView.SelectTOC('872',false); return false;"><span class="toc-item">	Sec. 8.	Waterworks Revenue Bonds.</span></a></li>
+    
+    <li id="secid-x873" class="tocLink"><a href="/regs/lincoln-ne-cc/doc-viewer.aspx?secid=873" onclick="ZP.TOCView.SelectTOC('873',false); return false;"><span class="toc-item">	Sec. 9.	Property Escaping Taxation, How Assessed.</span></a></li>
+    
+    <li id="secid-x874" class="tocLink"><a href="/regs/lincoln-ne-cc/doc-viewer.aspx?secid=874" onclick="ZP.TOCView.SelectTOC('874',false); return false;"><span class="toc-item">	Sec. 10.	Tax List, Delivery to Treasurer.</span></a></li>
+    
+    <li id="secid-x875" class="tocLink"><a href="/regs/lincoln-ne-cc/doc-viewer.aspx?secid=875" onclick="ZP.TOCView.SelectTOC('875',false); return false;"><span class="toc-item">	Sec. 11. Tax List, Warrant Annexed.</span></a></li>
+    
+    <li id="secid-x876" class="tocLink"><a href="/regs/lincoln-ne-cc/doc-viewer.aspx?secid=876" onclick="ZP.TOCView.SelectTOC('876',false); return false;"><span class="toc-item">	Sec. 12.	 Authority Under Tax List Warrant.</span></a></li>
+    
+    <li id="secid-x877" class="tocLink"><a href="/regs/lincoln-ne-cc/doc-viewer.aspx?secid=877" onclick="ZP.TOCView.SelectTOC('877',false); return false;"><span class="toc-item">	Sec. 13.	 Same.</span></a></li>
+    
+    <li id="secid-x878" class="tocLink"><a href="/regs/lincoln-ne-cc/doc-viewer.aspx?secid=878" onclick="ZP.TOCView.SelectTOC('878',false); return false;"><span class="toc-item">	Sec. 14.	 Taxes, When Delinquent.</span></a></li>
+    
+    <li id="secid-x879" class="tocLink"><a href="/regs/lincoln-ne-cc/doc-viewer.aspx?secid=879" onclick="ZP.TOCView.SelectTOC('879',false); return false;"><span class="toc-item">	Sec. 15.	 Funds Inviolate.</span></a></li>
+    
+    <li id="secid-x880" class="tocLink"><a href="/regs/lincoln-ne-cc/doc-viewer.aspx?secid=880" onclick="ZP.TOCView.SelectTOC('880',false); return false;"><span class="toc-item">	Sec. 16.	 Special Assessments, How Devoted.</span></a></li>
+    
+    <li id="secid-x881" class="tocLink"><a href="/regs/lincoln-ne-cc/doc-viewer.aspx?secid=881" onclick="ZP.TOCView.SelectTOC('881',false); return false;"><span class="toc-item">	Sec. 17.	 Taxes, From What Property Collected.</span></a></li>
+    
+    <li id="secid-x882" class="tocLink"><a href="/regs/lincoln-ne-cc/doc-viewer.aspx?secid=882" onclick="ZP.TOCView.SelectTOC('882',false); return false;"><span class="toc-item">	Sec. 18.	 Ordinances Aiding Tax Collection.</span></a></li>
+    
+    <li id="secid-x883" class="tocLink"><a href="/regs/lincoln-ne-cc/doc-viewer.aspx?secid=883" onclick="ZP.TOCView.SelectTOC('883',false); return false;"><span class="toc-item">	Sec. 19.	 Taxes, How Paid.</span></a></li>
+    
+    <li id="secid-x884" class="tocLink"><a href="/regs/lincoln-ne-cc/doc-viewer.aspx?secid=884" onclick="ZP.TOCView.SelectTOC('884',false); return false;"><span class="toc-item">	Sec. 20.	 Lien of General Taxes.</span></a></li>
+    
+    <li id="secid-x885" class="tocLink"><a href="/regs/lincoln-ne-cc/doc-viewer.aspx?secid=885" onclick="ZP.TOCView.SelectTOC('885',false); return false;"><span class="toc-item">	Sec. 21.	 Delinquent Real Estate Taxes, Advertisement, Sale.</span></a></li>
+    
+    <li id="secid-x886" class="tocLink"><a href="/regs/lincoln-ne-cc/doc-viewer.aspx?secid=886" onclick="ZP.TOCView.SelectTOC('886',false); return false;"><span class="toc-item">	Sec. 22.	 Lien of Special Assessments.</span></a></li>
+    
+    <li id="secid-x887" class="tocLink"><a href="/regs/lincoln-ne-cc/doc-viewer.aspx?secid=887" onclick="ZP.TOCView.SelectTOC('887',false); return false;"><span class="toc-item">	Sec. 23.	 Reassessments.</span></a></li>
+    
+    <li id="secid-x888" class="tocLink"><a href="/regs/lincoln-ne-cc/doc-viewer.aspx?secid=888" onclick="ZP.TOCView.SelectTOC('888',false); return false;"><span class="toc-item">	Sec. 24.	 Idle Funds, Investment.</span></a></li>
+    
+    <li id="secid-x889" class="tocLink"><a href="/regs/lincoln-ne-cc/doc-viewer.aspx?secid=889" onclick="ZP.TOCView.SelectTOC('889',false); return false;"><span class="toc-item">	Sec. 25.	 Formulation of Annual Budget.</span></a></li>
+    
+    <li id="secid-x890" class="tocLink"><a href="/regs/lincoln-ne-cc/doc-viewer.aspx?secid=890" onclick="ZP.TOCView.SelectTOC('890',false); return false;"><span class="toc-item">	Sec. 25a. Annual Budget, Contents.</span></a></li>
+    
+    <li id="secid-x891" class="tocLink"><a href="/regs/lincoln-ne-cc/doc-viewer.aspx?secid=891" onclick="ZP.TOCView.SelectTOC('891',false); return false;"><span class="toc-item">	Sec. 26.	 Annual Budget, Adoption.</span></a></li>
+    
+    <li id="secid-x892" class="tocLink"><a href="/regs/lincoln-ne-cc/doc-viewer.aspx?secid=892" onclick="ZP.TOCView.SelectTOC('892',false); return false;"><span class="toc-item">		Sec. 26a.  Biennial (Two-Year) Budget.</span></a></li>
+    
+    <li id="secid-x893" class="tocLink"><a href="/regs/lincoln-ne-cc/doc-viewer.aspx?secid=893" onclick="ZP.TOCView.SelectTOC('893',false); return false;"><span class="toc-item">		Sec. 27.	 Appropriations.</span></a></li>
+    
+    <li id="secid-x894" class="tocLink"><a href="/regs/lincoln-ne-cc/doc-viewer.aspx?secid=894" onclick="ZP.TOCView.SelectTOC('894',false); return false;"><span class="toc-item">		Sec. 28.	 Payments.</span></a></li>
+    
+    <li id="secid-x895" class="tocLink"><a href="/regs/lincoln-ne-cc/doc-viewer.aspx?secid=895" onclick="ZP.TOCView.SelectTOC('895',false); return false;"><span class="toc-item">		Sec. 29.	 Accounting Systems.</span></a></li>
+    
+    <li id="secid-x896" class="tocLink"><a href="/regs/lincoln-ne-cc/doc-viewer.aspx?secid=896" onclick="ZP.TOCView.SelectTOC('896',false); return false;"><span class="toc-item">		Sec. 30.	 Finance Director Report to Council.</span></a></li>
+    
+    <li id="secid-x897" class="tocLink"><a href="/regs/lincoln-ne-cc/doc-viewer.aspx?secid=897" onclick="ZP.TOCView.SelectTOC('897',false); return false;"><span class="toc-item">		Sec. 31.	 Separate Funds, Private Use Forbidden.</span></a></li>
+    
+    <li id="secid-x898" class="tocLink"><a href="/regs/lincoln-ne-cc/doc-viewer.aspx?secid=898" onclick="ZP.TOCView.SelectTOC('898',false); return false;"><span class="toc-item">		Sec. 35.	 Claims and Accounts, Approval.</span></a></li>
+    
+    <li id="secid-x899" class="tocLink"><a href="/regs/lincoln-ne-cc/doc-viewer.aspx?secid=899" onclick="ZP.TOCView.SelectTOC('899',false); return false;"><span class="toc-item">	Sec. 36.	 Claims, Appeal.</span></a></li>
+    
+    <li id="secid-x900" class="tocLink"><a href="/regs/lincoln-ne-cc/doc-viewer.aspx?secid=900" onclick="ZP.TOCView.SelectTOC('900',false); return false;"><span class="toc-item">	Sec. 37.	 Unliquidated Claims, Filing.</span></a></li>
+    
+    <li id="secid-x901" class="tocLink"><a href="/regs/lincoln-ne-cc/doc-viewer.aspx?secid=901" onclick="ZP.TOCView.SelectTOC('901',false); return false;"><span class="toc-item">	Sec. 38.	 Defective Public Ways, Notice Essential.</span></a></li>
+    
+    <li id="secid-x902" class="tocLink"><a href="/regs/lincoln-ne-cc/doc-viewer.aspx?secid=902" onclick="ZP.TOCView.SelectTOC('902',false); return false;"><span class="toc-item">	Sec. 39.	 General Obligation Bonds and Notes.</span></a></li>
+    
+    <li id="secid-x903" class="tocLink"><a href="/regs/lincoln-ne-cc/doc-viewer.aspx?secid=903" onclick="ZP.TOCView.SelectTOC('903',false); return false;"><span class="toc-item">	Sec. 40.	 Same, Authorization.</span></a></li>
+    
+    <li id="secid-x904" class="tocLink"><a href="/regs/lincoln-ne-cc/doc-viewer.aspx?secid=904" onclick="ZP.TOCView.SelectTOC('904',false); return false;"><span class="toc-item">	Sec. 41. Same, Debt Limitation.</span></a></li>
+    
+    <li id="secid-x905" class="tocLink"><a href="/regs/lincoln-ne-cc/doc-viewer.aspx?secid=905" onclick="ZP.TOCView.SelectTOC('905',false); return false;"><span class="toc-item">	Sec. 42.	 Same, Term Limitation.</span></a></li>
+    
+    <li id="secid-x906" class="tocLink"><a href="/regs/lincoln-ne-cc/doc-viewer.aspx?secid=906" onclick="ZP.TOCView.SelectTOC('906',false); return false;"><span class="toc-item">	Sec. 43.	 General Obligation Bonds; Form, Sale, Issuance, Etc.</span></a></li>
+    
+    <li id="secid-x907" class="tocLink"><a href="/regs/lincoln-ne-cc/doc-viewer.aspx?secid=907" onclick="ZP.TOCView.SelectTOC('907',false); return false;"><span class="toc-item">	Sec. 44.	 Revenue Bonds.</span></a></li>
+    </ul>
+
+    <li id="secid-x908" class="tocLink"><a href="/regs/lincoln-ne-cc/doc-viewer.aspx?secid=908" onclick="ZP.TOCView.SelectTOC('908',true); return false;"><span class="toc-item">ARTICLE IX-A MERIT SYSTEM</span></a></li>
+    <ul class='toc-level1' >
+
+    <li id="secid-x909" class="tocLink"><a href="/regs/lincoln-ne-cc/doc-viewer.aspx?secid=909" onclick="ZP.TOCView.SelectTOC('909',false); return false;"><span class="toc-item">	Sec. 1.	Classes of Service.</span></a></li>
+    
+    <li id="secid-x910" class="tocLink"><a href="/regs/lincoln-ne-cc/doc-viewer.aspx?secid=910" onclick="ZP.TOCView.SelectTOC('910',false); return false;"><span class="toc-item">	Sec. 2.	Personnel Department.</span></a></li>
+    
+    <li id="secid-x911" class="tocLink"><a href="/regs/lincoln-ne-cc/doc-viewer.aspx?secid=911" onclick="ZP.TOCView.SelectTOC('911',false); return false;"><span class="toc-item">	Sec. 3.	Personnel Board.</span></a></li>
+    
+    <li id="secid-x912" class="tocLink"><a href="/regs/lincoln-ne-cc/doc-viewer.aspx?secid=912" onclick="ZP.TOCView.SelectTOC('912',false); return false;"><span class="toc-item">	Sec. 4.	Personnel Director.</span></a></li>
+    
+    <li id="secid-x913" class="tocLink"><a href="/regs/lincoln-ne-cc/doc-viewer.aspx?secid=913" onclick="ZP.TOCView.SelectTOC('913',false); return false;"><span class="toc-item">	Sec. 5.	Rules and Regulations.</span></a></li>
+    
+    <li id="secid-x914" class="tocLink"><a href="/regs/lincoln-ne-cc/doc-viewer.aspx?secid=914" onclick="ZP.TOCView.SelectTOC('914',false); return false;"><span class="toc-item">	Sec. 6.	Plan of Duties of Position.</span></a></li>
+    
+    <li id="secid-x915" class="tocLink"><a href="/regs/lincoln-ne-cc/doc-viewer.aspx?secid=915" onclick="ZP.TOCView.SelectTOC('915',false); return false;"><span class="toc-item">	Sec. 7. 	Salary Schedule.</span></a></li>
+    
+    <li id="secid-x916" class="tocLink"><a href="/regs/lincoln-ne-cc/doc-viewer.aspx?secid=916" onclick="ZP.TOCView.SelectTOC('916',false); return false;"><span class="toc-item">	Sec. 8.	No Discrimination, Political Activities.</span></a></li>
+    
+    <li id="secid-x917" class="tocLink"><a href="/regs/lincoln-ne-cc/doc-viewer.aspx?secid=917" onclick="ZP.TOCView.SelectTOC('917',false); return false;"><span class="toc-item">	Sec. 8a.	 Employee Becoming a Candidate for City Office.</span></a></li>
+    
+    <li id="secid-x918" class="tocLink"><a href="/regs/lincoln-ne-cc/doc-viewer.aspx?secid=918" onclick="ZP.TOCView.SelectTOC('918',false); return false;"><span class="toc-item">	Sec. 9.	Power of Personnel Board.</span></a></li>
+    </ul>
+
+    <li id="secid-x919" class="tocLink"><a href="/regs/lincoln-ne-cc/doc-viewer.aspx?secid=919" onclick="ZP.TOCView.SelectTOC('919',true); return false;"><span class="toc-item">ARTICLE IX-B CITY PLANNING DEPARTMENT</span></a></li>
+    <ul class='toc-level1' >
+
+    <li id="secid-x920" class="tocLink"><a href="/regs/lincoln-ne-cc/doc-viewer.aspx?secid=920" onclick="ZP.TOCView.SelectTOC('920',false); return false;"><span class="toc-item">	Sec. 1.	Planning Department Created.</span></a></li>
+    
+    <li id="secid-x921" class="tocLink"><a href="/regs/lincoln-ne-cc/doc-viewer.aspx?secid=921" onclick="ZP.TOCView.SelectTOC('921',false); return false;"><span class="toc-item">	Sec. 2.	City Planning Commission.</span></a></li>
+    
+    <li id="secid-x922" class="tocLink"><a href="/regs/lincoln-ne-cc/doc-viewer.aspx?secid=922" onclick="ZP.TOCView.SelectTOC('922',false); return false;"><span class="toc-item">	Sec. 3.	Planning Director.</span></a></li>
+    
+    <li id="secid-x923" class="tocLink"><a href="/regs/lincoln-ne-cc/doc-viewer.aspx?secid=923" onclick="ZP.TOCView.SelectTOC('923',false); return false;"><span class="toc-item">	Sec. 4.	Comprehensive Plan.</span></a></li>
+    
+    <li id="secid-x924" class="tocLink"><a href="/regs/lincoln-ne-cc/doc-viewer.aspx?secid=924" onclick="ZP.TOCView.SelectTOC('924',false); return false;"><span class="toc-item">	Sec. 5.	Planning Director, Duties.</span></a></li>
+    
+    <li id="secid-x925" class="tocLink"><a href="/regs/lincoln-ne-cc/doc-viewer.aspx?secid=925" onclick="ZP.TOCView.SelectTOC('925',false); return false;"><span class="toc-item">	Sec. 6.	Council Refer Matters to Planning Department.</span></a></li>
+    
+    <li id="secid-x926" class="tocLink"><a href="/regs/lincoln-ne-cc/doc-viewer.aspx?secid=926" onclick="ZP.TOCView.SelectTOC('926',false); return false;"><span class="toc-item">	Sec. 7.	Capital Improvements.</span></a></li>
+    
+    <li id="secid-x927" class="tocLink"><a href="/regs/lincoln-ne-cc/doc-viewer.aspx?secid=927" onclick="ZP.TOCView.SelectTOC('927',false); return false;"><span class="toc-item">	Sec. 8.	Zoning Plan and Ordinance.</span></a></li>
+    
+    <li id="secid-x928" class="tocLink"><a href="/regs/lincoln-ne-cc/doc-viewer.aspx?secid=928" onclick="ZP.TOCView.SelectTOC('928',false); return false;"><span class="toc-item">	Sec. 9.	Zoning Ordinance Preparation.</span></a></li>
+    
+    <li id="secid-x929" class="tocLink"><a href="/regs/lincoln-ne-cc/doc-viewer.aspx?secid=929" onclick="ZP.TOCView.SelectTOC('929',false); return false;"><span class="toc-item">	Sec. 10.	 Board of Zoning Appeals.</span></a></li>
+    
+    <li id="secid-x930" class="tocLink"><a href="/regs/lincoln-ne-cc/doc-viewer.aspx?secid=930" onclick="ZP.TOCView.SelectTOC('930',false); return false;"><span class="toc-item">	Sec. 11.	 Platting and Land Subdivision.</span></a></li>
+    
+    <li id="secid-x931" class="tocLink"><a href="/regs/lincoln-ne-cc/doc-viewer.aspx?secid=931" onclick="ZP.TOCView.SelectTOC('931',false); return false;"><span class="toc-item">	Sec. 12. Advance Acquisition Fund.</span></a></li>
+    
+    <li id="secid-x932" class="tocLink"><a href="/regs/lincoln-ne-cc/doc-viewer.aspx?secid=932" onclick="ZP.TOCView.SelectTOC('932',false); return false;"><span class="toc-item">	Sec. 13. Powers of Planning Commission.</span></a></li>
+    </ul>
+
+    <li id="secid-x933" class="tocLink"><a href="/regs/lincoln-ne-cc/doc-viewer.aspx?secid=933" onclick="ZP.TOCView.SelectTOC('933',true); return false;"><span class="toc-item">ARTICLE X HUMAN RIGHTS</span></a></li>
+    <ul class='toc-level1' >
+
+    <li id="secid-x934" class="tocLink"><a href="/regs/lincoln-ne-cc/doc-viewer.aspx?secid=934" onclick="ZP.TOCView.SelectTOC('934',false); return false;"><span class="toc-item">	Sec. 1. 	Discrimination Prevention.</span></a></li>
+    
+    <li id="secid-x935" class="tocLink"><a href="/regs/lincoln-ne-cc/doc-viewer.aspx?secid=935" onclick="ZP.TOCView.SelectTOC('935',false); return false;"><span class="toc-item">	Sec. 2.	Commission on Human Rights.</span></a></li>
+    </ul>
+
+    <li id="secid-x936" class="tocLink"><a href="/regs/lincoln-ne-cc/doc-viewer.aspx?secid=936" onclick="ZP.TOCView.SelectTOC('936',true); return false;"><span class="toc-item">ARTICLE X-A COMMUNITY HEALTH ENDOWMENT</span></a></li>
+    <ul class='toc-level1' >
+
+    <li id="secid-x937" class="tocLink"><a href="/regs/lincoln-ne-cc/doc-viewer.aspx?secid=937" onclick="ZP.TOCView.SelectTOC('937',false); return false;"><span class="toc-item">	Sec. 1.   Separate Fund Established; Investments Authorized.</span></a></li>
+    
+    <li id="secid-x938" class="tocLink"><a href="/regs/lincoln-ne-cc/doc-viewer.aspx?secid=938" onclick="ZP.TOCView.SelectTOC('938',false); return false;"><span class="toc-item">	Sec. 2.   Community Health Endowment; Board of Trustees.</span></a></li>
+    </ul>
+
+    <li id="secid-x939" class="tocLink"><a href="/regs/lincoln-ne-cc/doc-viewer.aspx?secid=939" onclick="ZP.TOCView.SelectTOC('939',true); return false;"><span class="toc-item">ARTICLE XI</span></a></li>
+    <ul class='toc-level1' >
+
+    <li id="secid-x940" class="tocLink"><a href="/regs/lincoln-ne-cc/doc-viewer.aspx?secid=940" onclick="ZP.TOCView.SelectTOC('940',false); return false;"><span class="toc-item">	Sec. 1.	When Charter in Force.</span></a></li>
+    
+    <li id="secid-x941" class="tocLink"><a href="/regs/lincoln-ne-cc/doc-viewer.aspx?secid=941" onclick="ZP.TOCView.SelectTOC('941',false); return false;"><span class="toc-item">	Sec. 2.	Purpose of Catchheads.</span></a></li>
+    
+    <li id="secid-x942" class="tocLink"><a href="/regs/lincoln-ne-cc/doc-viewer.aspx?secid=942" onclick="ZP.TOCView.SelectTOC('942',false); return false;"><span class="toc-item">	Sec. 3.	Effective Date.</span></a></li>
+    </ul>
+
+    <li id="secid-x950" class="tocLink"><a href="/regs/lincoln-ne-cc/doc-viewer.aspx?secid=950" onclick="ZP.TOCView.SelectTOC('950',false); return false;"><span class="toc-item"> ARTICLE XII GENDER NEUTRAL</span></a></li>
+    
+    <li id="secid-x944" class="tocLink"><a href="/regs/lincoln-ne-cc/doc-viewer.aspx?secid=944" onclick="ZP.TOCView.SelectTOC('944',true); return false;"><span class="toc-item">ARTICLE XI - MUNICIPAL CORPORATIONS</span></a></li>
+    <ul class='toc-level1' >
+
+    <li id="secid-x945" class="tocLink"><a href="/regs/lincoln-ne-cc/doc-viewer.aspx?secid=945" onclick="ZP.TOCView.SelectTOC('945',false); return false;"><span class="toc-item">	Sec. 1.	Subscription to Corporations Prohibited.</span></a></li>
+    
+    <li id="secid-x946" class="tocLink"><a href="/regs/lincoln-ne-cc/doc-viewer.aspx?secid=946" onclick="ZP.TOCView.SelectTOC('946',false); return false;"><span class="toc-item">	Sec. 2.	Charters, Submission.</span></a></li>
+    
+    <li id="secid-x947" class="tocLink"><a href="/regs/lincoln-ne-cc/doc-viewer.aspx?secid=947" onclick="ZP.TOCView.SelectTOC('947',false); return false;"><span class="toc-item">	Sec. 3. 	Same Rejected; Subsequent Submission.</span></a></li>
+    
+    <li id="secid-x948" class="tocLink"><a href="/regs/lincoln-ne-cc/doc-viewer.aspx?secid=948" onclick="ZP.TOCView.SelectTOC('948',false); return false;"><span class="toc-item">	Sec. 4.	Charter, Amendment; Convention.</span></a></li>
+    
+    <li id="secid-x949" class="tocLink"><a href="/regs/lincoln-ne-cc/doc-viewer.aspx?secid=949" onclick="ZP.TOCView.SelectTOC('949',false); return false;"><span class="toc-item">	Sec. 5.	Charter of city of 100,000; home rule charter authorized.</span></a></li>
+    </ul>
+
+</div><!--toc-list-->
+</div><!--toc-view2-->
+</div><!--toc-view1-->
+</div><!--toc-view-->
+
+                        
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- hidden div below is for definition popup -->
+<div id="defFrame">
+    <img alt='loading progress' src="resources/progress.gif" /></div>
+<!-- hidden div below is for ajax loading progress-->
+<div id='progress-template' style='display: none;'>
+    <div class="progress" style='padding: 100px;'>
+        <div style='margin: auto; display: block; width: 200px; border: 1px solid #ccc; background-color: #eee; padding: 10px;'>
+            <img alt='loading progress' src='resources/progress.gif' style='margin: auto; display: block;' />
+            <br />
+            <span style='margin: auto; display: block; width: 75px; padding-left: 10px;'>Loading...</span>
+        </div>
+    </div>
+</div>
+<iframe style="width: 1px; height: 1px" src="" id="printiframe" name="printiframe" onload="ZP.DocView.IFrameReady();" title="Print frame" aria-hidden="true" role="presentation"></iframe>
+
+    </div>
+
+
+    </body>
+</html>

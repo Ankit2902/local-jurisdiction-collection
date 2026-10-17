@@ -1,0 +1,66 @@
+{
+  "schema_version": 1,
+  "test_kind": "synthetic production-path fault injection; not live publication proof",
+  "tests": [
+    {
+      "name": "positive_nested_independent_inventory",
+      "passed": true,
+      "nodes": 5,
+      "branches": 2,
+      "table_cells": 3
+    },
+    {
+      "name": "omitted_normalized_middle_record",
+      "passed": true
+    },
+    {
+      "name": "duplicated_normalized_record",
+      "passed": true
+    },
+    {
+      "name": "corrupt_retained_body",
+      "passed": true
+    },
+    {
+      "name": "middle_branch_omission_all_top_roots_retained",
+      "passed": true
+    },
+    {
+      "name": "wrong_edition_source_with_updated_cache_hash",
+      "passed": true
+    },
+    {
+      "name": "interrupted_run_with_complete_looking_outputs",
+      "passed": true
+    },
+    {
+      "name": "missing_required_asset_ledger_entry",
+      "passed": true
+    },
+    {
+      "name": "corrupted_checkpoint_inventory_binding",
+      "passed": true
+    },
+    {
+      "name": "truncated_native_export_keeps_all_top_roots",
+      "passed": true
+    },
+    {
+      "name": "production_interruption_resume_vs_uninterrupted",
+      "passed": true,
+      "durably_completed_before_interrupt": 2,
+      "resumed_legal_requests": 3,
+      "total_nodes": 5
+    },
+    {
+      "name": "resume_rejects_changed_live_edition",
+      "passed": true
+    },
+    {
+      "name": "explicit_limit_cannot_complete",
+      "passed": true
+    }
+  ],
+  "passed": true,
+  "count": 13
+}

@@ -1,0 +1,51 @@
+{
+  "schema_version": 1,
+  "path_base": "outputs/full-publication-validation-2026-10-17",
+  "runs": [
+    {
+      "family": "municode",
+      "run": "municode/live-henderson-policy-final",
+      "scope_class": "full_live_selected_publication",
+      "unlimited": true,
+      "limitations": [
+        "Title19 separately hosted development-code family and24uncodified ordinances remain outside selected publisher publication; jurisdiction false."
+      ]
+    },
+    {
+      "family": "encodeplus",
+      "run": "encodeplus/no-images-lincoln-charter",
+      "scope_class": "full_live_separately_published_charter",
+      "unlimited": true,
+      "limitations": [
+        "Observed TOC and every body checked at start/end; no publisher global edition ID, edition_complete false."
+      ]
+    },
+    {
+      "family": "encodeplus",
+      "run": "encodeplus/no-images-final-amm",
+      "scope_class": "full_live_publication_text_required_nonimage_gap",
+      "unlimited": true,
+      "limitations": [
+        "Required Syracuse TIS PDF remains blocked/DNS-unavailable, attachment incomplete.17-page native publication text anchors/tablecells qualified; no image semantic equivalence."
+      ]
+    },
+    {
+      "family": "american-legal",
+      "run": "american-legal/index-current-final",
+      "scope_class": "full_selected_ordinance_index_text_required_documents_unacquired",
+      "unlimited": true,
+      "limitations": [
+        "30/30 independently inventoried index nodes,97source rich blocks.1940required ordinancePDF references remain unacquired; index text is not ordinance corpus completion."
+      ]
+    },
+    {
+      "family": "american-legal",
+      "run": "american-legal/form-based-no-images-final",
+      "scope_class": "complete_selected_native_pdf_files_and_page_text_layer",
+      "unlimited": true,
+      "limitations": [
+        "Cleveland separately published FormBasedCode native files/page extraction complete;212PDFpages. Legal section/table/reading-order/OCR semantic equivalence remains unqualified."
+      ]
+    }
+  ]
+}

@@ -1,0 +1,60 @@
+{
+  "asset_failures": {},
+  "assets": {},
+  "blocks": [],
+  "code_hashes": {
+    "__init__.py": "b694a5d9aaec3d14d60b33a1633fcc183ac03862b6226f4fd0d2fe62ff4354e3",
+    "collect.py": "e73bf12b28754fe9c1e5d7c2a6cda0e45a4235c59d0741f0f27137dd13403687",
+    "model.py": "81d3616bf7006ceebee3510f8692c8ea6f6a97809167c05f83b30b5fdc95d904",
+    "targets.json": "a49ef8ea245588ceb30a2e654295566ae3b4d6b6d0afd1a8900abd72bd094163",
+    "transport.py": "a0fb15d72a70c8e141cf9d02cc2800a5c5a901f737b8a32299f12a33b05799df",
+    "util.py": "bb5e1ed76e2f81e5d2e41f8f5578b657616f18ce6e6b955a6ff8077ff0f2e920",
+    "verify.py": "35ed6787664f041c58c81a2209f9738042e2c566c2d01e3191ad53064238071c"
+  },
+  "command": [
+    "/Users/oliverflint/My Drive/Claude/Projects/CompliSolv 2.00/github/local-jurisdiction-collection/collectors/encodeplus/collect.py",
+    "overland",
+    "--out",
+    "/Users/oliverflint/My Drive/Claude/Projects/CompliSolv 2.00/outputs/full-publication-validation-2026-10-17/encodeplus/smoke-overland",
+    "--max-items",
+    "1",
+    "--skip-assets"
+  ],
+  "config": {
+    "base": "https://codes.opkansas.org/municipal-code/",
+    "identity": "Overland Park, Kansas Municipal Code",
+    "jurisdiction": "Overland Park, KS",
+    "scope": "Municipal Code including UDO; separate STO/UPOC, policies and comprehensive plan excluded"
+  },
+  "config_sha256": "72aa8204763f453b2961931c8c8a656b582bb0ef627a3a015c45328a8cf4e0d3",
+  "custom_config": false,
+  "end_blocks": [],
+  "failures": [
+    {
+      "phase_at_failure": "failed",
+      "reason": "Section has no exclusively owned heading: 16",
+      "type": "AssertionError"
+    }
+  ],
+  "generation": 0,
+  "inventory_raw": {
+    "path": "inventory/start.html",
+    "sha256": "90634ce5ff4293ee4a7be8cfb31c6b35683fa891019eecec38dc64111c111c9c",
+    "url": "https://codes.opkansas.org/municipal-code/doc-view.aspx"
+  },
+  "inventory_sha256": "972a8fe843f3233aaa40cd1639b95676d2758b7966d7429ae1b34417acd7df35",
+  "native_export": null,
+  "options": {
+    "max_items": 1,
+    "native_export": false,
+    "skip_assets": true
+  },
+  "phase": "failed",
+  "runtime": {
+    "os": "macOS-26.6.2-arm64-arm-64bit",
+    "python": "3.12.14"
+  },
+  "schema_version": 1,
+  "started_at": "2026-10-17T19:45:50.912365+00:00",
+  "target": "overland"
+}

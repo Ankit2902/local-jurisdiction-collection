@@ -1,0 +1,658 @@
+{
+  "schema_version": 2,
+  "family": "encodeplus",
+  "implementation_status": "full_publication_dynamic_collector_live_qualified",
+  "frozen": true,
+  "frozen_at": "2026-10-17T20:12:38.298019+00:00",
+  "image_policy": {
+    "user_instruction": "Do not grab images; all images literal [IMAGE]",
+    "implemented": true,
+    "separate_image_downloads_current_runs": 0,
+    "intentional_placeholders_not_missing_required_assets": true,
+    "native_pdf_original_graphics_allowed": true,
+    "historical_image_evidence": "Earlier pre-policy JPEG bytes immutable and superseded, not current behavior"
+  },
+  "code_directory": "collectors/encodeplus",
+  "evidence_root": "outputs/full-publication-validation-2026-10-17/encodeplus",
+  "runtime": {
+    "python": "3.12.14",
+    "os": "macOS-26.6.2-arm64-arm-64bit",
+    "dependencies": "requirements.txt",
+    "no_codex_dependency": true
+  },
+  "complete_live_publication": {
+    "identity": "Lincoln NE City Charter",
+    "run": "no-images-lincoln-charter",
+    "inventory_nodes": 188,
+    "body_nodes": 188,
+    "owned_bodies": 174,
+    "structural_containers": 14,
+    "closing_body_checks": 17,
+    "required_nonimage_assets": 0,
+    "text_complete": true,
+    "attachments_complete": true,
+    "edition_complete": false,
+    "jurisdiction_complete": false
+  },
+  "second_live_publication": {
+    "identity": "Lincoln NE Access Management Policy",
+    "run": "no-images-final-amm",
+    "source_nodes": 14,
+    "map_placeholder": "[IMAGE]",
+    "separate_images_downloaded": 0,
+    "text_complete": true,
+    "attachments_complete": false,
+    "required_nonimage_gap": "Syracuse TIS PDF DNS-unavailable, persistent external-host stop retained",
+    "native_full_publication_pdf": {
+      "pages": 17,
+      "bytes": 393605,
+      "sha256": "eac77b25eed77f876187eb1f191515b06af285e0b6d8ff47d4aa74c15befaa16",
+      "all_headings_and_body_anchors_match": true,
+      "table_cell_texts_match": 149,
+      "image_semantic_equivalence": false
+    }
+  },
+  "live_and_replay_runs": [
+    {
+      "evidence_run": "no-images-lincoln-charter",
+      "target": "lincoln-charter",
+      "identity": "Lincoln NE City Charter",
+      "source_url": "https://online.encodeplus.com/regs/lincoln-ne-cc/",
+      "scope_class": "fresh_live_unlimited_separately_published_publication",
+      "acquisition_command": [
+        "/Users/oliverflint/My Drive/Claude/Projects/CompliSolv 2.00/github/local-jurisdiction-collection/collectors/encodeplus/collect.py",
+        "lincoln-charter",
+        "--out",
+        "/Users/oliverflint/My Drive/Claude/Projects/CompliSolv 2.00/outputs/full-publication-validation-2026-10-17/encodeplus/no-images-lincoln-charter",
+        "--native-export",
+        "--config",
+        "collectors/encodeplus/configs/lincoln-charter.json"
+      ],
+      "normalization_replay": null,
+      "runtime": {
+        "os": "macOS-26.6.2-arm64-arm-64bit",
+        "python": "3.12.14"
+      },
+      "counts": {
+        "inventory_nodes": 188,
+        "body_nodes": 188,
+        "embedded_body_nodes": 0,
+        "owned_body_count": 174,
+        "structural_containers": 14,
+        "acquisition_blocks": 17,
+        "table_count": 0,
+        "image_placeholders": 0,
+        "asset_references": 0,
+        "assets_acquired": 0
+      },
+      "publication_text_complete": true,
+      "attachments_complete": true,
+      "edition_complete": false,
+      "jurisdiction_complete": false,
+      "start_end_consistent": true,
+      "missing_id_count": 0,
+      "missing_asset_count": 0,
+      "errors": [],
+      "native_export": {
+        "reason": "No observed single body-container export control covers the full TOC inventory; TOC000export is not full legal text",
+        "status": "unavailable"
+      },
+      "native_export_independent_check": null,
+      "evidence_paths": [
+        "no-images-lincoln-charter/checkpoint.json",
+        "no-images-lincoln-charter/coverage.json",
+        "no-images-lincoln-charter/records.jsonl",
+        "no-images-lincoln-charter/records.csv",
+        "no-images-lincoln-charter/script-versions"
+      ],
+      "evidence_sha256": {
+        "checkpoint.json": "2a884d9da3d8a0876a1fdeda8bfdd159025729413d5f0965377b478ba702ab28",
+        "coverage.json": "f1b2a48fe5095677bfb57dc62cc714e82f1e2ef2c2e0271ef30e68e9e0c6eb3c",
+        "records.jsonl": "831aa6771c5c827dac2494f59e25a83f74b58444d2018fd7692bcf197f4e09c5",
+        "records.csv": "84ae8250e37ea9b613734ef45d88919f594f7e98036a29aadef5840a695bdf0d"
+      }
+    },
+    {
+      "evidence_run": "no-images-final-amm",
+      "target": "lincoln-access-management",
+      "identity": "Lincoln NE Access Management Policy",
+      "source_url": "https://online.encodeplus.com/regs/lincoln-ne-amm/",
+      "scope_class": "fresh_live_unlimited_separately_published_publication",
+      "acquisition_command": [
+        "/Users/oliverflint/My Drive/Claude/Projects/CompliSolv 2.00/github/local-jurisdiction-collection/collectors/encodeplus/collect.py",
+        "lincoln-access-management",
+        "--out",
+        "/Users/oliverflint/My Drive/Claude/Projects/CompliSolv 2.00/outputs/full-publication-validation-2026-10-17/encodeplus/no-images-final-amm",
+        "--native-export"
+      ],
+      "normalization_replay": null,
+      "runtime": {
+        "os": "macOS-26.6.2-arm64-arm-64bit",
+        "python": "3.12.14"
+      },
+      "counts": {
+        "inventory_nodes": 14,
+        "body_nodes": 14,
+        "embedded_body_nodes": 0,
+        "owned_body_count": 13,
+        "structural_containers": 1,
+        "acquisition_blocks": 1,
+        "table_count": 6,
+        "image_placeholders": 1,
+        "asset_references": 1,
+        "assets_acquired": 0
+      },
+      "publication_text_complete": true,
+      "attachments_complete": false,
+      "edition_complete": false,
+      "jurisdiction_complete": false,
+      "start_end_consistent": true,
+      "missing_id_count": 0,
+      "missing_asset_count": 1,
+      "errors": [],
+      "native_export": {
+        "bytes": 393605,
+        "content_completeness": "Unverified native file: transport alone does not establish text/asset completeness",
+        "covers_all_toc_ids": true,
+        "image_semantic_equivalence": false,
+        "metadata": {
+          "/Creator": "Aspose.Words",
+          "/Producer": "Aspose.Words for .NET 20.5",
+          "/Title": "Lincoln NE Access Management Policy"
+        },
+        "missing_body_anchors": [],
+        "missing_headings": [],
+        "pages": 17,
+        "path": "native/publication.pdf",
+        "scope": "Entire observed body-container 5 covering every TOC ID; not TOC000",
+        "sha256": "eac77b25eed77f876187eb1f191515b06af285e0b6d8ff47d4aa74c15befaa16",
+        "source_container": "5",
+        "status": "downloaded",
+        "text_anchor_qualification": true,
+        "tocid": "001",
+        "url": "https://online.encodeplus.com/regs/lincoln-ne-amm/export2doc.aspx?pdf=1&tocid=001"
+      },
+      "native_export_independent_check": {
+        "all_toc_ids_in_selected_body_container": true,
+        "identity_matches": true,
+        "image_semantic_equivalence": false,
+        "missing_body_anchors": [],
+        "missing_headings": [],
+        "pages": 17,
+        "table_cells_checked": 149,
+        "table_cells_missing": [],
+        "text_anchor_qualification": true
+      },
+      "evidence_paths": [
+        "no-images-final-amm/checkpoint.json",
+        "no-images-final-amm/coverage.json",
+        "no-images-final-amm/records.jsonl",
+        "no-images-final-amm/records.csv",
+        "no-images-final-amm/script-versions"
+      ],
+      "evidence_sha256": {
+        "checkpoint.json": "0ec08a1f319915451fb5d2f415dfb7a87dbec74852764a2011329158823f0b66",
+        "coverage.json": "c472e041d6de5c2a67dbe63471674caadb07df28c6883c3b3db3ca5a988e997c",
+        "records.jsonl": "190e2fea191e41a971df0870ca09fefaeb81792efe4fe6197c420fd5d7fd895a",
+        "records.csv": "ff6cbe4ea55650a1c27804205f0f42ea6bb544daaec583c22bec11d2d209fe8d"
+      }
+    },
+    {
+      "evidence_run": "policy-replay-lincoln",
+      "target": "lincoln",
+      "identity": "Lincoln, NE Municipal Code",
+      "source_url": "https://online.encodeplus.com/regs/lincoln-ne/",
+      "scope_class": "retained_evidence_current_policy_replay_NOT_new_live",
+      "acquisition_command": [
+        "/Users/oliverflint/My Drive/Claude/Projects/CompliSolv 2.00/github/local-jurisdiction-collection/collectors/encodeplus/collect.py",
+        "lincoln",
+        "--out",
+        "/Users/oliverflint/My Drive/Claude/Projects/CompliSolv 2.00/outputs/full-publication-validation-2026-10-17/encodeplus/qualified-lincoln",
+        "--max-items",
+        "1",
+        "--skip-assets"
+      ],
+      "normalization_replay": {
+        "command": [
+          "/Users/oliverflint/My Drive/Claude/Projects/CompliSolv 2.00/outputs/full-publication-validation-2026-10-17/encodeplus/replay_policy.py",
+          "--repo",
+          "/Users/oliverflint/My Drive/Claude/Projects/CompliSolv 2.00/github/local-jurisdiction-collection",
+          "--source",
+          "/Users/oliverflint/My Drive/Claude/Projects/CompliSolv 2.00/outputs/full-publication-validation-2026-10-17/encodeplus/qualified-lincoln",
+          "--out",
+          "/Users/oliverflint/My Drive/Claude/Projects/CompliSolv 2.00/outputs/full-publication-validation-2026-10-17/encodeplus/policy-replay-lincoln"
+        ],
+        "image_policy": "literal [IMAGE]; no image extraction/download",
+        "live_current_revision": false,
+        "network_used": false,
+        "runtime": "3.12.14",
+        "script_versions": {
+          "__init__.py": "b694a5d9aaec3d14d60b33a1633fcc183ac03862b6226f4fd0d2fe62ff4354e3",
+          "collect.py": "448e1413c7aef450a4b31cc98b237d95f7056599edd79a730ec4095e80566623",
+          "model.py": "474ebbe9cb28b4254ad9e1c7b88a4056c71fa70b305df2b925ca1ecc01116ec9",
+          "replay_policy.py": "53854a4f34c69a5119cccd34d689d5680da5ebec1b9c4d03a82dfaad34a185d1",
+          "tests.py": "b8d5eaf09d03fd7b53cdc1958ab595d9493ed223270081fe7343986e91e91d0d",
+          "transport.py": "62dc4f7e3756ef2f56f3a84f21d265597074341975fdb7a3cbb2e69ae7ac274b",
+          "util.py": "bb5e1ed76e2f81e5d2e41f8f5578b657616f18ce6e6b955a6ff8077ff0f2e920",
+          "verify.py": "78104bb83f1d5ee2881fd5792acbc0aba0cef52aa167783a84eb183e5e60afa5"
+        },
+        "source_checkpoint_sha256": "354488ed863a86f064a9cf50b6ef979a9df6049a967277d5a3f4e04245a31e45"
+      },
+      "runtime": {
+        "os": "macOS-26.6.2-arm64-arm-64bit",
+        "python": "3.12.14"
+      },
+      "counts": {
+        "inventory_nodes": 4784,
+        "body_nodes": 1,
+        "embedded_body_nodes": 0,
+        "owned_body_count": 0,
+        "structural_containers": 1,
+        "acquisition_blocks": 1,
+        "table_count": 0,
+        "image_placeholders": 0,
+        "asset_references": 0,
+        "assets_acquired": 0
+      },
+      "publication_text_complete": false,
+      "attachments_complete": false,
+      "edition_complete": false,
+      "jurisdiction_complete": false,
+      "start_end_consistent": true,
+      "missing_id_count": 4783,
+      "missing_asset_count": 0,
+      "errors": [
+        "Missing TOC node IDs",
+        "Explicit max-items forces incomplete"
+      ],
+      "native_export": null,
+      "native_export_independent_check": null,
+      "evidence_paths": [
+        "policy-replay-lincoln/checkpoint.json",
+        "policy-replay-lincoln/coverage.json",
+        "policy-replay-lincoln/records.jsonl",
+        "policy-replay-lincoln/records.csv",
+        "policy-replay-lincoln/script-versions"
+      ],
+      "evidence_sha256": {
+        "checkpoint.json": "cb5dfc2bfecd3169b4e40c0539b517494edf87b7bb3011f36726938ea9efd3bb",
+        "coverage.json": "af59c0b41327437c3498fd387954b0d5339c0aa17d680f5441d74e92efff0cf6",
+        "records.jsonl": "406a4e85b1714123e20f91ed47124230026292baacfc93363cde488ec8a493c2",
+        "records.csv": "ba86b25475da3e80ed3c9554b149352bad09ebbd74d81d2c2a41f199ad229a5e"
+      }
+    },
+    {
+      "evidence_run": "policy-replay-overland",
+      "target": "overland",
+      "identity": "Overland Park, Kansas Municipal Code",
+      "source_url": "https://codes.opkansas.org/municipal-code/",
+      "scope_class": "retained_evidence_current_policy_replay_NOT_new_live",
+      "acquisition_command": [
+        "/Users/oliverflint/My Drive/Claude/Projects/CompliSolv 2.00/github/local-jurisdiction-collection/collectors/encodeplus/collect.py",
+        "overland",
+        "--out",
+        "/Users/oliverflint/My Drive/Claude/Projects/CompliSolv 2.00/outputs/full-publication-validation-2026-10-17/encodeplus/qualified-overland",
+        "--max-items",
+        "1",
+        "--skip-assets"
+      ],
+      "normalization_replay": {
+        "command": [
+          "/Users/oliverflint/My Drive/Claude/Projects/CompliSolv 2.00/outputs/full-publication-validation-2026-10-17/encodeplus/replay_policy.py",
+          "--repo",
+          "/Users/oliverflint/My Drive/Claude/Projects/CompliSolv 2.00/github/local-jurisdiction-collection",
+          "--source",
+          "/Users/oliverflint/My Drive/Claude/Projects/CompliSolv 2.00/outputs/full-publication-validation-2026-10-17/encodeplus/qualified-overland",
+          "--out",
+          "/Users/oliverflint/My Drive/Claude/Projects/CompliSolv 2.00/outputs/full-publication-validation-2026-10-17/encodeplus/policy-replay-overland"
+        ],
+        "image_policy": "literal [IMAGE]; no image extraction/download",
+        "live_current_revision": false,
+        "network_used": false,
+        "runtime": "3.12.14",
+        "script_versions": {
+          "__init__.py": "b694a5d9aaec3d14d60b33a1633fcc183ac03862b6226f4fd0d2fe62ff4354e3",
+          "collect.py": "448e1413c7aef450a4b31cc98b237d95f7056599edd79a730ec4095e80566623",
+          "model.py": "474ebbe9cb28b4254ad9e1c7b88a4056c71fa70b305df2b925ca1ecc01116ec9",
+          "replay_policy.py": "53854a4f34c69a5119cccd34d689d5680da5ebec1b9c4d03a82dfaad34a185d1",
+          "tests.py": "b8d5eaf09d03fd7b53cdc1958ab595d9493ed223270081fe7343986e91e91d0d",
+          "transport.py": "62dc4f7e3756ef2f56f3a84f21d265597074341975fdb7a3cbb2e69ae7ac274b",
+          "util.py": "bb5e1ed76e2f81e5d2e41f8f5578b657616f18ce6e6b955a6ff8077ff0f2e920",
+          "verify.py": "78104bb83f1d5ee2881fd5792acbc0aba0cef52aa167783a84eb183e5e60afa5"
+        },
+        "source_checkpoint_sha256": "3b07f9b4ffdbec5011362eef6abcc889d48b58e1ec710511d09428663b646b95"
+      },
+      "runtime": {
+        "os": "macOS-26.6.2-arm64-arm-64bit",
+        "python": "3.12.14"
+      },
+      "counts": {
+        "inventory_nodes": 4381,
+        "body_nodes": 67,
+        "embedded_body_nodes": 26,
+        "owned_body_count": 61,
+        "structural_containers": 6,
+        "acquisition_blocks": 1,
+        "table_count": 0,
+        "image_placeholders": 0,
+        "asset_references": 0,
+        "assets_acquired": 0
+      },
+      "publication_text_complete": false,
+      "attachments_complete": false,
+      "edition_complete": false,
+      "jurisdiction_complete": false,
+      "start_end_consistent": true,
+      "missing_id_count": 4340,
+      "missing_asset_count": 0,
+      "errors": [
+        "Missing TOC node IDs",
+        "Explicit max-items forces incomplete"
+      ],
+      "native_export": null,
+      "native_export_independent_check": null,
+      "evidence_paths": [
+        "policy-replay-overland/checkpoint.json",
+        "policy-replay-overland/coverage.json",
+        "policy-replay-overland/records.jsonl",
+        "policy-replay-overland/records.csv",
+        "policy-replay-overland/script-versions"
+      ],
+      "evidence_sha256": {
+        "checkpoint.json": "117c4883411d27343e351f2b79e02be33c25542e86fd4949e1c2039815b5408c",
+        "coverage.json": "8a683ebbf3764963a50850a54549c5bf465fb1ba50a482caf0637713242d92ba",
+        "records.jsonl": "4eed9e34280f30eac248ef7e1f8230d5e9d7b58fbd369ebe0093bbfa546ad5bd",
+        "records.csv": "013bcb5233e73799a3fd1ad385d0d08f2a1c9a6370381697a54b4c0d4308edcb"
+      }
+    },
+    {
+      "evidence_run": "policy-replay-savannah",
+      "target": "savannah",
+      "identity": "Savannah, Georgia City of Savannah Code of Ordinances",
+      "source_url": "https://online.encodeplus.com/regs/savannah-ga/",
+      "scope_class": "retained_evidence_current_policy_replay_NOT_new_live",
+      "acquisition_command": [
+        "/Users/oliverflint/My Drive/Claude/Projects/CompliSolv 2.00/github/local-jurisdiction-collection/collectors/encodeplus/collect.py",
+        "savannah",
+        "--out",
+        "/Users/oliverflint/My Drive/Claude/Projects/CompliSolv 2.00/outputs/full-publication-validation-2026-10-17/encodeplus/qualified-savannah",
+        "--max-items",
+        "1",
+        "--skip-assets"
+      ],
+      "normalization_replay": {
+        "command": [
+          "/Users/oliverflint/My Drive/Claude/Projects/CompliSolv 2.00/outputs/full-publication-validation-2026-10-17/encodeplus/replay_policy.py",
+          "--repo",
+          "/Users/oliverflint/My Drive/Claude/Projects/CompliSolv 2.00/github/local-jurisdiction-collection",
+          "--source",
+          "/Users/oliverflint/My Drive/Claude/Projects/CompliSolv 2.00/outputs/full-publication-validation-2026-10-17/encodeplus/qualified-savannah",
+          "--out",
+          "/Users/oliverflint/My Drive/Claude/Projects/CompliSolv 2.00/outputs/full-publication-validation-2026-10-17/encodeplus/policy-replay-savannah"
+        ],
+        "image_policy": "literal [IMAGE]; no image extraction/download",
+        "live_current_revision": false,
+        "network_used": false,
+        "runtime": "3.12.14",
+        "script_versions": {
+          "__init__.py": "b694a5d9aaec3d14d60b33a1633fcc183ac03862b6226f4fd0d2fe62ff4354e3",
+          "collect.py": "448e1413c7aef450a4b31cc98b237d95f7056599edd79a730ec4095e80566623",
+          "model.py": "474ebbe9cb28b4254ad9e1c7b88a4056c71fa70b305df2b925ca1ecc01116ec9",
+          "replay_policy.py": "53854a4f34c69a5119cccd34d689d5680da5ebec1b9c4d03a82dfaad34a185d1",
+          "tests.py": "b8d5eaf09d03fd7b53cdc1958ab595d9493ed223270081fe7343986e91e91d0d",
+          "transport.py": "62dc4f7e3756ef2f56f3a84f21d265597074341975fdb7a3cbb2e69ae7ac274b",
+          "util.py": "bb5e1ed76e2f81e5d2e41f8f5578b657616f18ce6e6b955a6ff8077ff0f2e920",
+          "verify.py": "78104bb83f1d5ee2881fd5792acbc0aba0cef52aa167783a84eb183e5e60afa5"
+        },
+        "source_checkpoint_sha256": "21363b4a05f2b13ccf5cc32219ba55aba002e2d345d7e9451c87ce0b7d98a7e4"
+      },
+      "runtime": {
+        "os": "macOS-26.6.2-arm64-arm-64bit",
+        "python": "3.12.14"
+      },
+      "counts": {
+        "inventory_nodes": 3879,
+        "body_nodes": 9,
+        "embedded_body_nodes": 0,
+        "owned_body_count": 7,
+        "structural_containers": 2,
+        "acquisition_blocks": 1,
+        "table_count": 1,
+        "image_placeholders": 0,
+        "asset_references": 0,
+        "assets_acquired": 0
+      },
+      "publication_text_complete": false,
+      "attachments_complete": false,
+      "edition_complete": false,
+      "jurisdiction_complete": false,
+      "start_end_consistent": true,
+      "missing_id_count": 3870,
+      "missing_asset_count": 0,
+      "errors": [
+        "Missing TOC node IDs",
+        "Explicit max-items forces incomplete"
+      ],
+      "native_export": null,
+      "native_export_independent_check": null,
+      "evidence_paths": [
+        "policy-replay-savannah/checkpoint.json",
+        "policy-replay-savannah/coverage.json",
+        "policy-replay-savannah/records.jsonl",
+        "policy-replay-savannah/records.csv",
+        "policy-replay-savannah/script-versions"
+      ],
+      "evidence_sha256": {
+        "checkpoint.json": "cf31a452f1b9c15fc7cdfb9211112a1ccb87fe696b71480428477f8fa7f35053",
+        "coverage.json": "24e3b9535d056845f33071fb3f4732f11968a4c6c9f0b92b7318d686669becaf",
+        "records.jsonl": "193d165457de2506e6905a5e4b7a7ed7be903589bca14671df1d98231b1cd777",
+        "records.csv": "5dabb1d7969189121892246012d8a0b1f2f748e947d1a0a1bc6fc7ec5ce370dd"
+      }
+    },
+    {
+      "evidence_run": "policy-replay-fairfax-zoning",
+      "target": "fairfax-zoning",
+      "identity": "Fairfax County, VA Zoning Ordinance",
+      "source_url": "https://online.encodeplus.com/regs/fairfaxcounty-va/",
+      "scope_class": "retained_evidence_current_policy_replay_NOT_new_live",
+      "acquisition_command": [
+        "/Users/oliverflint/My Drive/Claude/Projects/CompliSolv 2.00/github/local-jurisdiction-collection/collectors/encodeplus/collect.py",
+        "fairfax-zoning",
+        "--out",
+        "/Users/oliverflint/My Drive/Claude/Projects/CompliSolv 2.00/outputs/full-publication-validation-2026-10-17/encodeplus/qualified-fairfax-zoning",
+        "--max-items",
+        "1",
+        "--skip-assets"
+      ],
+      "normalization_replay": {
+        "command": [
+          "/Users/oliverflint/My Drive/Claude/Projects/CompliSolv 2.00/outputs/full-publication-validation-2026-10-17/encodeplus/replay_policy.py",
+          "--repo",
+          "/Users/oliverflint/My Drive/Claude/Projects/CompliSolv 2.00/github/local-jurisdiction-collection",
+          "--source",
+          "/Users/oliverflint/My Drive/Claude/Projects/CompliSolv 2.00/outputs/full-publication-validation-2026-10-17/encodeplus/qualified-fairfax-zoning",
+          "--out",
+          "/Users/oliverflint/My Drive/Claude/Projects/CompliSolv 2.00/outputs/full-publication-validation-2026-10-17/encodeplus/policy-replay-fairfax-zoning"
+        ],
+        "image_policy": "literal [IMAGE]; no image extraction/download",
+        "live_current_revision": false,
+        "network_used": false,
+        "runtime": "3.12.14",
+        "script_versions": {
+          "__init__.py": "b694a5d9aaec3d14d60b33a1633fcc183ac03862b6226f4fd0d2fe62ff4354e3",
+          "collect.py": "448e1413c7aef450a4b31cc98b237d95f7056599edd79a730ec4095e80566623",
+          "model.py": "474ebbe9cb28b4254ad9e1c7b88a4056c71fa70b305df2b925ca1ecc01116ec9",
+          "replay_policy.py": "53854a4f34c69a5119cccd34d689d5680da5ebec1b9c4d03a82dfaad34a185d1",
+          "tests.py": "b8d5eaf09d03fd7b53cdc1958ab595d9493ed223270081fe7343986e91e91d0d",
+          "transport.py": "62dc4f7e3756ef2f56f3a84f21d265597074341975fdb7a3cbb2e69ae7ac274b",
+          "util.py": "bb5e1ed76e2f81e5d2e41f8f5578b657616f18ce6e6b955a6ff8077ff0f2e920",
+          "verify.py": "78104bb83f1d5ee2881fd5792acbc0aba0cef52aa167783a84eb183e5e60afa5"
+        },
+        "source_checkpoint_sha256": "c27222019949810f0a64d5dd201fe648724f317e4c57a8b23282991865f6fbae"
+      },
+      "runtime": {
+        "os": "macOS-26.6.2-arm64-arm-64bit",
+        "python": "3.12.14"
+      },
+      "counts": {
+        "inventory_nodes": 357,
+        "body_nodes": 743,
+        "embedded_body_nodes": 386,
+        "owned_body_count": 721,
+        "structural_containers": 22,
+        "acquisition_blocks": 1,
+        "table_count": 282,
+        "image_placeholders": 378,
+        "asset_references": 48,
+        "assets_acquired": 0
+      },
+      "publication_text_complete": false,
+      "attachments_complete": false,
+      "edition_complete": false,
+      "jurisdiction_complete": false,
+      "start_end_consistent": true,
+      "missing_id_count": 0,
+      "missing_asset_count": 48,
+      "errors": [
+        "Explicit max-items forces incomplete"
+      ],
+      "native_export": null,
+      "native_export_independent_check": null,
+      "evidence_paths": [
+        "policy-replay-fairfax-zoning/checkpoint.json",
+        "policy-replay-fairfax-zoning/coverage.json",
+        "policy-replay-fairfax-zoning/records.jsonl",
+        "policy-replay-fairfax-zoning/records.csv",
+        "policy-replay-fairfax-zoning/script-versions"
+      ],
+      "evidence_sha256": {
+        "checkpoint.json": "4b5a7427f4ea6a6e170150fa53556f4af77d6d3573e81e05412fe0042485bd6d",
+        "coverage.json": "464b305067d14e19d09a619dd09f9d8846bdbb9c019812f876ae0da78304e9db",
+        "records.jsonl": "604f7087f9d74f8af82b5b4af422f95e525fc248ec739974505074bbf9b6c2e0",
+        "records.csv": "01d4d9ce8c0d016f5a888634850f9fb6894a3591ddd0b74a3d2e819c02c17f06"
+      }
+    }
+  ],
+  "offline_validation": {
+    "status": "passed",
+    "command": [
+      "/Users/oliverflint/My Drive/Claude/Projects/CompliSolv 2.00/outputs/full-publication-validation-2026-10-17/encodeplus/.venv/bin/python",
+      "-B",
+      "-m",
+      "collectors.encodeplus.tests"
+    ],
+    "runtime": {
+      "python": "3.12.14",
+      "os": "macOS-26.6.2-arm64-arm-64bit"
+    },
+    "started_at": "2026-10-17T20:12:12.596343+00:00",
+    "finished_at": "2026-10-17T20:12:36.600802+00:00",
+    "test_count": 12,
+    "network_used": false,
+    "relocated_standalone_copy_passed": true,
+    "image_policy": "All graphics literal [IMAGE]; no separate image request/download/extraction. Image Content-Type body remains unread.",
+    "cases": [
+      "full14-node real-source reconciliation",
+      "six real tables/149nativePDFcelltext checks",
+      "17page actualnative versus1pageTOConlynegative",
+      "missing/duplicate/corrupt/wrongedition/end-drift/interrupted/missingasset/wrongbasecache faults",
+      "corruptresume rejected",
+      "interrupted/resumed outputs byte-identical",
+      "unownedlegaltext and emptyoperativeleaf failclosed",
+      "explicitlimits incomplete",
+      "persistenthostscope stops",
+      "adoptedextensionlessnonimage documents required",
+      "known graphic URLs never queued",
+      "img/picture/SVG/poster/inlineCSS/style-tag/dataimage placeholders",
+      "extensionlessimage response header-only skip isnotmissingasset",
+      "required attachments reject empty/truncated/unparseable PDF, including rehashed receipt/checkpoint corruption; valid minimalPDF positive fixture"
+    ],
+    "source_sha256": {
+      "collect.py": "f050d210a544ec64c261f01df8e13b7ebc45bf698487dec3a10edbdee9349bae",
+      "transport.py": "62dc4f7e3756ef2f56f3a84f21d265597074341975fdb7a3cbb2e69ae7ac274b",
+      "util.py": "bb5e1ed76e2f81e5d2e41f8f5578b657616f18ce6e6b955a6ff8077ff0f2e920",
+      "documents.py": "a5763102f8990f6dc9a5e135445a965b9a834512ad59de133d19fe7569e4bbe4",
+      "__init__.py": "b694a5d9aaec3d14d60b33a1633fcc183ac03862b6226f4fd0d2fe62ff4354e3",
+      "model.py": "474ebbe9cb28b4254ad9e1c7b88a4056c71fa70b305df2b925ca1ecc01116ec9",
+      "verify.py": "233ac9aed0d2a26a9f0f6fda9a472ce7b106dab4d93611d99292fbec5e156a66",
+      "tests.py": "fa1b8e47b066b93ef8aa1922f56ed397479a3d736d177aab33839a568be8bc2f"
+    },
+    "fixture_provenance": "fixtures/provenance.json"
+  },
+  "replay_commands": [
+    "python -B -m collectors.encodeplus.tests",
+    "python -B -m collectors.encodeplus.verify <FAMILY_EVIDENCE>/no-images-lincoln-charter",
+    "python -B -m collectors.encodeplus.verify <FAMILY_EVIDENCE>/no-images-final-amm"
+  ],
+  "expected_exit_codes": {
+    "tests": 0,
+    "no-images-lincoln-charter_verify": 0,
+    "no-images-final-amm_verify": 2,
+    "policy-replay-primary_target_verify": 2
+  },
+  "exact_final_verifier_results": [
+    "no-images-lincoln-charter-independent-verification.json",
+    "no-images-final-amm-independent-verification.json"
+  ],
+  "negative_evidence_chronology": [
+    {
+      "run": "live-amm-v1",
+      "finding": "TOC/body heading difference, corrected with stable ID and canonical body heading disposition"
+    },
+    {
+      "run": "live-amm-v2",
+      "finding": "External DNS error, HTTPstatusnull. Initial coordination incorrectly called403 then corrected fromreceipt; no publisher challenge or stop was cleared."
+    },
+    {
+      "run": "live-amm-v3",
+      "finding": "Initial export alreadyPDF; fixed direct-PDF handling before text decode"
+    },
+    {
+      "run": "live-amm-v4",
+      "finding": "TOC000export produced1pageTOC-only PDF; preserved negative fixture; full export now requires bodycontainer covering everyTOCID"
+    },
+    {
+      "runs": "qualified-*",
+      "finding": "Historical pre-image-policy captures and structuralsmokes superseded for current normalization; retain exact scripts/receipts without mutation"
+    }
+  ],
+  "limitations": [
+    "Full current-policy publication traversal completed only separately published LincolnCityCharter andAccessManagementPolicy;4large primarypublications werebounded live smokes followedbyexplicit current-policyretained replays.",
+    "Charter result is publication source coverage; no official publisherglobaleditionID/legalcurrent-through/jurisdiction completeness claim.",
+    "AMM externalrequirednonimagePDF missing; fullattachment/semantic completeness false despite14sourceIDs and17pagefullnative export.",
+    "No image OCR/extraction/download; literal[IMAGE] intentionally represents graphic legalcontent.",
+    "Required nonimage HTML document landingpages failclosed. Separate charter/zoning/modelcode/plan/policy families needexplicit configurations and coverage before jurisdiction completeness.",
+    "Charter nativefull export unavailable underqualified observedcontrols;000isTOC-only andnotused.",
+    "LargeFairfax743-node current-policy replay takesminutes;420oldassetrefs become378intentional graphicplaceholders plus48requirednonimagerefs. Explicitlimit andskip preventcomplete claims.",
+    "macOS3.12 livequalified; otherPOSIXsystems expected compatible butnotlivetested.",
+    "Read-only verification can strengthen historical checks after verifying exact captured source scripts; collector resume remains strictly bound to unchanged code/config/inventory hashes."
+  ],
+  "source_sha256": {
+    "collect.py": "f050d210a544ec64c261f01df8e13b7ebc45bf698487dec3a10edbdee9349bae",
+    "requirements.txt": "31bd110ffa9ac6fb9f23fde84637d26b43a82a5cd461e5f236943a02b19038eb",
+    "transport.py": "62dc4f7e3756ef2f56f3a84f21d265597074341975fdb7a3cbb2e69ae7ac274b",
+    "util.py": "bb5e1ed76e2f81e5d2e41f8f5578b657616f18ce6e6b955a6ff8077ff0f2e920",
+    "targets.json": "a49ef8ea245588ceb30a2e654295566ae3b4d6b6d0afd1a8900abd72bd094163",
+    "documents.py": "a5763102f8990f6dc9a5e135445a965b9a834512ad59de133d19fe7569e4bbe4",
+    "__init__.py": "b694a5d9aaec3d14d60b33a1633fcc183ac03862b6226f4fd0d2fe62ff4354e3",
+    "model.py": "474ebbe9cb28b4254ad9e1c7b88a4056c71fa70b305df2b925ca1ecc01116ec9",
+    "README.md": "728f3373c20c18a1590fefec82d7bcb188de8c2365b813bab5e8a775086c23d4",
+    "qa-results.json": "cccf95b795e992a049a422bad1628dd6776eb3e5259b2ba8f0c5fb1b3b1367d9",
+    "verify.py": "233ac9aed0d2a26a9f0f6fda9a472ce7b106dab4d93611d99292fbec5e156a66",
+    "tests.py": "fa1b8e47b066b93ef8aa1922f56ed397479a3d736d177aab33839a568be8bc2f",
+    "configs/lincoln-charter.json": "2b5dd8aa0f8c1e8c0e920db7bb8071313df7713188621ab4977662c54a723c83",
+    "fixtures/amm-full-export.pdf": "eac77b25eed77f876187eb1f191515b06af285e0b6d8ff47d4aa74c15befaa16",
+    "fixtures/provenance.json": "c5f6a2cde210e20252e040a73f893f698870a71977c7230c7eead7e6da46353e",
+    "fixtures/amm-toc-only-export.pdf": "bfd60d939069f3212b36ef03994024246c004b685920d4e80ab1d8833603a96b",
+    "fixtures/amm-body.html": "dc53b1033a7aa209d038329f0e0615433c41d4e430fe7f8e5ef9f19226676161",
+    "fixtures/amm-toc.html": "755853bc6aba99f6391136276119b178d598900bc5ff3c729dbcaf73db0e3976"
+  },
+  "required_document_integrity": {
+    "nonempty_required": true,
+    "pdf_qualification": "strict pypdf readable nonempty page tree/content streams, PDF header and EOF; encrypted/truncated/unparseable unqualified",
+    "collection_and_independent_verifier_both_enforce": true,
+    "semantics_assessed": false,
+    "new_network_requests": 0,
+    "charter_and_amm_outcomes_unchanged": true
+  }
+}

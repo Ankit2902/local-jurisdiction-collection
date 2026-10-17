@@ -1,0 +1,952 @@
+
+    <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+    <html>
+    <head>
+
+        <title></title>
+        <link type="text/css" rel="Stylesheet" href="jqueryui/css/jqueryui.css" media="all" />
+        <link type="text/css" rel="Stylesheet" href="css/ui.css" media="all" />
+        <link type="text/css" rel="Stylesheet" href="css/customui.css" media="all" />
+        <link type="text/css" rel="Stylesheet" href="css/document.css" media="all" />
+        <link type="text/css" rel="Stylesheet" href="css/customdoc.css" media="all" />
+        <link type="text/css" rel="Stylesheet" href="tablestyles.aspx" media="all" />
+        <link rel="StyleSheet" type="text/css" href="/common/font-awesome/css/all.min.css">
+        <link type="text/css" rel="Stylesheet" href="css/docprint.css" media="print" />
+        <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+        <script type="text/javascript" src="jqueryui/js/jquery-ui-1.8.21.custom.min.js"></script>
+        <script type="text/javascript" src="js/doc-view.js?_t=290"></script>
+        <script type="text/javascript" src="js/tabletools.js"></script>
+        <script type="text/javascript" src="js/tabs.js"></script>
+        <script type="text/javascript">
+            var iframeReady = false;
+        </script>
+        
+    </head>
+    <body class='doc-view'>
+        <script type="text/javascript">
+            $(document).ready(function () {
+                ZP.DocView.InitDef();
+                ZP.DocView.OpenDefinitionPage = null;
+                ZP.DocView.OpenDefinitionMode = '_self';
+                ZP.DocView.OpenXRefPage = 'doc-viewer.aspx#$2-';
+                ZP.DocView.OpenXRefMode = '_blank';
+                $(window).bind('hashchange', ZP.DocView.HashChanged);
+        
+        if (typeof ZP.DocView.ZoomClasses == 'undefined') {
+            ZP.DocView.ZoomClasses = ["Unzoom1", "", "Zoom1", "Zoom2", "Zoom3", "Zoom4"];
+        }
+        ZP.DocView.InitializeZoom();
+        EC.SortedTable.Init(".ord-tbl, .stat-tbl", ".sortable");
+        EC.Tabs.PositionLeftTabs();
+    });
+
+
+        </script>
+
+
+    <div id="doc-viewer">
+        
+
+<div id="doc-view">
+    <div id="doc-view-content">
+        
+<div id="pageControls">
+<script type="text/javascript" >
+    function clearEffDate() {
+        jQuery.get("doc-view-helper.aspx?task=currentversion", function () {
+            window.location.reload();
+        });
+        return false;
+    }
+</script>
+     <div class="pageControls psuedoTable" role="navigation" aria-label="Document Navigation">  
+        <div class="psuedoTableBody" >     
+            <div class="psuedoTableRow">         
+                <div class="pageControls_outer" ></div>
+                <div class="pageControls_inner left">
+                    <a id='button1' onclick='ZP.DocView.PrintDoc("000",false);return false;' href="#" title="Print" role="button"> 
+                        <img alt="Print" src="resources/btn-print-white.png" /></a>
+                    <a id='Button2' onclick='ZP.DocView.OpenPDF("000",false);return false;' href="#" title="Export PDF" role="button">
+                        <img alt="Generate PDF" src="resources/btn-makepdf-white.png" /></a>
+                        <a class="email-popup" href="mailto:?subject=Table%20of%20Contents&amp;body=Fairfax%20County,%20VA%20Zoning%20Ordinance https://online.encodeplus.com/regs/fairfaxcounty-va/doc-viewer.aspx?secid=-1"><img src="resources/email-white.png" alt="Click to Share By Email" /></a>     
+                </div>
+                <div  class="pageControls_inner breadCrumbs" title="Navigation 'breadcrumbs'">
+                     <div class='breadCrumbs'></div>
+                </div>
+                 <div  class="pageControls_inner right">       
+                     <ul >  
+                         <li>
+                            <a id='button3' class="nav" onclick="ZP.DocView.LoadPrevDoc('000');return false;" href="#"  title="Previous Section" accesskey="," role="button"><img alt="Go to Previous Section" src="resources/btn-back-white.png" /></a>
+                         </li>  
+                         <li>
+                             <a id='Button4'  class="nav" onclick="ZP.DocView.LoadNextDoc('000');return false;" href="#"  title="Next Section" accesskey="." role="button"> <img alt="Go to Next Section" src="resources/btn-forward-white.png" /></a>
+                         </li>   
+                         <li>
+                             <a id="pageControls-overflow" onclick="ZP.DocView.PgCntrlOverflowClick(event);return false;" href="#" title="Click for more options" role="button" >
+                            <img src="resources/overflow-btn-white.png" alt="Click for more options" /></a>
+                               
+  <ul class="submenu" role="dialog">
+            <li><a href="/regs/fairfaxcounty-va/doc-viewer.aspx?secid=-1" onclick="javascript:alert('Right click this icon and select \'add to favorites\' or \'Bookmark this Link\' to bookmark this page');return false;" title="Bookmark this page" >Bookmark</a></li>
+            <li>
+                                        
+                <a id="zoomMinus" onclick="ZP.DocView.DecreaseZoom();return false;" href="#" title="Decrease Zoom" class="zoomLink glyphicon" >&#x2212;</a>
+                <a onclick="ZP.DocView.DefaultZoom();return false;"  href="#" title="Default Zoom"  class="zoomLink" >100%</a>
+                <a id="zoomPlus" onclick="ZP.DocView.IncreaseZoom();return false;" href="#" title="Increase Zoom"  class="zoomLink glyphicon" > &#x2b; </a>
+            </li>
+           
+                           
+                
+</ul>
+                         </li>        
+                        
+                        </ul>   
+                </div>
+                <div class="pageControls_outer"></div>
+            </div>
+        </div>
+    </div> 
+    <div id="subscribe-dialog" title="" aria-live="polite" >
+        <div id="sub-message"></div>
+        <div id="sub-form-cntr"></div>
+    </div>
+</div>
+
+
+        <div id="thePage-outer" >
+            <div id="thePage-wrap" class="thePage-wrap ">
+                <div id="outer-doc-banner"></div>
+                <div id="thePage-border">
+                    <div id="thePage" class="textPage " tocid="000" secid="-1" role="main" aria-label="Document">
+                        <img id="sectionBanner" title="Document text banner" src="resources/docbanner.png" width="720" valign="Top" alt="Document text banner">
+                        
+<div id="toc-pageview" class="toc-pageview" >
+<div id="toc-pageview1" >
+<div id="toc-pageview2">
+<div id="toc-pagehead">
+Fairfax County, VA Zoning Ordinance
+</div>
+<div id="toc-list" >
+<span class="h1">Table Of Contents</span>
+    <ul class='toc-level0' >
+
+    <li id="secid-x2214" class="tocLink"><a href="/regs/fairfaxcounty-va/doc-viewer.aspx?secid=2214" onclick="ZP.TOCView.SelectTOC('2214',true); return false;"><span class="toc-item">Fairfax County Zoning Ordinance</span></a></li>
+    <ul class='toc-level1' >
+
+    <li id="secid-x2215" class="tocLink"><a href="/regs/fairfaxcounty-va/doc-viewer.aspx?secid=2215" onclick="ZP.TOCView.SelectTOC('2215',false); return false;"><span class="toc-item">Cover Page</span></a></li>
+    
+    <li id="secid-x2217" class="tocLink"><a href="/regs/fairfaxcounty-va/doc-viewer.aspx?secid=2217" onclick="ZP.TOCView.SelectTOC('2217',true); return false;"><span class="toc-item">Article 1 - General Provisions</span></a></li>
+    <ul class='toc-level2' >
+
+    <li id="secid-x2218" class="tocLink"><a href="/regs/fairfaxcounty-va/doc-viewer.aspx?secid=2218" onclick="ZP.TOCView.SelectTOC('2218',false); return false;"><span class="toc-item">1100. Title</span></a></li>
+    
+    <li id="secid-x2219" class="tocLink"><a href="/regs/fairfaxcounty-va/doc-viewer.aspx?secid=2219" onclick="ZP.TOCView.SelectTOC('2219',false); return false;"><span class="toc-item">1101. Enabling Legislation</span></a></li>
+    
+    <li id="secid-x2220" class="tocLink"><a href="/regs/fairfaxcounty-va/doc-viewer.aspx?secid=2220" onclick="ZP.TOCView.SelectTOC('2220',false); return false;"><span class="toc-item">1102. Applicability</span></a></li>
+    
+    <li id="secid-x2221" class="tocLink"><a href="/regs/fairfaxcounty-va/doc-viewer.aspx?secid=2221" onclick="ZP.TOCView.SelectTOC('2221',false); return false;"><span class="toc-item">1103. Official Document</span></a></li>
+    
+    <li id="secid-x2222" class="tocLink"><a href="/regs/fairfaxcounty-va/doc-viewer.aspx?secid=2222" onclick="ZP.TOCView.SelectTOC('2222',false); return false;"><span class="toc-item">1104. Ordinance Structure</span></a></li>
+    
+    <li id="secid-x2223" class="tocLink"><a href="/regs/fairfaxcounty-va/doc-viewer.aspx?secid=2223" onclick="ZP.TOCView.SelectTOC('2223',false); return false;"><span class="toc-item">1105. Purpose and Intent</span></a></li>
+    
+    <li id="secid-x2224" class="tocLink"><a href="/regs/fairfaxcounty-va/doc-viewer.aspx?secid=2224" onclick="ZP.TOCView.SelectTOC('2224',false); return false;"><span class="toc-item">1106. Minimum Requirements and Conflicting Ordinances</span></a></li>
+    
+    <li id="secid-x2225" class="tocLink"><a href="/regs/fairfaxcounty-va/doc-viewer.aspx?secid=2225" onclick="ZP.TOCView.SelectTOC('2225',false); return false;"><span class="toc-item">1107. Effective Date</span></a></li>
+    
+    <li id="secid-x2226" class="tocLink"><a href="/regs/fairfaxcounty-va/doc-viewer.aspx?secid=2226" onclick="ZP.TOCView.SelectTOC('2226',false); return false;"><span class="toc-item">1108. Duties of the Zoning Administrator</span></a></li>
+    
+    <li id="secid-x2227" class="tocLink"><a href="/regs/fairfaxcounty-va/doc-viewer.aspx?secid=2227" onclick="ZP.TOCView.SelectTOC('2227',false); return false;"><span class="toc-item">1109. Severability</span></a></li>
+    
+    <li id="secid-x2228" class="tocLink"><a href="/regs/fairfaxcounty-va/doc-viewer.aspx?secid=2228" onclick="ZP.TOCView.SelectTOC('2228',false); return false;"><span class="toc-item">1110. Transition from Prior Regulations</span></a></li>
+    </ul>
+
+    <li id="secid-x2229" class="tocLink"><a href="/regs/fairfaxcounty-va/doc-viewer.aspx?secid=2229" onclick="ZP.TOCView.SelectTOC('2229',true); return false;"><span class="toc-item">Article 2 - Zoning Districts</span></a></li>
+    <ul class='toc-level2' >
+
+    <li id="secid-x2230" class="tocLink"><a href="/regs/fairfaxcounty-va/doc-viewer.aspx?secid=2230" onclick="ZP.TOCView.SelectTOC('2230',false); return false;"><span class="toc-item">2100. Zoning Districts and Boundaries</span></a></li>
+    
+    <li id="secid-x2231" class="tocLink"><a href="/regs/fairfaxcounty-va/doc-viewer.aspx?secid=2231" onclick="ZP.TOCView.SelectTOC('2231',false); return false;"><span class="toc-item">2101. Interpretation of District Regulations</span></a></li>
+    
+    <li id="secid-x2232" class="tocLink"><a href="/regs/fairfaxcounty-va/doc-viewer.aspx?secid=2232" onclick="ZP.TOCView.SelectTOC('2232',true); return false;"><span class="toc-item">2102. Residential Zoning Districts</span></a></li>
+    <ul class='toc-level3' >
+
+    <li id="secid-x2484" class="tocLink"><a href="/regs/fairfaxcounty-va/doc-viewer.aspx?secid=2484" onclick="ZP.TOCView.SelectTOC('2484',false); return false;"><span class="toc-item">2102.1 R-A Rural Agricultural District</span></a></li>
+    
+    <li id="secid-x2485" class="tocLink"><a href="/regs/fairfaxcounty-va/doc-viewer.aspx?secid=2485" onclick="ZP.TOCView.SelectTOC('2485',false); return false;"><span class="toc-item">2102.2 R-C Residential-Conservation District</span></a></li>
+    
+    <li id="secid-x2486" class="tocLink"><a href="/regs/fairfaxcounty-va/doc-viewer.aspx?secid=2486" onclick="ZP.TOCView.SelectTOC('2486',false); return false;"><span class="toc-item">2102.3 R-E Residential-Estate District</span></a></li>
+    
+    <li id="secid-x2487" class="tocLink"><a href="/regs/fairfaxcounty-va/doc-viewer.aspx?secid=2487" onclick="ZP.TOCView.SelectTOC('2487',false); return false;"><span class="toc-item">2102.4 R-1 Residential District, One Dwelling Unit/Acre</span></a></li>
+    
+    <li id="secid-x2488" class="tocLink"><a href="/regs/fairfaxcounty-va/doc-viewer.aspx?secid=2488" onclick="ZP.TOCView.SelectTOC('2488',false); return false;"><span class="toc-item">2102.5 R-2 Residential District, Two Dwelling Units/Acre</span></a></li>
+    
+    <li id="secid-x2489" class="tocLink"><a href="/regs/fairfaxcounty-va/doc-viewer.aspx?secid=2489" onclick="ZP.TOCView.SelectTOC('2489',false); return false;"><span class="toc-item">2102.6 R-3 Residential District, Three Dwelling Units/Acre</span></a></li>
+    
+    <li id="secid-x2490" class="tocLink"><a href="/regs/fairfaxcounty-va/doc-viewer.aspx?secid=2490" onclick="ZP.TOCView.SelectTOC('2490',false); return false;"><span class="toc-item">2102.7 R-4 Residential District, Four Dwelling Units/Acre</span></a></li>
+    
+    <li id="secid-x2491" class="tocLink"><a href="/regs/fairfaxcounty-va/doc-viewer.aspx?secid=2491" onclick="ZP.TOCView.SelectTOC('2491',false); return false;"><span class="toc-item">2102.8 R-5 Residential District, Five Dwelling Units/Acre</span></a></li>
+    
+    <li id="secid-x2492" class="tocLink"><a href="/regs/fairfaxcounty-va/doc-viewer.aspx?secid=2492" onclick="ZP.TOCView.SelectTOC('2492',false); return false;"><span class="toc-item">2102.9 R-8 Residential District, Eight Dwelling Units/Acre</span></a></li>
+    
+    <li id="secid-x2493" class="tocLink"><a href="/regs/fairfaxcounty-va/doc-viewer.aspx?secid=2493" onclick="ZP.TOCView.SelectTOC('2493',false); return false;"><span class="toc-item">2102.10 R-12 Residential District, Twelve Dwelling Units/Acre</span></a></li>
+    
+    <li id="secid-x2494" class="tocLink"><a href="/regs/fairfaxcounty-va/doc-viewer.aspx?secid=2494" onclick="ZP.TOCView.SelectTOC('2494',false); return false;"><span class="toc-item">2102.11 R-16 Residential District, Sixteen Dwelling Units/Acre</span></a></li>
+    
+    <li id="secid-x2495" class="tocLink"><a href="/regs/fairfaxcounty-va/doc-viewer.aspx?secid=2495" onclick="ZP.TOCView.SelectTOC('2495',false); return false;"><span class="toc-item">2102.12 R-20 Residential District, Twenty Dwelling Units/Acre</span></a></li>
+    
+    <li id="secid-x2496" class="tocLink"><a href="/regs/fairfaxcounty-va/doc-viewer.aspx?secid=2496" onclick="ZP.TOCView.SelectTOC('2496',false); return false;"><span class="toc-item">2102.13 R-30 Residential District, Thirty Dwelling Units/Acre</span></a></li>
+    
+    <li id="secid-x2497" class="tocLink"><a href="/regs/fairfaxcounty-va/doc-viewer.aspx?secid=2497" onclick="ZP.TOCView.SelectTOC('2497',false); return false;"><span class="toc-item">2102.14 R-MHP Residential District, Manufactured Home Park</span></a></li>
+    </ul>
+
+    <li id="secid-x2233" class="tocLink"><a href="/regs/fairfaxcounty-va/doc-viewer.aspx?secid=2233" onclick="ZP.TOCView.SelectTOC('2233',true); return false;"><span class="toc-item">2103. Commercial Zoning Districts</span></a></li>
+    <ul class='toc-level3' >
+
+    <li id="secid-x2498" class="tocLink"><a href="/regs/fairfaxcounty-va/doc-viewer.aspx?secid=2498" onclick="ZP.TOCView.SelectTOC('2498',false); return false;"><span class="toc-item">2103.1 C-1 Low-Rise Office Transitional District</span></a></li>
+    
+    <li id="secid-x2499" class="tocLink"><a href="/regs/fairfaxcounty-va/doc-viewer.aspx?secid=2499" onclick="ZP.TOCView.SelectTOC('2499',false); return false;"><span class="toc-item">2103.2 C-2 Limited Office District</span></a></li>
+    
+    <li id="secid-x2500" class="tocLink"><a href="/regs/fairfaxcounty-va/doc-viewer.aspx?secid=2500" onclick="ZP.TOCView.SelectTOC('2500',false); return false;"><span class="toc-item">2103.3 C-3 Office District</span></a></li>
+    
+    <li id="secid-x2501" class="tocLink"><a href="/regs/fairfaxcounty-va/doc-viewer.aspx?secid=2501" onclick="ZP.TOCView.SelectTOC('2501',false); return false;"><span class="toc-item">2103.4 C-4 High Intensity Office District</span></a></li>
+    
+    <li id="secid-x2502" class="tocLink"><a href="/regs/fairfaxcounty-va/doc-viewer.aspx?secid=2502" onclick="ZP.TOCView.SelectTOC('2502',false); return false;"><span class="toc-item">2103.5 C-5 Neighborhood Commercial Retail</span></a></li>
+    
+    <li id="secid-x2503" class="tocLink"><a href="/regs/fairfaxcounty-va/doc-viewer.aspx?secid=2503" onclick="ZP.TOCView.SelectTOC('2503',false); return false;"><span class="toc-item">2103.6 C-6 Community Retail Commercial District</span></a></li>
+    
+    <li id="secid-x2504" class="tocLink"><a href="/regs/fairfaxcounty-va/doc-viewer.aspx?secid=2504" onclick="ZP.TOCView.SelectTOC('2504',false); return false;"><span class="toc-item">2103.7 C-7 Regional Retail Commercial District</span></a></li>
+    
+    <li id="secid-x2505" class="tocLink"><a href="/regs/fairfaxcounty-va/doc-viewer.aspx?secid=2505" onclick="ZP.TOCView.SelectTOC('2505',false); return false;"><span class="toc-item">2103.8 C-8 Highway Commercial District</span></a></li>
+    </ul>
+
+    <li id="secid-x2234" class="tocLink"><a href="/regs/fairfaxcounty-va/doc-viewer.aspx?secid=2234" onclick="ZP.TOCView.SelectTOC('2234',true); return false;"><span class="toc-item">2104. Industrial Zoning Districts</span></a></li>
+    <ul class='toc-level3' >
+
+    <li id="secid-x2506" class="tocLink"><a href="/regs/fairfaxcounty-va/doc-viewer.aspx?secid=2506" onclick="ZP.TOCView.SelectTOC('2506',false); return false;"><span class="toc-item">2104.1 I-I Industrial Institutional District</span></a></li>
+    
+    <li id="secid-x2507" class="tocLink"><a href="/regs/fairfaxcounty-va/doc-viewer.aspx?secid=2507" onclick="ZP.TOCView.SelectTOC('2507',false); return false;"><span class="toc-item">2104.2 I-2 Low Intensity Industrial District</span></a></li>
+    
+    <li id="secid-x2508" class="tocLink"><a href="/regs/fairfaxcounty-va/doc-viewer.aspx?secid=2508" onclick="ZP.TOCView.SelectTOC('2508',false); return false;"><span class="toc-item">2104.3 I-3 Light Intensity Industrial District</span></a></li>
+    
+    <li id="secid-x2509" class="tocLink"><a href="/regs/fairfaxcounty-va/doc-viewer.aspx?secid=2509" onclick="ZP.TOCView.SelectTOC('2509',false); return false;"><span class="toc-item">2104.4 I-4 Medium Intensity Industrial District</span></a></li>
+    
+    <li id="secid-x2510" class="tocLink"><a href="/regs/fairfaxcounty-va/doc-viewer.aspx?secid=2510" onclick="ZP.TOCView.SelectTOC('2510',false); return false;"><span class="toc-item">2104.5 I-5 General Industrial District</span></a></li>
+    
+    <li id="secid-x2511" class="tocLink"><a href="/regs/fairfaxcounty-va/doc-viewer.aspx?secid=2511" onclick="ZP.TOCView.SelectTOC('2511',false); return false;"><span class="toc-item">2104.6 I-6 Heavy Industrial District</span></a></li>
+    </ul>
+
+    <li id="secid-x2235" class="tocLink"><a href="/regs/fairfaxcounty-va/doc-viewer.aspx?secid=2235" onclick="ZP.TOCView.SelectTOC('2235',true); return false;"><span class="toc-item">2105. Planned Districts</span></a></li>
+    <ul class='toc-level3' >
+
+    <li id="secid-x2512" class="tocLink"><a href="/regs/fairfaxcounty-va/doc-viewer.aspx?secid=2512" onclick="ZP.TOCView.SelectTOC('2512',false); return false;"><span class="toc-item">2105.1 Standards for All Planned Districts</span></a></li>
+    
+    <li id="secid-x2513" class="tocLink"><a href="/regs/fairfaxcounty-va/doc-viewer.aspx?secid=2513" onclick="ZP.TOCView.SelectTOC('2513',false); return false;"><span class="toc-item">2105.2 PDH Planned Development Housing District</span></a></li>
+    
+    <li id="secid-x2514" class="tocLink"><a href="/regs/fairfaxcounty-va/doc-viewer.aspx?secid=2514" onclick="ZP.TOCView.SelectTOC('2514',false); return false;"><span class="toc-item">2105.3 PRC Planned Residential Community District</span></a></li>
+    
+    <li id="secid-x2515" class="tocLink"><a href="/regs/fairfaxcounty-va/doc-viewer.aspx?secid=2515" onclick="ZP.TOCView.SelectTOC('2515',false); return false;"><span class="toc-item">2105.4 PDC Planned Development Commercial District</span></a></li>
+    
+    <li id="secid-x2516" class="tocLink"><a href="/regs/fairfaxcounty-va/doc-viewer.aspx?secid=2516" onclick="ZP.TOCView.SelectTOC('2516',false); return false;"><span class="toc-item">2105.5 PRM Planned Residential Mixed-Use District</span></a></li>
+    
+    <li id="secid-x2517" class="tocLink"><a href="/regs/fairfaxcounty-va/doc-viewer.aspx?secid=2517" onclick="ZP.TOCView.SelectTOC('2517',false); return false;"><span class="toc-item">2105.6 PTC Planned Tysons Corner Urban District</span></a></li>
+    
+    <li id="secid-x2518" class="tocLink"><a href="/regs/fairfaxcounty-va/doc-viewer.aspx?secid=2518" onclick="ZP.TOCView.SelectTOC('2518',false); return false;"><span class="toc-item">2105.7 PCC Planned Continuing Care Facility District</span></a></li>
+    </ul>
+</ul>
+
+    <li id="secid-x2236" class="tocLink"><a href="/regs/fairfaxcounty-va/doc-viewer.aspx?secid=2236" onclick="ZP.TOCView.SelectTOC('2236',true); return false;"><span class="toc-item">Article 3 - Overlay and Commercial Revitalization Districts</span></a></li>
+    <ul class='toc-level2' >
+
+    <li id="secid-x2237" class="tocLink"><a href="/regs/fairfaxcounty-va/doc-viewer.aspx?secid=2237" onclick="ZP.TOCView.SelectTOC('2237',false); return false;"><span class="toc-item">3100. General Provisions</span></a></li>
+    
+    <li id="secid-x2238" class="tocLink"><a href="/regs/fairfaxcounty-va/doc-viewer.aspx?secid=2238" onclick="ZP.TOCView.SelectTOC('2238',true); return false;"><span class="toc-item">3101. Historic Overlay Districts</span></a></li>
+    <ul class='toc-level3' >
+
+    <li id="secid-x2519" class="tocLink"><a href="/regs/fairfaxcounty-va/doc-viewer.aspx?secid=2519" onclick="ZP.TOCView.SelectTOC('2519',false); return false;"><span class="toc-item">3101.1 Purpose</span></a></li>
+    
+    <li id="secid-x2520" class="tocLink"><a href="/regs/fairfaxcounty-va/doc-viewer.aspx?secid=2520" onclick="ZP.TOCView.SelectTOC('2520',false); return false;"><span class="toc-item">3101.2 Districts</span></a></li>
+    
+    <li id="secid-x2521" class="tocLink"><a href="/regs/fairfaxcounty-va/doc-viewer.aspx?secid=2521" onclick="ZP.TOCView.SelectTOC('2521',false); return false;"><span class="toc-item">3101.3 Establishment of Districts</span></a></li>
+    
+    <li id="secid-x2522" class="tocLink"><a href="/regs/fairfaxcounty-va/doc-viewer.aspx?secid=2522" onclick="ZP.TOCView.SelectTOC('2522',false); return false;"><span class="toc-item">3101.4 Permitted, Special Exception, and Special Permit Uses</span></a></li>
+    
+    <li id="secid-x2523" class="tocLink"><a href="/regs/fairfaxcounty-va/doc-viewer.aspx?secid=2523" onclick="ZP.TOCView.SelectTOC('2523',false); return false;"><span class="toc-item">3101.5 Additional Standards</span></a></li>
+    
+    <li id="secid-x2524" class="tocLink"><a href="/regs/fairfaxcounty-va/doc-viewer.aspx?secid=2524" onclick="ZP.TOCView.SelectTOC('2524',false); return false;"><span class="toc-item">3101.6 Administration of Historic Overlay District Regulations</span></a></li>
+    
+    <li id="secid-x2525" class="tocLink"><a href="/regs/fairfaxcounty-va/doc-viewer.aspx?secid=2525" onclick="ZP.TOCView.SelectTOC('2525',false); return false;"><span class="toc-item">3101.7 Bull Run Stone Bridge Historic Overlay District</span></a></li>
+    
+    <li id="secid-x2526" class="tocLink"><a href="/regs/fairfaxcounty-va/doc-viewer.aspx?secid=2526" onclick="ZP.TOCView.SelectTOC('2526',false); return false;"><span class="toc-item">3101.8 Centreville Historic Overlay District</span></a></li>
+    
+    <li id="secid-x2527" class="tocLink"><a href="/regs/fairfaxcounty-va/doc-viewer.aspx?secid=2527" onclick="ZP.TOCView.SelectTOC('2527',false); return false;"><span class="toc-item">3101.9 Colvin Run Mill Historic Overlay District</span></a></li>
+    
+    <li id="secid-x2528" class="tocLink"><a href="/regs/fairfaxcounty-va/doc-viewer.aspx?secid=2528" onclick="ZP.TOCView.SelectTOC('2528',false); return false;"><span class="toc-item">3101.10 Dranesville Tavern Historic Overlay District</span></a></li>
+    
+    <li id="secid-x3043" class="tocLink"><a href="/regs/fairfaxcounty-va/doc-viewer.aspx?secid=3043" onclick="ZP.TOCView.SelectTOC('3043',false); return false;"><span class="toc-item">3101.11 Hollin Hills Historic Overlay District</span></a></li>
+    
+    <li id="secid-x2529" class="tocLink"><a href="/regs/fairfaxcounty-va/doc-viewer.aspx?secid=2529" onclick="ZP.TOCView.SelectTOC('2529',false); return false;"><span class="toc-item">3101.12 Huntley Historic Overlay District</span></a></li>
+    
+    <li id="secid-x2530" class="tocLink"><a href="/regs/fairfaxcounty-va/doc-viewer.aspx?secid=2530" onclick="ZP.TOCView.SelectTOC('2530',false); return false;"><span class="toc-item">3101.13 Lake Anne Village Center Historic Overlay District</span></a></li>
+    
+    <li id="secid-x2531" class="tocLink"><a href="/regs/fairfaxcounty-va/doc-viewer.aspx?secid=2531" onclick="ZP.TOCView.SelectTOC('2531',false); return false;"><span class="toc-item">3101.14 Langley Fork Historic Overlay District</span></a></li>
+    
+    <li id="secid-x2532" class="tocLink"><a href="/regs/fairfaxcounty-va/doc-viewer.aspx?secid=2532" onclick="ZP.TOCView.SelectTOC('2532',false); return false;"><span class="toc-item">3101.15 Mount Air Historic Overlay District</span></a></li>
+    
+    <li id="secid-x2533" class="tocLink"><a href="/regs/fairfaxcounty-va/doc-viewer.aspx?secid=2533" onclick="ZP.TOCView.SelectTOC('2533',false); return false;"><span class="toc-item">3101.16 Pohick Church Historic Overlay District</span></a></li>
+    
+    <li id="secid-x2534" class="tocLink"><a href="/regs/fairfaxcounty-va/doc-viewer.aspx?secid=2534" onclick="ZP.TOCView.SelectTOC('2534',false); return false;"><span class="toc-item">3101.17 Robey’s Mill Historic Overlay District</span></a></li>
+    
+    <li id="secid-x2535" class="tocLink"><a href="/regs/fairfaxcounty-va/doc-viewer.aspx?secid=2535" onclick="ZP.TOCView.SelectTOC('2535',false); return false;"><span class="toc-item">3101.18 St. Mary’s Church Historic Overlay District</span></a></li>
+    
+    <li id="secid-x2536" class="tocLink"><a href="/regs/fairfaxcounty-va/doc-viewer.aspx?secid=2536" onclick="ZP.TOCView.SelectTOC('2536',false); return false;"><span class="toc-item">3101.19 Sully Historic Overlay District</span></a></li>
+    
+    <li id="secid-x2537" class="tocLink"><a href="/regs/fairfaxcounty-va/doc-viewer.aspx?secid=2537" onclick="ZP.TOCView.SelectTOC('2537',false); return false;"><span class="toc-item">3101.20 Wellington Historic Overlay District</span></a></li>
+    
+    <li id="secid-x3021" class="tocLink"><a href="/regs/fairfaxcounty-va/doc-viewer.aspx?secid=3021" onclick="ZP.TOCView.SelectTOC('3021',false); return false;"><span class="toc-item">3101.21 Woodlawn Historic Overlay District</span></a></li>
+    </ul>
+
+    <li id="secid-x2239" class="tocLink"><a href="/regs/fairfaxcounty-va/doc-viewer.aspx?secid=2239" onclick="ZP.TOCView.SelectTOC('2239',false); return false;"><span class="toc-item">3102. Commercial Revitalization Districts</span></a></li>
+    
+    <li id="secid-x2240" class="tocLink"><a href="/regs/fairfaxcounty-va/doc-viewer.aspx?secid=2240" onclick="ZP.TOCView.SelectTOC('2240',true); return false;"><span class="toc-item">3103. Other Overlay Districts</span></a></li>
+    <ul class='toc-level3' >
+
+    <li id="secid-x2538" class="tocLink"><a href="/regs/fairfaxcounty-va/doc-viewer.aspx?secid=2538" onclick="ZP.TOCView.SelectTOC('2538',false); return false;"><span class="toc-item">3103.1 Natural Resource Overlay District</span></a></li>
+    
+    <li id="secid-x2539" class="tocLink"><a href="/regs/fairfaxcounty-va/doc-viewer.aspx?secid=2539" onclick="ZP.TOCView.SelectTOC('2539',false); return false;"><span class="toc-item">3103.2 Airport Noise Impact Overlay District</span></a></li>
+    
+    <li id="secid-x2540" class="tocLink"><a href="/regs/fairfaxcounty-va/doc-viewer.aspx?secid=2540" onclick="ZP.TOCView.SelectTOC('2540',false); return false;"><span class="toc-item">3103.3 Sign Control Overlay District</span></a></li>
+    
+    <li id="secid-x2541" class="tocLink"><a href="/regs/fairfaxcounty-va/doc-viewer.aspx?secid=2541" onclick="ZP.TOCView.SelectTOC('2541',false); return false;"><span class="toc-item">3103.4 Highway Corridor Overlay District</span></a></li>
+    
+    <li id="secid-x2542" class="tocLink"><a href="/regs/fairfaxcounty-va/doc-viewer.aspx?secid=2542" onclick="ZP.TOCView.SelectTOC('2542',false); return false;"><span class="toc-item">3103.5 Water Supply Protection Overlay District</span></a></li>
+    </ul>
+</ul>
+
+    <li id="secid-x2241" class="tocLink"><a href="/regs/fairfaxcounty-va/doc-viewer.aspx?secid=2241" onclick="ZP.TOCView.SelectTOC('2241',true); return false;"><span class="toc-item">Article 4 - Use Regulations</span></a></li>
+    <ul class='toc-level2' >
+
+    <li id="secid-x2242" class="tocLink"><a href="/regs/fairfaxcounty-va/doc-viewer.aspx?secid=2242" onclick="ZP.TOCView.SelectTOC('2242',false); return false;"><span class="toc-item">4100. General Provisions</span></a></li>
+    
+    <li id="secid-x2243" class="tocLink"><a href="/regs/fairfaxcounty-va/doc-viewer.aspx?secid=2243" onclick="ZP.TOCView.SelectTOC('2243',true); return false;"><span class="toc-item">4101. Use Tables</span></a></li>
+    <ul class='toc-level3' >
+
+    <li id="secid-x2543" class="tocLink"><a href="/regs/fairfaxcounty-va/doc-viewer.aspx?secid=2543" onclick="ZP.TOCView.SelectTOC('2543',false); return false;"><span class="toc-item">4101.1 Use Table Instructions and Abbreviations</span></a></li>
+    
+    <li id="secid-x2544" class="tocLink"><a href="/regs/fairfaxcounty-va/doc-viewer.aspx?secid=2544" onclick="ZP.TOCView.SelectTOC('2544',false); return false;"><span class="toc-item">4101.2 Structure of the Use Classification System</span></a></li>
+    
+    <li id="secid-x2545" class="tocLink"><a href="/regs/fairfaxcounty-va/doc-viewer.aspx?secid=2545" onclick="ZP.TOCView.SelectTOC('2545',false); return false;"><span class="toc-item">4101.3 Use Table for Residential, Commercial, and Industrial Districts</span></a></li>
+    
+    <li id="secid-x2546" class="tocLink"><a href="/regs/fairfaxcounty-va/doc-viewer.aspx?secid=2546" onclick="ZP.TOCView.SelectTOC('2546',false); return false;"><span class="toc-item">4101.4 Use Table for Planned Development Districts</span></a></li>
+    </ul>
+
+    <li id="secid-x2244" class="tocLink"><a href="/regs/fairfaxcounty-va/doc-viewer.aspx?secid=2244" onclick="ZP.TOCView.SelectTOC('2244',true); return false;"><span class="toc-item">4102. Use Standards</span></a></li>
+    <ul class='toc-level3' >
+
+    <li id="secid-x2547" class="tocLink"><a href="/regs/fairfaxcounty-va/doc-viewer.aspx?secid=2547" onclick="ZP.TOCView.SelectTOC('2547',true); return false;"><span class="toc-item">4102.1 General Standards</span></a></li>
+    <ul class='toc-level4' >
+
+    <li id="secid-x2764" class="tocLink"><a href="/regs/fairfaxcounty-va/doc-viewer.aspx?secid=2764" onclick="ZP.TOCView.SelectTOC('2764',false); return false;"><span class="toc-item">4102.1.A Standards for All Uses</span></a></li>
+    
+    <li id="secid-x2765" class="tocLink"><a href="/regs/fairfaxcounty-va/doc-viewer.aspx?secid=2765" onclick="ZP.TOCView.SelectTOC('2765',false); return false;"><span class="toc-item">4102.1.B Standards for Uses in Residential Zoning Districts</span></a></li>
+    
+    <li id="secid-x2766" class="tocLink"><a href="/regs/fairfaxcounty-va/doc-viewer.aspx?secid=2766" onclick="ZP.TOCView.SelectTOC('2766',false); return false;"><span class="toc-item">4102.1.C Standards for Uses in Commercial Zoning Districts</span></a></li>
+    
+    <li id="secid-x2767" class="tocLink"><a href="/regs/fairfaxcounty-va/doc-viewer.aspx?secid=2767" onclick="ZP.TOCView.SelectTOC('2767',false); return false;"><span class="toc-item">4102.1.D Standards for Uses in Industrial Districts</span></a></li>
+    
+    <li id="secid-x2768" class="tocLink"><a href="/regs/fairfaxcounty-va/doc-viewer.aspx?secid=2768" onclick="ZP.TOCView.SelectTOC('2768',false); return false;"><span class="toc-item">4102.1.E Standards for Uses in Planned Districts</span></a></li>
+    
+    <li id="secid-x2769" class="tocLink"><a href="/regs/fairfaxcounty-va/doc-viewer.aspx?secid=2769" onclick="ZP.TOCView.SelectTOC('2769',false); return false;"><span class="toc-item">4102.1.F  Standards for Special Exception and Special Permit Uses</span></a></li>
+    
+    <li id="secid-x2770" class="tocLink"><a href="/regs/fairfaxcounty-va/doc-viewer.aspx?secid=2770" onclick="ZP.TOCView.SelectTOC('2770',false); return false;"><span class="toc-item">4102.1.G Standards for Associated Service Uses</span></a></li>
+    
+    <li id="secid-x2771" class="tocLink"><a href="/regs/fairfaxcounty-va/doc-viewer.aspx?secid=2771" onclick="ZP.TOCView.SelectTOC('2771',false); return false;"><span class="toc-item">4102.1.H Standards for Alternative Use of Historic Buildings</span></a></li>
+    
+    <li id="secid-x2772" class="tocLink"><a href="/regs/fairfaxcounty-va/doc-viewer.aspx?secid=2772" onclick="ZP.TOCView.SelectTOC('2772',false); return false;"><span class="toc-item">4102.1.I Standards for Administrative Permit Approvals</span></a></li>
+    </ul>
+
+    <li id="secid-x2548" class="tocLink"><a href="/regs/fairfaxcounty-va/doc-viewer.aspx?secid=2548" onclick="ZP.TOCView.SelectTOC('2548',true); return false;"><span class="toc-item">4102.2 Agricultural and Related Uses</span></a></li>
+    <ul class='toc-level4' >
+
+    <li id="secid-x2773" class="tocLink"><a href="/regs/fairfaxcounty-va/doc-viewer.aspx?secid=2773" onclick="ZP.TOCView.SelectTOC('2773',false); return false;"><span class="toc-item">4102.2.A  Agricultural Operation</span></a></li>
+    
+    <li id="secid-x3036" class="tocLink"><a href="/regs/fairfaxcounty-va/doc-viewer.aspx?secid=3036" onclick="ZP.TOCView.SelectTOC('3036',false); return false;"><span class="toc-item">4102.2.B Agritourism</span></a></li>
+    
+    <li id="secid-x2774" class="tocLink"><a href="/regs/fairfaxcounty-va/doc-viewer.aspx?secid=2774" onclick="ZP.TOCView.SelectTOC('2774',false); return false;"><span class="toc-item">4102.2.C Farm Winery, Limited Brewery, or Limited Distillery</span></a></li>
+    
+    <li id="secid-x2775" class="tocLink"><a href="/regs/fairfaxcounty-va/doc-viewer.aspx?secid=2775" onclick="ZP.TOCView.SelectTOC('2775',false); return false;"><span class="toc-item">4102.2.D  Stable, Riding or Boarding</span></a></li>
+    </ul>
+
+    <li id="secid-x2549" class="tocLink"><a href="/regs/fairfaxcounty-va/doc-viewer.aspx?secid=2549" onclick="ZP.TOCView.SelectTOC('2549',true); return false;"><span class="toc-item">4102.3 Residential Uses</span></a></li>
+    <ul class='toc-level4' >
+
+    <li id="secid-x2776" class="tocLink"><a href="/regs/fairfaxcounty-va/doc-viewer.aspx?secid=2776" onclick="ZP.TOCView.SelectTOC('2776',false); return false;"><span class="toc-item">4102.3.A All Household Living Uses</span></a></li>
+    
+    <li id="secid-x2777" class="tocLink"><a href="/regs/fairfaxcounty-va/doc-viewer.aspx?secid=2777" onclick="ZP.TOCView.SelectTOC('2777',false); return false;"><span class="toc-item">4102.3.B Dwelling, Single-Family Attached and Dwelling, Stacked Townhouse</span></a></li>
+    
+    <li id="secid-x2779" class="tocLink"><a href="/regs/fairfaxcounty-va/doc-viewer.aspx?secid=2779" onclick="ZP.TOCView.SelectTOC('2779',false); return false;"><span class="toc-item">4102.3.C Live-Work Development</span></a></li>
+    
+    <li id="secid-x2780" class="tocLink"><a href="/regs/fairfaxcounty-va/doc-viewer.aspx?secid=2780" onclick="ZP.TOCView.SelectTOC('2780',false); return false;"><span class="toc-item">4102.3.D Manufactured Home</span></a></li>
+    
+    <li id="secid-x2781" class="tocLink"><a href="/regs/fairfaxcounty-va/doc-viewer.aspx?secid=2781" onclick="ZP.TOCView.SelectTOC('2781',false); return false;"><span class="toc-item">4102.3.E Congregate Living Facility</span></a></li>
+    
+    <li id="secid-x2782" class="tocLink"><a href="/regs/fairfaxcounty-va/doc-viewer.aspx?secid=2782" onclick="ZP.TOCView.SelectTOC('2782',false); return false;"><span class="toc-item">4102.3.F Group Household</span></a></li>
+    
+    <li id="secid-x2783" class="tocLink"><a href="/regs/fairfaxcounty-va/doc-viewer.aspx?secid=2783" onclick="ZP.TOCView.SelectTOC('2783',false); return false;"><span class="toc-item">4102.3.G Religious Group Living</span></a></li>
+    
+    <li id="secid-x2784" class="tocLink"><a href="/regs/fairfaxcounty-va/doc-viewer.aspx?secid=2784" onclick="ZP.TOCView.SelectTOC('2784',false); return false;"><span class="toc-item">4102.3.H Residence Hall</span></a></li>
+    </ul>
+
+    <li id="secid-x2550" class="tocLink"><a href="/regs/fairfaxcounty-va/doc-viewer.aspx?secid=2550" onclick="ZP.TOCView.SelectTOC('2550',true); return false;"><span class="toc-item">4102.4 Public, Institutional, and Community Uses</span></a></li>
+    <ul class='toc-level4' >
+
+    <li id="secid-x2805" class="tocLink"><a href="/regs/fairfaxcounty-va/doc-viewer.aspx?secid=2805" onclick="ZP.TOCView.SelectTOC('2805',false); return false;"><span class="toc-item">4102.4.A Adult Day Support Center</span></a></li>
+    
+    <li id="secid-x2806" class="tocLink"><a href="/regs/fairfaxcounty-va/doc-viewer.aspx?secid=2806" onclick="ZP.TOCView.SelectTOC('2806',false); return false;"><span class="toc-item">4102.4.B Alternate Use of Public Facility</span></a></li>
+    
+    <li id="secid-x2807" class="tocLink"><a href="/regs/fairfaxcounty-va/doc-viewer.aspx?secid=2807" onclick="ZP.TOCView.SelectTOC('2807',false); return false;"><span class="toc-item">4102.4.C Child Care Center</span></a></li>
+    
+    <li id="secid-x2808" class="tocLink"><a href="/regs/fairfaxcounty-va/doc-viewer.aspx?secid=2808" onclick="ZP.TOCView.SelectTOC('2808',false); return false;"><span class="toc-item">4102.4.D Club, Service Organization, or Community Center</span></a></li>
+    
+    <li id="secid-x2809" class="tocLink"><a href="/regs/fairfaxcounty-va/doc-viewer.aspx?secid=2809" onclick="ZP.TOCView.SelectTOC('2809',false); return false;"><span class="toc-item">4102.4.E College or University</span></a></li>
+    
+    <li id="secid-x2810" class="tocLink"><a href="/regs/fairfaxcounty-va/doc-viewer.aspx?secid=2810" onclick="ZP.TOCView.SelectTOC('2810',false); return false;"><span class="toc-item">4102.4.F Community Swim, Tennis, and Recreation Club</span></a></li>
+    
+    <li id="secid-x2785" class="tocLink"><a href="/regs/fairfaxcounty-va/doc-viewer.aspx?secid=2785" onclick="ZP.TOCView.SelectTOC('2785',false); return false;"><span class="toc-item">4102.4.G Convention or Conference Center</span></a></li>
+    
+    <li id="secid-x2786" class="tocLink"><a href="/regs/fairfaxcounty-va/doc-viewer.aspx?secid=2786" onclick="ZP.TOCView.SelectTOC('2786',false); return false;"><span class="toc-item">4102.4.H Religious Assembly</span></a></li>
+    
+    <li id="secid-x2787" class="tocLink"><a href="/regs/fairfaxcounty-va/doc-viewer.aspx?secid=2787" onclick="ZP.TOCView.SelectTOC('2787',false); return false;"><span class="toc-item">4102.4.I Religious Assembly with Private School, Specialized Instruction Center, or Child Care Center</span></a></li>
+    
+    <li id="secid-x2788" class="tocLink"><a href="/regs/fairfaxcounty-va/doc-viewer.aspx?secid=2788" onclick="ZP.TOCView.SelectTOC('2788',false); return false;"><span class="toc-item">4102.4.J School, Private</span></a></li>
+    
+    <li id="secid-x2789" class="tocLink"><a href="/regs/fairfaxcounty-va/doc-viewer.aspx?secid=2789" onclick="ZP.TOCView.SelectTOC('2789',false); return false;"><span class="toc-item">4102.4.K Specialized Instruction Center</span></a></li>
+    
+    <li id="secid-x2790" class="tocLink"><a href="/regs/fairfaxcounty-va/doc-viewer.aspx?secid=2790" onclick="ZP.TOCView.SelectTOC('2790',false); return false;"><span class="toc-item">4102.4.L Cemetery</span></a></li>
+    
+    <li id="secid-x2791" class="tocLink"><a href="/regs/fairfaxcounty-va/doc-viewer.aspx?secid=2791" onclick="ZP.TOCView.SelectTOC('2791',false); return false;"><span class="toc-item">4102.4.M Crematory</span></a></li>
+    
+    <li id="secid-x2792" class="tocLink"><a href="/regs/fairfaxcounty-va/doc-viewer.aspx?secid=2792" onclick="ZP.TOCView.SelectTOC('2792',false); return false;"><span class="toc-item">4102.4.N Funeral Home</span></a></li>
+    
+    <li id="secid-x2793" class="tocLink"><a href="/regs/fairfaxcounty-va/doc-viewer.aspx?secid=2793" onclick="ZP.TOCView.SelectTOC('2793',false); return false;"><span class="toc-item">4102.4.O Adult Day Care Center</span></a></li>
+    
+    <li id="secid-x2794" class="tocLink"><a href="/regs/fairfaxcounty-va/doc-viewer.aspx?secid=2794" onclick="ZP.TOCView.SelectTOC('2794',false); return false;"><span class="toc-item">4102.4.P Continuing Care Facility</span></a></li>
+    
+    <li id="secid-x2795" class="tocLink"><a href="/regs/fairfaxcounty-va/doc-viewer.aspx?secid=2795" onclick="ZP.TOCView.SelectTOC('2795',false); return false;"><span class="toc-item">4102.4.Q Independent Living Facility</span></a></li>
+    
+    <li id="secid-x2796" class="tocLink"><a href="/regs/fairfaxcounty-va/doc-viewer.aspx?secid=2796" onclick="ZP.TOCView.SelectTOC('2796',false); return false;"><span class="toc-item">4102.4.R Medical Care Facility</span></a></li>
+    
+    <li id="secid-x2798" class="tocLink"><a href="/regs/fairfaxcounty-va/doc-viewer.aspx?secid=2798" onclick="ZP.TOCView.SelectTOC('2798',false); return false;"><span class="toc-item">4102.4.S Transportation Uses</span></a></li>
+    
+    <li id="secid-x2799" class="tocLink"><a href="/regs/fairfaxcounty-va/doc-viewer.aspx?secid=2799" onclick="ZP.TOCView.SelectTOC('2799',false); return false;"><span class="toc-item">4102.4.T Airport</span></a></li>
+    
+    <li id="secid-x2800" class="tocLink"><a href="/regs/fairfaxcounty-va/doc-viewer.aspx?secid=2800" onclick="ZP.TOCView.SelectTOC('2800',false); return false;"><span class="toc-item">4102.4.U Transit Facility</span></a></li>
+    
+    <li id="secid-x2801" class="tocLink"><a href="/regs/fairfaxcounty-va/doc-viewer.aspx?secid=2801" onclick="ZP.TOCView.SelectTOC('2801',false); return false;"><span class="toc-item">4102.4.V Solar Power Facility</span></a></li>
+    
+    <li id="secid-x2802" class="tocLink"><a href="/regs/fairfaxcounty-va/doc-viewer.aspx?secid=2802" onclick="ZP.TOCView.SelectTOC('2802',false); return false;"><span class="toc-item">4102.4.W Utility Facility, Heavy</span></a></li>
+    
+    <li id="secid-x2803" class="tocLink"><a href="/regs/fairfaxcounty-va/doc-viewer.aspx?secid=2803" onclick="ZP.TOCView.SelectTOC('2803',false); return false;"><span class="toc-item">4102.4.X Utility Facility, Light</span></a></li>
+    
+    <li id="secid-x2804" class="tocLink"><a href="/regs/fairfaxcounty-va/doc-viewer.aspx?secid=2804" onclick="ZP.TOCView.SelectTOC('2804',false); return false;"><span class="toc-item">4102.4.Y Wireless Facility</span></a></li>
+    </ul>
+
+    <li id="secid-x2555" class="tocLink"><a href="/regs/fairfaxcounty-va/doc-viewer.aspx?secid=2555" onclick="ZP.TOCView.SelectTOC('2555',true); return false;"><span class="toc-item">4102.5 Commercial Uses</span></a></li>
+    <ul class='toc-level4' >
+
+    <li id="secid-x2831" class="tocLink"><a href="/regs/fairfaxcounty-va/doc-viewer.aspx?secid=2831" onclick="ZP.TOCView.SelectTOC('2831',false); return false;"><span class="toc-item">4102.5.A Animal Boarding, Breeding, or Recreation Establishment or Animal Shelter</span></a></li>
+    
+    <li id="secid-x2832" class="tocLink"><a href="/regs/fairfaxcounty-va/doc-viewer.aspx?secid=2832" onclick="ZP.TOCView.SelectTOC('2832',false); return false;"><span class="toc-item">4102.5.B Pet Grooming Establishment</span></a></li>
+    
+    <li id="secid-x2833" class="tocLink"><a href="/regs/fairfaxcounty-va/doc-viewer.aspx?secid=2833" onclick="ZP.TOCView.SelectTOC('2833',false); return false;"><span class="toc-item">4102.5.C Veterinary Hospital</span></a></li>
+    
+    <li id="secid-x2834" class="tocLink"><a href="/regs/fairfaxcounty-va/doc-viewer.aspx?secid=2834" onclick="ZP.TOCView.SelectTOC('2834',false); return false;"><span class="toc-item">4102.5.D Bed and Breakfast</span></a></li>
+    
+    <li id="secid-x2835" class="tocLink"><a href="/regs/fairfaxcounty-va/doc-viewer.aspx?secid=2835" onclick="ZP.TOCView.SelectTOC('2835',false); return false;"><span class="toc-item">4102.5.E Catering</span></a></li>
+    
+    <li id="secid-x2836" class="tocLink"><a href="/regs/fairfaxcounty-va/doc-viewer.aspx?secid=2836" onclick="ZP.TOCView.SelectTOC('2836',false); return false;"><span class="toc-item">4102.5.F Hotel or Motel</span></a></li>
+    
+    <li id="secid-x2837" class="tocLink"><a href="/regs/fairfaxcounty-va/doc-viewer.aspx?secid=2837" onclick="ZP.TOCView.SelectTOC('2837',false); return false;"><span class="toc-item">4102.5.G Restaurant</span></a></li>
+    
+    <li id="secid-x2838" class="tocLink"><a href="/regs/fairfaxcounty-va/doc-viewer.aspx?secid=2838" onclick="ZP.TOCView.SelectTOC('2838',false); return false;"><span class="toc-item">4102.5.H Restaurant, Carryout</span></a></li>
+    
+    <li id="secid-x2839" class="tocLink"><a href="/regs/fairfaxcounty-va/doc-viewer.aspx?secid=2839" onclick="ZP.TOCView.SelectTOC('2839',false); return false;"><span class="toc-item">4102.5.I Restaurant with Drive-Through</span></a></li>
+    
+    <li id="secid-x2840" class="tocLink"><a href="/regs/fairfaxcounty-va/doc-viewer.aspx?secid=2840" onclick="ZP.TOCView.SelectTOC('2840',false); return false;"><span class="toc-item">4102.5.J Retreat Center</span></a></li>
+    
+    <li id="secid-x2841" class="tocLink"><a href="/regs/fairfaxcounty-va/doc-viewer.aspx?secid=2841" onclick="ZP.TOCView.SelectTOC('2841',false); return false;"><span class="toc-item">4102.5.K Alternative Lending Institution</span></a></li>
+    
+    <li id="secid-x2842" class="tocLink"><a href="/regs/fairfaxcounty-va/doc-viewer.aspx?secid=2842" onclick="ZP.TOCView.SelectTOC('2842',false); return false;"><span class="toc-item">4102.5.L Drive-Through Financial Institution</span></a></li>
+    
+    <li id="secid-x2843" class="tocLink"><a href="/regs/fairfaxcounty-va/doc-viewer.aspx?secid=2843" onclick="ZP.TOCView.SelectTOC('2843',false); return false;"><span class="toc-item">4102.5.M Office</span></a></li>
+    
+    <li id="secid-x2844" class="tocLink"><a href="/regs/fairfaxcounty-va/doc-viewer.aspx?secid=2844" onclick="ZP.TOCView.SelectTOC('2844',false); return false;"><span class="toc-item">4102.5.N Office in a Residential District</span></a></li>
+    
+    <li id="secid-x2845" class="tocLink"><a href="/regs/fairfaxcounty-va/doc-viewer.aspx?secid=2845" onclick="ZP.TOCView.SelectTOC('2845',false); return false;"><span class="toc-item">4102.5.O Massage Therapy Establishment</span></a></li>
+    
+    <li id="secid-x2846" class="tocLink"><a href="/regs/fairfaxcounty-va/doc-viewer.aspx?secid=2846" onclick="ZP.TOCView.SelectTOC('2846',false); return false;"><span class="toc-item">4102.5.P Personal Service</span></a></li>
+    
+    <li id="secid-x2847" class="tocLink"><a href="/regs/fairfaxcounty-va/doc-viewer.aspx?secid=2847" onclick="ZP.TOCView.SelectTOC('2847',false); return false;"><span class="toc-item">4102.5.Q Campground</span></a></li>
+    
+    <li id="secid-x2848" class="tocLink"><a href="/regs/fairfaxcounty-va/doc-viewer.aspx?secid=2848" onclick="ZP.TOCView.SelectTOC('2848',false); return false;"><span class="toc-item">4102.5.R Commercial Recreation, Indoor</span></a></li>
+    
+    <li id="secid-x2849" class="tocLink"><a href="/regs/fairfaxcounty-va/doc-viewer.aspx?secid=2849" onclick="ZP.TOCView.SelectTOC('2849',false); return false;"><span class="toc-item">4102.5.S Commercial Recreation, Outdoor</span></a></li>
+    
+    <li id="secid-x2850" class="tocLink"><a href="/regs/fairfaxcounty-va/doc-viewer.aspx?secid=2850" onclick="ZP.TOCView.SelectTOC('2850',false); return false;"><span class="toc-item">4102.5.T Entertainment, Adult</span></a></li>
+    
+    <li id="secid-x2811" class="tocLink"><a href="/regs/fairfaxcounty-va/doc-viewer.aspx?secid=2811" onclick="ZP.TOCView.SelectTOC('2811',false); return false;"><span class="toc-item">4102.5.U Entertainment, Public</span></a></li>
+    
+    <li id="secid-x2812" class="tocLink"><a href="/regs/fairfaxcounty-va/doc-viewer.aspx?secid=2812" onclick="ZP.TOCView.SelectTOC('2812',false); return false;"><span class="toc-item">4102.5.V Golf Course or Country Club</span></a></li>
+    
+    <li id="secid-x2813" class="tocLink"><a href="/regs/fairfaxcounty-va/doc-viewer.aspx?secid=2813" onclick="ZP.TOCView.SelectTOC('2813',false); return false;"><span class="toc-item">4102.5.W Health and Exercise Facility, Large</span></a></li>
+    
+    <li id="secid-x2814" class="tocLink"><a href="/regs/fairfaxcounty-va/doc-viewer.aspx?secid=2814" onclick="ZP.TOCView.SelectTOC('2814',false); return false;"><span class="toc-item">4102.5.X Marina, Commercial</span></a></li>
+    
+    <li id="secid-x2815" class="tocLink"><a href="/regs/fairfaxcounty-va/doc-viewer.aspx?secid=2815" onclick="ZP.TOCView.SelectTOC('2815',false); return false;"><span class="toc-item">4102.5.Y Marina, Private Noncommercial</span></a></li>
+    
+    <li id="secid-x2816" class="tocLink"><a href="/regs/fairfaxcounty-va/doc-viewer.aspx?secid=2816" onclick="ZP.TOCView.SelectTOC('2816',false); return false;"><span class="toc-item">4102.5.Z Quasi-Public Park, Playground, or Athletic Field</span></a></li>
+    
+    <li id="secid-x2817" class="tocLink"><a href="/regs/fairfaxcounty-va/doc-viewer.aspx?secid=2817" onclick="ZP.TOCView.SelectTOC('2817',false); return false;"><span class="toc-item">4102.5.AA Smoking Lounge</span></a></li>
+    
+    <li id="secid-x2818" class="tocLink"><a href="/regs/fairfaxcounty-va/doc-viewer.aspx?secid=2818" onclick="ZP.TOCView.SelectTOC('2818',false); return false;"><span class="toc-item">4102.5.BB Zoo or Aquarium</span></a></li>
+    
+    <li id="secid-x2819" class="tocLink"><a href="/regs/fairfaxcounty-va/doc-viewer.aspx?secid=2819" onclick="ZP.TOCView.SelectTOC('2819',false); return false;"><span class="toc-item">4102.5.CC Convenience Store</span></a></li>
+    
+    <li id="secid-x2820" class="tocLink"><a href="/regs/fairfaxcounty-va/doc-viewer.aspx?secid=2820" onclick="ZP.TOCView.SelectTOC('2820',false); return false;"><span class="toc-item">4102.5.DD Drive-Through, Other</span></a></li>
+    
+    <li id="secid-x2821" class="tocLink"><a href="/regs/fairfaxcounty-va/doc-viewer.aspx?secid=2821" onclick="ZP.TOCView.SelectTOC('2821',false); return false;"><span class="toc-item">4102.5.EE Drive-Through Pharmacy</span></a></li>
+    
+    <li id="secid-x2822" class="tocLink"><a href="/regs/fairfaxcounty-va/doc-viewer.aspx?secid=2822" onclick="ZP.TOCView.SelectTOC('2822',false); return false;"><span class="toc-item">4102.5.FF Drug Paraphernalia Establishment</span></a></li>
+    
+    <li id="secid-x2823" class="tocLink"><a href="/regs/fairfaxcounty-va/doc-viewer.aspx?secid=2823" onclick="ZP.TOCView.SelectTOC('2823',false); return false;"><span class="toc-item">4102.5.GG Garden Center</span></a></li>
+    
+    <li id="secid-x2824" class="tocLink"><a href="/regs/fairfaxcounty-va/doc-viewer.aspx?secid=2824" onclick="ZP.TOCView.SelectTOC('2824',false); return false;"><span class="toc-item">4102.5.HH Retail Sales, General</span></a></li>
+    
+    <li id="secid-x2825" class="tocLink"><a href="/regs/fairfaxcounty-va/doc-viewer.aspx?secid=2825" onclick="ZP.TOCView.SelectTOC('2825',false); return false;"><span class="toc-item">4102.5.II Retail Sales, Large</span></a></li>
+    
+    <li id="secid-x2826" class="tocLink"><a href="/regs/fairfaxcounty-va/doc-viewer.aspx?secid=2826" onclick="ZP.TOCView.SelectTOC('2826',false); return false;"><span class="toc-item">4102.5.JJ Car Wash</span></a></li>
+    
+    <li id="secid-x2827" class="tocLink"><a href="/regs/fairfaxcounty-va/doc-viewer.aspx?secid=2827" onclick="ZP.TOCView.SelectTOC('2827',false); return false;"><span class="toc-item">4102.5.KK Commercial Off-Street Parking</span></a></li>
+    
+    <li id="secid-x2828" class="tocLink"><a href="/regs/fairfaxcounty-va/doc-viewer.aspx?secid=2828" onclick="ZP.TOCView.SelectTOC('2828',false); return false;"><span class="toc-item">4102.5.LL New Vehicle Storage</span></a></li>
+    
+    <li id="secid-x2829" class="tocLink"><a href="/regs/fairfaxcounty-va/doc-viewer.aspx?secid=2829" onclick="ZP.TOCView.SelectTOC('2829',false); return false;"><span class="toc-item">4102.5.MM Truck Rental Establishment</span></a></li>
+    
+    <li id="secid-x2830" class="tocLink"><a href="/regs/fairfaxcounty-va/doc-viewer.aspx?secid=2830" onclick="ZP.TOCView.SelectTOC('2830',false); return false;"><span class="toc-item">4102.5.NN Vehicle Fueling Station</span></a></li>
+    
+    <li id="secid-x2852" class="tocLink"><a href="/regs/fairfaxcounty-va/doc-viewer.aspx?secid=2852" onclick="ZP.TOCView.SelectTOC('2852',false); return false;"><span class="toc-item">4102.5.OO Vehicle Repair and Maintenance, Light</span></a></li>
+    
+    <li id="secid-x2851" class="tocLink"><a href="/regs/fairfaxcounty-va/doc-viewer.aspx?secid=2851" onclick="ZP.TOCView.SelectTOC('2851',false); return false;"><span class="toc-item">4102.5.PP Vehicle Sales, Rental, and Service</span></a></li>
+    
+    <li id="secid-x2853" class="tocLink"><a href="/regs/fairfaxcounty-va/doc-viewer.aspx?secid=2853" onclick="ZP.TOCView.SelectTOC('2853',false); return false;"><span class="toc-item">4102.5.QQ Vehicle Transportation Service</span></a></li>
+    </ul>
+
+    <li id="secid-x2552" class="tocLink"><a href="/regs/fairfaxcounty-va/doc-viewer.aspx?secid=2552" onclick="ZP.TOCView.SelectTOC('2552',true); return false;"><span class="toc-item">4102.6 Industrial Uses</span></a></li>
+    <ul class='toc-level4' >
+
+    <li id="secid-x2854" class="tocLink"><a href="/regs/fairfaxcounty-va/doc-viewer.aspx?secid=2854" onclick="ZP.TOCView.SelectTOC('2854',false); return false;"><span class="toc-item">4102.6.A Data Center</span></a></li>
+    
+    <li id="secid-x2855" class="tocLink"><a href="/regs/fairfaxcounty-va/doc-viewer.aspx?secid=2855" onclick="ZP.TOCView.SelectTOC('2855',false); return false;"><span class="toc-item">4102.6.B Goods Distribution Hub</span></a></li>
+    
+    <li id="secid-x2856" class="tocLink"><a href="/regs/fairfaxcounty-va/doc-viewer.aspx?secid=2856" onclick="ZP.TOCView.SelectTOC('2856',false); return false;"><span class="toc-item">4102.6.C Self-Storage</span></a></li>
+    
+    <li id="secid-x2857" class="tocLink"><a href="/regs/fairfaxcounty-va/doc-viewer.aspx?secid=2857" onclick="ZP.TOCView.SelectTOC('2857',false); return false;"><span class="toc-item">4102.6.D Warehouse</span></a></li>
+    
+    <li id="secid-x2858" class="tocLink"><a href="/regs/fairfaxcounty-va/doc-viewer.aspx?secid=2858" onclick="ZP.TOCView.SelectTOC('2858',false); return false;"><span class="toc-item">4102.6.E Wholesale Facility</span></a></li>
+    
+    <li id="secid-x2859" class="tocLink"><a href="/regs/fairfaxcounty-va/doc-viewer.aspx?secid=2859" onclick="ZP.TOCView.SelectTOC('2859',false); return false;"><span class="toc-item">4102.6.F Contractor’s Office and Shop</span></a></li>
+    
+    <li id="secid-x2860" class="tocLink"><a href="/regs/fairfaxcounty-va/doc-viewer.aspx?secid=2860" onclick="ZP.TOCView.SelectTOC('2860',false); return false;"><span class="toc-item">4102.6.G Extraction Activity</span></a></li>
+    
+    <li id="secid-x2861" class="tocLink"><a href="/regs/fairfaxcounty-va/doc-viewer.aspx?secid=2861" onclick="ZP.TOCView.SelectTOC('2861',false); return false;"><span class="toc-item">4102.6.H Petroleum Products Storage Facility</span></a></li>
+    
+    <li id="secid-x2862" class="tocLink"><a href="/regs/fairfaxcounty-va/doc-viewer.aspx?secid=2862" onclick="ZP.TOCView.SelectTOC('2862',false); return false;"><span class="toc-item">4102.6.I Storage Yard</span></a></li>
+    
+    <li id="secid-x2863" class="tocLink"><a href="/regs/fairfaxcounty-va/doc-viewer.aspx?secid=2863" onclick="ZP.TOCView.SelectTOC('2863',false); return false;"><span class="toc-item">4102.6.J Vehicle Storage or Impoundment Yard</span></a></li>
+    
+    <li id="secid-x2864" class="tocLink"><a href="/regs/fairfaxcounty-va/doc-viewer.aspx?secid=2864" onclick="ZP.TOCView.SelectTOC('2864',false); return false;"><span class="toc-item">4102.6.K Craft Beverage Production Establishment</span></a></li>
+    
+    <li id="secid-x2865" class="tocLink"><a href="/regs/fairfaxcounty-va/doc-viewer.aspx?secid=2865" onclick="ZP.TOCView.SelectTOC('2865',false); return false;"><span class="toc-item">4102.6.L Production or Processing</span></a></li>
+    
+    <li id="secid-x2866" class="tocLink"><a href="/regs/fairfaxcounty-va/doc-viewer.aspx?secid=2866" onclick="ZP.TOCView.SelectTOC('2866',false); return false;"><span class="toc-item">4102.6.M Production or Processing, Heavy</span></a></li>
+    
+    <li id="secid-x2867" class="tocLink"><a href="/regs/fairfaxcounty-va/doc-viewer.aspx?secid=2867" onclick="ZP.TOCView.SelectTOC('2867',false); return false;"><span class="toc-item">4102.6.N Small-Scale Production Establishment</span></a></li>
+    
+    <li id="secid-x2868" class="tocLink"><a href="/regs/fairfaxcounty-va/doc-viewer.aspx?secid=2868" onclick="ZP.TOCView.SelectTOC('2868',false); return false;"><span class="toc-item">4102.6.O Mixed Waste Reclamation Facility</span></a></li>
+    
+    <li id="secid-x2869" class="tocLink"><a href="/regs/fairfaxcounty-va/doc-viewer.aspx?secid=2869" onclick="ZP.TOCView.SelectTOC('2869',false); return false;"><span class="toc-item">4102.6.P Recycling Center</span></a></li>
+    
+    <li id="secid-x2870" class="tocLink"><a href="/regs/fairfaxcounty-va/doc-viewer.aspx?secid=2870" onclick="ZP.TOCView.SelectTOC('2870',false); return false;"><span class="toc-item">4102.6.Q Solid Waste Disposal Facility</span></a></li>
+    </ul>
+
+    <li id="secid-x2553" class="tocLink"><a href="/regs/fairfaxcounty-va/doc-viewer.aspx?secid=2553" onclick="ZP.TOCView.SelectTOC('2553',true); return false;"><span class="toc-item">4102.7 Accessory Uses</span></a></li>
+    <ul class='toc-level4' >
+
+    <li id="secid-x2871" class="tocLink"><a href="/regs/fairfaxcounty-va/doc-viewer.aspx?secid=2871" onclick="ZP.TOCView.SelectTOC('2871',false); return false;"><span class="toc-item">4102.7.A General Standards for Accessory Uses and Structures</span></a></li>
+    
+    <li id="secid-x2872" class="tocLink"><a href="/regs/fairfaxcounty-va/doc-viewer.aspx?secid=2872" onclick="ZP.TOCView.SelectTOC('2872',false); return false;"><span class="toc-item">4102.7.B Accessory Living Unit</span></a></li>
+    
+    <li id="secid-x2873" class="tocLink"><a href="/regs/fairfaxcounty-va/doc-viewer.aspx?secid=2873" onclick="ZP.TOCView.SelectTOC('2873',false); return false;"><span class="toc-item">4102.7.C Child Care Center for Occasional Care</span></a></li>
+    
+    <li id="secid-x2874" class="tocLink"><a href="/regs/fairfaxcounty-va/doc-viewer.aspx?secid=2874" onclick="ZP.TOCView.SelectTOC('2874',false); return false;"><span class="toc-item">4102.7.D Donation Drop-off Box</span></a></li>
+    
+    <li id="secid-x2875" class="tocLink"><a href="/regs/fairfaxcounty-va/doc-viewer.aspx?secid=2875" onclick="ZP.TOCView.SelectTOC('2875',false); return false;"><span class="toc-item">4102.7.E Electric Vehicle Charging</span></a></li>
+    
+    <li id="secid-x2876" class="tocLink"><a href="/regs/fairfaxcounty-va/doc-viewer.aspx?secid=2876" onclick="ZP.TOCView.SelectTOC('2876',false); return false;"><span class="toc-item">4102.7.F Family Health Care Structure</span></a></li>
+    
+    <li id="secid-x2877" class="tocLink"><a href="/regs/fairfaxcounty-va/doc-viewer.aspx?secid=2877" onclick="ZP.TOCView.SelectTOC('2877',false); return false;"><span class="toc-item">4102.7.G Garage Sale or Yard Sale</span></a></li>
+    
+    <li id="secid-x2878" class="tocLink"><a href="/regs/fairfaxcounty-va/doc-viewer.aspx?secid=2878" onclick="ZP.TOCView.SelectTOC('2878',false); return false;"><span class="toc-item">4102.7.H Home-Based Business</span></a></li>
+    
+    <li id="secid-x2879" class="tocLink"><a href="/regs/fairfaxcounty-va/doc-viewer.aspx?secid=2879" onclick="ZP.TOCView.SelectTOC('2879',false); return false;"><span class="toc-item">4102.7.I Home Day Care Facility</span></a></li>
+    
+    <li id="secid-x2880" class="tocLink"><a href="/regs/fairfaxcounty-va/doc-viewer.aspx?secid=2880" onclick="ZP.TOCView.SelectTOC('2880',false); return false;"><span class="toc-item">4102.7.J Keeping of Animals</span></a></li>
+    
+    <li id="secid-x2881" class="tocLink"><a href="/regs/fairfaxcounty-va/doc-viewer.aspx?secid=2881" onclick="ZP.TOCView.SelectTOC('2881',false); return false;"><span class="toc-item">4102.7.K Limited Riding or Boarding Stable</span></a></li>
+    
+    <li id="secid-x3065" class="tocLink"><a href="/regs/fairfaxcounty-va/doc-viewer.aspx?secid=3065" onclick="ZP.TOCView.SelectTOC('3065',false); return false;"><span class="toc-item">4102.7.L Outdoor Dining</span></a></li>
+    
+    <li id="secid-x2882" class="tocLink"><a href="/regs/fairfaxcounty-va/doc-viewer.aspx?secid=2882" onclick="ZP.TOCView.SelectTOC('2882',false); return false;"><span class="toc-item">4102.7.M Residence for Manager or Employee</span></a></li>
+    
+    <li id="secid-x2883" class="tocLink"><a href="/regs/fairfaxcounty-va/doc-viewer.aspx?secid=2883" onclick="ZP.TOCView.SelectTOC('2883',false); return false;"><span class="toc-item">4102.7.N Sawmilling</span></a></li>
+    
+    <li id="secid-x2884" class="tocLink"><a href="/regs/fairfaxcounty-va/doc-viewer.aspx?secid=2884" onclick="ZP.TOCView.SelectTOC('2884',false); return false;"><span class="toc-item">4102.7.O Short-Term Lodging</span></a></li>
+    
+    <li id="secid-x2885" class="tocLink"><a href="/regs/fairfaxcounty-va/doc-viewer.aspx?secid=2885" onclick="ZP.TOCView.SelectTOC('2885',false); return false;"><span class="toc-item">4102.7.P Solar Collection System</span></a></li>
+    </ul>
+
+    <li id="secid-x2554" class="tocLink"><a href="/regs/fairfaxcounty-va/doc-viewer.aspx?secid=2554" onclick="ZP.TOCView.SelectTOC('2554',true); return false;"><span class="toc-item">4102.8 Temporary Uses</span></a></li>
+    <ul class='toc-level4' >
+
+    <li id="secid-x2938" class="tocLink"><a href="/regs/fairfaxcounty-va/doc-viewer.aspx?secid=2938" onclick="ZP.TOCView.SelectTOC('2938',false); return false;"><span class="toc-item">4102.8.A General Standards for Temporary Uses</span></a></li>
+    
+    <li id="secid-x2939" class="tocLink"><a href="/regs/fairfaxcounty-va/doc-viewer.aspx?secid=2939" onclick="ZP.TOCView.SelectTOC('2939',false); return false;"><span class="toc-item">4102.8.B Community Garden</span></a></li>
+    
+    <li id="secid-x2940" class="tocLink"><a href="/regs/fairfaxcounty-va/doc-viewer.aspx?secid=2940" onclick="ZP.TOCView.SelectTOC('2940',false); return false;"><span class="toc-item">4102.8.C Construction Site Office and Storage</span></a></li>
+    
+    <li id="secid-x2941" class="tocLink"><a href="/regs/fairfaxcounty-va/doc-viewer.aspx?secid=2941" onclick="ZP.TOCView.SelectTOC('2941',false); return false;"><span class="toc-item">4102.8.D Farmers Market</span></a></li>
+    
+    <li id="secid-x2942" class="tocLink"><a href="/regs/fairfaxcounty-va/doc-viewer.aspx?secid=2942" onclick="ZP.TOCView.SelectTOC('2942',false); return false;"><span class="toc-item">4102.8.E Food Truck</span></a></li>
+    
+    <li id="secid-x2943" class="tocLink"><a href="/regs/fairfaxcounty-va/doc-viewer.aspx?secid=2943" onclick="ZP.TOCView.SelectTOC('2943',false); return false;"><span class="toc-item">4102.8.F Interim Off-Street Parking in Metro Station Area</span></a></li>
+    
+    <li id="secid-x2944" class="tocLink"><a href="/regs/fairfaxcounty-va/doc-viewer.aspx?secid=2944" onclick="ZP.TOCView.SelectTOC('2944',false); return false;"><span class="toc-item">4102.8.G Model Home Sales and Leasing Office</span></a></li>
+    
+    <li id="secid-x2945" class="tocLink"><a href="/regs/fairfaxcounty-va/doc-viewer.aspx?secid=2945" onclick="ZP.TOCView.SelectTOC('2945',false); return false;"><span class="toc-item">4102.8.H Portable Storage Container</span></a></li>
+    
+    <li id="secid-x2946" class="tocLink"><a href="/regs/fairfaxcounty-va/doc-viewer.aspx?secid=2946" onclick="ZP.TOCView.SelectTOC('2946',false); return false;"><span class="toc-item">4102.8.I Special Event</span></a></li>
+    
+    <li id="secid-x2947" class="tocLink"><a href="/regs/fairfaxcounty-va/doc-viewer.aspx?secid=2947" onclick="ZP.TOCView.SelectTOC('2947',false); return false;"><span class="toc-item">4102.8.J Temporary Dwelling or Manufactured Home</span></a></li>
+    </ul>
+</ul>
+</ul>
+
+    <li id="secid-x2245" class="tocLink"><a href="/regs/fairfaxcounty-va/doc-viewer.aspx?secid=2245" onclick="ZP.TOCView.SelectTOC('2245',true); return false;"><span class="toc-item">Article 5 - Development Standards</span></a></li>
+    <ul class='toc-level2' >
+
+    <li id="secid-x2246" class="tocLink"><a href="/regs/fairfaxcounty-va/doc-viewer.aspx?secid=2246" onclick="ZP.TOCView.SelectTOC('2246',true); return false;"><span class="toc-item">5100. Lot, Bulk, and Open Space Regulations</span></a></li>
+    <ul class='toc-level3' >
+
+    <li id="secid-x2556" class="tocLink"><a href="/regs/fairfaxcounty-va/doc-viewer.aspx?secid=2556" onclick="ZP.TOCView.SelectTOC('2556',false); return false;"><span class="toc-item">5100.1 General Dimensional Standards</span></a></li>
+    
+    <li id="secid-x2557" class="tocLink"><a href="/regs/fairfaxcounty-va/doc-viewer.aspx?secid=2557" onclick="ZP.TOCView.SelectTOC('2557',true); return false;"><span class="toc-item">5100.2 Lot and Bulk Regulations</span></a></li>
+    <ul class='toc-level4' >
+
+    <li id="secid-x2908" class="tocLink"><a href="/regs/fairfaxcounty-va/doc-viewer.aspx?secid=2908" onclick="ZP.TOCView.SelectTOC('2908',false); return false;"><span class="toc-item">5100.2.A Lot Size Regulations</span></a></li>
+    
+    <li id="secid-x2909" class="tocLink"><a href="/regs/fairfaxcounty-va/doc-viewer.aspx?secid=2909" onclick="ZP.TOCView.SelectTOC('2909',false); return false;"><span class="toc-item">5100.2.B Bulk Regulations</span></a></li>
+    
+    <li id="secid-x2910" class="tocLink"><a href="/regs/fairfaxcounty-va/doc-viewer.aspx?secid=2910" onclick="ZP.TOCView.SelectTOC('2910',false); return false;"><span class="toc-item">5100.2.C Height Regulations</span></a></li>
+    
+    <li id="secid-x2911" class="tocLink"><a href="/regs/fairfaxcounty-va/doc-viewer.aspx?secid=2911" onclick="ZP.TOCView.SelectTOC('2911',false); return false;"><span class="toc-item">5100.2.D Setback Regulations</span></a></li>
+    
+    <li id="secid-x2912" class="tocLink"><a href="/regs/fairfaxcounty-va/doc-viewer.aspx?secid=2912" onclick="ZP.TOCView.SelectTOC('2912',false); return false;"><span class="toc-item">5100.2.E Maximum Density and Intensity</span></a></li>
+    
+    <li id="secid-x2913" class="tocLink"><a href="/regs/fairfaxcounty-va/doc-viewer.aspx?secid=2913" onclick="ZP.TOCView.SelectTOC('2913',false); return false;"><span class="toc-item">5100.2.F Limitations on Subdivision of Lots</span></a></li>
+    
+    <li id="secid-x2914" class="tocLink"><a href="/regs/fairfaxcounty-va/doc-viewer.aspx?secid=2914" onclick="ZP.TOCView.SelectTOC('2914',false); return false;"><span class="toc-item">5100.2.G Limitation on the Number of Dwelling Units on a Lot</span></a></li>
+    
+    <li id="secid-x2915" class="tocLink"><a href="/regs/fairfaxcounty-va/doc-viewer.aspx?secid=2915" onclick="ZP.TOCView.SelectTOC('2915',false); return false;"><span class="toc-item">5100.2.H Shape Factor Limitations</span></a></li>
+    
+    <li id="secid-x2916" class="tocLink"><a href="/regs/fairfaxcounty-va/doc-viewer.aspx?secid=2916" onclick="ZP.TOCView.SelectTOC('2916',false); return false;"><span class="toc-item">5100.2.I Subdivided Parcels not included on Individual Lot</span></a></li>
+    
+    <li id="secid-x2917" class="tocLink"><a href="/regs/fairfaxcounty-va/doc-viewer.aspx?secid=2917" onclick="ZP.TOCView.SelectTOC('2917',false); return false;"><span class="toc-item">5100.2.J Permitted Reductions in Lot Size Requirements for Certain Existing Lots</span></a></li>
+    
+    <li id="secid-x2918" class="tocLink"><a href="/regs/fairfaxcounty-va/doc-viewer.aspx?secid=2918" onclick="ZP.TOCView.SelectTOC('2918',false); return false;"><span class="toc-item">5100.2.K Waiver of Minimum Lot Size Requirements</span></a></li>
+    
+    <li id="secid-x2919" class="tocLink"><a href="/regs/fairfaxcounty-va/doc-viewer.aspx?secid=2919" onclick="ZP.TOCView.SelectTOC('2919',false); return false;"><span class="toc-item">5100.2.L Pipestem Lots and Setbacks</span></a></li>
+    
+    <li id="secid-x2920" class="tocLink"><a href="/regs/fairfaxcounty-va/doc-viewer.aspx?secid=2920" onclick="ZP.TOCView.SelectTOC('2920',false); return false;"><span class="toc-item">5100.2.M Residential Access to Public Street</span></a></li>
+    
+    <li id="secid-x2921" class="tocLink"><a href="/regs/fairfaxcounty-va/doc-viewer.aspx?secid=2921" onclick="ZP.TOCView.SelectTOC('2921',false); return false;"><span class="toc-item">5100.2.N Limitation on Driveways for Uses in C and I Districts</span></a></li>
+    
+    <li id="secid-x2922" class="tocLink"><a href="/regs/fairfaxcounty-va/doc-viewer.aspx?secid=2922" onclick="ZP.TOCView.SelectTOC('2922',false); return false;"><span class="toc-item">5100.2.O Cluster Subdivisions</span></a></li>
+    
+    <li id="secid-x2923" class="tocLink"><a href="/regs/fairfaxcounty-va/doc-viewer.aspx?secid=2923" onclick="ZP.TOCView.SelectTOC('2923',false); return false;"><span class="toc-item">5100.2.P Compliance with Other Applicable Regulations and Standards</span></a></li>
+    
+    <li id="secid-x2924" class="tocLink"><a href="/regs/fairfaxcounty-va/doc-viewer.aspx?secid=2924" onclick="ZP.TOCView.SelectTOC('2924',false); return false;"><span class="toc-item">5100.2.Q Major Underground Utility Easements</span></a></li>
+    
+    <li id="secid-x2925" class="tocLink"><a href="/regs/fairfaxcounty-va/doc-viewer.aspx?secid=2925" onclick="ZP.TOCView.SelectTOC('2925',false); return false;"><span class="toc-item">5100.2.R Lots Bordered by Access Easements</span></a></li>
+    </ul>
+
+    <li id="secid-x2558" class="tocLink"><a href="/regs/fairfaxcounty-va/doc-viewer.aspx?secid=2558" onclick="ZP.TOCView.SelectTOC('2558',false); return false;"><span class="toc-item">5100.3 Open Space Requirements</span></a></li>
+    </ul>
+
+    <li id="secid-x2247" class="tocLink"><a href="/regs/fairfaxcounty-va/doc-viewer.aspx?secid=2247" onclick="ZP.TOCView.SelectTOC('2247',true); return false;"><span class="toc-item">5101. Affordable Dwelling Unit Program</span></a></li>
+    <ul class='toc-level3' >
+
+    <li id="secid-x2559" class="tocLink"><a href="/regs/fairfaxcounty-va/doc-viewer.aspx?secid=2559" onclick="ZP.TOCView.SelectTOC('2559',false); return false;"><span class="toc-item">5101.1 Purpose</span></a></li>
+    
+    <li id="secid-x2560" class="tocLink"><a href="/regs/fairfaxcounty-va/doc-viewer.aspx?secid=2560" onclick="ZP.TOCView.SelectTOC('2560',false); return false;"><span class="toc-item">5101.2 Applicability</span></a></li>
+    
+    <li id="secid-x2561" class="tocLink"><a href="/regs/fairfaxcounty-va/doc-viewer.aspx?secid=2561" onclick="ZP.TOCView.SelectTOC('2561',false); return false;"><span class="toc-item">5101.3 Developments Exempt from the Affordable Dwelling Unit Program</span></a></li>
+    
+    <li id="secid-x2562" class="tocLink"><a href="/regs/fairfaxcounty-va/doc-viewer.aspx?secid=2562" onclick="ZP.TOCView.SelectTOC('2562',false); return false;"><span class="toc-item">5101.4 Affordable Dwelling Unit Calculations</span></a></li>
+    
+    <li id="secid-x2563" class="tocLink"><a href="/regs/fairfaxcounty-va/doc-viewer.aspx?secid=2563" onclick="ZP.TOCView.SelectTOC('2563',false); return false;"><span class="toc-item">5101.5 Additional Development Regulations</span></a></li>
+    
+    <li id="secid-x2564" class="tocLink"><a href="/regs/fairfaxcounty-va/doc-viewer.aspx?secid=2564" onclick="ZP.TOCView.SelectTOC('2564',false); return false;"><span class="toc-item">5101.6 Designation of Affordable Dwelling Units on Subdivision/Site Plans</span></a></li>
+    
+    <li id="secid-x2565" class="tocLink"><a href="/regs/fairfaxcounty-va/doc-viewer.aspx?secid=2565" onclick="ZP.TOCView.SelectTOC('2565',false); return false;"><span class="toc-item">5101.7 Condominium Developments</span></a></li>
+    
+    <li id="secid-x2566" class="tocLink"><a href="/regs/fairfaxcounty-va/doc-viewer.aspx?secid=2566" onclick="ZP.TOCView.SelectTOC('2566',false); return false;"><span class="toc-item">5101.8 Administration of ADU Program</span></a></li>
+    
+    <li id="secid-x2567" class="tocLink"><a href="/regs/fairfaxcounty-va/doc-viewer.aspx?secid=2567" onclick="ZP.TOCView.SelectTOC('2567',false); return false;"><span class="toc-item">5101.9 Example Calculations for a FAR Based Comprehensive Plan Recommendation for Single-Family Attached or Stacked Townhouse Dwelling Unit Development</span></a></li>
+    
+    <li id="secid-x2568" class="tocLink"><a href="/regs/fairfaxcounty-va/doc-viewer.aspx?secid=2568" onclick="ZP.TOCView.SelectTOC('2568',false); return false;"><span class="toc-item">5101.10 Example Calculations Dwelling Units Per Acre Based Comprehensive Plan Recommendation for a Multifamily Dwelling Unit Development</span></a></li>
+    
+    <li id="secid-x2569" class="tocLink"><a href="/regs/fairfaxcounty-va/doc-viewer.aspx?secid=2569" onclick="ZP.TOCView.SelectTOC('2569',false); return false;"><span class="toc-item">5101.11 Example Calculations for a Mixed Dwelling Unit Development</span></a></li>
+    
+    <li id="secid-x2570" class="tocLink"><a href="/regs/fairfaxcounty-va/doc-viewer.aspx?secid=2570" onclick="ZP.TOCView.SelectTOC('2570',false); return false;"><span class="toc-item">5101.12 Example Calculations for a Mixed-Use Development</span></a></li>
+    
+    <li id="secid-x3071" class="tocLink"><a href="/regs/fairfaxcounty-va/doc-viewer.aspx?secid=3071" onclick="ZP.TOCView.SelectTOC('3071',false); return false;"><span class="toc-item">5101.13 Example Calculations for a Mixed Dwelling Unit Development with Exempt Residential Building</span></a></li>
+    </ul>
+
+    <li id="secid-x2248" class="tocLink"><a href="/regs/fairfaxcounty-va/doc-viewer.aspx?secid=2248" onclick="ZP.TOCView.SelectTOC('2248',false); return false;"><span class="toc-item">5102. Earthborn Vibration Standards</span></a></li>
+    
+    <li id="secid-x2249" class="tocLink"><a href="/regs/fairfaxcounty-va/doc-viewer.aspx?secid=2249" onclick="ZP.TOCView.SelectTOC('2249',false); return false;"><span class="toc-item">5103. Water and Sewer Facility Requirements</span></a></li>
+    
+    <li id="secid-x2250" class="tocLink"><a href="/regs/fairfaxcounty-va/doc-viewer.aspx?secid=2250" onclick="ZP.TOCView.SelectTOC('2250',false); return false;"><span class="toc-item">5104. Grading, Erosion, Sediment Control, and Drainage</span></a></li>
+    
+    <li id="secid-x2251" class="tocLink"><a href="/regs/fairfaxcounty-va/doc-viewer.aspx?secid=2251" onclick="ZP.TOCView.SelectTOC('2251',false); return false;"><span class="toc-item">5105. Floodplain Regulations</span></a></li>
+    
+    <li id="secid-x2252" class="tocLink"><a href="/regs/fairfaxcounty-va/doc-viewer.aspx?secid=2252" onclick="ZP.TOCView.SelectTOC('2252',false); return false;"><span class="toc-item">5106. Common Open Space and Improvements</span></a></li>
+    
+    <li id="secid-x2253" class="tocLink"><a href="/regs/fairfaxcounty-va/doc-viewer.aspx?secid=2253" onclick="ZP.TOCView.SelectTOC('2253',false); return false;"><span class="toc-item">5107. Private Streets</span></a></li>
+    
+    <li id="secid-x2254" class="tocLink"><a href="/regs/fairfaxcounty-va/doc-viewer.aspx?secid=2254" onclick="ZP.TOCView.SelectTOC('2254',true); return false;"><span class="toc-item">5108. Landscaping and Screening</span></a></li>
+    <ul class='toc-level3' >
+
+    <li id="secid-x3012" class="tocLink"><a href="/regs/fairfaxcounty-va/doc-viewer.aspx?secid=3012" onclick="ZP.TOCView.SelectTOC('3012',false); return false;"><span class="toc-item">5108.1 Applicability and Administration</span></a></li>
+    
+    <li id="secid-x3060" class="tocLink"><a href="/regs/fairfaxcounty-va/doc-viewer.aspx?secid=3060" onclick="ZP.TOCView.SelectTOC('3060',false); return false;"><span class="toc-item">5108.2 General Landscaping Standards</span></a></li>
+    
+    <li id="secid-x3055" class="tocLink"><a href="/regs/fairfaxcounty-va/doc-viewer.aspx?secid=3055" onclick="ZP.TOCView.SelectTOC('3055',false); return false;"><span class="toc-item">5108.3 Street Frontage Landscaping</span></a></li>
+    
+    <li id="secid-x3056" class="tocLink"><a href="/regs/fairfaxcounty-va/doc-viewer.aspx?secid=3056" onclick="ZP.TOCView.SelectTOC('3056',false); return false;"><span class="toc-item">5108.4 Parking Lot Landscaping</span></a></li>
+    
+    <li id="secid-x3058" class="tocLink"><a href="/regs/fairfaxcounty-va/doc-viewer.aspx?secid=3058" onclick="ZP.TOCView.SelectTOC('3058',false); return false;"><span class="toc-item">5108.5 Transitional Screening and Barriers</span></a></li>
+    
+    <li id="secid-x3059" class="tocLink"><a href="/regs/fairfaxcounty-va/doc-viewer.aspx?secid=3059" onclick="ZP.TOCView.SelectTOC('3059',false); return false;"><span class="toc-item">5108.6 Waivers and Modifications</span></a></li>
+    
+    <li id="secid-x3057" class="tocLink"><a href="/regs/fairfaxcounty-va/doc-viewer.aspx?secid=3057" onclick="ZP.TOCView.SelectTOC('3057',false); return false;"><span class="toc-item">5108.7 Maintenance</span></a></li>
+    
+    <li id="secid-x3019" class="tocLink"><a href="/regs/fairfaxcounty-va/doc-viewer.aspx?secid=3019" onclick="ZP.TOCView.SelectTOC('3019',false); return false;"><span class="toc-item">5108.8 Tree Conservation</span></a></li>
+    </ul>
+
+    <li id="secid-x2255" class="tocLink"><a href="/regs/fairfaxcounty-va/doc-viewer.aspx?secid=2255" onclick="ZP.TOCView.SelectTOC('2255',false); return false;"><span class="toc-item">5109. Outdoor Lighting</span></a></li>
+    </ul>
+
+    <li id="secid-x2256" class="tocLink"><a href="/regs/fairfaxcounty-va/doc-viewer.aspx?secid=2256" onclick="ZP.TOCView.SelectTOC('2256',true); return false;"><span class="toc-item">Article 6 - Parking and Loading</span></a></li>
+    <ul class='toc-level2' >
+
+    <li id="secid-x2257" class="tocLink"><a href="/regs/fairfaxcounty-va/doc-viewer.aspx?secid=2257" onclick="ZP.TOCView.SelectTOC('2257',true); return false;"><span class="toc-item">6100. Off-Street Parking</span></a></li>
+    <ul class='toc-level3' >
+
+    <li id="secid-x2571" class="tocLink"><a href="/regs/fairfaxcounty-va/doc-viewer.aspx?secid=2571" onclick="ZP.TOCView.SelectTOC('2571',false); return false;"><span class="toc-item">6100.1 Applicability</span></a></li>
+    
+    <li id="secid-x2572" class="tocLink"><a href="/regs/fairfaxcounty-va/doc-viewer.aspx?secid=2572" onclick="ZP.TOCView.SelectTOC('2572',false); return false;"><span class="toc-item">6100.2 Off-Street Parking Standards, Layout, and Design</span></a></li>
+    
+    <li id="secid-x2573" class="tocLink"><a href="/regs/fairfaxcounty-va/doc-viewer.aspx?secid=2573" onclick="ZP.TOCView.SelectTOC('2573',false); return false;"><span class="toc-item">6100.3 Calculation of Off-Street Parking</span></a></li>
+    
+    <li id="secid-x2574" class="tocLink"><a href="/regs/fairfaxcounty-va/doc-viewer.aspx?secid=2574" onclick="ZP.TOCView.SelectTOC('2574',false); return false;"><span class="toc-item">6100.4 Minimum Required Off-Street Vehicle Parking Spaces, and Stacking Spaces</span></a></li>
+    
+    <li id="secid-x2575" class="tocLink"><a href="/regs/fairfaxcounty-va/doc-viewer.aspx?secid=2575" onclick="ZP.TOCView.SelectTOC('2575',false); return false;"><span class="toc-item">6100.5 Tiered Framework and PTC District – Off-Street Parking Requirement</span></a></li>
+    
+    <li id="secid-x2576" class="tocLink"><a href="/regs/fairfaxcounty-va/doc-viewer.aspx?secid=2576" onclick="ZP.TOCView.SelectTOC('2576',false); return false;"><span class="toc-item">6100.6  Adjustments to Minimum Required Off-Street Parking</span></a></li>
+    </ul>
+
+    <li id="secid-x2258" class="tocLink"><a href="/regs/fairfaxcounty-va/doc-viewer.aspx?secid=2258" onclick="ZP.TOCView.SelectTOC('2258',false); return false;"><span class="toc-item">6101. Off-Street Loading</span></a></li>
+    
+    <li id="secid-x2259" class="tocLink"><a href="/regs/fairfaxcounty-va/doc-viewer.aspx?secid=2259" onclick="ZP.TOCView.SelectTOC('2259',false); return false;"><span class="toc-item">6102. Bicycle Parking Requirements</span></a></li>
+    </ul>
+
+    <li id="secid-x2260" class="tocLink"><a href="/regs/fairfaxcounty-va/doc-viewer.aspx?secid=2260" onclick="ZP.TOCView.SelectTOC('2260',true); return false;"><span class="toc-item">Article 7 - Signs</span></a></li>
+    <ul class='toc-level2' >
+
+    <li id="secid-x2261" class="tocLink"><a href="/regs/fairfaxcounty-va/doc-viewer.aspx?secid=2261" onclick="ZP.TOCView.SelectTOC('2261',true); return false;"><span class="toc-item">7100. General Provisions</span></a></li>
+    <ul class='toc-level3' >
+
+    <li id="secid-x3005" class="tocLink"><a href="/regs/fairfaxcounty-va/doc-viewer.aspx?secid=3005" onclick="ZP.TOCView.SelectTOC('3005',false); return false;"><span class="toc-item">7100.1 Purpose</span></a></li>
+    
+    <li id="secid-x3006" class="tocLink"><a href="/regs/fairfaxcounty-va/doc-viewer.aspx?secid=3006" onclick="ZP.TOCView.SelectTOC('3006',false); return false;"><span class="toc-item">7100.2 Applicability</span></a></li>
+    
+    <li id="secid-x3007" class="tocLink"><a href="/regs/fairfaxcounty-va/doc-viewer.aspx?secid=3007" onclick="ZP.TOCView.SelectTOC('3007',false); return false;"><span class="toc-item">7100.3 Administrative Provisions</span></a></li>
+    
+    <li id="secid-x3008" class="tocLink"><a href="/regs/fairfaxcounty-va/doc-viewer.aspx?secid=3008" onclick="ZP.TOCView.SelectTOC('3008',false); return false;"><span class="toc-item">7100.4 Minor Signs</span></a></li>
+    
+    <li id="secid-x3009" class="tocLink"><a href="/regs/fairfaxcounty-va/doc-viewer.aspx?secid=3009" onclick="ZP.TOCView.SelectTOC('3009',false); return false;"><span class="toc-item">7100.5 Prohibited Signs</span></a></li>
+    
+    <li id="secid-x3010" class="tocLink"><a href="/regs/fairfaxcounty-va/doc-viewer.aspx?secid=3010" onclick="ZP.TOCView.SelectTOC('3010',false); return false;"><span class="toc-item">7100.6 Nonconforming Signs</span></a></li>
+    
+    <li id="secid-x3011" class="tocLink"><a href="/regs/fairfaxcounty-va/doc-viewer.aspx?secid=3011" onclick="ZP.TOCView.SelectTOC('3011',false); return false;"><span class="toc-item">7100.7 Sign Measurement</span></a></li>
+    </ul>
+
+    <li id="secid-x2262" class="tocLink"><a href="/regs/fairfaxcounty-va/doc-viewer.aspx?secid=2262" onclick="ZP.TOCView.SelectTOC('2262',false); return false;"><span class="toc-item">7101. Sign Regulations by Use and District</span></a></li>
+    
+    <li id="secid-x2263" class="tocLink"><a href="/regs/fairfaxcounty-va/doc-viewer.aspx?secid=2263" onclick="ZP.TOCView.SelectTOC('2263',false); return false;"><span class="toc-item">7102. Special Exception for Sign Modifications</span></a></li>
+    </ul>
+
+    <li id="secid-x2264" class="tocLink"><a href="/regs/fairfaxcounty-va/doc-viewer.aspx?secid=2264" onclick="ZP.TOCView.SelectTOC('2264',true); return false;"><span class="toc-item">Article 8 - Administration, Procedures, and Enforcement</span></a></li>
+    <ul class='toc-level2' >
+
+    <li id="secid-x2265" class="tocLink"><a href="/regs/fairfaxcounty-va/doc-viewer.aspx?secid=2265" onclick="ZP.TOCView.SelectTOC('2265',true); return false;"><span class="toc-item">8100. Review Procedures</span></a></li>
+    <ul class='toc-level3' >
+
+    <li id="secid-x2580" class="tocLink"><a href="/regs/fairfaxcounty-va/doc-viewer.aspx?secid=2580" onclick="ZP.TOCView.SelectTOC('2580',false); return false;"><span class="toc-item">8100.1 General Requirements for All Applications and Appeals to the BZA</span></a></li>
+    
+    <li id="secid-x2581" class="tocLink"><a href="/regs/fairfaxcounty-va/doc-viewer.aspx?secid=2581" onclick="ZP.TOCView.SelectTOC('2581',false); return false;"><span class="toc-item">8100.2 Ordinance Text and Zoning Map (Rezoning) Amendments</span></a></li>
+    
+    <li id="secid-x2582" class="tocLink"><a href="/regs/fairfaxcounty-va/doc-viewer.aspx?secid=2582" onclick="ZP.TOCView.SelectTOC('2582',false); return false;"><span class="toc-item">8100.3 Special Exceptions</span></a></li>
+    
+    <li id="secid-x2583" class="tocLink"><a href="/regs/fairfaxcounty-va/doc-viewer.aspx?secid=2583" onclick="ZP.TOCView.SelectTOC('2583',false); return false;"><span class="toc-item">8100.4 Special Permits</span></a></li>
+    
+    <li id="secid-x2584" class="tocLink"><a href="/regs/fairfaxcounty-va/doc-viewer.aspx?secid=2584" onclick="ZP.TOCView.SelectTOC('2584',false); return false;"><span class="toc-item">8100.5 Minor Modifications and Variations</span></a></li>
+    
+    <li id="secid-x2585" class="tocLink"><a href="/regs/fairfaxcounty-va/doc-viewer.aspx?secid=2585" onclick="ZP.TOCView.SelectTOC('2585',false); return false;"><span class="toc-item">8100.6 Variances</span></a></li>
+    
+    <li id="secid-x2586" class="tocLink"><a href="/regs/fairfaxcounty-va/doc-viewer.aspx?secid=2586" onclick="ZP.TOCView.SelectTOC('2586',false); return false;"><span class="toc-item">8100.7 Site Plans and Minor Site Plans</span></a></li>
+    
+    <li id="secid-x2587" class="tocLink"><a href="/regs/fairfaxcounty-va/doc-viewer.aspx?secid=2587" onclick="ZP.TOCView.SelectTOC('2587',false); return false;"><span class="toc-item">8100.8 Building Permits</span></a></li>
+    
+    <li id="secid-x2588" class="tocLink"><a href="/regs/fairfaxcounty-va/doc-viewer.aspx?secid=2588" onclick="ZP.TOCView.SelectTOC('2588',false); return false;"><span class="toc-item">8100.9 Residential and Nonresidential Use Permits</span></a></li>
+    
+    <li id="secid-x2589" class="tocLink"><a href="/regs/fairfaxcounty-va/doc-viewer.aspx?secid=2589" onclick="ZP.TOCView.SelectTOC('2589',false); return false;"><span class="toc-item">8100.10 Appeals</span></a></li>
+    </ul>
+
+    <li id="secid-x2266" class="tocLink"><a href="/regs/fairfaxcounty-va/doc-viewer.aspx?secid=2266" onclick="ZP.TOCView.SelectTOC('2266',true); return false;"><span class="toc-item">8101. Submission Requirements</span></a></li>
+    <ul class='toc-level3' >
+
+    <li id="secid-x2997" class="tocLink"><a href="/regs/fairfaxcounty-va/doc-viewer.aspx?secid=2997" onclick="ZP.TOCView.SelectTOC('2997',false); return false;"><span class="toc-item">8101.1 General Requirements for All Applications</span></a></li>
+    
+    <li id="secid-x2998" class="tocLink"><a href="/regs/fairfaxcounty-va/doc-viewer.aspx?secid=2998" onclick="ZP.TOCView.SelectTOC('2998',false); return false;"><span class="toc-item">8101.2 Zoning Map Amendments (Rezonings)</span></a></li>
+    
+    <li id="secid-x2999" class="tocLink"><a href="/regs/fairfaxcounty-va/doc-viewer.aspx?secid=2999" onclick="ZP.TOCView.SelectTOC('2999',false); return false;"><span class="toc-item">8101.3 Special Exceptions, Special Permits, and Variances</span></a></li>
+    
+    <li id="secid-x3000" class="tocLink"><a href="/regs/fairfaxcounty-va/doc-viewer.aspx?secid=3000" onclick="ZP.TOCView.SelectTOC('3000',false); return false;"><span class="toc-item">8101.4 Site Plans and Minor Site Plans</span></a></li>
+    
+    <li id="secid-x3001" class="tocLink"><a href="/regs/fairfaxcounty-va/doc-viewer.aspx?secid=3001" onclick="ZP.TOCView.SelectTOC('3001',false); return false;"><span class="toc-item">8101.5 Building Permits</span></a></li>
+    
+    <li id="secid-x3002" class="tocLink"><a href="/regs/fairfaxcounty-va/doc-viewer.aspx?secid=3002" onclick="ZP.TOCView.SelectTOC('3002',false); return false;"><span class="toc-item">8101.6 Residential Use Permits</span></a></li>
+    
+    <li id="secid-x3003" class="tocLink"><a href="/regs/fairfaxcounty-va/doc-viewer.aspx?secid=3003" onclick="ZP.TOCView.SelectTOC('3003',false); return false;"><span class="toc-item">8101.7 Administrative Permits</span></a></li>
+    
+    <li id="secid-x3004" class="tocLink"><a href="/regs/fairfaxcounty-va/doc-viewer.aspx?secid=3004" onclick="ZP.TOCView.SelectTOC('3004',false); return false;"><span class="toc-item">8101.8 Appeals</span></a></li>
+    </ul>
+
+    <li id="secid-x2267" class="tocLink"><a href="/regs/fairfaxcounty-va/doc-viewer.aspx?secid=2267" onclick="ZP.TOCView.SelectTOC('2267',false); return false;"><span class="toc-item">8102. Fee Schedule</span></a></li>
+    
+    <li id="secid-x2268" class="tocLink"><a href="/regs/fairfaxcounty-va/doc-viewer.aspx?secid=2268" onclick="ZP.TOCView.SelectTOC('2268',true); return false;"><span class="toc-item">8103. Review and Decision-Making Bodies</span></a></li>
+    <ul class='toc-level3' >
+
+    <li id="secid-x2983" class="tocLink"><a href="/regs/fairfaxcounty-va/doc-viewer.aspx?secid=2983" onclick="ZP.TOCView.SelectTOC('2983',false); return false;"><span class="toc-item">8103.1 Board of Supervisors</span></a></li>
+    
+    <li id="secid-x2984" class="tocLink"><a href="/regs/fairfaxcounty-va/doc-viewer.aspx?secid=2984" onclick="ZP.TOCView.SelectTOC('2984',false); return false;"><span class="toc-item">8103.2 Planning Commission</span></a></li>
+    
+    <li id="secid-x2985" class="tocLink"><a href="/regs/fairfaxcounty-va/doc-viewer.aspx?secid=2985" onclick="ZP.TOCView.SelectTOC('2985',false); return false;"><span class="toc-item">8103.3 Board of Zoning Appeals</span></a></li>
+    
+    <li id="secid-x2986" class="tocLink"><a href="/regs/fairfaxcounty-va/doc-viewer.aspx?secid=2986" onclick="ZP.TOCView.SelectTOC('2986',false); return false;"><span class="toc-item">8103.4 Architectural Review Board</span></a></li>
+    
+    <li id="secid-x2987" class="tocLink"><a href="/regs/fairfaxcounty-va/doc-viewer.aspx?secid=2987" onclick="ZP.TOCView.SelectTOC('2987',false); return false;"><span class="toc-item">8103.5 Affordable Dwelling Unit Advisory Board</span></a></li>
+    
+    <li id="secid-x2988" class="tocLink"><a href="/regs/fairfaxcounty-va/doc-viewer.aspx?secid=2988" onclick="ZP.TOCView.SelectTOC('2988',false); return false;"><span class="toc-item">8103.6 Health Care Advisory Board</span></a></li>
+    </ul>
+
+    <li id="secid-x2269" class="tocLink"><a href="/regs/fairfaxcounty-va/doc-viewer.aspx?secid=2269" onclick="ZP.TOCView.SelectTOC('2269',false); return false;"><span class="toc-item">8104. Nonconformities</span></a></li>
+    
+    <li id="secid-x2270" class="tocLink"><a href="/regs/fairfaxcounty-va/doc-viewer.aspx?secid=2270" onclick="ZP.TOCView.SelectTOC('2270',false); return false;"><span class="toc-item">8105. Condominiums, and Condominium and Cooperative Conversions</span></a></li>
+    
+    <li id="secid-x2271" class="tocLink"><a href="/regs/fairfaxcounty-va/doc-viewer.aspx?secid=2271" onclick="ZP.TOCView.SelectTOC('2271',false); return false;"><span class="toc-item">8106. Enforcement, Violations, and Penalties</span></a></li>
+    </ul>
+
+    <li id="secid-x2272" class="tocLink"><a href="/regs/fairfaxcounty-va/doc-viewer.aspx?secid=2272" onclick="ZP.TOCView.SelectTOC('2272',true); return false;"><span class="toc-item">Article 9 - Definitions and Ordinance Interpretation</span></a></li>
+    <ul class='toc-level2' >
+
+    <li id="secid-x2273" class="tocLink"><a href="/regs/fairfaxcounty-va/doc-viewer.aspx?secid=2273" onclick="ZP.TOCView.SelectTOC('2273',false); return false;"><span class="toc-item">9100. Interpretations</span></a></li>
+    
+    <li id="secid-x2274" class="tocLink"><a href="/regs/fairfaxcounty-va/doc-viewer.aspx?secid=2274" onclick="ZP.TOCView.SelectTOC('2274',true); return false;"><span class="toc-item">9101. List of Abbreviations</span></a></li>
+    
+    <li id="secid-x2293" class="tocLink"><a href="/regs/fairfaxcounty-va/doc-viewer.aspx?secid=2293" onclick="ZP.TOCView.SelectTOC('2293',true); return false;"><span class="toc-item">9102. General Terms</span></a></li>
+    
+    <li id="secid-x2594" class="tocLink"><a href="/regs/fairfaxcounty-va/doc-viewer.aspx?secid=2594" onclick="ZP.TOCView.SelectTOC('2594',true); return false;"><span class="toc-item">9103. Uses</span></a></li>
+    <ul class='toc-level3' >
+
+    <li id="secid-x2595" class="tocLink"><a href="/regs/fairfaxcounty-va/doc-viewer.aspx?secid=2595" onclick="ZP.TOCView.SelectTOC('2595',false); return false;"><span class="toc-item">Purpose</span></a></li>
+    
+    <li id="secid-x2596" class="tocLink"><a href="/regs/fairfaxcounty-va/doc-viewer.aspx?secid=2596" onclick="ZP.TOCView.SelectTOC('2596',true); return false;"><span class="toc-item">Agricultural and Related Uses</span></a></li>
+    
+    <li id="secid-x2601" class="tocLink"><a href="/regs/fairfaxcounty-va/doc-viewer.aspx?secid=2601" onclick="ZP.TOCView.SelectTOC('2601',true); return false;"><span class="toc-item">Residential Uses</span></a></li>
+    
+    <li id="secid-x2616" class="tocLink"><a href="/regs/fairfaxcounty-va/doc-viewer.aspx?secid=2616" onclick="ZP.TOCView.SelectTOC('2616',true); return false;"><span class="toc-item">Public, Institutional, and Community Uses</span></a></li>
+    
+    <li id="secid-x2649" class="tocLink"><a href="/regs/fairfaxcounty-va/doc-viewer.aspx?secid=2649" onclick="ZP.TOCView.SelectTOC('2649',true); return false;"><span class="toc-item">Commercial Uses</span></a></li>
+    
+    <li id="secid-x2708" class="tocLink"><a href="/regs/fairfaxcounty-va/doc-viewer.aspx?secid=2708" onclick="ZP.TOCView.SelectTOC('2708',true); return false;"><span class="toc-item">Industrial Uses</span></a></li>
+    
+    <li id="secid-x2734" class="tocLink"><a href="/regs/fairfaxcounty-va/doc-viewer.aspx?secid=2734" onclick="ZP.TOCView.SelectTOC('2734',true); return false;"><span class="toc-item">Accessory Uses</span></a></li>
+    
+    <li id="secid-x2754" class="tocLink"><a href="/regs/fairfaxcounty-va/doc-viewer.aspx?secid=2754" onclick="ZP.TOCView.SelectTOC('2754',true); return false;"><span class="toc-item">Temporary Uses</span></a></li>
+    </ul>
+
+    <li id="secid-x2462" class="tocLink"><a href="/regs/fairfaxcounty-va/doc-viewer.aspx?secid=2462" onclick="ZP.TOCView.SelectTOC('2462',true); return false;"><span class="toc-item">9104. Floodplain Definitions</span></a></li>
+    </ul>
+
+    <li id="secid-x2483" class="tocLink"><a href="/regs/fairfaxcounty-va/doc-viewer.aspx?secid=2483" onclick="ZP.TOCView.SelectTOC('2483',false); return false;"><span class="toc-item">Appendix 1 - Provisions Relating to Previous Approvals</span></a></li>
+    
+    <li id="secid-x3044" class="tocLink"><a href="/regs/fairfaxcounty-va/doc-viewer.aspx?secid=3044" onclick="ZP.TOCView.SelectTOC('3044',false); return false;"><span class="toc-item">Amendment History Table</span></a></li>
+    </ul>
+
+</div><!--toc-list-->
+</div><!--toc-view2-->
+</div><!--toc-view1-->
+</div><!--toc-view-->
+
+                        
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- hidden div below is for definition popup -->
+<div id="defFrame">
+    <img alt='loading progress' src="resources/progress.gif" /></div>
+<!-- hidden div below is for ajax loading progress-->
+<div id='progress-template' style='display: none;'>
+    <div class="progress" style='padding: 100px;'>
+        <div style='margin: auto; display: block; width: 200px; border: 1px solid #ccc; background-color: #eee; padding: 10px;'>
+            <img alt='loading progress' src='resources/progress.gif' style='margin: auto; display: block;' />
+            <br />
+            <span style='margin: auto; display: block; width: 75px; padding-left: 10px;'>Loading...</span>
+        </div>
+    </div>
+</div>
+<iframe style="width: 1px; height: 1px" src="" id="printiframe" name="printiframe" onload="ZP.DocView.IFrameReady();" title="Print frame" aria-hidden="true" role="presentation"></iframe>
+
+    </div>
+
+
+    </body>
+</html>

@@ -1,0 +1,10 @@
+#!/usr/bin/env python3
+"""New-output current-policy normalization of retained evidence; no network/acquisition claim."""
+import argparse,pathlib,sys,shutil,json,hashlib,platform
+p=argparse.ArgumentParser();p.add_argument('--repo',type=pathlib.Path,required=True);p.add_argument('--source',type=pathlib.Path,required=True);p.add_argument('--out',type=pathlib.Path,required=True);a=p.parse_args();assert not a.out.exists(),'Fresh replay output required';sys.path.insert(0,str(a.repo));from collectors.encodeplus.collect import assemble;from collectors.encodeplus.model import inventory,decode,outputs;from collectors.encodeplus.util import atomic_bytes,atomic_json,digest,read_json;from collectors.encodeplus.verify import verify
+shutil.copytree(a.source,a.out,ignore=shutil.ignore_patterns('records.jsonl','records.csv','coverage.json'));state=read_json(a.out/'checkpoint.json');snap=a.out/'normalization-script-versions';snap.mkdir();versions={}
+for f in [pathlib.Path(__file__)]+list((a.repo/'collectors/encodeplus').glob('*.py')):
+ h=digest(f.read_bytes());shutil.copy2(f,snap/(h+'.py'));versions[f.name]=h
+state['normalization_replay']={'command':sys.argv,'runtime':platform.python_version(),'source_checkpoint_sha256':digest((a.source/'checkpoint.json').read_bytes()),'script_versions':versions,'network_used':False,'live_current_revision':False,'image_policy':'literal [IMAGE]; no image extraction/download'};atomic_json(a.out/'checkpoint.json',state);data=(a.out/state['inventory_raw']['path']).read_bytes();m=read_json(a.out/(state['inventory_raw']['path']+'.receipt.json'));inv=inventory(decode(data,m['headers']),state['config']);records,_=assemble(a.out,state,inv)
+for name,data in outputs(list(records.values())).items():atomic_bytes(a.out/name,data)
+report=verify(a.out);report['qualification']='Retained-evidence normalization replay under current policy; NOT new live acquisition';atomic_json(a.out/'coverage.json',report);print(json.dumps({k:report.get(k) for k in ['target','body_nodes','image_placeholders','asset_references','publication_text_complete','attachments_complete','errors']},indent=2))

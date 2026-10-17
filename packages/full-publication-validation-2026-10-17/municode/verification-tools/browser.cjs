@@ -1,0 +1,31 @@
+/* Serial JSON-lines RPC through ordinary headed Chrome. No imported cookies, masking or challenge interaction. */
+const {createRequire}=require('module'),{chromium}=createRequire(process.env.PLAYWRIGHT_MODULE_ROOT||(__dirname+'/package.json'))('playwright');
+const fs=require('fs'),path=require('path'),{execFile}=require('child_process'),readline=require('readline');
+const gate=(...a)=>new Promise((resolve,reject)=>execFile(process.env.PYTHON||'python3',[path.join(__dirname,'gate_cli.py'),...a],(e,o,s)=>e?reject(Error(s||String(e))):resolve(o)));
+const emit=x=>process.stdout.write(JSON.stringify(x)+'\n');
+(async()=>{const root=process.argv[2];if(new URL(root).hostname!=='library.municode.com'||new URL(root).protocol!=='https:')throw Error('Expected HTTPS Municode normal public page');let stopped=false,stopReason=null;const b=await chromium.launch({headless:false,channel:process.env.BROWSER_CHANNEL||'chrome'}),ctx=await b.newContext(),page=await ctx.newPage();
+ async function stop(url,status,headers,reason){stopped=true;stopReason={url,status,headers,reason};await gate(status===429?'cooldown':'stop-browser',status===429?(headers['retry-after']||'300'):url,reason)}
+ ctx.on('response',r=>{if(r.headers()['cf-mitigated']==='challenge')stop(r.url(),r.status(),r.headers(),'publisher access challenge').catch(e=>{stopReason={error:String(e)}})});
+ await ctx.route('**/*',async route=>{let u=new URL(route.request().url());if(stopped)return route.abort();if(u.hostname!=='challenges.cloudflare.com'&&(u.pathname.startsWith('/dist/')||(!u.hostname.endsWith('municode.com')&&u.hostname!=='challenges.cloudflare.com')||['font','media','image'].includes(route.request().resourceType())))return route.abort();try{await gate('reserve',u.href);if(stopped)return route.abort();return route.continue()}catch(e){stopped=true;stopReason={error:String(e)};return route.abort()}});
+ async function inspect(r){if(r.headers['cf-mitigated']==='challenge'||[403,429].includes(r.status))await stop(r.url,r.status,r.headers,'HTTP access refusal');return r}
+ try{let r=await page.goto(root,{waitUntil:'domcontentloaded',timeout:600000}),html=await page.content(),rr={url:r.url(),status:r.status(),headers:r.headers(),body:Buffer.from(html).toString('base64')};if(r.status()!==200||/Just a moment|Access denied|Attention required/i.test(await page.title()))await stop(root,r.status(),r.headers(),'normal public document access failure');await inspect(rr);emit({ready:!stopped,runtime:{node:process.version,os:process.platform,arch:process.arch,browser:b.version(),document_base_url:await page.evaluate(()=>document.baseURI),method:'ordinary-headed-browser-public-document-and-live-APIs',asset_policy:'images deliberately omitted; application dist assets omitted; security scripts untouched',cookies_imported:false,challenge_interaction:false},root_response:rr,access_stop:stopReason});
+ const lines=readline.createInterface({input:process.stdin,crlfDelay:Infinity});for await(const line of lines){let q;try{q=JSON.parse(line);if(q.close){lines.close();break;}if(stopped)throw Error('Publisher access stopped: '+JSON.stringify(stopReason));let u=new URL(q.url);if(u.protocol!=='https:')throw Error('Only HTTPS public requests');let result;
+ if(q.binary){let current=q.url,hops=[];const isImage=url=>/\.(png|jpe?g|gif|svg|webp|avif|tiff?|bmp|ico)(?:$|\/)/i.test(new URL(url).pathname);
+ for(let i=0;i<6;i++){
+ if(isImage(current)){result={url:current,status:200,headers:{},body:'',image_omitted:true,omission_reason:'image URL; no network request'};break}
+ // HEAD classifies extensionless assets before any body GET. Unknown types fail closed.
+ await gate('reserve',current);let head=await ctx.request.head(current,{maxRedirects:0,timeout:600000}),hh=head.headers();let hr={url:head.url(),status:head.status(),headers:hh,body:''};hops.push({url:current,method:'HEAD',status:head.status(),location:hh.location||null});await inspect(hr);if(stopped){result=hr;break}
+ if([301,302,303,307,308].includes(head.status())){if(!hh.location)throw Error('Redirect has no location');current=new URL(hh.location,current).href}else{
+ if(head.status()!==200){result=hr;break}
+ if((hh['content-type']||'').toLowerCase().startsWith('image/')){result={...hr,image_omitted:true,omission_reason:'HEAD image MIME; no body downloaded'};break}
+ if(!/^(application\/(pdf|zip|msword|vnd\.|json)|text\/(css|plain|csv))/.test((hh['content-type']||'').toLowerCase()))throw Error('Unclassified asset MIME; body download refused: '+(hh['content-type']||'missing'));
+ await gate('reserve',current);let r=await ctx.request.get(current,{maxRedirects:0,timeout:600000}),headers=r.headers();result={url:r.url(),status:r.status(),headers,body:''};hops.push({url:current,method:'GET',status:r.status(),location:headers.location||null});await inspect(result);if(stopped)break;
+ if((headers['content-type']||'').toLowerCase().startsWith('image/'))throw Error('Asset MIME changed to image after HEAD; response body not read');
+ if(![301,302,303,307,308].includes(r.status())){result.body=(await r.body()).toString('base64');break}
+ if(!headers.location)throw Error('Redirect has no location');current=new URL(headers.location,current).href}
+ if(new URL(current).protocol!=='https:')throw Error('Non-HTTPS redirect refused');let host=new URL(current).hostname;if(!host.endsWith('.municode.com')&&host!=='library.municode.com'&&host!=='mcclibrary.blob.core.usgovcloudapi.net'&&!(q.allowed_hosts||[]).includes(host))throw Error('Asset redirect host outside explicit scope')}
+ if(!result)throw Error('Asset redirect limit exceeded');result.redirect_hops=hops;
+ }else{if(u.hostname!=='library.municode.com'||!/^\/(api|localapi)\//.test(u.pathname))throw Error('API RPC host/path refused');result=await page.evaluate(async url=>{let r=await fetch(url,{headers:{'X-CSRF':'1'}});return {url:r.url,status:r.status,headers:Object.fromEntries(r.headers),text:await r.text()}},q.url);result.body=Buffer.from(result.text).toString('base64');delete result.text;await inspect(result)}
+ emit({id:q.id,response:result,access_stop:stopReason});}catch(e){emit({id:q?.id,error:String(e),access_stop:stopReason})}}
+ }catch(e){emit({ready:false,error:String(e),access_stop:stopReason})}finally{await b.close();process.stdin.destroy()}
+})().catch(e=>{emit({ready:false,error:String(e)});process.exitCode=2});
