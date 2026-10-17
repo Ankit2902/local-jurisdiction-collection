@@ -1,332 +1,108 @@
 {
-  "schema_version": 1,
+  "schema_version": 2,
   "publisher": "american-legal",
-  "status": "implementation and scoped live validation complete; no whole-jurisdiction completeness claim",
-  "frozen_at": "2026-10-17T20:08:19.950177+00:00",
-  "implementation_path": "collectors/american-legal",
+  "status": "stable_source_checkpoint_live_full_primary_reconciliation_pending",
+  "updated_at": "2026-10-17T21:55:42.622248+00:00",
+  "frozen": false,
   "image_policy": "literal-[IMAGE]-no-image-fetch-v1",
-  "separate_image_binary_downloads": 0,
-  "runtime": {
-    "os": "macOS 26.6.2",
-    "architecture": "arm64",
-    "python": "3.9.6",
-    "node": "24.19.0",
-    "playwright": "1.62.1",
-    "chrome": "155.0.8059.84",
-    "browser": "ordinary headed installed Chrome; owned process only"
-  },
-  "final_live_runs": [
+  "primary_configs": 15,
+  "historically_observed_publications": 22,
+  "current_live_work": [
     {
-      "evidence_directory": "index-current-final",
-      "source_url": "https://codelibrary.amlegal.com/codes/san_diego/latest/overview",
-      "publication_selector": "sandiego_ords",
-      "strategy": "native",
-      "assets_policy": "reference-only",
-      "identity": {
-        "client_slug": "san_diego",
-        "jurisdiction": "San Diego County",
-        "state": "CA",
-        "version_uuid": "ab86b7ac-463e-475c-8132-44261fe15e45",
-        "version_name": "2026 S-141",
-        "currency_info": "Administrative: Current through Ord. No. 11017 (N.S.), effective 10-1-26 | Regulatory:  Current through Ord. No. 11008 (N.S.), effective 7-24-26",
-        "code_uuid": "f3af126a-eec8-4fc3-9f7f-5292452fdf1e",
-        "code_slug": "sandiego_ords",
-        "code_title": "San Diego County Comprehensive Ordinances",
-        "is_pdf": false
-      },
-      "finished_at": "2026-10-17T20:04:18.409237+00:00",
-      "exact_execution": {
-        "at": "2026-10-17T20:03:09.746446+00:00",
-        "python": "3.9.6 (default, May 22 2026, 11:13:45) \n[Clang 21.0.0 (clang-2100.1.1.101)]",
-        "platform": "darwin",
-        "script_sha256": {
-          "collect.py": "694663d66e66e5208779b2ce0293097f87981ada53c50cb5ed13515f6c722548",
-          "transport.py": "a8aa618ce7c6b1a6636bc4f9964d79259196130ee11a1ed02b142ae4a8674d05",
-          "probe_bulk.py": "df3b7fe18876637e94a2632228a7de9f332366d724340acd5c9076cd4b6e0e20",
-          "browser.cjs": "da5d2183e060c4f83d9e4e11156dfc344d0c83266b7369405fa4fbfa504d8252",
-          "test_faults.py": "0f5b46ddb2d8c134cdf4efd0c2f318381e73d02a98977cb283870656aa5d4d30",
-          "model.py": "5b2cb26a283aa670627106dfb2aee3b5c7e6abe9c9ad092b49bf60cbed121635",
-          "probe.py": "1743ab8e9721181c194a0daad7b544f8e8353bcc456b728d85bb804c8cde3540",
-          "gate.py": "191dc8be23b19d357bd7bb8f49a2001219a2ee9be5795edebb09fad7fc2d7d45",
-          "probe_routes.py": "5eea9a9db7e8c126f52bf96cd271059ffe12dfacc3c8e42d010a42d59cbd47d6",
-          "verify.py": "abe4cc8c4bc1f3b6f43a09d79a62bcc484fa553430767f93fdfac3fd0a594515",
-          "compare.py": "2ec8ba6ae90fd7d906540b7c8d3bed74f634a774a9d048a5b878e69452596561"
-        },
-        "max_items": null
-      },
-      "current_core_matches_executed": {
-        "collect.py": true,
-        "model.py": true,
-        "transport.py": true,
-        "browser.cjs": true,
-        "gate.py": true,
-        "verify.py": true
-      },
-      "coverage": {
-        "schema_version": 1,
-        "publication_identity": {
-          "client_slug": "san_diego",
-          "jurisdiction": "San Diego County",
-          "state": "CA",
-          "version_uuid": "ab86b7ac-463e-475c-8132-44261fe15e45",
-          "version_name": "2026 S-141",
-          "currency_info": "Administrative: Current through Ord. No. 11017 (N.S.), effective 10-1-26 | Regulatory:  Current through Ord. No. 11008 (N.S.), effective 7-24-26",
-          "code_uuid": "f3af126a-eec8-4fc3-9f7f-5292452fdf1e",
-          "code_slug": "sandiego_ords",
-          "code_title": "San Diego County Comprehensive Ordinances",
-          "is_pdf": false
-        },
-        "inventory_count": 30,
-        "acquired_count": 30,
-        "unique_id_count": 30,
-        "missing_ids": [],
-        "extra_ids": [],
-        "duplicate_ids": [],
-        "owned_source_block_count": 97,
-        "independently_recomputed_branch_count": 0,
-        "inventory_complete": true,
-        "pending_inventory_ids": [],
-        "source_consistent_at_end": true,
-        "edition_complete": true,
-        "publication_text_complete": true,
-        "unqualified_text_ids": [],
-        "image_policy": "literal-[IMAGE]-no-image-fetch-v1",
-        "image_reference_placeholder_count": 0,
-        "image_marker_count": 0,
-        "image_binary_download_count": 0,
-        "required_asset_count": 1940,
-        "retained_asset_count": 0,
-        "attachment_complete": false,
-        "native_bulk_html_file_complete": true,
-        "native_publication_files_complete": false,
-        "pdf_text_layer_pages_parsed": 0,
-        "pdf_text_layer_pages_with_text": 0,
-        "pdf_image_xobject_count": 0,
-        "pdf_text_layer_extraction_complete": false,
-        "pdf_semantic_text_completeness_qualified": false,
-        "table_count": 59,
-        "table_cell_count": 8859,
-        "publication_complete": false,
-        "jurisdiction_complete": false,
-        "limit": null,
-        "record_unit": "publisher TOC node; PDF pages are separate additional records"
-      },
-      "native_files": [
-        {
-          "request_key": "native-export",
-          "path": "raw/7e90242d0b033fa53c60e7c544e34b9ee2fef4e36192589d1de1a9441c00b3ba.bin",
-          "bytes": 3807355,
-          "sha256": "f0f7f44e6d243f568d89204cd2c1d688403b805aed633570960e05b0cf00c579",
-          "url": "https://export.amlegal.com/api/export-requests/8cb88335-55e8-4cbb-97d2-f83eb8931655/download/"
-        }
-      ]
-    },
-    {
-      "evidence_directory": "form-based-no-images-final",
-      "source_url": "https://codelibrary.amlegal.com/codes/cleveland/latest/overview",
-      "publication_selector": "cleveland_oh_fbc",
-      "strategy": "traverse",
-      "assets_policy": "download",
-      "identity": {
-        "client_slug": "cleveland",
-        "jurisdiction": "Cleveland",
-        "state": "OH",
-        "version_uuid": "f0e7839e-f7cd-45ed-a9a9-a52efe04fd04",
-        "version_name": "2026 S-28",
-        "currency_info": "Current through legislation passed September 28, 2026",
-        "code_uuid": "31deb469-9cbc-4140-a4ad-7b876bacb369",
-        "code_slug": "cleveland_oh_fbc",
-        "code_title": "TITLE VIIA:  CLEVELAND NEIGHBORHOOD FORM-BASED CODE",
-        "is_pdf": true
-      },
-      "finished_at": "2026-10-17T20:01:50.742340+00:00",
-      "exact_execution": {
-        "at": "2026-10-17T19:57:45.285935+00:00",
-        "python": "3.9.6 (default, May 22 2026, 11:13:45) \n[Clang 21.0.0 (clang-2100.1.1.101)]",
-        "platform": "darwin",
-        "script_sha256": {
-          "collect.py": "5528d610fc829c17f65125e30eccc7d0214f6ab4d35fa7ce07e8f2b3aaf227ba",
-          "transport.py": "a8aa618ce7c6b1a6636bc4f9964d79259196130ee11a1ed02b142ae4a8674d05",
-          "probe_bulk.py": "df3b7fe18876637e94a2632228a7de9f332366d724340acd5c9076cd4b6e0e20",
-          "browser.cjs": "da5d2183e060c4f83d9e4e11156dfc344d0c83266b7369405fa4fbfa504d8252",
-          "test_faults.py": "1dc186d9b319cabf97710ddcca74a2114a9f3e0130b0620116fca7b5e59d9987",
-          "model.py": "5b2cb26a283aa670627106dfb2aee3b5c7e6abe9c9ad092b49bf60cbed121635",
-          "probe.py": "1743ab8e9721181c194a0daad7b544f8e8353bcc456b728d85bb804c8cde3540",
-          "gate.py": "191dc8be23b19d357bd7bb8f49a2001219a2ee9be5795edebb09fad7fc2d7d45",
-          "probe_routes.py": "5eea9a9db7e8c126f52bf96cd271059ffe12dfacc3c8e42d010a42d59cbd47d6",
-          "verify.py": "abe4cc8c4bc1f3b6f43a09d79a62bcc484fa553430767f93fdfac3fd0a594515"
-        },
-        "max_items": null
-      },
-      "current_core_matches_executed": {
-        "collect.py": false,
-        "model.py": true,
-        "transport.py": true,
-        "browser.cjs": true,
-        "gate.py": true,
-        "verify.py": true
-      },
-      "coverage": {
-        "schema_version": 1,
-        "publication_identity": {
-          "client_slug": "cleveland",
-          "jurisdiction": "Cleveland",
-          "state": "OH",
-          "version_uuid": "f0e7839e-f7cd-45ed-a9a9-a52efe04fd04",
-          "version_name": "2026 S-28",
-          "currency_info": "Current through legislation passed September 28, 2026",
-          "code_uuid": "31deb469-9cbc-4140-a4ad-7b876bacb369",
-          "code_slug": "cleveland_oh_fbc",
-          "code_title": "TITLE VIIA:  CLEVELAND NEIGHBORHOOD FORM-BASED CODE",
-          "is_pdf": true
-        },
-        "inventory_count": 1,
-        "acquired_count": 1,
-        "unique_id_count": 1,
-        "missing_ids": [],
-        "extra_ids": [],
-        "duplicate_ids": [],
-        "owned_source_block_count": 0,
-        "independently_recomputed_branch_count": 0,
-        "inventory_complete": true,
-        "pending_inventory_ids": [],
-        "source_consistent_at_end": true,
-        "edition_complete": true,
-        "publication_text_complete": false,
-        "unqualified_text_ids": [],
-        "image_policy": "literal-[IMAGE]-no-image-fetch-v1",
-        "image_reference_placeholder_count": 0,
-        "image_marker_count": 32,
-        "image_binary_download_count": 0,
-        "required_asset_count": 1,
-        "retained_asset_count": 1,
-        "attachment_complete": true,
-        "native_bulk_html_file_complete": false,
-        "native_publication_files_complete": true,
-        "pdf_text_layer_pages_parsed": 212,
-        "pdf_text_layer_pages_with_text": 212,
-        "pdf_image_xobject_count": 32,
-        "pdf_text_layer_extraction_complete": true,
-        "pdf_semantic_text_completeness_qualified": false,
-        "table_count": 0,
-        "table_cell_count": 0,
-        "publication_complete": false,
-        "jurisdiction_complete": false,
-        "limit": null,
-        "record_unit": "publisher TOC node; PDF pages are separate additional records"
-      },
-      "native_files": [
-        {
-          "request_key": "binary:https://export.amlegal.com/media/8f40e8dcadccf39f4bbfd78348af84d1a5b18109/PDF/Cleveland-Form-Based-Code-REV.pdf",
-          "path": "raw/fa859aac03ed659fe3b8c01c21b806f435ce3f453fa93b32bcb13ef5913b9824.bin",
-          "bytes": 54780031,
-          "sha256": "1fea63dce02df86153747467e151e17b1a13171a6adea215047ea74898e8c836",
-          "url": "https://export.amlegal.com/media/8f40e8dcadccf39f4bbfd78348af84d1a5b18109/PDF/Cleveland-Form-Based-Code-REV.pdf"
-        }
-      ]
+      "path": "cleveland-primary",
+      "source_url": "https://codelibrary.amlegal.com/codes/cleveland/latest/cleveland_oh",
+      "publication": "cleveland_oh",
+      "status": "collecting",
+      "independent_start_inventory_nodes": 6140,
+      "independently_captured_start_container_responses": 459,
+      "inventory_complete": true,
+      "native_download_bytes": 22331790,
+      "native_sha256": "922b8f2b798ed607e4374d0b99cc49ed9f4be646ff6d811a7b04bcf9ad4334e5",
+      "same_native_job_resumed": true,
+      "job_uuid": "2cb9d2d7-fb28-42fd-93e1-e5080ad7f957",
+      "executed_source": "executed-v3",
+      "required_nonimage_pdf_downloads": 5,
+      "full_primary_complete": false,
+      "note": "Full native bytes and complete independent start inventory retained; parsing, final independent end inventory and raw table audit pending terminal evidence."
     }
   ],
-  "supporting_current_policy_resume": {
-    "evidence_directory": "index-no-images-final",
-    "resume_count": 1,
-    "scope": "Same complete independent index; cached native source reused after hash/identity validation; outputs rebuilt"
-  },
-  "independent_renderer_comparison": {
-    "report": "native-renderer-comparison-current.json",
+  "current_fault_tests": {
+    "count": 45,
     "passed": true,
-    "matched_records": 30,
-    "compares": [
-      "all normalized full text bodies",
-      "owned source block IDs",
-      "table cell text and spans"
-    ],
-    "reference_raw_directory": "ordinance-index-live",
-    "old_reference_outputs_trusted": false
+    "path": "collectors/american-legal/fault-tests.json",
+    "latest_log": "research/fault-tests-v16.log"
   },
-  "native_whole_municipal_code_scope_only": {
-    "evidence_file": "research/bulk-probe/native-bulk.bin",
-    "bytes": 22331790,
-    "sha256": "922b8f2b798ed607e4374d0b99cc49ed9f4be646ff6d811a7b04bcf9ad4334e5",
-    "source_url": "https://codelibrary.amlegal.com/codes/cleveland/latest/overview",
-    "publication_selector": "cleveland_oh",
-    "native_whole_code_scope_observed": true,
-    "independent_full_nested_inventory_reconciled": false,
-    "publication_text_complete": false,
-    "publication_complete": false,
-    "image_policy": "Prior original publisher file retained; no separate image extraction; not promoted to current-policy parsed proof",
-    "rich_block_id_count": 43676
-  },
-  "fault_tests": {
-    "report": "collector/fault-tests.json",
-    "replay_log": "research/faults-final-replay.log",
-    "count": 22,
-    "passed": true,
-    "kind": "Synthetic tests run actual production collector/cache/resume/verifier paths; not live nested municipal code completeness",
-    "includes": [
-      "independent middle branch omission retaining top roots",
-      "truncated native body retaining top roots and all IDs",
-      "missing and duplicate normalized records",
-      "corrupt source bytes",
-      "source/edition drift with updated hashes",
-      "interrupted run rejection",
-      "resume remaining-only requests and deterministic equivalence",
-      "unknown and explicit limits cannot pass",
-      "image-only literal placeholders",
-      "mixed SVG/picture/srcset/CSS/poster/data objects",
-      "no image GET/HEAD for known image refs",
-      "extensionless image HEAD-only",
-      "ambiguous MIME no GET",
-      "nonimage incorporated extensionless documents remain required"
-    ]
-  },
-  "fixtures": {
-    "live_index_zip": "collector/fixtures/live-index.zip",
-    "synthetic_nested_zip": "collector/fixtures/nested-synthetic.zip",
-    "raw_renderer_comparison_zip": "collector/fixtures/renderer-reference-raw.zip"
-  },
-  "core_source_sha256": {
-    "collect.py": "694663d66e66e5208779b2ce0293097f87981ada53c50cb5ed13515f6c722548",
-    "model.py": "5b2cb26a283aa670627106dfb2aee3b5c7e6abe9c9ad092b49bf60cbed121635",
-    "transport.py": "a8aa618ce7c6b1a6636bc4f9964d79259196130ee11a1ed02b142ae4a8674d05",
-    "browser.cjs": "da5d2183e060c4f83d9e4e11156dfc344d0c83266b7369405fa4fbfa504d8252",
+  "current_features": [
+    "independent recursive full publisher inventory and native whole-book acquisition",
+    "exact source block ownership and table/cell/span preservation",
+    "same-book citation closure bound to retained source IDs",
+    "required nonimage assets with genuine response evidence for unavailable documents",
+    "all retained attachment PDFs normalized with exact-once byte aliases",
+    "PDF positional text, two-engine agreement, reading-order diagnostics and qualified ruled-grid candidates",
+    "no images fetched/extracted; literal [IMAGE] placeholders",
+    "exclusive output lock and deterministic cached resume"
+  ],
+  "current_source_sha256": {
+    "audit_native.py": "3d63c6a79438b2edca48dde521fcf8651b60c68481801576a34c2b5f919ddf45",
+    "browser.cjs": "32521e26115e7311fbc4b582831659b4a478c8c4b25e6119e40cafcb92f359ce",
+    "collect.py": "b9b9ea83edc16fcff68f214900341daa5d8ec1c7feabdf4cef3c69aa96cf8fc8",
+    "compare.py": "eba02639c931e60d11751f208d22774fbe54421c33fc97fd53af18d584a7855f",
     "gate.py": "191dc8be23b19d357bd7bb8f49a2001219a2ee9be5795edebb09fad7fc2d7d45",
-    "verify.py": "abe4cc8c4bc1f3b6f43a09d79a62bcc484fa553430767f93fdfac3fd0a594515"
+    "inspect_pdf.py": "f63e3b19ab59f85c5d7944eea811306425b1cb17ede4e2567d251fec995f5309",
+    "model.py": "3847a6713841713dd1fa5d2f20b6371a6da396e830ce9e313bee421fcbfaa5f5",
+    "pdf_layout.py": "44db7e5483c6ce89de138ca9e2c612a0460f4d5d46c0a1a10a3818565ba5919d",
+    "test_browser_interrupt.py": "d58286db00f2c6e06e3db468f423cd31738b33314124b3d21aa53ee4c43332d2",
+    "test_faults.py": "b4eae6919e7c0a5171c09a7a695d0c8655dbe95cb1c1ff93d46b2b7fa25d63fc",
+    "transport.py": "0bded10c0727b97d7d2ade2c6a08aacf9304164ea5a90cdd4375103b4e36ca2e",
+    "verify.py": "0014241822740a2aeb5e2f2716631cc1e539dc035d1af763568526b7c5422e12"
   },
-  "replay_commands": {
-    "install": "python3 -m venv .venv && .venv/bin/python -m pip install -r collector/requirements.txt",
-    "live_index": ".venv/bin/python collector/verify.py index-current-final --offline --allow-incomplete",
-    "live_fixture": ".venv/bin/python collector/verify.py collector/fixtures/live-index.zip --offline --allow-incomplete",
-    "nested_fixture": ".venv/bin/python collector/verify.py collector/fixtures/nested-synthetic.zip --offline",
-    "faults": ".venv/bin/python collector/test_faults.py",
-    "comparison": ".venv/bin/python collector/compare.py collector/fixtures/live-index.zip collector/fixtures/renderer-reference-raw.zip",
-    "pdf": ".venv/bin/python collector/verify.py form-based-no-images-final --offline --allow-incomplete"
+  "dependencies": {
+    "python": "3.9+",
+    "node": "18+",
+    "browser": "ordinary installed Chrome",
+    "requirements": "requirements.txt",
+    "new_pdf_geometry_dependency": "PyMuPDF==1.26.5"
   },
-  "exit_code_note": "--allow-incomplete exits0 only for internally sound evidence; explicit incomplete flags remain false. Without it these two final live runs exit2. Faults and synthetic complete fixture exit0. Corruption exits1.",
-  "limitations": [
-    "The index is an independent publication of cover plus1998\u20132026 leaf nodes, not a nested main municipal code. Its full inventory and all text reconcile, but1940 distinct required ordinance PDFs are references only, so attachment and combined publication completeness are false.",
-    "Cleveland Form-Based Code native file and212page text layers are complete; legal-section segmentation and PDF reading order remain unqualified. Image markers intentionally replace image content and do not create a gap.",
-    "All six current core sources exactly match the final index execution. The PDF execution uses the same model/verifier/browser/transport/gate; collect.py predates only the final conservative ambiguous-MIME and CSS-data guard refinements. Exact original executed sources/hashes are retained.",
-    "A genuine22MB whole Cleveland municipal code native file was acquired; no independent full nested inventory reconciliation or parsed text completeness is claimed for that file.",
-    "Nested traversal and ownership faults have meaningful independent synthetic coverage; a full nested live municipal code remains uncompleted.",
-    "Fifteen primary American Legal registry routes/selectors/observed identities are mapped, not fifteen full live publications validated. Both final proofs are secondary books, not100 primary passes.",
-    "No database or previous sealed package was changed; no Git action was performed by this collector agent."
+  "plan": "readiness-plan.json",
+  "strategy_mapping": "research/strategy-mapping.json",
+  "offline_pdf_work": {
+    "path": "form-based-layout-qualification",
+    "kind": "Offline parser qualification from unchanged retained native bytes, not fresh publisher acquisition",
+    "status": "completed",
+    "pages": 212,
+    "positioned_pages": 212,
+    "text_engine_agreeing_pages": 203,
+    "qualified_reading_order_pages": 16,
+    "table_candidates": 296,
+    "qualified_ruled_tables": 78,
+    "semantic_text_complete": false,
+    "table_completeness_qualified": false,
+    "experimental_tagged_structure": "research only; not integrated into stable collector"
+  },
+  "prior_sealed_proof": {
+    "path": "outputs/full-publication-validation-2026-10-17/american-legal/validation-summary.json",
+    "note": "Immutable historical proof; secondary index full text/nativeHTML and FBC nativePDF/page layers, not all15 primaries or a full nested main code"
+  },
+  "remaining_work": [
+    "Complete full nested primary acquisition, current-source reparse and independent raw source table audit",
+    "Run remaining primary configs and qualified secondaries serially under shared publisher gate",
+    "Resolve required nonimage native documents and keep unavailable/broken references explicit",
+    "Qualify PDF tables/reading order per actual source; uncertain layouts must not receive blanket complete flags",
+    "Final fresh execution, offline corruption/omission/resume replay and freeze manifest"
   ],
-  "superseded_normalized_runs": [
-    "index-native-final",
-    "form-based-pdf-final",
-    "ordinance-index-live"
-  ],
-  "retention_note": "Superseded/raw research evidence is immutable and retained. Environments/browser profiles must be excluded from release. This package has no absolute cross-package imports.",
-  "offline_replay": {
-    "read_only_hash_proof": "readonly-replay-proof.json",
-    "synthetic_fixture_report": "research/verify-synthetic-final.json",
-    "live_index_zip_report": "research/verify-live-zip-final.json",
-    "fixture_comparison_report": "research/compare-fixtures-final.json",
-    "all_commands_exit_zero": true,
-    "complete_synthetic_fixture": true,
-    "live_attachment_and_combined_flags_remain_false": true,
-    "portable_evidence_files_unchanged": 257,
-    "repository_collector_files_unchanged": 18
+  "source_boundary_stable": true,
+  "browser_interrupt_integration": {
+    "path": "research/browser-interrupt-integration-final.json",
+    "passed": true,
+    "close_seconds": 0.083,
+    "owned_processes_remaining": 0,
+    "publisher_requests": 0
   },
-  "freeze_manifest": "freeze-manifest.json"
+  "stable_replay_commands": [
+    "python collectors/american-legal/test_faults.py",
+    "python collectors/american-legal/verify.py collectors/american-legal/fixtures/nested-synthetic.zip --offline",
+    "python collectors/american-legal/verify.py collectors/american-legal/fixtures/live-index.zip --offline --allow-incomplete",
+    "python collectors/american-legal/compare.py collectors/american-legal/fixtures/live-index.zip collectors/american-legal/fixtures/renderer-reference-raw.zip"
+  ],
+  "executed_source_distinction": "Cleveland ongoing executed-v3 remains immutable. Delivered no-decoder guard executed-v4 retained; later narrow MIME/data/CSS casing fixes snapshot executed-v5 with45fault tests. Remaining primary queue now pinsv5. No relabeling of earlier live execution."
 }

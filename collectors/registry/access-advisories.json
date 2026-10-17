@@ -1,0 +1,68 @@
+{
+  "schema_version": 1,
+  "status_note": "Observed stopped workflows retained for a fresh checkout. This advisory preserves actual event scope; it does not assert all publisher URLs are unavailable. Offline verification remains allowed. No automatic reset or retry.",
+  "advisories": [
+    {
+      "family": "municode",
+      "operator_review_required": true,
+      "automatic_retry": false,
+      "reason": "Malformed publisher-owned source href www.jaxsheriff.org/fees was incorrectly resolved under library.municode.com; observed HEAD403/Cf-Mitigated challenge on that malformed path. Shared browser workflow stopped. This is not evidence that every legitimate public publisher route is unavailable.",
+      "observed_stop": {
+        "reason": "https://library.municode.com/www.jaxsheriff.org/fees HTTP access refusal",
+        "recorded_at": "2026-10-17T21:41:34.381324+00:00",
+        "operator_release_required": true
+      },
+      "original_gate_path": "/tmp/compliSolv-municode-rate-gate/browser-stop.json",
+      "source_sha256": "baa3b06c85e67ae21ee392de6769a32fd3d58b86d36d393138c8d1669740c68c",
+      "raw_refusal_witness": {
+        "source_path": "outputs/collection-readiness-2026-10-17/municode/batch-005/runs/6-primary/raw/bd96cbe9d3a3421fbfab39db5aac4127.json",
+        "sha256": "196ca151a450c474060d04357de28d00c7b6815aef47dabd018886f4c1abe0e5",
+        "request_method": "HEAD",
+        "http_status": 403,
+        "cf_mitigated": "challenge",
+        "response_body_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "source_doc_fixture": "collectors/municode/fixtures/jacksonville-bare-www.json"
+      }
+    },
+    {
+      "family": "ecode360",
+      "operator_review_required": true,
+      "automatic_retry": false,
+      "reason": "Required Albany PDF attachment HEAD403; shared eCode360 workflow stopped; no subsequent retries.",
+      "observed_stop": {
+        "observed_at": "2026-10-17T20:19:33.721563+00:00",
+        "event": {
+          "url": "https://ecode360.com/attachment/336787/AL0934-211a%20Appendix%20I.pdf",
+          "status": 403,
+          "retry_after": null,
+          "reason": "access refusal"
+        },
+        "retry_after_seconds_minimum": 300,
+        "operator_review_required": true,
+        "automatic_retry": false
+      },
+      "original_gate_path": "/tmp/complisolv-icc-full-gate/ecode360/STOP.json",
+      "source_sha256": "85b0e1cf57769846233fba6a6139de2f04cbcad0fc6c38672c75b3d30914c4bc"
+    },
+    {
+      "family": "municipal.codes",
+      "operator_review_required": true,
+      "automatic_retry": false,
+      "reason": "Phoenix Charter/XI HTTP429; shared municipal.codes workflow stopped; no subsequent retries.",
+      "observed_stop": {
+        "observed_at": "2026-10-17T19:58:59.882104+00:00",
+        "event": {
+          "url": "https://phoenix.municipal.codes/Charter/XI",
+          "status": 429,
+          "retry_after": null,
+          "reason": "access refusal"
+        },
+        "retry_after_seconds_minimum": 300,
+        "operator_review_required": true,
+        "automatic_retry": false
+      },
+      "original_gate_path": "/tmp/complisolv-icc-full-gate/municipal.codes/STOP.json",
+      "source_sha256": "8789555a443a7d0fd65b7870178a1db3fd530ac0fa40d963eb2d2248460446e5"
+    }
+  ]
+}

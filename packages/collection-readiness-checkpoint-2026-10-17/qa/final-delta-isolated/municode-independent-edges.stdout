@@ -1,0 +1,75 @@
+{
+  "synthetic": true,
+  "network_requests_sent": 0,
+  "image_policy": "literal [IMAGE]; no separate image acquisition",
+  "source_module_sha256": {
+    "model.py": "a1c23f346fffa6c2c45df98939b29c9680515087de8bc571c16b72d8471d4978",
+    "image_policy.py": "68717e6d78e10e3a1be0b4be36e79705e6234d4338776a384f9cd3564547bfbc"
+  },
+  "probes": [
+    {
+      "test": "baseline",
+      "expected_complete": true,
+      "actual_complete": true,
+      "passed": true,
+      "error": null
+    },
+    {
+      "test": "omitted_direct_image",
+      "expected_complete": true,
+      "actual_complete": true,
+      "passed": true,
+      "error": null
+    },
+    {
+      "test": "svg_image_href",
+      "expected_complete": true,
+      "actual_complete": true,
+      "passed": true,
+      "error": null
+    },
+    {
+      "test": "svg_image_xlink",
+      "expected_complete": true,
+      "actual_complete": true,
+      "passed": true,
+      "error": null
+    },
+    {
+      "test": "image_only_leaf",
+      "expected_complete": true,
+      "actual_complete": true,
+      "passed": true,
+      "error": null
+    },
+    {
+      "test": "mixed_images_nested_table",
+      "expected_complete": true,
+      "actual_complete": true,
+      "passed": true,
+      "error": null
+    },
+    {
+      "test": "required_nonimage_attachment",
+      "expected_complete": false,
+      "actual_complete": false,
+      "passed": true,
+      "error": null
+    },
+    {
+      "test": "heading_only_leaf",
+      "expected_complete": false,
+      "actual_complete": false,
+      "passed": true,
+      "error": null
+    },
+    {
+      "test": "unknown_empty_container",
+      "expected_complete": false,
+      "actual_complete": false,
+      "passed": true,
+      "error": null
+    }
+  ],
+  "passed": true
+}

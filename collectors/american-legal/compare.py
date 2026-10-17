@@ -27,6 +27,8 @@ def compare(native_path,render_path):
   internal=url.rstrip('/').split('/')[-1];entries=[(k,e) for k,e in requests.items() if k.startswith('start:toc:') and e['requested_url']==url];assert len(entries)==1,'Independent reference branch missing/duplicate';return data(entries[0][0])
  inv=inventory_from_sources(identity,code,toc);reference=[]
  for item in inv['nodes']:
+  if item.get('passthru_doc_id'):
+   e=requests['start:toc:'+item['document_id']];reference.append(passthrough_record(item,inv,identity,{'url':e['requested_url'],'sha256':e['sha256']}));continue
   url=f"https://codelibrary.amlegal.com/api/render-section/{identity['client_slug']}/{identity['version_uuid']}/{identity['code_slug']}/{quote(item['orig_doc_id'],safe='')}/{item['orig_doc_idx']}/";key='fetch:'+url;payload=data(key);reference.append(html_record(json.loads(payload),item,identity,url,requests[key]['sha256']))
  native=[json.loads(v) for v in nf.read('sections.jsonl').splitlines()];rows=comparisons(native,reference)
  return {'schema_version':1,'comparison':'Complete normalized bodies and raw source block IDs/table cells/spans; all independently inventoried nodes','source_identity':identity,'independent_inventory_count':len(inv['nodes']),'native_record_count':len(native),'matched_records':sum(r['passed'] for r in rows),'checks':rows,'passed':bool(rows) and all(r['passed'] for r in rows),'reference_mode':'Retained raw renderer responses recomputed; old normalized outputs/success flags not trusted','image_policy':IMAGE_POLICY}

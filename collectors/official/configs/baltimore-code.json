@@ -17,5 +17,20 @@
       "context_regex": "Annotated Code of Maryland|Maryland Code|State Real Property Article|Tax-Property Article|State Tax-Property Article|tax lien",
       "reason": "Source paragraph cites an independent Maryland state statute layer, not a supplied attachment to this local publication. State law applicability/complete incorporated-law coverage remains outside selected local publication scope."
     }
+  ],
+  "attachment_qualifications": [
+    {
+      "url": "https://mgaleg.maryland.gov/mgawebsite/laws/StatuteText?article=gtp&section=9-304",
+      "format": "html",
+      "content_selector": "#StatuteText",
+      "remove_selectors": [
+        ".btn-group"
+      ],
+      "identity_tokens": [
+        "Article - Tax - Property",
+        "§9–304.",
+        "Mayor and City Council of Baltimore City"
+      ]
+    }
   ]
 }

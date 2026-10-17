@@ -16,7 +16,7 @@ CC={'codes':[{'productId':17,'productName':'Test Publication','contentTypeId':'C
 TREE={'Id':'17','Heading':'Test Publication','Data':{'DocType':0},'Children':[{'Id':'CH','Heading':'Chapter 1','Data':{'DocType':2},'Children':[{'Id':'S1','Heading':'Section 1','Data':{'DocType':1},'Children':[]},{'Id':'S2','Heading':'Section 2','Data':{'DocType':1},'Children':[]}]}]}
 DOCS=[{'Id':'CH','Title':'Chapter 1','DocType':2,'Content':'<p>Container-owned legal preamble.</p>'},{'Id':'S1','Title':'Section 1','DocType':1,'Content':'<p>An operative requirement.</p><table><tr><th>Unit</th><th>Rate</th></tr><tr><td rowspan="2">Family</td><td>100</td></tr></table><a data-nodeid="S2">Section2</a><img src="https://mcclibrary.blob.core.usgovcloudapi.net/fixture/diagram.png"><a href="https://mcclibrary.blob.core.usgovcloudapi.net/fixture/appendix.txt">Required appendix</a>'},{'Id':'S2','Title':'Section 2','DocType':1,'Content':'<p>A second operative requirement.</p>'}]
 class FakeBrowser:
- fail_after=None;calls=0;urls=[]
+ fail_after=None;calls=0;urls=[];attachment_body=TEXT;attachment_mime='text/plain'
  def __init__(self,url,out):self.requests=0
  def request(self,url,binary=False):
   self.requests+=1;type(self).calls+=1;type(self).urls.append((url,binary))
@@ -25,7 +25,7 @@ class FakeBrowser:
   if binary:
    if 'diagram' in url:raise AssertionError('Image request forbidden')
    if url.endswith('/drawing'):return {'response':{'url':url,'status':200,'headers':{'content-type':'image/png'},'body':'','image_omitted':True,'omission_reason':'HEAD image MIME; no body downloaded'},'access_stop':None}
-   body=TEXT;mime='text/plain'
+   body=type(self).attachment_body;mime=type(self).attachment_mime
   else:
    if '/localapi/' in path:data={'ClientID':2,'ClientName':'Fixture Municipality','State':{'StateAbbreviation':'ZZ'}}
    elif '/ClientContent/' in path:data=CC
@@ -70,6 +70,13 @@ class FaultTests(unittest.TestCase):
   modified=[*DOCS[:2],{**DOCS[2],'Content':'<a href="'+url+'">Drawing</a>'}];out=Path(self.tmp.name)/'extensionless'
   with patch(__name__+'.DOCS',modified):cp=run_fixture(out)
   records,r=reconcile_publication(out,cp,17);self.assertIn('[IMAGE]',records[-1]['text']);self.assertNotIn('href=',records[-1]['html']);self.assertTrue(r['publication_complete']);self.assertEqual((out/json.loads((out/cp['units']['asset:'+digest(url)]['receipt']).read_text())['body_file']).stat().st_size,0)
+ def test_cell_owned_image_placeholders(self):
+  from image_policy import sanitize
+  from normalize import LegalHTML
+  for tag in ['td','th']:
+   for attr in ['background="map.png"','style="background:url(map.png)"']:
+    html='<table><tr><'+tag+' '+attr+'>Map</'+tag+'></tr></table>';clean,omissions=sanitize(html,ROOT_URL);parser=LegalHTML();parser.feed(clean);parser.parsed();self.assertIn('[IMAGE]',parser.tables[0][0][0]['text']);self.assertIn('Map',parser.tables[0][0][0]['text']);self.assertIn('<'+tag,clean);self.assertTrue(omissions)
+  clean,omissions=sanitize('<table><tr><td>Outer<table><tr><td background="map.png">Inner</td></tr></table>Tail</td></tr></table>',ROOT_URL);parser=LegalHTML();parser.feed(clean);parser.parsed();self.assertIn('[IMAGE]',parser.tables[1][0][0]['text']);self.assertIn('Inner',parser.tables[1][0][0]['text']);self.assertIn('[IMAGE]',parser.tables[0][0][0]['text'])
  def test_inline_image_payload_not_in_normalized_metadata(self):
   payload='aW1hZ2UtcGF5bG9hZC1zaG91bGQtbm90LWJlLWR1cGxpY2F0ZWQ='
   uri='data:image/png;base64,'+payload
@@ -78,11 +85,50 @@ class FaultTests(unittest.TestCase):
  def test_required_pdf_truncated_or_unqualified_cannot_complete(self):
   # Rehash a spoofed/truncated body so this tests format qualification, not only corruption hashes.
   asset_name=next(k for k in self.cp['units'] if k.startswith('asset:'));entry=self.cp['units'][asset_name];receipt=json.loads((self.folder/entry['receipt']).read_text())
-  for body,expected in [(b'%PDF-1.4','failed'),(b'%PDF-1.4\nnot a real PDF\n%%EOF','unqualified')]:
+  for body,expected in [(b'%PDF-1.4','failed'),(b'%PDF-1.4\nnot a real PDF\n%%EOF','failed')]:
    atomic(self.folder/receipt['body_file'],body);receipt['headers']['content-type']='application/pdf';receipt['sha256']=sha(body);receipt['bytes']=len(body);atomic(self.folder/entry['receipt'],receipt)
    for ent in list(self.cp['units'].values())+self.cp['responses']:
     if ent['receipt']==entry['receipt']:ent['sha256']=sha(body)
    save(self.folder,self.cp);records,r=reconcile_publication(self.folder,self.cp,17);self.assertFalse(r['publication_attachments_complete']);self.assertEqual(r['asset_ledger'][0]['status'],expected);self.rejected()
+ def test_real_pdf_parser_positive_and_structural_faults(self):
+  from pypdf import PdfWriter
+  from pdf_integrity import qualify_pdf
+  import io
+  w=PdfWriter();w.add_blank_page(width=612,height=792);out=io.BytesIO();w.write(out);body=out.getvalue();result=qualify_pdf(body);self.assertEqual(result['status'],'acquired');self.assertEqual(result['physical_pages'],1);self.assertFalse(result['image_extraction'])
+  for bad in [body[:len(body)//2]+b'\n%%EOF',body.replace(b'/Root',b'/Bork'),body.replace(b'/Pages',b'/Borks')]:self.assertEqual(qualify_pdf(bad)['status'],'failed')
+ def test_required_real_pdf_complete_pipeline(self):
+  from pypdf import PdfWriter
+  import io
+  w=PdfWriter();w.add_blank_page(width=612,height=792);stream=io.BytesIO();w.write(stream)
+  changed=[{**d,'Content':d['Content'].replace('appendix.txt','appendix.pdf')} for d in DOCS];out=Path(self.tmp.name)/'required-pdf'
+  with patch.object(FakeBrowser,'attachment_body',stream.getvalue()),patch.object(FakeBrowser,'attachment_mime','application/pdf'),patch(__name__+'.DOCS',changed):cp=run_fixture(out)
+  records,report=reconcile_publication(out,cp,17);self.assertTrue(report['publication_attachments_complete']);self.assertTrue(verify(out)['publication_complete']);self.assertEqual(report['asset_ledger'][0]['format_qualification']['parser_version'],'6.21.1');self.assertEqual(report['asset_ledger'][0]['format_qualification']['physical_pages'],1)
+ def test_nested_notes_images_and_required_links(self):
+  payload='U0VDUkVUX0lNQUdFX0JZVEVT';uri='data:image/png;base64,'+payload
+  notes=[{'NoteContent':'<p>Legal note<img src="'+uri+'"></p>','Nested':[{'Other':uri},'Plain legal note','This provision refers to map.png',{'NoteContent':'<table><tr><td background="map.png">Note cell</td></tr></table>'}]}]
+  replace_unit(self.folder,self.cp,'content-root:17',lambda a:[a[0],{**a[1],'Notes':notes},a[2]]);save(self.folder,self.cp);records,report=reconcile_publication(self.folder,self.cp,17);serialized=json.dumps({'records':records,'coverage':report});self.assertNotIn(payload,serialized);self.assertNotIn('data:image/',serialized);self.assertNotIn('<img',json.dumps(records[1]['notes']));self.assertIn('Legal note',serialized);self.assertIn('Plain legal note',serialized);self.assertIn('This provision refers to map.png',serialized);self.assertIn('[IMAGE]',records[1]['notes'][0]['NoteContent']);self.assertIn('Notes[0].NoteContent',serialized);self.assertTrue(report['publication_complete']);self.assertTrue(verify(self.folder)['publication_complete'])
+  notes[0]['NoteContent']='<a href="https://example.gov/required.pdf">Required note appendix</a>'
+  replace_unit(self.folder,self.cp,'content-root:17',lambda a:[a[0],{**a[1],'Notes':notes},a[2]]);save(self.folder,self.cp);records,report=reconcile_publication(self.folder,self.cp,17);self.assertFalse(report['publication_attachments_complete']);self.assertTrue(any(a['url']=='https://example.gov/required.pdf' for a in report['asset_ledger']));self.rejected()
+ def test_empty_source_keeps_closing_evidence_but_cannot_complete(self):
+  changed=[*DOCS[:2],{**DOCS[2],'Content':'<div class="chunk-content"></div>'}];out=Path(self.tmp.name)/'empty-source'
+  with patch(__name__+'.DOCS',changed):cp=run_fixture(out)
+  self.assertEqual(cp['phase'],'finished');self.assertIn('inventory-end',cp['units']);self.assertIn('end_units',cp['publications']['17']);self.assertFalse(json.loads((out/'coverage.json').read_text())['publication_complete'])
+  self.assertFalse(verify(out,allow_incomplete=True)['publication_complete'])
+  with self.assertRaises(ValueError):verify(out)
+ def test_exact_jacksonville_bare_www_never_calls_transport(self):
+  fixture=json.loads((Path(__file__).parent/'fixtures/jacksonville-bare-www.json').read_text());doc=fixture['doc'];self.assertEqual(sha(doc['Content'].encode()),fixture['source_body_sha256']);tree=copy.deepcopy(TREE);tree['Children'][0]['Children'][1]['Id']=doc['Id'];tree['Children'][0]['Children'][1]['Heading']=doc['Title'];out=Path(self.tmp.name)/'bare-www';FakeBrowser.urls=[]
+  with patch(__name__+'.DOCS',[*DOCS[:2],doc]),patch(__name__+'.TREE',tree):cp=run_fixture(out)
+  records,r=reconcile_publication(out,cp,17);malformed=[a for a in r['asset_ledger'] if a.get('malformed_source_reference')];self.assertTrue(malformed);self.assertTrue(any(a['url']==fixture['expected_locator'] and a['owner_ids']==[doc['Id']] for a in malformed));self.assertFalse(any('www.jaxsheriff.org' in u for u,b in FakeBrowser.urls));self.assertFalse(r['publication_complete']);self.assertTrue(any(ref['kind']=='malformed_external_reference' and ref['source_value']==fixture['expected_locator'] for ref in r['references']));self.assertFalse(verify(out,allow_incomplete=True)['publication_complete'])
+ def test_bare_external_notes_and_css_dependency_never_call_transport(self):
+  bare='www.jaxsheriff.org/fees';modified=[*DOCS[:2],{**DOCS[2],'Notes':[{'NoteContent':'<a href="'+bare+'">Fee schedule</a>'}]}];out=Path(self.tmp.name)/'bare-note';FakeBrowser.urls=[]
+  with patch(__name__+'.DOCS',modified):cp=run_fixture(out)
+  records,r=reconcile_publication(out,cp,17);self.assertFalse(r['publication_complete']);self.assertTrue(any(a.get('malformed_source_reference') and a['url']==bare for a in r['asset_ledger']));self.assertFalse(any('www.jaxsheriff.org' in u for u,b in FakeBrowser.urls))
+  out=Path(self.tmp.name)/'bare-css';FakeBrowser.urls=[]
+  with patch.object(FakeBrowser,'attachment_body',('@import "'+bare+'";').encode()),patch.object(FakeBrowser,'attachment_mime','text/css'):cp=run_fixture(out)
+  records,r=reconcile_publication(out,cp,17);self.assertFalse(r['publication_complete']);self.assertTrue(any(ref['kind']=='malformed_external_reference' and ref.get('parent_asset_url') for ref in r['references']));self.assertFalse(any('www.jaxsheriff.org' in u for u,b in FakeBrowser.urls))
+ def test_relative_file_and_network_path_are_not_bare_host_guesses(self):
+  from model import reference_url
+  self.assertEqual(reference_url(ROOT_URL,'appendix.pdf'),('https://library.municode.com/zz/fixture/codes/appendix.pdf',False));self.assertEqual(reference_url(ROOT_URL,'//example.gov/appendix.pdf'),('https://example.gov/appendix.pdf',False));self.assertEqual(reference_url(ROOT_URL,'www.jaxsheriff.org/fees'),('www.jaxsheriff.org/fees',True))
  def test_zip_prefix_only_cannot_qualify(self):
   from model import asset_qualification
   self.assertEqual(asset_qualification('https://example.gov/appendix.zip',b'PKnot-a-zip',{'content-type':'application/zip'})[0],'failed')

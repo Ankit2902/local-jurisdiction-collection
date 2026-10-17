@@ -3,14 +3,20 @@ A fresh browser challenge/429 writes an atomic stop flag before waiting for the 
 """
 import sys,fcntl,json,os,time,hashlib
 from pathlib import Path
+from urllib.parse import urlparse
 from datetime import datetime,timezone
 from email.utils import parsedate_to_datetime
 root=Path(os.environ.get('MUNICODE_GATE_DIR','/tmp/compliSolv-municode-rate-gate'));root.mkdir(parents=True,exist_ok=True);stop=root/'browser-stop.json';action=sys.argv[1]
+external_host=urlparse(sys.argv[2]).hostname if len(sys.argv)>2 else None
+external_stop=root/('external-stop-'+hashlib.sha256((external_host or '').encode()).hexdigest()+'.json')
+if action=='stop-external':
+ record={'host':external_host,'url':sys.argv[2],'reason':' '.join(sys.argv[3:]),'recorded_at':datetime.now(timezone.utc).isoformat(),'operator_release_required':True};tmp=external_stop.with_suffix('.'+str(os.getpid())+'.tmp');tmp.write_text(json.dumps(record));os.replace(tmp,external_stop);raise SystemExit(0)
 if action in ['stop-browser','cooldown']:
  record={'reason':'HTTP429' if action=='cooldown' else (' '.join(sys.argv[2:]) or 'Publisher challenge'),'recorded_at':datetime.now(timezone.utc).isoformat(),'operator_release_required':True};tmp=root/('browser-stop-'+str(os.getpid())+'.tmp');tmp.write_text(json.dumps(record));os.replace(tmp,stop)
 with (root/'publisher.lock').open('a+') as lock:
  fcntl.flock(lock,fcntl.LOCK_EX);p=root/'state.json';s=json.loads(p.read_text()) if p.exists() else {}
  if action=='reserve':
+  if external_stop.exists():raise SystemExit('External required-source access stop: '+external_stop.read_text())
   if stop.exists():raise SystemExit('Browser publisher access stop: '+stop.read_text())
   if s.get('family_stop') and not s.get('browser_workflow_authorized'):raise SystemExit('Publisher family stopped; no browser workflow authorization')
   limit=s.get('actual_rate_limit_until',0) if s.get('family_stop') else max(s.get('actual_rate_limit_until',0),s.get('cooldown_until',0))

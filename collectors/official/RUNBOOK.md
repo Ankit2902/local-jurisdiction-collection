@@ -13,3 +13,11 @@ Use `README.md` for installation, formats and coverage meanings; use `validation
 9. Before handoff, retain raw receipts, exact executed sources, config/inventory/checkpoint, JSONL/CSV and coverage together. Copy compact fixtures and implementation with the large bundle for relocation, excluding runtimes/profiles/cache. Preserve failed/preliminary attempts separately; they are not selected complete proof.
 
 No generic operator whole-publication import is implemented in this release. Burlington's supported route is ordinary-browser dynamic traversal of observed native HTML. If that route becomes blocked or its source structure changes, the result remains explicitly incomplete until a separately qualified full import/manifest workflow exists.
+
+## Readiness recovery and interpretation
+
+For a code change, keep the old output intact and use a NEWoutput with `--from-cache /old/output`. Source/inventory/edition config must match; the only permitted config difference is explicit `pdf_normalization`. Successful source-bound raw items may be reused, failed/wrong-download/image responses are excluded, every body is reparsed, and discovery plus all source end checks are fresh. Cache import provenance records both config hashes and exact parser-only differences.
+
+Use coordinate-v1 PDF configs for current collection. Run the three offline test scripts before deployment. Read `verify.py`'s PDF QA alongside file/page flags; manual reading-order/diagram/undetected-table and legal section review stays explicit even when two text engines agree. All native originals may embed images, but no separate image pixels/render/OCR are permitted.
+
+An official file-host403 remains a real required-attachment gap; never reset the host gate or silently fetch through an alternate browser route. A separately available maincodehost may finish its own lawful selected text inventory; it does not close those external files. Existing original/secondary families with no qualified config remain unsupported until an observed inventory/content contract is implemented and tested.

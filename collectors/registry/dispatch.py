@@ -46,6 +46,12 @@ def qualified(pub,target):
  elif family=='american-legal':
   if '/latest/' not in url:raise Unsupported('An observed American Legal library/publication route is required')
   if url.rstrip('/').endswith('/overview') and not pub.get('selector',{}).get('publication'):raise Unsupported('Library overview requires an exact observed publication selector')
+ elif family=='gridics':
+  config_path=pub.get('adapter_config_path');p=ROOT/config_path if config_path else None
+  if not p or p.parent!=ROOT/'collectors/gridics/configs' or not p.is_file():raise Unsupported('Exact qualified Gridics publication config required')
+  config=read(p)
+  if config.get('source_url')!=url or config.get('state')!=target['state'] or config.get('jurisdiction')!=target['jurisdiction'] or not config.get('document_id'):raise Unsupported('Gridics publication/government/config binding mismatch')
+  detail.update(config=config,config_path=str(p.relative_to(ROOT)))
  else:raise Unsupported('No collector adapter for '+family)
  return detail
 
@@ -69,10 +75,16 @@ def command(pub,target,out,python='python3',resume=False,max_items=None,verify=F
   if not verify and pub.get('selector',{}).get('publication'):argv+=['--publication',pub['selector']['publication']]
   if not verify:
    for alias in identity.get('identity_aliases',[]):argv+=['--identity-alias',alias]
+   if pub.get('acquisition_strategy'):
+    if pub['acquisition_strategy'] not in ('native','traverse'):raise Unsupported('Unknown explicit American Legal acquisition strategy')
+    argv+=['--strategy',pub['acquisition_strategy']]
+ elif family=='gridics':
+  if max_items is not None:raise Unsupported('Gridics has no qualified bounded mode; full inventory/traversal is required')
+  argv=[python,'-m','collectors.gridics.collect','verify' if verify else 'collect','--config',q['config_path'],'--out',out]
  if not verify:
   if resume:argv+=['--resume']
   if max_items is not None:argv+=['--max-items',str(max_items)]
- return {'argv':argv,'staged_config':config if '{CONFIG}' in argv else None,'qualified_config_path':q.get('config_path'),'publication_id':pub['id'],'scope':pub['scope_kind'],'image_policy':pub.get('image_policy'),'jurisdiction_complete':False}
+ return {'argv':argv,'staged_config':config if '{CONFIG}' in argv else None,'qualified_config_path':q.get('config_path'),'publication_id':pub['id'],'publication_title':pub['title'],'publication_expected_identity':identity,'required_for_jurisdiction':pub['required_for_jurisdiction'],'jurisdiction_scope':pub.get('jurisdiction_scope'),'edition_scope':pub.get('edition_scope'),'required_publication_dependencies':pub.get('required_publication_dependencies',[]),'configuration_alias_of':pub.get('configuration_alias_of'),'scope':pub['scope_kind'],'image_policy':pub.get('image_policy'),'jurisdiction_complete':False}
 
 def bind_run(pub,target,out):
  """Fail before dispatch if retained run belongs to another selected publication.
@@ -94,4 +106,5 @@ def bind_run(pub,target,out):
   cp=read(out/'checkpoint.json');c=cp['config'];require(c['family']==pub['source_family'] and normalized(c['url'])==normalized(url),'eCode source family/route');require(c.get('jurisdiction')==target['jurisdiction'] and c.get('state')==target['state'],'eCode government/state');require(not c.get('subtree'),'whole-publication scope required')
   if pub['source_family']=='municipal.codes':require(normalized(cp['publication_url'])==normalized(url),'municipal publication tab')
   if identity.get('customer_id'):require(str(cp['identity'].get('customer_id'))==str(identity['customer_id']),'eCode customer identity')
+ elif family=='gridics':require(read(out/'acquisition.json')['config']==q['config'],'exact Gridics publication/source/config')
  return True

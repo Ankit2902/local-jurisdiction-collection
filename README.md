@@ -4,13 +4,15 @@ Technical handoff for source discovery, acquisition scripts, parsing, and valida
 
 ## Full-publication collectors
 
-Start with the [full-collection runbook](collectors/README.md), [target registry](collectors/registry/targets.json), and [completeness criteria](collectors/COMPLETENESS.md). These are the current implementation layer for the 100 expansion targets, with 100 runnable primary configurations and 45 qualified secondary configurations. They supersede bounded script defaults where a supported adapter is configured, while preserving the historical validation evidence below.
+Start with the [integrated setup and execution guide](collectors/ops/README.md), [full-collection runbook](collectors/README.md), and [completeness criteria](collectors/COMPLETENESS.md). The current combined registry covers the original 30 jurisdictions and the 100 expansion targets. Run `python3.12 collect.py plan --all` for the exact current primary/secondary configurations, required publication dependencies and unsupported discoveries. Configuration coverage is not a count of completed collections.
 
 **Image policy:** the current collectors omit separate image downloads and replace images with `[IMAGE]` in normalized output; see the [policy and verification requirements](collectors/IMAGE-POLICY.md).
 
+The [current readiness checkpoint](packages/collection-readiness-checkpoint-2026-10-17/README.md) preserves selected complete and incomplete source captures, the 282-check isolated baseline, focused final fixes, and exact collector revisions. The [per-publication requirement ledger](collectors/qa/readiness-requirements.json) distinguishes the 130 targets and 224 publication entries from completed collection: 186 entries have dispatch configurations, 38 remain unqualified, and observed access stops prohibit automatic acquisition for 128 configured entries. These stop records describe specific observed workflows, not a claim that every publisher URL is unavailable.
+
 The registry resolves each publication to an explicit source and collector configuration. Plans identify unsupported sources and unresolved publication families before acquisition. Full traversal is the default; limited, interrupted, or source-inconsistent runs cannot silently become complete. Publication text, attachments, edition consistency, native-file coverage, and jurisdiction scope remain separate measures.
 
-The [new full-publication release](https://github.com/OliverFlint-98/local-jurisdiction-collection/releases/tag/full-publication-collectors-2026-10-17) contains the sealed validation evidence and a self-contained current collector snapshot. See the [measured validation scopes](collectors/README.md#validated-publication-runs) and [evidence index](packages/full-publication-validation-2026-10-17/README.md). The independent offline suite passed 126 cases; selected live and retained-source replays preserve incomplete results where documents, source consistency, or semantic qualification remain unresolved.
+The [first full-publication release](https://github.com/OliverFlint-98/local-jurisdiction-collection/releases/tag/full-publication-collectors-2026-10-17) preserves the earlier sealed validation evidence and its exact collector snapshot. Its independent offline suite passed 126 cases; see its [evidence index](packages/full-publication-validation-2026-10-17/README.md). The active `collectors/` layer contains subsequent validation fixes and source-specific runbooks. Full publication validation is ongoing; selected live and retained-source results remain incomplete where required documents, source consistency or semantic qualification are unresolved. Historical packages below are provenance, not the default current collector entry points.
 
 ## Expanded scope: 100 additional jurisdictions
 
@@ -29,7 +31,7 @@ Start with each group’s README for the tested runtime and fresh-output command
 
 The [release](https://github.com/OliverFlint-98/local-jurisdiction-collection/releases/tag/expanded-scope-validation-2026-10-17) contains the complete sealed wave archives. Large evidence files are restored with the helper described below. Scripts and reports remain browsable in Git.
 
-## Original 30-jurisdiction backlog: current results
+## Original 30-jurisdiction backlog: historical bounded results
 
 Use these packages in precedence order; later work supersedes earlier runtime and validation claims for the jurisdictions it covers.
 
@@ -43,7 +45,7 @@ The latest eCode360 result includes independent comparison of **134 provisions, 
 
 The current non-eCode360 distinctions remain explicit: Berkeley, Petaluma, Sonoma and Everett have bounded standalone pilots; Bellingham's earlier standalone pilot is partial because a later 429 prevented its final consistency check. Flagstaff, Fremont, San Carlos, Burien and Renton have tested manual publisher downloads followed by standalone local importers. No full-corpus completion is inferred.
 
-## Scripts and execution
+## Historical scripts and execution evidence
 
 - [eCode360 browser acquisition and DOM export](packages/ecode360-headed-2026-10-16/ecode360/README.md)
 - [eCode360 actual PDF downloads and narrow PDF-native selected-section parsing](packages/ecode360-headed-2026-10-16/publisher-downloads/README.md)

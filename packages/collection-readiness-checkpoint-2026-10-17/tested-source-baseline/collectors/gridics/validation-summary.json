@@ -1,0 +1,124 @@
+{
+  "schema_version": 1,
+  "checked_at": "2026-10-17T21:34:26.735081+00:00",
+  "status": "Full native traversal exercised; publication completeness gaps retained.",
+  "goal_complete": false,
+  "current_normalizer_sources": {
+    "collect.py": "fee83735fd4a6eff2ba3993f9e3acd396856058fc31b7f8b79a3854e861d6a9f",
+    "model.py": "a75702586452c5243d4bd230c23718c9fa620e7894ffbd2e1a2fa8b6dad9dcf3"
+  },
+  "runs": [
+    {
+      "jurisdiction": "cupertino",
+      "evidence_run": "cupertino-portable-v4-replay",
+      "acquisition": "ordinary headed Chrome, all observed roots, fresh opening and closing contexts",
+      "normalization": "explicit offline replay retaining immutable native and rendered receipts",
+      "roots": 22,
+      "records": 2687,
+      "tables": 131,
+      "table_rows": 4561,
+      "table_cells": 11681,
+      "image_placeholders": 35,
+      "separate_image_downloads": 0,
+      "start_end_consistent": true,
+      "source_errors": 0,
+      "unexplained_empty_source_ids": [
+        "7daf6ab8-2ebd-4ec4-b186-7fb13cc6dc25",
+        "2bd0f693-72ef-4d4e-a156-15d41393b17f",
+        "d6d8ae83-06cf-417a-bb6d-501a5f5a0e20",
+        "80f89d79-be8f-4592-bb4f-3c447b11e3b6",
+        "d62a7638-27df-4a9f-b0af-ad731c3b0c45"
+      ],
+      "unresolved_references": 2308,
+      "publication_text_complete": false,
+      "required_assets_complete": false,
+      "jurisdiction_complete": false,
+      "full_live_verified": false,
+      "offline_verification": {
+        "exit_code": 2,
+        "normalized_replay_matches": true,
+        "remaining_gaps_retained": true,
+        "receipt": "proof-receipts/cupertino-portable-v4-verify.log"
+      }
+    },
+    {
+      "jurisdiction": "miami",
+      "evidence_run": "miami-current-parser-v3",
+      "acquisition": "ordinary headed Chrome, all observed roots, fresh opening and closing contexts",
+      "normalization": "explicit offline replay retaining immutable native and rendered receipts",
+      "roots": 32,
+      "records": 828,
+      "tables": 137,
+      "table_rows": 2652,
+      "table_cells": 10892,
+      "image_placeholders": 439,
+      "separate_image_downloads": 0,
+      "start_end_consistent": true,
+      "source_errors": 112,
+      "unexplained_empty_source_ids": [
+        "cd13dd54-92ab-4687-a026-e6c8e492905e",
+        "87242a13-4d1f-43b8-b861-27e87fb602f3"
+      ],
+      "unresolved_references": 1439,
+      "publication_text_complete": false,
+      "required_assets_complete": false,
+      "jurisdiction_complete": false,
+      "full_live_verified": false,
+      "offline_verification": {
+        "exit_code": 2,
+        "normalized_replay_matches": true,
+        "remaining_gaps_retained": true,
+        "receipt": "proof-receipts/miami-current-parser-v3-verify.log"
+      }
+    }
+  ],
+  "tests": {
+    "passed": 27,
+    "network_requests": 0,
+    "receipt": "proof-receipts/final-offline-tests.log"
+  },
+  "miami_diagnostic": "All 56 opening differences (50 text and six table-cell comparisons) differ only in whitespace; repeated in closing pass. This diagnosis does not waive comparison failures.",
+  "publisher_export": "Anonymous UI did not expose a verified DOCX download; app JavaScript capability alone is not an accessible export qualification.",
+  "receipts": {
+    "cupertino-image-audit.json": {
+      "sha256": "22d990679ff9e2ffc4e38c64953379cf7ecf9cbfac3e91ca5b630919331c483f",
+      "bytes": 609
+    },
+    "miami-image-audit.json": {
+      "sha256": "6bda4aac5d1bc2802d70edd07dbdabb42bfd383c6827785418f9e3dba28738b2",
+      "bytes": 604
+    },
+    "miami-whitespace-diagnostic.json": {
+      "sha256": "65cef7b9a053cb3cbb6708e5b01900154b42948fc05a6b498cc4a38ed7abe8b5",
+      "bytes": 10508
+    },
+    "final-offline-tests.log": {
+      "sha256": "144521fdb8fcdc67d647b7d4f58ebd22e2145261756139037fb046b95d8c634b",
+      "bytes": 126
+    },
+    "cupertino-coverage.json": {
+      "sha256": "bf53b769b75725ffb4c93f229c82cd2ea2e4058da3e8e40814d32ba10512bcdb",
+      "bytes": 4257
+    },
+    "cupertino-acquisition.json": {
+      "sha256": "bad6c714688015c9b20961be2b8e17e9f58c84da0a4151a5e6a6e479b766d473",
+      "bytes": 1005
+    },
+    "miami-coverage.json": {
+      "sha256": "3483218e71313c51acd709e8090d8a3ba3f482cecebe108737caf65d16cded74",
+      "bytes": 24305
+    },
+    "miami-acquisition.json": {
+      "sha256": "ad1cab142564e81a39a795dfa3cd51be1575edaaff52c3646ebfc19fba7c64b9",
+      "bytes": 993
+    },
+    "cupertino-portable-v4-verify.log": {
+      "sha256": "bf53b769b75725ffb4c93f229c82cd2ea2e4058da3e8e40814d32ba10512bcdb",
+      "bytes": 4257
+    },
+    "miami-current-parser-v3-verify.log": {
+      "sha256": "7c921cf4ba1669b12d203822c17e9a870fefab189e09a94b81bcea88adebf8a5",
+      "bytes": 25306
+    }
+  }
+}

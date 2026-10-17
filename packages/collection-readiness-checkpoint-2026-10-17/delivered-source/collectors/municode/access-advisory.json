@@ -1,0 +1,28 @@
+{
+  "schema_version": 1,
+  "advisories": [
+    {
+      "family": "municode",
+      "operator_review_required": true,
+      "automatic_retry": false,
+      "reason": "Malformed publisher-owned source href www.jaxsheriff.org/fees was incorrectly resolved under library.municode.com; observed HEAD403/Cf-Mitigated challenge on that malformed path. Shared browser workflow stopped. This is not evidence that every legitimate public publisher route is unavailable.",
+      "observed_stop": {
+        "reason": "https://library.municode.com/www.jaxsheriff.org/fees HTTP access refusal",
+        "recorded_at": "2026-10-17T21:41:34.381324+00:00",
+        "operator_release_required": true
+      },
+      "original_gate_path": "/tmp/compliSolv-municode-rate-gate/browser-stop.json",
+      "source_sha256": "baa3b06c85e67ae21ee392de6769a32fd3d58b86d36d393138c8d1669740c68c",
+      "raw_refusal_witness": {
+        "source_path": "outputs/collection-readiness-2026-10-17/municode/batch-005/runs/6-primary/raw/bd96cbe9d3a3421fbfab39db5aac4127.json",
+        "sha256": "196ca151a450c474060d04357de28d00c7b6815aef47dabd018886f4c1abe0e5",
+        "request_method": "HEAD",
+        "http_status": 403,
+        "cf_mitigated": "challenge",
+        "response_body_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "source_doc_fixture": "collectors/municode/fixtures/jacksonville-bare-www.json"
+      }
+    }
+  ],
+  "source_registry_sha256": "d42b01194ab54885f8370c1ade6b86b7afe885796636cb4affefcf71fe0002b2"
+}

@@ -1,0 +1,19 @@
+#!/usr/bin/env python3
+"""Bounded independent source/PDF corroboration for three exact empty article labels."""
+import argparse,hashlib,json,re
+from pathlib import Path
+from bs4 import BeautifulSoup
+from pypdf import PdfReader
+sha=lambda b:hashlib.sha256(b).hexdigest()
+def norm(s):return ' '.join(s.split())
+def main():
+ a=argparse.ArgumentParser();a.add_argument('--run',type=Path,required=True);a.add_argument('--native',type=Path,required=True);a.add_argument('--out',type=Path,required=True);o=a.parse_args()
+ if o.out.exists():raise ValueError('Fresh report required')
+ cp=json.loads((o.run/'checkpoint.json').read_text());u=cp['units']['content-root:14229'];rr=json.loads((o.run/u['receipt']).read_text());body=(o.run/rr['body_file']).read_bytes();assert sha(body)==u['sha256']==rr['sha256'];docs=json.loads(body);pdf=o.native/'publisher-export.pdf';reader=PdfReader(pdf,strict=True);job=json.loads((o.native/'job.json').read_text());assert job['ProductId']==14229 and job['Id']==cp['publications']['14229']['job_id'];first=[reader.pages[i].extract_text() or '' for i in range(3)];review=[]
+ for article,page in [(8,38),(10,57),(11,61)]:
+  pos=next(i for i,d in enumerate(docs) if re.match(r'ARTICLE '+str(article)+r'\.',d['Title'],re.I));d=docs[pos];chapter=docs[pos+1];section=docs[pos+2];raw=d['Content'];assert not BeautifulSoup(raw,'html.parser').get_text(strip=True);text=reader.pages[page-1].extract_text() or '';s=norm(text);article_match=re.search(r'ARTICLE '+str(article)+r'\.',s,re.I);assert article_match;start=article_match.start();next_chapter=re.search(r'CHAPTER 1\.',s[start:],re.I);assert next_chapter;heading_only_span=s[start:start+next_chapter.start()];expected=norm(re.sub('<[^>]+>','',d['Title'])).replace(' - ',' ');assert re.sub(r'[^a-z0-9]','',heading_only_span.casefold())==re.sub(r'[^a-z0-9]','',expected.casefold());assert re.match(r'CHAPTER 1\.',chapter['Title'],re.I);assert re.match(r'Sec\. '+str(article)+r'\.101\.',section['Title'],re.I)
+  first_body=norm(BeautifulSoup(section['Content'],'html.parser').get_text(' ',strip=True));anchor=first_body[:100];assert anchor in s
+  review.append({'node_id':d['Id'],'api_heading':d['Title'],'api_body_sha256':sha(raw.encode()),'api_body_empty':True,'raw_source_order_index':pos,'native_physical_page':page,'native_page_text_sha256':sha(text.encode()),'native_article_heading_span':heading_only_span,'following_chapter_id':chapter['Id'],'following_chapter_heading':chapter['Title'],'first_operative_section_id':section['Id'],'first_operative_heading':section['Title'],'first_body_anchor':anchor,'first_body_anchor_matches_native':True,'conclusion':'Exact source article label is corroborated as a grouping heading immediately followed by separately owned chapter and operative provision; no own legal prose between label and chapter in this native page.'})
+ report={'schema_version':1,'kind':'bounded-exact-three-article-source-structure-review','network_requests_sent':0,'publisher':'Metro Government of Nashville and Davidson County, Tennessee','product_id':14229,'job_id':job['Id'],'job_name':job['Name'],'job_banner':job['BannerText'],'pdf_sha256':sha(pdf.read_bytes()),'pdf_pages':len(reader.pages),'native_first_three_page_text':first,'raw_api_content_sha256':sha(body),'checks':review,'passed':True,'scope_note':'Only three exact article group labels and immediate following chapter/first operative anchor checked. Not PDF/API all-body/table equivalence; not a generic Article regex exemption or jurisdiction completion. Edition assessment remains separately explicit from body structure.'}
+ o.out.parent.mkdir(parents=True,exist_ok=True);o.out.write_text(json.dumps(report,indent=2)+'\n');print(json.dumps({'passed':True,'exact_nodes':[x['node_id'] for x in review],'physical_pages':[38,57,61],'pdf_sha256':report['pdf_sha256']}))
+if __name__=='__main__':main()

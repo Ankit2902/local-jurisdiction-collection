@@ -9,6 +9,35 @@ from .media import qualify_asset
 
 VERSION='icc-full-1.0'
 _PARSE_CACHE={}
+def statutory_reference(url,publication_url,family):
+ """Source-backed CodePublishing statute-link namespaces, not arbitrary documents."""
+ p=urlsplit(url);observed_namespaces={'NY':set('PBH BNK MHR ELN GCT SCC PBO GMU SLG GBS SOS ENV PBS VAT EXC WKC CVS LAB DOM PEN LFN LIE ISC AGM CPL NYCRR RPT PVH TRA TAX PAR'.split()),'AZ':{'ARS'}}
+ parts=p.path.strip('/').split('/')
+ if p.netloc=='municipal.codes' and not p.query:
+  if len(parts)==3 and parts[1] in observed_namespaces.get(parts[0],set()) and parts[2]:return True
+  if re.fullmatch(r'/US/(?:USC|CFR)/[0-9]+/[^/]+',p.path) or re.fullmatch(r'/US/Const/Amendment[0-9]+',p.path):return True
+ # This forwarding form is directly witnessed in the retained Phoenix Charter.
+ return family=='municipal.codes' and p.netloc==urlsplit(publication_url).netloc and not p.query and bool(re.fullmatch(r'/AZ/ARS/[^/]+',p.path))
+def equivalent_body(a,b):
+ """Ignore observed generated accessibility targets and exact history-click UI.
+
+ Legal element IDs, labels, links, tables/spans and all text remain compared.
+ Original normalized markup and every raw witness remain retained.
+ """
+ def canonical_markup(html):
+  from bs4 import BeautifulSoup
+  sp=BeautifulSoup(html,'html.parser');pattern=re.compile(r'.+__[0-9a-f]{32}__name$')
+  targets={el['id'] for el in sp.select('span.name[id]') if pattern.fullmatch(el['id'])}
+  for el in sp.select('[aria-labelledby]'):
+   refs=el['aria-labelledby'].split()
+   if refs and all(ref in targets for ref in refs):del el['aria-labelledby']
+  for el in sp.select('span.name[id]'):
+   if el['id'] in targets:del el['id']
+  for el in sp.select('.note.history.history--linked[data-action]'):
+   if el['data-action']=='click->levelnodes#openHistory':
+    del el['data-action'];el['class']=[c for c in el['class'] if c!='history--linked']
+  return str(sp)
+ return a['heading']==b['heading'] and canonical_markup(a['content_html'])==canonical_markup(b['content_html'])
 def cached_parse(family,raw,url,expected,base,known):
  key=(family,digest(raw),url,digest(canon(edition(expected))),base,digest(canon(known)) if family=='municipal.codes' else ())
  if key not in _PARSE_CACHE:_PARSE_CACHE[key]=parse_ecode(raw,url,expected) if family=='ecode360' else parse_municipal(raw,url,base,expected,known)
@@ -31,6 +60,14 @@ def load_artifact(out,a):
 def rebuild(out,state):
  """Recompute graph, ownership and bodies only from hash-checked retained source."""
  cfg=state['config'];family=cfg['family'];base=state.get('publication_url');expected=state.get('identity');nodes={};records={};dispositions={};witnesses={};conflicts=[];duplicates=[];assets={};asset_failures=[];start=None;end=None;toc_start=None;toc_end=None
+ if expected:
+  configured=urlsplit(cfg['url']).path.strip('/')
+  if family=='ecode360':
+   if re.fullmatch(r'[A-Z]{2}[0-9]{4}',configured) and expected['customer_id']!=configured:raise QualificationError('Configured customer alias differs from retained source identity')
+   desired=clean_url(cfg['url']) if cfg.get('subtree') else 'https://ecode360.com/'+expected['customer_id']
+  else:
+   selected=cfg.get('publication');desired=clean_url(selected if selected and selected.startswith('https://') else 'https://'+urlsplit(cfg['url']).netloc+'/'+selected.strip('/')) if selected else clean_url(cfg['url'])
+  if base!=desired:raise QualificationError('Configured publication scope differs from retained publication root')
  def addnode(n):
   nid=n['id']
   if nid in nodes and nodes[nid]['url']!=n['url']:raise QualificationError('Inventory identity conflict '+nid)
@@ -58,7 +95,9 @@ def rebuild(out,state):
   if a.get('status',200)!=200 and not (role=='native' and a.get('download_completed') and a.get('status') in [None,200]):continue
   if role in ['root-start','root-end']:
    got=identity(raw,a['url'],family,base)
-   if edition(got)!=edition(expected):raise QualificationError('Start/end edition drift')
+   if got!=expected:raise QualificationError('Start/end identity or edition drift')
+   jurisdiction_check(got,cfg.get('jurisdiction'),cfg.get('state'))
+   if family=='ecode360' and not cfg.get('subtree') and soup(raw).body.get('data-guid') not in [None,expected['customer_id']]:raise QualificationError('Whole Code opening/closing source is a chapter, not the customer root')
    if role=='root-start':start=got
    else:end=got
   if role in ['contents-start','contents-end']:
@@ -90,8 +129,8 @@ def rebuild(out,state):
   for r in parsed['records']:
    nid=r['id'];witnesses.setdefault(nid,[]).append(a['path'])
    if nid in records:
-    if records[nid]['body_sha256']!=r['body_sha256']:conflicts.append({'id':nid,'sources':witnesses[nid]})
-    else:duplicates.append({'id':nid,'same_body':True,'source':a['path']})
+    if records[nid]['body_sha256']!=r['body_sha256'] and not equivalent_body(records[nid],r):conflicts.append({'id':nid,'sources':witnesses[nid]})
+    else:duplicates.append({'id':nid,'same_body':records[nid]['body_sha256']==r['body_sha256'],'equivalent_observed_ui_only':records[nid]['body_sha256']!=r['body_sha256'],'source':a['path']})
    else:records[nid]=r
  # Attach provenance and resolve logical ancestry from retained descriptors/source URLs.
  for nid,r in records.items():
@@ -121,10 +160,19 @@ def rebuild(out,state):
    elif p.scheme in ['mailto','tel']:cl='contact_reference'
    elif p.netloc=='ecode360.com' and re.fullmatch(r'/(?:[0-9]+|[A-Z]{2}[0-9]{4})',p.path.rstrip('/')) and not p.query:cl='external_publisher_code_reference'
    elif family=='municipal.codes' and any(clean_url(u)==root or clean_url(u).startswith(root+'/') for root in external_pubroots) and not p.query:cl='observed_other_publication_reference'
-   elif p.netloc=='municipal.codes' and re.fullmatch(r'/[A-Z]{2}/[A-Z]+/[^/]+',p.path) and not p.query:cl='external_statutory_reference'
+   elif statutory_reference(u,base,family):cl='external_statutory_reference'
    elif p.scheme in ['https','http'] and (p.path in ['', '/'] or p.path.endswith('/') or re.search(r'\.(?:html?|aspx?|jsp)$',p.path,re.I)):cl='external_html_reference'
    else:cl='unresolved_hyperlink'
    ledger.append({**link,'classification':cl})
+ # Re-extract operator PDF identity independently; stored metadata is not proof.
+ for a in state['artifacts']:
+  if a['role']=='asset' and a.get('operator_document_identity'):
+   from .operator import document_identity
+   from urllib.parse import unquote
+   u=a['requested_url'];owners=[r for r in records.values() if any(ref['url']==u for ref in r['assets'])]
+   witness=' '.join([expected.get('name',''),unquote(u)]+[r['heading'] for r in owners]+[l['label'] for r in owners for l in r['links'] if l['url']==u])
+   qualified=document_identity(load_artifact(out,a),a,a['operator_document_identity']['identity_terms'],witness)
+   if qualified!=a['operator_document_identity']:raise QualificationError('Operator document identity disagrees with retained source')
  return {'nodes':nodes,'records':records,'dispositions':dispositions,'conflicts':conflicts,'duplicate_witnesses':duplicates,'assets':assets,'asset_qualification_failures':asset_failures,'image_refs':image_refs,'link_ledger':ledger,'start':start,'end':end,'toc_start':toc_start,'toc_end':toc_end}
 
 def coverage(state,data):
@@ -133,7 +181,7 @@ def coverage(state,data):
  text_ok=bool(ids and data['records'] and not missing and not extra and not unknown and not data['conflicts'] and not failures and not limited and edition_ok)
  unresolved_links=[r for r in data.get('link_ledger',[]) if r['classification']=='unresolved_hyperlink']
  attachment_ok=not missing_assets and not data.get('asset_qualification_failures') and not failures and edition_ok and not limited and not unresolved_links
- return {'schema_version':VERSION,'acquisition_mode':'retained_source_replay_only' if state.get('network_prohibited') else ('migrated_retained_source_plus_fresh_validation' if state.get('migration') else 'fresh_collection'),'scope':'subtree' if state['config'].get('subtree') else 'whole_publication','publication_url':state.get('publication_url'),'identity':state.get('identity'),'identity_binding':{'jurisdiction_checked':bool(state['config'].get('jurisdiction')),'state_source_verified':bool((state.get('identity') or {}).get('state')),'requested_state':state['config'].get('state')},'inventory_nodes':len(ids),'owned_content_nodes':sum(d['classification']=='owned_content' for d in data['dispositions'].values()),'normalized_records':len(data['records']),'disposition_counts':{k:sum(d['classification']==k for d in data['dispositions'].values()) for k in sorted({d['classification'] for d in data['dispositions'].values()})},'inventory_sha256':digest(canon(sorted(data['nodes'].values(),key=lambda n:n['id']))),'missing_ids':missing,'extra_ids':extra,'unresolved_ids':unknown,'conflicting_duplicate_bodies':data['conflicts'],'identical_duplicate_witnesses':len(data['duplicate_witnesses']),'image_policy':'All images are literal [IMAGE]; no separate image downloads; original source/native files may contain images.','intentional_image_omissions':sum(r.get('image_placeholder_count',0) for r in data['records'].values()),'image_reference_urls':len(data.get('image_refs',[])),'hyperlink_policy':'Inventoried nodes are reconciled. Publisher/explicit HTML and contact links are references; external incorporated texts are outside selected publication certification. Ambiguous extensionless links block attachment completeness.','unresolved_links':unresolved_links,'required_assets':len(required),'acquired_assets':len(required)-len(missing_assets),'missing_assets':missing_assets,'asset_qualification_failures':data.get('asset_qualification_failures',[]),'errors':failures,'limits_applied':limited,'start_end_inventory_consistent':edition_ok,'publication_text_complete':text_ok,'attachments_complete':attachment_ok,'edition_complete':edition_ok and text_ok and attachment_ok,'jurisdiction_complete':False,'jurisdiction_limitation':'One selected publication only; other publication tabs, unincorporated ordinances and external adopted codes are not certified.','complete':text_ok and attachment_ok,'resumable':not any(e.get('access_stop') for e in failures)}
+ return {'schema_version':VERSION,'acquisition_mode':'operator_supplied_download_bundle' if state.get('operator_import') else ('retained_source_replay_only' if state.get('network_prohibited') else ('migrated_retained_source_plus_fresh_validation' if state.get('migration') else 'fresh_collection')),'operator_import':state.get('operator_import'),'recovery_action':('Access stop retained; no retries or gate reset. Run doctor/export-plan and supply genuine local publisher files, or obtain publisher access restoration and authorised operator review.' if any(e.get('access_stop') for e in failures) else None),'scope':'subtree' if state['config'].get('subtree') else 'whole_publication','publication_url':state.get('publication_url'),'identity':state.get('identity'),'identity_binding':{'jurisdiction_checked':bool(state['config'].get('jurisdiction')),'state_source_verified':bool((state.get('identity') or {}).get('state')),'requested_state':state['config'].get('state')},'inventory_nodes':len(ids),'owned_content_nodes':sum(d['classification']=='owned_content' for d in data['dispositions'].values()),'normalized_records':len(data['records']),'disposition_counts':{k:sum(d['classification']==k for d in data['dispositions'].values()) for k in sorted({d['classification'] for d in data['dispositions'].values()})},'inventory_sha256':digest(canon(sorted(data['nodes'].values(),key=lambda n:n['id']))),'missing_ids':missing,'extra_ids':extra,'unresolved_ids':unknown,'conflicting_duplicate_bodies':data['conflicts'],'identical_duplicate_witnesses':sum(d['same_body'] for d in data['duplicate_witnesses']),'equivalent_observed_ui_duplicate_witnesses':sum(not d['same_body'] for d in data['duplicate_witnesses']),'image_policy':'All images are literal [IMAGE]; no separate image downloads; original source/native files may contain images.','intentional_image_omissions':sum(r.get('image_placeholder_count',0) for r in data['records'].values()),'image_reference_urls':len(data.get('image_refs',[])),'hyperlink_policy':'Inventoried nodes are reconciled. Qualified statutory namespaces, publisher/explicit HTML and contact links are references; external incorporated texts are outside selected publication certification. Ambiguous extensionless links block attachment completeness.','unresolved_links':unresolved_links,'required_assets':len(required),'acquired_assets':len(required)-len(missing_assets),'missing_assets':missing_assets,'asset_qualification_failures':data.get('asset_qualification_failures',[]),'errors':failures,'limits_applied':limited,'start_end_inventory_consistent':edition_ok,'publication_text_complete':text_ok,'attachments_complete':attachment_ok,'edition_complete':edition_ok and text_ok and attachment_ok,'jurisdiction_complete':False,'jurisdiction_limitation':'One selected publication only; other publication tabs, unincorporated ordinances and external adopted codes are not certified.','complete':text_ok and attachment_ok,'resumable':not state.get('network_prohibited') and not any(e.get('access_stop') for e in failures)}
 
 def write_outputs(out,state,data):
  rows=[data['records'][k] for k in sorted(data['records'])];atomic(out/'records.jsonl',b''.join(canon(r)+b'\n' for r in rows))
@@ -159,6 +207,26 @@ def check_cache(out,state):
   for rel,h in m.get('ancestry_files',{}).items():
    path=(out/rel).resolve()
    if not path.is_relative_to(out.resolve()) or digest(path.read_bytes())!=h:raise QualificationError('Migration ancestry corruption')
+ if state.get('operator_import'):
+  op=state['operator_import'];raw=(out/'operator-bundle.json').read_bytes()
+  if digest(raw)!=op['manifest_sha256']:raise QualificationError('Operator manifest corruption')
+  manifest=json.loads(raw)
+  if manifest['identity']!=state['identity'] or manifest.get('genuine_publisher_downloads') is not True:raise QualificationError('Operator manifest identity/provenance mismatch')
+  original=read(out/'migration-source-checkpoint.json') if state.get('migration') else {'artifacts':[],'errors':[]}
+  if not state.get('migration'):
+   from .operator import operator_config
+   if op.get('origin')!='standalone_bundle' or operator_config(manifest.get('config'))!=state['config']:raise QualificationError('Standalone operator origin/config mismatch')
+  if op.get('input_manifest_sha256') and digest((out/'operator-input.json').read_bytes())!=op['input_manifest_sha256']:raise QualificationError('Original operator input manifest corruption')
+  history=original.get('errors',[])+original.get('operator_import',{}).get('historical_errors',[])
+  if op['historical_errors']!=history or op['source_access_stop_preserved']!=any(e.get('access_stop') for e in history):raise QualificationError('Operator historical failure provenance mismatch')
+  declared={(f['role'],f['source_url'],f['sha256'],f['retrieved_at'],f['media_type']) for f in manifest['files']}
+  declared.update((a['role'],a['requested_url'],a['sha256'],a['retrieved_at'],a['headers']['content-type']) for a in original['artifacts'] if a.get('operator_file_sha256'))
+  for a in state['artifacts']:
+   if a.get('operator_file_sha256') and (a['role'],a['requested_url'],a['sha256'],a['retrieved_at'],a['headers']['content-type']) not in declared:raise QualificationError('Operator artifact not bound to manifest')
+  from .operator import _timestamp
+  bodytimes=[_timestamp(a['retrieved_at']) for a in state['artifacts'] if a['role'] in ['content','native','asset'] and a.get('retrieved_at')]
+  if bodytimes and any(_timestamp(a['retrieved_at'])<max(bodytimes) for a in state['artifacts'] if a['role'] in ['root-end','contents-end']):raise QualificationError('Operator closing witness predates acquisition')
+  if bodytimes and any(_timestamp(a['retrieved_at'])>min(bodytimes) for a in state['artifacts'] if a['role'] in ['root-start','contents-start']):raise QualificationError('Operator opening source postdates substantive acquisition')
  if state.get('inventory_sha256'):
   bound=state.get('inventory_bound_artifacts',len(state['artifacts']))
   if not isinstance(bound,int) or not 0<=bound<=len(state['artifacts']):raise QualificationError('Invalid checkpoint processed prefix')
@@ -167,6 +235,7 @@ def check_cache(out,state):
 
 def adopt(source,out,cfg,offline=False):
  """Explicit new-folder source migration; ordinary --resume never upgrades code."""
+ if not offline:enforce_published_advisory(cfg['family'])
  source=Path(source).resolve();out=Path(out).resolve();prior=read(source/'checkpoint.json')
  if out.exists() and any(out.iterdir()):raise QualificationError('Migration requires a fresh output')
  if not prior.get('identity'):raise QualificationError('Migration needs a pinned original identity')
@@ -184,7 +253,9 @@ def adopt(source,out,cfg,offline=False):
  for p in Path(__file__).parent.glob('*.py'):shutil.copyfile(p,out/'executed-source'/p.name)
  for a in state['artifacts']:atomic(out/a['path'],load_artifact(source,a))
  ancestry={}
- for name in ['prior-executed-source','migration-source-checkpoint.json','provenance']:
+ for name in ['operator-bundle.json','operator-input.json']:
+  if (source/name).is_file():shutil.copyfile(source/name,out/name)
+ for name in ['prior-executed-source','migration-source-checkpoint.json','operator-bundle.json','operator-input.json','provenance']:
   src=source/name;dst=out/'provenance'/name
   if src.is_dir():shutil.copytree(src,dst)
   elif src.is_file():dst.parent.mkdir(parents=True,exist_ok=True);shutil.copyfile(src,dst)
@@ -197,7 +268,22 @@ def adopt(source,out,cfg,offline=False):
  if offline:return write_outputs(out,state,rebuild(out,state))
  return collect(cfg,out,True)
 
+def published_access_advisories(family):
+ """Shipped event-scoped stop history survives a fresh home or absent temporary gate."""
+ path=Path(__file__).resolve().parents[1]/'registry/access-advisories.json'
+ try:catalog=read(path)
+ except Exception as e:raise QualificationError('Published access advisory catalog missing/unreadable; use the complete collector package, not a fresh empty gate') from e
+ if catalog.get('schema_version')!=1 or not isinstance(catalog.get('advisories'),list):raise QualificationError('Unsupported published access advisory catalog')
+ return [a for a in catalog['advisories'] if a.get('family')==family and a.get('operator_review_required') is True]
+
+def enforce_published_advisory(family):
+ advisories=published_access_advisories(family)
+ if advisories:
+  reasons='; '.join(a.get('reason','Observed workflow stop') for a in advisories)
+  raise AccessStop('Shipped '+family+' access advisory requires operator review before browser/transport startup: '+reasons+' This preserves observed workflow scope, not a claim that every publisher URL is unavailable. Offline replay/verify/import/inspect remain allowed; no retry, route change or automatic clearing.')
+
 def collect(cfg,out,resume=False):
+ enforce_published_advisory(cfg['family'])
  from .browser import Browser
  out=Path(out).resolve()
  if out.exists() and any(out.iterdir()) and not resume:raise QualificationError('Output is nonempty; choose a fresh directory or --resume')
@@ -223,10 +309,15 @@ def collect(cfg,out,resume=False):
     if family_of(base)!=cfg['family']:raise QualificationError('Publisher migration requires explicit source review')
     if cfg['family']=='ecode360':
      got=identity(raw,base,cfg['family']);alias='https://ecode360.com/'+str(got['customer_id'])
+     configured=urlsplit(cfg['url']).path.strip('/')
+     if re.fullmatch(r'[A-Z]{2}[0-9]{4}',configured) and (got['customer_id']!=configured or clean_url(base)!='https://ecode360.com/'+configured):raise QualificationError('Configured customer alias differs from returned source; explicit migration review required')
      if not cfg.get('subtree') and base!=alias:raw,a=get('discovery',alias,True);base=alias;got=identity(raw,base,cfg['family'])
     else:
      pubs=municipal_publications(raw,base);save(out/'publications.json',pubs)
      selected=cfg.get('publication')
+     requested=clean_url(cfg['url']);requested_path=urlsplit(requested).path.strip('/')
+     selected_root=clean_url(selected if selected and selected.startswith('https://') else 'https://'+urlsplit(requested).netloc+'/'+selected.strip('/')) if selected else None
+     if (not selected or selected_root==requested) and requested_path and '/' not in requested_path and base!=requested:raise QualificationError('Configured publication root redirected to another source; explicit migration review required')
      if selected:
       target=clean_url(selected if selected.startswith('https://') else 'https://'+urlsplit(base).netloc+'/'+selected.strip('/'))
       if target not in {p['url'] for p in pubs} and target!=base:raise QualificationError('Publication selector not observed on publisher page')
@@ -234,7 +325,7 @@ def collect(cfg,out,resume=False):
      elif len(urlsplit(base).path.strip('/').split('/'))!=1 or base.endswith('/'):
       raise QualificationError('Select an observed publication root with --publication')
      else:base='https://'+urlsplit(base).netloc+'/'+urlsplit(base).path.strip('/').split('/')[0]
-     if clean_url(a['url'])!=base:raw,a=get('discovery',base,True)
+     if clean_url(a['url'])!=base:raise QualificationError('Selected publication root did not match returned source; no redirect retry')
      got=identity(raw,base,cfg['family'],base)
     jurisdiction_check(got,cfg.get('jurisdiction'),cfg.get('state'));state['identity']=got;state['publication_url']=base;save(out/'checkpoint.json',state)
     # Preserve exact independent start source even when bootstrap served as discovery.

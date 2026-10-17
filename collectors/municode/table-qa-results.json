@@ -1,20 +1,33 @@
 {
-  "kind": "independent-offline-all-table-bearing-records",
+  "schema_version": 1,
+  "kind": "independent-raw-api-DOM-table-fidelity",
   "network_requests_sent": 0,
-  "blocked_resource_requests": [],
-  "source_jsonl_sha256": "db0ce8e7c9be36194ac0608d5acd12a350fac02436f7099169f8dc2a39f32dc7",
-  "script_sha256": "c05e86bfd17af907453ae0b345e14eff8a0a7c304b525445ed29ab6e2e93aa72",
+  "blocked_resource_requests": 1,
+  "checkpoint_sha256": "4ca95cc15da414bdb308a415fa96584583e07831f85b3762d40b9706e46c918b",
+  "script_sha256": "897d42ac3cf40e91829a11790ee3acbb4c8f335c27f01c4e68296a502f56d6d4",
+  "source_responses": [
+    {
+      "unit": "content-root:14896",
+      "receipt": "raw/61123c7931a947a08a2c2211ed57c625.json",
+      "raw_sha256": "9a38a4bbaf29fcb1dbb84bb0ceafcd26a322ff691b340856b925cb7f6547ab84",
+      "request_url": "https://library.municode.com/api/CodesContent/docIds?productId=14896&jobId=475955&docIds=14896&showChanges=false"
+    }
+  ],
   "records_checked": 31,
   "tables": 60,
   "rows": 13572,
   "cells": 37779,
   "fields_checked": [
-    "whitespace_normalized_rendered_cell_text",
+    "whitespace_normalized_rendered_source_cell_text",
+    "tag",
     "rowspan",
-    "colspan",
-    "tag"
+    "colspan"
   ],
+  "no_source_tables": false,
   "mismatches": [],
   "passed": true,
-  "browser": "155.0.8059.84"
+  "browser": "155.0.8059.84",
+  "scope": "Independent raw source API table QA of fresh readiness Henderson; not all configured publications",
+  "source_report_path": "qa/tables/60-primary-raw-dom.json",
+  "source_report_sha256": "3b7260676a59e8c1684b1a581a8c99568fedb8f42f537164acfc8602d070f228"
 }

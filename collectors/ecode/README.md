@@ -1,17 +1,21 @@
 # eCode360 and municipal.codes full-publication collector
 
-Run from the repository root with Python 3.12+, Beautiful Soup and Playwright. Collection uses an installed ordinary, headed Google Chrome (`channel="chrome"`) and a new owned context; it has no Codex, database, remote-browser or old-output-package dependency. It closes only its own browser/context. Verification and synthetic tests need no browser or network.
+Current operator recovery, readiness scope, source binding and offline download/import commands are in [READINESS.md](READINESS.md). Earlier `validation-summary.json` and its sealed evidence describe the previous frozen revision; current checks are in `readiness-summary.json`.
+
+Both live families currently have retained access stops; run the offline readiness workflow before any production acquisition.
+
+Run from the repository root with Python 3.12+ on POSIX and the dependencies in `requirements-tested.txt` (Beautiful Soup, Playwright, requests and pypdf). Collection uses an installed ordinary, headed Google Chrome (`channel="chrome"`) and a new owned context; it has no Codex, database, remote-browser or old-output-package dependency. It closes only its own browser/context. Verification and synthetic tests need no browser or network.
 
 ```sh
 python -m venv .venv
-.venv/bin/python -m pip install -r collectors/ecode/requirements.txt
+.venv/bin/python -m pip install -r collectors/ecode/requirements-tested.txt
 .venv/bin/python -m collectors.ecode.cli collect --url https://ecode360.com/AL0934 --jurisdiction Albany --state NY --out ./fresh/albany
 .venv/bin/python -m collectors.ecode.cli collect --url https://phoenix.municipal.codes/Charter --publication Charter --jurisdiction Phoenix --state AZ --out ./fresh/phoenix-charter
 .venv/bin/python -m collectors.ecode.cli verify --out ./fresh/albany
 .venv/bin/python -m unittest collectors.ecode.tests.test_faults -v
 ```
 
-Use a fresh output directory. Exit 0 means the selected publication passes text, attachment and edition checks; exit 2 means an independently qualified incomplete result; exit 1 means invalid input or failed verification/cache qualification. A limit is never a full-publication success, even if the selected page happens to contain every currently observed node.
+Use a fresh output directory. Exit 0 means the selected publication passes text, attachment and edition checks; exit 2 means an incomplete outcome, including access stops or limits; exit 1 means invalid input or failed verification/cache qualification. A limit is never a full-publication success, even if the selected page happens to contain every currently observed node. A separate `verify` command adds `verified=true` only after replaying the retained evidence; that flag still does not establish successful acquisition or completeness.
 
 ```sh
 python -m collectors.ecode.cli collect --url https://ecode360.com/AL0934 --jurisdiction Albany --state NY --out ./fresh/albany --max-items 5
@@ -67,35 +71,33 @@ Publisher PDFs and other nonimage attachments are retained as original files; th
 
 All collection is serial within a run. Documents, public fetch/XHR, HEAD and explicit assets use a shared family gate with a minimum 3.5 seconds between starts; ordinary Chrome static resources retain native browser scheduling. The default gate is `/tmp/complisolv-icc-full-gate/{ecode360,municipal.codes}` (override `ICC_GATE_DIR`/`--gate-dir` only as an explicit operator configuration shared by all same-family collectors). HTTP 403/429, `cf-mitigated: challenge`, visible challenge documents and Retry-After are retained as family access stops. There is no automatic retry/reset, alternate fingerprint, imported cookie session, TLS weakening or challenge bypass. A retained access stop needs operator review; do not choose another gate to evade it.
 
-Final tested commands, scope, evidence paths, hashes and limitations are in [validation-summary.json](validation-summary.json). Network-free compact fixture commands are:
+Current tested commands, scope, evidence paths, hashes and limitations are in [readiness-summary.json](readiness-summary.json). The earlier [validation-summary.json](validation-summary.json) remains historical evidence for its frozen revision. Network-free compact fixture commands are:
 
 ```sh
-python -m collectors.ecode.cli verify --out collectors/ecode/fixtures/synthetic-ecode
-python -m collectors.ecode.cli verify --out collectors/ecode/fixtures/synthetic-municipal
+python -m collectors.ecode.tests.verify_frozen --out collectors/ecode/fixtures/readiness-synthetic-ecode
+python -m collectors.ecode.tests.verify_frozen --out collectors/ecode/fixtures/readiness-synthetic-municipal
 python -m collectors.ecode.tests.verify_live_fixture --fixture collectors/ecode/fixtures/phoenix-charter-stopped.tar.gz
 ```
 
 The last wrapper expects an accurately incomplete live proof; its `fixture_check_passed` does not change the nested publication `complete=false`. Compact synthetic fixtures and live representative replay details are provided with the validation report. Synthetic fixture tests establish collector/reconciliation behavior; they are not acquisition evidence for any municipality.
 
-## Final representative live outcomes, October 17, 2026
+## Representative retained-source readiness outcomes, October 17, 2026
 
-The current-parser selected proofs are `albany-code-qualified-policy` and `phoenix-charter-qualified-policy` under the external evidence root `outputs/full-publication-validation-2026-10-17/ecode`. Both are explicit new-folder **offline replays** after a publisher access stop, with original acquisition receipts, executed source versions and migration ancestry preserved. Neither is a complete-publication success.
+The current selected proofs are `albany-operator-final/retained-proof` and `phoenix-operator-final/retained-proof` under `outputs/collection-readiness-2026-10-17/ecode`. Both are explicit new-folder offline replays of earlier stopped acquisition, with original receipts, source snapshots and migration ancestry preserved. Every retained raw artifact was independently replayed by a new verifier process at the exact approved d83 parser revision. Current acquisition-only advisory guards and the typed opaque-image metadata delta are separately tested and documented in `readiness-advisory-delta.json`; the latter has zero exposure in these hash-verified raw sources. This is exact-revision offline verification, with no fresh publisher requests by this final revision. Neither publication is complete.
 
-Albany (customer AL0934, Code 336787, currency July 6, 2026) reached all 3,253 inventoried HTML nodes: 3,006 owned records, 53 reserved/repealed empty and 194 structural empty. The first required PDF HEAD returned HTTP 403; all six required attachments remain unqualified and no closing edition/inventory check was sent. This proves full traversal of the dynamically discovered HTML inventory, not a complete publication or closing currency consistency. The earlier fresh image-policy transport proof `albany-final-transport` covers Chapter 1's 17 nodes only. Final runtime source changes were independently replayed offline; a fresh final-revision live closing run was blocked by the retained access stop.
+Albany (customer AL0934, Code 336787, currency July 6, 2026) resolves all 3,253 inventoried HTML nodes: 3,006 owned records, 53 reserved/repealed empty and 194 structural empty. The original first required PDF HEAD returned HTTP 403; all six required attachments remain unqualified and no closing edition/inventory check was acquired. Phoenix Charter resolves 81 of 279 nodes (73 owned records, 8 structural empty), with 198 missing after original HTTP 429 at Charter XI. Its currency is the November 6, 2018 election. It is the selected Charter, not the general City Code. The actual family stops remain intact and block automatic resume.
 
-Phoenix Charter reached 81 of 279 inventory nodes (73 owned records and 8 structural empty); HTTP 429 at Charter XI left 198 missing. Its currency is the November 6, 2018 election. This is an incomplete selected Charter acquisition, not the general City Code. No municipal.codes request followed that stop. Both family stops require operator review after source access returns; these evidence runs cannot be resumed automatically.
-
-With `ECODE_EVIDENCE` set to the external evidence directory, read-only full-raw verification is:
+With `ECODE_EVIDENCE` set to the current readiness evidence directory, read-only verification is:
 
 ```sh
-python -m collectors.ecode.cli verify --out "$ECODE_EVIDENCE/albany-code-qualified-policy"
-python -m collectors.ecode.cli verify --out "$ECODE_EVIDENCE/phoenix-charter-qualified-policy"
+python -m collectors.ecode.tests.verify_frozen --out "$ECODE_EVIDENCE/albany-operator-final/retained-proof"
+python -m collectors.ecode.tests.verify_frozen --out "$ECODE_EVIDENCE/phoenix-operator-final/retained-proof"
 ```
 
-Each returns exit 2 with `verified=true` and `complete=false`. For a deliberate offline normalization replay, select a new output directory:
+Each returns exit 2 with `verified=true` and `complete=false`. An explicit offline replay into another fresh folder is:
 
 ```sh
-python -m collectors.ecode.cli replay --source "$ECODE_EVIDENCE/albany-code-qualified-policy" --out ./fresh/albany-replay
+python -m collectors.ecode.cli replay --source "$ECODE_EVIDENCE/albany-operator-final/retained-proof" --out ./fresh/albany-replay
 ```
 
-This also returns exit 2 and does not open a browser. The independent project QA additionally reviewed the frozen runtime and tested image policy and cross-family edge cases. The final local suite contains 21 tests; its last change added a valid zero-page PDF rejection assertion within an existing test. See the exact test source hash and source/runtime distinctions in `validation-summary.json`.
+This also returns exit 2 and uses no browser/network. Current 53-case tests, five complete synthetic fixture proofs, bounded genuine native-file inspection and legitimate operator-export/import recovery are detailed in [READINESS.md](READINESS.md). The two publisher access stops and full-live publication validation gaps remain separate from passing offline tests. Historical full-publication evidence folders and snapshots are immutable; current code must explicitly replay an older snapshot, or use the read-only approved frozen verifier, rather than silently verify it under a different runtime revision.

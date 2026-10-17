@@ -3,7 +3,7 @@
 import argparse,csv,hashlib,json,os,pathlib,re,shutil,subprocess,sys,traceback,platform
 from urllib.parse import urljoin,urlsplit,quote,unquote
 from bs4 import BeautifulSoup
-import model,transport
+import model,transport,post_transport,spokane_bulk
 BASE=pathlib.Path(__file__).resolve().parent
 
 def save(p,v):transport.atomic(p,json.dumps(v,ensure_ascii=False,indent=2).encode()+b'\n')
@@ -15,6 +15,7 @@ def fetch_raw(run,name,url,config,kind='html',index_url=None,fresh=False):
  if not fresh and meta.exists():
   m=load(meta)
   if not p.exists() or model.sha(p.read_bytes())!=m.get('sha256'):raise ValueError('Corrupt cached source '+name)
+  if config.get('post_fields') is not None and m.get('post_fields')!=config['post_fields']:raise ValueError('Cached observed form selection mismatch')
   if m.get('url')!=url or not m.get('success',m.get('status')==200) or m.get('access_stop'):raise ValueError('Cached acquisition failed/mismatched; no automatic retry '+name)
   return p.read_bytes(),m,rel
  if p.exists() or meta.exists():raise ValueError('Refusing overwrite of source request '+name)
@@ -29,21 +30,29 @@ def fetch_raw(run,name,url,config,kind='html',index_url=None,fresh=False):
   if not m.get('success'):raise RuntimeError('Browser acquisition failed; see '+str(meta))
   b=p.read_bytes()
  else:
-  b,m=transport.fetch(url,config.get('max_bytes',160_000_000));transport.atomic(p,b);save(meta,m)
+  b,m=(post_transport.fetch(url,config['post_fields'],config.get('max_bytes',160_000_000)) if config.get('post_fields') is not None else transport.fetch(url,config.get('max_bytes',160_000_000)));transport.atomic(p,b);save(meta,m)
   if m.get('status')!=200 or m.get('access_stop'):raise RuntimeError('Access failure retained: '+str(meta))
  m.update(url=url,request_name=name,raw_ref=rel,sha256=model.sha(b));save(meta,m);return b,m,rel
 
 def discover(run,c,resume=False):
  mode=c['mode'];surl=c['source_url'];start,m,ref=fetch_raw(run,'discovery',surl,c)
- if mode in ['pdf','html_single']:
-  return [item(surl,c['publication'],'pdf' if mode=='pdf' else 'html',raw_ref=ref)],{'source_ref':ref,'source_sha256':model.sha(start),'source_url':surl,'edition':c.get('edition'),'kind':'html_single' if mode=='html_single' else 'native_file','identity':c['id']}
+ for token in c.get('source_identity_tokens',[]):
+  if token.lower() not in BeautifulSoup(start,'html.parser').get_text(' ',strip=True).lower():raise ValueError('Source discovery identity token absent: '+token)
+ if mode=='spokane_bulk':
+  items,full_ref,identity=spokane_bulk.acquire(run,c,fetch_raw,start,ref);identity.update(source_ref=ref,source_sha256=model.sha(start),identity=c['id']);return items,identity
+ if mode in ['pdf','html_single','czo_sections']:
+  return [item(surl,c['publication'],'pdf' if mode=='pdf' else 'html',raw_ref=ref)],{'source_ref':ref,'source_sha256':model.sha(start),'source_url':surl,'edition':c.get('edition'),'kind':'html_single' if mode in ['html_single','czo_sections'] else 'native_file','identity':c['id']}
  if mode=='github_archive':
   soup=BeautifulSoup(start,'html.parser');repo=c['repository']
   if not any(repo in a.get('href','') for a in soup.select('a[href]')):raise ValueError('Official hub does not expose configured repository')
   metadata,_,mr=fetch_raw(run,'github-repository','https://api.github.com/repos/'+repo,{'transport':'http'});metadata=json.loads(metadata);branch=metadata['default_branch']
   cb,_,cr=fetch_raw(run,'github-commit','https://api.github.com/repos/'+repo+'/commits/'+quote(branch,safe=''),{'transport':'http'});commit=json.loads(cb)['sha']
-  url=metadata['archive_url'].replace('{archive_format}','zipball').replace('{/ref}','/'+commit)
-  return [item(url,c['publication'],'zip')],{'source_ref':ref,'source_sha256':model.sha(start),'repo_ref':mr,'commit_ref':cr,'repository':repo,'branch':branch,'commit':commit,'identity':c['id'],'kind':'github_commit','edition':branch,'archive_url':url}
+  url=metadata['archive_url'].replace('{archive_format}','zipball').replace('{/ref}','/'+commit);extra={}
+  if c.get('archive_format')=='openlaw_xml':
+   tree,_,tr=fetch_raw(run,'github-tree','https://api.github.com/repos/'+repo+'/git/trees/'+commit+'?recursive=1',{'transport':'http'});tree=json.loads(tree)
+   if tree.get('truncated'):raise ValueError('Recursive Git tree truncated')
+   extra={'git_tree':tree,'git_tree_ref':tr,'source_commit':commit}
+  return [item(url,c['publication'],'zip',**extra)],{'source_ref':ref,'source_sha256':model.sha(start),'repo_ref':mr,'commit_ref':cr,'repository':repo,'branch':branch,'commit':commit,'identity':c['id'],'kind':'github_commit','edition':branch,'archive_url':url}
  soup=BeautifulSoup(start,'html.parser');selector=c.get('inventory_selector','main a[href]');links=soup.select(selector);items=[];excluded=[]
  if mode=='portland_titles':
   for a in links:
@@ -76,6 +85,7 @@ def discover(run,c,resume=False):
  items=list(unique.values())
  if not items:raise ValueError('Empty dynamic publication inventory')
  identity={'source_ref':ref,'source_sha256':model.sha(start),'identity':c['id'],'kind':'html_inventory','inventory_selector':selector,'excluded_components':excluded,'aliases':aliases,'edition':c.get('edition')}
+ if c.get('source_currency_selector'):identity['source_currency']=currency(start,c)
  return items,identity
 
 def discover_graph(data,url,c):
@@ -84,6 +94,11 @@ def discover_graph(data,url,c):
   target=model.key(urljoin(url,a.get('href','')))
   if re.search(c.get('include_url_regex','.'),target) and urlsplit(target).hostname==urlsplit(c['source_url']).hostname:found.append(item(target,model.clean(a.get_text(' ',strip=True)) or target))
  return found
+
+def currency(data,c):
+ nodes=BeautifulSoup(data,'html.parser').select(c['source_currency_selector'])
+ if len(nodes)!=1 or not model.clean(nodes[0].get_text(' ',strip=True)):raise ValueError('Exact publication currency selector absent/nonunique')
+ return model.clean(nodes[0].get_text(' ',strip=True))
 
 def check_edition(data,c):
  if not c.get('edition_tokens'):return
@@ -106,6 +121,8 @@ def inventory_projection(data,c):
  return sorted(pairs)
 
 def consistency(run,c,identity):
+ if identity['kind']=='spokane_inventory':
+  prefix='consistency-end-'+transport.now()+'-';start,_,ref=fetch_raw(run,prefix+'discovery',c['source_url'],c,fresh=True);items,full_ref,end=spokane_bulk.acquire(run,c,fetch_raw,start,ref,prefix);same=end['expected_sections']==identity['expected_sections'] and end['heading_labels']==identity['heading_labels'] and [(p['fields'],p['disabled']) for p in end['phases']]==[(p['fields'],p['disabled']) for p in identity['phases']];return {'kind':'spokane_inventory','raw_ref':full_ref,'phases':end['phases'],'consistent':same}
  if identity['kind']=='github_commit':
   url='https://api.github.com/repos/'+identity['repository']+'/commits/'+quote(identity['branch'],safe='');b,_,ref=fetch_raw(run,'consistency-end-'+transport.now(),url,{'transport':'http'},fresh=True);end={'kind':'github_commit','commit':json.loads(b)['sha'],'raw_ref':ref};return dict(end,consistent=end['commit']==identity['commit'])
  b,_,ref=fetch_raw(run,'consistency-end-'+transport.now(),c['source_url'],c,kind='html',fresh=True)
@@ -116,24 +133,52 @@ def consistency(run,c,identity):
  return {'kind':identity['kind'],'raw_ref':ref,'sha256':model.sha(b),'consistent':same,'comparison':'Native bytes or selected full inventory link URL+label projection; no codewide effective-date assertion'}
 
 def parse_item(data,i,c):
+ if c['mode']=='spokane_bulk':return spokane_bulk.parse(data,i,c)
  if i['kind']=='pdf':return model.pdf_records(data,i,c)
  if i['kind']=='zip':
+  if c.get('archive_format')=='openlaw_xml':
+   import openlaw_xml
+   rows,archive=openlaw_xml.parse(data,c,i);return rows,[{'archive':archive}]
   rows,archive=model.archive_records(data,c,i['raw_ref']);return rows,[{'archive':archive}]
  return model.html_records(data,i,c)
 
-def collect(config,out,resume=False,max_items=None,interrupt_after=None):
+def seed_cache(source,out,config):
+ source=pathlib.Path(source).resolve();old=load(source/'config.json')
+ acquisition=lambda c:{k:v for k,v in c.items() if k!='pdf_normalization'}
+ if model.encoded(acquisition(old))!=model.encoded(acquisition(config)):raise ValueError('Cache import requires exact same source/inventory/edition config; only explicit PDF parser normalization may differ')
+ imported=[];skipped=[]
+ for receipt in sorted((source/'raw').glob('*.receipt.json')):
+  meta=load(receipt);name=meta.get('request_name','');raw=receipt.with_name(receipt.name.replace('.receipt.json','.bin'))
+  if not name.startswith(('item:','asset:')):continue
+  reason=None
+  if not raw.exists() or model.sha(raw.read_bytes())!=meta.get('sha256'):reason='Source cache corrupt'
+  elif not meta.get('success',meta.get('status')==200) or meta.get('access_stop'):reason='Failed/access-stopped source cache'
+  elif meta.get('download_url') and model.key(meta['download_url'])!=model.key(meta['url']):reason='Actual native download source differs from requested URL'
+  elif name.startswith('asset:') and model.image_asset({'url':meta['url'],'kind':'a'}):reason='Image asset forbidden'
+  elif raw.name!=model.sha(name.encode())[:20]+'.bin':reason='Cache request-name/source reference mismatch'
+  if reason:skipped.append({'receipt':receipt.name,'reason':reason});continue
+  targets=[raw,receipt];extra=raw.with_name(raw.name+'.legal.html')
+  if meta.get('legal_response'):
+   if not extra.exists() or model.sha(extra.read_bytes())!=meta['legal_response']['sha256']:raise ValueError('Legacy native response cache corrupt')
+   targets.append(extra)
+  for original in targets:shutil.copyfile(original,out/'raw'/original.name)
+  imported.append({'request_name':name,'url':meta['url'],'raw_ref':'raw/'+raw.name,'sha256':meta['sha256'],'original_receipt_sha256':model.sha(receipt.read_bytes())})
+ record={'source_config_sha256':model.sha(model.encoded(old)),'destination_config_sha256':model.sha(model.encoded(config)),'parser_only_config_delta':{k:[old.get(k),config.get(k)] for k in ['pdf_normalization'] if old.get(k)!=config.get(k)},'source_provenance_path':str(source),'source_checkpoint_sha256':model.sha((source/'checkpoint.json').read_bytes()),'source_executed_scripts':load(source/'checkpoint.json')['scripts'],'policy':'Only source-bound successful item/asset raw bytes imported; fresh dynamic discovery and full end reacquisition; all bodies parsed with new executed revision; previous output untouched.','imported':imported,'skipped':skipped};save(out/'cache-import.json',record);return model.sha((out/'cache-import.json').read_bytes())
+
+def collect(config,out,resume=False,max_items=None,interrupt_after=None,from_cache=None):
  c=load(config);out=pathlib.Path(out).resolve();binding=model.sha(model.encoded(c));cp=out/'checkpoint.json'
  if out.exists() and any(out.iterdir()) and not resume:raise ValueError('Output must be empty unless --resume')
  out.mkdir(parents=True,exist_ok=True);(out/'raw').mkdir(exist_ok=True);(out/'items').mkdir(exist_ok=True)
- scripts={name:model.sha((BASE/name).read_bytes()) for name in ['collect.py','model.py','transport.py','legacy_html.py','browser_fetch.cjs']};codebinding=model.sha(model.encoded(scripts))
+ scripts={name:model.sha((BASE/name).read_bytes()) for name in ['collect.py','model.py','transport.py','legacy_html.py','browser_fetch.cjs','post_transport.py','spokane_bulk.py','pdf_structure.py','openlaw_xml.py']};codebinding=model.sha(model.encoded(scripts))
  if cp.exists():
   state=load(cp)
   if state['config_sha256']!=binding or state['code_binding']!=codebinding:raise ValueError('Resume config/code identity mismatch')
   c=load(out/'config.json');validate_cached(out,state,c)
  else:
+  if from_cache:seed_cache(from_cache,out,c)
   save(out/'config.json',c);(out/'executed').mkdir(exist_ok=True)
   for n in scripts:shutil.copyfile(BASE/n,out/'executed'/n)
-  state={'schema':1,'config_sha256':binding,'code_binding':codebinding,'scripts':scripts,'started_at':transport.now(),'items':[],'done':[],'completed':False,'identity':None,'consistency':None,'limits_history':[],'command':sys.argv,'runtime':{'python':sys.version,'platform':platform.platform(),'node':os.environ.get('NODE','node')},'invocations':[]};save(cp,state)
+  state={'cache_import_sha256':model.sha((out/'cache-import.json').read_bytes()) if (out/'cache-import.json').exists() else None,'schema':1,'config_sha256':binding,'code_binding':codebinding,'scripts':scripts,'started_at':transport.now(),'items':[],'done':[],'completed':False,'identity':None,'consistency':None,'limits_history':[],'command':sys.argv,'runtime':{'python':sys.version,'platform':platform.platform(),'node':os.environ.get('NODE','node')},'invocations':[]};save(cp,state)
  state.setdefault('invocations',[]).append({'command':sys.argv,'resume':resume,'max_items':max_items,'interrupt_after':interrupt_after,'started_at':transport.now()});save(cp,state)
  try:
   if not state['identity']:
@@ -150,7 +195,9 @@ def collect(config,out,resume=False,max_items=None,interrupt_after=None):
    if max_items is not None and count>=max_items:break
    key=model.sha(i['id'].encode())[:24]
    try:
-    b,m,raw=fetch_raw(out,'item:'+i['id'],i['url'],c,kind=i['kind'],index_url=i.get('detail_url',c.get('source_url')));i['raw_ref']=raw;check_edition(b,c);rows,disp=parse_item(b,i,c)
+    b,m,raw=fetch_raw(out,'item:'+i['id'],i['url'],{**c,**({'transport':c['document_transport']} if i['kind']=='pdf' and c.get('document_transport') else {}),**({'post_fields':i['post_fields']} if i.get('post_fields') else {})},kind=i['kind'],index_url=i.get('detail_url',c.get('source_url')));i['raw_ref']=raw;check_edition(b,c)
+    if c.get('source_currency_selector') and i['kind']=='html' and currency(b,c)!=state['identity']['source_currency']:raise ValueError('Individual legal page publication currency differs from pinned inventory')
+    rows,disp=parse_item(b,i,c)
     asset_ledger=[]
     if i['kind']!='pdf':
      archive_assets=next((d['archive']['assets'] for d in disp if 'archive' in d),None)
@@ -158,13 +205,13 @@ def collect(config,out,resume=False,max_items=None,interrupt_after=None):
      retained={a['url'] for a in candidates if a.get('status') in ['retained_in_archive','retained_inline','retained_inline_reference']};required_urls={a['url'] for a in candidates if a.get('required',True)};asset_ledger += [dict(a,status=a.get('status','independent_legal_layer_reference')) for a in candidates if not a.get('required',True)]
      for url in sorted(required_urls-retained):
       if any(a.get('requires_manual_review') for a in candidates if a['url']==url):asset_ledger.append({'url':url,'status':'unresolved','reason':'Source reference requires manual review'});continue
-      if not re.search(r'\.(?:pdf|docx?|xlsx?|zip|xml|csv|txt|html?)(?:$|[?#])',url,re.I):asset_ledger.append({'url':url,'status':'unresolved','reason':'Extensionless/opaque nonimage attachment requires qualification; no automatic fetch that could acquire an image'});continue
+      if not any(rule['url']==url for rule in c.get('attachment_qualifications',[])) and not re.search(r'\.(?:pdf|docx?|xlsx?|zip|xml|csv|txt|html?)(?:$|[?#])',url,re.I):asset_ledger.append({'url':url,'status':'unresolved','reason':'Extensionless/opaque nonimage attachment requires qualification; no automatic fetch that could acquire an image'});continue
       if not url.startswith('https://'):asset_ledger.append({'url':url,'status':'unresolved','reason':'NonHTTPS referenced asset requires manual review'});continue
       try:
        ab,am,ar=fetch_raw(out,'asset:'+url,url,c,kind='pdf' if urlsplit(url).path.lower().endswith('.pdf') else 'asset',index_url=i['url'])
-       if urlsplit(url).path.lower().endswith('.pdf'):model.qualify_pdf_attachment(ab)
+       qualification=model.qualify_attachment(ab,url,c)
        if urlsplit(url).path.lower().endswith('.svg') and urlsplit(url).fragment and not BeautifulSoup(ab,'html.parser').find(id=urlsplit(url).fragment):raise ValueError('Required SVG fragment target absent')
-       asset_ledger.append({'url':url,'status':'acquired_requires_nested_review' if any(a.get('requires_nested_asset_review') for a in candidates if a['url']==url) else 'acquired','raw_ref':ar,'sha256':model.sha(ab),'bytes':len(ab)})
+       asset_ledger.append({'url':url,'status':'acquired_requires_nested_review' if any(a.get('requires_nested_asset_review') for a in candidates if a['url']==url) else 'acquired','raw_ref':ar,'sha256':model.sha(ab),'bytes':len(ab),**({'qualification':qualification} if qualification else {})})
       except Exception as asset_error:
        asset_ledger.append({'url':url,'status':'failed','error':str(asset_error)});break
     save(out/'items'/(key+'.json'),{'item':i,'raw_sha256':model.sha(b),'records':rows,'dispositions':disp,'asset_downloads':asset_ledger});state['done'].append(i['id'])
@@ -202,12 +249,15 @@ def validate_cached(out,state,c):
  try:initial,identity=discover(out,c)
  finally:fetch_raw=original
  if identity!=state['identity']:raise ValueError('Pinned publication/edition/source discovery mismatch')
- expected={i['id'] for i in initial}
+ if state.get('cache_import_sha256') and model.sha((out/'cache-import.json').read_bytes())!=state['cache_import_sha256']:raise ValueError('Cache import provenance corrupt')
+ expected={i['id'] for i in initial};initial_items={i['id']:{k:v for k,v in i.items() if k!='raw_ref'} for i in initial}
  for ident in state['done']:
   p=out/'items'/(model.sha(ident.encode())[:24]+'.json')
   if p.exists() and c['mode'] in ['legacy_codepublishing','html_graph']:
    doc=load(p);expected.update(i['id'] for i in discover_graph((out/doc['item']['raw_ref']).read_bytes(),doc['item']['url'],c))
  if expected!={i['id'] for i in state['items']}:raise ValueError('Missing/extra dynamic inventory IDs versus source graph')
+ for i in state['items']:
+  if i['id'] in initial_items and {k:v for k,v in i.items() if k!='raw_ref'}!=initial_items[i['id']]:raise ValueError('Inventory source descriptor/selection differs from retained discovery')
  for meta in (out/'raw').glob('*.receipt.json'):
   m=load(meta);p=meta.with_name(meta.name.replace('.receipt.json','.bin'))
   if not p.exists() or model.sha(p.read_bytes())!=m.get('sha256'):raise ValueError('Raw source/receipt hash mismatch '+str(meta))
@@ -223,12 +273,15 @@ def validate_cached(out,state,c):
   if inventory_item is None or record['item']!=inventory_item or record['item'].get('raw_ref')!=expected_ref:raise ValueError('Item/source cache crosswire versus exact inventory identity')
   acquisition=load((out/expected_ref).with_suffix('.receipt.json'))
   if acquisition.get('url')!=inventory_item['url'] or acquisition.get('sha256')!=record['raw_sha256']:raise ValueError('Acquisition receipt/requested URL/source identity mismatch')
+  if inventory_item.get('post_fields') and acquisition.get('post_fields')!=inventory_item['post_fields']:raise ValueError('Acquired POST body selection mismatch')
+  if acquisition.get('download_url') and model.key(acquisition['download_url'])!=model.key(inventory_item['url']):raise ValueError('Actual browser download URL/source identity mismatch')
   if acquisition.get('legal_response'):
    proof=acquisition['legal_response'];extra=out/(expected_ref+'.legal.html')
    if not extra.exists() or model.sha(extra.read_bytes())!=proof['sha256']:raise ValueError('Requested legacy legal response evidence missing/corrupt')
    fragment=urlsplit(inventory_item['url']).fragment.split('#')[0]
    if fragment.startswith('!/') and urlsplit(proof['url']).path!=urlsplit(inventory_item['url']).path+'html/'+fragment[2:]:raise ValueError('Legacy requested native body path mismatch')
   data=(out/record['item']['raw_ref']).read_bytes()
+  if c.get('source_currency_selector') and inventory_item['kind']=='html' and currency(data,c)!=state['identity']['source_currency']:raise ValueError('Cached individual publication currency mismatch')
   if model.sha(data)!=record['raw_sha256']:raise ValueError('Corrupt source cache')
   source_assets=next((d['archive']['assets'] for d in record['dispositions'] if 'archive' in d),None)
   if source_assets is None:source_assets=[a for r in record['records'] for a in r.get('assets',[])+r.get('document_assets',[])]
@@ -240,7 +293,8 @@ def validate_cached(out,state,c):
     if asset.get('raw_ref')!=ref:raise ValueError('Asset source cache crosswire')
     receipt=load((out/ref).with_suffix('.receipt.json'))
     if receipt['url']!=asset['url'] or model.sha((out/ref).read_bytes())!=asset['sha256'] or receipt['sha256']!=asset['sha256']:raise ValueError('Corrupt/wrong-source required asset')
-    if urlsplit(asset['url']).path.lower().endswith('.pdf'):model.qualify_pdf_attachment((out/ref).read_bytes())
+    qualification=model.qualify_attachment((out/ref).read_bytes(),asset['url'],c)
+    if qualification is not None and qualification.get('format')=='HTML' and asset.get('qualification')!=qualification:raise ValueError('Qualified attachment normalized body/source mismatch')
   recomputed,disp=parse_item(data,record['item'],c)
   if recomputed!=record['records'] or disp!=record['dispositions']:raise ValueError('Cached parsed output/source mismatch')
  return True
@@ -252,30 +306,32 @@ def single_projection(data,c):
 def end_items(out,c,state):
  checks=[]
  for item in state['items']:
-  if item['kind']=='zip':continue # Selected repository commit pins all members/assets atomically.
   doc=load(out/'items'/(model.sha(item['id'].encode())[:24]+'.json'))
-  # Single native file/single HTML already has a full end-of-run source reacquisition.
-  if c['mode'] in ['pdf','html_single']:
-   ref=state['consistency']['raw_ref'];data=(out/ref).read_bytes()
-  else:data,_,ref=fetch_raw(out,'item-end:'+item['id']+':'+transport.now(),item['url'],c,kind=item['kind'],index_url=item.get('detail_url',c['source_url']),fresh=True)
-  if item['kind']=='pdf':same=model.sha(data)==doc['raw_sha256']
-  else:
-   rows,_=parse_item(data,item,c);same=projection(rows)==projection(doc['records'])
-   if c['mode'] in ['html_graph','legacy_codepublishing']:same=same and {i['id'] for i in discover_graph(data,item['url'],c)}=={i['id'] for i in discover_graph((out/item['raw_ref']).read_bytes(),item['url'],c)}
-  checks.append({'kind':'item','id':item['id'],'url':item['url'],'raw_ref':ref,'sha256':model.sha(data),'matches_initial_content':same})
+  if item['kind']!='zip':
+   if c['mode'] in ['pdf','html_single','czo_sections']:
+    ref=state['consistency']['raw_ref'];data=(out/ref).read_bytes()
+   else:data,_,ref=fetch_raw(out,'item-end:'+item['id']+':'+transport.now(),item['url'],{**c,**({'transport':c['document_transport']} if item['kind']=='pdf' and c.get('document_transport') else {}),**({'post_fields':item['post_fields']} if item.get('post_fields') else {})},kind=item['kind'],index_url=item.get('detail_url',c['source_url']),fresh=True)
+   if item['kind']=='pdf':same=model.sha(data)==doc['raw_sha256']
+   else:
+    rows,_=parse_item(data,item,c);same=projection(rows)==projection(doc['records'])
+    if c['mode'] in ['html_graph','legacy_codepublishing']:same=same and {i['id'] for i in discover_graph(data,item['url'],c)}=={i['id'] for i in discover_graph((out/item['raw_ref']).read_bytes(),item['url'],c)}
+   if c.get('source_currency_selector') and item['kind']=='html':same=same and currency(data,c)==state['identity']['source_currency']
+   checks.append({'kind':'item','id':item['id'],'url':item['url'],'raw_ref':ref,'sha256':model.sha(data),'matches_initial_content':same})
   for asset in doc.get('asset_downloads',[]):
    if asset.get('status')!='acquired':continue
-   data,_,ref=fetch_raw(out,'asset-end:'+asset['url']+':'+transport.now(),asset['url'],c,kind='pdf' if urlsplit(asset['url']).path.lower().endswith('.pdf') else 'asset',index_url=item['url'],fresh=True);checks.append({'kind':'asset','id':asset['url'],'url':asset['url'],'raw_ref':ref,'sha256':model.sha(data),'matches_initial_content':model.sha(data)==asset['sha256']})
+   data,_,ref=fetch_raw(out,'asset-end:'+asset['url']+':'+transport.now(),asset['url'],c,kind='pdf' if urlsplit(asset['url']).path.lower().endswith('.pdf') else 'asset',index_url=item['url'],fresh=True);qualification=model.qualify_attachment(data,asset['url'],c);same=qualification==asset['qualification'] if qualification and qualification.get('format')=='HTML' else model.sha(data)==asset['sha256'];checks.append({'kind':'asset','id':asset['url'],'url':asset['url'],'raw_ref':ref,'sha256':model.sha(data),'matches_initial_content':same})
  return checks
 
 def recompute_consistency(out,c,state):
  end=state.get('consistency');identity=state.get('identity')
  if not end or not identity:return False
  b=(out/end['raw_ref']).read_bytes()
- if identity['kind']=='github_commit':return json.loads(b)['sha']==identity['commit']
- if identity['kind']=='native_file':base=model.sha(b)==identity['source_sha256']
+ if identity['kind']=='github_commit':base=json.loads(b)['sha']==identity['commit']
+ elif identity['kind']=='spokane_inventory':base=spokane_bulk.validate_chain(out,end.get('phases',[]),identity)
+ elif identity['kind']=='native_file':base=model.sha(b)==identity['source_sha256']
  elif identity['kind']=='html_single':base=single_projection((out/identity['source_ref']).read_bytes(),c)==single_projection(b,c)
  else:base=inventory_projection((out/identity['source_ref']).read_bytes(),c)==inventory_projection(b,c)
+ if c.get('source_currency_selector'):base=base and currency(b,c)==identity['source_currency']
  if not base:return False
  if not state.get('completed'):return base
  checks=state.get('item_consistency',[]);expected={i['id'] for i in state['items'] if i['kind']!='zip'}
@@ -285,13 +341,18 @@ def recompute_consistency(out,c,state):
  for check in checks:
   data=(out/check['raw_ref']).read_bytes();receipt=load((out/check['raw_ref']).with_suffix('.receipt.json'));request_name=receipt.get('request_name','')
   if receipt.get('url')!=check['url'] or not request_name.startswith(('item-end:'+check['id']+':','asset-end:'+check['id']+':','consistency-end-')):return False
+  if receipt.get('download_url') and model.key(receipt['download_url'])!=model.key(check['url']):return False
   if model.sha(data)!=check['sha256']:return False
   if check['kind']=='asset':
    originals=[a for i in state['items'] for a in load(out/'items'/(model.sha(i['id'].encode())[:24]+'.json')).get('asset_downloads',[]) if a['url']==check['id'] and a.get('status')=='acquired']
-   if not originals or any(model.sha(data)!=a['sha256'] for a in originals):return False
+   if not originals:return False
+   qualification=model.qualify_attachment(data,check['url'],c)
+   if any(qualification!=a.get('qualification') if qualification and qualification.get('format')=='HTML' else model.sha(data)!=a['sha256'] for a in originals):return False
   else:
    item=next(i for i in state['items'] if i['id']==check['id']);doc=load(out/'items'/(model.sha(item['id'].encode())[:24]+'.json'))
    if check['url']!=item['url']:return False
+   if item.get('post_fields') and receipt.get('post_fields')!=item['post_fields']:return False
+   if c.get('source_currency_selector') and item['kind']=='html' and currency(data,c)!=state['identity']['source_currency']:return False
    if item['kind']=='pdf':
     if model.sha(data)!=doc['raw_sha256']:return False
    else:
@@ -311,7 +372,7 @@ def reconcile(out):
   for d in doc['dispositions']:
    if 'archive' in d:
     ar=d['archive'];assets+=ar['assets'];exclusions+=ar['owners'];unknown +=[o['id'] for o in ar['owners'] if o['disposition']=='unresolved'];unknown+=ar['missing_internal_nav_targets'];archive_summaries.append({'members':len(ar['members']),'canonical_members':ar['canonical_member_count'],'aggregate_alternates_excluded':ar['alternate_aggregate_members_excluded'],'missing_internal_nav_targets':ar['missing_internal_nav_targets'],'member_inventory_sha256':model.sha(model.encoded(ar['members']))})
-   elif d.get('disposition') in ['structural','reserved_or_repealed']:exclusions.append(d)
+   elif d.get('disposition') in ['structural','reserved_or_repealed','identical_source_duplicate','multiple_source_versions']:exclusions.append(d)
    elif d.get('disposition')=='unresolved':unknown.append(d['node_id'])
   downloaded={a['url']:a for a in doc.get('asset_downloads',[])}
   for a in assets:
@@ -332,6 +393,6 @@ def brief(report):
  keys=['requested_level','requested_coverage_complete','publication_file_coverage_complete','pdf_page_extraction_complete','publication_html_text_coverage_complete','legal_semantic_coverage_complete','jurisdiction_complete','manual_review_required','expected_document_count','acquired_document_count','parsed_record_count','record_units','table_count','required_assets_count','policy_omitted_image_count','image_placeholder_count','interrupted_or_limited','source_consistency_complete','failures']
  return dict(publication_id=report['publication_identity']['id'],**{k:report[k] for k in keys},missing_document_count=len(report['missing_document_ids']),unknown_ownership_count=len(report['unknown_ownership_or_nav_ids']),unresolved_required_asset_count=len(report['required_assets_unresolved']))
 if __name__=='__main__':
- p=argparse.ArgumentParser();p.add_argument('--config',type=pathlib.Path,required=True);p.add_argument('--out',type=pathlib.Path,required=True);p.add_argument('--resume',action='store_true');p.add_argument('--max-items',type=int);p.add_argument('--interrupt-after',type=int);a=p.parse_args()
- try:raise SystemExit(collect(a.config,a.out,a.resume,a.max_items,a.interrupt_after))
+ p=argparse.ArgumentParser();p.add_argument('--config',type=pathlib.Path,required=True);p.add_argument('--out',type=pathlib.Path,required=True);p.add_argument('--resume',action='store_true');p.add_argument('--max-items',type=int);p.add_argument('--interrupt-after',type=int);p.add_argument('--from-cache',type=pathlib.Path);a=p.parse_args()
+ try:raise SystemExit(collect(a.config,a.out,a.resume,a.max_items,a.interrupt_after,a.from_cache))
  except Exception as e:print(str(e),file=sys.stderr);raise SystemExit(3)

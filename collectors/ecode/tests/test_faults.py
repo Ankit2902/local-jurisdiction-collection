@@ -28,7 +28,9 @@ class FakeBrowser:
  def check(self,*a):pass
 CFG={'family':'ecode360','url':BASE,'jurisdiction':'Synthetic Test Municipality','state':'NV','publication':None,'subtree':False,'max_items':None,'gate_dir':None}
 class FaultTests(unittest.TestCase):
- def setUp(self):self.tmp=tempfile.TemporaryDirectory();self.root=Path(self.tmp.name)
+ def setUp(self):
+  self.advisory_patch=patch('collectors.ecode.engine.enforce_published_advisory');self.advisory_patch.start();self.addCleanup(self.advisory_patch.stop)
+  self.tmp=tempfile.TemporaryDirectory();self.root=Path(self.tmp.name)
  def tearDown(self):self.tmp.cleanup()
  def make(self,name='full'):
   out=self.root/name
@@ -78,6 +80,17 @@ class FaultTests(unittest.TestCase):
   for extra in ['<svg><path d="x"/></svg>','<img src="map.png"/>','<div class="notes">Unowned history.</div>']:
    bad=ROOT.replace(b'</div></body>',extra.encode()+b'</div></body>')
    with self.assertRaisesRegex(QualificationError,'Unowned'):parse_ecode(bad,BASE,identity(bad,BASE,'ecode360'))
+ def test_background_and_standalone_source_images(self):
+  from collectors.ecode.adapters import normalized_images,image_occurrences,asset_refs
+  from bs4 import BeautifulSoup
+  cases=[('<table><tr><td background="outer.png">Outer<table><tr><td style="background-image:url(inner.png)">Inner</td></tr></table></td></tr></table>',2),('<source src="data:image/png;base64,PIXEL_PAYLOAD"><object data="map.png"></object>',2),('<source src="DATA:IMAGE/PNG;base64,PIXEL_PAYLOAD"><object data="DATA:IMAGE/PNG;base64,PIXEL_PAYLOAD"></object>',2)]
+  for html,count in cases:
+   normalized=str(normalized_images(html));self.assertEqual(normalized.count('[IMAGE]'),count);self.assertEqual(len(image_occurrences(html,'x')),count);self.assertNotIn('background=',normalized);self.assertNotIn('url(',normalized);self.assertNotIn('PIXEL_PAYLOAD',normalized);self.assertNotIn('PIXEL_PAYLOAD',json.dumps(image_occurrences(html,'x')));self.assertTrue(all(not a['required'] for a in asset_refs(html,BASE,'x')))
+ def test_typed_opaque_images_are_nonrequired_through_real_parser(self):
+  from collectors.ecode.adapters import parse_ecode,identity
+  for mime in ['image/png','IMAGE/PNG']:
+   raw=ONE.replace(b'<p>Alpha legal text.</p>',('<object type="'+mime+'" data="https://example.invalid/opaque-image"></object><source src="DATA:IMAGE/PNG;base64,SENTINEL">').encode())
+   parsed=parse_ecode(raw,'https://ecode360.com/101',identity(raw,'https://ecode360.com/101','ecode360'));r=next(r for r in parsed['records'] if r['id']=='201');self.assertEqual(r['image_placeholder_count'],2);self.assertTrue(all(a['image'] and not a['required'] for a in r['assets']));self.assertNotIn('SENTINEL',json.dumps(r))
  def test_image_only_no_fetch_and_nonimage_failure(self):
   original=dict(SOURCES)
   try:
@@ -190,7 +203,7 @@ class MunicipalTests(unittest.TestCase):
   with tempfile.TemporaryDirectory() as tmp:
    cfg={**CFG,'family':'municipal.codes','url':MCBASE,'publication':'Code','jurisdiction':'Synthetic','state':'ZZ'}
    out=Path(tmp)/'full'
-   with patch('collectors.ecode.browser.Browser',FakeMC):r=collect(cfg,out)
+   with patch('collectors.ecode.browser.Browser',FakeMC),patch('collectors.ecode.engine.enforce_published_advisory'):r=collect(cfg,out)
    self.assertTrue(r['complete'],r);self.assertTrue(verify(out)['complete']);self.assertEqual(r['inventory_nodes'],3);self.assertEqual(r['owned_content_nodes'],2)
    rows=(out/'records.jsonl').read_bytes().splitlines();atomic(out/'records.jsonl',rows[0]+b'\n')
    with self.assertRaisesRegex(QualificationError,'disagree'):verify(out)

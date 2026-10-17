@@ -33,10 +33,16 @@ def target_config(args):
   identity=row['expected_identity'];return {'source_url':row['source_url'],'client_names':identity['client_names'],'state':identity['state'],'target_id':str(args.target),'jurisdiction':row['jurisdiction'],'expected_client_id':identity.get('publisher_client_id')}
  if not(args.url and args.client_name and args.state):raise ValueError('Use --registry/--target or --url/--state/--client-name')
  return {'source_url':args.url,'client_names':args.client_name,'state':args.state.upper(),'jurisdiction':args.client_name[0],'target_id':None,'expected_client_id':args.client_id}
+def load_policy(product_ids,explicit=None):
+ policy_file=explicit
+ if not policy_file and len(product_ids or [])==1:
+  candidate=HERE/'policies'/('product-'+str(product_ids[0])+'.json')
+  if candidate.exists():policy_file=candidate
+ return json.loads(policy_file.read_text()) if policy_file else {}
 class Run:
  def __init__(self,args):
   self.a=args;self.out=args.out.resolve();config=target_config(args);self.browser=None;self.calls=0
-  policy=json.loads(args.reference_policy.read_text()) if getattr(args,'reference_policy',None) else {}
+  policy=load_policy(args.product_id,getattr(args,'reference_policy',None))
   if not isinstance(policy,dict) or any(v.get('kind') not in ['external_family_boundary','reference_hyperlink'] or not v.get('reason') for v in policy.values()):raise ValueError('Reference policy requires explicit kind and nonempty source-backed reason')
   self.binding={**config,'reference_policy':policy,'product_ids':sorted(args.product_id or []),'implementation':implementation()};self.cp_path=self.out/'checkpoint.json'
   if args.resume:
@@ -98,21 +104,28 @@ class Run:
      self.fetch(content_name,api('CodesContent/docIds',productId=pid,jobId=job['Id'],docIds=pid,showChanges='false'),cache=True);pub['content_units'].append(content_name);self.calls+=1;self.save()
     records,report=reconcile_publication(self.out,self.cp,pid)
     # Fail closed on unexpected/duplicate ownership. Recover actual omissions in conservative batches.
-    if report['duplicate_ids'] or report['extra_ids'] or report['errors']:raise ValueError('Bulk response ownership mismatch: '+str(report['errors'] or report['duplicate_ids'] or report['extra_ids']))
+    hard_errors=[e for e in report['errors'] if not e.startswith('unexplained empty leaf: ')]
+    if report['duplicate_ids'] or report['extra_ids'] or hard_errors:raise ValueError('Bulk response ownership mismatch: '+str(hard_errors or report['duplicate_ids'] or report['extra_ids']))
+    # Empty source bodies remain explicit parse errors/incomplete, but do not prevent
+    # acquiring remaining source/attachments and closing live edition metadata.
     missing=report['missing_ids']
     for offset in range(0,len(missing),self.a.batch_size):
      if self.a.max_items is not None and self.calls>=self.a.max_items:break
      ids=missing[offset:offset+self.a.batch_size];name='content-batch:'+pid+':'+digest(ids)
      if name not in pub['content_units']:
       self.fetch(name,api('CodesContent/docIds',productId=pid,jobId=job['Id'],docIds=ids,showChanges='false'),cache=True);pub['content_units'].append(name);self.calls+=1;self.save()
+    need_reconcile=bool(missing)
     while True:
-     records,report=reconcile_publication(self.out,self.cp,pid)
+     if need_reconcile:records,report=reconcile_publication(self.out,self.cp,pid)
+     need_reconcile=True
      pending_assets=[a for a in report['asset_ledger'] if a['asset_id'] not in self.cp['assets'] or (getattr(self.a,'retry_assets',False) and a['status']!='acquired' and a['asset_id'] not in retried_assets)]
      if not pending_assets:break
      for asset in pending_assets:
       aid=asset['asset_id'];url=asset['url']
       retry=aid in self.cp['assets'];retried_assets.add(aid)
       if retry:self.cp.setdefault('asset_retry_history',[]).append({'asset_id':aid,'previous':self.cp['assets'][aid]})
+      if asset.get('malformed_source_reference'):
+       self.cp['assets'][aid]={'status':'unresolved_malformed_source_reference','reason':'Scheme-less external-looking source locator; retained without URL guessing or transport'};self.save();continue
       host=urlparse(url).hostname or ''
       if host not in self.a.allow_asset_host and not(host.endswith('.municode.com') or host=='library.municode.com' or host=='mcclibrary.blob.core.usgovcloudapi.net'):
        self.cp['assets'][aid]={'status':'external_required_pending','reason':'Required external asset host not explicitly allowed'};self.save();continue
@@ -138,6 +151,9 @@ def main():
  if a.batch_size<1:p.error('--batch-size must be positive')
  try:
   import fcntl
+  from runtime import check
+  runtime=check()
+  if not runtime['passed']:raise RuntimeError('Runtime preflight: '+ '; '.join(runtime['errors']))
   if not a.resume and a.out.exists() and any(a.out.iterdir()):raise ValueError('Fresh collection requires empty output directory')
   a.out.mkdir(parents=True,exist_ok=True)
   with (a.out/'.run.lock').open('a+') as lock:

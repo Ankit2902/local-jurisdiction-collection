@@ -1,8 +1,8 @@
 # Full-publication collection handoff
 
-This is the current collector layer for the **100 additional jurisdictions** in the expansion inventory. It upgrades the earlier bounded acquisition scripts to full publication traversal, durable resume, and reconciliation against retained source inventories. It runs with standalone Python, Node.js and, for some publishers, ordinary headed Chrome. Codex is not a runtime dependency.
+This is the current collector layer for **130 distinct jurisdictions: the original 30 backlog targets and the 100 expansion targets**. Existing expansion IDs `1`–`100` stay stable; original targets use `original-<slug>` IDs in a separate source-backed catalog. It upgrades the earlier bounded acquisition scripts to full publication traversal, durable resume, and reconciliation against retained source inventories. It runs with standalone Python, Node.js and, for some publishers, ordinary headed Chrome. Codex is not a runtime dependency.
 
-Use the [registry runbook](registry/README.md) for target selection and executable plans. Each source-family runbook explains its installation, source structure, output, tested scope, and limitations:
+Use the [current readiness guide](registry/READINESS.md) and [union catalog API](registry/catalog.py) for target selection and executable plans. The [earlier registry runbook](registry/README.md) describes the sealed 100-target expansion stage. Each source-family runbook explains its installation, source structure, output, tested scope, and limitations:
 
 | Source family | Primary expansion targets | Implementation and runbook |
 |---|---:|---|
@@ -12,26 +12,33 @@ Use the [registry runbook](registry/README.md) for target selection and executab
 | enCodePlus | 3 | [enCodePlus](encodeplus/README.md) |
 | Official HTML, PDF sets, bulk HTML and CodePublishing | 8 | [Official sources](official/README.md) |
 
-The target count is **configuration scope**, not a count of completed full collections. Representative whole-publication runs establish specific adapter capabilities. Previous bounded tests remain in the immutable packages; they are not relabeled as full-publication validation. The registry includes **100 runnable primary configurations and 45 qualified secondary configurations**, with **42 additional source candidates explicitly unsupported** pending configuration or operator work. These are publication entries, not 187 independently validated books.
+The target count is **configuration scope**, not a count of completed full collections. Representative whole-publication runs establish specific adapter capabilities. Previous bounded tests remain in the immutable packages; they are not relabeled as full-publication validation. The prior sealed release contained **100 runnable primary configurations, 45 qualified secondary configurations and 42 unsupported candidates**. The active union catalog adds the original 30 targets, their observed separate publications, source-backed configuration corrections and newly discovered dependencies. Run the no-network plan to obtain current counts; dispatchable configurations are not full live validation or permission to contact a stopped publisher. The [new requirement ledger guide](qa/READINESS.md) retains every original publication scope and records the evidence and unresolved gates separately.
 
 ## Plan, collect, resume, verify
 
-Install the dependencies listed in the selected family runbook, then run these commands from the repository root. Use Python 3.12 for the combined workflow; a graphical Chrome session is needed for headed browser adapters. The tested host was macOS. Windows, Linux, and unattended headless operation have not been established by these tests.
+The unified launcher creates an isolated pinned Python 3.12 runtime, obtains Node and the Playwright API from the official Python Playwright wheel, and checks an ordinary locally installed Chrome session. Codex, npm and a system Node installation are not required. The tested host is macOS with a graphical desktop. POSIX file locks are required; Windows and unattended headless operation are not qualified.
 
 ```sh
-# Read-only plans: inspect every publication boundary and unsupported source.
-python3 collectors/registry/collect.py plan --all
-python3 collectors/registry/collect.py plan --target 60
+# Fresh standalone installation; only dependency installation accesses the network.
+python3 collect.py setup --python /path/to/python3.12
 
-# A fresh output directory. No item limit means full selected-publication scope.
-python3 collectors/registry/collect.py collect --target 60 --out /data/local-codes/target-60
+# No publisher requests: inspect one source, all targets, or one cohort.
+python3 collect.py plan --all --cohort all
+python3 collect.py plan --all --cohort original
+python3 collect.py doctor --target 60
+python3 collect.py plan --target original-cupertino-ca
 
-# Resume the same publication after a normal interruption.
-python3 collectors/registry/collect.py collect --target 60 --out /data/local-codes/target-60 --resume
+# Explicit publication only. Repeat run to resume a matching launcher-owned job.
+python3 collect.py run --target 60 --out /data/local-codes/target-60
+python3 collect.py run --target 60 --out /data/local-codes/target-60
 
-# Read-only verification from retained sources; no publisher requests.
-python3 collectors/registry/collect.py verify --target 60 --out /data/local-codes/target-60
+# Read-only source verification; logs are outside the retained evidence.
+python3 collect.py verify --target 60 --out /data/local-codes/target-60
 ```
+
+`doctor.ready` describes runtime/access preflight only. It does not certify a publication. The launcher distinguishes `family_verifier_passed`, `native_capture_verified` and `publication_accepted`; a zero native-file/page exit cannot mark a legal publication complete. Missing required separate publications appear as explicit unresolved dependency IDs and prevent full acceptance. No all-target acquisition is launched by default or by `plan --all`.
+
+The launcher preserves shared family gates and durable refusal history. A missing `/tmp` gate after reboot does not erase an observed stop. It binds each job to its publication, source/configuration and runtime; before/after source hashes prevent a code edit during acquisition from silently becoming a current-code validation pass. Use a fresh output or an explicit family migration when bindings change. Direct family commands remain available for scoped technical work through the [registry dispatcher](registry/collect.py).
 
 Choose a secondary publication with the exact `--publication` identifier returned by the plan. A target's primary publication is not automatically all of that government's law. Unsupported plans identify the missing configuration or operator step; do not substitute a historical source for a current one.
 
@@ -41,7 +48,7 @@ Use fresh output directories outside the sealed evidence packages. The collector
 
 **The collectors do not download separate image assets. All images become the literal `[IMAGE]` in normalized output.** Image-only provisions keep their source ID, heading and placeholder. Deliberate image omissions do not count as missing attachments. Original publisher files may contain embedded images; those source files are retained without separately extracting image binaries. See [IMAGE-POLICY.md](IMAGE-POLICY.md) for the full rule and PDF qualifications.
 
-## Validated publication runs
+## Prior sealed validation — not the new readiness ledger
 
 The independent integration suite passed **126 cases across 14 network-disabled commands** from a relocated collector tree and fresh Python 3.12 environment. Actual source evidence is replayed separately. The [QA runbook](qa/README.md), [validation matrix](qa/validation-matrix.json) and each family's `validation-summary.json` distinguish implementation tests, fresh acquisition, retained-source replay and bounded checks.
 
@@ -60,7 +67,7 @@ The independent integration suite passed **126 cases across 14 network-disabled 
 
 The remaining official-source live checks deliberately used bounded runs against the full dynamic inventories. Their runbooks retain exact counts and missing-document lists. American Legal's recursive nested-code path has meaningful synthetic/retained-source fault tests; the full live text proof above is a separately published flat index. Neither is promoted to a full run across every mapped target.
 
-Required nonimage document integrity remains explicit. For example, the standard-library Municode adapter retains PDF attachments as unqualified without a full format parser, so their presence alone cannot close attachment coverage. The source-family runbooks explain supported formats and review requirements.
+The table above describes the prior sealed release. The current Municode revision uses a pinned real PDF parser for byte/object/page/content integrity, with image streams left unextracted; this does not establish legal table or section equivalence. Current source owners record fresh runs and stronger retained-source replays under `outputs/collection-readiness-2026-10-17`. The new QA ledger does not reuse representative or bounded proof as an all-target pass.
 
 ## What completion means
 
@@ -84,4 +91,6 @@ The technical team should retain publication-specific outputs, run each offline 
 
 ## Sealed evidence and delivery
 
-The [full-publication validation release](https://github.com/OliverFlint-98/local-jurisdiction-collection/releases/tag/full-publication-collectors-2026-10-17) contains the sealed source evidence, run receipts, exact executed revisions, and a complete current collector snapshot. The [browsable evidence index](../packages/full-publication-validation-2026-10-17/README.md) links each family. Restore large files with `python3 fetch_evidence.py --package full-publication-validation-2026-10-17`, then run `python3 verify_delivery.py --full`. The [independent integration review](qa/integration-review.json) records relocated replays and the final source-hash comparison.
+The [full-publication validation release](https://github.com/OliverFlint-98/local-jurisdiction-collection/releases/tag/full-publication-collectors-2026-10-17) contains the prior sealed source evidence, run receipts, exact executed revisions, and the collector snapshot for that release. Active readiness changes and evidence are a later stage and are not implicitly covered by that release manifest. The [browsable evidence index](../packages/full-publication-validation-2026-10-17/README.md) links each family. Restore large files with `python3 fetch_evidence.py --package full-publication-validation-2026-10-17`, then run `python3 verify_delivery.py --full`. The [independent integration review](qa/integration-review.json) records relocated replays and the final source-hash comparison.
+
+Required separate publication proofs can be supplied explicitly to `run` or read-only `verify`, for example `--dependency 100-fairfax-public-facilities-manual=/proofs/pfm` when checking publication `100-0506c8bf0a84`. The launcher verifies exact catalog source/configuration and every dependency proof under the current owned runtime, hashes its evidence before and after, and refuses missing, partial, mismatched or changed proof. A native file/page capture cannot substitute for full publication text. See [registry readiness](registry/READINESS.md) and [independent QA readiness](qa/READINESS.md).

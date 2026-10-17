@@ -14,10 +14,18 @@ COMMANDS=[
  ('independent_image_byte_audit',['collectors/qa/test_image_audit.py']),
  ('independent_document_format_faults',['collectors/qa/test_document_formats.py']),
  ('municode_faults',['collectors/municode/test_faults.py']),
+ ('municode_batch',['collectors/municode/test_batch.py']),
+ ('municode_gate',['collectors/municode/test_gate.py']),
+ ('municode_runtime',['collectors/municode/test_runtime.py']),
+ ('municode_native_edition',['collectors/municode/test_edition.py']),
  ('american_legal_faults',['collectors/american-legal/test_faults.py']),
  ('ecode_faults',['-m','unittest','collectors.ecode.tests.test_faults']),
+ ('ecode_operator',['-m','unittest','collectors.ecode.tests.test_operator']),
+ ('ecode_native_sources',['-m','unittest','collectors.ecode.tests.test_native_fixtures']),
+ ('gridics_model_and_native',['-m','unittest','discover','-s','collectors/gridics/tests']),
  ('encodeplus_faults',['-m','collectors.encodeplus.tests']),
- ('official_faults',['collectors/official/test_offline.py'])]
+ ('official_faults',['collectors/official/test_offline.py']),
+ ('official_pdf_structure',['collectors/official/test_pdf_structure.py'])]
 def sha(data):return hashlib.sha256(data).hexdigest()
 def main():
  p=argparse.ArgumentParser(description=__doc__);p.add_argument('--out',type=Path,help='Fresh external log directory; omitted means no saved reports');a=p.parse_args()
@@ -43,7 +51,7 @@ def main():
    if not entry['passed']:entry['failure_tail']=(r.stdout+'\n'+r.stderr)[-5000:]
    results.append(entry)
    if a.out:(a.out/(name+'.stdout.txt')).write_bytes(stdout);(a.out/(name+'.stderr.txt')).write_bytes(stderr)
- hashes={str(p.relative_to(ROOT)):sha(p.read_bytes()) for folder in ['registry','qa','municode','american-legal','ecode','encodeplus','official'] for p in sorted((ROOT/'collectors'/folder).rglob('*')) if p.is_file() and p.suffix in ['.py','.cjs'] and '__pycache__' not in p.parts}
+ hashes={str(p.relative_to(ROOT)):sha(p.read_bytes()) for folder in ['registry','qa','municode','american-legal','ecode','encodeplus','official','gridics'] for p in sorted((ROOT/'collectors'/folder).rglob('*')) if p.is_file() and p.suffix in ['.py','.cjs'] and '__pycache__' not in p.parts}
  report={'schema_version':1,'test_kind':'Independent network-disabled offline replay and synthetic faults; not live publication proof','network_disabled':True,'network_guard':'Python child socket connections disabled; adapter transports are mocked in production-path tests','read_only_sources':True,'passed':all(x['passed'] for x in results),'runtime':{'python':platform.python_version(),'os':platform.platform(),'dependencies':{n:importlib.metadata.version(n) for n in ['beautifulsoup4','requests','brotli','pypdf','pypdfium2','fonttools','Pillow']}},'image_policy':'No separate image requests/downloads. Literal [IMAGE] in normalized HTML/text; original native files remain source evidence. Required nonimage documents separate.','results':results,'source_sha256':hashes}
  if a.out:(a.out/'report.json').write_text(json.dumps(report,indent=2)+'\n')
  print(json.dumps(report,indent=2));return 0 if report['passed'] else 2

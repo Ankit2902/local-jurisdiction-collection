@@ -16,7 +16,9 @@ def source_bytes(path):
  with zipfile.ZipFile(HERE/'source-evidence.zip') as z:data=z.read(path)
  if len(data)!=expected['bytes'] or hashlib.sha256(data).hexdigest()!=expected['sha256']:raise ValueError('Bundled raw identity/inventory source corrupt '+path)
  original=ROOT/path
- if original.is_file() and original.read_bytes()!=data:raise ValueError('Repository source differs from bundled frozen identity proof '+path)
+ # Packages/index are immutable evidence. Current collector configs are mutable
+ # implementation inputs; the bundled prior config remains historical proof.
+ if (path.startswith('packages/') or path=='expanded-scope-index.json') and original.is_file() and original.read_bytes()!=data:raise ValueError('Repository source differs from bundled frozen identity proof '+path)
  return data
 def source_read(path):return json.loads(source_bytes(path))
 def audit(targets=None,publications=None):

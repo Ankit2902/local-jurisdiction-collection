@@ -1,0 +1,48 @@
+{
+  "started_at": "2026-10-17T21:54:52.948425+00:00",
+  "script_sha256": "5f3ffd34e477cb3a4ecb3bdc70e03f9443b222e2f96766d59186671113913714",
+  "reason": "Controlled next source boundary: uppercase MIME/data image policy fix and actual request-start timing correction",
+  "children": [
+    {
+      "pid": 64225,
+      "ppid": 64220,
+      "command": "/Users/oliverflint/My Drive/Claude/Projects/CompliSolv 2.00/outputs/collection-readiness-2026-10-17/encodeplus/.venv/bin/python -B -m collectors.encodeplus.collect lincoln --out /Users/oliverflint/My Drive/Claude/Projects/CompliSolv 2.00/outputs/collection-readiness-2026-10-17/encodeplus/lincoln-primary --native-export --resume --upgrade-code",
+      "signal": "SIGINT"
+    },
+    {
+      "pid": 64226,
+      "ppid": 64220,
+      "command": "/Users/oliverflint/My Drive/Claude/Projects/CompliSolv 2.00/outputs/collection-readiness-2026-10-17/encodeplus/.venv/bin/python -B -m collectors.encodeplus.collect overland --out /Users/oliverflint/My Drive/Claude/Projects/CompliSolv 2.00/outputs/collection-readiness-2026-10-17/encodeplus/overland-primary --native-export --resume --upgrade-code",
+      "signal": "SIGINT"
+    },
+    {
+      "pid": 64227,
+      "ppid": 64220,
+      "command": "/Users/oliverflint/My Drive/Claude/Projects/CompliSolv 2.00/outputs/collection-readiness-2026-10-17/encodeplus/.venv/bin/python -B -m collectors.encodeplus.collect savannah --out /Users/oliverflint/My Drive/Claude/Projects/CompliSolv 2.00/outputs/collection-readiness-2026-10-17/encodeplus/savannah-primary --native-export --resume --upgrade-code",
+      "signal": "SIGINT"
+    },
+    {
+      "pid": 64228,
+      "ppid": 64220,
+      "command": "/Users/oliverflint/My Drive/Claude/Projects/CompliSolv 2.00/outputs/collection-readiness-2026-10-17/encodeplus/.venv/bin/python -B -m collectors.encodeplus.collect fairfax-pfm --out /Users/oliverflint/My Drive/Claude/Projects/CompliSolv 2.00/outputs/collection-readiness-2026-10-17/encodeplus/fairfax-pfm --native-export --resume --upgrade-code --config collectors/encodeplus/configs/fairfax-public-facilities-manual.json",
+      "signal": "SIGINT"
+    },
+    {
+      "pid": 67452,
+      "ppid": 66089,
+      "command": "/Users/oliverflint/My Drive/Claude/Projects/CompliSolv 2.00/outputs/collection-readiness-2026-10-17/encodeplus/.venv/bin/python -B -m collectors.encodeplus.native_document --config collectors/encodeplus/configs/native-82-04514ddf4ea3.json --out /Users/oliverflint/My Drive/Claude/Projects/CompliSolv 2.00/outputs/collection-readiness-2026-10-17/encodeplus/native-82-04514ddf4ea3-final-live",
+      "signal": "SIGINT"
+    }
+  ],
+  "wrappers": [
+    {
+      "pid": 64220,
+      "ppid": 12985,
+      "command": "/Users/oliverflint/My Drive/Claude/Projects/CompliSolv 2.00/outputs/collection-readiness-2026-10-17/encodeplus/.venv/bin/python -B /Users/oliverflint/My Drive/Claude/Projects/CompliSolv 2.00/outputs/collection-readiness-2026-10-17/encodeplus/resume-final-runs.py .",
+      "signal": "SIGINT"
+    }
+  ],
+  "gate_acquired_at": "2026-10-17T21:55:02.521280+00:00",
+  "signals_sent_while_gate_held": true,
+  "finished_at": "2026-10-17T21:55:03.552523+00:00"
+}

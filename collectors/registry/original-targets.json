@@ -1,0 +1,2285 @@
+{
+  "schema_version": 1,
+  "scope": "Original30; no full validation inferred from historical samples",
+  "targets": [
+    {
+      "id": "original-flagstaff-az",
+      "sequence": null,
+      "cohort": "original",
+      "slug": "flagstaff-az",
+      "jurisdiction": "Flagstaff",
+      "state": "AZ",
+      "entity_type": "City",
+      "publisher": "official",
+      "source_family": "codepublishing",
+      "source_url": "https://www.codepublishing.com/AZ/Flagstaff/",
+      "primary_publication_id": "original-flagstaff-az-primary",
+      "primary_publication": {
+        "id": "original-flagstaff-az-primary",
+        "target_id": "original-flagstaff-az",
+        "title": "Municipal Code",
+        "observed_title": null,
+        "source_url": "https://www.codepublishing.com/AZ/Flagstaff/",
+        "publisher": "official",
+        "source_family": "codepublishing",
+        "scope_kind": "publication",
+        "role": "primary",
+        "required_for_jurisdiction": true,
+        "expected_identity": {
+          "client_names": [
+            "Flagstaff"
+          ],
+          "state": "AZ"
+        },
+        "selector": {},
+        "publisher_product_id": null,
+        "publisher_publication_id": null,
+        "runnable": false,
+        "unsupported_reason": "Exact whole-publication inventory/content parser configuration is not yet qualified for this original source; historical bounded pass does not qualify current collector",
+        "validation_level": "mapped_only",
+        "full_live_verified": false,
+        "evidence_paths": [
+          "packages/local-extraction-e2e-2026-10-15/SOURCE-MATRIX.json"
+        ],
+        "image_policy": {
+          "mode": "literal_placeholder",
+          "placeholder": "[IMAGE]",
+          "download_images": false,
+          "source_id_heading_retained": true,
+          "native_originals_may_contain_images": true,
+          "scope_note": "Image-only units are retained. Intentional image omission is not an unresolved required nonimage attachment."
+        }
+      },
+      "expected_identity": {
+        "client_names": [
+          "Flagstaff"
+        ],
+        "state": "AZ"
+      },
+      "overlap_of": [],
+      "known_publications": [],
+      "unresolved_required_scope": [
+        {
+          "scope": "Additional independent publications and uncodified amendments",
+          "status": "unresolved",
+          "reason": "Original bounded inventory does not establish exhaustive jurisdiction coverage"
+        }
+      ],
+      "prior_validation": {
+        "kind": "bounded_sample_only",
+        "records": 5,
+        "evidence": "packages/local-extraction-e2e-2026-10-15/SOURCE-MATRIX.json",
+        "remaining_gate": "Complete publication/family inventory and whole-corpus version coherence; standalone transport blocked; broader images/spans/incorporated PDFs."
+      },
+      "jurisdiction_complete": false
+    },
+    {
+      "id": "original-berkeley-ca",
+      "sequence": null,
+      "cohort": "original",
+      "slug": "berkeley-ca",
+      "jurisdiction": "Berkeley",
+      "state": "CA",
+      "entity_type": "City",
+      "publisher": "ecode",
+      "source_family": "municipal.codes",
+      "source_url": "https://berkeley.municipal.codes/BMC",
+      "primary_publication_id": "original-berkeley-ca-primary",
+      "primary_publication": {
+        "id": "original-berkeley-ca-primary",
+        "target_id": "original-berkeley-ca",
+        "title": "Municipal Code",
+        "observed_title": null,
+        "source_url": "https://berkeley.municipal.codes/BMC",
+        "publisher": "ecode",
+        "source_family": "municipal.codes",
+        "scope_kind": "publication",
+        "role": "primary",
+        "required_for_jurisdiction": true,
+        "expected_identity": {
+          "client_names": [
+            "Berkeley"
+          ],
+          "state": "CA"
+        },
+        "selector": {
+          "publication_path": "/BMC"
+        },
+        "publisher_product_id": null,
+        "publisher_publication_id": null,
+        "runnable": true,
+        "unsupported_reason": null,
+        "validation_level": "mapped_only",
+        "full_live_verified": false,
+        "evidence_paths": [
+          "packages/local-extraction-e2e-2026-10-15/SOURCE-MATRIX.json"
+        ],
+        "image_policy": {
+          "mode": "literal_placeholder",
+          "placeholder": "[IMAGE]",
+          "download_images": false,
+          "source_id_heading_retained": true,
+          "native_originals_may_contain_images": true,
+          "scope_note": "Image-only units are retained. Intentional image omission is not an unresolved required nonimage attachment."
+        }
+      },
+      "expected_identity": {
+        "client_names": [
+          "Berkeley"
+        ],
+        "state": "CA"
+      },
+      "overlap_of": [],
+      "known_publications": [
+        {
+          "id": "family-charter",
+          "url": "https://berkeley.municipal.codes/Charter/contents",
+          "accepted": true,
+          "receipt": "live-final/berkeley-ca/family-charter.receipt.json",
+          "scope_disposition": "unresolved",
+          "inventory_nodes": 139,
+          "inventory_signature": "738184bc7ce476dac8970cb9095941d712cff3248eb8dc32f178528ae999b5a8"
+        }
+      ],
+      "unresolved_required_scope": [
+        {
+          "scope": "Additional independent publications and uncodified amendments",
+          "status": "unresolved",
+          "reason": "Original bounded inventory does not establish exhaustive jurisdiction coverage"
+        }
+      ],
+      "prior_validation": {
+        "kind": "bounded_sample_only",
+        "records": 25,
+        "evidence": "packages/local-extraction-e2e-2026-10-15/SOURCE-MATRIX.json",
+        "remaining_gate": "Full inventory node classification, including substantive parent bodies, attachments, editorial/reference scope; Extra publication-family substantive collection and source/version closure; Full corpus acquisition, deduplication and disposition reconciliation; no full extraction performed; Official city route confirmation limitations remain as recorded in baseline report; Map/image readable text has not been independently transcribed or OCR-validated; placeholder and alt/source retention do not qualify image text completeness"
+      },
+      "jurisdiction_complete": false
+    },
+    {
+      "id": "original-burlingame-ca",
+      "sequence": null,
+      "cohort": "original",
+      "slug": "burlingame-ca",
+      "jurisdiction": "Burlingame",
+      "state": "CA",
+      "entity_type": "City",
+      "publisher": "ecode",
+      "source_family": "ecode360",
+      "source_url": "https://ecode360.com/BU4910",
+      "primary_publication_id": "original-burlingame-ca-primary",
+      "primary_publication": {
+        "id": "original-burlingame-ca-primary",
+        "target_id": "original-burlingame-ca",
+        "title": "Municipal Code",
+        "observed_title": null,
+        "source_url": "https://ecode360.com/BU4910",
+        "publisher": "ecode",
+        "source_family": "ecode360",
+        "scope_kind": "publication",
+        "role": "primary",
+        "required_for_jurisdiction": true,
+        "expected_identity": {
+          "client_names": [
+            "Burlingame"
+          ],
+          "state": "CA",
+          "customer_id": "BU4910",
+          "historical_code_id": "332192"
+        },
+        "selector": {},
+        "publisher_product_id": null,
+        "publisher_publication_id": null,
+        "runnable": true,
+        "unsupported_reason": null,
+        "validation_level": "mapped_only",
+        "full_live_verified": false,
+        "evidence_paths": [
+          "packages/local-extraction-e2e-2026-10-15/SOURCE-MATRIX.json",
+          "packages/ecode360-headed-2026-10-16/runtime-review/evidence/reviewed-route-registry.json"
+        ],
+        "image_policy": {
+          "mode": "literal_placeholder",
+          "placeholder": "[IMAGE]",
+          "download_images": false,
+          "source_id_heading_retained": true,
+          "native_originals_may_contain_images": true,
+          "scope_note": "Image-only units are retained. Intentional image omission is not an unresolved required nonimage attachment."
+        }
+      },
+      "expected_identity": {
+        "client_names": [
+          "Burlingame"
+        ],
+        "state": "CA",
+        "customer_id": "BU4910",
+        "historical_code_id": "332192"
+      },
+      "overlap_of": [],
+      "known_publications": [],
+      "unresolved_required_scope": [
+        {
+          "scope": "Additional independent publications and uncodified amendments",
+          "status": "unresolved",
+          "reason": "Original bounded inventory does not establish exhaustive jurisdiction coverage"
+        }
+      ],
+      "prior_validation": {
+        "kind": "bounded_sample_only",
+        "records": 1,
+        "evidence": "packages/local-extraction-e2e-2026-10-15/SOURCE-MATRIX.json",
+        "remaining_gate": "Complete publication/family inventory and whole-run edition reconciliation; broader real tables/images/appendices and visual semantic review; standalone browser Foster blocked, other13 not run."
+      },
+      "jurisdiction_complete": false
+    },
+    {
+      "id": "original-cupertino-ca",
+      "sequence": null,
+      "cohort": "original",
+      "slug": "cupertino-ca",
+      "jurisdiction": "Cupertino",
+      "state": "CA",
+      "entity_type": "City",
+      "publisher": "gridics",
+      "source_family": "gridics",
+      "source_url": "https://codehub.gridics.com/us/ca/cupertino#/90d493fe-25f4-4aef-a519-710b1e0055c6",
+      "primary_publication_id": "original-cupertino-ca-primary",
+      "primary_publication": {
+        "id": "original-cupertino-ca-primary",
+        "target_id": "original-cupertino-ca",
+        "title": "Municipal Code",
+        "observed_title": null,
+        "source_url": "https://codehub.gridics.com/us/ca/cupertino#/90d493fe-25f4-4aef-a519-710b1e0055c6",
+        "publisher": "gridics",
+        "source_family": "gridics",
+        "scope_kind": "publication",
+        "role": "primary",
+        "required_for_jurisdiction": true,
+        "expected_identity": {
+          "client_names": [
+            "Cupertino"
+          ],
+          "state": "CA"
+        },
+        "selector": {},
+        "publisher_product_id": null,
+        "publisher_publication_id": null,
+        "runnable": false,
+        "unsupported_reason": "Exact whole-publication inventory/content parser configuration is not yet qualified for this original source; historical bounded pass does not qualify current collector",
+        "validation_level": "mapped_only",
+        "full_live_verified": false,
+        "evidence_paths": [
+          "packages/local-extraction-e2e-2026-10-15/SOURCE-MATRIX.json"
+        ],
+        "image_policy": {
+          "mode": "literal_placeholder",
+          "placeholder": "[IMAGE]",
+          "download_images": false,
+          "source_id_heading_retained": true,
+          "native_originals_may_contain_images": true,
+          "scope_note": "Image-only units are retained. Intentional image omission is not an unresolved required nonimage attachment."
+        }
+      },
+      "expected_identity": {
+        "client_names": [
+          "Cupertino"
+        ],
+        "state": "CA"
+      },
+      "overlap_of": [],
+      "known_publications": [],
+      "unresolved_required_scope": [
+        {
+          "scope": "Additional independent publications and uncodified amendments",
+          "status": "unresolved",
+          "reason": "Original bounded inventory does not establish exhaustive jurisdiction coverage"
+        }
+      ],
+      "prior_validation": {
+        "kind": "bounded_sample_only",
+        "records": 59,
+        "evidence": "packages/local-extraction-e2e-2026-10-15/SOURCE-MATRIX.json",
+        "remaining_gate": "Legal current-through unknown; no independent publisher total or exhaustive route validity.35 compound/descendant routes unqualified;2,621 bodies unacquired. Full observed tree expansion does not mean complete legal corpus."
+      },
+      "jurisdiction_complete": false
+    },
+    {
+      "id": "original-daly-city-ca",
+      "sequence": null,
+      "cohort": "original",
+      "slug": "daly-city-ca",
+      "jurisdiction": "Daly City",
+      "state": "CA",
+      "entity_type": "City",
+      "publisher": "municode",
+      "source_family": "municode",
+      "source_url": "https://library.municode.com/ca/daly_city/codes/code_of_ordinances",
+      "primary_publication_id": "original-daly-city-ca-primary",
+      "primary_publication": {
+        "id": "original-daly-city-ca-primary",
+        "target_id": "original-daly-city-ca",
+        "title": "Code of Ordinances",
+        "observed_title": "Code of Ordinances",
+        "source_url": "https://library.municode.com/ca/daly_city/codes/code_of_ordinances",
+        "publisher": "municode",
+        "source_family": "municode",
+        "scope_kind": "publication",
+        "role": "primary",
+        "required_for_jurisdiction": true,
+        "expected_identity": {
+          "client_names": [
+            "Daly City"
+          ],
+          "state": "CA",
+          "publisher_client_id": 1857,
+          "publisher_product_id": 16311,
+          "publisher_product_name": "Code of Ordinances",
+          "publisher_publication_id": 516
+        },
+        "selector": {
+          "product_id": 16311
+        },
+        "publisher_product_id": 16311,
+        "publisher_publication_id": 516,
+        "runnable": true,
+        "unsupported_reason": null,
+        "validation_level": "mapped_only",
+        "full_live_verified": false,
+        "evidence_paths": [
+          "packages/local-extraction-e2e-2026-10-15/SOURCE-MATRIX.json",
+          "packages/local-extraction-e2e-2026-10-15/bulk-and-official-html/live/final-daly-city/source/start/clients.json",
+          "packages/local-extraction-e2e-2026-10-15/bulk-and-official-html/live/final-daly-city/source/start/publications.json"
+        ],
+        "image_policy": {
+          "mode": "literal_placeholder",
+          "placeholder": "[IMAGE]",
+          "download_images": false,
+          "source_id_heading_retained": true,
+          "native_originals_may_contain_images": true,
+          "scope_note": "Image-only units are retained. Intentional image omission is not an unresolved required nonimage attachment."
+        }
+      },
+      "expected_identity": {
+        "client_names": [
+          "Daly City"
+        ],
+        "state": "CA",
+        "publisher_client_id": 1857,
+        "publisher_product_id": 16311,
+        "publisher_product_name": "Code of Ordinances",
+        "publisher_publication_id": 516
+      },
+      "overlap_of": [],
+      "known_publications": [],
+      "unresolved_required_scope": [
+        {
+          "scope": "Additional independent publications and uncodified amendments",
+          "status": "unresolved",
+          "reason": "Original bounded inventory does not establish exhaustive jurisdiction coverage"
+        }
+      ],
+      "prior_validation": {
+        "kind": "bounded_sample_only",
+        "records": 3,
+        "evidence": "packages/local-extraction-e2e-2026-10-15/SOURCE-MATRIX.json",
+        "remaining_gate": "Full-node acquisition/reconciliation; rendered parity for table/appendix samples; uncodified ordinances separately inventoried; whole-publication acceptance."
+      },
+      "jurisdiction_complete": false
+    },
+    {
+      "id": "original-emeryville-ca",
+      "sequence": null,
+      "cohort": "original",
+      "slug": "emeryville-ca",
+      "jurisdiction": "Emeryville",
+      "state": "CA",
+      "entity_type": "City",
+      "publisher": "ecode",
+      "source_family": "ecode360",
+      "source_url": "https://ecode360.com/EM4426",
+      "primary_publication_id": "original-emeryville-ca-primary",
+      "primary_publication": {
+        "id": "original-emeryville-ca-primary",
+        "target_id": "original-emeryville-ca",
+        "title": "Municipal Code",
+        "observed_title": null,
+        "source_url": "https://ecode360.com/EM4426",
+        "publisher": "ecode",
+        "source_family": "ecode360",
+        "scope_kind": "publication",
+        "role": "primary",
+        "required_for_jurisdiction": true,
+        "expected_identity": {
+          "client_names": [
+            "Emeryville"
+          ],
+          "state": "CA",
+          "customer_id": "EM4426",
+          "historical_code_id": "336039"
+        },
+        "selector": {},
+        "publisher_product_id": null,
+        "publisher_publication_id": null,
+        "runnable": true,
+        "unsupported_reason": null,
+        "validation_level": "mapped_only",
+        "full_live_verified": false,
+        "evidence_paths": [
+          "packages/local-extraction-e2e-2026-10-15/SOURCE-MATRIX.json",
+          "packages/ecode360-headed-2026-10-16/runtime-review/evidence/reviewed-route-registry.json"
+        ],
+        "image_policy": {
+          "mode": "literal_placeholder",
+          "placeholder": "[IMAGE]",
+          "download_images": false,
+          "source_id_heading_retained": true,
+          "native_originals_may_contain_images": true,
+          "scope_note": "Image-only units are retained. Intentional image omission is not an unresolved required nonimage attachment."
+        }
+      },
+      "expected_identity": {
+        "client_names": [
+          "Emeryville"
+        ],
+        "state": "CA",
+        "customer_id": "EM4426",
+        "historical_code_id": "336039"
+      },
+      "overlap_of": [],
+      "known_publications": [],
+      "unresolved_required_scope": [
+        {
+          "scope": "Additional independent publications and uncodified amendments",
+          "status": "unresolved",
+          "reason": "Original bounded inventory does not establish exhaustive jurisdiction coverage"
+        }
+      ],
+      "prior_validation": {
+        "kind": "bounded_sample_only",
+        "records": 7,
+        "evidence": "packages/local-extraction-e2e-2026-10-15/SOURCE-MATRIX.json",
+        "remaining_gate": "Complete publication/family inventory and whole-run edition reconciliation; broader real tables/images/appendices and visual semantic review; standalone browser Foster blocked, other13 not run."
+      },
+      "jurisdiction_complete": false
+    },
+    {
+      "id": "original-foster-city-ca",
+      "sequence": null,
+      "cohort": "original",
+      "slug": "foster-city-ca",
+      "jurisdiction": "Foster City",
+      "state": "CA",
+      "entity_type": "City",
+      "publisher": "ecode",
+      "source_family": "ecode360",
+      "source_url": "https://ecode360.com/FO4449",
+      "primary_publication_id": "original-foster-city-ca-primary",
+      "primary_publication": {
+        "id": "original-foster-city-ca-primary",
+        "target_id": "original-foster-city-ca",
+        "title": "Municipal Code",
+        "observed_title": null,
+        "source_url": "https://ecode360.com/FO4449",
+        "publisher": "ecode",
+        "source_family": "ecode360",
+        "scope_kind": "publication",
+        "role": "primary",
+        "required_for_jurisdiction": true,
+        "expected_identity": {
+          "client_names": [
+            "Foster City"
+          ],
+          "state": "CA",
+          "customer_id": "FO4449",
+          "historical_code_id": "337727"
+        },
+        "selector": {},
+        "publisher_product_id": null,
+        "publisher_publication_id": null,
+        "runnable": true,
+        "unsupported_reason": null,
+        "validation_level": "mapped_only",
+        "full_live_verified": false,
+        "evidence_paths": [
+          "packages/local-extraction-e2e-2026-10-15/SOURCE-MATRIX.json",
+          "packages/ecode360-headed-2026-10-16/runtime-review/evidence/reviewed-route-registry.json"
+        ],
+        "image_policy": {
+          "mode": "literal_placeholder",
+          "placeholder": "[IMAGE]",
+          "download_images": false,
+          "source_id_heading_retained": true,
+          "native_originals_may_contain_images": true,
+          "scope_note": "Image-only units are retained. Intentional image omission is not an unresolved required nonimage attachment."
+        }
+      },
+      "expected_identity": {
+        "client_names": [
+          "Foster City"
+        ],
+        "state": "CA",
+        "customer_id": "FO4449",
+        "historical_code_id": "337727"
+      },
+      "overlap_of": [],
+      "known_publications": [],
+      "unresolved_required_scope": [
+        {
+          "scope": "Additional independent publications and uncodified amendments",
+          "status": "unresolved",
+          "reason": "Original bounded inventory does not establish exhaustive jurisdiction coverage"
+        }
+      ],
+      "prior_validation": {
+        "kind": "bounded_sample_only",
+        "records": 7,
+        "evidence": "packages/local-extraction-e2e-2026-10-15/SOURCE-MATRIX.json",
+        "remaining_gate": "Complete publication/family inventory and whole-run edition reconciliation; broader real tables/images/appendices and visual semantic review; standalone browser Foster blocked, other13 not run. Separately resolve Estero Municipal Improvement District Code scope."
+      },
+      "jurisdiction_complete": false
+    },
+    {
+      "id": "original-fremont-ca",
+      "sequence": null,
+      "cohort": "original",
+      "slug": "fremont-ca",
+      "jurisdiction": "Fremont",
+      "state": "CA",
+      "entity_type": "City",
+      "publisher": "official",
+      "source_family": "codepublishing",
+      "source_url": "https://www.codepublishing.com/CA/Fremont/",
+      "primary_publication_id": "original-fremont-ca-primary",
+      "primary_publication": {
+        "id": "original-fremont-ca-primary",
+        "target_id": "original-fremont-ca",
+        "title": "Municipal Code",
+        "observed_title": null,
+        "source_url": "https://www.codepublishing.com/CA/Fremont/",
+        "publisher": "official",
+        "source_family": "codepublishing",
+        "scope_kind": "publication",
+        "role": "primary",
+        "required_for_jurisdiction": true,
+        "expected_identity": {
+          "client_names": [
+            "Fremont"
+          ],
+          "state": "CA"
+        },
+        "selector": {},
+        "publisher_product_id": null,
+        "publisher_publication_id": null,
+        "runnable": false,
+        "unsupported_reason": "Exact whole-publication inventory/content parser configuration is not yet qualified for this original source; historical bounded pass does not qualify current collector",
+        "validation_level": "mapped_only",
+        "full_live_verified": false,
+        "evidence_paths": [
+          "packages/local-extraction-e2e-2026-10-15/SOURCE-MATRIX.json"
+        ],
+        "image_policy": {
+          "mode": "literal_placeholder",
+          "placeholder": "[IMAGE]",
+          "download_images": false,
+          "source_id_heading_retained": true,
+          "native_originals_may_contain_images": true,
+          "scope_note": "Image-only units are retained. Intentional image omission is not an unresolved required nonimage attachment."
+        }
+      },
+      "expected_identity": {
+        "client_names": [
+          "Fremont"
+        ],
+        "state": "CA"
+      },
+      "overlap_of": [],
+      "known_publications": [],
+      "unresolved_required_scope": [
+        {
+          "scope": "Additional independent publications and uncodified amendments",
+          "status": "unresolved",
+          "reason": "Original bounded inventory does not establish exhaustive jurisdiction coverage"
+        }
+      ],
+      "prior_validation": {
+        "kind": "bounded_sample_only",
+        "records": 55,
+        "evidence": "packages/local-extraction-e2e-2026-10-15/SOURCE-MATRIX.json",
+        "remaining_gate": "Complete publication/family inventory and whole-corpus version coherence; standalone transport blocked; broader images/spans/incorporated PDFs."
+      },
+      "jurisdiction_complete": false
+    },
+    {
+      "id": "original-half-moon-bay-ca",
+      "sequence": null,
+      "cohort": "original",
+      "slug": "half-moon-bay-ca",
+      "jurisdiction": "Half Moon Bay",
+      "state": "CA",
+      "entity_type": "City",
+      "publisher": "ecode",
+      "source_family": "ecode360",
+      "source_url": "https://ecode360.com/HA4470",
+      "primary_publication_id": "original-half-moon-bay-ca-primary",
+      "primary_publication": {
+        "id": "original-half-moon-bay-ca-primary",
+        "target_id": "original-half-moon-bay-ca",
+        "title": "Municipal Code",
+        "observed_title": null,
+        "source_url": "https://ecode360.com/HA4470",
+        "publisher": "ecode",
+        "source_family": "ecode360",
+        "scope_kind": "publication",
+        "role": "primary",
+        "required_for_jurisdiction": true,
+        "expected_identity": {
+          "client_names": [
+            "Half Moon Bay"
+          ],
+          "state": "CA",
+          "customer_id": "HA4470",
+          "historical_code_id": "336191"
+        },
+        "selector": {},
+        "publisher_product_id": null,
+        "publisher_publication_id": null,
+        "runnable": true,
+        "unsupported_reason": null,
+        "validation_level": "mapped_only",
+        "full_live_verified": false,
+        "evidence_paths": [
+          "packages/local-extraction-e2e-2026-10-15/SOURCE-MATRIX.json",
+          "packages/ecode360-headed-2026-10-16/runtime-review/evidence/reviewed-route-registry.json"
+        ],
+        "image_policy": {
+          "mode": "literal_placeholder",
+          "placeholder": "[IMAGE]",
+          "download_images": false,
+          "source_id_heading_retained": true,
+          "native_originals_may_contain_images": true,
+          "scope_note": "Image-only units are retained. Intentional image omission is not an unresolved required nonimage attachment."
+        }
+      },
+      "expected_identity": {
+        "client_names": [
+          "Half Moon Bay"
+        ],
+        "state": "CA",
+        "customer_id": "HA4470",
+        "historical_code_id": "336191"
+      },
+      "overlap_of": [],
+      "known_publications": [],
+      "unresolved_required_scope": [
+        {
+          "scope": "Additional independent publications and uncodified amendments",
+          "status": "unresolved",
+          "reason": "Original bounded inventory does not establish exhaustive jurisdiction coverage"
+        }
+      ],
+      "prior_validation": {
+        "kind": "bounded_sample_only",
+        "records": 10,
+        "evidence": "packages/local-extraction-e2e-2026-10-15/SOURCE-MATRIX.json",
+        "remaining_gate": "Complete publication/family inventory and whole-run edition reconciliation; broader real tables/images/appendices and visual semantic review; standalone browser Foster blocked, other13 not run."
+      },
+      "jurisdiction_complete": false
+    },
+    {
+      "id": "original-malibu-ca",
+      "sequence": null,
+      "cohort": "original",
+      "slug": "malibu-ca",
+      "jurisdiction": "Malibu",
+      "state": "CA",
+      "entity_type": "City",
+      "publisher": "ecode",
+      "source_family": "ecode360",
+      "source_url": "https://ecode360.com/MA5043",
+      "primary_publication_id": "original-malibu-ca-primary",
+      "primary_publication": {
+        "id": "original-malibu-ca-primary",
+        "target_id": "original-malibu-ca",
+        "title": "Municipal Code",
+        "observed_title": null,
+        "source_url": "https://ecode360.com/MA5043",
+        "publisher": "ecode",
+        "source_family": "ecode360",
+        "scope_kind": "publication",
+        "role": "primary",
+        "required_for_jurisdiction": true,
+        "expected_identity": {
+          "client_names": [
+            "Malibu"
+          ],
+          "state": "CA",
+          "customer_id": "MA5043",
+          "historical_code_id": "336335"
+        },
+        "selector": {},
+        "publisher_product_id": null,
+        "publisher_publication_id": null,
+        "runnable": true,
+        "unsupported_reason": null,
+        "validation_level": "mapped_only",
+        "full_live_verified": false,
+        "evidence_paths": [
+          "packages/local-extraction-e2e-2026-10-15/SOURCE-MATRIX.json",
+          "packages/ecode360-headed-2026-10-16/runtime-review/evidence/reviewed-route-registry.json"
+        ],
+        "image_policy": {
+          "mode": "literal_placeholder",
+          "placeholder": "[IMAGE]",
+          "download_images": false,
+          "source_id_heading_retained": true,
+          "native_originals_may_contain_images": true,
+          "scope_note": "Image-only units are retained. Intentional image omission is not an unresolved required nonimage attachment."
+        }
+      },
+      "expected_identity": {
+        "client_names": [
+          "Malibu"
+        ],
+        "state": "CA",
+        "customer_id": "MA5043",
+        "historical_code_id": "336335"
+      },
+      "overlap_of": [],
+      "known_publications": [],
+      "unresolved_required_scope": [
+        {
+          "scope": "Additional independent publications and uncodified amendments",
+          "status": "unresolved",
+          "reason": "Original bounded inventory does not establish exhaustive jurisdiction coverage"
+        }
+      ],
+      "prior_validation": {
+        "kind": "bounded_sample_only",
+        "records": 28,
+        "evidence": "packages/local-extraction-e2e-2026-10-15/SOURCE-MATRIX.json",
+        "remaining_gate": "Complete publication/family inventory and whole-run edition reconciliation; broader real tables/images/appendices and visual semantic review; standalone browser Foster blocked, other13 not run."
+      },
+      "jurisdiction_complete": false
+    },
+    {
+      "id": "original-petaluma-ca",
+      "sequence": null,
+      "cohort": "original",
+      "slug": "petaluma-ca",
+      "jurisdiction": "Petaluma",
+      "state": "CA",
+      "entity_type": "City",
+      "publisher": "ecode",
+      "source_family": "municipal.codes",
+      "source_url": "https://petaluma.municipal.codes/Code",
+      "primary_publication_id": "original-petaluma-ca-primary",
+      "primary_publication": {
+        "id": "original-petaluma-ca-primary",
+        "target_id": "original-petaluma-ca",
+        "title": "Municipal Code",
+        "observed_title": null,
+        "source_url": "https://petaluma.municipal.codes/Code",
+        "publisher": "ecode",
+        "source_family": "municipal.codes",
+        "scope_kind": "publication",
+        "role": "primary",
+        "required_for_jurisdiction": true,
+        "expected_identity": {
+          "client_names": [
+            "Petaluma"
+          ],
+          "state": "CA"
+        },
+        "selector": {
+          "publication_path": "/Code"
+        },
+        "publisher_product_id": null,
+        "publisher_publication_id": null,
+        "runnable": true,
+        "unsupported_reason": null,
+        "validation_level": "mapped_only",
+        "full_live_verified": false,
+        "evidence_paths": [
+          "packages/local-extraction-e2e-2026-10-15/SOURCE-MATRIX.json"
+        ],
+        "image_policy": {
+          "mode": "literal_placeholder",
+          "placeholder": "[IMAGE]",
+          "download_images": false,
+          "source_id_heading_retained": true,
+          "native_originals_may_contain_images": true,
+          "scope_note": "Image-only units are retained. Intentional image omission is not an unresolved required nonimage attachment."
+        }
+      },
+      "expected_identity": {
+        "client_names": [
+          "Petaluma"
+        ],
+        "state": "CA"
+      },
+      "overlap_of": [],
+      "known_publications": [
+        {
+          "id": "family-charter",
+          "url": "https://petaluma.municipal.codes/Charter/contents",
+          "accepted": true,
+          "receipt": "live-final/petaluma-ca/family-charter.receipt.json",
+          "scope_disposition": "unresolved",
+          "inventory_nodes": 100,
+          "inventory_signature": "e29eda10e97930d7dbf730a7e4956971895958b2796127b78840d283b0dcc1ee"
+        },
+        {
+          "id": "family-smartcode",
+          "url": "https://petaluma.municipal.codes/SmartCode/contents",
+          "accepted": true,
+          "receipt": "live-final/petaluma-ca/family-smartcode.receipt.json",
+          "scope_disposition": "unresolved",
+          "inventory_nodes": 127,
+          "inventory_signature": "ca4723c64ab75b5f8f5df0a375209d1bf55daccedd79752a4fe6e49d46ea3ca3"
+        },
+        {
+          "id": "family-zoningords",
+          "url": "https://petaluma.municipal.codes/ZoningOrds/contents",
+          "accepted": true,
+          "receipt": "live-final/petaluma-ca/family-zoningords.receipt.json",
+          "scope_disposition": "unresolved",
+          "inventory_nodes": 328,
+          "inventory_signature": "ce96e55337ed025dd1e907e5e37f075b6a8f1b4f642caf326b05ed65e1b37e06"
+        }
+      ],
+      "unresolved_required_scope": [
+        {
+          "scope": "Additional independent publications and uncodified amendments",
+          "status": "unresolved",
+          "reason": "Original bounded inventory does not establish exhaustive jurisdiction coverage"
+        }
+      ],
+      "prior_validation": {
+        "kind": "bounded_sample_only",
+        "records": 10,
+        "evidence": "packages/local-extraction-e2e-2026-10-15/SOURCE-MATRIX.json",
+        "remaining_gate": "Full inventory node classification, including substantive parent bodies, attachments, editorial/reference scope; Extra publication-family substantive collection and source/version closure; Full corpus acquisition, deduplication and disposition reconciliation; no full extraction performed; Official city route confirmation limitations remain as recorded in baseline report; Map/image readable text has not been independently transcribed or OCR-validated; placeholder and alt/source retention do not qualify image text completeness"
+      },
+      "jurisdiction_complete": false
+    },
+    {
+      "id": "original-san-carlos-ca",
+      "sequence": null,
+      "cohort": "original",
+      "slug": "san-carlos-ca",
+      "jurisdiction": "San Carlos",
+      "state": "CA",
+      "entity_type": "City",
+      "publisher": "official",
+      "source_family": "codepublishing",
+      "source_url": "https://www.codepublishing.com/CA/SanCarlos/",
+      "primary_publication_id": "original-san-carlos-ca-primary",
+      "primary_publication": {
+        "id": "original-san-carlos-ca-primary",
+        "target_id": "original-san-carlos-ca",
+        "title": "Municipal Code",
+        "observed_title": null,
+        "source_url": "https://www.codepublishing.com/CA/SanCarlos/",
+        "publisher": "official",
+        "source_family": "codepublishing",
+        "scope_kind": "publication",
+        "role": "primary",
+        "required_for_jurisdiction": true,
+        "expected_identity": {
+          "client_names": [
+            "San Carlos"
+          ],
+          "state": "CA"
+        },
+        "selector": {},
+        "publisher_product_id": null,
+        "publisher_publication_id": null,
+        "runnable": false,
+        "unsupported_reason": "Exact whole-publication inventory/content parser configuration is not yet qualified for this original source; historical bounded pass does not qualify current collector",
+        "validation_level": "mapped_only",
+        "full_live_verified": false,
+        "evidence_paths": [
+          "packages/local-extraction-e2e-2026-10-15/SOURCE-MATRIX.json"
+        ],
+        "image_policy": {
+          "mode": "literal_placeholder",
+          "placeholder": "[IMAGE]",
+          "download_images": false,
+          "source_id_heading_retained": true,
+          "native_originals_may_contain_images": true,
+          "scope_note": "Image-only units are retained. Intentional image omission is not an unresolved required nonimage attachment."
+        }
+      },
+      "expected_identity": {
+        "client_names": [
+          "San Carlos"
+        ],
+        "state": "CA"
+      },
+      "overlap_of": [],
+      "known_publications": [],
+      "unresolved_required_scope": [
+        {
+          "scope": "Additional independent publications and uncodified amendments",
+          "status": "unresolved",
+          "reason": "Original bounded inventory does not establish exhaustive jurisdiction coverage"
+        }
+      ],
+      "prior_validation": {
+        "kind": "bounded_sample_only",
+        "records": 10,
+        "evidence": "packages/local-extraction-e2e-2026-10-15/SOURCE-MATRIX.json",
+        "remaining_gate": "Complete publication/family inventory and whole-corpus version coherence; standalone transport blocked; broader images/spans/incorporated PDFs."
+      },
+      "jurisdiction_complete": false
+    },
+    {
+      "id": "original-san-leandro-ca",
+      "sequence": null,
+      "cohort": "original",
+      "slug": "san-leandro-ca",
+      "jurisdiction": "San Leandro",
+      "state": "CA",
+      "entity_type": "City",
+      "publisher": "ecode",
+      "source_family": "ecode360",
+      "source_url": "https://ecode360.com/SA5044",
+      "primary_publication_id": "original-san-leandro-ca-primary",
+      "primary_publication": {
+        "id": "original-san-leandro-ca-primary",
+        "target_id": "original-san-leandro-ca",
+        "title": "Municipal Code",
+        "observed_title": null,
+        "source_url": "https://ecode360.com/SA5044",
+        "publisher": "ecode",
+        "source_family": "ecode360",
+        "scope_kind": "publication",
+        "role": "primary",
+        "required_for_jurisdiction": true,
+        "expected_identity": {
+          "client_names": [
+            "San Leandro"
+          ],
+          "state": "CA",
+          "customer_id": "SA5044",
+          "historical_code_id": "337882"
+        },
+        "selector": {},
+        "publisher_product_id": null,
+        "publisher_publication_id": null,
+        "runnable": true,
+        "unsupported_reason": null,
+        "validation_level": "mapped_only",
+        "full_live_verified": false,
+        "evidence_paths": [
+          "packages/local-extraction-e2e-2026-10-15/SOURCE-MATRIX.json",
+          "packages/ecode360-headed-2026-10-16/runtime-review/evidence/reviewed-route-registry.json"
+        ],
+        "image_policy": {
+          "mode": "literal_placeholder",
+          "placeholder": "[IMAGE]",
+          "download_images": false,
+          "source_id_heading_retained": true,
+          "native_originals_may_contain_images": true,
+          "scope_note": "Image-only units are retained. Intentional image omission is not an unresolved required nonimage attachment."
+        }
+      },
+      "expected_identity": {
+        "client_names": [
+          "San Leandro"
+        ],
+        "state": "CA",
+        "customer_id": "SA5044",
+        "historical_code_id": "337882"
+      },
+      "overlap_of": [],
+      "known_publications": [],
+      "unresolved_required_scope": [
+        {
+          "scope": "Additional independent publications and uncodified amendments",
+          "status": "unresolved",
+          "reason": "Original bounded inventory does not establish exhaustive jurisdiction coverage"
+        }
+      ],
+      "prior_validation": {
+        "kind": "bounded_sample_only",
+        "records": 1,
+        "evidence": "packages/local-extraction-e2e-2026-10-15/SOURCE-MATRIX.json",
+        "remaining_gate": "Complete publication/family inventory and whole-run edition reconciliation; broader real tables/images/appendices and visual semantic review; standalone browser Foster blocked, other13 not run."
+      },
+      "jurisdiction_complete": false
+    },
+    {
+      "id": "original-san-mateo-ca",
+      "sequence": null,
+      "cohort": "original",
+      "slug": "san-mateo-ca",
+      "jurisdiction": "San Mateo",
+      "state": "CA",
+      "entity_type": "City",
+      "publisher": "official",
+      "source_family": "openlaw_xml",
+      "source_url": "https://law.cityofsanmateo.org/",
+      "primary_publication_id": "original-san-mateo-ca-primary",
+      "primary_publication": {
+        "id": "original-san-mateo-ca-primary",
+        "target_id": "original-san-mateo-ca",
+        "title": "Municipal Code",
+        "observed_title": null,
+        "source_url": "https://law.cityofsanmateo.org/",
+        "publisher": "official",
+        "source_family": "openlaw_xml",
+        "scope_kind": "publication",
+        "role": "primary",
+        "required_for_jurisdiction": true,
+        "expected_identity": {
+          "client_names": [
+            "San Mateo"
+          ],
+          "state": "CA"
+        },
+        "selector": {},
+        "publisher_product_id": null,
+        "publisher_publication_id": null,
+        "runnable": false,
+        "unsupported_reason": "Exact whole-publication inventory/content parser configuration is not yet qualified for this original source; historical bounded pass does not qualify current collector",
+        "validation_level": "mapped_only",
+        "full_live_verified": false,
+        "evidence_paths": [
+          "packages/local-extraction-e2e-2026-10-15/SOURCE-MATRIX.json"
+        ],
+        "image_policy": {
+          "mode": "literal_placeholder",
+          "placeholder": "[IMAGE]",
+          "download_images": false,
+          "source_id_heading_retained": true,
+          "native_originals_may_contain_images": true,
+          "scope_note": "Image-only units are retained. Intentional image omission is not an unresolved required nonimage attachment."
+        }
+      },
+      "expected_identity": {
+        "client_names": [
+          "San Mateo"
+        ],
+        "state": "CA"
+      },
+      "overlap_of": [],
+      "known_publications": [],
+      "unresolved_required_scope": [
+        {
+          "scope": "Additional independent publications and uncodified amendments",
+          "status": "unresolved",
+          "reason": "Original bounded inventory does not establish exhaustive jurisdiction coverage"
+        }
+      ],
+      "prior_validation": {
+        "kind": "bounded_sample_only",
+        "records": 135,
+        "evidence": "packages/local-extraction-e2e-2026-10-15/SOURCE-MATRIX.json",
+        "remaining_gate": "Only declared XML include subset parsed; mixed own-body/include files deliberately rejected; commit reproducibility does not establish legal currency."
+      },
+      "jurisdiction_complete": false
+    },
+    {
+      "id": "original-santa-clara-ca",
+      "sequence": null,
+      "cohort": "original",
+      "slug": "santa-clara-ca",
+      "jurisdiction": "Santa Clara",
+      "state": "CA",
+      "entity_type": "City",
+      "publisher": "ecode",
+      "source_family": "ecode360",
+      "source_url": "https://ecode360.com/SA4626",
+      "primary_publication_id": "original-santa-clara-ca-primary",
+      "primary_publication": {
+        "id": "original-santa-clara-ca-primary",
+        "target_id": "original-santa-clara-ca",
+        "title": "Municipal Code",
+        "observed_title": null,
+        "source_url": "https://ecode360.com/SA4626",
+        "publisher": "ecode",
+        "source_family": "ecode360",
+        "scope_kind": "publication",
+        "role": "primary",
+        "required_for_jurisdiction": true,
+        "expected_identity": {
+          "client_names": [
+            "Santa Clara"
+          ],
+          "state": "CA",
+          "customer_id": "SA4626",
+          "historical_code_id": "329535"
+        },
+        "selector": {},
+        "publisher_product_id": null,
+        "publisher_publication_id": null,
+        "runnable": true,
+        "unsupported_reason": null,
+        "validation_level": "mapped_only",
+        "full_live_verified": false,
+        "evidence_paths": [
+          "packages/local-extraction-e2e-2026-10-15/SOURCE-MATRIX.json",
+          "packages/ecode360-headed-2026-10-16/runtime-review/evidence/reviewed-route-registry.json"
+        ],
+        "image_policy": {
+          "mode": "literal_placeholder",
+          "placeholder": "[IMAGE]",
+          "download_images": false,
+          "source_id_heading_retained": true,
+          "native_originals_may_contain_images": true,
+          "scope_note": "Image-only units are retained. Intentional image omission is not an unresolved required nonimage attachment."
+        }
+      },
+      "expected_identity": {
+        "client_names": [
+          "Santa Clara"
+        ],
+        "state": "CA",
+        "customer_id": "SA4626",
+        "historical_code_id": "329535"
+      },
+      "overlap_of": [],
+      "known_publications": [],
+      "unresolved_required_scope": [
+        {
+          "scope": "Additional independent publications and uncodified amendments",
+          "status": "unresolved",
+          "reason": "Original bounded inventory does not establish exhaustive jurisdiction coverage"
+        }
+      ],
+      "prior_validation": {
+        "kind": "bounded_sample_only",
+        "records": 4,
+        "evidence": "packages/local-extraction-e2e-2026-10-15/SOURCE-MATRIX.json",
+        "remaining_gate": "Complete publication/family inventory and whole-run edition reconciliation; broader real tables/images/appendices and visual semantic review; standalone browser Foster blocked, other13 not run."
+      },
+      "jurisdiction_complete": false
+    },
+    {
+      "id": "original-santa-monica-ca",
+      "sequence": null,
+      "cohort": "original",
+      "slug": "santa-monica-ca",
+      "jurisdiction": "Santa Monica",
+      "state": "CA",
+      "entity_type": "City",
+      "publisher": "ecode",
+      "source_family": "ecode360",
+      "source_url": "https://ecode360.com/SA5008",
+      "primary_publication_id": "original-santa-monica-ca-primary",
+      "primary_publication": {
+        "id": "original-santa-monica-ca-primary",
+        "target_id": "original-santa-monica-ca",
+        "title": "Municipal Code",
+        "observed_title": null,
+        "source_url": "https://ecode360.com/SA5008",
+        "publisher": "ecode",
+        "source_family": "ecode360",
+        "scope_kind": "publication",
+        "role": "primary",
+        "required_for_jurisdiction": true,
+        "expected_identity": {
+          "client_names": [
+            "Santa Monica"
+          ],
+          "state": "CA",
+          "customer_id": "SA5008",
+          "historical_code_id": "336847"
+        },
+        "selector": {},
+        "publisher_product_id": null,
+        "publisher_publication_id": null,
+        "runnable": true,
+        "unsupported_reason": null,
+        "validation_level": "mapped_only",
+        "full_live_verified": false,
+        "evidence_paths": [
+          "packages/local-extraction-e2e-2026-10-15/SOURCE-MATRIX.json",
+          "packages/ecode360-headed-2026-10-16/runtime-review/evidence/reviewed-route-registry.json"
+        ],
+        "image_policy": {
+          "mode": "literal_placeholder",
+          "placeholder": "[IMAGE]",
+          "download_images": false,
+          "source_id_heading_retained": true,
+          "native_originals_may_contain_images": true,
+          "scope_note": "Image-only units are retained. Intentional image omission is not an unresolved required nonimage attachment."
+        }
+      },
+      "expected_identity": {
+        "client_names": [
+          "Santa Monica"
+        ],
+        "state": "CA",
+        "customer_id": "SA5008",
+        "historical_code_id": "336847"
+      },
+      "overlap_of": [],
+      "known_publications": [],
+      "unresolved_required_scope": [
+        {
+          "scope": "Additional independent publications and uncodified amendments",
+          "status": "unresolved",
+          "reason": "Original bounded inventory does not establish exhaustive jurisdiction coverage"
+        }
+      ],
+      "prior_validation": {
+        "kind": "bounded_sample_only",
+        "records": 9,
+        "evidence": "packages/local-extraction-e2e-2026-10-15/SOURCE-MATRIX.json",
+        "remaining_gate": "Complete publication/family inventory and whole-run edition reconciliation; broader real tables/images/appendices and visual semantic review; standalone browser Foster blocked, other13 not run."
+      },
+      "jurisdiction_complete": false
+    },
+    {
+      "id": "original-santa-rosa-ca",
+      "sequence": null,
+      "cohort": "original",
+      "slug": "santa-rosa-ca",
+      "jurisdiction": "Santa Rosa",
+      "state": "CA",
+      "entity_type": "City",
+      "publisher": "ecode",
+      "source_family": "ecode360",
+      "source_url": "https://ecode360.com/SA5009",
+      "primary_publication_id": "original-santa-rosa-ca-primary",
+      "primary_publication": {
+        "id": "original-santa-rosa-ca-primary",
+        "target_id": "original-santa-rosa-ca",
+        "title": "Municipal Code",
+        "observed_title": null,
+        "source_url": "https://ecode360.com/SA5009",
+        "publisher": "ecode",
+        "source_family": "ecode360",
+        "scope_kind": "publication",
+        "role": "primary",
+        "required_for_jurisdiction": true,
+        "expected_identity": {
+          "client_names": [
+            "Santa Rosa"
+          ],
+          "state": "CA",
+          "customer_id": "SA5009",
+          "historical_code_id": "337811"
+        },
+        "selector": {},
+        "publisher_product_id": null,
+        "publisher_publication_id": null,
+        "runnable": true,
+        "unsupported_reason": null,
+        "validation_level": "mapped_only",
+        "full_live_verified": false,
+        "evidence_paths": [
+          "packages/local-extraction-e2e-2026-10-15/SOURCE-MATRIX.json",
+          "packages/ecode360-headed-2026-10-16/runtime-review/evidence/reviewed-route-registry.json"
+        ],
+        "image_policy": {
+          "mode": "literal_placeholder",
+          "placeholder": "[IMAGE]",
+          "download_images": false,
+          "source_id_heading_retained": true,
+          "native_originals_may_contain_images": true,
+          "scope_note": "Image-only units are retained. Intentional image omission is not an unresolved required nonimage attachment."
+        }
+      },
+      "expected_identity": {
+        "client_names": [
+          "Santa Rosa"
+        ],
+        "state": "CA",
+        "customer_id": "SA5009",
+        "historical_code_id": "337811"
+      },
+      "overlap_of": [],
+      "known_publications": [],
+      "unresolved_required_scope": [
+        {
+          "scope": "Additional independent publications and uncodified amendments",
+          "status": "unresolved",
+          "reason": "Original bounded inventory does not establish exhaustive jurisdiction coverage"
+        }
+      ],
+      "prior_validation": {
+        "kind": "bounded_sample_only",
+        "records": 13,
+        "evidence": "packages/local-extraction-e2e-2026-10-15/SOURCE-MATRIX.json",
+        "remaining_gate": "Complete publication/family inventory and whole-run edition reconciliation; broader real tables/images/appendices and visual semantic review; standalone browser Foster blocked, other13 not run."
+      },
+      "jurisdiction_complete": false
+    },
+    {
+      "id": "original-sonoma-ca",
+      "sequence": null,
+      "cohort": "original",
+      "slug": "sonoma-ca",
+      "jurisdiction": "Sonoma",
+      "state": "CA",
+      "entity_type": "City",
+      "publisher": "ecode",
+      "source_family": "municipal.codes",
+      "source_url": "https://sonoma.municipal.codes/SMC",
+      "primary_publication_id": "original-sonoma-ca-primary",
+      "primary_publication": {
+        "id": "original-sonoma-ca-primary",
+        "target_id": "original-sonoma-ca",
+        "title": "Municipal Code",
+        "observed_title": null,
+        "source_url": "https://sonoma.municipal.codes/SMC",
+        "publisher": "ecode",
+        "source_family": "municipal.codes",
+        "scope_kind": "publication",
+        "role": "primary",
+        "required_for_jurisdiction": true,
+        "expected_identity": {
+          "client_names": [
+            "Sonoma"
+          ],
+          "state": "CA"
+        },
+        "selector": {
+          "publication_path": "/SMC"
+        },
+        "publisher_product_id": null,
+        "publisher_publication_id": null,
+        "runnable": true,
+        "unsupported_reason": null,
+        "validation_level": "mapped_only",
+        "full_live_verified": false,
+        "evidence_paths": [
+          "packages/local-extraction-e2e-2026-10-15/SOURCE-MATRIX.json"
+        ],
+        "image_policy": {
+          "mode": "literal_placeholder",
+          "placeholder": "[IMAGE]",
+          "download_images": false,
+          "source_id_heading_retained": true,
+          "native_originals_may_contain_images": true,
+          "scope_note": "Image-only units are retained. Intentional image omission is not an unresolved required nonimage attachment."
+        }
+      },
+      "expected_identity": {
+        "client_names": [
+          "Sonoma"
+        ],
+        "state": "CA"
+      },
+      "overlap_of": [],
+      "known_publications": [],
+      "unresolved_required_scope": [
+        {
+          "scope": "Additional independent publications and uncodified amendments",
+          "status": "unresolved",
+          "reason": "Original bounded inventory does not establish exhaustive jurisdiction coverage"
+        }
+      ],
+      "prior_validation": {
+        "kind": "bounded_sample_only",
+        "records": 39,
+        "evidence": "packages/local-extraction-e2e-2026-10-15/SOURCE-MATRIX.json",
+        "remaining_gate": "Full inventory node classification, including substantive parent bodies, attachments, editorial/reference scope; Extra publication-family substantive collection and source/version closure; Full corpus acquisition, deduplication and disposition reconciliation; no full extraction performed; Official city route confirmation limitations remain as recorded in baseline report; Map/image readable text has not been independently transcribed or OCR-validated; placeholder and alt/source retention do not qualify image text completeness"
+      },
+      "jurisdiction_complete": false
+    },
+    {
+      "id": "original-south-san-francisco-ca",
+      "sequence": null,
+      "cohort": "original",
+      "slug": "south-san-francisco-ca",
+      "jurisdiction": "South San Francisco",
+      "state": "CA",
+      "entity_type": "City",
+      "publisher": "ecode",
+      "source_family": "ecode360",
+      "source_url": "https://ecode360.com/SO5016",
+      "primary_publication_id": "original-south-san-francisco-ca-primary",
+      "primary_publication": {
+        "id": "original-south-san-francisco-ca-primary",
+        "target_id": "original-south-san-francisco-ca",
+        "title": "Municipal Code",
+        "observed_title": null,
+        "source_url": "https://ecode360.com/SO5016",
+        "publisher": "ecode",
+        "source_family": "ecode360",
+        "scope_kind": "publication",
+        "role": "primary",
+        "required_for_jurisdiction": true,
+        "expected_identity": {
+          "client_names": [
+            "South San Francisco"
+          ],
+          "state": "CA",
+          "customer_id": "SO5016",
+          "historical_code_id": "336974"
+        },
+        "selector": {},
+        "publisher_product_id": null,
+        "publisher_publication_id": null,
+        "runnable": true,
+        "unsupported_reason": null,
+        "validation_level": "mapped_only",
+        "full_live_verified": false,
+        "evidence_paths": [
+          "packages/local-extraction-e2e-2026-10-15/SOURCE-MATRIX.json",
+          "packages/ecode360-headed-2026-10-16/runtime-review/evidence/reviewed-route-registry.json"
+        ],
+        "image_policy": {
+          "mode": "literal_placeholder",
+          "placeholder": "[IMAGE]",
+          "download_images": false,
+          "source_id_heading_retained": true,
+          "native_originals_may_contain_images": true,
+          "scope_note": "Image-only units are retained. Intentional image omission is not an unresolved required nonimage attachment."
+        }
+      },
+      "expected_identity": {
+        "client_names": [
+          "South San Francisco"
+        ],
+        "state": "CA",
+        "customer_id": "SO5016",
+        "historical_code_id": "336974"
+      },
+      "overlap_of": [],
+      "known_publications": [],
+      "unresolved_required_scope": [
+        {
+          "scope": "Additional independent publications and uncodified amendments",
+          "status": "unresolved",
+          "reason": "Original bounded inventory does not establish exhaustive jurisdiction coverage"
+        }
+      ],
+      "prior_validation": {
+        "kind": "bounded_sample_only",
+        "records": 8,
+        "evidence": "packages/local-extraction-e2e-2026-10-15/SOURCE-MATRIX.json",
+        "remaining_gate": "Complete publication/family inventory and whole-run edition reconciliation; broader real tables/images/appendices and visual semantic review; standalone browser Foster blocked, other13 not run."
+      },
+      "jurisdiction_complete": false
+    },
+    {
+      "id": "original-sunnyvale-ca",
+      "sequence": null,
+      "cohort": "original",
+      "slug": "sunnyvale-ca",
+      "jurisdiction": "Sunnyvale",
+      "state": "CA",
+      "entity_type": "City",
+      "publisher": "ecode",
+      "source_family": "ecode360",
+      "source_url": "https://ecode360.com/SU5020",
+      "primary_publication_id": "original-sunnyvale-ca-primary",
+      "primary_publication": {
+        "id": "original-sunnyvale-ca-primary",
+        "target_id": "original-sunnyvale-ca",
+        "title": "Municipal Code",
+        "observed_title": null,
+        "source_url": "https://ecode360.com/SU5020",
+        "publisher": "ecode",
+        "source_family": "ecode360",
+        "scope_kind": "publication",
+        "role": "primary",
+        "required_for_jurisdiction": true,
+        "expected_identity": {
+          "client_names": [
+            "Sunnyvale"
+          ],
+          "state": "CA",
+          "customer_id": "SU5020",
+          "historical_code_id": "337833"
+        },
+        "selector": {},
+        "publisher_product_id": null,
+        "publisher_publication_id": null,
+        "runnable": true,
+        "unsupported_reason": null,
+        "validation_level": "mapped_only",
+        "full_live_verified": false,
+        "evidence_paths": [
+          "packages/local-extraction-e2e-2026-10-15/SOURCE-MATRIX.json",
+          "packages/ecode360-headed-2026-10-16/runtime-review/evidence/reviewed-route-registry.json"
+        ],
+        "image_policy": {
+          "mode": "literal_placeholder",
+          "placeholder": "[IMAGE]",
+          "download_images": false,
+          "source_id_heading_retained": true,
+          "native_originals_may_contain_images": true,
+          "scope_note": "Image-only units are retained. Intentional image omission is not an unresolved required nonimage attachment."
+        }
+      },
+      "expected_identity": {
+        "client_names": [
+          "Sunnyvale"
+        ],
+        "state": "CA",
+        "customer_id": "SU5020",
+        "historical_code_id": "337833"
+      },
+      "overlap_of": [],
+      "known_publications": [],
+      "unresolved_required_scope": [
+        {
+          "scope": "Additional independent publications and uncodified amendments",
+          "status": "unresolved",
+          "reason": "Original bounded inventory does not establish exhaustive jurisdiction coverage"
+        }
+      ],
+      "prior_validation": {
+        "kind": "bounded_sample_only",
+        "records": 8,
+        "evidence": "packages/local-extraction-e2e-2026-10-15/SOURCE-MATRIX.json",
+        "remaining_gate": "Complete publication/family inventory and whole-run edition reconciliation; broader real tables/images/appendices and visual semantic review; standalone browser Foster blocked, other13 not run."
+      },
+      "jurisdiction_complete": false
+    },
+    {
+      "id": "original-west-hollywood-ca",
+      "sequence": null,
+      "cohort": "original",
+      "slug": "west-hollywood-ca",
+      "jurisdiction": "West Hollywood",
+      "state": "CA",
+      "entity_type": "City",
+      "publisher": "ecode",
+      "source_family": "ecode360",
+      "source_url": "https://ecode360.com/WE5031",
+      "primary_publication_id": "original-west-hollywood-ca-primary",
+      "primary_publication": {
+        "id": "original-west-hollywood-ca-primary",
+        "target_id": "original-west-hollywood-ca",
+        "title": "Municipal Code",
+        "observed_title": null,
+        "source_url": "https://ecode360.com/WE5031",
+        "publisher": "ecode",
+        "source_family": "ecode360",
+        "scope_kind": "publication",
+        "role": "primary",
+        "required_for_jurisdiction": true,
+        "expected_identity": {
+          "client_names": [
+            "West Hollywood"
+          ],
+          "state": "CA",
+          "customer_id": "WE5031",
+          "historical_code_id": "336663"
+        },
+        "selector": {},
+        "publisher_product_id": null,
+        "publisher_publication_id": null,
+        "runnable": true,
+        "unsupported_reason": null,
+        "validation_level": "mapped_only",
+        "full_live_verified": false,
+        "evidence_paths": [
+          "packages/local-extraction-e2e-2026-10-15/SOURCE-MATRIX.json",
+          "packages/ecode360-headed-2026-10-16/runtime-review/evidence/reviewed-route-registry.json"
+        ],
+        "image_policy": {
+          "mode": "literal_placeholder",
+          "placeholder": "[IMAGE]",
+          "download_images": false,
+          "source_id_heading_retained": true,
+          "native_originals_may_contain_images": true,
+          "scope_note": "Image-only units are retained. Intentional image omission is not an unresolved required nonimage attachment."
+        }
+      },
+      "expected_identity": {
+        "client_names": [
+          "West Hollywood"
+        ],
+        "state": "CA",
+        "customer_id": "WE5031",
+        "historical_code_id": "336663"
+      },
+      "overlap_of": [],
+      "known_publications": [],
+      "unresolved_required_scope": [
+        {
+          "scope": "Additional independent publications and uncodified amendments",
+          "status": "unresolved",
+          "reason": "Original bounded inventory does not establish exhaustive jurisdiction coverage"
+        }
+      ],
+      "prior_validation": {
+        "kind": "bounded_sample_only",
+        "records": 10,
+        "evidence": "packages/local-extraction-e2e-2026-10-15/SOURCE-MATRIX.json",
+        "remaining_gate": "Complete publication/family inventory and whole-run edition reconciliation; broader real tables/images/appendices and visual semantic review; standalone browser Foster blocked, other13 not run."
+      },
+      "jurisdiction_complete": false
+    },
+    {
+      "id": "original-portland-me",
+      "sequence": null,
+      "cohort": "original",
+      "slug": "portland-me",
+      "jurisdiction": "Portland",
+      "state": "ME",
+      "entity_type": "City",
+      "publisher": "official",
+      "source_family": "civicplus_pdf",
+      "source_url": "https://portlandmaine.gov/city-code",
+      "primary_publication_id": "original-portland-me-primary",
+      "primary_publication": {
+        "id": "original-portland-me-primary",
+        "target_id": "original-portland-me",
+        "title": "Municipal Code",
+        "observed_title": null,
+        "source_url": "https://portlandmaine.gov/city-code",
+        "publisher": "official",
+        "source_family": "civicplus_pdf",
+        "scope_kind": "publication",
+        "role": "primary",
+        "required_for_jurisdiction": true,
+        "expected_identity": {
+          "client_names": [
+            "Portland"
+          ],
+          "state": "ME"
+        },
+        "selector": {},
+        "publisher_product_id": null,
+        "publisher_publication_id": null,
+        "runnable": false,
+        "unsupported_reason": "Exact whole-publication inventory/content parser configuration is not yet qualified for this original source; historical bounded pass does not qualify current collector",
+        "validation_level": "mapped_only",
+        "full_live_verified": false,
+        "evidence_paths": [
+          "packages/local-extraction-e2e-2026-10-15/SOURCE-MATRIX.json"
+        ],
+        "image_policy": {
+          "mode": "literal_placeholder",
+          "placeholder": "[IMAGE]",
+          "download_images": false,
+          "source_id_heading_retained": true,
+          "native_originals_may_contain_images": true,
+          "scope_note": "Image-only units are retained. Intentional image omission is not an unresolved required nonimage attachment."
+        }
+      },
+      "expected_identity": {
+        "client_names": [
+          "Portland"
+        ],
+        "state": "ME"
+      },
+      "overlap_of": [],
+      "known_publications": [],
+      "unresolved_required_scope": [
+        {
+          "scope": "Additional independent publications and uncodified amendments",
+          "status": "unresolved",
+          "reason": "Original bounded inventory does not establish exhaustive jurisdiction coverage"
+        }
+      ],
+      "prior_validation": {
+        "kind": "bounded_sample_only",
+        "records": 13,
+        "evidence": "packages/local-extraction-e2e-2026-10-15/SOURCE-MATRIX.json",
+        "remaining_gate": "Unreadable symbol, other PDF tables/layouts and unacquired documents; integrity PASS does not establish semantic completeness."
+      },
+      "jurisdiction_complete": false
+    },
+    {
+      "id": "original-rockland-me",
+      "sequence": null,
+      "cohort": "original",
+      "slug": "rockland-me",
+      "jurisdiction": "Rockland",
+      "state": "ME",
+      "entity_type": "City",
+      "publisher": "official",
+      "source_family": "civicplus_pdf",
+      "source_url": "https://www.rocklandmaine.gov/288/Charter-Code-Ordinances",
+      "primary_publication_id": "original-rockland-me-primary",
+      "primary_publication": {
+        "id": "original-rockland-me-primary",
+        "target_id": "original-rockland-me",
+        "title": "Municipal Code",
+        "observed_title": null,
+        "source_url": "https://www.rocklandmaine.gov/288/Charter-Code-Ordinances",
+        "publisher": "official",
+        "source_family": "civicplus_pdf",
+        "scope_kind": "publication",
+        "role": "primary",
+        "required_for_jurisdiction": true,
+        "expected_identity": {
+          "client_names": [
+            "Rockland"
+          ],
+          "state": "ME"
+        },
+        "selector": {},
+        "publisher_product_id": null,
+        "publisher_publication_id": null,
+        "runnable": false,
+        "unsupported_reason": "Exact whole-publication inventory/content parser configuration is not yet qualified for this original source; historical bounded pass does not qualify current collector",
+        "validation_level": "mapped_only",
+        "full_live_verified": false,
+        "evidence_paths": [
+          "packages/local-extraction-e2e-2026-10-15/SOURCE-MATRIX.json"
+        ],
+        "image_policy": {
+          "mode": "literal_placeholder",
+          "placeholder": "[IMAGE]",
+          "download_images": false,
+          "source_id_heading_retained": true,
+          "native_originals_may_contain_images": true,
+          "scope_note": "Image-only units are retained. Intentional image omission is not an unresolved required nonimage attachment."
+        }
+      },
+      "expected_identity": {
+        "client_names": [
+          "Rockland"
+        ],
+        "state": "ME"
+      },
+      "overlap_of": [],
+      "known_publications": [],
+      "unresolved_required_scope": [
+        {
+          "scope": "Additional independent publications and uncodified amendments",
+          "status": "unresolved",
+          "reason": "Original bounded inventory does not establish exhaustive jurisdiction coverage"
+        }
+      ],
+      "prior_validation": {
+        "kind": "bounded_sample_only",
+        "records": 92,
+        "evidence": "packages/local-extraction-e2e-2026-10-15/SOURCE-MATRIX.json",
+        "remaining_gate": "Obscured Charter text, microscopic markers, unnumbered-body classification and unacquired chapters; integrity PASS does not establish semantic completeness."
+      },
+      "jurisdiction_complete": false
+    },
+    {
+      "id": "original-bellingham-wa",
+      "sequence": null,
+      "cohort": "original",
+      "slug": "bellingham-wa",
+      "jurisdiction": "Bellingham",
+      "state": "WA",
+      "entity_type": "City",
+      "publisher": "ecode",
+      "source_family": "municipal.codes",
+      "source_url": "https://bellingham.municipal.codes/BMC",
+      "primary_publication_id": "original-bellingham-wa-primary",
+      "primary_publication": {
+        "id": "original-bellingham-wa-primary",
+        "target_id": "original-bellingham-wa",
+        "title": "Municipal Code",
+        "observed_title": null,
+        "source_url": "https://bellingham.municipal.codes/BMC",
+        "publisher": "ecode",
+        "source_family": "municipal.codes",
+        "scope_kind": "publication",
+        "role": "primary",
+        "required_for_jurisdiction": true,
+        "expected_identity": {
+          "client_names": [
+            "Bellingham"
+          ],
+          "state": "WA"
+        },
+        "selector": {
+          "publication_path": "/BMC"
+        },
+        "publisher_product_id": null,
+        "publisher_publication_id": null,
+        "runnable": true,
+        "unsupported_reason": null,
+        "validation_level": "mapped_only",
+        "full_live_verified": false,
+        "evidence_paths": [
+          "packages/local-extraction-e2e-2026-10-15/SOURCE-MATRIX.json"
+        ],
+        "image_policy": {
+          "mode": "literal_placeholder",
+          "placeholder": "[IMAGE]",
+          "download_images": false,
+          "source_id_heading_retained": true,
+          "native_originals_may_contain_images": true,
+          "scope_note": "Image-only units are retained. Intentional image omission is not an unresolved required nonimage attachment."
+        }
+      },
+      "expected_identity": {
+        "client_names": [
+          "Bellingham"
+        ],
+        "state": "WA"
+      },
+      "overlap_of": [],
+      "known_publications": [
+        {
+          "id": "family-charter",
+          "url": "https://bellingham.municipal.codes/Charter/contents",
+          "accepted": false,
+          "receipt": "live-final/bellingham-wa/family-charter.receipt.json",
+          "scope_disposition": "unresolved",
+          "reason": "Access challenge or unsuccessful navigation; original receipt retained"
+        }
+      ],
+      "unresolved_required_scope": [
+        {
+          "scope": "Additional independent publications and uncodified amendments",
+          "status": "unresolved",
+          "reason": "Original bounded inventory does not establish exhaustive jurisdiction coverage"
+        }
+      ],
+      "prior_validation": {
+        "kind": "bounded_sample_only",
+        "records": 18,
+        "evidence": "packages/local-extraction-e2e-2026-10-15/SOURCE-MATRIX.json",
+        "remaining_gate": "Full inventory node classification, including substantive parent bodies, attachments, editorial/reference scope; Extra publication-family substantive collection and source/version closure; Full corpus acquisition, deduplication and disposition reconciliation; no full extraction performed; Official city route confirmation limitations remain as recorded in baseline report; Charter Contents challenge retained; primary inventory postcheck recovered in distinct accepted attempt; Map/image readable text has not been independently transcribed or OCR-validated; placeholder and alt/source retention do not qualify image text completeness"
+      },
+      "jurisdiction_complete": false
+    },
+    {
+      "id": "original-burien-wa",
+      "sequence": null,
+      "cohort": "original",
+      "slug": "burien-wa",
+      "jurisdiction": "Burien",
+      "state": "WA",
+      "entity_type": "City",
+      "publisher": "official",
+      "source_family": "codepublishing",
+      "source_url": "https://www.codepublishing.com/WA/Burien/",
+      "primary_publication_id": "original-burien-wa-primary",
+      "primary_publication": {
+        "id": "original-burien-wa-primary",
+        "target_id": "original-burien-wa",
+        "title": "Municipal Code",
+        "observed_title": null,
+        "source_url": "https://www.codepublishing.com/WA/Burien/",
+        "publisher": "official",
+        "source_family": "codepublishing",
+        "scope_kind": "publication",
+        "role": "primary",
+        "required_for_jurisdiction": true,
+        "expected_identity": {
+          "client_names": [
+            "Burien"
+          ],
+          "state": "WA"
+        },
+        "selector": {},
+        "publisher_product_id": null,
+        "publisher_publication_id": null,
+        "runnable": false,
+        "unsupported_reason": "Exact whole-publication inventory/content parser configuration is not yet qualified for this original source; historical bounded pass does not qualify current collector",
+        "validation_level": "mapped_only",
+        "full_live_verified": false,
+        "evidence_paths": [
+          "packages/local-extraction-e2e-2026-10-15/SOURCE-MATRIX.json"
+        ],
+        "image_policy": {
+          "mode": "literal_placeholder",
+          "placeholder": "[IMAGE]",
+          "download_images": false,
+          "source_id_heading_retained": true,
+          "native_originals_may_contain_images": true,
+          "scope_note": "Image-only units are retained. Intentional image omission is not an unresolved required nonimage attachment."
+        }
+      },
+      "expected_identity": {
+        "client_names": [
+          "Burien"
+        ],
+        "state": "WA"
+      },
+      "overlap_of": [],
+      "known_publications": [],
+      "unresolved_required_scope": [
+        {
+          "scope": "Additional independent publications and uncodified amendments",
+          "status": "unresolved",
+          "reason": "Original bounded inventory does not establish exhaustive jurisdiction coverage"
+        }
+      ],
+      "prior_validation": {
+        "kind": "bounded_sample_only",
+        "records": 6,
+        "evidence": "packages/local-extraction-e2e-2026-10-15/SOURCE-MATRIX.json",
+        "remaining_gate": "Complete publication/family inventory and whole-corpus version coherence; standalone transport blocked; broader images/spans/incorporated PDFs."
+      },
+      "jurisdiction_complete": false
+    },
+    {
+      "id": "original-everett-wa",
+      "sequence": null,
+      "cohort": "original",
+      "slug": "everett-wa",
+      "jurisdiction": "Everett",
+      "state": "WA",
+      "entity_type": "City",
+      "publisher": "ecode",
+      "source_family": "municipal.codes",
+      "source_url": "https://everett.municipal.codes/EMC",
+      "primary_publication_id": "original-everett-wa-primary",
+      "primary_publication": {
+        "id": "original-everett-wa-primary",
+        "target_id": "original-everett-wa",
+        "title": "Municipal Code",
+        "observed_title": null,
+        "source_url": "https://everett.municipal.codes/EMC",
+        "publisher": "ecode",
+        "source_family": "municipal.codes",
+        "scope_kind": "publication",
+        "role": "primary",
+        "required_for_jurisdiction": true,
+        "expected_identity": {
+          "client_names": [
+            "Everett"
+          ],
+          "state": "WA"
+        },
+        "selector": {
+          "publication_path": "/EMC"
+        },
+        "publisher_product_id": null,
+        "publisher_publication_id": null,
+        "runnable": true,
+        "unsupported_reason": null,
+        "validation_level": "mapped_only",
+        "full_live_verified": false,
+        "evidence_paths": [
+          "packages/local-extraction-e2e-2026-10-15/SOURCE-MATRIX.json"
+        ],
+        "image_policy": {
+          "mode": "literal_placeholder",
+          "placeholder": "[IMAGE]",
+          "download_images": false,
+          "source_id_heading_retained": true,
+          "native_originals_may_contain_images": true,
+          "scope_note": "Image-only units are retained. Intentional image omission is not an unresolved required nonimage attachment."
+        }
+      },
+      "expected_identity": {
+        "client_names": [
+          "Everett"
+        ],
+        "state": "WA"
+      },
+      "overlap_of": [],
+      "known_publications": [
+        {
+          "id": "family-charter",
+          "url": "https://everett.municipal.codes/Charter/contents",
+          "accepted": true,
+          "receipt": "live-final/everett-wa/family-charter.receipt.json",
+          "scope_disposition": "unresolved",
+          "inventory_nodes": 131,
+          "inventory_signature": "06fae01a42213309d6e39b92ad31a199cc816a58d91e0693f354fb721c7a6184"
+        }
+      ],
+      "unresolved_required_scope": [
+        {
+          "scope": "Additional independent publications and uncodified amendments",
+          "status": "unresolved",
+          "reason": "Original bounded inventory does not establish exhaustive jurisdiction coverage"
+        }
+      ],
+      "prior_validation": {
+        "kind": "bounded_sample_only",
+        "records": 33,
+        "evidence": "packages/local-extraction-e2e-2026-10-15/SOURCE-MATRIX.json",
+        "remaining_gate": "Full inventory node classification, including substantive parent bodies, attachments, editorial/reference scope; Extra publication-family substantive collection and source/version closure; Full corpus acquisition, deduplication and disposition reconciliation; no full extraction performed; Official city route confirmation limitations remain as recorded in baseline report; Map/image readable text has not been independently transcribed or OCR-validated; placeholder and alt/source retention do not qualify image text completeness"
+      },
+      "jurisdiction_complete": false
+    },
+    {
+      "id": "original-king-county-wa",
+      "sequence": null,
+      "cohort": "original",
+      "slug": "king-county-wa",
+      "jurisdiction": "King County",
+      "state": "WA",
+      "entity_type": "County",
+      "publisher": "official",
+      "source_family": "king_county_html",
+      "source_url": "https://kingcounty.gov/en/dept/council/governance-leadership/county-legislation-codes/king-county-code",
+      "primary_publication_id": "original-king-county-wa-primary",
+      "primary_publication": {
+        "id": "original-king-county-wa-primary",
+        "target_id": "original-king-county-wa",
+        "title": "Municipal Code",
+        "observed_title": null,
+        "source_url": "https://kingcounty.gov/en/dept/council/governance-leadership/county-legislation-codes/king-county-code",
+        "publisher": "official",
+        "source_family": "king_county_html",
+        "scope_kind": "publication",
+        "role": "primary",
+        "required_for_jurisdiction": true,
+        "expected_identity": {
+          "client_names": [
+            "King County"
+          ],
+          "state": "WA"
+        },
+        "selector": {},
+        "publisher_product_id": null,
+        "publisher_publication_id": null,
+        "runnable": false,
+        "unsupported_reason": "Exact whole-publication inventory/content parser configuration is not yet qualified for this original source; historical bounded pass does not qualify current collector",
+        "validation_level": "mapped_only",
+        "full_live_verified": false,
+        "evidence_paths": [
+          "packages/local-extraction-e2e-2026-10-15/SOURCE-MATRIX.json"
+        ],
+        "image_policy": {
+          "mode": "literal_placeholder",
+          "placeholder": "[IMAGE]",
+          "download_images": false,
+          "source_id_heading_retained": true,
+          "native_originals_may_contain_images": true,
+          "scope_note": "Image-only units are retained. Intentional image omission is not an unresolved required nonimage attachment."
+        }
+      },
+      "expected_identity": {
+        "client_names": [
+          "King County"
+        ],
+        "state": "WA"
+      },
+      "overlap_of": [],
+      "known_publications": [],
+      "unresolved_required_scope": [
+        {
+          "scope": "Additional independent publications and uncodified amendments",
+          "status": "unresolved",
+          "reason": "Original bounded inventory does not establish exhaustive jurisdiction coverage"
+        }
+      ],
+      "prior_validation": {
+        "kind": "bounded_sample_only",
+        "records": 261,
+        "evidence": "packages/local-extraction-e2e-2026-10-15/SOURCE-MATRIX.json",
+        "remaining_gate": "Resolve publisher numbering/date conflicts; Title21A issues and broader Word/HTML paragraph parity remain; full discovery is hybrid CUA+HTTP, not wholly unattended."
+      },
+      "jurisdiction_complete": false
+    },
+    {
+      "id": "original-renton-wa",
+      "sequence": null,
+      "cohort": "original",
+      "slug": "renton-wa",
+      "jurisdiction": "Renton",
+      "state": "WA",
+      "entity_type": "City",
+      "publisher": "official",
+      "source_family": "codepublishing",
+      "source_url": "https://www.codepublishing.com/WA/Renton/",
+      "primary_publication_id": "original-renton-wa-primary",
+      "primary_publication": {
+        "id": "original-renton-wa-primary",
+        "target_id": "original-renton-wa",
+        "title": "Municipal Code",
+        "observed_title": null,
+        "source_url": "https://www.codepublishing.com/WA/Renton/",
+        "publisher": "official",
+        "source_family": "codepublishing",
+        "scope_kind": "publication",
+        "role": "primary",
+        "required_for_jurisdiction": true,
+        "expected_identity": {
+          "client_names": [
+            "Renton"
+          ],
+          "state": "WA"
+        },
+        "selector": {},
+        "publisher_product_id": null,
+        "publisher_publication_id": null,
+        "runnable": false,
+        "unsupported_reason": "Exact whole-publication inventory/content parser configuration is not yet qualified for this original source; historical bounded pass does not qualify current collector",
+        "validation_level": "mapped_only",
+        "full_live_verified": false,
+        "evidence_paths": [
+          "packages/local-extraction-e2e-2026-10-15/SOURCE-MATRIX.json"
+        ],
+        "image_policy": {
+          "mode": "literal_placeholder",
+          "placeholder": "[IMAGE]",
+          "download_images": false,
+          "source_id_heading_retained": true,
+          "native_originals_may_contain_images": true,
+          "scope_note": "Image-only units are retained. Intentional image omission is not an unresolved required nonimage attachment."
+        }
+      },
+      "expected_identity": {
+        "client_names": [
+          "Renton"
+        ],
+        "state": "WA"
+      },
+      "overlap_of": [],
+      "known_publications": [],
+      "unresolved_required_scope": [
+        {
+          "scope": "Additional independent publications and uncodified amendments",
+          "status": "unresolved",
+          "reason": "Original bounded inventory does not establish exhaustive jurisdiction coverage"
+        }
+      ],
+      "prior_validation": {
+        "kind": "bounded_sample_only",
+        "records": 1,
+        "evidence": "packages/local-extraction-e2e-2026-10-15/SOURCE-MATRIX.json",
+        "remaining_gate": "Complete publication/family inventory and whole-corpus version coherence; standalone transport blocked; broader images/spans/incorporated PDFs."
+      },
+      "jurisdiction_complete": false
+    },
+    {
+      "id": "original-seatac-wa",
+      "sequence": null,
+      "cohort": "original",
+      "slug": "seatac-wa",
+      "jurisdiction": "SeaTac",
+      "state": "WA",
+      "entity_type": "City",
+      "publisher": "ecode",
+      "source_family": "ecode360",
+      "source_url": "https://ecode360.com/SE4633",
+      "primary_publication_id": "original-seatac-wa-primary",
+      "primary_publication": {
+        "id": "original-seatac-wa-primary",
+        "target_id": "original-seatac-wa",
+        "title": "Municipal Code",
+        "observed_title": null,
+        "source_url": "https://ecode360.com/SE4633",
+        "publisher": "ecode",
+        "source_family": "ecode360",
+        "scope_kind": "publication",
+        "role": "primary",
+        "required_for_jurisdiction": true,
+        "expected_identity": {
+          "client_names": [
+            "SeaTac"
+          ],
+          "state": "WA",
+          "customer_id": "SE4633",
+          "historical_code_id": "337588"
+        },
+        "selector": {},
+        "publisher_product_id": null,
+        "publisher_publication_id": null,
+        "runnable": true,
+        "unsupported_reason": null,
+        "validation_level": "mapped_only",
+        "full_live_verified": false,
+        "evidence_paths": [
+          "packages/local-extraction-e2e-2026-10-15/SOURCE-MATRIX.json",
+          "packages/ecode360-headed-2026-10-16/runtime-review/evidence/reviewed-route-registry.json"
+        ],
+        "image_policy": {
+          "mode": "literal_placeholder",
+          "placeholder": "[IMAGE]",
+          "download_images": false,
+          "source_id_heading_retained": true,
+          "native_originals_may_contain_images": true,
+          "scope_note": "Image-only units are retained. Intentional image omission is not an unresolved required nonimage attachment."
+        }
+      },
+      "expected_identity": {
+        "client_names": [
+          "SeaTac"
+        ],
+        "state": "WA",
+        "customer_id": "SE4633",
+        "historical_code_id": "337588"
+      },
+      "overlap_of": [],
+      "known_publications": [],
+      "unresolved_required_scope": [
+        {
+          "scope": "Additional independent publications and uncodified amendments",
+          "status": "unresolved",
+          "reason": "Original bounded inventory does not establish exhaustive jurisdiction coverage"
+        }
+      ],
+      "prior_validation": {
+        "kind": "bounded_sample_only",
+        "records": 12,
+        "evidence": "packages/local-extraction-e2e-2026-10-15/SOURCE-MATRIX.json",
+        "remaining_gate": "Complete publication/family inventory and whole-run edition reconciliation; broader real tables/images/appendices and visual semantic review; standalone browser Foster blocked, other13 not run."
+      },
+      "jurisdiction_complete": false
+    },
+    {
+      "id": "original-tukwila-wa",
+      "sequence": null,
+      "cohort": "original",
+      "slug": "tukwila-wa",
+      "jurisdiction": "Tukwila",
+      "state": "WA",
+      "entity_type": "City",
+      "publisher": "ecode",
+      "source_family": "ecode360",
+      "source_url": "https://ecode360.com/TU6948",
+      "primary_publication_id": "original-tukwila-wa-primary",
+      "primary_publication": {
+        "id": "original-tukwila-wa-primary",
+        "target_id": "original-tukwila-wa",
+        "title": "Municipal Code",
+        "observed_title": null,
+        "source_url": "https://ecode360.com/TU6948",
+        "publisher": "ecode",
+        "source_family": "ecode360",
+        "scope_kind": "publication",
+        "role": "primary",
+        "required_for_jurisdiction": true,
+        "expected_identity": {
+          "client_names": [
+            "Tukwila"
+          ],
+          "state": "WA",
+          "customer_id": "TU6948",
+          "historical_code_id": "332495"
+        },
+        "selector": {},
+        "publisher_product_id": null,
+        "publisher_publication_id": null,
+        "runnable": true,
+        "unsupported_reason": null,
+        "validation_level": "mapped_only",
+        "full_live_verified": false,
+        "evidence_paths": [
+          "packages/local-extraction-e2e-2026-10-15/SOURCE-MATRIX.json",
+          "packages/ecode360-headed-2026-10-16/runtime-review/evidence/reviewed-route-registry.json"
+        ],
+        "image_policy": {
+          "mode": "literal_placeholder",
+          "placeholder": "[IMAGE]",
+          "download_images": false,
+          "source_id_heading_retained": true,
+          "native_originals_may_contain_images": true,
+          "scope_note": "Image-only units are retained. Intentional image omission is not an unresolved required nonimage attachment."
+        }
+      },
+      "expected_identity": {
+        "client_names": [
+          "Tukwila"
+        ],
+        "state": "WA",
+        "customer_id": "TU6948",
+        "historical_code_id": "332495"
+      },
+      "overlap_of": [],
+      "known_publications": [],
+      "unresolved_required_scope": [
+        {
+          "scope": "Additional independent publications and uncodified amendments",
+          "status": "unresolved",
+          "reason": "Original bounded inventory does not establish exhaustive jurisdiction coverage"
+        }
+      ],
+      "prior_validation": {
+        "kind": "bounded_sample_only",
+        "records": 16,
+        "evidence": "packages/local-extraction-e2e-2026-10-15/SOURCE-MATRIX.json",
+        "remaining_gate": "Complete publication/family inventory and whole-run edition reconciliation; broader real tables/images/appendices and visual semantic review; standalone browser Foster blocked, other13 not run."
+      },
+      "jurisdiction_complete": false
+    }
+  ]
+}

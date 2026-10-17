@@ -1,0 +1,336 @@
+
+    <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+    <html>
+    <head>
+
+        <title>ARTICLE IX-B CITY PLANNING DEPARTMENT</title>
+        <link type="text/css" rel="Stylesheet" href="jqueryui/css/jqueryui.css" media="all" />
+        <link type="text/css" rel="Stylesheet" href="css/ui.css" media="all" />
+        <link type="text/css" rel="Stylesheet" href="css/customui.css" media="all" />
+        <link type="text/css" rel="Stylesheet" href="css/document.css" media="all" />
+        <link type="text/css" rel="Stylesheet" href="css/customdoc.css" media="all" />
+        <link type="text/css" rel="Stylesheet" href="tablestyles.aspx" media="all" />
+        <link rel="StyleSheet" type="text/css" href="/common/font-awesome/css/all.min.css">
+        <link type="text/css" rel="Stylesheet" href="css/docprint.css" media="print" />
+        <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+        <script type="text/javascript" src="jqueryui/js/jquery-ui-1.8.21.custom.min.js"></script>
+        <script type="text/javascript" src="js/doc-view.js?_t=290"></script>
+        <script type="text/javascript" src="js/tabletools.js"></script>
+        <script type="text/javascript" src="js/tabs.js"></script>
+        <script type="text/javascript">
+            var iframeReady = false;
+        </script>
+        
+    </head>
+    <body class='doc-view'>
+        <script type="text/javascript">
+            $(document).ready(function () {
+                ZP.DocView.InitDef();
+                ZP.DocView.OpenDefinitionPage = null;
+                ZP.DocView.OpenDefinitionMode = '_self';
+                ZP.DocView.OpenXRefPage = 'doc-viewer.aspx#$2-';
+                ZP.DocView.OpenXRefMode = '_blank';
+                $(window).bind('hashchange', ZP.DocView.HashChanged);
+        
+        if (typeof ZP.DocView.ZoomClasses == 'undefined') {
+            ZP.DocView.ZoomClasses = ["Unzoom1", "", "Zoom1", "Zoom2", "Zoom3", "Zoom4"];
+        }
+        ZP.DocView.InitializeZoom();
+        EC.SortedTable.Init(".ord-tbl, .stat-tbl", ".sortable");
+        EC.Tabs.PositionLeftTabs();
+    });
+
+
+        </script>
+
+
+    <div id="doc-viewer">
+        
+
+<div id="doc-view">
+    <div id="doc-view-content">
+        
+<div id="pageControls">
+<script type="text/javascript" >
+    function clearEffDate() {
+        jQuery.get("doc-view-helper.aspx?task=currentversion", function () {
+            window.location.reload();
+        });
+        return false;
+    }
+</script>
+     <div class="pageControls psuedoTable" role="navigation" aria-label="Document Navigation">  
+        <div class="psuedoTableBody" >     
+            <div class="psuedoTableRow">         
+                <div class="pageControls_outer" ></div>
+                <div class="pageControls_inner left">
+                    <a id='button1' onclick='ZP.DocView.PrintDoc("012",false);return false;' href="#" title="Print" role="button"> 
+                        <img alt="Print" src="resources/btn-print-white.png" /></a>
+                    <a id='Button2' onclick='ZP.DocView.OpenPDF("012",false);return false;' href="#" title="Export PDF" role="button">
+                        <img alt="Generate PDF" src="resources/btn-makepdf-white.png" /></a>
+                        <a class="email-popup" href="mailto:?subject=ARTICLE%20IX-B%20CITY%20PLANNING%20DEPARTMENT&amp;body=Lincoln%20NE%20City%20Charter https://online.encodeplus.com/regs/lincoln-ne-cc/doc-viewer.aspx?secid=919"><img src="resources/email-white.png" alt="Click to Share By Email" /></a>     
+                </div>
+                <div  class="pageControls_inner breadCrumbs" title="Navigation 'breadcrumbs'">
+                     <div class='breadCrumbs'><a href='/regs/lincoln-ne-cc/doc-viewer.aspx?tocid=012' >ARTICLE IX-B CITY PLANNING DEPARTMENT</a></div>
+                </div>
+                 <div  class="pageControls_inner right">       
+                     <ul >  
+                         <li>
+                            <a id='button3' class="nav" onclick="ZP.DocView.LoadPrevDoc('012');return false;" href="#"  title="Previous Section" accesskey="," role="button"><img alt="Go to Previous Section" src="resources/btn-back-white.png" /></a>
+                         </li>  
+                         <li>
+                             <a id='Button4'  class="nav" onclick="ZP.DocView.LoadNextDoc('012');return false;" href="#"  title="Next Section" accesskey="." role="button"> <img alt="Go to Next Section" src="resources/btn-forward-white.png" /></a>
+                         </li>   
+                         <li>
+                             <a id="pageControls-overflow" onclick="ZP.DocView.PgCntrlOverflowClick(event);return false;" href="#" title="Click for more options" role="button" >
+                            <img src="resources/overflow-btn-white.png" alt="Click for more options" /></a>
+                               
+  <ul class="submenu" role="dialog">
+            <li><a href="/regs/lincoln-ne-cc/doc-viewer.aspx?secid=919" onclick="javascript:alert('Right click this icon and select \'add to favorites\' or \'Bookmark this Link\' to bookmark this page');return false;" title="Bookmark this page" >Bookmark</a></li>
+            <li>
+                                        
+                <a id="zoomMinus" onclick="ZP.DocView.DecreaseZoom();return false;" href="#" title="Decrease Zoom" class="zoomLink glyphicon" >&#x2212;</a>
+                <a onclick="ZP.DocView.DefaultZoom();return false;"  href="#" title="Default Zoom"  class="zoomLink" >100%</a>
+                <a id="zoomPlus" onclick="ZP.DocView.IncreaseZoom();return false;" href="#" title="Increase Zoom"  class="zoomLink glyphicon" > &#x2b; </a>
+            </li>
+           
+                           
+                
+                <li><a id="subscribe-btn" onclick="ZP.DocView.OpenSubscribeDlg();return false;" title="Subscribe to Notifications" href="subscribe.aspx" role="button">Subscribe</a></li>
+                <li><a id="unsubscribe-btn" onclick="ZP.DocView.OpenUnsubscribeDlg();return false;" title="Cancel Notifications Subscription" href="unsubscribe.aspx" role="button" >Unsubscribe</a></li>
+                
+</ul>
+                         </li>        
+                        
+                        </ul>   
+                </div>
+                <div class="pageControls_outer"></div>
+            </div>
+        </div>
+    </div> 
+    <div id="subscribe-dialog" title="" aria-live="polite" >
+        <div id="sub-message"></div>
+        <div id="sub-form-cntr"></div>
+    </div>
+</div>
+
+
+        <div id="thePage-outer" >
+            <div id="thePage-wrap" class="thePage-wrap ">
+                <div id="outer-doc-banner"></div>
+                <div id="thePage-border">
+                    <div id="thePage" class="textPage " tocid="012" secid="919" role="main" aria-label="Document">
+                        <img id="sectionBanner" title="Document text banner" src="resources/docbanner.png" width="720" valign="Top" alt="Document text banner">
+                        
+                        <section id='secid-919' class='secLvl1 _012' tabindex='-1' data-secid='919'> 
+<h2>ARTICLE IX-B CITY PLANNING DEPARTMENT</h2>
+
+<div class="mini-TOC" data-endlevel="2" data-id="mini-TOC" data-startlevel="2">
+<div class="mini-TOC-label"><strong>Contents:</strong></div>
+
+<ul><li><a class="tocLink" href="doc-viewer.aspx#secid-920">	Sec. 1.	Planning Department Created.</a></li>
+<li><a class="tocLink" href="doc-viewer.aspx#secid-921">	Sec. 2.	City Planning Commission.</a></li>
+<li><a class="tocLink" href="doc-viewer.aspx#secid-922">	Sec. 3.	Planning Director.</a></li>
+<li><a class="tocLink" href="doc-viewer.aspx#secid-923">	Sec. 4.	Comprehensive Plan.</a></li>
+<li><a class="tocLink" href="doc-viewer.aspx#secid-924">	Sec. 5.	Planning Director, Duties.</a></li>
+<li><a class="tocLink" href="doc-viewer.aspx#secid-925">	Sec. 6.	Council Refer Matters to Planning Department.</a></li>
+<li><a class="tocLink" href="doc-viewer.aspx#secid-926">	Sec. 7.	Capital Improvements.</a></li>
+<li><a class="tocLink" href="doc-viewer.aspx#secid-927">	Sec. 8.	Zoning Plan and Ordinance.</a></li>
+<li><a class="tocLink" href="doc-viewer.aspx#secid-928">	Sec. 9.	Zoning Ordinance Preparation.</a></li>
+<li><a class="tocLink" href="doc-viewer.aspx#secid-929">	Sec. 10.	 Board of Zoning Appeals.</a></li>
+<li><a class="tocLink" href="doc-viewer.aspx#secid-930">	Sec. 11.	 Platting and Land Subdivision.</a></li>
+<li><a class="tocLink" href="doc-viewer.aspx#secid-931">	Sec. 12. Advance Acquisition Fund.</a></li>
+<li><a class="tocLink" href="doc-viewer.aspx#secid-932">	Sec. 13. Powers of Planning Commission.</a></li>
+</ul>
+</div>
+
+
+</section> 
+<section id='secid-920' class='secLvl2 _012 _012-001' tabindex='-1' data-secid='920'> 
+<h3>Sec. 1. Planning Department Created.</h3>
+
+<p>There is hereby created a planning department, which shall consist of a city planning commission, a planning director, and such subordinate employees as are required to administer the planning program prescribed in this article. (Amendment of March 3, 1959).</p>
+
+<p class='archiveNotice nullValue '></p>
+</section> 
+<section id='secid-921' class='secLvl2 _012 _012-002' tabindex='-1' data-secid='921'> 
+<h3>Sec. 2. City Planning Commission.</h3>
+
+<p>There shall be a city planning commission comprised of nine members who shall be appointed by the mayor and confirmed by the council. Three of the first appointees shall be appointed for two-year terms, three shall be appointed for four-year terms, and three shall be appointed for six-year terms. Thereafter all appointments shall be for six-year terms. Vacancies in an unexpired term shall be filled by the mayor by appointment for the remainder of the term, and such appointments shall require the council&#39;s confirmation.</p>
+
+<p>Members shall be appointed from among persons having the qualifications established in Article III, section 4. A member of the commission may be removed by the affirmative vote of four members of the council after being given a written statement of the charges against him and a hearing, which shall be a public hearing if he so requests.</p>
+
+<p>The commission shall biennially elect its chairman and such other officers as it desires from among its members and shall establish its own rules of procedure, provided that five members shall constitute a quorum for the transaction of business and five affirmative votes shall be required for final action on any matter acted upon by the commission.</p>
+
+<p>The commission&#39;s powers and duties shall extend to advising the mayor, council, and planning director on all matters concerning the planning program and the performance of those acts related to the comprehensive plan, the capital improvements program, the zoning ordinance, and the land subdivision regulations that are described in subsequent sections of this article.</p>
+
+<p>Members of the commission shall serve without pay. (Amendment of March 3, 1959).</p>
+
+<p class='archiveNotice nullValue '></p>
+</section> 
+<section id='secid-922' class='secLvl2 _012 _012-003' tabindex='-1' data-secid='922'> 
+<h3>Sec. 3. Planning Director.</h3>
+
+<p>The planning director shall have had at least five years of such experience in the city planning field as shall qualify him for duties of the office.</p>
+
+<p>The planning director shall serve as the secretary of the city planning commission and as the administrative head of the planning department. He shall be responsible for the proper conduct of all administrative affairs of the department and for the execution of the planning program prescribed in this article and in ordinances and resolutions consistent therewith. (Amendment of March 3, 1959).</p>
+
+<p class='archiveNotice nullValue '></p>
+</section> 
+<section id='secid-923' class='secLvl2 _012 _012-004' tabindex='-1' data-secid='923'> 
+<h3>Sec. 4. Comprehensive Plan.</h3>
+
+<p>The general plan for the improvement and development of the city shall be known as the &quot;comprehensive plan.&quot; The comprehensive plan, with the accompanying maps, plats, charts and explanatory materials, shall show the recommendations concerning the physical development pattern of the city and of any land outside its boundaries related thereto. The comprehensive plan shall, among other things, show:</p>
+
+<ol style="list-style-type:decimal">
+	<li>The general location, character, and extent of existing and proposed streets and highways and railroads, air, and other transportation routes and terminals.</li>
+	<li>Existing and proposed public ways, parks, grounds, and open spaces.</li>
+	<li>The general location, character, and extent of schools, school grounds, and other educational facilities and properties.</li>
+	<li>The general location and extent of existing and proposed public utility installations.</li>
+	<li>The general location and extent of urban renewal projects.</li>
+	<li>The general location of existing and proposed public buildings, structures, and facilities.</li>
+</ol>
+
+<p>The comprehensive plan shall include a land-use plan showing the proposed general distribution and general location of business and industry, residential areas, utilities, and recreational, educational, and other categories of public and private land uses. The land-use plan shall also show recommended standards of population density and building intensity based upon population estimates and providing for activities for which space should be supplied within the area covered by the plan. The comprehensive plan shall include and show proposals for acquisition, extension, widening, narrowing, removal, vacation, abandonment, sale, and other actions affecting public improvements. (Amendment of March 3, 1959).</p>
+
+<p class='archiveNotice nullValue '></p>
+</section> 
+<section id='secid-924' class='secLvl2 _012 _012-005' tabindex='-1' data-secid='924'> 
+<h3>Sec. 5. Planning Director, Duties.</h3>
+
+<p>The planning director shall be responsible for preparing the comprehensive plan and amendments and extensions thereto, and for submitting such plans and modifications to the city planning commission for its consideration and action. The commission shall review such plans and modifications, and those which the city council may suggest, and, after holding at least one public hearing on each proposed action, shall provide its recommendations to the city council within a reasonable period of time. The city council shall review the recommendations of the planning commission and after at least one public hearing on each proposed action, shall adopt or reject such plans as submitted, except that the city council may, by an affirmative vote of at least five members of the city council, adopt a plan or amendments to the proposed plan different from that recommended by the planning commission. (Amendment of May 6, 1975).</p>
+
+<p class='archiveNotice nullValue '></p>
+</section> 
+<section id='secid-925' class='secLvl2 _012 _012-006' tabindex='-1' data-secid='925'> 
+<h3>Sec. 6. Council Refer Matters to Planning Department.</h3>
+
+<p>No ordinance, or resolution, which deals with the acquisition, extension, widening, narrowing, removal, vacation, abandonment, sale or other change relating to any public way, transportation route, ground, open space, building or structure, or other public improvement of a character included in the comprehensive plan, shall be adopted by the council until such ordinance or resolution shall first have been referred to the Planning Department and that department has reported regarding conformity of the proposed action to the comprehensive plan. The department&#39;s report shall specify the character and degree of conformity or nonconformity of each such proposed action to the comprehensive plan, and a report in writing thereon shall be rendered to the council within thirty days after the date of receipt of the referral unless a longer period is granted by the council. If the department fails to render any such report within the allotted time, the approval of the department may be presumed by the council. (Amendment of March 3, 1959).</p>
+
+<p class='archiveNotice nullValue '></p>
+</section> 
+<section id='secid-926' class='secLvl2 _012 _012-007' tabindex='-1' data-secid='926'> 
+<h3>Sec. 7. Capital Improvements.</h3>
+
+<p>Each department or agency annually, on or before a date which the mayor shall establish, shall submit to the planning director a schedule of all capital improvements which it recommends to be undertaken in any of the six succeeding fiscal years.</p>
+
+<p>The term &quot;capital improvements&quot; shall include the acquisition of real property; the acquisition, construction, reconstruction, improvement, extension, equipping, or furnishing of any physical improvement, but not routine maintenance work thereon; and equipment with a probable useful life of fifteen or more years.</p>
+
+<p>The planning director shall examine each recommended project for conformity to the comprehensive plan and shall prepare a consolidated schedule of the projects recommended by the departments, which schedule shall describe the character and degree of conformity or non-conformity of each project as it relates to the comprehensive plan. This consolidated schedule shall be submitted to the city planning commission for its review and comment. Not later than seventy-five days prior to the budget adoption date, the commission shall submit the consolidated schedule of projects and its comments thereon to a capital improvements advisory committee composed of the mayor as chairman, and such directors as designated by the mayor. The capital improvements advisory committee shall formulate and recommend a six-year improvement program showing exactly which projects should receive appropriations in each of the six succeeding fiscal years. As a part of his annual proposed budget, the mayor shall, after consideration of the recommended capital improvements program, submit to the council his recommendations with respect to the capital budget for the ensuing year.</p>
+
+<p>The council shall not appropriate any money in any budget for any capital improvement project unless and until the conformity or non-conformity of that project has been reported on by the planning department by special report or in connection with the capital improvement programming process. (Amendment of May 10, 1966).</p>
+
+<p class='archiveNotice nullValue '></p>
+</section> 
+<section id='secid-927' class='secLvl2 _012 _012-008' tabindex='-1' data-secid='927'> 
+<h3>Sec. 8. Zoning Plan and Ordinance.</h3>
+
+<p>For the purpose of promoting the health, safety, morals, or general welfare of the city, the council shall enact a zoning plan and zoning ordinance to regulate and restrict the location, height, bulk, and size of buildings and other structures; the percentage of a lot that may be occupied; the size of yards, courts, and other open spaces; the density of population; and the locations and uses of buildings, structures, and land for trade, industry, business, residences, and other purposes.</p>
+
+<p>The zoning plan and zoning ordinance may divide the area zoned into districts of such number, shape, and area as may be best suited to carry out the purposes of this article, and it may regulate, restrict, or prohibit the erection, construction, reconstruction, alteration or use of buildings, structures, or land within the total area zoned or within districts. All such regulations shall be uniform for each class or kind of buildings throughout each district, but the regulations for one district may differ from those applicable to other districts.</p>
+
+<p>Such regulations shall be made with reasonable consideration having been given to, among other things, the character of the various parts of the area zoned and their peculiar suitability for particular uses and types of development, and with a view to conserving property values and encouraging the most appropriate use of land throughout the area zoned.</p>
+
+<p>The regulations may include reasonable provisions regarding non-conforming uses and their gradual elimination.</p>
+
+<p>The council shall have the power to regulate through zoning the use of land outside the city within such distances and in the manner authorized by the laws of the state of Nebraska.</p>
+
+<p>The provisions of this section shall govern and apply notwithstanding any existing provisions of this charter to the contrary. (Amendment of March 3, 1959).</p>
+
+<p class='archiveNotice nullValue '></p>
+</section> 
+<section id='secid-928' class='secLvl2 _012 _012-009' tabindex='-1' data-secid='928'> 
+<h3>Sec. 9. Zoning Ordinance Preparation.</h3>
+
+<p>The planning director shall be responsible for preparing the zoning ordinance and for submitting it to the city planning commission for its consideration and action. The commission shall review the proposed zoning ordinance and, after holding at least one public hearing on each proposed action, shall approve or reject it in whole or in part and with or without modifications. When approved by the commission, the proposed ordinance shall be submitted to the council for its consideration, and the zoning ordinance shall become effective when adopted by the council. The city council may amend, supplement, or otherwise modify the zoning ordinance. Any such proposed amendment, supplement, or modification shall first be submitted to the planning commission for its recommendations and report. The planning commission shall hold at least one public hearing with relation thereto, before submitting its recommendations and report. After the recommendation and report of the planning commission have been filed, the city council shall, before enacting any proposed amendment, supplement, or modification, hold a public hearing in relation thereto. Notice of the time and place of hearings above referred to shall be given as provided by law. (Amendment of March 3, 1959).</p>
+
+<p class='archiveNotice nullValue '></p>
+</section> 
+<section id='secid-929' class='secLvl2 _012 _012-010' tabindex='-1' data-secid='929'> 
+<h3>Sec. 10. Board of Zoning Appeals.</h3>
+
+<p>There is hereby created a board of zoning appeals comprised of five members who shall be appointed by the mayor and confirmed by the council. The first appointees shall be appointed for terms of one, two, three, four and five years, respectively. Thereafter all appointments shall be for five-year terms. Vacancies in an unexpired term shall be filled by the mayor by appointment for the remainder of the term, and such appointments shall require the council&#39;s confirmation.</p>
+
+<p>Members shall be appointed from among persons having the qualifications established in Article III, section 4. A member of the board may be removed by the affirmative vote of four members of the council after being given a written statement of the charges against him and a hearing, which shall be a public hearing if he so requests.</p>
+
+<p>The board shall annually elect its chairman and such other officers as it desires from among its members and shall establish its own rules of procedure, provided that three members shall constitute a quorum for the transaction of business and three affirmative votes shall be required for final action on any matter acted upon by the board.</p>
+
+<p>The board shall have power and shall be required:</p>
+
+<ol style="list-style-type:decimal">
+	<li>To hear and decide upon appeals from any decision or order of the building inspector or other officers charged with the enforcement of the zoning ordinance in those cases where it is alleged that such decision or order is in error.</li>
+	<li>To hear and decide upon petitions for variances and, subject to such standards, principles, and procedures as the council may provide in the zoning ordinance, to vary the strict application of the height, area, parking, or density requirements to the extent necessary to permit the owner a reasonable use of his land in those specified instances where there are peculiar, exceptional, and unusual circumstances in connection with a specific parcel of land, which circumstances are not generally found within the locality or neighborhood concerned.</li>
+	<li>To hear and decide upon such other cases and matters concerning zoning exceptions as are referred to it by the zoning ordinance.</li>
+</ol>
+
+<p>Before making a decision upon appeals and petitions of the types described under (1) and (2) above, the board shall hold at least one public hearing on each such appeal or petition. The decision of the board of zoning appeals, accompanied by the written findings, shall be transmitted to the city clerk by the board within one week after the decision has been made.</p>
+
+<p>Members of the board of zoning appeals shall serve without pay. (Amendment of May 10, 1966).</p>
+
+<p class='archiveNotice nullValue '></p>
+</section> 
+<section id='secid-930' class='secLvl2 _012 _012-011' tabindex='-1' data-secid='930'> 
+<h3>Sec. 11. Platting and Land Subdivision.</h3>
+
+<p>The planning department shall be responsible for the administration of platting and the regulation of land subdivision in the city in accordance with subdivision regulations adopted by the council. The city shall also regulate land subdivision outside the city within distances and in the manner authorized by the laws of the state of Nebraska.</p>
+
+<p>&quot;Subdivision&quot; shall mean the division of a lot, tract, or parcel of land into two or more lots, sites, or other divisions of land for the purpose, whether immediate or future, of ownership or building development.</p>
+
+<p>The council, upon recommendation of the planning department, shall adopt as an ordinance regulations governing land subdivision. Such regulations shall include standards for laying out subdivisions and may require the installation of improvements and the dedication of land for public purposes in harmony with the comprehensive plan.</p>
+
+<p>Subdivision plats shall be subject to approval of the city planning commission on recommendation by the planning director and public works and utilities department. The commission may withhold approval of a plat until the public works and utilities department has certified that the improvements required by the regulations have been satisfactorily installed or until a sufficient bond guaranteeing installation of the improvements has been posted with the city. The city council may provide procedures in the land subdivision regulations for appeals by any person aggrieved by any action of the commission on any plat.</p>
+
+<p>For the purposes of regulating subdivision, the council may delegate power to the planning director to approve specific types of such subdivision and may empower him to waive the plat requirements under stated conditions.</p>
+
+<p>The provision of this section shall govern and apply notwithstanding any existing provisions of this charter to the contrary. (Amendment of May 15, 1990: prior Amendment of May 9, 1978; effective July 9, 1978: prior amendment of March 3, 1959).</p>
+
+<p class='archiveNotice nullValue '></p>
+</section> 
+<section id='secid-931' class='secLvl2 _012 _012-012' tabindex='-1' data-secid='931'> 
+<h3>Sec. 12. Advance Acquisition Fund.</h3>
+
+<p>There is hereby created a working capital fund to be known as the advance acquisition fund, the purpose of which shall be to facilitate the orderly and timely acquisition of real estate for public purposes. The net proceeds from any sale or exchange of real estate owned by the city shall be credited to this fund, and the fund may also be increased by general fund appropriations, or proceeds from general obligation borrowing. Monies in the fund may be used to option, purchase, make down payments, and take other actions necessary to acquire real estate for public purposes. No purchase of any real estate or any expenditure in connection therewith shall be made from this fund unless given prior approval by resolution of the council.</p>
+
+<p>Any department of the city may build up against the advance acquisition fund credits equal in amount to the amount that has accumulated in the fund as a result of the sale of property which was under the jurisdiction of that department.</p>
+
+<p>Any real estate purchased or otherwise acquired by the city through the workings of this fund may be sold or otherwise disposed of if the council by resolution determines that such real estate is not needed for a public purpose of the city government, provided that such property shall be sold or otherwise disposed of in accordance with the provisions of Article II, section 1, paragraph 5, of this charter. (Amendment of March 3, 1959).</p>
+
+<p class='archiveNotice nullValue '></p>
+</section> 
+<section id='secid-932' class='secLvl2 _012 _012-013' tabindex='-1' data-secid='932'> 
+<h3>Sec. 13. Powers of Planning Commission.</h3>
+
+<p>All power, duties and rights of the city planning commission or planning director under this article shall be as provided in this article, notwithstanding any existing provisions of this charter to the contrary. (Amendment of August 27, 1962; effective May 20, 1963).</p>
+
+<p class='archiveNotice nullValue '></p>
+</section> 
+
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- hidden div below is for definition popup -->
+<div id="defFrame">
+    <img alt='loading progress' src="resources/progress.gif" /></div>
+<!-- hidden div below is for ajax loading progress-->
+<div id='progress-template' style='display: none;'>
+    <div class="progress" style='padding: 100px;'>
+        <div style='margin: auto; display: block; width: 200px; border: 1px solid #ccc; background-color: #eee; padding: 10px;'>
+            <img alt='loading progress' src='resources/progress.gif' style='margin: auto; display: block;' />
+            <br />
+            <span style='margin: auto; display: block; width: 75px; padding-left: 10px;'>Loading...</span>
+        </div>
+    </div>
+</div>
+<iframe style="width: 1px; height: 1px" src="" id="printiframe" name="printiframe" onload="ZP.DocView.IFrameReady();" title="Print frame" aria-hidden="true" role="presentation"></iframe>
+
+    </div>
+
+
+    </body>
+</html>

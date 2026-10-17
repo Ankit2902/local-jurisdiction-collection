@@ -1,0 +1,43 @@
+{
+  "schema": 1,
+  "network_free": true,
+  "read_only_source_tests": true,
+  "separate_images_fetched_or_extracted": false,
+  "passed": 26,
+  "failed": 0,
+  "suites": [
+    {
+      "command": "python -B collectors/official/test_offline.py",
+      "count": 16,
+      "status": "passed",
+      "output": "checks/checkpoint-offline-tests-final.txt",
+      "sha256": "5c22fa48c9f3960feac60cdadebf9d6a28d9cdf25a4497eae7eae03e1e300c5d"
+    },
+    {
+      "command": "python -B collectors/official/test_pdf_structure.py",
+      "count": 5,
+      "status": "passed",
+      "output": "checks/checkpoint-pdf-tests.txt",
+      "sha256": "093a071a10250d2b75ef5329e6a58dae7f324fd383f21df5ac250c0ceb62928d"
+    },
+    {
+      "command": "python -B collectors/official/test_readiness.py",
+      "count": 5,
+      "status": "passed",
+      "output": "checks/checkpoint-readiness-tests.txt",
+      "sha256": "96a469262093361f662f89ef51efcf4bd0d89b316ac8dbcb57214c9d8f043cff"
+    }
+  ],
+  "runtime_source_hashes": {
+    "collect.py": "e8f2bb78db077f4d43d4e6ec82d60eb328119eb05ad43f92e3687ece85105152",
+    "model.py": "341608e2af5997d7d9f103ba3e3e2e19729417201cfe49c91c22dab39abb6e1f",
+    "transport.py": "856f00a0de7d561839ba8842af7ae49483fd5efd31fb0352dbe7cbccc011a148",
+    "post_transport.py": "ad9d0b3662f49ffe54420f7b3b4cb1d62acfce19be4e4a394243bc92c2b06c33",
+    "legacy_html.py": "b3799648ab453ff71217d336f55d78501dcc4a8a92e6cf6d187632508b665048",
+    "browser_fetch.cjs": "9dbf7e1f5f1acbded4821a59021075c0859c705e7d4b7e87d30c0736f6955918",
+    "spokane_bulk.py": "837cea0b4dfcaad7e1efc90cf500948bace09b4627ec8a83447c6eb4baab74f1",
+    "pdf_structure.py": "8341b33f36dbc52a20a229f04816d21d358a9f25a2399cab5a4a4c1e28e49251",
+    "openlaw_xml.py": "172fc1cfd76f241fd891f4b2e0e07ee187b9821fa9020baa9843a6a7bd6fb547",
+    "verify.py": "01d7f597a1510f6c2c93a30a5d9c7dd41b47cb4be1f9e8b78855bc41258b66e9"
+  }
+}

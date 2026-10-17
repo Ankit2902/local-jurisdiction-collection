@@ -1,0 +1,265 @@
+{
+  "schema": 1,
+  "stable_source_checkpoint": true,
+  "all_requested_work_complete": false,
+  "source_hashes": {
+    "collect.py": "e8f2bb78db077f4d43d4e6ec82d60eb328119eb05ad43f92e3687ece85105152",
+    "model.py": "341608e2af5997d7d9f103ba3e3e2e19729417201cfe49c91c22dab39abb6e1f",
+    "transport.py": "856f00a0de7d561839ba8842af7ae49483fd5efd31fb0352dbe7cbccc011a148",
+    "post_transport.py": "ad9d0b3662f49ffe54420f7b3b4cb1d62acfce19be4e4a394243bc92c2b06c33",
+    "legacy_html.py": "b3799648ab453ff71217d336f55d78501dcc4a8a92e6cf6d187632508b665048",
+    "browser_fetch.cjs": "9dbf7e1f5f1acbded4821a59021075c0859c705e7d4b7e87d30c0736f6955918",
+    "spokane_bulk.py": "837cea0b4dfcaad7e1efc90cf500948bace09b4627ec8a83447c6eb4baab74f1",
+    "pdf_structure.py": "8341b33f36dbc52a20a229f04816d21d358a9f25a2399cab5a4a4c1e28e49251",
+    "openlaw_xml.py": "172fc1cfd76f241fd891f4b2e0e07ee187b9821fa9020baa9843a6a7bd6fb547",
+    "verify.py": "01d7f597a1510f6c2c93a30a5d9c7dd41b47cb4be1f9e8b78855bc41258b66e9"
+  },
+  "tests": {
+    "total": 26,
+    "passed": 26,
+    "receipt": "checks/test-results.json",
+    "suites": [
+      {
+        "command": "python -B collectors/official/test_offline.py",
+        "count": 16,
+        "status": "passed",
+        "output": "checks/checkpoint-offline-tests-final.txt",
+        "sha256": "5c22fa48c9f3960feac60cdadebf9d6a28d9cdf25a4497eae7eae03e1e300c5d"
+      },
+      {
+        "command": "python -B collectors/official/test_pdf_structure.py",
+        "count": 5,
+        "status": "passed",
+        "output": "checks/checkpoint-pdf-tests.txt",
+        "sha256": "093a071a10250d2b75ef5329e6a58dae7f324fd383f21df5ac250c0ceb62928d"
+      },
+      {
+        "command": "python -B collectors/official/test_readiness.py",
+        "count": 5,
+        "status": "passed",
+        "output": "checks/checkpoint-readiness-tests.txt",
+        "sha256": "96a469262093361f662f89ef51efcf4bd0d89b316ac8dbcb57214c9d8f043cff"
+      }
+    ]
+  },
+  "live_scope_summary": [
+    {
+      "path": "milwaukee-full-v2",
+      "status": "full native inventory and every physical PDF page; legal semantics remain manual review",
+      "expected": {
+        "requested_coverage_complete": true,
+        "publication_file_coverage_complete": true,
+        "pdf_page_extraction_complete": true,
+        "publication_html_text_coverage_complete": false,
+        "legal_semantic_coverage_complete": false,
+        "expected_document_count": 6,
+        "acquired_document_count": 6,
+        "parsed_record_count": 2300,
+        "source_consistency_complete": true
+      },
+      "hashes": {
+        "config.json": "2ed595444e7e5d8a1e87cad71091c1325e14d36bf2fd04d40ba1173e524fb871",
+        "inventory.json": "3b9e087380492a360466d297bfc60b75fb8c6e5c572ad09aa803ff04cfce36a9",
+        "records.jsonl": "8ea2504b3132d7615f1994bffebe5eeaaa41f5f0f386665d76286f5d8cc7137b",
+        "coverage.json": "4c6965ac805244ed77604db0a0fa7f532e6372c00e8b7c862e575565001227f1"
+      }
+    },
+    {
+      "path": "portland-title33-full",
+      "status": "full native inventory and every physical PDF page; legal semantics remain manual review",
+      "expected": {
+        "requested_coverage_complete": true,
+        "publication_file_coverage_complete": true,
+        "pdf_page_extraction_complete": true,
+        "publication_html_text_coverage_complete": false,
+        "legal_semantic_coverage_complete": false,
+        "expected_document_count": 1,
+        "acquired_document_count": 1,
+        "parsed_record_count": 1855,
+        "source_consistency_complete": true
+      },
+      "hashes": {
+        "config.json": "d048fcb05e1e818a78927772d0f02d1f10052c1d08766378daa30a2705a0cbbf",
+        "inventory.json": "fbf3b31162f718e05f0386b7b8d25a0023af2f22dc1662b36199707988d8d9c7",
+        "records.jsonl": "fb37b4c939ffff9e5d971ab3b40e50944c9f600a91eedcb2d284a54bac67b45e",
+        "coverage.json": "815dc4b89578ef3424025227000d3f50b0c73d56e3d7bfd563aee17c09a46d85"
+      }
+    },
+    {
+      "path": "portland-all-html-v6",
+      "status": "All33HTMLtitle documents/allsource-ownedbodyfields+letteredcitations+notes; Title33 intentionally remains a separately required native component.",
+      "expected": {
+        "requested_coverage_complete": false,
+        "publication_file_coverage_complete": true,
+        "pdf_page_extraction_complete": false,
+        "publication_html_text_coverage_complete": true,
+        "legal_semantic_coverage_complete": false,
+        "expected_document_count": 33,
+        "acquired_document_count": 33,
+        "parsed_record_count": 3168,
+        "source_consistency_complete": true
+      },
+      "hashes": {
+        "config.json": "c0816d63d8de901c427fa7d4ca05d3d1fc90719149e9305243301170d1e994bb",
+        "inventory.json": "d24e05a4f33e2939706fe32e4d9cccdc662b9d29d067696aff5aecd3c73ae833",
+        "records.jsonl": "049816ce18383a2e3b53b3a7e71b36affd4e882b3c454d1f52930184806181f7",
+        "coverage.json": "a2fc104f2ea80c1e6957e5adc4ebfd01ab92711f09ab26af5eba64b7990d7149"
+      }
+    }
+  ],
+  "active_runs": [
+    {
+      "path": "spokane-full-bulk-v10",
+      "acquired_at_checkpoint": 68,
+      "discovered_inventory_count": 68,
+      "collector_completed": false,
+      "last_error": null,
+      "status": "Active/finalizing; only independent terminal coverage/replay may establish a final complete scope."
+    },
+    {
+      "path": "burlington-full-v4",
+      "acquired_at_checkpoint": 71,
+      "discovered_inventory_count": 156,
+      "collector_completed": false,
+      "last_error": null,
+      "status": "Active/finalizing; only independent terminal coverage/replay may establish a final complete scope."
+    },
+    {
+      "path": "arlington-tx-full-v3",
+      "acquired_at_checkpoint": 9,
+      "discovered_inventory_count": 61,
+      "collector_completed": false,
+      "last_error": null,
+      "status": "Active/finalizing; only independent terminal coverage/replay may establish a final complete scope."
+    },
+    {
+      "path": "arlington-county-full-v3",
+      "acquired_at_checkpoint": 27,
+      "discovered_inventory_count": 80,
+      "collector_completed": false,
+      "last_error": null,
+      "status": "Active/finalizing; only independent terminal coverage/replay may establish a final complete scope."
+    },
+    {
+      "path": "baltimore-full-v3",
+      "acquired_at_checkpoint": 1,
+      "discovered_inventory_count": 1,
+      "collector_completed": true,
+      "last_error": null,
+      "status": "Active/finalizing; only independent terminal coverage/replay may establish a final complete scope."
+    },
+    {
+      "path": "czo-full-segmented-v1",
+      "acquired_at_checkpoint": 1,
+      "discovered_inventory_count": 1,
+      "collector_completed": false,
+      "last_error": null,
+      "status": "Active/finalizing; only independent terminal coverage/replay may establish a final complete scope."
+    },
+    {
+      "path": "san-mateo-full-xml-v1",
+      "acquired_at_checkpoint": 1,
+      "discovered_inventory_count": 1,
+      "collector_completed": true,
+      "last_error": null,
+      "status": "Active/finalizing; only independent terminal coverage/replay may establish a final complete scope.",
+      "requested_coverage_complete": true,
+      "publication_file_coverage_complete": true,
+      "publication_html_text_coverage_complete": true,
+      "parsed_record_count": 2652,
+      "table_count": 50
+    },
+    {
+      "path": "portland-maine-full-v1",
+      "acquired_at_checkpoint": 1,
+      "discovered_inventory_count": 44,
+      "collector_completed": false,
+      "last_error": null,
+      "status": "Active/finalizing; only independent terminal coverage/replay may establish a final complete scope."
+    },
+    {
+      "path": "rockland-maine-full-v1",
+      "acquired_at_checkpoint": 1,
+      "discovered_inventory_count": 21,
+      "collector_completed": false,
+      "last_error": null,
+      "status": "Active/finalizing; only independent terminal coverage/replay may establish a final complete scope."
+    }
+  ],
+  "original_nine": [
+    {
+      "target_id": "original-burien-wa",
+      "config": "configs/original-burien-wa.json",
+      "status": "Fresh source-qualified SPA inventory/currency config; full live proof pending"
+    },
+    {
+      "target_id": "original-fremont-ca",
+      "config": "configs/original-fremont-ca.json",
+      "status": "Fresh source-qualified SPA inventory/currency config; full live proof pending"
+    },
+    {
+      "target_id": "original-renton-wa",
+      "config": "configs/original-renton-wa.json",
+      "status": "Fresh source-qualified SPA inventory/currency config; full live proof pending"
+    },
+    {
+      "target_id": "original-san-carlos-ca",
+      "config": "configs/original-san-carlos-ca.json",
+      "status": "Fresh source-qualified SPA inventory/currency config; full live proof pending"
+    },
+    {
+      "target_id": "original-portland-me",
+      "config": "configs/original-portland-me.json",
+      "status": "Fresh44PDFinventory; complete current coordinate-parser run active"
+    },
+    {
+      "target_id": "original-rockland-me",
+      "config": "configs/original-rockland-me.json",
+      "status": "Fresh21PDFinventory; complete current coordinate-parser run active"
+    },
+    {
+      "target_id": "original-san-mateo-ca",
+      "config": "configs/original-san-mateo-ca.json",
+      "status": "Complete currentCode+CharterXML run2,652records/50tables; independent replay pending"
+    },
+    {
+      "target_id": "original-flagstaff-az",
+      "config": null,
+      "status": "Fresh200frameset/source/currency discovery; complete frame inventory/collector qualification still needed"
+    },
+    {
+      "target_id": "original-king-county-wa",
+      "config": null,
+      "status": "Prior source-derived parser exists; current complete official title inventory adapter qualification still needed"
+    }
+  ],
+  "limitations": [
+    "Finish ongoing fullruns and independent terminal replays; Burlington156iscurrentdiscoveredgraph, notbounded51/144.",
+    "Baltimore11internal crossrefs resolved against archive; exact State statute body qualification added;210explicit inherited model-code units remain external body/edition dependency work.",
+    "Spokane7,490enabled+disabledstatus complete inventory in68normalnative selection batches; allsections acquired, endchecks ongoing; samepublicationcrossrefs and stopped static-host requiredPDF closure remain gaps.",
+    "CZO1,272records/89tables segmentation complete on retained source; fresh full proof active; actualduplicate9-3-C sourceID retained and exact independentState-law references remain separate dependencies.",
+    "FullMilwaukee6files/2,300pages and actualTitle33/1,855pages are native/page proofs; coordinate allpage upgrades for those retained complete originals remain to finish.",
+    "Two original implementation gaps: Flagstaff frame inventory and KingCounty current title graph. Secondary official discovery candidates remain unqualified unless exact adapter/config/proof provided."
+  ],
+  "access_stops": [
+    {
+      "host": "static.spokanecity.org",
+      "status": 403,
+      "first_url": "https://static.spokanecity.org/documents/emergencymanagement/plans/2025-spokane-comprehensive-emergency-management-plan-cemp.pdf",
+      "evidence": "spokane-full-bulk-v7/raw",
+      "policy": "Persistent host stop; no retry/browser substitution or gate reset. Mainmy.spokanecity.org code remains separately available200."
+    },
+    {
+      "host": "ldh.la.gov",
+      "status": 403,
+      "evidence": "discovery/louisiana-title51.receipt.json",
+      "policy": "Persistenthoststop; no retries. Exact CZO contexts classify independently applicable State-law citations; refusal is not the reason."
+    }
+  ],
+  "inline_image_metadata_audit": {
+    "normalized_jsonl_runs": 23,
+    "data_image_payload_findings": 0,
+    "evidence": "discovery/checkpoint-inline-image-audit.json",
+    "limit": "Active runs without finalized JSONL excluded; original native source intentionally permitted."
+  }
+}

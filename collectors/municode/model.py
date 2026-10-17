@@ -6,12 +6,20 @@ from pathlib import Path
 from urllib.parse import urlparse,urljoin,parse_qs
 from html.parser import HTMLParser
 from normalize import LegalHTML
+from pdf_integrity import qualify_pdf
 from image_policy import sanitize,image_ref,image_url,POLICY,safe_metadata
+from notes import sanitize_notes
 SCHEMA=1
-RUNTIME_FILES=['collect.py','model.py','normalize.py','browser.cjs','gate_cli.py','verify.py','image_policy.py']
+RUNTIME_FILES=['collect.py','model.py','normalize.py','browser.cjs','gate_cli.py','verify.py','image_policy.py','pdf_integrity.py','runtime.py','notes.py','access_state.py','access-advisory.json']
 def sha(b):return hashlib.sha256(b).hexdigest()
 def canonical(x):return json.dumps(x,ensure_ascii=False,sort_keys=True,separators=(',',':')).encode()
 def digest(x):return sha(canonical(x))
+def reference_url(base,value):
+ # A bare external-looking hostname is not a relative publisher path. Preserve it
+ # unresolved; guessing HTTPS or requesting a publisher-relative spelling is unsafe.
+ raw=value.strip();parsed=urlparse(raw)
+ malformed=not parsed.scheme and not raw.startswith('//') and bool(re.match(r'^(?:www\.[a-z0-9.-]+\.[a-z]{2,63}|[a-z0-9-]+(?:\.[a-z0-9-]+)*\.(?:com|org|gov|edu|net|us|io|ca))(?=[/\\:?#]|$)',raw,re.I))
+ return (raw,True) if malformed else (urljoin(base,raw),False)
 def atomic(path,data):
  path=Path(path);path.parent.mkdir(parents=True,exist_ok=True);tmp=path.with_name(path.name+'.tmp');tmp.write_bytes(data if isinstance(data,bytes) else json.dumps(data,ensure_ascii=False,indent=2).encode()+b'\n');os.replace(tmp,path)
 def implementation(root=None):
@@ -56,8 +64,9 @@ def references(records,base,policy=None,known_images=()):
  for record in records:
   p=References();p.feed(record['html']);p.feed(record.get('footnotes_html') or '')
   for ref in p.refs:
-   raw=ref['value'].strip();u=urljoin(base,raw);a=ref['attributes'];path=urlparse(u).path.lower()
+   raw=ref['value'].strip();u,malformed=reference_url(base,raw);a=ref['attributes'];path=urlparse(u).path.lower()
    if image_ref(ref,base,known_images):kind='image_omitted';required=False
+   elif malformed:kind='malformed_external_reference';required=True
    elif raw.lower().startswith(('#','mailto:','tel:','javascript:','data:')):kind='inline_or_nonnetwork_reference';required=False
    elif ref['tag']=='a' and (a.get('data-nodeid') or a.get('data-node-id') or a.get('data-chunk-id') or ('nodeId=' in raw and urlparse(u).hostname=='library.municode.com')):kind='internal_legal_cross_reference';required=False
    elif ref['attribute'] not in ('href','xlink:href') or ref['tag']!='a' or re.search(r'\.(pdf|docx?|xlsx?|zip|png|jpe?g|gif|svg|webp|tiff?|bmp|csv|odt)(?:$|/)',path) or re.search(r'/documentcenter/|/showdocument/|/munidocs/|/api/assets/|/linkclick',path):kind='required_asset';required=True
@@ -73,8 +82,7 @@ def asset_qualification(url,body,headers):
  path=urlparse(url).path.lower();mime=headers.get('content-type','').lower().split(';')[0].strip()
  if not body:return 'failed','Empty attachment body'
  if path.endswith('.pdf') or mime=='application/pdf' or body.startswith(b'%PDF-'):
-  if not body.startswith(b'%PDF-') or not body.rstrip().endswith(b'%%EOF'):return 'failed','PDF header/trailer missing or truncated'
-  return 'unqualified','PDF retained but full format integrity is unqualified; standard-library core has no PDF integrity parser'
+  result=qualify_pdf(body);return result['status'],result['reason']
  if path.endswith(('.zip','.docx','.xlsx','.odt')) or mime in ('application/zip','application/vnd.openxmlformats-officedocument.wordprocessingml.document','application/vnd.openxmlformats-officedocument.spreadsheetml.sheet'):
   try:
    with zipfile.ZipFile(io.BytesIO(body)) as z:
@@ -136,7 +144,11 @@ def reconcile_publication(folder,cp,product_id):
   substantive=SubstantiveBody();substantive.feed(html)
   if not substantive.value() and '[IMAGE]' not in text and not node['children'] and not re.search(r'reserved|repealed|deleted|omitted',heading,re.I):errors.append('unexplained empty leaf: '+ident)
   if not heading:errors.append('missing heading '+ident)
-  record={'node_id':ident,'product_id':int(pid),'job_id':job['Id'],'heading':heading,'toc_heading':node['heading'],'path':node['path'],'parent_id':node['parent_id'],'is_container':bool(node['children']),'text':text,'html':html,'body_sha256':sha(source_html.encode()),'normalized_html_sha256':sha(html.encode()),'image_policy':POLICY,'image_omissions':image_omissions+footnote_images,'tables':parser.tables,'links':parser.links,'list_count':parser.lists,'footnotes_html':footnotes_html,'notes':doc.get('Notes'),'doc_type':doc.get('DocType'),'chunk_group_starting_node_id':doc.get('ChunkGroupStartingNodeId'),'source_unit':name,'source_url':cp['source_url'].split('?')[0]+'?nodeId='+ident};records.append(record);ownership.append({'owner_id':ident,'parent_id':node['parent_id'],'child_ids':node['children'],'owns_body':bool(text),'body_sha256':record['body_sha256']})
+  notes,note_images,note_html=sanitize_notes(doc.get('Notes'),base,known_images)
+  source_records.extend({'node_id':ident,'html':h} for h in note_html)
+  record={'node_id':ident,'product_id':int(pid),'job_id':job['Id'],'heading':heading,'toc_heading':node['heading'],'path':node['path'],'parent_id':node['parent_id'],'is_container':bool(node['children']),'text':text,'html':html,'body_sha256':sha(source_html.encode()),'normalized_html_sha256':sha(html.encode()),'image_policy':POLICY,'image_omissions':image_omissions+footnote_images+note_images,'tables':parser.tables,'links':parser.links,'list_count':parser.lists,'footnotes_html':footnotes_html,'notes':notes,'doc_type':doc.get('DocType'),'chunk_group_starting_node_id':doc.get('ChunkGroupStartingNodeId'),'source_unit':name,'source_url':cp['source_url'].split('?')[0]+'?nodeId='+ident}
+  if doc.get('Notes'):record['notes_source_sha256']=digest(doc['Notes'])
+  records.append(record);ownership.append({'owner_id':ident,'parent_id':node['parent_id'],'child_ids':node['children'],'owns_body':bool(text),'body_sha256':record['body_sha256']})
  refs=references(source_records,base,cp['binding'].get('reference_policy',{}),known_images);visited=set()
  while True:
   pending={r['url'] for r in refs if r['required']}-visited
@@ -154,18 +166,21 @@ def reconcile_publication(folder,cp,product_id):
    owners=sorted({r['owner_id'] for r in refs if r['url']==url})
    for dep in deps:
     if not dep or dep.startswith(('data:','#')):continue
-    for owner in owners:refs.append({'owner_id':owner,'url':urljoin(url,dep),'source_value':dep,'tag':'asset-dependency','attribute':'embedded-resource','kind':'image_omitted' if image_url(dep) else 'required_asset','required':not image_url(dep),'parent_asset_url':url})
+    resolved,malformed=reference_url(url,dep)
+    for owner in owners:refs.append({'owner_id':owner,'url':resolved,'source_value':dep,'tag':'asset-dependency','attribute':'embedded-resource','kind':'image_omitted' if image_url(dep) else ('malformed_external_reference' if malformed else 'required_asset'),'required':not image_url(dep),'parent_asset_url':url})
  asset_urls=sorted({r['url'] for r in refs if r['required']});assets=[]
  for url in asset_urls:
   aid=digest(url);entry=cp.get('assets',{}).get(aid)
   status='missing';reason=None
-  if entry:
+  malformed=any(r['url']==url and r['kind']=='malformed_external_reference' for r in refs)
+  if malformed:status='unresolved_malformed_source_reference';reason='Scheme-less external-looking source locator retained exactly; no scheme guessed and no transport request allowed'
+  if entry and not malformed:
    if entry.get('unit'):
     unit=cp['units'][entry['unit']];rr=json.loads((folder/unit['receipt']).read_text());b=(folder/rr['body_file']).read_bytes()
     if sha(b)!=rr['sha256'] or unit['sha256']!=rr['sha256']:raise ValueError('Corrupt asset '+url)
     status,reason=asset_qualification(url,b,rr['headers']) if rr['status']==200 and not rr.get('access_stop') else ('failed','HTTP/access failure')
    else:status=entry.get('status','missing');reason=entry.get('reason')
-  assets.append({'url':url,'asset_id':aid,'status':status,'reason':reason,'owner_ids':sorted({r['owner_id'] for r in refs if r['url']==url})})
+  assets.append({'url':url,'asset_id':aid,'status':status,'reason':reason,**({'malformed_source_reference':True} if malformed else {}),**({'format_qualification':qualify_pdf(b)} if not malformed and entry and entry.get('unit') and (urlparse(url).path.lower().endswith('.pdf') or rr['headers'].get('content-type','').lower().startswith('application/pdf') or b.startswith(b'%PDF-')) else {}),'owner_ids':sorted({r['owner_id'] for r in refs if r['url']==url})})
  start=digest({'inventory':read_response(folder,cp['units']['inventory-start']),'product':read_response(folder,cp['units'][pub['product_unit']]),'job':job,'toc':tree});end=None
  if pub.get('end_units'):
   eu=pub['end_units'];end=digest({'inventory':read_response(folder,cp['units'][eu['inventory']]),'product':read_response(folder,cp['units'][eu['product']]),'job':read_response(folder,cp['units'][eu['job']]),'toc':read_response(folder,cp['units'][eu['toc']])})

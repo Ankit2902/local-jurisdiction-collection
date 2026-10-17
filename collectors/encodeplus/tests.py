@@ -8,7 +8,7 @@ from .model import inventory,parse_document
 from .transport import scope_path,Stopped
 HERE=pathlib.Path(__file__).parent
 class Tests(unittest.TestCase):
- def fake(self,url,out):
+ def fake(self,url,out,timeout=120):
   out=pathlib.Path(out)
   if 'doc-view.aspx?' in url:data=(HERE/'fixtures/amm-body.html').read_bytes();ctype='text/html'
   elif url.endswith('doc-view.aspx'):data=(HERE/'fixtures/amm-toc.html').read_bytes();ctype='text/html'
@@ -64,7 +64,7 @@ class Tests(unittest.TestCase):
   soup=BeautifulSoup(html,'html.parser');leaf=soup.select_one('section[data-secid="6"]')
   for child in list(leaf.children):
    if getattr(child,'name',None)!='h2':child.extract()
-  with self.assertRaisesRegex(ValueError,'Unexplained empty'):parse_document(str(soup),'5',cfg,known)
+  self.assertEqual(next(r for r in parse_document(str(soup),'5',cfg,known) if r['id']=='6')['kind'],'source_empty_unresolved')
   soup=BeautifulSoup(html,'html.parser');soup.select_one('#thePage').append(BeautifulSoup('<p>Unowned substantive legal provision</p>','html.parser'))
   with self.assertRaisesRegex(AssertionError,'Unowned'):parse_document(str(soup),'5',cfg,known)
   svg=BeautifulSoup('<svg><image href="map.svg"/><image xlink:href="other.png"/><use href="#local"/></svg><img srcset="a.png 1x, b.png 2x"/>','html.parser');from .model import replace_images;images=replace_images(svg,cfg['base']);urls={r['url'] for r in refs(svg,cfg['base'])};self.assertEqual(urls,set());self.assertIn('[IMAGE]',svg.get_text());self.assertTrue(images)
@@ -81,7 +81,7 @@ class Tests(unittest.TestCase):
   from .model import replace_images,refs
   cfg=module.TARGETS['lincoln-access-management'];doc=BeautifulSoup('<p>Official Map is incorporated by reference <a href="https://example.gov/document/123">Map</a></p><picture><source srcset="a.jpg 1x"/><img src="b.png"/></picture><svg><image xlink:href="c.jpg"/></svg><p style="background-image:url(d.png)">Map</p>','html.parser');images=replace_images(doc,cfg['base']);assets=refs(doc,cfg['base']);self.assertEqual([x['url'] for x in assets],['https://example.gov/document/123']);self.assertGreaterEqual(doc.get_text().count('[IMAGE]'),3);self.assertTrue(images)
   calls=[]
-  def guarded(url,out):
+  def guarded(url,out,timeout=120):
    calls.append(url);self.assertFalse(any(url.lower().split('?')[0].endswith(x) for x in ['.jpg','.jpeg','.png','.svg']),'Image network request forbidden');return self.fake(url,out)
   with tempfile.TemporaryDirectory() as td:
    with patch.object(module,'fetch',guarded):r=module.collect('lincoln-access-management',pathlib.Path(td)/'run')
@@ -99,7 +99,7 @@ class Tests(unittest.TestCase):
  def test_extensionless_image_is_placeholder_not_missing_asset(self):
   from bs4 import BeautifulSoup
   image='https://example.gov/document/map123'
-  def fake(url,out):
+  def fake(url,out,timeout=120):
    if 'doc-view.aspx?' in url:
     soup=BeautifulSoup((HERE/'fixtures/amm-body.html').read_text(),'html.parser');soup.select_one('section[data-secid="6"]').append(BeautifulSoup('<p>Official Map incorporated by reference <a href="'+image+'">Official Map</a></p>','html.parser'));data=str(soup).encode();meta={'url':url,'http_status':200,'headers':{'Content-Type':'text/html'},'sha256':digest(data),'bytes':len(data),'challenge':False};atomic_bytes(out,data);atomic_json(pathlib.Path(str(out)+'.receipt.json'),meta);return data,meta
    if url==image:
@@ -113,7 +113,7 @@ class Tests(unittest.TestCase):
   from .documents import qualify_document
   for data in [b'',b'%PDF-truncated',b'%PDF-1.4\ninvalidxref\n%%EOF']:
    with self.assertRaises(ValueError):qualify_document(data,'https://example.gov/document.pdf','application/pdf')
-   def broken(url,out):
+   def broken(url,out,timeout=120):
     if '.pdf' not in url:return self.fake(url,out)
     meta={'url':url,'http_status':200,'headers':{'Content-Type':'application/pdf'},'sha256':digest(data),'bytes':len(data),'challenge':False};atomic_bytes(out,data);atomic_json(pathlib.Path(str(out)+'.receipt.json'),meta);return data,meta
    with tempfile.TemporaryDirectory() as td:
@@ -122,8 +122,124 @@ class Tests(unittest.TestCase):
     self.assertFalse(report['attachments_complete']);self.assertEqual(report['assets_acquired'],0);self.assertTrue(report['missing_assets'])
    with tempfile.TemporaryDirectory() as td:
     out=pathlib.Path(td)/'corruption';self.full(out);s=read_json(out/'checkpoint.json');url,a=next(iter(s['assets'].items()));p=out/a['path'];p.write_bytes(data);a['sha256']=digest(data);a.pop('document_integrity',None);m=read_json(p.with_name(p.name+'.receipt.json'));m['sha256']=a['sha256'];m['bytes']=len(data);atomic_json(p.with_name(p.name+'.receipt.json'),m);atomic_json(out/'checkpoint.json',s);self.assertFalse(verify(out)['attachments_complete'])
+ def test_inline_word_joins_operative_heading_and_explicit_grouping(self):
+  from .model import source_text
+  from bs4 import BeautifulSoup
+  cfg=module.TARGETS['lincoln-access-management']
+  html='<div id="thePage" secid="1"><section data-secid="1" class="_001"><h1>Title 1. General</h1><section data-secid="2" class="_001-001"><h2><strong>Article III. Obedience </strong><strong>t</strong><strong>o </strong><strong>a</strong><strong>nd Effect </strong><strong>o</strong><strong>f Traffic Laws</strong></h2></section><section data-secid="3" class="_001-002"><h3><strong class="def">Refuse</strong><span> shall mean all garbage.</span></h3><p>Each <strong>own</strong><span>er</span> shall comply.<br/>Next line.</p><table><tr><td><b>trans</b><span>portation</span><p>Second line</p></td></tr></table></section></section></div>'
+  known={'1':{'heading':'Title 1. General','has_children':True},'2':{'heading':'Article III. Obedience to and Effect of Traffic Laws','has_children':False}}
+  records=parse_document(html,'1',cfg,known);group=next(r for r in records if r['id']=='2');definition=next(r for r in records if r['id']=='3')
+  self.assertEqual(group['heading'],'Article III. Obedience to and Effect of Traffic Laws');self.assertEqual(group['kind'],'source_empty_unresolved');self.assertEqual(definition['heading'],'Refuse');self.assertTrue(definition['operative_heading_retained_as_body']);self.assertIn('Refuse shall mean all garbage.',definition['text']);self.assertIn('Each owner shall comply.',definition['text']);self.assertEqual(definition['tables'][0][0][0]['text'],'transportation Second line')
+  self.assertEqual(source_text(BeautifulSoup('<p>Inline <b>word</b> and <i>more</i>.</p>','html.parser')),'Inline word and more.')
+ def test_upgrade_lineage_and_corrupt_upgrade_rejection(self):
+  with tempfile.TemporaryDirectory() as td:
+   out=pathlib.Path(td)/'run';self.full(out,interrupt=1)
+   original=module.code_hashes
+   # Simulate a legitimate prior revision with a hash-verified captured file.
+   state=read_json(out/'checkpoint.json');old=b'# retained earlier implementation\n';oldhash=digest(old);state['code_hashes']['model.py']=oldhash;atomic_bytes(out/'script-versions'/(oldhash+'.py'),old);atomic_json(out/'checkpoint.json',state)
+   with patch.object(module,'fetch',self.fake):report=module.collect('lincoln-access-management',out,resume=True,upgrade_code=True)
+   self.assertTrue(report['publication_text_complete']);self.assertTrue(read_json(out/'checkpoint.json')['code_upgrades']);self.assertTrue(list((out/'checkpoint-history').glob('*.json')))
+  with tempfile.TemporaryDirectory() as td:
+   out=pathlib.Path(td)/'run';self.full(out,interrupt=1);state=read_json(out/'checkpoint.json');state['code_hashes']['model.py']='0'*64;atomic_json(out/'checkpoint.json',state)
+   with self.assertRaises(Exception):
+    with patch.object(module,'fetch',self.fake):module.collect('lincoln-access-management',out,resume=True,upgrade_code=True)
+ def test_observed_primary_definition_and_unresolved_leaves(self):
+  cfg=module.TARGETS['lincoln'];definition=parse_document((HERE/'fixtures/lincoln-definition.html').read_text(),'12585',cfg,{})[0]
+  self.assertEqual(definition['heading'],'Refuse');self.assertTrue(definition['operative_heading_retained_as_body']);self.assertIn('shall mean',definition['text']);self.assertGreater(len(definition['text']),100)
+  for fixture,ident,target in [('lincoln-empty-map','13438','lincoln'),('overland-empty-article','3061','overland'),('savannah-empty-leaf','6451','savannah')]:
+   records=parse_document((HERE/'fixtures'/(fixture+'.html')).read_text(),ident,module.TARGETS[target],{ident:{'has_children':False,'heading':'Observed leaf'}})
+   self.assertEqual(records[0]['kind'],'source_empty_unresolved',fixture)
+ def test_narrow_source_hidden_date_sort_keys(self):
+  from bs4 import BeautifulSoup
+  from .model import omit_equivalent_date_sort_keys
+  records=parse_document((HERE/'fixtures/fairfax-hidden-date-sort-keys.html').read_text(),'3044',module.TARGETS['fairfax-zoning'],{})
+  self.assertEqual(len(records[0]['omitted_hidden_sort_keys']),46);self.assertNotIn('2023/05/0905/09/2023',records[0]['text']);self.assertIn('2023/05/09',records[0]['html']);self.assertNotIn('display:none',records[0]['body_html'])
+  doc=BeautifulSoup('<table><tr><td><span style="display:none">Legal hidden requirement</span>Visible rule</td><td><span style="display:none">2023/05/09</span>05/10/2023</td></tr></table>','html.parser');self.assertEqual(omit_equivalent_date_sort_keys(doc),[]);self.assertIn('Legal hidden requirement',str(doc));self.assertIn('2023/05/09',str(doc))
+ def test_background_and_recursive_inline_image_metadata_redaction(self):
+  from bs4 import BeautifulSoup
+  from .model import replace_images,source_text
+  payload='PIXELS_SENTINEL';doc=BeautifulSoup('<section style="background:url(root.png)"><table><tr><td background="outer.png">Outer<table><tr><td style="background:url(inner.png)">Inner</td></tr></table></td></tr></table><img src="ordinary.png" alt="data:image/png;base64,'+payload+'"><p title="data:image/png;base64,'+payload+'">Rule</p></section>','html.parser');root=doc.section;images=replace_images(root,'https://example.gov/');self.assertNotIn(payload,json.dumps({'html':str(root),'refs':images}));self.assertNotIn('background=',str(root));self.assertNotIn('url(',str(root));self.assertTrue(all('[IMAGE]' in source_text(c) for c in root.select('td')));self.assertTrue(any(r['inline_data_sha256'] or r.get('alt_inline_data_sha256') for r in images))
+ def test_native_document_capture_resume_and_corruption(self):
+  from . import native_document as native
+  data=(HERE/'fixtures/overland-solid-waste-native.pdf').read_bytes();cfg=read_json(HERE/'configs/native-82-4b983dc51ab6.json')
+  def fake(url,out,timeout=120):
+   meta={'url':url,'http_status':200,'headers':{'Content-Type':'application/pdf'},'sha256':digest(data),'bytes':len(data),'challenge':False};atomic_bytes(out,data);atomic_json(pathlib.Path(str(out)+'.receipt.json'),meta);return data,meta
+  with tempfile.TemporaryDirectory() as td:
+   out=pathlib.Path(td)/'resumed';full=pathlib.Path(td)/'full'
+   with patch.object(module,'fetch',fake):
+    self.assertFalse(native.collect(cfg,out,interrupt_after_start=True)['native_document_complete']);r=native.collect(cfg,out,resume=True);self.assertTrue(r['native_document_complete']);self.assertFalse(r['publication_text_complete']);self.assertEqual(r['physical_pages'],6);native.collect(cfg,full)
+   self.assertEqual((out/'records.jsonl').read_bytes(),(full/'records.jsonl').read_bytes());p=out/'records.jsonl';p.write_text(p.read_text()+p.read_text().splitlines()[0]+'\n');self.assertFalse(native.verify(out)['native_document_complete'])
+   p=full/'raw/start.pdf';p.write_bytes(b'%PDF-truncated');state=read_json(full/'checkpoint.json');state['start']['sha256']=digest(p.read_bytes());m=read_json(pathlib.Path(str(p)+'.receipt.json'));m['sha256']=state['start']['sha256'];atomic_json(pathlib.Path(str(p)+'.receipt.json'),m);atomic_json(full/'checkpoint.json',state);self.assertFalse(native.verify(full)['native_document_complete'])
+ def test_native_explicit_retry_preserves_failed_poll_attempt(self):
+  pdf=(HERE/'fixtures/amm-full-export.pdf').read_bytes();failed=[False]
+  def fake(url,out,timeout=120):
+   status=200
+   if 'doc-view.js' in url:data=b'var mURL = "export2doc.aspx?pdf=1&tocid=" + id';ctype='application/javascript'
+   elif 'component.aspx' in url:
+    if not failed[0]:failed[0]=True;data=b'';ctype='application/json';status=None
+    else:data=b'{"Ready":true,"File":"test.pdf"}';ctype='application/json'
+   elif '&file=' in url:data=pdf;ctype='application/pdf'
+   else:data=b"<script>$.get('component.aspx?name=export2doc',function(){});</script>";ctype='text/html'
+   m={'url':url,'http_status':status,'headers':{'Content-Type':ctype},'sha256':digest(data),'bytes':len(data),'challenge':False};atomic_bytes(out,data);atomic_json(pathlib.Path(str(out)+'.receipt.json'),m)
+   if status is None:raise TimeoutError('Retained original export timeout')
+   return data,m
+  with tempfile.TemporaryDirectory() as td:
+   out=pathlib.Path(td);state={'config':module.TARGETS['lincoln-access-management']}
+   with patch.object(module,'fetch',fake):
+    with self.assertRaises(TimeoutError):module.native_export(out,state,(HERE/'fixtures/amm-body.html').read_text())
+    r=module.native_export(out,state,(HERE/'fixtures/amm-body.html').read_text());self.assertEqual(r['status'],'downloaded');self.assertEqual(r['document_integrity']['pages'],17)
+   self.assertTrue((out/'native/attempt-0/poll-0.json.receipt.json').exists());self.assertTrue((out/'native/attempt-1/publication.pdf').exists());self.assertEqual(read_json(out/'native/attempt-0/poll-0.json.receipt.json')['http_status'],None)
+ def test_live_source_revision_drift_fails_closed(self):
+  versions=module.code_hashes();changed=[False]
+  def fake(url,out,timeout=120):
+   result=self.fake(url,out,timeout);changed[0]=True;return result
+  with tempfile.TemporaryDirectory() as td:
+   out=pathlib.Path(td)/'run'
+   with patch.object(module,'fetch',fake),patch.object(module,'code_hashes',lambda:versions if not changed[0] else versions|{'unexecuted_revision.py':'f'*64}):
+    report=module.collect('lincoln-access-management',out)
+   self.assertFalse(report['publication_text_complete']);self.assertEqual(read_json(out/'checkpoint.json')['phase'],'failed');self.assertTrue(any('source changed' in f['reason'] for f in read_json(out/'checkpoint.json')['failures']))
+ def test_retained_paths_cannot_escape_relocated_package(self):
+  from .util import validate_file
+  with tempfile.TemporaryDirectory() as td:
+   root=pathlib.Path(td);out=root/'evidence';out.mkdir();external=root/'outside.bin';external.write_bytes(b'known outside fixture');h=digest(external.read_bytes())
+   for path in [str(external),'../outside.bin']:
+    with self.assertRaisesRegex(ValueError,'relative inside'):validate_file(out,path,h)
+   (out/'escape.bin').symlink_to(external)
+   with self.assertRaisesRegex(ValueError,'escapes evidence'):validate_file(out,'escape.bin',h)
+ def test_transient_resume_uses_new_immutable_attempt_and_refusals_never_retry(self):
+  with tempfile.TemporaryDirectory() as td:
+   out=pathlib.Path(td);url='https://online.encodeplus.com/regs/test/doc-view.aspx?secid=1';p=out/'raw/node-1.html';meta={'url':url,'http_status':None,'headers':{},'sha256':digest(b''),'bytes':0,'challenge':False,'error':'Timeout'};atomic_bytes(p,b'');atomic_json(pathlib.Path(str(p)+'.receipt.json'),meta);original=pathlib.Path(str(p)+'.receipt.json').read_bytes()
+   with patch.object(module,'fetch',self.fake):data,m=module.cached(out,url,'raw/node-1.html')
+   self.assertEqual(m['_retained_path'],'raw/node-1.attempt-1.html');self.assertEqual(p.read_bytes(),b'');self.assertEqual(pathlib.Path(str(p)+'.receipt.json').read_bytes(),original);self.assertTrue(data)
+   meta['blocked_by_stop']=True;meta['preexisting_stop']={'status':403};atomic_json(pathlib.Path(str(p)+'.receipt.json'),meta)
+   with patch.object(module,'fetch') as fetch:
+    with self.assertRaises(AssertionError):module.cached(out,url,'raw/node-1.html')
+    fetch.assert_not_called()
+ def test_case_insensitive_429_and_redirect_cycle_retained_without_repeated_request(self):
+  from .transport import fetch,TRANSPORT_SHA256
+  from urllib.error import HTTPError
+  from unittest.mock import MagicMock
+  url='https://online.encodeplus.com/regs/test/x'
+  with tempfile.TemporaryDirectory() as td:
+   root=pathlib.Path(td);opener=MagicMock();opener.open.side_effect=HTTPError(url,429,'Rate limit',{'retry-after':'1000'},io.BytesIO(b'Rate limit'))
+   with patch.dict(os.environ,{'ENCODEPLUS_GATE_DIR':str(root/'gate')}),patch('urllib.request.build_opener',return_value=opener),patch('time.sleep'):
+    with self.assertRaises(Stopped):fetch(url,root/'429.bin')
+    with self.assertRaises(Stopped):fetch(url,root/'cooldown.bin')
+   self.assertEqual(opener.open.call_count,1);self.assertGreater(read_json(root/'gate/state.json')['cooldown_until']-__import__('time').time(),990);self.assertFalse(read_json(root/'cooldown.bin.receipt.json')['request_attempted']);self.assertEqual(read_json(root/'429.bin.receipt.json')['transport_sha256'],TRANSPORT_SHA256)
+  with tempfile.TemporaryDirectory() as td:
+   root=pathlib.Path(td);opener=MagicMock();opener.open.side_effect=[HTTPError(url,302,'Redirect',{'Location':'/regs/test/y'},io.BytesIO(b'First redirect')),HTTPError('https://online.encodeplus.com/regs/test/y',302,'Redirect',{'location':'/regs/test/x'},io.BytesIO(b'Second redirect'))]
+   with patch.dict(os.environ,{'ENCODEPLUS_GATE_DIR':str(root/'gate')}),patch('urllib.request.build_opener',return_value=opener),patch('time.sleep'):
+    with self.assertRaises(Stopped):fetch(url,root/'cycle.bin')
+   self.assertEqual(opener.open.call_count,2);m=read_json(root/'cycle.bin.receipt.json');self.assertTrue(m['redirect_failure']);self.assertEqual(len(m['redirects']),2);self.assertEqual(m['redirects'][0]['headers']['Location'],'/regs/test/y')
  def test_explicit_limit_never_full(self):
   with tempfile.TemporaryDirectory() as td:
    with patch.object(module,'fetch',self.fake):r=module.collect('lincoln-access-management',pathlib.Path(td)/'run',max_items=1)
    self.assertFalse(r['publication_text_complete']);self.assertIn('Explicit max-items forces incomplete',r['errors'])
+ def test_case_insensitive_image_mime_and_data_uri_policy(self):
+  from bs4 import BeautifulSoup
+  cfg=module.TARGETS['lincoln-access-management'];inv=inventory((HERE/'fixtures/amm-toc.html').read_text(),cfg);known={n['id']:n for n in inv['nodes']}
+  soup=BeautifulSoup((HERE/'fixtures/amm-body.html').read_text(),'html.parser');body=soup.select_one('section[data-secid="6"]')
+  body.append(BeautifulSoup('<object type="IMAGE/PNG" data="https://example.invalid/opaque-image"></object><source src="DATA:IMAGE/PNG;base64,PIXELS_SENTINEL">','html.parser'))
+  record=next(r for r in parse_document(str(soup),'5',cfg,known) if r['id']=='6')
+  self.assertEqual(record['text'].count('[IMAGE]'),2);self.assertNotIn('PIXELS_SENTINEL',json.dumps(record));self.assertNotIn('opaque-image',record['body_html']);self.assertFalse(record['assets']);self.assertEqual(len(record['image_refs']),2)
 if __name__=='__main__':unittest.main(verbosity=2)

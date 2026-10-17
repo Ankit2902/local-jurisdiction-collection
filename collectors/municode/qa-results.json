@@ -1,34 +1,85 @@
 {
-  "kind": "network-free-final-hardening-regressions",
-  "python": "3.9.6 (default, May 22 2026, 11:13:45) \n[Clang 21.0.0 (clang-2100.1.1.101)]",
-  "python_executable": "/Library/Developer/CommandLineTools/usr/bin/python3",
+  "schema_version": 2,
+  "kind": "Final frozen collection-readiness no-network regressions after portable known-stop guard",
   "network_requests": 0,
+  "python": "3.12.14 (main, Aug 25 2026, 13:50:33) [Clang 22.1.3 ]",
+  "python_executable": "/tmp/full-publication-review-venv/bin/python",
   "passed": true,
   "checks": [
     {
       "argv": [
-        "/Library/Developer/CommandLineTools/usr/bin/python3",
+        "/tmp/full-publication-review-venv/bin/python",
         "-B",
-        "collectors/municode/test_faults.py"
+        "/Users/oliverflint/My Drive/Claude/Projects/CompliSolv 2.00/github/local-jurisdiction-collection/collectors/municode/test_faults.py"
       ],
       "exit_code": 0,
       "stdout": "",
-      "stderr": "test_baseline_and_container_ownership (__main__.FaultTests) ... ok\ntest_corrupt_asset (__main__.FaultTests) ... ok\ntest_corrupt_body (__main__.FaultTests) ... ok\ntest_corrupt_resume_cache_refused_before_network (__main__.FaultTests) ... ok\ntest_duplicated_document (__main__.FaultTests) ... ok\ntest_extensionless_image_head_omission (__main__.FaultTests) ... ok\ntest_image_forms_and_image_only_leaf (__main__.FaultTests) ... ok\ntest_image_omission_no_download (__main__.FaultTests) ... ok\ntest_inline_image_payload_not_in_normalized_metadata (__main__.FaultTests) ... ok\ntest_interrupted_cannot_pass (__main__.FaultTests) ... ok\ntest_limit_always_incomplete (__main__.FaultTests) ... ok\ntest_missing_asset (__main__.FaultTests) ... ok\ntest_missing_document (__main__.FaultTests) ... ok\ntest_required_pdf_truncated_or_unqualified_cannot_complete (__main__.FaultTests) ... ok\ntest_resume_identity_mismatch_refused (__main__.FaultTests) ... ok\ntest_resume_matches_uninterrupted_outputs (__main__.FaultTests) ... ok\ntest_source_drift (__main__.FaultTests) ... ok\ntest_wrong_edition_request (__main__.FaultTests) ... ok\ntest_zip_prefix_only_cannot_qualify (__main__.FaultTests) ... ok\n\n----------------------------------------------------------------------\nRan 19 tests in 1.483s\n\nOK\n"
+      "stderr": "test_bare_external_notes_and_css_dependency_never_call_transport (__main__.FaultTests.test_bare_external_notes_and_css_dependency_never_call_transport) ... ok\ntest_baseline_and_container_ownership (__main__.FaultTests.test_baseline_and_container_ownership) ... ok\ntest_cell_owned_image_placeholders (__main__.FaultTests.test_cell_owned_image_placeholders) ... ok\ntest_corrupt_asset (__main__.FaultTests.test_corrupt_asset) ... ok\ntest_corrupt_body (__main__.FaultTests.test_corrupt_body) ... ok\ntest_corrupt_resume_cache_refused_before_network (__main__.FaultTests.test_corrupt_resume_cache_refused_before_network) ... ok\ntest_duplicated_document (__main__.FaultTests.test_duplicated_document) ... ok\ntest_empty_source_keeps_closing_evidence_but_cannot_complete (__main__.FaultTests.test_empty_source_keeps_closing_evidence_but_cannot_complete) ... ok\ntest_exact_jacksonville_bare_www_never_calls_transport (__main__.FaultTests.test_exact_jacksonville_bare_www_never_calls_transport) ... ok\ntest_extensionless_image_head_omission (__main__.FaultTests.test_extensionless_image_head_omission) ... ok\ntest_image_forms_and_image_only_leaf (__main__.FaultTests.test_image_forms_and_image_only_leaf) ... ok\ntest_image_omission_no_download (__main__.FaultTests.test_image_omission_no_download) ... ok\ntest_inline_image_payload_not_in_normalized_metadata (__main__.FaultTests.test_inline_image_payload_not_in_normalized_metadata) ... ok\ntest_interrupted_cannot_pass (__main__.FaultTests.test_interrupted_cannot_pass) ... ok\ntest_limit_always_incomplete (__main__.FaultTests.test_limit_always_incomplete) ... ok\ntest_missing_asset (__main__.FaultTests.test_missing_asset) ... ok\ntest_missing_document (__main__.FaultTests.test_missing_document) ... ok\ntest_nested_notes_images_and_required_links (__main__.FaultTests.test_nested_notes_images_and_required_links) ... ok\ntest_real_pdf_parser_positive_and_structural_faults (__main__.FaultTests.test_real_pdf_parser_positive_and_structural_faults) ... ok\ntest_relative_file_and_network_path_are_not_bare_host_guesses (__main__.FaultTests.test_relative_file_and_network_path_are_not_bare_host_guesses) ... ok\ntest_required_pdf_truncated_or_unqualified_cannot_complete (__main__.FaultTests.test_required_pdf_truncated_or_unqualified_cannot_complete) ... ok\ntest_required_real_pdf_complete_pipeline (__main__.FaultTests.test_required_real_pdf_complete_pipeline) ... ok\ntest_resume_identity_mismatch_refused (__main__.FaultTests.test_resume_identity_mismatch_refused) ... ok\ntest_resume_matches_uninterrupted_outputs (__main__.FaultTests.test_resume_matches_uninterrupted_outputs) ... ok\ntest_source_drift (__main__.FaultTests.test_source_drift) ... ok\ntest_wrong_edition_request (__main__.FaultTests.test_wrong_edition_request) ... ok\ntest_zip_prefix_only_cannot_qualify (__main__.FaultTests.test_zip_prefix_only_cannot_qualify) ... ok\n\n----------------------------------------------------------------------\nRan 27 tests in 8.422s\n\nOK\n"
+    },
+    {
+      "argv": [
+        "/tmp/full-publication-review-venv/bin/python",
+        "-B",
+        "/Users/oliverflint/My Drive/Claude/Projects/CompliSolv 2.00/github/local-jurisdiction-collection/collectors/municode/test_batch.py"
+      ],
+      "exit_code": 0,
+      "stdout": "{\n  \"pending\": 1,\n  \"running\": 0,\n  \"complete\": 0,\n  \"incomplete\": 0\n}\n{\"publication_id\": \"a-primary\", \"status\": \"incomplete\", \"exit_code\": 0, \"verification_exit_code\": 0}\n{\n  \"pending\": 0,\n  \"running\": 0,\n  \"complete\": 0,\n  \"incomplete\": 1\n}\n{\"publication_id\": \"a-primary\", \"status\": \"complete\", \"exit_code\": 0, \"verification_exit_code\": 0}\n{\n  \"pending\": 0,\n  \"running\": 0,\n  \"complete\": 1,\n  \"incomplete\": 0\n}\n{\"publication_id\": \"a-primary\", \"status\": \"complete\", \"exit_code\": 0, \"verification_exit_code\": 0}\n{\n  \"pending\": 0,\n  \"running\": 0,\n  \"complete\": 1,\n  \"incomplete\": 0\n}\n{\"publication_id\": \"a-primary\", \"status\": \"complete\", \"exit_code\": 0, \"verification_exit_code\": 0}\n{\n  \"pending\": 0,\n  \"running\": 0,\n  \"complete\": 1,\n  \"incomplete\": 0\n}\n{\n  \"pending\": 0,\n  \"running\": 0,\n  \"complete\": 1,\n  \"incomplete\": 0\n}\n{\"publication_id\": \"a-primary\", \"status\": \"complete\", \"exit_code\": 0, \"verification_exit_code\": 0}\n{\n  \"pending\": 0,\n  \"running\": 0,\n  \"complete\": 1,\n  \"incomplete\": 0\n}\n{\"publication_id\": \"a-primary\", \"status\": \"incomplete\", \"exit_code\": 0, \"verification_exit_code\": 0}\n{\n  \"pending\": 0,\n  \"running\": 0,\n  \"complete\": 0,\n  \"incomplete\": 1\n}\n",
+      "stderr": "test_access_stop_dispatches_nothing (__main__.BatchTests.test_access_stop_dispatches_nothing) ... ok\ntest_default_product_policy_matches_explicit_henderson_policy (__main__.BatchTests.test_default_product_policy_matches_explicit_henderson_policy) ... ok\ntest_previous_incomplete_retry_uses_fresh_owned_run (__main__.BatchTests.test_previous_incomplete_retry_uses_fresh_owned_run) ... ok\ntest_running_interruption_resumes (__main__.BatchTests.test_running_interruption_resumes) ... ok\ntest_serial_complete_and_resume_skip (__main__.BatchTests.test_serial_complete_and_resume_skip) ... ok\ntest_source_binding_mismatch_refused (__main__.BatchTests.test_source_binding_mismatch_refused) ... ok\ntest_success_exit_without_complete_coverage_cannot_pass (__main__.BatchTests.test_success_exit_without_complete_coverage_cannot_pass) ... ok\n\n----------------------------------------------------------------------\nRan 7 tests in 0.123s\n\nOK\n"
+    },
+    {
+      "argv": [
+        "/tmp/full-publication-review-venv/bin/python",
+        "-B",
+        "/Users/oliverflint/My Drive/Claude/Projects/CompliSolv 2.00/github/local-jurisdiction-collection/collectors/municode/test_gate.py"
+      ],
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": "test_429_persists_stop_and_minimum_cooldown (__main__.GateTests.test_429_persists_stop_and_minimum_cooldown) ... ok\ntest_external_stop_is_host_bound_and_publisher_stop_is_global (__main__.GateTests.test_external_stop_is_host_bound_and_publisher_stop_is_global) ... ok\n\n----------------------------------------------------------------------\nRan 2 tests in 0.403s\n\nOK\n"
+    },
+    {
+      "argv": [
+        "/tmp/full-publication-review-venv/bin/python",
+        "-B",
+        "/Users/oliverflint/My Drive/Claude/Projects/CompliSolv 2.00/github/local-jurisdiction-collection/collectors/municode/test_runtime.py"
+      ],
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": "test_ancient_system_node_refused_before_module_load (__main__.RuntimeTests.test_ancient_system_node_refused_before_module_load) ... ok\ntest_exact_bundled_official_core_build (__main__.RuntimeTests.test_exact_bundled_official_core_build) ... ok\ntest_missing_runtime_refused (__main__.RuntimeTests.test_missing_runtime_refused) ... ok\ntest_other_beta_build_refused (__main__.RuntimeTests.test_other_beta_build_refused) ... ok\ntest_supported_npm_version (__main__.RuntimeTests.test_supported_npm_version) ... ok\ntest_supported_official_python_core_version (__main__.RuntimeTests.test_supported_official_python_core_version) ... ok\ntest_unqualified_version_refused (__main__.RuntimeTests.test_unqualified_version_refused) ... ok\n\n----------------------------------------------------------------------\nRan 7 tests in 0.159s\n\nOK\n"
+    },
+    {
+      "argv": [
+        "/tmp/full-publication-review-venv/bin/python",
+        "-B",
+        "/Users/oliverflint/My Drive/Claude/Projects/CompliSolv 2.00/github/local-jurisdiction-collection/collectors/municode/test_access.py"
+      ],
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": "test_direct_entrypoints_stop_before_browser_or_subprocess (__main__.AccessTests.test_direct_entrypoints_stop_before_browser_or_subprocess) ... Runtime preflight: Publisher access stopped after observed malformed source-relative HEAD403/Cf-Mitigated challenge; no automatic retry. Availability of other legitimate routes after the stop is untested. Missing or altered advisory/tmp state cannot release this known stop.\nok\ntest_missing_and_mismatched_advisories_do_not_release_stop (__main__.AccessTests.test_missing_and_mismatched_advisories_do_not_release_stop) ... ok\ntest_offline_dependency_check_not_blocked_by_access_advisory (__main__.AccessTests.test_offline_dependency_check_not_blocked_by_access_advisory) ... ok\ntest_relocated_family_fallback_is_portable (__main__.AccessTests.test_relocated_family_fallback_is_portable) ... ok\n\n----------------------------------------------------------------------\nRan 4 tests in 0.361s\n\nOK\n"
+    },
+    {
+      "argv": [
+        "/tmp/full-publication-review-venv/bin/python",
+        "-B",
+        "/Users/oliverflint/My Drive/Claude/Projects/CompliSolv 2.00/github/local-jurisdiction-collection/collectors/municode/test_edition.py"
+      ],
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": "test_actual_charter_header_stays_unqualified (__main__.EditionTests.test_actual_charter_header_stays_unqualified) ... ok\ntest_actual_udc_mismatch (__main__.EditionTests.test_actual_udc_mismatch) ... ok\ntest_exact_label_is_only_header_corroboration (__main__.EditionTests.test_exact_label_is_only_header_corroboration) ... ok\ntest_missing_update_stays_unqualified (__main__.EditionTests.test_missing_update_stays_unqualified) ... ok\ntest_partial_number_does_not_match (__main__.EditionTests.test_partial_number_does_not_match) ... ok\ntest_partial_republication_label_does_not_match (__main__.EditionTests.test_partial_republication_label_does_not_match) ... ok\n\n----------------------------------------------------------------------\nRan 6 tests in 0.001s\n\nOK\n"
     },
     {
       "argv": [
         "/Users/oliverflint/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/bin/node",
-        "collectors/municode/test_transport.cjs"
+        "/Users/oliverflint/My Drive/Claude/Projects/CompliSolv 2.00/github/local-jurisdiction-collection/collectors/municode/test_transport.cjs"
       ],
       "exit_code": 0,
-      "stdout": "{\"passed\":true,\"network_requests\":0,\"actual_browser_module_executed\":true,\"known_image_requests\":0,\"extensionless_image_body_requests\":0,\"nonimage_attachment_head_and_get\":true,\"ordinary_image_resources_blocked\":true,\"security_resources_untouched\":true}\n",
+      "stdout": "{\"passed\":true,\"network_requests\":0,\"actual_browser_module_executed\":true,\"known_image_requests\":0,\"extensionless_image_body_requests\":0,\"nonimage_attachment_head_and_get\":true,\"publisher_pdf_octet_stream_supported\":true,\"external_refusal_does_not_clear_or_trigger_publisher_stop\":true,\"ordinary_image_resources_blocked\":true,\"security_resources_untouched\":true}\n",
       "stderr": ""
     },
     {
       "argv": [
-        "/Library/Developer/CommandLineTools/usr/bin/python3",
+        "/tmp/full-publication-review-venv/bin/python",
         "-B",
-        "collectors/municode/check_fixture.py"
+        "/Users/oliverflint/My Drive/Claude/Projects/CompliSolv 2.00/github/local-jurisdiction-collection/collectors/municode/check_fixture.py"
       ],
       "exit_code": 0,
       "stdout": "{\n  \"passed\": true,\n  \"evidence_kind\": \"retained-single-provision-not-publication\",\n  \"network_requests\": 0,\n  \"node_id\": \"TIT4BURELI_CH4.05BULIFESC_4.05.420BULISUFE\",\n  \"table_count\": 1,\n  \"row_count\": 176,\n  \"cell_count\": 528,\n  \"internal_link_count\": 105\n}\n",
@@ -36,40 +87,44 @@
     },
     {
       "argv": [
-        "/Library/Developer/CommandLineTools/usr/bin/python3",
+        "/tmp/full-publication-review-venv/bin/python",
         "-B",
-        "collectors/municode/verify.py",
-        "collectors/municode/fixtures/synthetic-complete",
+        "/Users/oliverflint/My Drive/Claude/Projects/CompliSolv 2.00/github/local-jurisdiction-collection/collectors/municode/verify.py",
+        "/Users/oliverflint/My Drive/Claude/Projects/CompliSolv 2.00/github/local-jurisdiction-collection/collectors/municode/fixtures/synthetic-complete",
         "--offline"
       ],
       "exit_code": 0,
-      "stdout": "{\n  \"passed\": true,\n  \"checks\": 58,\n  \"network_requests\": 0,\n  \"package_writes\": false,\n  \"record_count\": 3,\n  \"publication_complete\": true,\n  \"publication_text_complete\": true,\n  \"publication_attachments_complete\": true,\n  \"jurisdiction_complete\": false,\n  \"phase\": \"finished\"\n}\n",
-      "stderr": ""
-    },
-    {
-      "argv": [
-        "/Library/Developer/CommandLineTools/usr/bin/python3",
-        "-B",
-        "collectors/qa/test_municode_edges.py"
-      ],
-      "exit_code": 0,
-      "stdout": "{\n  \"synthetic\": true,\n  \"network_requests_sent\": 0,\n  \"image_policy\": \"literal [IMAGE]; no separate image acquisition\",\n  \"source_module_sha256\": {\n    \"model.py\": \"39c08c00a9429cefadd082f3e1b7d5ec02a8d40b7beda0b0fc789908eb289048\",\n    \"image_policy.py\": \"082ced37bb2c2f7be5cdf9a77a12ce734e98e1b469626e206faf337beba29390\"\n  },\n  \"probes\": [\n    {\n      \"test\": \"baseline\",\n      \"expected_complete\": true,\n      \"actual_complete\": true,\n      \"passed\": true,\n      \"error\": null\n    },\n    {\n      \"test\": \"omitted_direct_image\",\n      \"expected_complete\": true,\n      \"actual_complete\": true,\n      \"passed\": true,\n      \"error\": null\n    },\n    {\n      \"test\": \"svg_image_href\",\n      \"expected_complete\": true,\n      \"actual_complete\": true,\n      \"passed\": true,\n      \"error\": null\n    },\n    {\n      \"test\": \"svg_image_xlink\",\n      \"expected_complete\": true,\n      \"actual_complete\": true,\n      \"passed\": true,\n      \"error\": null\n    },\n    {\n      \"test\": \"image_only_leaf\",\n      \"expected_complete\": true,\n      \"actual_complete\": true,\n      \"passed\": true,\n      \"error\": null\n    },\n    {\n      \"test\": \"mixed_images_nested_table\",\n      \"expected_complete\": true,\n      \"actual_complete\": true,\n      \"passed\": true,\n      \"error\": null\n    },\n    {\n      \"test\": \"required_nonimage_attachment\",\n      \"expected_complete\": false,\n      \"actual_complete\": false,\n      \"passed\": true,\n      \"error\": null\n    },\n    {\n      \"test\": \"heading_only_leaf\",\n      \"expected_complete\": false,\n      \"actual_complete\": false,\n      \"passed\": true,\n      \"error\": null\n    },\n    {\n      \"test\": \"unknown_empty_container\",\n      \"expected_complete\": false,\n      \"actual_complete\": false,\n      \"passed\": true,\n      \"error\": null\n    }\n  ],\n  \"passed\": true\n}\n",
+      "stdout": "{\n  \"passed\": true,\n  \"checks\": 61,\n  \"network_requests\": 0,\n  \"package_writes\": false,\n  \"record_count\": 3,\n  \"publication_complete\": true,\n  \"publication_text_complete\": true,\n  \"publication_attachments_complete\": true,\n  \"jurisdiction_complete\": false,\n  \"phase\": \"finished\"\n}\n",
       "stderr": ""
     }
   ],
   "source_hashes": {
-    "collect.py": "505443170e71b082ff0bfae97f6e94482f2aa68999dc4bf778a1fb175ea79209",
+    "collect.py": "c382be92891c5a1f3f6b03c99f5af6d68d283e337a3600cb1c2f75ddb0b6e349",
+    "pdf_integrity.py": "50d9295a9509e79a384a641ac72ff6ded221fc705739f9c948e23ec8bbf19235",
     "table_qa.cjs": "c05e86bfd17af907453ae0b345e14eff8a0a7c304b525445ed29ab6e2e93aa72",
-    "browser.cjs": "3ed9da37fa4e7e4b5c868afbff37425ddc77d6a41caab551ea24858631138c0c",
-    "gate_cli.py": "1f358d2d9a4f8851b5e37437164152724606fb711be4e032aeea7a44277d65df",
+    "browser.cjs": "c5350010a0cf723952b490d166e159027e8cccf021f5c0672836624de9854b3a",
+    "gate_cli.py": "380f7cfd68ed4adcaffad1d8772488d835330bf1c2b3294260a7c4568668c4d3",
     "normalize.py": "a730839b7c4620f19ed8556af8671ba67d1b2ef5df29e7df23935c4e8c4e02fb",
-    "image_policy.py": "082ced37bb2c2f7be5cdf9a77a12ce734e98e1b469626e206faf337beba29390",
-    "test_faults.py": "dd33d37b6b15d57942a54ecfea8c697973fff9adb95d29ebad91f3817a8f14d7",
-    "model.py": "39c08c00a9429cefadd082f3e1b7d5ec02a8d40b7beda0b0fc789908eb289048",
+    "batch.py": "f8c41eb3ee60a06a77458af17ab93a9c17ee4c69421383a053c8013476589459",
+    "image_policy.py": "68717e6d78e10e3a1be0b4be36e79705e6234d4338776a384f9cd3564547bfbc",
+    "test_runtime.py": "d43b7b0725f033ac105731bb9e39b4aade5b3e69837be6ae7e3b7f1cc55dff6a",
+    "export.py": "b90ad8bba5a41af2701ced93417e0d835029fc2946e34a0ea96ed810071081bf",
+    "runtime.py": "e1fedc46b4c26dfb66f4656fd083bf3d96cacf16c4101f3637c95a6024d65016",
+    "notes.py": "d89806e1b8f48c84f1c9d3419cac3b8b1394e9b90f62326f8e20a4fe663ebb9d",
+    "test_faults.py": "e6f6693f8b4fa89f2d1b3ad572cd3d849316b29b83f7000677151020cb1f01ab",
+    "model.py": "a1c23f346fffa6c2c45df98939b29c9680515087de8bc571c16b72d8471d4978",
+    "edition.py": "3f9583899da2e47380af26df15744c70f079364395b5c0dffc093d696a678e05",
     "check_fixture.py": "a6cb928a6e876813a8fcb0aa83145215991fa71270150a63f0150a29e60c490a",
-    "test_transport.cjs": "81f99b0a560828ac316498b2d760bd06e9505b9e2ee1250133c5d9870fc2cec7",
-    "verify.py": "3d86e885f1695fc45371747397bf9edbded67caabb9d1cf636a220c7cf763c60",
+    "test_gate.py": "c01d3cbfdba245f5d72898b1c00438d6d28f16abb37a2443f432a7543262b4ca",
+    "test_edition.py": "293831a45fa2829e8833feed9416de2f9c6c38240435a53e68e02b5d725c5a01",
+    "test_transport.cjs": "9c59e6718ceff9dbf2d3e02d1b724ab9d0c4d5cefdd186c540d531bb279f2fee",
+    "access_state.py": "831cab9202f0f8da10c4002a962d899dd1d7ca63fd1f0a19804f8be7a50e3749",
+    "verify.py": "9c7e6016f82827ab5f07c6627e60a61890c746dcd1e80afa432c20f5592234a1",
+    "test_batch.py": "6359f574a41e959432f0a4d3fabafc37fa674db33fe75450b2a0752438904307",
+    "test_access.py": "2c531f906f03ec9886a51b96eba39767856b67a949f7035d87497879af4c1ebe",
     "probe_container.cjs": "6e62a02e5ac2fecdcd72173feb2dc7a1e08099d749c8996cea5fb0b2db51e0af",
-    "smoke.py": "1383dc188bc284905116ec974da26e887c6295591986aee6d46f9dc8de375a5b"
-  }
+    "checkpoint_report.py": "f5387fa05b6269a92b8f61591b33e23e1e63d114d06a6da79d06b572d550e284",
+    "smoke.py": "c149a6aa2288ed35ef8ed018c7c4271fcabd22d75d6372b75254ce8b8452d7e3"
+  },
+  "scope_note": "Dependency allowlist tests isolate access advisory; direct entrypoint tests use fresh empty gate and browser/subprocess tripwires to prove known stop remains honored. No live requests."
 }

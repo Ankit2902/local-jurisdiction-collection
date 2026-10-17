@@ -15,6 +15,9 @@ def atomic_bytes(path,data):
   if os.path.exists(name):os.unlink(name)
 def atomic_json(path,obj):atomic_bytes(path,json.dumps(obj,ensure_ascii=False,indent=2,sort_keys=True).encode()+b'\n')
 def validate_file(root,path,expected):
- p=Path(root)/path
+ root=Path(root).resolve();relative=Path(path)
+ if relative.is_absolute() or '..' in relative.parts:raise ValueError('Retained path must be relative inside evidence root')
+ p=(root/relative).resolve()
+ if not p.is_relative_to(root):raise ValueError('Retained symlink escapes evidence root')
  if not p.is_file() or digest(p.read_bytes())!=expected:raise ValueError('Missing/corrupt retained file: '+str(p))
  return p

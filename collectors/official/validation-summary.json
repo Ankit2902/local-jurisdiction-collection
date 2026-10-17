@@ -1,1221 +1,310 @@
 {
   "schema": 1,
   "family": "official",
-  "frozen": true,
-  "implementation_status": "Full selected-publication inventories/traversal, atomic resume, source consistency, source-bound replay and image omissions implemented; proof scopes below are explicit.",
-  "primary_target_sequences": [
-    18,
-    20,
-    21,
-    56,
-    58,
-    78,
-    80,
-    99
-  ],
-  "additional_configured_family": "New Orleans official CZO native print-all HTML; exact selected secondary families separately configured.",
-  "current_runtime_hashes": {
-    "collect.py": "8dd9dbb0776a586e152c530d7e6935103f6d86c98c1dfd494c8cda98b5355bab",
-    "model.py": "19e6e27cc50637cafa9048f704e23b238deb9f748395507fb9a392ebd362e550",
-    "transport.py": "856f00a0de7d561839ba8842af7ae49483fd5efd31fb0352dbe7cbccc011a148",
-    "legacy_html.py": "0e10fe08406788f8540bcb232c927bcffb547f0ae072a68684ea313afb08cde6",
-    "browser_fetch.cjs": "1541bbdb1e0c98034af584c0f0a3e37788ab54c09d35bc8379d73f4b1ff39a87"
-  },
-  "final_entrypoint_exact_fresh_proof": "final/worcester-v3",
-  "compatible_prior_final_policy_snapshots": "Other selected runs retain their executed revisions; current parser/verifier must independently replay identical outputs. Final deltas add explicitly configured CZO print-UI exclusion and required-PDF attachment format validation; unaffected formats are not relabelled as newly acquired.",
+  "stage": "collection-readiness-2026-10-17",
+  "frozen": false,
+  "implementation_status": "Stable readiness implementation checkpoint with27passingoffline tests; full live collections remain active and concrete source/dependency gaps are retained. Not all-target completion.",
+  "evidence_root": "outputs/collection-readiness-2026-10-17/official",
+  "prior_immutable_evidence": "outputs/full-publication-validation-2026-10-17/official; replay with its own sealed implementation",
+  "prior_stage_report": "prior-stage-validation-summary.json",
   "runtime": {
     "python": "3.12.14",
     "node": "24.19.0",
     "playwright": "1.62.1",
     "chrome": "155.0.8059.84",
-    "platform": "macOS/POSIX fcntl; Windows unqualified",
-    "python_dependencies": "requirements.txt",
-    "browser_dependencies": "package.json"
+    "platform": "macOS/POSIX fcntl",
+    "dependencies": "requirements.txt and package.json; pdfplumber0.11.8 added for coordinate/table qualification"
   },
-  "portable_commands": {
-    "install_python": "python3 -m venv /your/runtime/official-venv && /your/runtime/official-venv/bin/python -m pip install -r collectors/official/requirements.txt",
-    "install_browser": "npm install --prefix collectors/official; use installed Google Chrome",
-    "full_collect": "PYTHON=/your/runtime/official-venv/bin/python NODE=/path/to/node /your/runtime/official-venv/bin/python -B collectors/official/collect.py --config collectors/official/configs/<selected>.json --out /fresh/evidence",
-    "resume": "Same command/config/output plus --resume; exact code and current source identity required.",
-    "replay": "python -B collectors/official/verify_suite.py --evidence /relocated/official",
-    "single_replay": "python -B collectors/official/verify.py /relocated/official/final/<proof> (exit0 complete requested level; exit3 correctly incomplete/error)",
-    "faults": "python -B collectors/official/test_offline.py"
-  },
-  "offline_fault_tests": {
-    "count": 16,
-    "status": "passed",
-    "evidence": "qa/offline-tests.txt",
-    "scope": "Retained real source PDF/ZIP plus explicit synthetic index/transport; missing, duplicate, corruption, CRC, page gaps, wrongedition/config, lostinventory, interruption/resume equivalence, forgedconsistency, same-byte source crosswire, tableownership, incorporation, image nofetch, exactUIexclusion/legaldrift and PDFattachmentformat."
+  "current_runtime_hashes": {
+    "collect.py": "e8f2bb78db077f4d43d4e6ec82d60eb328119eb05ad43f92e3687ece85105152",
+    "model.py": "6f3756efdae693f8f733709e954eb2adf89e6d4b393b9811044de13dd31431df",
+    "transport.py": "856f00a0de7d561839ba8842af7ae49483fd5efd31fb0352dbe7cbccc011a148",
+    "post_transport.py": "ad9d0b3662f49ffe54420f7b3b4cb1d62acfce19be4e4a394243bc92c2b06c33",
+    "legacy_html.py": "b3799648ab453ff71217d336f55d78501dcc4a8a92e6cf6d187632508b665048",
+    "browser_fetch.cjs": "9dbf7e1f5f1acbded4821a59021075c0859c705e7d4b7e87d30c0736f6955918",
+    "spokane_bulk.py": "837cea0b4dfcaad7e1efc90cf500948bace09b4627ec8a83447c6eb4baab74f1",
+    "pdf_structure.py": "8341b33f36dbc52a20a229f04816d21d358a9f25a2399cab5a4a4c1e28e49251",
+    "openlaw_xml.py": "172fc1cfd76f241fd891f4b2e0e07ee187b9821fa9020baa9843a6a7bd6fb547",
+    "verify.py": "01d7f597a1510f6c2c93a30a5d9c7dd41b47cb4be1f9e8b78855bc41258b66e9"
   },
   "selected_final_proofs": [
     {
-      "path": "final/worcester-v3",
-      "config": "configs/worcester-part1.json",
-      "scope": "Full native PartOne file and659 physical pages; PDF legal/table semantics remain unqualified.",
-      "classification": "full_selected_native_file_pages",
+      "path": "milwaukee-full-v2",
+      "status": "full native inventory and every physical PDF page; legal semantics remain manual review",
       "expected": {
-        "requested_level": "file_pages",
         "requested_coverage_complete": true,
         "publication_file_coverage_complete": true,
         "pdf_page_extraction_complete": true,
         "publication_html_text_coverage_complete": false,
         "legal_semantic_coverage_complete": false,
-        "jurisdiction_complete": false,
-        "manual_review_required": true,
-        "expected_document_count": 1,
-        "acquired_document_count": 1,
-        "parsed_record_count": 659,
-        "record_units": {
-          "pdf_page": 659
-        },
-        "table_count": 0,
-        "required_assets_count": 0,
-        "policy_omitted_image_count": 0,
-        "image_placeholder_count": 109,
-        "interrupted_or_limited": false,
-        "source_consistency_complete": true,
-        "failures": [],
-        "publication_id": "80-worcester-part1",
-        "missing_document_count": 0,
-        "unknown_ownership_count": 0,
-        "unresolved_required_asset_count": 0
+        "expected_document_count": 6,
+        "acquired_document_count": 6,
+        "parsed_record_count": 2300,
+        "source_consistency_complete": true
       },
       "hashes": {
-        "config.json": "2d1a3b7c1762b5cda64fb9a1cef2b94ed1a0028ad9d09f7f6c3dbb4738c573a8",
-        "checkpoint.json": "7778233ba84deb1ff1933623f34311958f29c04de38b388b6a9b2c182dbb391d",
-        "inventory.json": "c7e376eecd3bbc7354ad19905a5c521fc66ec1da9fad2cb65fc5274b282d36fe",
-        "coverage.json": "793b5f9b640d4adc4959789ddc04a327ba634de1f3fe5afb6c0991488bd75821",
-        "records.jsonl": "162294ec5c61ca9ccc178aa70532623f6321b4e4812d2b104c3d34002628fb08",
-        "records.csv": "528eb6c8bf52643e6850b27388286594ccb927f64dfd51a0fd3c17a672def8d9"
-      },
-      "executed_scripts": {
-        "collect.py": "8dd9dbb0776a586e152c530d7e6935103f6d86c98c1dfd494c8cda98b5355bab",
-        "model.py": "19e6e27cc50637cafa9048f704e23b238deb9f748395507fb9a392ebd362e550",
-        "transport.py": "856f00a0de7d561839ba8842af7ae49483fd5efd31fb0352dbe7cbccc011a148",
-        "legacy_html.py": "0e10fe08406788f8540bcb232c927bcffb547f0ae072a68684ea313afb08cde6",
-        "browser_fetch.cjs": "1541bbdb1e0c98034af584c0f0a3e37788ab54c09d35bc8379d73f4b1ff39a87"
-      },
-      "exact_original_command": [
-        "collectors/official/collect.py",
-        "--config",
-        "collectors/official/configs/worcester-part1.json",
-        "--out",
-        "/Users/oliverflint/My Drive/Claude/Projects/CompliSolv 2.00/outputs/full-publication-validation-2026-10-17/official/final/worcester-v3"
-      ],
-      "original_runtime": {
-        "python": "3.12.14 (main, Aug 25 2026, 13:50:33) [Clang 22.1.3 ]",
-        "platform": "macOS-26.6.2-arm64-arm-64bit",
-        "node": "node"
-      },
-      "started_at": "2026-10-17T20:11:15.183762+00:00",
-      "finished_at": "2026-10-17T20:11:22.633474+00:00",
-      "pinned_source": {
-        "source_ref": "raw/fa44132b238e67958fb1.bin",
-        "source_sha256": "35c920626a763117c93379b8849c0b3660085c2de418083b53643cfcb8fd9374",
-        "source_url": "https://www.worcesterma.gov/city-clerk/document-center/revised-ordinances-2008-1.pdf",
-        "edition": "Amended through September8,2026",
-        "kind": "native_file",
-        "identity": "80-worcester-part1"
-      },
-      "native_inputs": [
-        {
-          "id": "https://www.worcesterma.gov/city-clerk/document-center/revised-ordinances-2008-1.pdf",
-          "url": "https://www.worcesterma.gov/city-clerk/document-center/revised-ordinances-2008-1.pdf",
-          "raw_ref": "raw/03a199dec4d5c72a3a2b.bin",
-          "sha256": "35c920626a763117c93379b8849c0b3660085c2de418083b53643cfcb8fd9374"
-        }
-      ]
+        "config.json": "2ed595444e7e5d8a1e87cad71091c1325e14d36bf2fd04d40ba1173e524fb871",
+        "inventory.json": "3b9e087380492a360466d297bfc60b75fb8c6e5c572ad09aa803ff04cfce36a9",
+        "records.jsonl": "8ea2504b3132d7615f1994bffebe5eeaaa41f5f0f386665d76286f5d8cc7137b",
+        "coverage.json": "4c6965ac805244ed77604db0a0fa7f532e6372c00e8b7c862e575565001227f1"
+      }
     },
     {
-      "path": "final/milwaukee-v2",
-      "config": "configs/milwaukee-volume2.json",
-      "scope": "Full native Building/Zoning Volume2 file and624 physical pages; not all six Milwaukee publications.",
-      "classification": "full_selected_native_file_pages",
+      "path": "portland-title33-full",
+      "status": "full native inventory and every physical PDF page; legal semantics remain manual review",
       "expected": {
-        "requested_level": "file_pages",
         "requested_coverage_complete": true,
         "publication_file_coverage_complete": true,
         "pdf_page_extraction_complete": true,
         "publication_html_text_coverage_complete": false,
         "legal_semantic_coverage_complete": false,
-        "jurisdiction_complete": false,
-        "manual_review_required": true,
         "expected_document_count": 1,
         "acquired_document_count": 1,
-        "parsed_record_count": 624,
-        "record_units": {
-          "pdf_page": 624
-        },
-        "table_count": 0,
-        "required_assets_count": 0,
-        "policy_omitted_image_count": 0,
-        "image_placeholder_count": 2,
-        "interrupted_or_limited": false,
-        "source_consistency_complete": true,
-        "failures": [],
-        "publication_id": "21-milwaukee-volume2",
-        "missing_document_count": 0,
-        "unknown_ownership_count": 0,
-        "unresolved_required_asset_count": 0
+        "parsed_record_count": 1855,
+        "source_consistency_complete": true
       },
       "hashes": {
-        "config.json": "38819065ae822f63d6e9aed2876925b22f6273fbd66b084130ad9919d9e018c2",
-        "checkpoint.json": "b4c856288245ecc812cf7f5a71e83711afb58669cb4c2ee77faed3be83b39a77",
-        "inventory.json": "791f33311579c4e4a148843fd3edb0e8d8109f7018da10ef5257a886e7ad6330",
-        "coverage.json": "3fcfada4803435009969c7dcd322901b7d4557110c2f23bd777b90c8fe9fcc12",
-        "records.jsonl": "6d1cf969c2da23e9de29058056eaf1650029ae64b08f95d85a9a7055d2a89316",
-        "records.csv": "a74a2662e1429fa4a76ced4991f33d5da99a9d30b51e0d892acd3f6b69f1bdba"
-      },
-      "executed_scripts": {
-        "collect.py": "57a2debfcb757c052d422a7de39959ee6062272a39f23905a5491a63bae72661",
-        "model.py": "6c573b9a6e24c05c3ed561498cbf2bf239e7733a36150ddf8b4e5437a5d520db",
-        "transport.py": "856f00a0de7d561839ba8842af7ae49483fd5efd31fb0352dbe7cbccc011a148",
-        "legacy_html.py": "0e10fe08406788f8540bcb232c927bcffb547f0ae072a68684ea313afb08cde6",
-        "browser_fetch.cjs": "1541bbdb1e0c98034af584c0f0a3e37788ab54c09d35bc8379d73f4b1ff39a87"
-      },
-      "exact_original_command": [
-        "collectors/official/collect.py",
-        "--config",
-        "collectors/official/configs/milwaukee-volume2.json",
-        "--out",
-        "/Users/oliverflint/My Drive/Claude/Projects/CompliSolv 2.00/outputs/full-publication-validation-2026-10-17/official/final/milwaukee-v2"
-      ],
-      "original_runtime": {
-        "python": "3.12.14 (main, Aug 25 2026, 13:50:33) [Clang 22.1.3 ]",
-        "platform": "macOS-26.6.2-arm64-arm-64bit",
-        "node": "/Users/oliverflint/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/bin/node"
-      },
-      "started_at": "2026-10-17T20:07:07.805758+00:00",
-      "finished_at": "2026-10-17T20:09:07.267178+00:00",
-      "pinned_source": {
-        "source_ref": "raw/fa44132b238e67958fb1.bin",
-        "source_sha256": "3afdf7df901f970d90599472ec7f1b86efe6e9bbb6742fbfee1b279a534e4359",
-        "identity": "21-milwaukee-volume2",
-        "kind": "html_inventory",
-        "inventory_selector": "a[href]",
-        "excluded_components": [],
-        "aliases": [],
-        "edition": null
-      },
-      "native_inputs": [
-        {
-          "id": "https://city.milwaukee.gov/ImageLibrary/Groups/ccClerk/Ordinances/Volume-2/Master-V2.pdf",
-          "url": "https://city.milwaukee.gov/ImageLibrary/Groups/ccClerk/Ordinances/Volume-2/Master-V2.pdf",
-          "raw_ref": "raw/9cc0d5ed5ff3a210b2bb.bin",
-          "sha256": "4ff313b0170573328377ed115583cd51cfbefb131f3b04ac070ae6986f4e8ed6"
-        }
-      ]
+        "config.json": "d048fcb05e1e818a78927772d0f02d1f10052c1d08766378daa30a2705a0cbbf",
+        "inventory.json": "fbf3b31162f718e05f0386b7b8d25a0023af2f22dc1662b36199707988d8d9c7",
+        "records.jsonl": "fb37b4c939ffff9e5d971ab3b40e50944c9f600a91eedcb2d284a54bac67b45e",
+        "coverage.json": "815dc4b89578ef3424025227000d3f50b0c73d56e3d7bfd563aee17c09a46d85"
+      }
     },
     {
-      "path": "final/baltimore-v2",
-      "config": "configs/baltimore-code.json",
-      "scope": "Entire selected current Code archive canonical HTML closure;12 required opaque incorporated references unresolved,210 heading-only source units/manual review, no complete legal corpus.",
-      "classification": "full_selected_text_with_required_attachment_gaps",
+      "path": "portland-all-html-v6",
+      "status": "All33HTMLtitle documents/allsource-ownedbodyfields+letteredcitations+notes; Title33 intentionally remains a separately required native component.",
       "expected": {
-        "requested_level": "publication_text",
         "requested_coverage_complete": false,
         "publication_file_coverage_complete": true,
         "pdf_page_extraction_complete": false,
         "publication_html_text_coverage_complete": true,
         "legal_semantic_coverage_complete": false,
-        "jurisdiction_complete": false,
-        "manual_review_required": true,
-        "expected_document_count": 1,
-        "acquired_document_count": 1,
-        "parsed_record_count": 6989,
-        "record_units": {
-          "legal_section": 6105,
-          "legal_status": 541,
-          "container_owned_body": 133,
-          "source_heading_only": 210
-        },
-        "table_count": 172,
-        "required_assets_count": 12,
-        "policy_omitted_image_count": 7,
-        "image_placeholder_count": 7,
-        "interrupted_or_limited": false,
-        "source_consistency_complete": true,
-        "failures": [],
-        "publication_id": "20-baltimore-code",
-        "missing_document_count": 0,
-        "unknown_ownership_count": 0,
-        "unresolved_required_asset_count": 12
-      },
-      "hashes": {
-        "config.json": "6b226dc86583784fa161b6255df46cd9ffb40965b2f693cb97a256036343daa7",
-        "checkpoint.json": "ad35a268cad79445d6cb45745a129e2cad5a6af0c28d59874f1087557227b73e",
-        "inventory.json": "ee55ab62f61125156bb9f0ca64f62d81e829d5b4509cbc54e4a07f6f7da49d39",
-        "coverage.json": "bf570b6cd342b82ba5c935e712034a61666cdf6c11c899ebde1757b84ad9ade0",
-        "records.jsonl": "da536ff2cfd663171a71fcb57e6dce5aec0f90b49532e7bf98c6c3f0720c5730",
-        "records.csv": "1bf574f25194dd0067f3b828c23a3014544bd053e8d3ce98f450b8abdf18b22e"
-      },
-      "executed_scripts": {
-        "collect.py": "57a2debfcb757c052d422a7de39959ee6062272a39f23905a5491a63bae72661",
-        "model.py": "6c573b9a6e24c05c3ed561498cbf2bf239e7733a36150ddf8b4e5437a5d520db",
-        "transport.py": "856f00a0de7d561839ba8842af7ae49483fd5efd31fb0352dbe7cbccc011a148",
-        "legacy_html.py": "0e10fe08406788f8540bcb232c927bcffb547f0ae072a68684ea313afb08cde6",
-        "browser_fetch.cjs": "1541bbdb1e0c98034af584c0f0a3e37788ab54c09d35bc8379d73f4b1ff39a87"
-      },
-      "exact_original_command": [
-        "collectors/official/collect.py",
-        "--config",
-        "collectors/official/configs/baltimore-code.json",
-        "--out",
-        "/Users/oliverflint/My Drive/Claude/Projects/CompliSolv 2.00/outputs/full-publication-validation-2026-10-17/official/final/baltimore-v2"
-      ],
-      "original_runtime": {
-        "python": "3.12.14 (main, Aug 25 2026, 13:50:33) [Clang 22.1.3 ]",
-        "platform": "macOS-26.6.2-arm64-arm-64bit",
-        "node": "/Users/oliverflint/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/bin/node"
-      },
-      "started_at": "2026-10-17T20:07:08.972699+00:00",
-      "finished_at": "2026-10-17T20:09:50.386119+00:00",
-      "pinned_source": {
-        "source_ref": "raw/fa44132b238e67958fb1.bin",
-        "source_sha256": "31d62ba64426cb20f37b0f3c91b28e7b4ded17a95c88ff5e96733ae120b98830",
-        "repo_ref": "raw/ce9718b0878e8f26ff47.bin",
-        "commit_ref": "raw/ee9536511a5d2c1eb31a.bin",
-        "repository": "baltimore-legref/law-html",
-        "branch": "publication/2026-09-28",
-        "commit": "d97ee81dd4bfacaba3193ff7628df2c7c80fee8f",
-        "identity": "20-baltimore-code",
-        "kind": "github_commit",
-        "edition": "publication/2026-09-28",
-        "archive_url": "https://api.github.com/repos/baltimore-legref/law-html/zipball/d97ee81dd4bfacaba3193ff7628df2c7c80fee8f"
-      },
-      "native_inputs": [
-        {
-          "id": "https://api.github.com/repos/baltimore-legref/law-html/zipball/d97ee81dd4bfacaba3193ff7628df2c7c80fee8f",
-          "url": "https://api.github.com/repos/baltimore-legref/law-html/zipball/d97ee81dd4bfacaba3193ff7628df2c7c80fee8f",
-          "raw_ref": "raw/6e76c1a109ed3ccf6e5b.bin",
-          "sha256": "58c0d1d82640b07e13c3f8de29917b10426ec4708343c9bcfb242e821d26daea"
-        }
-      ]
-    },
-    {
-      "path": "final/spokane-chapter",
-      "config": "configs/spokane-chapter-01-01.json",
-      "scope": "Full expressly selected Chapter01.01 traversal only:8 operative sections,1 structural chapter page; not whole Municipal Code.",
-      "classification": "full_explicit_chapter_text",
-      "expected": {
-        "requested_level": "publication_text",
-        "requested_coverage_complete": true,
-        "publication_file_coverage_complete": true,
-        "pdf_page_extraction_complete": false,
-        "publication_html_text_coverage_complete": true,
-        "legal_semantic_coverage_complete": true,
-        "jurisdiction_complete": false,
-        "manual_review_required": false,
-        "expected_document_count": 9,
-        "acquired_document_count": 9,
-        "parsed_record_count": 8,
-        "record_units": {
-          "legal_section": 8
-        },
-        "table_count": 0,
-        "required_assets_count": 0,
-        "policy_omitted_image_count": 0,
-        "image_placeholder_count": 0,
-        "interrupted_or_limited": false,
-        "source_consistency_complete": true,
-        "failures": [],
-        "publication_id": "78-spokane-chapter-01-01",
-        "missing_document_count": 0,
-        "unknown_ownership_count": 0,
-        "unresolved_required_asset_count": 0
-      },
-      "hashes": {
-        "config.json": "dd05793a9b9a14f2ff65447b35920cd7f4b1c1be902ff6554961a79a1c054a17",
-        "checkpoint.json": "fcda2d28830a859d48f1e0d57abf54da244f21fbd8f806076a90902c6f96880e",
-        "inventory.json": "225bdedea8a5d416498a409e74f71b9620644346d7845fe162e10e78e14af873",
-        "coverage.json": "84e46e73f8cc4f3d7206750450e78831bd63091a53f4f261b1d35b1cb8ec63bd",
-        "records.jsonl": "2940d797259f9f5f172376ae2a4c843a864419995a5754d1320265c1032a714a",
-        "records.csv": "5fc1fb39c6d1da18fc3fe62a629f764a99782729d870266348c4a281bd46255f"
-      },
-      "executed_scripts": {
-        "collect.py": "57a2debfcb757c052d422a7de39959ee6062272a39f23905a5491a63bae72661",
-        "model.py": "6c573b9a6e24c05c3ed561498cbf2bf239e7733a36150ddf8b4e5437a5d520db",
-        "transport.py": "856f00a0de7d561839ba8842af7ae49483fd5efd31fb0352dbe7cbccc011a148",
-        "legacy_html.py": "0e10fe08406788f8540bcb232c927bcffb547f0ae072a68684ea313afb08cde6",
-        "browser_fetch.cjs": "1541bbdb1e0c98034af584c0f0a3e37788ab54c09d35bc8379d73f4b1ff39a87"
-      },
-      "exact_original_command": [
-        "collectors/official/collect.py",
-        "--config",
-        "collectors/official/configs/spokane-chapter-01-01.json",
-        "--out",
-        "/Users/oliverflint/My Drive/Claude/Projects/CompliSolv 2.00/outputs/full-publication-validation-2026-10-17/official/final/spokane-chapter"
-      ],
-      "original_runtime": {
-        "python": "3.12.14 (main, Aug 25 2026, 13:50:33) [Clang 22.1.3 ]",
-        "platform": "macOS-26.6.2-arm64-arm-64bit",
-        "node": "node"
-      },
-      "started_at": "2026-10-17T20:08:12.441318+00:00",
-      "finished_at": "2026-10-17T20:09:20.619006+00:00",
-      "pinned_source": {
-        "source_ref": "raw/fa44132b238e67958fb1.bin",
-        "source_sha256": "36f78d4002267427f7a0f216fab7d09b2e2f5ce7d5c07a30f9b0ebaa4502d2c2",
-        "identity": "78-spokane-chapter-01-01",
-        "kind": "html_inventory",
-        "inventory_selector": "#hideRepealed a[href]",
-        "excluded_components": [],
-        "aliases": [],
-        "edition": null
-      },
-      "native_inputs": [
-        {
-          "id": "https://my.spokanecity.org/smc/?Chapter=01.01",
-          "url": "https://my.spokanecity.org/smc/?Chapter=01.01",
-          "raw_ref": "raw/3571a17b01541d24cf98.bin",
-          "sha256": "ebc4adcdbf76f4a64865417949a1d04f44fe55048240c2d8e82db99089f947f2"
-        },
-        {
-          "id": "https://my.spokanecity.org/smc/?Section=01.01.010",
-          "url": "https://my.spokanecity.org/smc/?Section=01.01.010",
-          "raw_ref": "raw/4a1997cd1315ca8d3ccc.bin",
-          "sha256": "b542c01c1084fe007c5a162bc3704f8346ef49508fb94d69dea9d004455dbb7b"
-        },
-        {
-          "id": "https://my.spokanecity.org/smc/?Section=01.01.020",
-          "url": "https://my.spokanecity.org/smc/?Section=01.01.020",
-          "raw_ref": "raw/4ba08178c5035219f65e.bin",
-          "sha256": "a4247bcf99eb2e75be88bf0b68ebc414e4c36b4044f105dccf4655c1d6c63bca"
-        },
-        {
-          "id": "https://my.spokanecity.org/smc/?Section=01.01.030",
-          "url": "https://my.spokanecity.org/smc/?Section=01.01.030",
-          "raw_ref": "raw/a64cf9feef54c352ed80.bin",
-          "sha256": "86f27cc66c104f5e514bd936701a75b462b3a93c8f80f27893275f9a889d2590"
-        },
-        {
-          "id": "https://my.spokanecity.org/smc/?Section=01.01.040",
-          "url": "https://my.spokanecity.org/smc/?Section=01.01.040",
-          "raw_ref": "raw/a176dd1d6083d2c55d04.bin",
-          "sha256": "c4a3778f5f207cd77a67c44e3372be31c99ee27ce1bbcedd9a283eaa561260b1"
-        },
-        {
-          "id": "https://my.spokanecity.org/smc/?Section=01.01.050",
-          "url": "https://my.spokanecity.org/smc/?Section=01.01.050",
-          "raw_ref": "raw/ea78a0fd7c1c6786a271.bin",
-          "sha256": "f9130d192db292704fcfcbd751b19576f4511ea7e38dc47130959ab335ade77e"
-        },
-        {
-          "id": "https://my.spokanecity.org/smc/?Section=01.01.060",
-          "url": "https://my.spokanecity.org/smc/?Section=01.01.060",
-          "raw_ref": "raw/7d00b43827e2f70a205e.bin",
-          "sha256": "37e377428c889e0be03821833661fc0e2ffb5d6ed464dcb19fae3affa71e6a6b"
-        },
-        {
-          "id": "https://my.spokanecity.org/smc/?Section=01.01.070",
-          "url": "https://my.spokanecity.org/smc/?Section=01.01.070",
-          "raw_ref": "raw/086e087e41cfb6b8d20d.bin",
-          "sha256": "163a4fff5b64300cf393a5efb0c1255585a5c4f7936254d13d3dbcc8da01f9fa"
-        },
-        {
-          "id": "https://my.spokanecity.org/smc/?Section=01.01.080",
-          "url": "https://my.spokanecity.org/smc/?Section=01.01.080",
-          "raw_ref": "raw/44a4fd033817cc02ad88.bin",
-          "sha256": "c78266f45c245afad820dd0db2cbb30a99f529402a30a3a9e01e2166bf4c0fdf"
-        }
-      ]
-    },
-    {
-      "path": "final/czo-v3",
-      "config": "configs/new-orleans-czo.json",
-      "scope": "Whole native print-all legal wrapper,1 unsegmented document with89 tables;3 required opaque attachments unresolved; maps/images deliberately omitted.",
-      "classification": "full_selected_text_with_required_attachment_gaps",
-      "expected": {
-        "requested_level": "publication_text",
-        "requested_coverage_complete": false,
-        "publication_file_coverage_complete": true,
-        "pdf_page_extraction_complete": false,
-        "publication_html_text_coverage_complete": true,
-        "legal_semantic_coverage_complete": false,
-        "jurisdiction_complete": false,
-        "manual_review_required": true,
-        "expected_document_count": 1,
-        "acquired_document_count": 1,
-        "parsed_record_count": 1,
-        "record_units": {
-          "publication_html_document": 1
-        },
-        "table_count": 89,
-        "required_assets_count": 3,
-        "policy_omitted_image_count": 258,
-        "image_placeholder_count": 144,
-        "interrupted_or_limited": false,
-        "source_consistency_complete": true,
-        "failures": [],
-        "publication_id": "new-orleans-czo-native-html",
-        "missing_document_count": 0,
-        "unknown_ownership_count": 0,
-        "unresolved_required_asset_count": 3
-      },
-      "hashes": {
-        "config.json": "c1b9acbc8ea64428cde00554a4017b1f40fee95a73a78b752476ee4bc1d54e87",
-        "checkpoint.json": "1c87b2c90b95a25b2fdce7b1541ace05d682a3d11de6d31eccde2cc3f9b2d7d4",
-        "inventory.json": "734b494a5f2a57c5c32eb40b1117300cdb1c768e5c02ae9bad3303a181b0b486",
-        "coverage.json": "f6be7d3f8cea95b1eeb1005031564d35c98f5814ef01cd81d3855572633ae8e3",
-        "records.jsonl": "f5914bf2330855e5ba41df7681c73d59dac35f32ef880492159115d34e863832",
-        "records.csv": "f949fc2df1ad1d797237384425bd5e8797924d86b47b2fb50e937899759bf645"
-      },
-      "executed_scripts": {
-        "collect.py": "57a2debfcb757c052d422a7de39959ee6062272a39f23905a5491a63bae72661",
-        "model.py": "c62379cea171f7179f78bf259a97b1d52a3064ed330209ddd4e6a67f3c62118c",
-        "transport.py": "856f00a0de7d561839ba8842af7ae49483fd5efd31fb0352dbe7cbccc011a148",
-        "legacy_html.py": "0e10fe08406788f8540bcb232c927bcffb547f0ae072a68684ea313afb08cde6",
-        "browser_fetch.cjs": "1541bbdb1e0c98034af584c0f0a3e37788ab54c09d35bc8379d73f4b1ff39a87"
-      },
-      "exact_original_command": [
-        "collectors/official/collect.py",
-        "--config",
-        "collectors/official/configs/new-orleans-czo.json",
-        "--out",
-        "/Users/oliverflint/My Drive/Claude/Projects/CompliSolv 2.00/outputs/full-publication-validation-2026-10-17/official/final/czo-v3"
-      ],
-      "original_runtime": {
-        "python": "3.12.14 (main, Aug 25 2026, 13:50:33) [Clang 22.1.3 ]",
-        "platform": "macOS-26.6.2-arm64-arm-64bit",
-        "node": "/Users/oliverflint/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/bin/node"
-      },
-      "started_at": "2026-10-17T20:10:31.502122+00:00",
-      "finished_at": "2026-10-17T20:11:46.995823+00:00",
-      "pinned_source": {
-        "source_ref": "raw/fa44132b238e67958fb1.bin",
-        "source_sha256": "f3344aeb53dc9dd28f22e93dfc177612fa6a518cfd29a8061b3434197f5fe28a",
-        "source_url": "https://czo.nola.gov/print-all/",
-        "edition": null,
-        "kind": "html_single",
-        "identity": "new-orleans-czo-native-html"
-      },
-      "native_inputs": [
-        {
-          "id": "https://czo.nola.gov/print-all/",
-          "url": "https://czo.nola.gov/print-all/",
-          "raw_ref": "raw/339dae6190618d9cb73b.bin",
-          "sha256": "20708881e1c1b3cfe54822c42e3f3449b86da5df3763719e0c45f52adaf73d49"
-        }
-      ]
-    },
-    {
-      "path": "final/portland-v2",
-      "config": "configs/portland-code.json",
-      "scope": "Bounded natural Titles1\u20132:129 legal sections;31 HTML titles and separate required Title33 remain unacquired.",
-      "classification": "bounded_smoke_incomplete",
-      "expected": {
-        "requested_level": "publication_text",
-        "requested_coverage_complete": false,
-        "publication_file_coverage_complete": false,
-        "pdf_page_extraction_complete": false,
-        "publication_html_text_coverage_complete": false,
-        "legal_semantic_coverage_complete": false,
-        "jurisdiction_complete": false,
-        "manual_review_required": false,
         "expected_document_count": 33,
-        "acquired_document_count": 2,
-        "parsed_record_count": 129,
-        "record_units": {
-          "legal_section": 129
-        },
-        "table_count": 0,
-        "required_assets_count": 0,
-        "policy_omitted_image_count": 3,
-        "image_placeholder_count": 2,
-        "interrupted_or_limited": true,
-        "source_consistency_complete": true,
-        "failures": [],
-        "publication_id": "18-portland-city-code",
-        "missing_document_count": 31,
-        "unknown_ownership_count": 0,
-        "unresolved_required_asset_count": 0
+        "acquired_document_count": 33,
+        "parsed_record_count": 3168,
+        "source_consistency_complete": true
       },
       "hashes": {
         "config.json": "c0816d63d8de901c427fa7d4ca05d3d1fc90719149e9305243301170d1e994bb",
-        "checkpoint.json": "4a53c0d62eb699204e10ace3051f48b9ef4fbcfe4e3c9df49aa4705592bc37fa",
-        "inventory.json": "6ec9cbb8513cb427c8611ef4c5e5de67d9b0fb4cd8b6dbc4a29d5e4481dfc27b",
-        "coverage.json": "3563bc4dd8cea94ee40f61f918c9eda42a0c9678d7363851f7dc9414fdf248d1",
-        "records.jsonl": "ccdc28b9bc02e16a13828911357aadb5747fb59d8669852df70e0a7c2f4f7b46",
-        "records.csv": "91e26e4b25a079fe90cbc7b93ed50ec143bff3036c852cc5b380b88549b92dd3"
-      },
-      "executed_scripts": {
-        "collect.py": "57a2debfcb757c052d422a7de39959ee6062272a39f23905a5491a63bae72661",
-        "model.py": "6c573b9a6e24c05c3ed561498cbf2bf239e7733a36150ddf8b4e5437a5d520db",
-        "transport.py": "856f00a0de7d561839ba8842af7ae49483fd5efd31fb0352dbe7cbccc011a148",
-        "legacy_html.py": "0e10fe08406788f8540bcb232c927bcffb547f0ae072a68684ea313afb08cde6",
-        "browser_fetch.cjs": "1541bbdb1e0c98034af584c0f0a3e37788ab54c09d35bc8379d73f4b1ff39a87"
-      },
-      "exact_original_command": [
-        "collectors/official/collect.py",
-        "--config",
-        "collectors/official/configs/portland-code.json",
-        "--out",
-        "/Users/oliverflint/My Drive/Claude/Projects/CompliSolv 2.00/outputs/full-publication-validation-2026-10-17/official/final/portland-v2",
-        "--max-items",
-        "2"
-      ],
-      "original_runtime": {
-        "python": "3.12.14 (main, Aug 25 2026, 13:50:33) [Clang 22.1.3 ]",
-        "platform": "macOS-26.6.2-arm64-arm-64bit",
-        "node": "/Users/oliverflint/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/bin/node"
-      },
-      "started_at": "2026-10-17T20:07:13.666448+00:00",
-      "finished_at": "2026-10-17T20:07:24.756473+00:00",
-      "pinned_source": {
-        "source_ref": "raw/fa44132b238e67958fb1.bin",
-        "source_sha256": "47ea67b5508ed099fc97a30b2f93112e4ea33eec56d3a7987ada1f05b7da1384",
-        "identity": "18-portland-city-code",
-        "kind": "html_inventory",
-        "inventory_selector": "main a[href]",
-        "excluded_components": [
-          {
-            "url": "https://www.portland.gov/code/33",
-            "reason": "Title33 uses separate nativePDF publication/config; unresolved required component of all-city-code scope",
-            "required": true
-          }
-        ],
-        "aliases": [],
-        "edition": null
-      },
-      "native_inputs": [
-        {
-          "id": "https://www.portland.gov/code/1/all",
-          "url": "https://www.portland.gov/code/1/all",
-          "raw_ref": "raw/f41880adfdd3051a8579.bin",
-          "sha256": "2812ad318ebbc88c3494313bb4f3b568aff271d321d33138789b7af2f3400250"
-        },
-        {
-          "id": "https://www.portland.gov/code/2/all",
-          "url": "https://www.portland.gov/code/2/all",
-          "raw_ref": "raw/32bf1588349ff8d10319.bin",
-          "sha256": "af6b89de198411def0754b1590b535056c7e928501f8ddd52cc65ffec3480a21"
-        }
-      ]
-    },
-    {
-      "path": "final/burlington-v3",
-      "config": "configs/burlington.json",
-      "scope": "Bounded2 observed Charter documents/14 owned records; dynamic graph currently51 discovered documents,49 missing. Full-publication browser traversal supported but not completed.",
-      "classification": "bounded_smoke_incomplete",
-      "expected": {
-        "requested_level": "publication_text",
-        "requested_coverage_complete": false,
-        "publication_file_coverage_complete": false,
-        "pdf_page_extraction_complete": false,
-        "publication_html_text_coverage_complete": false,
-        "legal_semantic_coverage_complete": false,
-        "jurisdiction_complete": false,
-        "manual_review_required": false,
-        "expected_document_count": 51,
-        "acquired_document_count": 2,
-        "parsed_record_count": 14,
-        "record_units": {
-          "container_owned_body": 1,
-          "legal_section": 13
-        },
-        "table_count": 0,
-        "required_assets_count": 0,
-        "policy_omitted_image_count": 0,
-        "image_placeholder_count": 0,
-        "interrupted_or_limited": true,
-        "source_consistency_complete": true,
-        "failures": [],
-        "publication_id": "56-burlington-code",
-        "missing_document_count": 49,
-        "unknown_ownership_count": 0,
-        "unresolved_required_asset_count": 0
-      },
-      "hashes": {
-        "config.json": "f29e5bc784995bcc286e70326dc41bcdc5eee4f4b80c30a17676f59f444c550f",
-        "checkpoint.json": "fcc1222452034ee1eadddcb6d4044c1c740f55f3f11e21a4c60228de4f55661f",
-        "inventory.json": "56201afb8a2243dbeda11ee9ba5cf4f3bfe0b11d84e4051f8ddcb6634403713a",
-        "coverage.json": "112dfadb8b2f9bfb937e6665dc6dddb1ac7713cf58cdd6af0f28e82ad831da51",
-        "records.jsonl": "302ff5c84122950c975d1181a3b65ac7e5863f571c53625ea8577f5f16e6f964",
-        "records.csv": "a65573e29e0be1bddde7f31691dacc41e2b97915883a38b201b59707793deac7"
-      },
-      "executed_scripts": {
-        "collect.py": "57a2debfcb757c052d422a7de39959ee6062272a39f23905a5491a63bae72661",
-        "model.py": "6c573b9a6e24c05c3ed561498cbf2bf239e7733a36150ddf8b4e5437a5d520db",
-        "transport.py": "856f00a0de7d561839ba8842af7ae49483fd5efd31fb0352dbe7cbccc011a148",
-        "legacy_html.py": "0e10fe08406788f8540bcb232c927bcffb547f0ae072a68684ea313afb08cde6",
-        "browser_fetch.cjs": "1541bbdb1e0c98034af584c0f0a3e37788ab54c09d35bc8379d73f4b1ff39a87"
-      },
-      "exact_original_command": [
-        "collectors/official/collect.py",
-        "--config",
-        "collectors/official/configs/burlington.json",
-        "--out",
-        "/Users/oliverflint/My Drive/Claude/Projects/CompliSolv 2.00/outputs/full-publication-validation-2026-10-17/official/final/burlington-v3",
-        "--max-items",
-        "2"
-      ],
-      "original_runtime": {
-        "python": "3.12.14 (main, Aug 25 2026, 13:50:33) [Clang 22.1.3 ]",
-        "platform": "macOS-26.6.2-arm64-arm-64bit",
-        "node": "/Users/oliverflint/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/bin/node"
-      },
-      "started_at": "2026-10-17T20:07:11.353374+00:00",
-      "finished_at": "2026-10-17T20:08:33.250466+00:00",
-      "pinned_source": {
-        "source_ref": "raw/fa44132b238e67958fb1.bin",
-        "source_sha256": "bb841c358f0d6963f78b7064f4d6a3bbd80c8368533df81e155817f62aeeb46e",
-        "identity": "56-burlington-code",
-        "kind": "html_inventory",
-        "inventory_selector": "#browseCode a[href]",
-        "excluded_components": [],
-        "aliases": [],
-        "edition": null
-      },
-      "native_inputs": [
-        {
-          "id": "https://www.codepublishing.com/VT/Burlington/#!/BurlingtonCH/BurlingtonCH.html",
-          "url": "https://www.codepublishing.com/VT/Burlington/#!/BurlingtonCH/BurlingtonCH.html",
-          "raw_ref": "raw/81b44727febc934699ea.bin",
-          "sha256": "ea263cf09fb41b068563e3daec95ae6cb27aba889fb13319f6635bf6621229ea"
-        },
-        {
-          "id": "https://www.codepublishing.com/VT/Burlington/#!/Burlington01/Burlington01.html",
-          "url": "https://www.codepublishing.com/VT/Burlington/#!/Burlington01/Burlington01.html",
-          "raw_ref": "raw/fa21ad6cca501480a670.bin",
-          "sha256": "2b4bc72af79ebc4aa7dd0cc5f9eff011ebb0aaac1670a91f723e0e9b5535fc7d"
-        }
-      ]
-    },
-    {
-      "path": "final/county-v2",
-      "config": "configs/arlington-va-current-portal.json",
-      "scope": "Current ArlingtonCounty80-document portal inventory;2 observed/detail-bound native documents18 pages only;78 missing.",
-      "classification": "bounded_smoke_incomplete",
-      "expected": {
-        "requested_level": "file_pages",
-        "requested_coverage_complete": false,
-        "publication_file_coverage_complete": false,
-        "pdf_page_extraction_complete": false,
-        "publication_html_text_coverage_complete": false,
-        "legal_semantic_coverage_complete": false,
-        "jurisdiction_complete": false,
-        "manual_review_required": true,
-        "expected_document_count": 80,
-        "acquired_document_count": 2,
-        "parsed_record_count": 18,
-        "record_units": {
-          "pdf_page": 18
-        },
-        "table_count": 0,
-        "required_assets_count": 0,
-        "policy_omitted_image_count": 0,
-        "image_placeholder_count": 0,
-        "interrupted_or_limited": true,
-        "source_consistency_complete": true,
-        "failures": [],
-        "publication_id": "99-arlington-county-current-portal",
-        "missing_document_count": 78,
-        "unknown_ownership_count": 0,
-        "unresolved_required_asset_count": 0
-      },
-      "hashes": {
-        "config.json": "9dcc5c982794e53d9c929da52eff4cc1bc39913a6f1e18c458cb790018c0232d",
-        "checkpoint.json": "6414cb6036a24245e2301d9a1828fea115ac240c07202696077b050be1e39bb7",
-        "inventory.json": "ce79fe64d2646806abc27630bdaea637cb648eddd0dce1c6ca0f88ccf74d3570",
-        "coverage.json": "a8ba2925ae45ea530ccb9de4f52e8d07fc425efe4580ae17114c34d7894f10de",
-        "records.jsonl": "2840006d73c7fe7b24ce9ea75df0ecbae661a01b30f98d81de8a2c1aa8c18e5c",
-        "records.csv": "a6c9e0ead7bca6e2965dbc00715af86a1f7d2857c6eea7d0ad7b8c84cf935126"
-      },
-      "executed_scripts": {
-        "collect.py": "57a2debfcb757c052d422a7de39959ee6062272a39f23905a5491a63bae72661",
-        "model.py": "6c573b9a6e24c05c3ed561498cbf2bf239e7733a36150ddf8b4e5437a5d520db",
-        "transport.py": "856f00a0de7d561839ba8842af7ae49483fd5efd31fb0352dbe7cbccc011a148",
-        "legacy_html.py": "0e10fe08406788f8540bcb232c927bcffb547f0ae072a68684ea313afb08cde6",
-        "browser_fetch.cjs": "1541bbdb1e0c98034af584c0f0a3e37788ab54c09d35bc8379d73f4b1ff39a87"
-      },
-      "exact_original_command": [
-        "collectors/official/collect.py",
-        "--config",
-        "collectors/official/configs/arlington-va-current-portal.json",
-        "--out",
-        "/Users/oliverflint/My Drive/Claude/Projects/CompliSolv 2.00/outputs/full-publication-validation-2026-10-17/official/final/county-v2",
-        "--max-items",
-        "2"
-      ],
-      "original_runtime": {
-        "python": "3.12.14 (main, Aug 25 2026, 13:50:33) [Clang 22.1.3 ]",
-        "platform": "macOS-26.6.2-arm64-arm-64bit",
-        "node": "/Users/oliverflint/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/bin/node"
-      },
-      "started_at": "2026-10-17T20:07:12.567686+00:00",
-      "finished_at": "2026-10-17T20:08:40.379144+00:00",
-      "pinned_source": {
-        "source_ref": "raw/fa44132b238e67958fb1.bin",
-        "source_sha256": "40edf12cc42c1aea394bd13cfd6eadd062c910b80d3a68a58ba78d169f4d3fbb",
-        "identity": "99-arlington-county-current-portal",
-        "kind": "html_inventory",
-        "inventory_selector": "#main-content a[href*='/details/county-code/']",
-        "excluded_components": [],
-        "aliases": [],
-        "edition": null
-      },
-      "native_inputs": [
-        {
-          "id": "https://www.arlingtonva.us/files/bfc4b33f-4d72-4862-adca-ffad2a87935a/Ch.%201%20General%20Provisions.pdf",
-          "url": "https://www.arlingtonva.us/files/bfc4b33f-4d72-4862-adca-ffad2a87935a/Ch.%201%20General%20Provisions.pdf",
-          "raw_ref": "raw/303257ef1893d5428891.bin",
-          "sha256": "3f3a56a9c5ae6d908d9de4015a88834200bac504d97aed78e47fcabdf103c5c9"
-        },
-        {
-          "id": "https://www.arlingtonva.us/files/af7770ad-bd74-4471-a864-55ef1b75f844/Ch.%202%20Animals%20and%20Fowl.pdf",
-          "url": "https://www.arlingtonva.us/files/af7770ad-bd74-4471-a864-55ef1b75f844/Ch.%202%20Animals%20and%20Fowl.pdf",
-          "raw_ref": "raw/174c1d4427c39f0d4fb9.bin",
-          "sha256": "e5d8b7376bd748f243bb62c982a3a1c3481513ac5c7341f095e05e30f6ae663a"
-        }
-      ]
-    },
-    {
-      "path": "final/arlington-tx",
-      "config": "configs/arlington-tx-code.json",
-      "scope": "Official ArlingtoncityTX61-document index;1 native71-page file only,60 missing; current pending ordinances separate.",
-      "classification": "bounded_smoke_incomplete",
-      "expected": {
-        "requested_level": "file_pages",
-        "requested_coverage_complete": false,
-        "publication_file_coverage_complete": false,
-        "pdf_page_extraction_complete": false,
-        "publication_html_text_coverage_complete": false,
-        "legal_semantic_coverage_complete": false,
-        "jurisdiction_complete": false,
-        "manual_review_required": true,
-        "expected_document_count": 61,
-        "acquired_document_count": 1,
-        "parsed_record_count": 71,
-        "record_units": {
-          "pdf_page": 71
-        },
-        "table_count": 0,
-        "required_assets_count": 0,
-        "policy_omitted_image_count": 0,
-        "image_placeholder_count": 30,
-        "interrupted_or_limited": true,
-        "source_consistency_complete": true,
-        "failures": [],
-        "publication_id": "58-arlington-tx-posted-code-set",
-        "missing_document_count": 60,
-        "unknown_ownership_count": 0,
-        "unresolved_required_asset_count": 0
-      },
-      "hashes": {
-        "config.json": "87e4d4747c9dc43c7c43bf0353159573046bbc2faf700935da33b15f8aa711bc",
-        "checkpoint.json": "2d56601e210742d0f9eb0ad6ca6ef0c1efad007a6d2b456787cfd69eeb32dc19",
-        "inventory.json": "b00fd9e94298f958a9d87299eaeff9d4aeb7cf6b9f58eecea0c4470bda1ce0d6",
-        "coverage.json": "a28ba17ed1c24c38135dd3178308f0f9e2157b7f9e0e749e05b0bd8645dbc3cb",
-        "records.jsonl": "56aead5c9772b487daa2abccaa5f2412426c01a9c15353948f0d743db9f84d16",
-        "records.csv": "3b2a9d5f2d1b675b2ad63ba33adf66b0c52c6f34c25142496c094f89d9c67757"
-      },
-      "executed_scripts": {
-        "collect.py": "57a2debfcb757c052d422a7de39959ee6062272a39f23905a5491a63bae72661",
-        "model.py": "6c573b9a6e24c05c3ed561498cbf2bf239e7733a36150ddf8b4e5437a5d520db",
-        "transport.py": "856f00a0de7d561839ba8842af7ae49483fd5efd31fb0352dbe7cbccc011a148",
-        "legacy_html.py": "0e10fe08406788f8540bcb232c927bcffb547f0ae072a68684ea313afb08cde6",
-        "browser_fetch.cjs": "1541bbdb1e0c98034af584c0f0a3e37788ab54c09d35bc8379d73f4b1ff39a87"
-      },
-      "exact_original_command": [
-        "collectors/official/collect.py",
-        "--config",
-        "collectors/official/configs/arlington-tx-code.json",
-        "--out",
-        "/Users/oliverflint/My Drive/Claude/Projects/CompliSolv 2.00/outputs/full-publication-validation-2026-10-17/official/final/arlington-tx",
-        "--max-items",
-        "1"
-      ],
-      "original_runtime": {
-        "python": "3.12.14 (main, Aug 25 2026, 13:50:33) [Clang 22.1.3 ]",
-        "platform": "macOS-26.6.2-arm64-arm-64bit",
-        "node": "/Users/oliverflint/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/bin/node"
-      },
-      "started_at": "2026-10-17T20:07:32.305353+00:00",
-      "finished_at": "2026-10-17T20:08:28.635296+00:00",
-      "pinned_source": {
-        "source_ref": "raw/fa44132b238e67958fb1.bin",
-        "source_sha256": "64bd46acfa2e96331a5147850599c560e7385e9d422a7c32a6113350109b676e",
-        "identity": "58-arlington-tx-posted-code-set",
-        "kind": "html_inventory",
-        "inventory_selector": "a[href]",
-        "excluded_components": [],
-        "aliases": [
-          {
-            "id": "https://www.arlingtontx.gov/files/assets/city/v/3/city-secretary/documents/city-code-of-ordinances/charter-of-the-city-chapter.pdf",
-            "reason": "Duplicate inventory hyperlink to same canonical URL"
-          }
-        ],
-        "edition": null
-      },
-      "native_inputs": [
-        {
-          "id": "https://www.arlingtontx.gov/files/assets/city/v/3/city-secretary/documents/city-code-of-ordinances/charter-of-the-city-chapter.pdf",
-          "url": "https://www.arlingtontx.gov/files/assets/city/v/3/city-secretary/documents/city-code-of-ordinances/charter-of-the-city-chapter.pdf",
-          "raw_ref": "raw/a9c1009082d8cf915a93.bin",
-          "sha256": "b2cf3f57150581560328494e4a59b2bf6bac1ceb05ba87e7940f0f27f4f14360"
-        }
-      ]
-    },
-    {
-      "path": "final/spokane",
-      "config": "configs/spokane-code.json",
-      "scope": "Whole-code root discovery smoke only:38 discovered URLs after1Title;zero operative records correctly emitted. Actual bodies qualified separately by Chapter01.01 proof.",
-      "classification": "bounded_smoke_incomplete",
-      "expected": {
-        "requested_level": "publication_text",
-        "requested_coverage_complete": false,
-        "publication_file_coverage_complete": false,
-        "pdf_page_extraction_complete": false,
-        "publication_html_text_coverage_complete": false,
-        "legal_semantic_coverage_complete": false,
-        "jurisdiction_complete": false,
-        "manual_review_required": false,
-        "expected_document_count": 38,
-        "acquired_document_count": 1,
-        "parsed_record_count": 0,
-        "record_units": {},
-        "table_count": 0,
-        "required_assets_count": 0,
-        "policy_omitted_image_count": 0,
-        "image_placeholder_count": 0,
-        "interrupted_or_limited": true,
-        "source_consistency_complete": true,
-        "failures": [],
-        "publication_id": "78-spokane-code",
-        "missing_document_count": 37,
-        "unknown_ownership_count": 0,
-        "unresolved_required_asset_count": 0
-      },
-      "hashes": {
-        "config.json": "93a189e4a34ea58c3effc69f6c3389c1fe5d729005ac534e9623d222d5b3bee7",
-        "checkpoint.json": "9fc436dc2b77ac178fd657d054ac8604cf06e720f0e5a416223567c2d1833114",
-        "inventory.json": "03adf1ae68d7b32429b5716edc841dbf7964ceb74a24aed5b341024529d36965",
-        "coverage.json": "9c38502264b723f70c8a0865ceacf520a3e178a810d518904587edba68418224",
-        "records.jsonl": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
-        "records.csv": "f57dea24609e9e54ce6f7517f99fb8abbdf633e26f2ddaa01974708a416a6dac"
-      },
-      "executed_scripts": {
-        "collect.py": "57a2debfcb757c052d422a7de39959ee6062272a39f23905a5491a63bae72661",
-        "model.py": "6c573b9a6e24c05c3ed561498cbf2bf239e7733a36150ddf8b4e5437a5d520db",
-        "transport.py": "856f00a0de7d561839ba8842af7ae49483fd5efd31fb0352dbe7cbccc011a148",
-        "legacy_html.py": "0e10fe08406788f8540bcb232c927bcffb547f0ae072a68684ea313afb08cde6",
-        "browser_fetch.cjs": "1541bbdb1e0c98034af584c0f0a3e37788ab54c09d35bc8379d73f4b1ff39a87"
-      },
-      "exact_original_command": [
-        "collectors/official/collect.py",
-        "--config",
-        "collectors/official/configs/spokane-code.json",
-        "--out",
-        "/Users/oliverflint/My Drive/Claude/Projects/CompliSolv 2.00/outputs/full-publication-validation-2026-10-17/official/final/spokane",
-        "--max-items",
-        "1"
-      ],
-      "original_runtime": {
-        "python": "3.12.14 (main, Aug 25 2026, 13:50:33) [Clang 22.1.3 ]",
-        "platform": "macOS-26.6.2-arm64-arm-64bit",
-        "node": "/Users/oliverflint/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/bin/node"
-      },
-      "started_at": "2026-10-17T20:07:31.516475+00:00",
-      "finished_at": "2026-10-17T20:07:40.286845+00:00",
-      "pinned_source": {
-        "source_ref": "raw/fa44132b238e67958fb1.bin",
-        "source_sha256": "2040874452c28f76eeee43ce0c05ea7b87e1b3b90a58be1ad92a0f0e3bbb0e25",
-        "identity": "78-spokane-code",
-        "kind": "html_inventory",
-        "inventory_selector": "#hideRepealed a[href]",
-        "excluded_components": [],
-        "aliases": [],
-        "edition": null
-      },
-      "native_inputs": [
-        {
-          "id": "https://my.spokanecity.org/smc/?Title=01",
-          "url": "https://my.spokanecity.org/smc/?Title=01",
-          "raw_ref": "raw/fc5cfb2a6c51c21424c8.bin",
-          "sha256": "67c56f2ec7ce92bab9abd9eda4c6bb7e569e0c1615762f54b95276095d6f30b1"
-        }
-      ]
+        "inventory.json": "d24e05a4f33e2939706fe32e4d9cccdc662b9d29d067696aff5aecd3c73ae833",
+        "records.jsonl": "049816ce18383a2e3b53b3a7e71b36affd4e882b3c454d1f52930184806181f7",
+        "coverage.json": "a2fc104f2ea80c1e6957e5adc4ebfd01ab92711f09ab26af5eba64b7990d7149"
+      }
     }
   ],
-  "publication_configs": [
+  "active_runs": [
     {
-      "path": "configs/arlington-tx-code.json",
-      "id": "58-arlington-tx-posted-code-set",
-      "jurisdiction": "Arlington city",
-      "state": "TX",
-      "publication": "Entire currently linked alphabetical Code/Charter/UDC PDF document set; separate pending ordinances excluded",
-      "source_url": "https://www.arlingtontx.gov/Government/City-Government/City-Secretary/City-Charter-Code-of-Ordinances",
-      "mode": "pdf_set",
-      "requested_level": "file_pages",
-      "runnable": true,
-      "sha256": "90c6addd7b745a48f9af49065d2ce1b5cfa23835e369b1c9ff72f5a4967468eb",
-      "live_proof_paths": [
-        "final/arlington-tx"
-      ],
-      "qualification_note": "Runnable selected source-derived config; no full-live claim unless a matching final proof explicitly establishes that level."
+      "path": "spokane-full-bulk-v10",
+      "acquired_at_checkpoint": 68,
+      "discovered_inventory_count": 68,
+      "collector_completed": false,
+      "last_error": null,
+      "status": "Active/finalizing; only independent terminal coverage/replay may establish a final complete scope."
     },
     {
-      "path": "configs/arlington-va-current-portal.json",
-      "id": "99-arlington-county-current-portal",
-      "jurisdiction": "Arlington County",
-      "state": "VA",
-      "publication": "Current official CountyCode document portal entire listed chapterPDF collection; not independently certified current law",
-      "source_url": "https://document-search.arlingtonva.us/collection/county-code",
-      "mode": "arlington_portal",
-      "requested_level": "file_pages",
-      "runnable": true,
-      "sha256": "c59a9e2020e5cb2f3927204f0231721ddd45eaf546782eac0c502dbff92fe019",
-      "live_proof_paths": [
-        "final/county-v2"
-      ],
-      "qualification_note": "Runnable selected source-derived config; no full-live claim unless a matching final proof explicitly establishes that level."
+      "path": "burlington-full-v4",
+      "acquired_at_checkpoint": 71,
+      "discovered_inventory_count": 156,
+      "collector_completed": false,
+      "last_error": null,
+      "status": "Active/finalizing; only independent terminal coverage/replay may establish a final complete scope."
     },
     {
-      "path": "configs/arlington-va-posted-chapters.json",
-      "id": "99-arlington-va-posted-legacy-chapters",
-      "jurisdiction": "Arlington County",
-      "state": "VA",
-      "publication": "Whole native chapterPDF set still linked on County official legacy index; currentness not implied",
-      "source_url": "https://www.arlingtonva.us/Government/Departments/County-Board/County-Code",
-      "mode": "pdf_set",
-      "requested_level": "file_pages",
-      "runnable": true,
-      "sha256": "b88393b23ade5bcc3b59d6011aaf5e8c52a4671a4541a31a48ee7341352912d8",
-      "live_proof_paths": [],
-      "qualification_note": "Runnable selected source-derived config; no full-live claim unless a matching final proof explicitly establishes that level."
+      "path": "arlington-tx-full-v3",
+      "acquired_at_checkpoint": 9,
+      "discovered_inventory_count": 61,
+      "collector_completed": false,
+      "last_error": null,
+      "status": "Active/finalizing; only independent terminal coverage/replay may establish a final complete scope."
     },
     {
-      "path": "configs/baltimore-charter.json",
-      "id": "20-baltimore-charter",
-      "jurisdiction": "Baltimore City",
-      "state": "MD",
-      "publication": "Entire Baltimore City Charter repository subtree",
-      "source_url": "https://codes.baltimorecity.gov/",
-      "mode": "github_archive",
-      "requested_level": "publication_text",
-      "runnable": true,
-      "sha256": "6c9a58c87ece47f25fb0e2cd45a8a0a54daf7ec51744cfc42680fcddccd07a8c",
-      "live_proof_paths": [],
-      "qualification_note": "Runnable selected source-derived config; no full-live claim unless a matching final proof explicitly establishes that level."
+      "path": "arlington-county-full-v3",
+      "acquired_at_checkpoint": 27,
+      "discovered_inventory_count": 80,
+      "collector_completed": false,
+      "last_error": null,
+      "status": "Active/finalizing; only independent terminal coverage/replay may establish a final complete scope."
     },
     {
-      "path": "configs/baltimore-code.json",
-      "id": "20-baltimore-code",
-      "jurisdiction": "Baltimore City",
-      "state": "MD",
-      "publication": "Baltimore City Code (entire current repository code subtree, including zoning and building-code amendments)",
-      "source_url": "https://codes.baltimorecity.gov/",
-      "mode": "github_archive",
-      "requested_level": "publication_text",
-      "runnable": true,
-      "sha256": "6b226dc86583784fa161b6255df46cd9ffb40965b2f693cb97a256036343daa7",
-      "live_proof_paths": [
-        "final/baltimore-v2"
-      ],
-      "qualification_note": "Runnable selected source-derived config; no full-live claim unless a matching final proof explicitly establishes that level."
+      "path": "baltimore-full-v3",
+      "acquired_at_checkpoint": 1,
+      "discovered_inventory_count": 1,
+      "collector_completed": true,
+      "last_error": null,
+      "status": "Active/finalizing; only independent terminal coverage/replay may establish a final complete scope."
     },
     {
-      "path": "configs/burlington.json",
-      "id": "56-burlington-code",
-      "jurisdiction": "Burlington",
-      "state": "VT",
-      "publication": "Burlington Code of Ordinances including Charter and appendices",
-      "source_url": "https://www.codepublishing.com/VT/Burlington/",
-      "mode": "legacy_codepublishing",
-      "requested_level": "publication_text",
-      "runnable": true,
-      "sha256": "593fa1676a9f45b3ec455f7e876108d747d43b4ec53f06c9b95bd8e3a6cce7ef",
-      "live_proof_paths": [
-        "final/burlington-v3"
-      ],
-      "qualification_note": "Runnable selected source-derived config; no full-live claim unless a matching final proof explicitly establishes that level."
+      "path": "czo-full-segmented-v1",
+      "acquired_at_checkpoint": 1,
+      "discovered_inventory_count": 1,
+      "collector_completed": false,
+      "last_error": null,
+      "status": "Active/finalizing; only independent terminal coverage/replay may establish a final complete scope."
     },
     {
-      "path": "configs/milwaukee-publications.json",
-      "id": "21-milwaukee-publications",
-      "jurisdiction": "Milwaukee",
-      "state": "WI",
-      "publication": "Official current CityCharter, CodeVolumes1\u20133, Salary and Positions Ordinance native file set",
-      "source_url": "https://city.milwaukee.gov/cityclerk/lrb/ordinances/tableofcontents",
-      "mode": "pdf_set",
-      "requested_level": "file_pages",
-      "runnable": true,
-      "sha256": "cd8ece597ffe2e575a2204f19b5207f33d420dcde2e04fea73965c6d77b1f959",
-      "live_proof_paths": [],
-      "qualification_note": "Runnable selected source-derived config; no full-live claim unless a matching final proof explicitly establishes that level."
+      "path": "san-mateo-full-xml-v1",
+      "acquired_at_checkpoint": 1,
+      "discovered_inventory_count": 1,
+      "collector_completed": true,
+      "last_error": null,
+      "status": "Active/finalizing; only independent terminal coverage/replay may establish a final complete scope.",
+      "requested_coverage_complete": true,
+      "publication_file_coverage_complete": true,
+      "publication_html_text_coverage_complete": true,
+      "parsed_record_count": 2652,
+      "table_count": 50
     },
     {
-      "path": "configs/milwaukee-volume2.json",
-      "id": "21-milwaukee-volume2",
-      "jurisdiction": "Milwaukee",
-      "state": "WI",
-      "publication": "Entire Volume2 Building and Zoning Code nativePDF",
-      "source_url": "https://city.milwaukee.gov/cityclerk/lrb/ordinances/tableofcontents",
-      "mode": "pdf_set",
-      "requested_level": "file_pages",
-      "runnable": true,
-      "sha256": "9d4ddaa65767c8f5d137e02dbace5f52bd9f49639ab9a8e08e0bec970671eb05",
-      "live_proof_paths": [
-        "final/milwaukee-v2"
-      ],
-      "qualification_note": "Runnable selected source-derived config; no full-live claim unless a matching final proof explicitly establishes that level."
+      "path": "portland-maine-full-v1",
+      "acquired_at_checkpoint": 1,
+      "discovered_inventory_count": 44,
+      "collector_completed": false,
+      "last_error": null,
+      "status": "Active/finalizing; only independent terminal coverage/replay may establish a final complete scope."
     },
     {
-      "path": "configs/new-orleans-czo.json",
-      "id": "new-orleans-czo-native-html",
-      "jurisdiction": "New Orleans",
-      "state": "LA",
-      "publication": "Entire official Comprehensive Zoning Ordinance publisher-native print-all HTML",
-      "source_url": "https://czo.nola.gov/print-all/",
-      "mode": "html_single",
-      "requested_level": "publication_text",
-      "runnable": true,
-      "sha256": "c1b9acbc8ea64428cde00554a4017b1f40fee95a73a78b752476ee4bc1d54e87",
-      "live_proof_paths": [
-        "final/czo-v3"
-      ],
-      "qualification_note": "Runnable selected source-derived config; no full-live claim unless a matching final proof explicitly establishes that level."
-    },
-    {
-      "path": "configs/portland-code.json",
-      "id": "18-portland-city-code",
-      "jurisdiction": "Portland",
-      "state": "OR",
-      "publication": "Portland City Code HTML titles, with separately formattedTitle33 explicitly unresolved",
-      "source_url": "https://www.portland.gov/code",
-      "mode": "portland_titles",
-      "requested_level": "publication_text",
-      "runnable": true,
-      "sha256": "d2950ba85d93faa6ecb855abd9c5b54c27f39341cfdd995ec88ba6399dcfe7b4",
-      "live_proof_paths": [
-        "final/portland-v2"
-      ],
-      "qualification_note": "Runnable selected source-derived config; no full-live claim unless a matching final proof explicitly establishes that level."
-    },
-    {
-      "path": "configs/portland-zoning-pdfs.json",
-      "id": "18-portland-title33-posted-pdfs",
-      "jurisdiction": "Portland",
-      "state": "OR",
-      "publication": "Title33 current zoning landing-page linked native chapterPDF set; future-effective versions require review",
-      "source_url": "https://www.portland.gov/code/33",
-      "mode": "pdf_set",
-      "requested_level": "file_pages",
-      "runnable": true,
-      "sha256": "0c10bc00673695c69c5c08fe4f6eefa9b253f86518239b8f576df2d5f9b9aca4",
-      "live_proof_paths": [],
-      "qualification_note": "Runnable selected source-derived config; no full-live claim unless a matching final proof explicitly establishes that level."
-    },
-    {
-      "path": "configs/spokane-chapter-01-01.json",
-      "id": "78-spokane-chapter-01-01",
-      "jurisdiction": "Spokane",
-      "state": "WA",
-      "publication": "Separately scoped Spokane Municipal Code Chapter01.01 Adoption of Code",
-      "source_url": "https://my.spokanecity.org/smc/?Title=01",
-      "mode": "html_graph",
-      "requested_level": "publication_text",
-      "runnable": true,
-      "sha256": "dd05793a9b9a14f2ff65447b35920cd7f4b1c1be902ff6554961a79a1c054a17",
-      "live_proof_paths": [
-        "final/spokane-chapter"
-      ],
-      "qualification_note": "Runnable selected source-derived config; no full-live claim unless a matching final proof explicitly establishes that level."
-    },
-    {
-      "path": "configs/spokane-code.json",
-      "id": "78-spokane-code",
-      "jurisdiction": "Spokane",
-      "state": "WA",
-      "publication": "Entire Spokane Municipal Code linkedTitle/Chapter/Section graph; includes embeddedUDC, Charter separate",
-      "source_url": "https://my.spokanecity.org/smc/",
-      "mode": "html_graph",
-      "requested_level": "publication_text",
-      "runnable": true,
-      "sha256": "c2f0c1ef635e6db60ec9028753820506bd138eedbfd63d4067434849a36cd4f4",
-      "live_proof_paths": [
-        "final/spokane"
-      ],
-      "qualification_note": "Runnable selected source-derived config; no full-live claim unless a matching final proof explicitly establishes that level."
-    },
-    {
-      "path": "configs/worcester-part1.json",
-      "id": "80-worcester-part1",
-      "jurisdiction": "Worcester",
-      "state": "MA",
-      "publication": "Revised Ordinances of2008 Part One",
-      "source_url": "https://www.worcesterma.gov/city-clerk/document-center/revised-ordinances-2008-1.pdf",
-      "mode": "pdf",
-      "requested_level": "file_pages",
-      "runnable": true,
-      "sha256": "48dd43d9deaf2da2259a411d2ec08eb1c8c452311773b15d0f5edcd98ecfbf64",
-      "live_proof_paths": [
-        "final/worcester-v3"
-      ],
-      "qualification_note": "Runnable selected source-derived config; no full-live claim unless a matching final proof explicitly establishes that level."
-    },
-    {
-      "path": "configs/worcester-publications.json",
-      "id": "80-worcester-posted-ordinances",
-      "jurisdiction": "Worcester",
-      "state": "MA",
-      "publication": "All nativePDF ordinance/regulation documents linked from official Clerk index; zoning/charter separate",
-      "source_url": "https://www.worcesterma.gov/city-clerk/ordinances-regulations",
-      "mode": "pdf_set",
-      "requested_level": "file_pages",
-      "runnable": true,
-      "sha256": "4beaac6f03ec9afbad8bcafd17acb1fd96c1b54d14b1de71ac8e30d1ce68f13c",
-      "live_proof_paths": [],
-      "qualification_note": "Runnable selected source-derived config; no full-live claim unless a matching final proof explicitly establishes that level."
+      "path": "rockland-maine-full-v1",
+      "acquired_at_checkpoint": 1,
+      "discovered_inventory_count": 21,
+      "collector_completed": false,
+      "last_error": null,
+      "status": "Active/finalizing; only independent terminal coverage/replay may establish a final complete scope."
     }
   ],
-  "image_policy": {
-    "separate_image_downloads_allowed": false,
-    "placeholder": "[IMAGE]",
-    "native_pdf_original_allowed": true,
-    "pdf_pixels_extracted": false,
-    "pdf_detection_limit": "Raster objects get page-end placeholders; placement/vector-only illustrations/visual text not qualified.",
-    "html_visuals": "img/picture/srcset/inlineSVG/object/embed/CSS image forms sanitized; source metadata retained. Browser resourceType=image blocked except security/challenge resources.",
-    "unknown_opaque_attachments": "Required/unresolved until nonimage format independently qualified; never silently optional or fetched as an unknown image."
+  "current_work": [
+    "Finish ongoing fullruns and independent terminal replays; Burlington156iscurrentdiscoveredgraph, notbounded51/144.",
+    "Baltimore11internal crossrefs resolved against archive; exact State statute body qualification added;210explicit inherited model-code units remain external body/edition dependency work.",
+    "Spokane7,490enabled+disabledstatus complete inventory in68normalnative selection batches; allsections acquired, endchecks ongoing; samepublicationcrossrefs and stopped static-host requiredPDF closure remain gaps.",
+    "CZO1,272records/89tables segmentation complete on retained source; fresh full proof active; actualduplicate9-3-C sourceID retained and exact independentState-law references remain separate dependencies.",
+    "FullMilwaukee6files/2,300pages and actualTitle33/1,855pages are native/page proofs; coordinate allpage upgrades for those retained complete originals remain to finish.",
+    "Two original implementation gaps: Flagstaff frame inventory and KingCounty current title graph. Secondary official discovery candidates remain unqualified unless exact adapter/config/proof provided."
+  ],
+  "portable_commands": {
+    "collect": "python -B collectors/official/collect.py --config collectors/official/configs/<selected>.json --out /fresh/output",
+    "cache_reparse": "Same source/inventory/edition config; NEWoutput --from-cache /previous/output. Only explicit pdf_normalization parser mode may differ; every source end check still runs.",
+    "resume": "same config/code/output plus --resume; no automatic retry of failed receipts",
+    "single_replay": "python -B collectors/official/verify.py /evidence/run",
+    "selected_replay": "python -B collectors/official/verify_suite.py --evidence /relocated/official",
+    "faults": "python -B collectors/official/test_offline.py",
+    "all_tests": "python -B collectors/official/test_offline.py; python -B collectors/official/test_pdf_structure.py; python -B collectors/official/test_readiness.py"
   },
-  "scope_limitations": [
-    "No whole-jurisdiction legal-corpus complete assertion; jurisdiction_complete is always false.",
-    "Full PDF file/page extraction does not establish legal sections, visible-text accuracy, reading order, tables/spans, diagrams, linked legal layers or current consolidation.",
-    "Baltimore heading-only incorporated model-code stubs and required references need independent legal-layer collection.",
-    "CZO remains one native HTML document rather than segmented legal sections and has three required attachment gaps.",
-    "Portland Title33 is separately inventoried; pending/future-effective PDFs and maps require edition review.",
-    "Burlington, ArlingtonTX, current ArlingtonCounty and whole Portland/Spokane code root were bounded live proofs; default whole inventories/traversals are runnable, not claimed complete.",
-    "Current County portal and legacy posted chapters are separate; city/county identities are explicit.",
-    "Unknown/unsupported sites/layouts require qualification; no generic operator import or guessed hidden endpoint."
+  "image_policy": {
+    "separate_image_acquisition": false,
+    "placeholder": "[IMAGE]",
+    "native_originals_with_embedded_images": "allowed",
+    "normalized_inline_data_image_payload": "redacted into placeholders/hash metadata; original raw source retained"
+  },
+  "operational_fixes": [
+    "Browser native download selects the exact observed href, never a shifting numeric link index; actual download URL must equal requested source URL.",
+    "Cross-revision recovery copies only hash/source-bound successful raw bytes into NEWoutput; reparses with current code and performs new complete source consistency checks.",
+    "Spokane observed POST form inventory rather than guessed section IDs. Full7490POST timed out; bounded transport batches cover the complete inventory."
   ],
-  "preliminary_attempts": {
-    "policy": "Retained separately, never selected for final complete claims. Their exact executed code and failed source evidence remain intact.",
-    "paths": [
-      "worcester-live",
-      "baltimore-live",
-      "baltimore-final",
-      "baltimore-parser-analysis.json",
-      "milwaukee-volume2-live",
-      "burlington-live",
-      "county-portal-probe",
-      "county-portal-live",
-      "final/worcester",
-      "final/worcester-v2",
-      "final/milwaukee",
-      "final/baltimore",
-      "final/czo",
-      "final/czo-v2",
-      "final/burlington",
-      "final/burlington-v2",
-      "final/county",
-      "final/portland"
-    ],
-    "notable_failures": [
-      "Initial Baltimore state-statute citation404 retained; optional independent-layer classification uses source/config context, not the404.",
-      "Initial Milwaukee index comparison falsely included unrelated translation navigation; final projection is selected publication links.",
-      "Initial Burlington preamble/TOC parsing refused legal content; fixed source-owned preamble and explicit TOC exclusions qualified later.",
-      "Initial County strict selector matched80links and refused; final browser waits for first matched observed link, retains80inventory.",
-      "CZO prior wholebody sourcecheck failed generatedCSRF/Printedmetadata; final config selects observed legalwrapper and excludes explicit printbanner/toolcontrols, regression proves legal amendments still fail."
+  "unresolved_complete_status": "No jurisdiction-wide complete assertion; active/failed/bounded runs remain incomplete. Current collector upgrades and new image-policy hardening require final current-revision tests before freeze.",
+  "checkpoint_time_utc": "2026-10-17T21:39:34.228132+00:00",
+  "source_checkpoint_stable": true,
+  "tests": {
+    "total": 27,
+    "passed": 27,
+    "receipt": "checks/test-results.json",
+    "suites": [
+      {
+        "command": "python -B collectors/official/test_offline.py",
+        "count": 16,
+        "status": "passed",
+        "output": "checks/checkpoint-offline-tests-uppercase.txt",
+        "sha256": "29a6388edcdbe961315942517055b13eb0b6a579e944c3b7df3f4a1e423368ba"
+      },
+      {
+        "command": "python -B collectors/official/test_pdf_structure.py",
+        "count": 5,
+        "status": "passed",
+        "output": "checks/checkpoint-pdf-tests-uppercase.txt",
+        "sha256": "062e6809f85f05995dfa6d8cbb025caebdb6cca8982e0bc316cc06cbcbdf99d3"
+      },
+      {
+        "command": "python -B collectors/official/test_readiness.py",
+        "count": 6,
+        "status": "passed",
+        "output": "checks/checkpoint-readiness-tests-uppercase-final.txt",
+        "sha256": "5784403f9501007ec2cb0b41b82f27d717793844b4d564f439bd34620b981914"
+      }
     ]
-  }
+  },
+  "pdf_normalization": {
+    "default_in_pdf_configs": "coordinate-v1",
+    "legacy_replay": "Config without normalization key uses retained stream-v1 behavior; no relabelling of old page proofs as coordinate fidelity.",
+    "qualified": "Independent PDFium/pdfminer text characters, unique physical word ownership, geometry reading-order algorithm, detected ruled/qualifiednumeric schedule cells and spans, physical-bbox invalid decoder glyph repair ledger, raster/vector-map[IMAGE] without pixels.",
+    "unqualified": "All borderless tables, visual text/diagrams, legal section interpretation and universally correct reading order; semantic_review_required remains true.",
+    "read_only_report": "verify.py emits pdf_text_table_qa only after raw/parser/output/source consistency is independently replayed."
+  },
+  "original_nine": [
+    {
+      "target_id": "original-burien-wa",
+      "config": "configs/original-burien-wa.json",
+      "status": "Fresh source-qualified SPA inventory/currency config; full live proof pending"
+    },
+    {
+      "target_id": "original-fremont-ca",
+      "config": "configs/original-fremont-ca.json",
+      "status": "Fresh source-qualified SPA inventory/currency config; full live proof pending"
+    },
+    {
+      "target_id": "original-renton-wa",
+      "config": "configs/original-renton-wa.json",
+      "status": "Fresh source-qualified SPA inventory/currency config; full live proof pending"
+    },
+    {
+      "target_id": "original-san-carlos-ca",
+      "config": "configs/original-san-carlos-ca.json",
+      "status": "Fresh source-qualified SPA inventory/currency config; full live proof pending"
+    },
+    {
+      "target_id": "original-portland-me",
+      "config": "configs/original-portland-me.json",
+      "status": "Fresh44PDFinventory; complete current coordinate-parser run active"
+    },
+    {
+      "target_id": "original-rockland-me",
+      "config": "configs/original-rockland-me.json",
+      "status": "Fresh21PDFinventory; complete current coordinate-parser run active"
+    },
+    {
+      "target_id": "original-san-mateo-ca",
+      "config": "configs/original-san-mateo-ca.json",
+      "status": "Complete currentCode+CharterXML run2,652records/50tables; independent replay pending"
+    },
+    {
+      "target_id": "original-flagstaff-az",
+      "config": null,
+      "status": "Fresh200frameset/source/currency discovery; complete frame inventory/collector qualification still needed"
+    },
+    {
+      "target_id": "original-king-county-wa",
+      "config": null,
+      "status": "Prior source-derived parser exists; current complete official title inventory adapter qualification still needed"
+    }
+  ],
+  "original_seven_discovery": "../ecode/discovery-summary.json (fresh200discovery only; no file/fullpublication claim)",
+  "access_stops": [
+    {
+      "host": "static.spokanecity.org",
+      "status": 403,
+      "first_url": "https://static.spokanecity.org/documents/emergencymanagement/plans/2025-spokane-comprehensive-emergency-management-plan-cemp.pdf",
+      "evidence": "spokane-full-bulk-v7/raw",
+      "policy": "Persistent host stop; no retry/browser substitution or gate reset. Mainmy.spokanecity.org code remains separately available200."
+    },
+    {
+      "host": "ldh.la.gov",
+      "status": 403,
+      "evidence": "discovery/louisiana-title51.receipt.json",
+      "policy": "Persistenthoststop; no retries. Exact CZO contexts classify independently applicable State-law citations; refusal is not the reason."
+    }
+  ],
+  "inline_image_metadata_audit": {
+    "normalized_jsonl_runs": 23,
+    "data_image_payload_findings": 0,
+    "evidence": "discovery/checkpoint-inline-image-audit.json",
+    "limit": "Active runs without finalized JSONL excluded; original native source intentionally permitted."
+  },
+  "focused_delta": "Only model.py image MIME/data-scheme casing and new uppercase/mixed object/embed/source regression; no live requests/fullproof relabel."
 }

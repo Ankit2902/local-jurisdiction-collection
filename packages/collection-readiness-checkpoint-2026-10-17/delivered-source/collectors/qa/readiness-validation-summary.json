@@ -1,0 +1,262 @@
+{
+  "schema_version": 1,
+  "stage": "collection-readiness-2026-10-17",
+  "checkpoint_status": "frozen_exact_baseline_plus_focused_current_delta",
+  "all_targets_fully_readiness_verified": false,
+  "catalog": {
+    "targets": 130,
+    "publication_entries": 224,
+    "primary": 130,
+    "secondary": 94,
+    "dispatchable": 186,
+    "unqualified": 38,
+    "access_prohibited": 128,
+    "readiness_verified": 0,
+    "new_exact_requirements_passed": {
+      "identity": 2,
+      "full_inventory": 1,
+      "owned_text": 2,
+      "required_nonimage_documents": 2,
+      "table_fidelity": 4,
+      "image_policy": 2,
+      "closing_consistency": 2,
+      "resume_integrity": 0,
+      "fresh_setup_cli": 2,
+      "legal_structure": 0
+    },
+    "unresolved_scope_items": 217,
+    "by_publisher": {
+      "municode": 88,
+      "ecode": 40,
+      "american-legal": 23,
+      "official": 46,
+      "gridics": 2,
+      "encodeplus": 25
+    }
+  },
+  "primary_configuration_counts": {
+    "expansion_dispatchable": 100,
+    "original_dispatchable": 28,
+    "original_unqualified": [
+      "original-flagstaff-az-primary",
+      "original-king-county-wa-primary"
+    ]
+  },
+  "secondary_configuration_counts": {
+    "dispatchable": 58,
+    "unqualified": 36
+  },
+  "known_scope_caution": "224 entries include discovery candidates, historical/external publications and aliases; this is not224 independently current required law corpora.217 source scope descriptors remain unresolved/nonexhaustive.",
+  "exact_baseline": {
+    "report": {
+      "path": "collectors/qa/proof-receipts/acceptance-005-baseline.json",
+      "sha256": "a9ff8a5c7d69e38fb3cfe67a131a4169dcfe7a237a9332ea026ce785783f552f"
+    },
+    "family_report": {
+      "path": "collectors/qa/proof-receipts/acceptance-005-family-suite.json",
+      "sha256": "6bc70bb58b71357e574f9ec2a49453c21a88f20c9b81817ebccce05531585e50"
+    },
+    "snapshot_manifest": {
+      "path": "collectors/qa/proof-receipts/acceptance-005-snapshot-manifest.json",
+      "sha256": "b1e8afd32223a40a90ad5e758dbbbd83d983ecb18d4f4939d3dbf581479e2a51"
+    },
+    "test_and_probe_executions": 282,
+    "leaf_commands": 30,
+    "passed": true,
+    "source_changes": 0,
+    "runtime": {
+      "python": "3.12.14 (main, Aug 25 2026, 13:50:33) [Clang 22.1.3 ]",
+      "executable": "/Users/oliverflint/My Drive/Claude/Projects/CompliSolv 2.00/github/local-jurisdiction-collection/.collection-runtime/venv/bin/python",
+      "platform": "macOS-26.6.2-arm64-arm-64bit"
+    }
+  },
+  "current_focused_delta": {
+    "report": {
+      "path": "collectors/qa/proof-receipts/final-delta-current.json",
+      "sha256": "9428b405716848edc4824012d548ec9cbfcacb386865b6a0a92b1fcd8032f49e"
+    },
+    "snapshot_manifest": {
+      "path": "collectors/qa/proof-receipts/final-delta-snapshot-manifest.json",
+      "sha256": "b9aa3c9b6732adf0dec95f2c2163f22479b4691a13eb0a8f0fe66779696a65d2"
+    },
+    "passed": true,
+    "leaf_commands": 21,
+    "test_and_probe_executions": 199,
+    "commands": [
+      {
+        "name": "union-catalog",
+        "exit_code": 0,
+        "test_or_probe_executions": null
+      },
+      {
+        "name": "catalog-advisories",
+        "exit_code": 0,
+        "test_or_probe_executions": 11
+      },
+      {
+        "name": "ops-advisories",
+        "exit_code": 0,
+        "test_or_probe_executions": 16
+      },
+      {
+        "name": "dependency-proofs",
+        "exit_code": 0,
+        "test_or_probe_executions": 5
+      },
+      {
+        "name": "municode-faults",
+        "exit_code": 0,
+        "test_or_probe_executions": 27
+      },
+      {
+        "name": "municode-raw-access",
+        "exit_code": 0,
+        "test_or_probe_executions": 4
+      },
+      {
+        "name": "municode-runtime",
+        "exit_code": 0,
+        "test_or_probe_executions": 7
+      },
+      {
+        "name": "municode-batch",
+        "exit_code": 0,
+        "test_or_probe_executions": 7
+      },
+      {
+        "name": "municode-gate",
+        "exit_code": 0,
+        "test_or_probe_executions": 2
+      },
+      {
+        "name": "municode-edition",
+        "exit_code": 0,
+        "test_or_probe_executions": 6
+      },
+      {
+        "name": "municode-transport",
+        "exit_code": 0,
+        "test_or_probe_executions": null
+      },
+      {
+        "name": "municode-independent-edges",
+        "exit_code": 0,
+        "test_or_probe_executions": 9
+      },
+      {
+        "name": "municode-notes",
+        "exit_code": 0,
+        "test_or_probe_executions": 3
+      },
+      {
+        "name": "six-family-images",
+        "exit_code": 0,
+        "test_or_probe_executions": 6
+      },
+      {
+        "name": "ecode-operator-advisory",
+        "exit_code": 0,
+        "test_or_probe_executions": 23
+      },
+      {
+        "name": "ecode-raw-access",
+        "exit_code": 0,
+        "test_or_probe_executions": 4
+      },
+      {
+        "name": "official-focused-image-case",
+        "exit_code": 0,
+        "test_or_probe_executions": 6
+      },
+      {
+        "name": "american-current-faults",
+        "exit_code": 0,
+        "test_or_probe_executions": 45
+      },
+      {
+        "name": "gridics-current-model",
+        "exit_code": 0,
+        "test_or_probe_executions": 14
+      },
+      {
+        "name": "encodeplus-focused-images",
+        "exit_code": 0,
+        "test_or_probe_executions": 4
+      },
+      {
+        "name": "actual-henderson-current-receipt",
+        "exit_code": 0,
+        "test_or_probe_executions": null
+      }
+    ],
+    "source_changes": false,
+    "active_source_hashes_match": true,
+    "actual_henderson_source_files_unchanged": true,
+    "scope": "Malformed source-relative URL failclosed handling, portable observed access stops, explicit dependency/PDF-semantic acceptance and narrow image casing corrections. Historical live versions preserved; no new live runs implied."
+  },
+  "requirements_ledger": {
+    "path": "collectors/qa/readiness-requirements.json",
+    "sha256": "e6d5715d0bcf6047ad27cfd482a90826b234e3a2f056f9c6f740a7ddc725a1fc"
+  },
+  "image_policy": "No separate image downloads/extraction. Ordered literal[IMAGE] in normalized HTML/text/notes, safe omission metadata without inline pixel payload. Intentional image exclusions do not make a publication incomplete. Required nonimage document/text/table/reading-order qualification stays separate.",
+  "access_advisories": {
+    "path": "collectors/registry/access-advisories.json",
+    "sha256": "d42b01194ab54885f8370c1ade6b86b7afe885796636cb4affefcf71fe0002b2"
+  },
+  "access_scope": "Current operational stop policy applies to128configs after observed specific events. Malformed Jacksonville source-relative HEAD403/Cf-Mitigated challenge is not proof that every legitimate public publisher route is unavailable. Existing successful capture dimensions remain valid; no retry/reset offered.",
+  "actual_source_qa": {
+    "henderson_unified_v3": {
+      "raw_toc_ids": 2123,
+      "source_docs_and_records": 2122,
+      "explicit_empty_root_exclusions": 1,
+      "source_tables": 60,
+      "cells_compared": 37779,
+      "table_mismatches": 0,
+      "separate_image_bytes": 0,
+      "current_readonly_receipt_checks": 58
+    },
+    "lincoln_charter_unified_v4": {
+      "source_ids": 188,
+      "body_blocks_each_open_close": 17,
+      "tables": 0,
+      "table_scope": "not applicable; all rawbody source DOM inspected",
+      "separate_image_bytes": 0
+    },
+    "houston_code": {
+      "source_tables": 98,
+      "source_cells": 42058,
+      "table_mismatches": 0
+    },
+    "san_antonio_code": {
+      "source_tables": 210,
+      "source_cells": 36369,
+      "table_mismatches": 0
+    },
+    "fairfax_zoning": {
+      "tables": 282,
+      "cells": 12568,
+      "final_mismatches": 0,
+      "prior_failures_retained": [
+        452,
+        46
+      ],
+      "dependency_gap": "Whole separate PFM/external required documents remain unresolved"
+    },
+    "phoenix_charter_stopped": {
+      "normalized_records": 73,
+      "source_inventory": 279,
+      "missing": 198,
+      "independent_verifier_exit": 2,
+      "evidence_unchanged": true,
+      "complete": false
+    }
+  },
+  "remaining_acceptance_gaps": [
+    "Actual target/publication acquisition and full original-scope acceptance are not inherited from family fixtures or another publication.",
+    "Missing required separate publications, unqualified nativePDF structure/reading order, source-empty operative provisions, source comparison discrepancies and current access stops remain explicit.",
+    "Actual interrupted/resumed equivalence and independent full legal serialization across every publication are not yet established in the strict requirement ledger.",
+    "Native file/page or operator export-plan success never becomes full publication or jurisdiction completeness."
+  ],
+  "prior_failures": "Interrupted/superseded QA attempts001/003/004 and source-changing002 preserved outside repository under the new readiness QA output; none counted as current pass.001 accidental collector attempt preserved34HTTP200responses/zeroimageMIME, stopped when detected; refusal tests now have an adapter subprocess tripwire.",
+  "runtime_source_freeze": "No further production edits planned after this summary. Root may add its independent integration review and delivery metadata."
+}

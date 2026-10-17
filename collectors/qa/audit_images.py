@@ -22,7 +22,9 @@ def audit(root):
   with p.open('rb') as f:head=f.read(2048)
   kind=signature(head)
   if kind:hits.append({'path':str(p.relative_to(root)),'signature':kind,'bytes':p.stat().st_size,'sha256':hashlib.sha256(p.read_bytes()).hexdigest()})
-  if p.suffix!='.json' or not ('receipt' in p.name or p.name in ['checkpoint.json','requests.json']):continue
+  # Acquisition receipts may be UUID.json, not named *receipt*. Inspect every
+  # retained JSON document before deciding whether it is response metadata.
+  if p.suffix!='.json':continue
   try:r=json.loads(p.read_text())
   except (ValueError,UnicodeError):continue
   def walk(value,locator=''):

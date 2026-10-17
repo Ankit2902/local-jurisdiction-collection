@@ -1,0 +1,108 @@
+{
+  "schema_version": 2,
+  "publisher": "american-legal",
+  "status": "stable_source_checkpoint_live_full_primary_reconciliation_pending",
+  "updated_at": "2026-10-17T21:40:28.695834+00:00",
+  "frozen": false,
+  "image_policy": "literal-[IMAGE]-no-image-fetch-v1",
+  "primary_configs": 15,
+  "historically_observed_publications": 22,
+  "current_live_work": [
+    {
+      "path": "cleveland-primary",
+      "source_url": "https://codelibrary.amlegal.com/codes/cleveland/latest/cleveland_oh",
+      "publication": "cleveland_oh",
+      "status": "collecting",
+      "independent_start_inventory_nodes": 6140,
+      "independently_captured_start_container_responses": 459,
+      "inventory_complete": true,
+      "native_download_bytes": 22331790,
+      "native_sha256": "922b8f2b798ed607e4374d0b99cc49ed9f4be646ff6d811a7b04bcf9ad4334e5",
+      "same_native_job_resumed": true,
+      "job_uuid": "2cb9d2d7-fb28-42fd-93e1-e5080ad7f957",
+      "executed_source": "executed-v3",
+      "required_nonimage_pdf_downloads": 5,
+      "full_primary_complete": false,
+      "note": "Full native bytes and complete independent start inventory retained; parsing, final independent end inventory and raw table audit pending terminal evidence."
+    }
+  ],
+  "current_fault_tests": {
+    "count": 44,
+    "passed": true,
+    "path": "collectors/american-legal/fault-tests.json",
+    "latest_log": "research/fault-tests-v15.log"
+  },
+  "current_features": [
+    "independent recursive full publisher inventory and native whole-book acquisition",
+    "exact source block ownership and table/cell/span preservation",
+    "same-book citation closure bound to retained source IDs",
+    "required nonimage assets with genuine response evidence for unavailable documents",
+    "all retained attachment PDFs normalized with exact-once byte aliases",
+    "PDF positional text, two-engine agreement, reading-order diagnostics and qualified ruled-grid candidates",
+    "no images fetched/extracted; literal [IMAGE] placeholders",
+    "exclusive output lock and deterministic cached resume"
+  ],
+  "current_source_sha256": {
+    "audit_native.py": "e4e3f230129df9f1daa42712609abf5f26b95c53e24a971046fdc5e3b6328acd",
+    "browser.cjs": "32521e26115e7311fbc4b582831659b4a478c8c4b25e6119e40cafcb92f359ce",
+    "collect.py": "c3346df17905945a66b05cce82f7c79f4d45b353b5bf8e7fba3fae2d8f7b82dc",
+    "compare.py": "eba02639c931e60d11751f208d22774fbe54421c33fc97fd53af18d584a7855f",
+    "gate.py": "191dc8be23b19d357bd7bb8f49a2001219a2ee9be5795edebb09fad7fc2d7d45",
+    "inspect_pdf.py": "f63e3b19ab59f85c5d7944eea811306425b1cb17ede4e2567d251fec995f5309",
+    "model.py": "ff83d7efb9e2e69dbff3783199bc5b25e7c09b122e3d4b07fe06796f0d1ed31a",
+    "pdf_layout.py": "44db7e5483c6ce89de138ca9e2c612a0460f4d5d46c0a1a10a3818565ba5919d",
+    "test_browser_interrupt.py": "d58286db00f2c6e06e3db468f423cd31738b33314124b3d21aa53ee4c43332d2",
+    "test_faults.py": "ff089302ead5fcaabf14bf911a807c41485f77a7e2a09712e59265e9bea6586e",
+    "transport.py": "0bded10c0727b97d7d2ade2c6a08aacf9304164ea5a90cdd4375103b4e36ca2e",
+    "verify.py": "0014241822740a2aeb5e2f2716631cc1e539dc035d1af763568526b7c5422e12"
+  },
+  "dependencies": {
+    "python": "3.9+",
+    "node": "18+",
+    "browser": "ordinary installed Chrome",
+    "requirements": "requirements.txt",
+    "new_pdf_geometry_dependency": "PyMuPDF==1.26.5"
+  },
+  "plan": "readiness-plan.json",
+  "strategy_mapping": "research/strategy-mapping.json",
+  "offline_pdf_work": {
+    "path": "form-based-layout-qualification",
+    "kind": "Offline parser qualification from unchanged retained native bytes, not fresh publisher acquisition",
+    "status": "completed",
+    "pages": 212,
+    "positioned_pages": 212,
+    "text_engine_agreeing_pages": 203,
+    "qualified_reading_order_pages": 16,
+    "table_candidates": 296,
+    "qualified_ruled_tables": 78,
+    "semantic_text_complete": false,
+    "table_completeness_qualified": false,
+    "experimental_tagged_structure": "research only; not integrated into stable collector"
+  },
+  "prior_sealed_proof": {
+    "path": "outputs/full-publication-validation-2026-10-17/american-legal/validation-summary.json",
+    "note": "Immutable historical proof; secondary index full text/nativeHTML and FBC nativePDF/page layers, not all15 primaries or a full nested main code"
+  },
+  "remaining_work": [
+    "Complete full nested primary acquisition, current-source reparse and independent raw source table audit",
+    "Run remaining primary configs and qualified secondaries serially under shared publisher gate",
+    "Resolve required nonimage native documents and keep unavailable/broken references explicit",
+    "Qualify PDF tables/reading order per actual source; uncertain layouts must not receive blanket complete flags",
+    "Final fresh execution, offline corruption/omission/resume replay and freeze manifest"
+  ],
+  "source_boundary_stable": true,
+  "browser_interrupt_integration": {
+    "path": "research/browser-interrupt-integration-final.json",
+    "passed": true,
+    "close_seconds": 0.083,
+    "owned_processes_remaining": 0,
+    "publisher_requests": 0
+  },
+  "stable_replay_commands": [
+    "python collectors/american-legal/test_faults.py",
+    "python collectors/american-legal/verify.py collectors/american-legal/fixtures/nested-synthetic.zip --offline",
+    "python collectors/american-legal/verify.py collectors/american-legal/fixtures/live-index.zip --offline --allow-incomplete",
+    "python collectors/american-legal/compare.py collectors/american-legal/fixtures/live-index.zip collectors/american-legal/fixtures/renderer-reference-raw.zip"
+  ],
+  "executed_source_distinction": "Cleveland ongoing executed-v3 remains immutable. Delivered model.py separately removes unreachable legacy raster/SVG validation and adds fail-closed no-decoder guard;44-test suite validates this later revision. No relabeling of live execution."
+}

@@ -1,7 +1,7 @@
 """Publication inventory and exclusive source-node ownership; no network."""
-import copy,csv,gzip,io,json,re
+import copy,csv,datetime,gzip,io,json,re
 from urllib.parse import urljoin,urlparse,parse_qs
-from bs4 import BeautifulSoup
+from bs4 import BeautifulSoup,Comment,NavigableString
 from .util import digest,hash_json
 
 def decode(data,headers):
@@ -12,12 +12,28 @@ def decode(data,headers):
   data=brotli.decompress(data)
  return data.decode('utf-8-sig')
 def clean(s):return ' '.join(str(s).split())
+BLOCK_TAGS={'address','article','aside','blockquote','caption','dd','div','dl','dt','fieldset','figcaption','figure','footer','form','h1','h2','h3','h4','h5','h6','header','hr','li','main','nav','ol','p','pre','section','table','tbody','td','th','thead','tr','ul'}
+def source_text(el):
+ """Preserve inline source joins; add only DOM block/BR boundaries, never spaces between font spans."""
+ chunks=[]
+ def walk(node):
+  if isinstance(node,Comment):return
+  if isinstance(node,NavigableString):chunks.append(re.sub(r'\s+',' ',str(node)));return
+  tag=getattr(node,'name',None)
+  if tag in {'script','style'}:return
+  if tag=='br':chunks.append('\n');return
+  if tag in BLOCK_TAGS:chunks.append('\n')
+  for child in node.children:walk(child)
+  if tag in BLOCK_TAGS:chunks.append('\n')
+ walk(el)
+ return '\n'.join(clean(line) for line in ''.join(chunks).splitlines() if clean(line))
 def heading(section):
  for h in section.find_all(re.compile('^h[1-6]$')):
   if h.find_parent('section',attrs={'data-secid':True})==section:
    clone=copy.deepcopy(h)
    for sup in clone.find_all('sup'):sup.decompose()
-   return clean(clone.get_text(' ',strip=True))
+   definition=clone.select_one('.def')
+   return clean(source_text(definition)) if definition else clean(source_text(clone))
  return ''
 def inventory(html,cfg):
  soup=BeautifulSoup(html,'html.parser');head=soup.select_one('#toc-pagehead');assert head and clean(head.get_text(' ',strip=True))==cfg['identity'],'Wrong publication identity'
@@ -25,7 +41,7 @@ def inventory(html,cfg):
  for li in soup.select('#toc-list li.tocLink'):
   m=re.fullmatch('secid-x([0-9]+)',li.get('id',''));assert m,'Unknown TOC ID shape';ident=m.group(1);assert ident not in seen,'Duplicate TOC ID';seen.add(ident);a=li.select_one('a[href]');label=li.select_one('.toc-item');assert a and label
   url=urljoin(cfg['base'],a['href']);assert parse_qs(urlparse(url).query).get('secid')==[ident],'TOC link/ID mismatch'
-  nodes.append({'id':ident,'heading':clean(label.get_text(' ',strip=True)),'viewer_url':url,'has_children':bool(re.search(r',\s*true\s*\)',a.get('onclick',''))),'declared_depth':next((x[len('toc-level'):] for x in li.find_parent('ul').get('class',[]) if x.startswith('toc-level')),None)})
+  nodes.append({'id':ident,'heading':clean(source_text(label)),'viewer_url':url,'has_children':bool(re.search(r',\s*true\s*\)',a.get('onclick',''))),'declared_depth':next((x[len('toc-level'):] for x in li.find_parent('ul').get('class',[]) if x.startswith('toc-level')),None)})
  assert nodes,'Empty inventory'
  # Flat source inventory is canonical. TOC declared depths never determine body parentage.
  return {'identity':cfg['identity'],'base':cfg['base'],'nodes':nodes,'sha256':hash_json(nodes),'hierarchy_source':'canonical body DOM ancestry and response breadcrumbs; TOC depth is advisory only'}
@@ -35,17 +51,21 @@ def replace_images(body,base,known_image_urls=()):
  """User policy: never fetch/extract graphics; retain refs and literal placeholders."""
  images=[]
  def remember(el,attr,value):
-  url=urljoin(base,value) if value else None
-  images.append({'tag':el.name,'attribute':attr,'url':url if not (url or '').startswith('data:') else None,'inline_data_sha256':digest(url.encode()) if (url or '').startswith('data:') else None,'alt':el.get('alt'),'placeholder':'[IMAGE]','disposition':'Intentional user-policy skip; no image request/extraction'})
- for el in list(body.find_all(True)):
-  if el.parent is None or not any(parent is body for parent in el.parents):continue
+  url=urljoin(base,value) if value else None;inline='data:image/' in str(value or '').lower();alt=el.get('alt');alt_inline='data:image/' in str(alt or '').lower()
+  images.append({'tag':el.name,'attribute':attr,'url':url if not inline and not (url or '').startswith('data:') else None,'inline_data_sha256':digest(str(value).encode()) if inline or (url or '').startswith('data:') else None,'alt':'[IMAGE]' if alt_inline else alt,'alt_inline_data_sha256':digest(str(alt).encode()) if alt_inline else None,'placeholder':'[IMAGE]','disposition':'Intentional user-policy skip; no image request/extraction'})
+ for el in [body]+list(body.find_all(True)):
+  if el is not body and (el.parent is None or not any(parent is body for parent in el.parents)):continue
+  for attr_name,attr_value in list(el.attrs.items()):
+   if 'data:image/' in str(attr_value).lower() and attr_name not in ['src','href','xlink:href','data','srcset','style']:
+    remember(el,attr_name,str(attr_value));el[attr_name]='[IMAGE]'
+  if el.get('background'):remember(el,'background',el['background']);del el['background'];el.append('[IMAGE]')
   if el.name=='style':
    css_values=re.findall(r'url\([\'\"]?([^\)\'\"]+)',el.get_text())
    if css_values:
     for value in css_values:remember(el,'css-rule',value)
     el.replace_with(' '.join('[IMAGE]' for value in css_values))
    continue
-  graphic=el.name in ['img','picture','svg','image'] or (el.name=='input' and el.get('type','').lower()=='image')
+  graphic=el.name in ['img','picture','svg','image'] or (el.name=='input' and el.get('type','').lower()=='image') or (el.name in ['object','embed','source'] and el.get('type','').strip().lower().startswith('image/'))
   attr='src' if el.get('src') else 'href' if el.get('href') else 'xlink:href' if el.get('xlink:href') else 'data' if el.get('data') else None
   linked_graphic=el.name in ['a','object','embed','source'] and attr and (image_url(el[attr]) or urljoin(base,el[attr]) in known_image_urls)
   if graphic or linked_graphic:
@@ -62,6 +82,11 @@ def replace_images(body,base,known_image_urls=()):
   if values:
    for value in values:remember(el,'style',value)
    del el['style'];el.append('[IMAGE]')
+ for node in list(body.find_all(string=True)):
+  if 'data:image/' in str(node).lower():
+   remember(node.parent,'text-node',str(node))
+   if isinstance(node,Comment):node.extract()
+   else:node.replace_with(re.sub(r'data:image/[^\s\"\'<>]+','[IMAGE]',str(node),flags=re.I))
  return images
 def refs(body,base):
  found=[]
@@ -85,12 +110,30 @@ def refs(body,base):
   if el.name in ['img','picture','svg','image','use'] or attr in ['srcset','style'] or image_url(value):continue
   result.append({'url':url,'attribute':attr,'tag':el.name,'alt':el.get('alt'),'required':required,'supported_scheme':urlparse(url).scheme in ['https','http','data']})
  return result
+def omit_equivalent_date_sort_keys(body):
+ """Only an exactly equivalent hidden ISO/visible US date is navigation sort metadata."""
+ ledger=[];cells=body.find_all(['td','th'])
+ for span in list(body.find_all('span',style=True)):
+  if not re.search(r'(?:^|;)\s*display\s*:\s*none(?:\s*!important)?\s*(?:;|$)',span['style'],re.I):continue
+  hidden=clean(source_text(span));cell=span.find_parent(['td','th'])
+  if cell is None or not re.fullmatch(r'\d{4}/\d{2}/\d{2}',hidden):continue
+  clone=copy.deepcopy(cell);match=next((x for x in clone.find_all('span') if str(x)==str(span)),None)
+  if match is None:continue
+  match.decompose();visible=clean(source_text(clone))
+  if not re.fullmatch(r'\d{2}/\d{2}/\d{4}',visible):continue
+  try:equivalent=datetime.datetime.strptime(hidden,'%Y/%m/%d').date()==datetime.datetime.strptime(visible,'%m/%d/%Y').date()
+  except ValueError:equivalent=False
+  if not equivalent:continue
+  ledger.append({'owned_cell_index':next(i for i,x in enumerate(cells) if x is cell),'hidden_html':str(span),'hidden_date':hidden,'visible_date':visible,'disposition':'Display-none ISO date is exactly equivalent to sole visible cell date; publisher sort key omitted from substantive text only, original owned/source HTML retained'})
+  span.decompose()
+ return ledger
+
 def parse_document(html,requested,cfg,known,known_image_urls=()):
  soup=BeautifulSoup(html,'html.parser');page=soup.select_one('#thePage');assert page and page.get('secid')==requested,'Requested container identity mismatch'
  sections=page.select('section[data-secid]');ids=[s['data-secid'] for s in sections];assert len(ids)==len(set(ids)),'Duplicate body source IDs';assert requested in ids,'Requested node absent'
  crumbs=[]
  for a in soup.select('#pageControls .breadCrumbs .breadCrumbs a'):
-  q=parse_qs(urlparse(a.get('href','')).query);crumbs.append({'id':q.get('secid',[None])[0],'heading':clean(a.get_text(' ',strip=True)),'href':urljoin(cfg['base'],a.get('href',''))})
+  q=parse_qs(urlparse(a.get('href','')).query);crumbs.append({'id':q.get('secid',[None])[0],'heading':clean(source_text(a)),'href':urljoin(cfg['base'],a.get('href',''))})
  # Final breadcrumb is selected container itself; the DOM below provides its canonical children.
  prefix=crumbs[:-1];records=[]
  def section_key(el):
@@ -106,39 +149,61 @@ def parse_document(html,requested,cfg,known,known_image_urls=()):
   omitted_controls.append({'tag':el.name,'id':el.get('id'),'reason':'Publisher document branding/nonlegal executable style control'});el.decompose()
  assert not clean(outside.get_text(' ',strip=True)),'Unowned non-control text outside section[data-secid]'
  assert not refs(outside,cfg['base']),'Unowned asset outside section[data-secid]'
- for source in sections:
-  ident=source['data-secid'];h=heading(source);heading_source='body_heading' if h else 'toc_label' if ident in known else 'definition_label' if source.select_one('.def') else 'absent_in_publisher_source';h=h or known.get(ident,{}).get('heading') or (clean(source.select_one('.def').get_text(' ',strip=True)) if source.select_one('.def') else '')
+ selected=next(el for el in sections if el['data-secid']==requested);selected_key=section_key(selected)
+ scoped=[];context_ids=[]
+ for el in sections:
+  key=section_key(el)
+  belongs=el is selected or (selected_key and key and key.startswith(selected_key+'-')) or any(parent is selected for parent in el.find_parents('section',attrs={'data-secid':True}))
+  if belongs:scoped.append(el)
+  else:
+   # Publisher emits ancestor heading stubs around selected content. They supply paths, never bodies/coverage.
+   assert key and selected_key and selected_key.startswith(key+'-'),'Unexplained source section outside requested subtree: '+el['data-secid']
+   context_ids.append(el['data-secid'])
+ for source in scoped:
+  ident=source['data-secid'];h=heading(source);heading_source='body_heading' if h else 'toc_label' if ident in known else 'definition_label' if source.select_one('.def') else 'absent_in_publisher_source';h=h or known.get(ident,{}).get('heading') or (clean(source_text(source.select_one('.def'))) if source.select_one('.def') else '')
   parents=list(reversed(source.find_parents('section',attrs={'data-secid':True})))
   key=section_key(source)
   if not parents and key:
    parts=key.split('-');parent_keys=['-'.join(parts[:i]) for i in range(1,len(parts))];parents=[keys[k] for k in parent_keys if k in keys]
-  ancestry=[{'id':p['data-secid'],'heading':heading(p) or known.get(p['data-secid'],{}).get('heading') or (clean(p.select_one('.def').get_text(' ',strip=True)) if p.select_one('.def') else None)} for p in parents]
+  ancestry=[{'id':p['data-secid'],'heading':heading(p) or known.get(p['data-secid'],{}).get('heading') or (clean(source_text(p.select_one('.def'))) if p.select_one('.def') else None)} for p in parents]
+  canonical_prefix=[]
+  for crumb in prefix:
+   params=parse_qs(urlparse(crumb.get('href','')).query);toc=params.get('tocid',[None])[0];crumb_key='_'+toc.replace('.','-') if toc else None
+   if key and crumb_key and not key.startswith(crumb_key+'-'):continue
+   if any(parent['heading']==crumb['heading'] for parent in ancestry) or crumb['heading']==h:continue
+   canonical_prefix.append({'id':keys[crumb_key]['data-secid'] if crumb_key in keys else crumb['id'],'heading':crumb['heading']})
+  canonical_path=canonical_prefix+ancestry
   owned=copy.deepcopy(source)
   for descendant in list(owned.find_all('section',attrs={'data-secid':True})):
    if descendant.find_parent('section',attrs={'data-secid':True})==owned:descendant.decompose()
   omitted=[]
   for el in owned.select('.archiveNotice.nullValue'):omitted.append(clean(el.get_text(' ',strip=True)));el.decompose()
   image_refs=replace_images(owned,cfg['base'],known_image_urls)
-  body=copy.deepcopy(owned)
+  body=copy.deepcopy(owned);hidden_sort_keys=omit_equivalent_date_sort_keys(body)
   own_h=next((x for x in body.find_all(re.compile('^h[1-6]$')) if x.find_parent('section',attrs={'data-secid':True})==body),None)
-  if own_h:own_h.decompose()
-  text='\n'.join(clean(s) for s in body.get_text('\n',strip=True).splitlines() if clean(s));tables=[]
+  operative_heading=False
+  if own_h:
+   definition=own_h.select_one('.def');whole=clean(source_text(own_h))
+   operative_heading=bool(definition and whole!=clean(source_text(definition))) or bool(ident not in known and re.search(r'\b(shall|means|is defined)\b',whole,re.I))
+   if operative_heading:own_h.name='p';own_h['data-source-operative-heading']='retained'
+   else:own_h.decompose()
+  text=source_text(body);tables=[]
   for table in body.find_all('table'):
    rows=[]
    for tr in table.find_all('tr'):
     if tr.find_parent('table')!=table:continue
-    rows.append([{'text':clean(c.get_text(' ',strip=True)),'tag':c.name,'rowspan':c.get('rowspan','1'),'colspan':c.get('colspan','1'),'html':str(c)} for c in tr.find_all(['td','th']) if c.find_parent('tr')==tr])
+    rows.append([{'text':clean(source_text(c)),'tag':c.name,'rowspan':c.get('rowspan','1'),'colspan':c.get('colspan','1'),'html':str(c)} for c in tr.find_all(['td','th']) if c.find_parent('tr')==tr])
    tables.append(rows)
   for mini in body.select('.mini-TOC'):mini.decompose()
   # Mini-TOCs are navigation, never a substantive container body.
-  text='\n'.join(clean(t) for t in body.get_text('\n',strip=True).splitlines() if clean(t))
-  assets=refs(body,cfg['base']);notes=[clean(x.get_text(' ',strip=True)) for x in body.select('.archiveNotice,.footnote,.note')]
+  text=source_text(body)
+  assets=refs(body,cfg['base']);notes=[clean(source_text(x)) for x in body.select('.archiveNotice,.footnote,.note')]
   if text or assets:kind='operative_or_descriptive_body';disposition='Exclusive legal/descriptive body retained'
   elif known.get(ident,{}).get('has_children') or (key and any(k.startswith(key+'-') for k in keys)):kind='structural_container';disposition='Explicit container has_children/source body ancestry, no owned substantive text'
   elif re.search(r'\b(repealed|reserved|omitted)\b',h,re.I):kind='source_excluded_repealed_or_reserved';disposition='Explicit source heading disposition retained verbatim'
-  else:raise ValueError('Unexplained empty operative leaf '+ident)
+  else:kind='source_empty_unresolved';disposition='Unexplained empty operative leaf; source has no owned body or asset. Retained for inventory accounting but blocks publication text completeness'
 
-  records.append({'id':ident,'heading':h,'heading_source':heading_source,'toc_heading':known.get(ident,{}).get('heading'),'toc_heading_matches':h==known[ident]['heading'] if ident in known else None,'path':prefix+ancestry,'parent_id':ancestry[-1]['id'] if ancestry else (prefix[-1]['id'] if prefix else None),'ownership':'exclusive section body; descendant sections removed','kind':kind,'disposition':disposition,'canonical_body_key':key,'hierarchy_method':'Observed body class ancestry plus DOM and response breadcrumbs; not TOC declared depth','page_ownership_ledger':{'unowned_legal_text':0,'unowned_assets':0,'excluded_controls':omitted_controls},'text':text,'html':str(owned),'body_html':str(body),'body_sha256':digest(str(owned).encode()),'tables':tables,'assets':assets,'image_refs':image_refs,'image_policy':'literal [IMAGE]; intentional skip, no image fetch','image_only':bool(image_refs) and not bool(text.replace('[IMAGE]','').strip()),'links':[{'text':clean(a.get_text(' ',strip=True)),'attributes':dict(a.attrs),'url':urljoin(cfg['base'],a.get('href',''))} for a in body.find_all('a')],'notes':notes,'omitted_null_metadata':omitted,'mini_toc_disposition':'Removed from legal text; retained in owned source HTML as navigation','list_count':len(body.find_all(['ol','ul'])),'inventory_origin':'toc' if ident in known else 'embedded_source_section','source_url':cfg['base']+'doc-view.aspx?secid='+ident+'&ajax=0'})
+  records.append({'id':ident,'heading':h,'heading_source':heading_source,'toc_heading':known.get(ident,{}).get('heading'),'toc_heading_matches':h==known[ident]['heading'] if ident in known else None,'path':canonical_path,'parent_id':canonical_path[-1]['id'] if canonical_path else None,'ownership':'exclusive section body; descendant sections removed','kind':kind,'disposition':disposition,'canonical_body_key':key,'hierarchy_method':'Observed body class ancestry plus DOM and response breadcrumbs; not TOC declared depth','page_ownership_ledger':{'unowned_legal_text':0,'unowned_assets':0,'excluded_controls':omitted_controls,'context_section_ids':context_ids,'context_disposition':'Ancestor heading stubs provide canonical hierarchy only; excluded from acquired body IDs'},'text':text,'html':str(owned),'body_html':str(body),'operative_heading_retained_as_body':operative_heading,'body_sha256':digest(str(owned).encode()),'tables':tables,'assets':assets,'image_refs':image_refs,'image_policy':'literal [IMAGE]; intentional skip, no image fetch','image_only':bool(image_refs) and not bool(text.replace('[IMAGE]','').strip()),'links':[{'text':clean(source_text(a)),'attributes':dict(a.attrs),'url':urljoin(cfg['base'],a.get('href',''))} for a in body.find_all('a')],'notes':notes,'omitted_null_metadata':omitted,'omitted_hidden_sort_keys':hidden_sort_keys,'mini_toc_disposition':'Removed from legal text; retained in owned source HTML as navigation','list_count':len(body.find_all(['ol','ul'])),'inventory_origin':'toc' if ident in known else 'embedded_source_section','source_url':cfg['base']+'doc-view.aspx?secid='+ident+'&ajax=0'})
  return records
 
 def outputs(records):

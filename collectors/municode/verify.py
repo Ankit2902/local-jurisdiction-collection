@@ -20,7 +20,11 @@ def verify(folder,allow_incomplete=False):
   receipt=json.loads((folder/entry['receipt']).read_text());check(receipt['status']==200 and not receipt.get('access_stop'),'Failed response accepted as committed source')
  for pid,pub in cp['publications'].items():
   checks_before=checks;product=read_response(folder,cp['units'][pub['product_unit']])['Model'];job=read_response(folder,cp['units'][pub['job_unit']]);q=parse_qs(urlparse(cp['units'][pub['product_unit']]['request']['url']).query);check(q.get('clientId')==[str(cp['client_id'])],'Product request client mismatch');check(product['ProductID']==int(pid) and job['ProductId']==int(pid) and job['Id']==pub['job_id'],'Product/job identity mismatch');check(product['Client']['ClientName'] in cp['expected_identity']['client_names'] and product['Client']['State']['StateAbbreviation']==cp['expected_identity']['state'],'Jurisdiction mismatch');check(not product.get('ExternalCodeLink'),'External migration cannot pass');tq=parse_qs(urlparse(cp['units'][pub['toc_unit']]['request']['url']).query);check(tq.get('productId')==[pid] and tq.get('jobId')==[str(pub['job_id'])],'TOC request edition mismatch')
-  records,report=reconcile_publication(folder,cp,pid);stored=json.loads((folder/'publications'/pid/'coverage.json').read_text());check(report==stored,'Coverage recomputation mismatch '+pid);check(not report['duplicate_ids'] and not report['extra_ids'],'Duplicate/extra source ownership');check(not report['errors'],'Publication parse/identity errors')
+  records,report=reconcile_publication(folder,cp,pid);stored=json.loads((folder/'publications'/pid/'coverage.json').read_text());check(report==stored,'Coverage recomputation mismatch '+pid);check(not report['duplicate_ids'] and not report['extra_ids'],'Duplicate/extra source ownership')
+  # Inspection may accept explicitly reported empty-source defects, never identity,
+  # unknown types or ownership failures. Default full verification still rejects all.
+  blocking_errors=report['errors'] if not allow_incomplete else [e for e in report['errors'] if not e.startswith('unexplained empty leaf: ')]
+  check(not blocking_errors,'Publication parse/identity errors')
  with tempfile.TemporaryDirectory() as tmp:
   # Recompute without touching retained evidence. Raw source references are copied via read-only filesystem symlinks.
   temp=Path(tmp);(temp/'raw').symlink_to((folder/'raw').resolve(),target_is_directory=True);overall=write_outputs(temp,cp)

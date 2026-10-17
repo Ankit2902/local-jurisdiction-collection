@@ -1,0 +1,326 @@
+{
+  "schema_version": 2,
+  "phase": "collection-readiness-2026-10-17",
+  "checkpoint_status": "source-frozen after narrow image MIME fix; live runners safely paused for checkpoint capture; honest partial checkpoint",
+  "observed_at": "2026-10-17T21:39:53.774794+00:00",
+  "runtime": {
+    "python": "3.12.14",
+    "os": "macOS-26.6.2-arm64-arm-64bit",
+    "packages": {
+      "beautifulsoup4": "4.15.0",
+      "brotli": "1.2.0",
+      "pypdf": "6.21.1",
+      "fonttools": "4.67.0",
+      "pdfplumber": "0.11.8",
+      "pypdfium2": "5.14.0",
+      "pdfminer.six": "20251107"
+    }
+  },
+  "source_versions": {
+    "__init__.py": "b694a5d9aaec3d14d60b33a1633fcc183ac03862b6226f4fd0d2fe62ff4354e3",
+    "collect.py": "b44bef1ec5e77449f8b3e839cb5e1daaae4061bb859648ce4dccc3390d594ac1",
+    "documents.py": "a5763102f8990f6dc9a5e135445a965b9a834512ad59de133d19fe7569e4bbe4",
+    "model.py": "53399541b48c63190ef1690a36c48a7874ef7aa8efb6737668abc117e898eeaf",
+    "native_document.py": "724a28e9bcc5c5814d4f10d824cbeb90fe18534803cc7d5a5111d3e9edcebf80",
+    "pdf_structure.py": "8341b33f36dbc52a20a229f04816d21d358a9f25a2399cab5a4a4c1e28e49251",
+    "replay.py": "edd3c2f7a18881771e7ef8a27d08f5e5275d80c7bb72f8659c1170af0131b0fb",
+    "transport.py": "5c1682d0e9bbd48e68c664077be3e76500a8f37488f14467b3a66e7acafaf3ca",
+    "util.py": "92e22d86d3304b80e9997466cbb0d3497e320f181ae5630fcfc64c30fa625a56",
+    "verify.py": "2563c8d1c257cbaaad640f1384d4677fe87cd3d56d287757b5430368dac9fa84",
+    "targets.json": "a49ef8ea245588ceb30a2e654295566ae3b4d6b6d0afd1a8900abd72bd094163",
+    "requirements.txt": "259e00783155c2d522e7c3db73908308f2a8efd1733284d76956ec698ef8ffe0"
+  },
+  "tests": {
+    "command": [
+      ".venv/bin/python",
+      "-B",
+      "-m",
+      "collectors.encodeplus.tests"
+    ],
+    "tests_py_sha256": "9712060a9cc7fa7f7d29cccbb644a42e5b40192d2f725960bc829fb655378a4d",
+    "passed": 24,
+    "duration_seconds": 70.586,
+    "log": "proofs/readiness-24-tests.log",
+    "scope": "Network-free actual-source fixture replay, synthetic transport/fault tests including uppercase MIME/data image policy. Not24live acquisitions."
+  },
+  "independent_source_table_audit": {
+    "report": "proofs/fairfax-source-tables-pass.json",
+    "records": 85,
+    "tables": 282,
+    "rows": 2646,
+    "cells": 12568,
+    "mismatches": 0,
+    "scope": "Every table-bearing record in full743-body-node Fairfax Zoning retained-source derivative against original exclusive raw Chrome DOM; zero network. Does not close linked manual/documents.",
+    "earlier_failure_reports": [
+      "proofs/fairfax-source-tables-452-before.json",
+      "proofs/fairfax-source-tables-46-before.json"
+    ]
+  },
+  "active_runs": [
+    {
+      "run": "lincoln-primary",
+      "evidence_path": "outputs/collection-readiness-2026-10-17/encodeplus/lincoln-primary",
+      "phase_at_checkpoint": "upgrade-revalidation",
+      "full_scope_requested": true,
+      "toc_nodes": 4784,
+      "acquired_body_ids": 6714,
+      "acquisition_blocks": 29,
+      "closing_blocks_this_generation": 0,
+      "native_export_requested": true,
+      "required_documents_acquired_so_far": 0,
+      "required_document_failures_so_far": 68,
+      "final_acceptance": "PENDING; safely paused at shared gate for narrow image fix/checkpoint capture; all source evidence retained, no complete-publication pass",
+      "checkpoint_sha256_at_observation": "3dbe173b661637c35fdae0de441a767b21ca278637ea87212e67e21190a4feee",
+      "checkpoint_observation_evidence": "outputs/collection-readiness-2026-10-17/encodeplus/checkpoint-observations/3dbe173b661637c35fdae0de441a767b21ca278637ea87212e67e21190a4feee.json",
+      "observation_note": "Persisted current checkpoint bytes; numeric interim counts above were measured at observed_at, not final acceptance."
+    },
+    {
+      "run": "overland-primary",
+      "evidence_path": "outputs/collection-readiness-2026-10-17/encodeplus/overland-primary",
+      "phase_at_checkpoint": "upgrade-revalidation",
+      "full_scope_requested": true,
+      "toc_nodes": 4381,
+      "acquired_body_ids": 6279,
+      "acquisition_blocks": 23,
+      "closing_blocks_this_generation": 0,
+      "native_export_requested": true,
+      "required_documents_acquired_so_far": 5,
+      "required_document_failures_so_far": 4,
+      "final_acceptance": "PENDING; safely paused at shared gate for narrow image fix/checkpoint capture; all source evidence retained, no complete-publication pass",
+      "checkpoint_sha256_at_observation": "11964190fa30de6f045277fd596ebfea5d9225854bd5422de53aec48fba08e7e",
+      "checkpoint_observation_evidence": "outputs/collection-readiness-2026-10-17/encodeplus/checkpoint-observations/11964190fa30de6f045277fd596ebfea5d9225854bd5422de53aec48fba08e7e.json",
+      "observation_note": "Persisted current checkpoint bytes; numeric interim counts above were measured at observed_at, not final acceptance."
+    },
+    {
+      "run": "savannah-primary",
+      "evidence_path": "outputs/collection-readiness-2026-10-17/encodeplus/savannah-primary",
+      "phase_at_checkpoint": "upgrade-revalidation",
+      "full_scope_requested": true,
+      "toc_nodes": 3879,
+      "acquired_body_ids": 5674,
+      "acquisition_blocks": 3,
+      "closing_blocks_this_generation": 0,
+      "native_export_requested": true,
+      "required_documents_acquired_so_far": 115,
+      "required_document_failures_so_far": 0,
+      "final_acceptance": "PENDING; safely paused at shared gate for narrow image fix/checkpoint capture; all source evidence retained, no complete-publication pass",
+      "checkpoint_sha256_at_observation": "ac5c8f51ce86b3f995ee625a063fe3d3af956d6e0240329c872ac8b914c1bf07",
+      "checkpoint_observation_evidence": "outputs/collection-readiness-2026-10-17/encodeplus/checkpoint-observations/ac5c8f51ce86b3f995ee625a063fe3d3af956d6e0240329c872ac8b914c1bf07.json",
+      "observation_note": "Persisted current checkpoint bytes; numeric interim counts above were measured at observed_at, not final acceptance."
+    },
+    {
+      "run": "fairfax-pfm",
+      "evidence_path": "outputs/collection-readiness-2026-10-17/encodeplus/fairfax-pfm",
+      "phase_at_checkpoint": "assets",
+      "full_scope_requested": true,
+      "toc_nodes": 618,
+      "acquired_body_ids": 624,
+      "acquisition_blocks": 1,
+      "closing_blocks_this_generation": 0,
+      "native_export_requested": true,
+      "required_documents_acquired_so_far": 90,
+      "required_document_failures_so_far": 38,
+      "final_acceptance": "PENDING; safely paused at shared gate for narrow image fix/checkpoint capture; all source evidence retained, no complete-publication pass",
+      "checkpoint_sha256_at_observation": "9301eaa546c0662a138667ddee9ad1ba092c6d92d868872dcd801238fc9e20ab",
+      "checkpoint_observation_evidence": "outputs/collection-readiness-2026-10-17/encodeplus/checkpoint-observations/9301eaa546c0662a138667ddee9ad1ba092c6d92d868872dcd801238fc9e20ab.json",
+      "observation_note": "Persisted current checkpoint bytes; numeric interim counts above were measured at observed_at, not final acceptance."
+    }
+  ],
+  "separately_qualified_configs_index": "outputs/collection-readiness-2026-10-17/encodeplus/research/secondary-config-qualification.json",
+  "native_document_sources": {
+    "count": 6,
+    "source_inspection": "outputs/collection-readiness-2026-10-17/encodeplus/research/native-candidates-inspection.json",
+    "scope": "Six current Overland originals format-qualified; complete native-file/allpage live runs separately passed6/1/1/62pages.224pageSTO paused afteropening raw capture,172pageUPOC notstarted. Native page success never implies full normalized legal/table/reading-order semantics."
+  },
+  "preserved_prior_proofs": {
+    "charter_current_parser_derivative": "outputs/collection-readiness-2026-10-17/encodeplus/charter-current-parser-replay",
+    "scope": "188-node retained-source derivative is historical/offline; actual current-code fresh standalone integration now separately passed via Charter v4.",
+    "old_packages": "Earlier wave3 and full-publication-validation seals remain unchanged."
+  },
+  "limits": [
+    "[IMAGE] literal policy: no separate image requests/downloads/extraction; original native PDFs may contain publisher graphics.",
+    "Unexplained empty operative leaves remain source_empty_unresolved and block text completeness; names alone never prove structural intent.",
+    "First ordinary official Lincoln redirect returned403 at https://www.lincoln.ne.gov/city/attorn/designs/ds385.pdf; exact external host stop retained. No browser/proxy/alias retry bypass; many linked required documents remain blocked.",
+    "Overland interim full6,279-node source capture had5required documents acquired and4failed; closing checks under final code still pending.",
+    "Fairfax Zoning source743nodes/282tables reconciles; separate PFM manual and its external required standards remain independent gaps.",
+    "AMM required ITE Syracuse PDF remains unresolved; original DNS stop/history preserved, no retry, no edition substitution with paid/newer ITE manuals.",
+    "Native source/page capture is separate from normalized legal text, complete table detection, reading order, legal currency and jurisdiction completeness.",
+    "Publisher global legal edition identity remains unqualified; observed start/end snapshots are checked instead.",
+    "Active longer runs are not sealed or promoted to full passes; source hash guards bind their current frozen implementation.",
+    "PDF native parser conservatively flags concrete text/table/engine/reading-order defects. Later overlap/glyph prototypes are not part of this frozen source; intentional image omissions alone are not completeness failures."
+  ],
+  "current_code_standalone_charter_integration": {
+    "scope": "Actual whole separately published Lincoln City Charter, not Lincoln Municipal Code",
+    "launcher": "Shared standalone launcher v4 with dependency-proof and source/runtime drift guards",
+    "evidence": "outputs/collection-readiness-2026-10-17/ops/live-charter-unified-v4",
+    "source_snapshot": "Immutable integration-source-v4; final EPtransport5c168...",
+    "acquire_exit_code": 0,
+    "offline_verify_exit_code": 0,
+    "publication_accepted": true,
+    "source_drift": false,
+    "runtime_drift": false,
+    "source_nodes": 188,
+    "owned_bodies": 174,
+    "structural_containers": 14,
+    "opening_blocks": 17,
+    "closing_blocks": 17,
+    "missing_ids": [],
+    "separate_images": 0,
+    "proofs": [
+      "proofs/charter-v4-coverage.json",
+      "proofs/charter-v4-source-manifest.json",
+      "proofs/charter-v4-images.json"
+    ],
+    "edition_complete": false,
+    "jurisdiction_complete": false,
+    "current_revision_qualification": "Actual v4 standalone proof precedes narrow uppercase HTML MIME fix. Its captured model is b9772e9b152b4cb3f830a6730d838cd2a2ea1d0599deb1e5c82d9bc36304e694. New24-test suite covers final image-policy delta; no claim that v4 live acquisition executed the later model."
+  },
+  "native_document_final_live": {
+    "evidence": "outputs/collection-readiness-2026-10-17/encodeplus/native-solid-waste-final-live",
+    "proof": "proofs/native-solid-waste-final-live-coverage.json",
+    "native_document_complete": true,
+    "source_page_traversal_complete": true,
+    "pages": 6,
+    "pdf_extractable_text_reconciled": true,
+    "detected_table_count": 0,
+    "publication_text_complete": false,
+    "attachments_complete": false,
+    "scope": "Entire exact6-page solid-waste regulations document. Fresh gated opening+closing identical publisher bytes, everypage normalized; no semantic/table universality claim.",
+    "relocated_offline_verifier": {
+      "proof": "proofs/native-solid-waste-relocated-verification.json",
+      "exit_code": 0,
+      "original_evidence_unchanged": true,
+      "relocated_evidence_unchanged": true,
+      "source_files_checked": 20
+    }
+  },
+  "checkpoint_metadata_finalized_at": "2026-10-17T21:57:35.146791+00:00",
+  "uppercase_image_fix": {
+    "delta": "object/embed/source image MIME classification uses strip().lower().startswith(image/), including opaque image URLs; existing case-insensitive data-image redaction retained",
+    "previous_model_sha256": "b9772e9b152b4cb3f830a6730d838cd2a2ea1d0599deb1e5c82d9bc36304e694",
+    "current_model_sha256": "53399541b48c63190ef1690a36c48a7874ef7aa8efb6737668abc117e898eeaf",
+    "transport_changed": false,
+    "proof": "proofs/casing-boundary-pause.json",
+    "regression": "2 literal placeholders, no required document, no pixel payload, no active opaque image element"
+  },
+  "additional_native_full_file_page_runs": [
+    {
+      "id": "82-86f6be279e26",
+      "proof": "proofs/native-82-86f6be279e26-coverage.json",
+      "evidence": "outputs/collection-readiness-2026-10-17/encodeplus/native-82-86f6be279e26-final-live",
+      "pages": 1,
+      "native_document_complete": true,
+      "source_page_traversal_complete": true,
+      "publication_text_complete": false,
+      "pdf_details": {
+        "detected_table_cells": 0,
+        "detected_table_cells_qualified": true,
+        "detected_table_count": 0,
+        "metadata": {
+          "/CreationDate": "D:20110831150956Z",
+          "/Creator": "ESRI ArcMap 10.0.2.3200",
+          "/ModDate": "D:20191115092215-06'00'",
+          "/Title": "Downtown Form District Regulating Plan"
+        },
+        "pages": 1,
+        "parser_sha256": "8341b33f36dbc52a20a229f04816d21d358a9f25a2399cab5a4a4c1e28e49251",
+        "pdf_extractable_text_reconciled": true,
+        "pdf_table_semantics_complete": false,
+        "reading_order_manual_review_required": true,
+        "review_conditions": {
+          "1": [
+            "more_than_5000_vector_edges_table_detection_review",
+            "vector_illustration_interpretation_not_established"
+          ]
+        }
+      },
+      "source_revision_note": "Captured before narrow uppercase HTML MIME classification fix; identical pure PDF parser8341b33 and transport5c168. Native-only source/page claims, not legal/table semantics."
+    },
+    {
+      "id": "82-2a6b248067e3",
+      "proof": "proofs/native-82-2a6b248067e3-coverage.json",
+      "evidence": "outputs/collection-readiness-2026-10-17/encodeplus/native-82-2a6b248067e3-final-live",
+      "pages": 1,
+      "native_document_complete": true,
+      "source_page_traversal_complete": true,
+      "publication_text_complete": false,
+      "pdf_details": {
+        "detected_table_cells": 0,
+        "detected_table_cells_qualified": true,
+        "detected_table_count": 0,
+        "metadata": {
+          "/Author": "Leslie Karr",
+          "/CreationDate": "D:20191025083540-05'00'",
+          "/Creator": "Adobe Acrobat Pro 10.1.4",
+          "/ModDate": "D:20191126165650-06'00'",
+          "/Producer": "Adobe Acrobat Pro 10.1.4",
+          "/Title": "Downtown Form District Street Section Map"
+        },
+        "pages": 1,
+        "parser_sha256": "8341b33f36dbc52a20a229f04816d21d358a9f25a2399cab5a4a4c1e28e49251",
+        "pdf_extractable_text_reconciled": true,
+        "pdf_table_semantics_complete": false,
+        "reading_order_manual_review_required": true,
+        "review_conditions": {
+          "1": [
+            "more_than_5000_vector_edges_table_detection_review",
+            "image_only_or_no_extractable_legal_text",
+            "vector_illustration_interpretation_not_established"
+          ]
+        }
+      },
+      "source_revision_note": "Captured before narrow uppercase HTML MIME classification fix; identical pure PDF parser8341b33 and transport5c168. Native-only source/page claims, not legal/table semantics."
+    },
+    {
+      "id": "82-0c6b3dc40877",
+      "proof": "proofs/native-82-0c6b3dc40877-coverage.json",
+      "evidence": "outputs/collection-readiness-2026-10-17/encodeplus/native-82-0c6b3dc40877-final-live",
+      "pages": 62,
+      "native_document_complete": true,
+      "source_page_traversal_complete": true,
+      "publication_text_complete": false,
+      "pdf_details": {
+        "detected_table_cells": 616,
+        "detected_table_cells_qualified": false,
+        "detected_table_count": 18,
+        "metadata": {
+          "/CreationDate": "D:20240307110856-06'00'",
+          "/ModDate": "D:20240307110856-06'00'",
+          "/Producer": "Skia/PDF m124 Google Docs Renderer",
+          "/Title": "manual-of-infrastructure-standards-for-right-of-way draft final 11-06-2023"
+        },
+        "pages": 62,
+        "parser_sha256": "8341b33f36dbc52a20a229f04816d21d358a9f25a2399cab5a4a4c1e28e49251",
+        "pdf_extractable_text_reconciled": false,
+        "pdf_table_semantics_complete": false,
+        "reading_order_manual_review_required": true,
+        "review_conditions": {
+          "2": [
+            "82-0c6b3dc40877::page:2::table:1:independent_cell_text_disagreement"
+          ],
+          "3": [
+            "82-0c6b3dc40877::page:3::table:1:independent_cell_text_disagreement",
+            "normalized_text_source_word_character_disagreement"
+          ],
+          "46": [
+            "82-0c6b3dc40877::page:46::table:1:independent_cell_text_disagreement"
+          ],
+          "6": [
+            "82-0c6b3dc40877::page:6::table:1:independent_cell_text_disagreement",
+            "normalized_text_source_word_character_disagreement"
+          ]
+        }
+      },
+      "source_revision_note": "Captured before narrow uppercase HTML MIME classification fix; identical pure PDF parser8341b33 and transport5c168. Native-only source/page claims, not legal/table semantics."
+    }
+  ],
+  "request_pacing_qualification": {
+    "configured_seconds": 3.5,
+    "minimum_observed_actual_start_seconds": 3.112757,
+    "pairs_audited": 258,
+    "actual_starts_below_original_3second_floor": 0,
+    "http429": 0,
+    "proof": "proofs/gate-timing-qualification.json",
+    "limitation": "Atomic state persistence precedes started_at causing nominal3.5 timing jitter. Transport remains exact5c168; timing correction deferred until checkpoint capture by root instruction."
+  }
+}

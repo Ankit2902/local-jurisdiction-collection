@@ -36,15 +36,16 @@ class ImageFreeHTML(HTMLParser):
   # Image downloads linked as anchors are replaced, while their label remains available.
   if t=='a' and (image_url(candidate) or urljoin(self.base,candidate) in self.known):
    self.mark(t,aa,'image reference deliberately omitted');aa=[(k,v) for k,v in aa if k not in ('href','xlink:href','download')]
-  clean=[]
+  clean=[];attribute_markers=[]
   for k,v in aa:
    if (v and 'data:image/' in v.lower()) or k in ('background','poster') or (k in ('src','href','xlink:href','data') and (image_url(v or '') or urljoin(self.base,v or '') in self.known)):
-    self.mark(t,[(k,v)],'image attribute deliberately omitted');continue
+    self.omissions.append({'tag':t,'attributes':{k:v},'reason':'image attribute deliberately omitted'});attribute_markers.append('[IMAGE]');continue
    if k=='style' and v:
-    def omit(m):self.omissions.append({'tag':t,'attributes':{'style':m.group(0)},'reason':'CSS image reference deliberately omitted'});self.out.append('[IMAGE]');return 'none'
+    def omit(m):self.omissions.append({'tag':t,'attributes':{'style':m.group(0)},'reason':'CSS image reference deliberately omitted'});attribute_markers.append('[IMAGE]');return 'none'
     v=re.sub(r'url\([^)]*\)',omit,v,flags=re.I)
    clean.append((k,v))
   self.out.append('<'+t+''.join(' '+k+('="'+escape(v,quote=True)+'"' if v is not None else '') for k,v in clean)+'>')
+  self.out.extend(attribute_markers)
   if t=='style':self.in_style=True
  def handle_startendtag(self,t,a):
   self.handle_starttag(t,a)

@@ -145,7 +145,8 @@ def heading_nodes(node, page, slug):
         ident = doc_key(page['url']) + '::' + loc['kind'] + ':' + loc['value']
         counts[ident] = counts.get(ident, 0) + 1
         if counts[ident] > 1:
-            raise ValueError('duplicate source locator in one document')
+            if page.get('duplicate_locator_strategy')!='source_occurrence':raise ValueError('duplicate source locator in one document')
+            loc['source_occurrence']=counts[ident];ident+='::source-occurrence:'+str(counts[ident])
         rank = int(h.name[1])
         while stack and stack[-1][0] >= rank:
             stack.pop()

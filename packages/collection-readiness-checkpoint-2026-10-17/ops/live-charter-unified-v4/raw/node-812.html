@@ -1,0 +1,189 @@
+
+    <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+    <html>
+    <head>
+
+        <title>ARTICLE VI UTILITIES</title>
+        <link type="text/css" rel="Stylesheet" href="jqueryui/css/jqueryui.css" media="all" />
+        <link type="text/css" rel="Stylesheet" href="css/ui.css" media="all" />
+        <link type="text/css" rel="Stylesheet" href="css/customui.css" media="all" />
+        <link type="text/css" rel="Stylesheet" href="css/document.css" media="all" />
+        <link type="text/css" rel="Stylesheet" href="css/customdoc.css" media="all" />
+        <link type="text/css" rel="Stylesheet" href="tablestyles.aspx" media="all" />
+        <link rel="StyleSheet" type="text/css" href="/common/font-awesome/css/all.min.css">
+        <link type="text/css" rel="Stylesheet" href="css/docprint.css" media="print" />
+        <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+        <script type="text/javascript" src="jqueryui/js/jquery-ui-1.8.21.custom.min.js"></script>
+        <script type="text/javascript" src="js/doc-view.js?_t=290"></script>
+        <script type="text/javascript" src="js/tabletools.js"></script>
+        <script type="text/javascript" src="js/tabs.js"></script>
+        <script type="text/javascript">
+            var iframeReady = false;
+        </script>
+        
+    </head>
+    <body class='doc-view'>
+        <script type="text/javascript">
+            $(document).ready(function () {
+                ZP.DocView.InitDef();
+                ZP.DocView.OpenDefinitionPage = null;
+                ZP.DocView.OpenDefinitionMode = '_self';
+                ZP.DocView.OpenXRefPage = 'doc-viewer.aspx#$2-';
+                ZP.DocView.OpenXRefMode = '_blank';
+                $(window).bind('hashchange', ZP.DocView.HashChanged);
+        
+        if (typeof ZP.DocView.ZoomClasses == 'undefined') {
+            ZP.DocView.ZoomClasses = ["Unzoom1", "", "Zoom1", "Zoom2", "Zoom3", "Zoom4"];
+        }
+        ZP.DocView.InitializeZoom();
+        EC.SortedTable.Init(".ord-tbl, .stat-tbl", ".sortable");
+        EC.Tabs.PositionLeftTabs();
+    });
+
+
+        </script>
+
+
+    <div id="doc-viewer">
+        
+
+<div id="doc-view">
+    <div id="doc-view-content">
+        
+<div id="pageControls">
+<script type="text/javascript" >
+    function clearEffDate() {
+        jQuery.get("doc-view-helper.aspx?task=currentversion", function () {
+            window.location.reload();
+        });
+        return false;
+    }
+</script>
+     <div class="pageControls psuedoTable" role="navigation" aria-label="Document Navigation">  
+        <div class="psuedoTableBody" >     
+            <div class="psuedoTableRow">         
+                <div class="pageControls_outer" ></div>
+                <div class="pageControls_inner left">
+                    <a id='button1' onclick='ZP.DocView.PrintDoc("007",false);return false;' href="#" title="Print" role="button"> 
+                        <img alt="Print" src="resources/btn-print-white.png" /></a>
+                    <a id='Button2' onclick='ZP.DocView.OpenPDF("007",false);return false;' href="#" title="Export PDF" role="button">
+                        <img alt="Generate PDF" src="resources/btn-makepdf-white.png" /></a>
+                        <a class="email-popup" href="mailto:?subject=ARTICLE%20VI%20UTILITIES&amp;body=Lincoln%20NE%20City%20Charter https://online.encodeplus.com/regs/lincoln-ne-cc/doc-viewer.aspx?secid=812"><img src="resources/email-white.png" alt="Click to Share By Email" /></a>     
+                </div>
+                <div  class="pageControls_inner breadCrumbs" title="Navigation 'breadcrumbs'">
+                     <div class='breadCrumbs'><a href='/regs/lincoln-ne-cc/doc-viewer.aspx?tocid=007' >ARTICLE VI UTILITIES</a></div>
+                </div>
+                 <div  class="pageControls_inner right">       
+                     <ul >  
+                         <li>
+                            <a id='button3' class="nav" onclick="ZP.DocView.LoadPrevDoc('007');return false;" href="#"  title="Previous Section" accesskey="," role="button"><img alt="Go to Previous Section" src="resources/btn-back-white.png" /></a>
+                         </li>  
+                         <li>
+                             <a id='Button4'  class="nav" onclick="ZP.DocView.LoadNextDoc('007');return false;" href="#"  title="Next Section" accesskey="." role="button"> <img alt="Go to Next Section" src="resources/btn-forward-white.png" /></a>
+                         </li>   
+                         <li>
+                             <a id="pageControls-overflow" onclick="ZP.DocView.PgCntrlOverflowClick(event);return false;" href="#" title="Click for more options" role="button" >
+                            <img src="resources/overflow-btn-white.png" alt="Click for more options" /></a>
+                               
+  <ul class="submenu" role="dialog">
+            <li><a href="/regs/lincoln-ne-cc/doc-viewer.aspx?secid=812" onclick="javascript:alert('Right click this icon and select \'add to favorites\' or \'Bookmark this Link\' to bookmark this page');return false;" title="Bookmark this page" >Bookmark</a></li>
+            <li>
+                                        
+                <a id="zoomMinus" onclick="ZP.DocView.DecreaseZoom();return false;" href="#" title="Decrease Zoom" class="zoomLink glyphicon" >&#x2212;</a>
+                <a onclick="ZP.DocView.DefaultZoom();return false;"  href="#" title="Default Zoom"  class="zoomLink" >100%</a>
+                <a id="zoomPlus" onclick="ZP.DocView.IncreaseZoom();return false;" href="#" title="Increase Zoom"  class="zoomLink glyphicon" > &#x2b; </a>
+            </li>
+           
+                           
+                
+                <li><a id="subscribe-btn" onclick="ZP.DocView.OpenSubscribeDlg();return false;" title="Subscribe to Notifications" href="subscribe.aspx" role="button">Subscribe</a></li>
+                <li><a id="unsubscribe-btn" onclick="ZP.DocView.OpenUnsubscribeDlg();return false;" title="Cancel Notifications Subscription" href="unsubscribe.aspx" role="button" >Unsubscribe</a></li>
+                
+</ul>
+                         </li>        
+                        
+                        </ul>   
+                </div>
+                <div class="pageControls_outer"></div>
+            </div>
+        </div>
+    </div> 
+    <div id="subscribe-dialog" title="" aria-live="polite" >
+        <div id="sub-message"></div>
+        <div id="sub-form-cntr"></div>
+    </div>
+</div>
+
+
+        <div id="thePage-outer" >
+            <div id="thePage-wrap" class="thePage-wrap ">
+                <div id="outer-doc-banner"></div>
+                <div id="thePage-border">
+                    <div id="thePage" class="textPage " tocid="007" secid="812" role="main" aria-label="Document">
+                        <img id="sectionBanner" title="Document text banner" src="resources/docbanner.png" width="720" valign="Top" alt="Document text banner">
+                        
+                        <section id='secid-812' class='secLvl1 _007' tabindex='-1' data-secid='812'> 
+<h2>ARTICLE VI UTILITIES</h2>
+
+<div class="mini-TOC" data-endlevel="2" data-id="mini-TOC" data-startlevel="2">
+<div class="mini-TOC-label"><strong>Contents:</strong></div>
+
+<ul><li><a class="tocLink" href="doc-viewer.aspx#secid-813">	Sec. 1. 	Waterworks.</a></li>
+<li><a class="tocLink" href="doc-viewer.aspx#secid-814">	Sec. 2. 	Water Districts.</a></li>
+<li><a class="tocLink" href="doc-viewer.aspx#secid-815">	Sec. 3.	Ornamental Lighting Districts.</a></li>
+</ul>
+</div>
+
+
+</section> 
+<section id='secid-813' class='secLvl2 _007 _007-001' tabindex='-1' data-secid='813'> 
+<h3>Sec. 1. Waterworks.</h3>
+
+<p>When a system of waterworks shall have been adopted and the people shall have voted to borrow money to aid their construction or extension, the city council may erect, construct and maintain such system of waterworks, either within or without the corporate limits of the city, and make all needful rules and regulations concerning the use of such waterworks, and do all acts necessary for the construction, completion, and management and control of the same, not inconsistent with this charter, including the taking of private property for public use for the construction and operation of the same, compensation to be ascertained and made therefor in the manner hereinbefore provided for the exercise of the power of eminent domain.</p>
+
+<p class='archiveNotice nullValue '></p>
+</section> 
+<section id='secid-814' class='secLvl2 _007 _007-002' tabindex='-1' data-secid='814'> 
+<h3>Sec. 2. Water Districts.</h3>
+
+<p>The city council shall have power to create water districts for the purpose of supplying water for domestic, industrial or fire purposes, or for any one or more of said purposes, or for the purpose of enlarging any water mains, now existing or hereafter constructed. All such districts, to be known as &quot;water districts,&quot; shall be created by ordinance and shall designate the property in the district to be benefitted. Upon creation of any water district, the city council shall have power to construct or cause to be constructed, either by contract with the lowest responsible bidder or directly by the city, such water main or mains, or extensions or enlargements, including all necessary appliances for fire protection, within such districts as the council shall determine, and assess the costs thereof against the property in such district, not exceeding the special benefits accruing on account thereof, in the manner provided by Section 14 of Article VIII. The city council shall have power and authority to fix the period of time, not to exceed twenty years, in which special assessments against any property for the payment of the cost of such improvements may be made in accordance with the provisions of Article VIII, Section 10a. (Amendment of November 5, 1996: prior Amendment of March 3, 1959).</p>
+
+<p class='archiveNotice nullValue '></p>
+</section> 
+<section id='secid-815' class='secLvl2 _007 _007-003' tabindex='-1' data-secid='815'> 
+<h3>Sec. 3. Ornamental Lighting Districts.</h3>
+
+<p>The city council shall have power to create ornamental lighting districts for the purpose of acquiring and installing ornamental lights, including poles, fixtures, wiring, underground conduits, and all necessary equipment and accessories, in or along any street, streets, public grounds, public way or ways, within the city. All such districts shall be known as &quot;ornamental lighting districts&quot; and shall be created by ordinance and designate the property in the district to be benefited. When such improvement is within a district, the outer boundaries of which are more than one-half mile distance from the block in which is situated the city hall, no such improvement shall be finally ordered by the city council until a petition signed by the owners of the record title, representing a majority of the feet frontage of the property directly abutting upon the street, streets, public grounds, public way or ways, proposed to be improved, shall be presented and filed with the city clerk petitioning therefor. Upon creation of any such ornamental lighting district and the filing of petitions as herein provided where required, the city council shall have power to advertise for bids for the installation, construction and equipment thereof, and to contract with the lowest responsible bidder therefor. The cost thereof may be, in whole or in part, assessed proportionately to the benefits on the property specially benefited. The special assessments shall be levied and assessed as provided in Section 14 of Article VIII. The total amount of such special assessments shall be levied, one-fifth thereof to be delinquent in fifty days from the levy and one-fifth annually thereafter, each installment to draw six percent interest from the date of levy, payable annually, installments delinquent to draw interest at the rate of seven percent per annum after the delinquent date; provided, however, that the city council shall have power and authority to fix the period of time, not to exceed twenty years in which special assessments made against any property for the payment of the cost of such improvements may be made in accordance with the provisions of Article VIII, Section 10a. If one-fifth of such special assessments be delinquent in fifty days after the levy and one-fifth annually thereafter, for the amount of the special assessments the city council may, by ordinance, issue bonds known as &quot;ornamental lighting district bonds,&quot; payable in not to exceed five years from date, with interest not exceeding six percent per annum, payable annually, and such special assessments shall be a sinking fund for payment thereof. If the city council exercises the power and authority to fix the period of time for payment of special assessments in accordance with the provisions of Article VIII, Section 10a, the city council shall have power and authority to issue bonds in accordance with the provisions of Article VIII, Section 10a. (Amendment of May 7, 1963).</p>
+
+<p class='archiveNotice nullValue '></p>
+</section> 
+
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- hidden div below is for definition popup -->
+<div id="defFrame">
+    <img alt='loading progress' src="resources/progress.gif" /></div>
+<!-- hidden div below is for ajax loading progress-->
+<div id='progress-template' style='display: none;'>
+    <div class="progress" style='padding: 100px;'>
+        <div style='margin: auto; display: block; width: 200px; border: 1px solid #ccc; background-color: #eee; padding: 10px;'>
+            <img alt='loading progress' src='resources/progress.gif' style='margin: auto; display: block;' />
+            <br />
+            <span style='margin: auto; display: block; width: 75px; padding-left: 10px;'>Loading...</span>
+        </div>
+    </div>
+</div>
+<iframe style="width: 1px; height: 1px" src="" id="printiframe" name="printiframe" onload="ZP.DocView.IFrameReady();" title="Print frame" aria-hidden="true" role="presentation"></iframe>
+
+    </div>
+
+
+    </body>
+</html>
