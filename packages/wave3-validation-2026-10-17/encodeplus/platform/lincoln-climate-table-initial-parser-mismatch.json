@@ -1,0 +1,13 @@
+{
+  "phase": "offline development QA of live retained source",
+  "passed": false,
+  "mismatched_cells": 8,
+  "reason": "Superscript footnote letters fused with preceding header words in flat table text; exact source HTML retained",
+  "example": {
+    "source": "WIND SPEED<sup>d</sup>",
+    "old_text": "WIND SPEEDd",
+    "corrected_plain_text": "WIND SPEED d"
+  },
+  "old_semantics_sha256": "aab179e5137c925ab30942242c02243c1f253db0252eac6c51c74f5f54ca8a67",
+  "remedy": "Explicit sup/sub text boundaries plus cell HTML retained, independent source/span/text check rerun"
+}

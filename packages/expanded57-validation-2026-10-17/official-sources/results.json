@@ -1,0 +1,206 @@
+[
+  {
+    "complete_corpus": false,
+    "verification_command": "python verify_offline.py",
+    "script_paths": [
+      "acquire.py",
+      "validate.py",
+      "verify_offline.py",
+      "requirements.txt"
+    ],
+    "acquisition_date": "2026-10-17",
+    "sequence": 18,
+    "jurisdiction": "Portland",
+    "state": "OR",
+    "source_url": "https://www.portland.gov/code",
+    "source_family": "Official government HTML and native zoning PDFs",
+    "status": "standalone_e2e_pass",
+    "acquisition_method": "Standalone Python urllib GET of full-title printable HTML and official native chapter PDF",
+    "publisher_download": {
+      "status": "partial",
+      "url": "https://www.portland.gov/code/1/all",
+      "reason": "Two complete title HTML publications and zoning Chapter33.10 PDF acquired; full Title33 eFiles version and other families not downloaded.",
+      "evidence_paths": [
+        "raw/portland_title1.meta.json",
+        "raw/portland_title18.meta.json",
+        "raw/portland_zoning_ch10.meta.json",
+        "parsed/portland_inventory.json"
+      ]
+    },
+    "tested_scope": "Bounded: Title1 General Provisions and Title18 Noise Control normalized as77 sections; zoning Chapter33.10 downloaded as native4-page PDF and page records; all34 code-title and15 charter-chapter entry inventory captured.",
+    "record_count": 77,
+    "table_count": 3,
+    "table_count_unit": "HTML table elements in legal section records",
+    "supplemental_pdf_page_records": 4,
+    "supplemental_pdf_table_fragments": 1,
+    "checks": [
+      "77 unique section IDs, headings, citations, absolute source URLs",
+      "3 HTML tables preserve cell text and spans; table-bearing18.10.010 checked",
+      "Chapter33.10 PDF signature,4pages, section references and1geometric table",
+      "16 retained raw bodies verified by SHA256 across package",
+      "Offline deterministic replay"
+    ],
+    "command": "python acquire.py --only portland_index portland_title1 portland_title18 portland_zoning portland_charter_index portland_charter portland_zoning_ch10 && python validate.py --offline",
+    "evidence_paths": [
+      "raw/portland_index.html",
+      "raw/portland_title1.html",
+      "raw/portland_title18.html",
+      "raw/portland_zoning.html",
+      "raw/portland_charter.html",
+      "raw/portland_zoning_ch10.pdf",
+      "raw/portland-zoning-page3.png",
+      "parsed/portland_sections.jsonl",
+      "parsed/portland_sections.csv",
+      "parsed/portland_zoning_pdf_pages.jsonl",
+      "parsed/portland_inventory.json",
+      "parsed/verification.json",
+      "run_manifest.json"
+    ],
+    "limitations": [
+      "Only Titles1 and18 have legal section normalization.",
+      "Title33 uses separate PDFs/eFiles publication and maps; only Chapter33.10 tested.",
+      "Charter bodies, policies, maps, other titles and pending-effective amendments not ingested.",
+      "PDF page units are separate from legal section records."
+    ],
+    "next_action": "Use retained inventory to acquire remaining title HTML and zoning PDFs; reconcile effective dates and charter/policy/map scope before corpus completeness claims."
+  },
+  {
+    "complete_corpus": false,
+    "verification_command": "python verify_offline.py",
+    "script_paths": [
+      "acquire.py",
+      "validate.py",
+      "verify_offline.py",
+      "requirements.txt"
+    ],
+    "acquisition_date": "2026-10-17",
+    "sequence": 20,
+    "jurisdiction": "Baltimore City",
+    "state": "MD",
+    "source_url": "https://codes.baltimorecity.gov/",
+    "source_family": "Official Department of Legislative Reference / Open Law Library bulk GitHub HTML",
+    "status": "standalone_e2e_pass",
+    "acquisition_method": "Officially recommended public GitHub codeload ZIP via standalone Python HTTPS; bounded offline segmentation from full publisher archive",
+    "publisher_download": {
+      "status": "passed",
+      "url": "https://codeload.github.com/baltimore-legref/law-html/zip/refs/heads/publication/2026-09-28",
+      "reason": "Official hub explicitly directs bulk HTML/XML downloads instead of scraping. Complete delivered HTML ZIP acquired53,475,774bytes; current observed default branch publication/2026-09-28.",
+      "evidence_paths": [
+        "raw/baltimore_index.html",
+        "raw/baltimore_repo.json",
+        "raw/baltimore_html_bulk.meta.json",
+        "raw/baltimore_html_bulk.zip",
+        "parsed/baltimore_inventory.json"
+      ]
+    },
+    "tested_scope": "Complete delivered HTML bulk archive retained; bounded normalization of Article1, zoning Article32 Title4, all zoning-table full HTML, and Charter ArticleI. 536 records =500 legal sections plus36 table-heading records containing37 zoning tables.",
+    "record_count": 536,
+    "table_count": 67,
+    "table_count_unit": "HTML table elements across four selected full-document members",
+    "checks": [
+      "ZIP CRC integrity and raw SHA256",
+      "Unique canonical IDs with headings, citations, hierarchy, body HTML and absolute links",
+      "442 Article1 sections,39 zoning Title4 sections,19 charter ArticleI sections,36 zoning table-heading records",
+      "37 zoning source tables plus30 Article1 source tables preserved with cells/rowspan/colspan",
+      "349 internal legal link target members present in archive;0 missing; fragments not validated",
+      "Offline deterministic replay"
+    ],
+    "command": "python acquire.py --only baltimore_index baltimore_repo baltimore_html_bulk && python validate.py --offline",
+    "evidence_paths": [
+      "raw/baltimore_index.html",
+      "raw/baltimore_repo.json",
+      "raw/baltimore_html_bulk.zip",
+      "raw/baltimore_html_bulk.meta.json",
+      "parsed/baltimore_inventory.json",
+      "parsed/baltimore_sections.jsonl",
+      "parsed/baltimore_sections.csv",
+      "parsed/baltimore_crossref_checks.json",
+      "parsed/verification.json",
+      "run_manifest.json"
+    ],
+    "limitations": [
+      "Full bulk download does not imply full legal corpus segmentation.",
+      "Only four full-document HTML archive members normalized.",
+      "Charter, code/building/zoning, regulations, local laws, manual, council rules, ordinances and resolutions inventoried separately; not all ingested.",
+      "Archive branch pinned to observed publication; later-current reruns must check default branch.",
+      "Cross-reference fragments/effective-date relationships and all attachments not fully validated."
+    ],
+    "next_action": "Expand offline segmentation using retained native archive; retain family coverage boundaries and audit publication/effective dates."
+  },
+  {
+    "complete_corpus": false,
+    "verification_command": "python verify_offline.py",
+    "script_paths": [
+      "acquire.py",
+      "validate.py",
+      "verify_offline.py",
+      "requirements.txt",
+      "milwaukee_browser.cjs",
+      "milwaukee_native_download.cjs",
+      "milwaukee_navigation.cjs",
+      "package.json"
+    ],
+    "acquisition_date": "2026-10-17",
+    "sequence": 21,
+    "jurisdiction": "Milwaukee",
+    "state": "WI",
+    "source_url": "https://city.milwaukee.gov/cityclerk/lrb/ordinances/tableofcontents",
+    "source_family": "Official City Clerk native PDF code publications",
+    "status": "standalone_partial",
+    "acquisition_method": "Ordinary headed standalone Playwright Chrome TOC navigation and published-link native PDF download; Python pdfplumber page and section text normalization",
+    "publisher_download": {
+      "status": "partial",
+      "url": "https://city.milwaukee.gov/ImageLibrary/Groups/ccClerk/Ordinances/Volume-2/CH295-sub5.pdf",
+      "reason": "Native published35-page residential zoning subchapter downloaded862,440bytes via actual headed browser link. Direct urllib and browser-context HTTP requests403. Whole-volume PDFs inventoried but not acquired.",
+      "evidence_paths": [
+        "raw/milwaukee_browser_index.meta.json",
+        "raw/milwaukee_browser_links.json",
+        "raw/milwaukee_zoning_pdf.meta.json",
+        "raw/milwaukee_zoning_browser.meta.json",
+        "raw/milwaukee_residential_native.meta.json",
+        "raw/milwaukee_residential_native.pdf",
+        "raw/milwaukee_native_run.log"
+      ]
+    },
+    "tested_scope": "Full published Chapter295 Subchapter5 PDF native download. Three legal section text records295-501,295-503,295-505 and35 separately labeled page records;17geometric table fragments. Official complete TOC publication links inventoried.",
+    "record_count": 3,
+    "table_count": 17,
+    "table_count_unit": "PDF page-level geometric table fragments, not unique logical tables",
+    "supplemental_pdf_page_records": 35,
+    "checks": [
+      "Repeat native browser download same862,440byte PDF SHA256 fa92de2c8d86f6e448aae129436b455d23dc11d8815a6123e58df11ceb77ae49",
+      "PDF signature and35pages",
+      "Three explicit section IDs/headings/citations; preserved cross-reference295-311-2",
+      "Visible page4 General office row matches9 extracted N/L/N/L/L/N/L/Y/Y cells",
+      "Read-only visual inspection of PDF pages1,2,4; rotated headers identified as limitation",
+      "Offline deterministic replay"
+    ],
+    "command": "npm install && node milwaukee_browser.cjs && node milwaukee_native_download.cjs && python validate.py --offline",
+    "evidence_paths": [
+      "raw/milwaukee_browser_index.html",
+      "raw/milwaukee_browser_index.meta.json",
+      "raw/milwaukee_browser_links.json",
+      "raw/milwaukee_zoning_pdf.error.html",
+      "raw/milwaukee_zoning_pdf.meta.json",
+      "raw/milwaukee_zoning_browser.meta.json",
+      "raw/milwaukee_residential_native.pdf",
+      "raw/milwaukee_residential_native.meta.json",
+      "raw/milwaukee_native_run.log",
+      "raw/milwaukee-residential-page4.png",
+      "parsed/milwaukee_inventory.json",
+      "parsed/milwaukee_sections.jsonl",
+      "parsed/milwaukee_sections.csv",
+      "parsed/milwaukee_zoning_pdf_pages.jsonl",
+      "parsed/verification.json",
+      "run_manifest.json"
+    ],
+    "limitations": [
+      "Rotated zone headers are mangled by generic PDF extraction; full semantic table reconstruction incomplete.",
+      "Figures/images and section/table geometry association not fully normalized.",
+      "Table count17 is geometric page fragments, including continuations.",
+      "Only one zoning subchapter; other zoning subchapters, all full code volumes, charter, Salary and Positions ordinances unacquired.",
+      "Requires ordinary headed Chrome for proven acquisition; HTTP APIs403 and no challenge bypass attempted."
+    ],
+    "next_action": "Reuse tested native-link browser download for selected remaining volumes/subchapters, and add rotated-header/figure-aware parsing before treating zoning as a normalized corpus."
+  }
+]

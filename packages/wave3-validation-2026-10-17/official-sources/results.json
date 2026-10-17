@@ -1,0 +1,400 @@
+[
+  {
+    "sequence": 58,
+    "jurisdiction": "Arlington",
+    "state": "TX",
+    "source_url": "https://www.arlingtontx.gov/Government/City-Government/City-Secretary/City-Charter-Code-of-Ordinances",
+    "source_family": "Official Arlington Texas chapter PDFs via headed Chrome",
+    "status": "standalone_e2e_pass",
+    "acquisition_method": "Standalone ordinary headed Chrome official nativePDF link, then offline pdfplumber segmentation",
+    "publisher_download": {
+      "status": "passed",
+      "url": "https://www.arlingtontx.gov/files/assets/city/v/2/city-secretary/documents/city-code-of-ordinances/alarm-systems-chapter.pdf",
+      "reason": "Genuine publisher/official native file automatically acquired; completeness limited to the retained file and bounded parsing.",
+      "evidence_paths": [
+        "raw/58-alarm-export-native.pdf"
+      ]
+    },
+    "tested_scope": "Seven complete Alarm Systems Article II sections 2.01–2.07 from physical pages 10–12 of the 59-page native chapter PDF.",
+    "complete_corpus": false,
+    "record_count": 7,
+    "table_count": 0,
+    "checks": [
+      "Exact 7 operative section IDs asserted afterTOC exclusion",
+      "Final generic collector rerun independently retained in fresh/58",
+      "Native PDF magic/SHA and CSV/JSONL roundtrip verified"
+    ],
+    "command": "node scripts/browser_capture.cjs --out fresh-new/58 --jobs arlington-tx-native-job.json && .venv/bin/python -B scripts/replay_one.py --sequence 58 --raw fresh-new/58 --out fresh-new/58-parsed",
+    "evidence_paths": [
+      "raw/58-alarm-export.meta.json",
+      "raw/58-alarm-export-expanded.html",
+      "fresh/58/58-alarm-export.meta.json",
+      "parsed/58/records.jsonl",
+      "parsed/58/records.csv",
+      "publication-families.json"
+    ],
+    "script_paths": [
+      "scripts/browser_capture.cjs",
+      "scripts/normalize_all.py",
+      "scripts/replay_one.py",
+      "scripts/verify.py"
+    ],
+    "limitations": [
+      "Posted convenience copy is not represented by the city as authoritative current law. Alarm Systems cover amended May 27, 2014; recent ordinances may not be codified.",
+      "Charter, UDC, pending ordinances and other chapters inventoried, not acquired as a complete corpus.",
+      "PDF typography/images and arbitrary tables are not reconstructed."
+    ],
+    "next_action": "Before production ingestion, reconcile publication currency and separately qualify all inventoried code families; broaden segmentation with source-backed table/image checks.",
+    "record_unit": "legal_section"
+  },
+  {
+    "sequence": 71,
+    "jurisdiction": "St. Louis",
+    "state": "MO",
+    "source_url": "https://library.municode.com/mo/st._louis/codes/code_of_ordinances",
+    "source_family": "Municode routed by official independent-city site",
+    "status": "standalone_e2e_pass",
+    "acquisition_method": "Standalone gated ordinary headed Chrome publicAPI plus publisher-native publicationPDF",
+    "publisher_download": {
+      "status": "passed",
+      "url": "https://mcclibrary.blob.core.usgovcloudapi.net/publication-official-copy-pdfs/1713/Final.pdf?sv=2026-06-06&se=2026-10-17T19%3A51%3A35Z&sr=b&sp=r&rscd=attachment%3B+filename%3D%22St.+Louis%2C+MO+Code+of+Ordinances.pdf%22&sig=aYtBMxbElb9lkDh0CW81kiDQWHR%2FXMEbWTr8D2Vc3og%3D",
+      "reason": "Genuine publisher/official native file automatically acquired; completeness limited to the retained file and bounded parsing.",
+      "evidence_paths": [
+        "raw/71-browser/publisher-export.pdf"
+      ]
+    },
+    "tested_scope": "Three primary Revised Code sections 1.01.010–1.01.030 from live exact-node API; whole 3406-page nativePDF retained separately.",
+    "complete_corpus": false,
+    "record_count": 3,
+    "table_count": 0,
+    "checks": [
+      "Exact client St. Louis / stateMO and product 16330/job 487173 bound",
+      "Exact requested document IDs with nonempty legal bodies",
+      "Native printed Supplement 11 June 2026 / SaintLouis / Ord 72042 match edition",
+      "Operative page 171 corroborates sample; TOCs excluded"
+    ],
+    "command": "MUNICODE_EXPECTED_CLIENT_NAMES='[\"St. Louis\"]' MUNICODE_EXPECTED_STATE=MO node scripts/municode/collect_browser.cjs https://library.municode.com/mo/st._louis/codes/code_of_ordinances fresh-new/71 3 && .venv/bin/python -B scripts/replay_one.py --sequence 71 --raw fresh-new/71 --out fresh-new/71-parsed",
+    "evidence_paths": [
+      "raw/71-index.html",
+      "raw/71-charter-index.html",
+      "raw/71-browser/receipt.json",
+      "parsed/71-native-pdf-checks.json",
+      "parsed/71/records.jsonl",
+      "parsed/71/records.csv",
+      "publication-families.json"
+    ],
+    "script_paths": [
+      "scripts/municode/collect_browser.cjs",
+      "scripts/municode/gate_cli.py",
+      "scripts/municode/normalize.py",
+      "scripts/native_pdf_qa.py",
+      "scripts/verify.py"
+    ],
+    "limitations": [
+      "Independent City of St. Louis, not St. Louis County. Charter and embedded zoningTitle 26 are inventoried, not normalized.",
+      "Supplement 11 June 2026 through Ord 72042 enacted October 30, 2025;28 new ordinances outside bounded code sample.",
+      "DirectHTTP remains stopped after coordinated family challenge; browser-only workflow expressly authorized following ordinary-page availability success.",
+      "Full PDF is downloaded, not fully segmented. Bounded PDF prose corroboration allows hyphenation differences; diagrams/full-document tables untested."
+    ],
+    "next_action": "Before production ingestion, reconcile publication currency and separately qualify all inventoried code families; broaden segmentation with source-backed table/image checks.",
+    "record_unit": "legal_section"
+  },
+  {
+    "sequence": 78,
+    "jurisdiction": "Spokane",
+    "state": "WA",
+    "source_url": "https://my.spokanecity.org/smc/",
+    "source_family": "Official Spokane Municipal Code HTML and native print endpoint",
+    "status": "standalone_e2e_pass",
+    "acquisition_method": "Standalone serial urllib GETlegal bodies; observed nativePOST print HTML; offline BeautifulSoup",
+    "publisher_download": {
+      "status": "passed",
+      "url": "https://my.spokanecity.org/smc/print/",
+      "reason": "Native POST one-section print HTML contains actual operative body; separate wholeCharter print HTML retained. Chapter-level POST returnedTOC-only and is excluded.",
+      "evidence_paths": [
+        "raw/78-print-section010.html",
+        "raw/78-print-section010.meta.json",
+        "raw/78-charter-print.html"
+      ]
+    },
+    "tested_scope": "Four Chapter 01.02 sections .010/.020/.030/.950; native one-section print body and separate fullCharter print HTML transport retained.",
+    "complete_corpus": false,
+    "record_count": 4,
+    "table_count": 0,
+    "checks": [
+      "Exact visible section anchors and substantive bodies",
+      "Native section 010 print contains identical normalized operative source body",
+      "Chapter print negative fixture explicitly lacks same legal sentence",
+      "Source hyperlinks retained"
+    ],
+    "command": ".venv/bin/python scripts/fetch.py --out fresh-new/78 --batch spokane-jobs.json && .venv/bin/python -B scripts/replay_one.py --sequence 78 --raw fresh-new/78 --out fresh-new/78-parsed",
+    "evidence_paths": [
+      "raw/78-section010.meta.json",
+      "raw/78-section020.meta.json",
+      "raw/78-section030.meta.json",
+      "raw/78-section950.meta.json",
+      "raw/78-print-section010.meta.json",
+      "raw/78-print102.html",
+      "raw/78-charter-print.meta.json",
+      "parsed/78/records.jsonl",
+      "parsed/78/records.csv",
+      "publication-families.json"
+    ],
+    "script_paths": [
+      "scripts/fetch.py",
+      "scripts/normalize_all.py",
+      "scripts/replay_one.py",
+      "scripts/verify.py"
+    ],
+    "limitations": [
+      "Chapter native-printPOST returnedTOC-only; rejected from legal bodies. Only one-section native print passed.",
+      "Charter print is a separate retained whole native HTML file, not parsed main code records. UDC Titles 17A–17I unparsed.",
+      "No complete municipal-code edition/all subsequent ordinances reconciliation."
+    ],
+    "next_action": "Before production ingestion, reconcile publication currency and separately qualify all inventoried code families; broaden segmentation with source-backed table/image checks.",
+    "record_unit": "legal_section"
+  },
+  {
+    "sequence": 80,
+    "jurisdiction": "Worcester",
+    "state": "MA",
+    "source_url": "https://www.worcesterma.gov/city-clerk/ordinances-regulations",
+    "source_family": "Official Worcester separate native ordinance PDFs",
+    "status": "standalone_e2e_pass",
+    "acquisition_method": "Standalone serial urllib nativePDF download; offline pdfplumber segmentation",
+    "publisher_download": {
+      "status": "passed",
+      "url": "https://www.worcesterma.gov/city-clerk/document-center/revised-ordinances-2008-1.pdf",
+      "reason": "Genuine publisher/official native file automatically acquired; completeness limited to the retained file and bounded parsing.",
+      "evidence_paths": [
+        "raw/80-part1.pdf"
+      ]
+    },
+    "tested_scope": "Eight Chapter 1 sections from physical pages 3–6 of 659-page Revised Ordinances Part One.",
+    "complete_corpus": false,
+    "record_count": 8,
+    "table_count": 0,
+    "checks": [
+      "NativePDF hash and 659-page count",
+      "PrintedPart One cover amended September 8, 2026 matches official index",
+      "Exact 8 operative headings/IDs/body spans and page citations",
+      "PDF visual QA; CSVtext roundtrip"
+    ],
+    "command": ".venv/bin/python scripts/fetch.py --out fresh-new/80 --batch worcester-jobs.json && .venv/bin/python -B scripts/replay_one.py --sequence 80 --raw fresh-new/80 --out fresh-new/80-parsed",
+    "evidence_paths": [
+      "raw/80-part1.meta.json",
+      "raw/80-index.html",
+      "raw/80-zoning-index.html",
+      "raw/80-noise.meta.json",
+      "parsed/80/records.jsonl",
+      "parsed/80/records.csv",
+      "publication-families.json"
+    ],
+    "script_paths": [
+      "scripts/fetch.py",
+      "scripts/normalize_all.py",
+      "scripts/replay_one.py",
+      "scripts/verify.py"
+    ],
+    "limitations": [
+      "WholePart One nativePDF downloaded; only 8 sections normalized. SeparatePart Two organization, Salary, Zoning/maps and other board regulations unparsed.",
+      "Home RuleCharter referenced in source; independent current charter publication not qualified.",
+      "Selected text has no tables; full PDF tables/images/typography not reconstructed."
+    ],
+    "next_action": "Before production ingestion, reconcile publication currency and separately qualify all inventoried code families; broaden segmentation with source-backed table/image checks.",
+    "record_unit": "legal_section"
+  },
+  {
+    "sequence": 85,
+    "jurisdiction": "Chattanooga",
+    "state": "TN",
+    "source_url": "https://library.municode.com/tn/chattanooga/codes/code_of_ordinances",
+    "source_family": "Municode routed by official Chattanooga city site",
+    "status": "standalone_e2e_pass",
+    "acquisition_method": "Final shared gated ordinary headed Chrome publicAPI collector, followed by 3 observed exact City Code leaf requests; publisher-nativePDF",
+    "publisher_download": {
+      "status": "passed",
+      "url": "https://mcclibrary.blob.core.usgovcloudapi.net/publication-official-copy-pdfs/394/Final.pdf?sv=2026-06-06&se=2026-10-17T19%3A57%3A47Z&sr=b&sp=r&rscd=attachment%3B+filename%3D%22Chattanooga%2C+TN+Code+of+Ordinances.pdf%22&sig=tZBNr0M8iR4OEf9QpUkJHPZ5tO37dNwwdaaJNmNxvP0%3D",
+      "reason": "Genuine publisher/official native file automatically acquired; completeness limited to the retained file and bounded parsing.",
+      "evidence_paths": [
+        "raw/85-final/publisher-export.pdf"
+      ]
+    },
+    "tested_scope": "Six legal provisions:3 Part I Charter sections 1.1/1.2/2.1 plus 3 Part II City Code sections 1-1/1-2/1-3;2292-page nativePDF retained.",
+    "complete_corpus": false,
+    "record_count": 6,
+    "table_count": 1,
+    "checks": [
+      "Exact city/state/product 15385/job 495658 identity and sourceTOC observed node binding",
+      "Final portable collector source hash equals fresh executed raw/85-final version",
+      "Supplement 40 September 2026/Ord 14374/Tennessee printed nativePDF edition match",
+      "OperativePDFpages 157,163–168,319–321 corroborate boundedAPIprose, TOCpages excluded",
+      "Charter editor-note table 97 rows/291 cells independently source-text/span compared; date 5/9/000 retained verbatim"
+    ],
+    "command": "MUNICODE_EXPECTED_CLIENT_NAMES='[\"Chattanooga\"]' MUNICODE_EXPECTED_STATE=TN node scripts/municode/collect_browser.cjs https://library.municode.com/tn/chattanooga/codes/code_of_ordinances fresh-new/85 3 && node scripts/acquire_chattanooga_code.cjs fresh-new/85 fresh-new/85-code && .venv/bin/python -B scripts/replay_one.py --sequence 85 --raw fresh-new/85 --supplement fresh-new/85-code --out fresh-new/85-parsed",
+    "evidence_paths": [
+      "raw/85-final/receipt.json",
+      "raw/85-final/executed-collect_browser.cjs",
+      "raw/85-code/batch-receipt.json",
+      "raw/85-code/1/acquisition-receipt.json",
+      "raw/85-code/2/acquisition-receipt.json",
+      "raw/85-code/3/acquisition-receipt.json",
+      "parsed/85-native-pdf-checks.json",
+      "parsed/85-table-checks.json",
+      "parsed/85/records.jsonl",
+      "parsed/85/records.csv",
+      "publication-families.json"
+    ],
+    "script_paths": [
+      "scripts/municode/collect_browser.cjs",
+      "scripts/municode/gate_cli.py",
+      "scripts/municode/normalize.py",
+      "scripts/municode/acquire_node.cjs",
+      "scripts/acquire_chattanooga_code.cjs",
+      "scripts/native_pdf_qa.py",
+      "scripts/normalize_all.py",
+      "scripts/verify.py"
+    ],
+    "limitations": [
+      "Flattened publisher TOC causes generic initial 3 sections to beCharter; explicitly labeled and supplemented with 3 primary City Code sections. Fresh replay with --supplement and retained normalize_all both combine 6 records.",
+      "Supplement 40 September 2026 through Ord 14374 enacted June 16, 2026; 48 uncodified ordinances unparsed.",
+      "WholePDF transport and edition proven; full PDF section/table/image reconstruction untested.",
+      "DirectHTTP remains stopped; browser-only authorized workflow uses shared gate/stop."
+    ],
+    "next_action": "Before production ingestion, reconcile publication currency and separately qualify all inventoried code families; broaden segmentation with source-backed table/image checks.",
+    "record_unit": "legal_section",
+    "charter_record_count": 3,
+    "primary_code_record_count": 3
+  },
+  {
+    "sequence": 87,
+    "jurisdiction": "Savannah",
+    "state": "GA",
+    "source_url": "https://online.encodeplus.com/regs/savannah-ga/",
+    "source_family": "Official current Clerk route to enCodePlus; historical lead excluded",
+    "status": "standalone_e2e_pass",
+    "acquisition_method": "Standalone serial gated enCodePlus server-rendered HTTP bodies, exact requested container/heading parsing",
+    "publisher_download": {
+      "status": "passed",
+      "url": "https://online.encodeplus.com/regs/savannah-ga/export2doc.aspx?pdf=1&tocid=001.004.008.017.013&file=doc-001.004.008.017.013-pid-219.pdf",
+      "reason": "Observed Export PDF control and current linked OpenPDF application function, normal HTMLstatus/pollingJSON/serverFiletoken/nativePDF flow; selected fee attachment only",
+      "scope": "Section7137, Attachment A. Impact Fee Schedule; not full code",
+      "evidence_paths": [
+        "savannah-native-export/observed-control.json",
+        "savannah-native-export/source/87-impact-fee7137.html",
+        "savannah-native-export/raw/observed-doc-view.js",
+        "savannah-native-export/raw/export-status.html",
+        "savannah-native-export/native/export.json",
+        "savannah-native-export/native/publisher.pdf",
+        "savannah-native-export/native/publisher.pdf.receipt.json",
+        "savannah-native-export/verification.json",
+        "savannah-native-export/rendered/page-1.png",
+        "savannah-native-export/rendered/page-2.png",
+        "savannah-native-export/rendered/page-3.png",
+        "savannah-native-export/rendered/page-4.png"
+      ],
+      "bytes": 99580,
+      "sha256": "901acca77699f1e70316a6a780a0aa470eb909c92547043cb7e5aa84af77b607",
+      "pages": 4
+    },
+    "tested_scope": "Three exact code-adoption provisions 499/500/501 plus operative impact-fee attachment 7137;1 table 79 rows 555 cells;3879-node inventory excluded from legal count. Separately qualified publisher-native four-page fee attachment PDF; no unique additional legal record.",
+    "complete_corpus": false,
+    "record_count": 4,
+    "table_count": 1,
+    "checks": [
+      "Exact #thePage secid and matching legal section[data-secid], independently matched TOC heading",
+      "Actual legal-body length; three operative provisions and one operative fee attachment",
+      "Every table cell text/rowspan/colspan source-compared;8-cell single-family fee row asserted",
+      "CSV/JSONL text/ID roundtrip; cross-reference and sup/sub/list boundaries retained",
+      "Observed Export PDF control and current linked OpenPDF function bind tocID; normal status/poll/File token flow retained",
+      "Native four-page PDF identity/heading/effective date and all555source table cell texts match; ordered eight-cell residential fee row corroborated"
+    ],
+    "command": ".venv/bin/python scripts/encodeplus/fetch_one.py 'https://online.encodeplus.com/regs/savannah-ga/doc-view.aspx' fresh-new/87/87-encodeplus-toc.html && .venv/bin/python scripts/encodeplus/fetch_one.py 'https://online.encodeplus.com/regs/savannah-ga/doc-view.aspx?secid=499&ajax=0' fresh-new/87/87-section499.html && .venv/bin/python scripts/encodeplus/fetch_one.py 'https://online.encodeplus.com/regs/savannah-ga/doc-view.aspx?secid=500&ajax=0' fresh-new/87/87-section500.html && .venv/bin/python scripts/encodeplus/fetch_one.py 'https://online.encodeplus.com/regs/savannah-ga/doc-view.aspx?secid=501&ajax=0' fresh-new/87/87-section501.html && .venv/bin/python scripts/encodeplus/fetch_one.py 'https://online.encodeplus.com/regs/savannah-ga/doc-view.aspx?secid=7137&ajax=0' fresh-new/87/87-impact-fee7137.html && .venv/bin/python -B scripts/replay_one.py --sequence 87 --raw fresh-new/87 --out fresh-new/87-parsed && .venv/bin/python savannah-native-export/scripts/fetch_one.py 'https://online.encodeplus.com/regs/savannah-ga/export2doc.aspx?pdf=1&tocid=001.004.008.017.013' fresh-new/87/status.html && .venv/bin/python savannah-native-export/scripts/native_export.py fresh-new/87/status.html --out fresh-new/87-native",
+    "evidence_paths": [
+      "raw/87-current-route.html",
+      "raw/87-encodeplus-toc.html.receipt.json",
+      "raw/87-section499.html.receipt.json",
+      "raw/87-section500.html.receipt.json",
+      "raw/87-section501.html.receipt.json",
+      "raw/87-impact-fee7137.html.receipt.json",
+      "parsed/87-parser-checks.json",
+      "parsed/87/records.jsonl",
+      "parsed/87/records.csv",
+      "publication-families.json",
+      "savannah-native-export/observed-control.json",
+      "savannah-native-export/verification.json",
+      "savannah-native-export/native/publisher.pdf"
+    ],
+    "script_paths": [
+      "scripts/encodeplus/fetch_one.py",
+      "scripts/encodeplus/transport.py",
+      "scripts/encodeplus/parse.py",
+      "scripts/encodeplus/html_semantics.py",
+      "scripts/normalize_all.py",
+      "scripts/replay_one.py",
+      "scripts/verify.py",
+      "savannah-native-export/scripts/native_export.py",
+      "savannah-native-export/scripts/verify.py",
+      "savannah-native-export/scripts/transport.py"
+    ],
+    "limitations": [
+      "Historical assigned code-books lead is not current legal source; current official route acquired separately.",
+      "Full charter/zoning/developmentCode corpus not acquired. Fee schedule effective July 1, 2023 is posted source, not assertion of latest enactment.",
+      "Hidden null archive 1901 dates excluded. Images/embedded nonHTML artifacts are retained raw only.",
+      "Native export is only selected fee attachment, not whole code. All-cell text presence does not prove every PDF row/column layout relationship."
+    ],
+    "next_action": "Before production ingestion, reconcile publication currency and separately qualify all inventoried code families; broaden segmentation with source-backed table/image checks.",
+    "record_unit": "3 legal sections plus 1 operative fee attachment"
+  },
+  {
+    "sequence": 99,
+    "jurisdiction": "Arlington County",
+    "state": "VA",
+    "source_url": "https://www.arlingtonva.us/Government/Departments/County-Board/County-Code",
+    "source_family": "Official Arlington County Virginia native chapter PDF and current document portal",
+    "status": "standalone_e2e_pass",
+    "acquisition_method": "Standalone ordinary headed Chrome official nativePDF link, pdfplumber segmentation, separately rendered current document-search inventory",
+    "publisher_download": {
+      "status": "passed",
+      "url": "https://www.arlingtonva.us/files/sharedassets/public/v/5/county-board/documents/code/ch.-1-general-provisions.pdf",
+      "reason": "Genuine publisher/official native file automatically acquired; completeness limited to the retained file and bounded parsing.",
+      "evidence_paths": [
+        "raw/99-code-native-native.pdf"
+      ]
+    },
+    "tested_scope": "Ten complete Chapter 1 operative sections 1-1 through 1-9 including 1-7.1; current portal 80-document inventory is not legal records.",
+    "complete_corpus": false,
+    "record_count": 10,
+    "table_count": 0,
+    "checks": [
+      "Exact 10 operative section IDs after duplicateTOC exclusion",
+      "Wrapped heading 1-6 joined and runningCountyheaders removed",
+      "Current 80-document listing independently corroborates Chapter 1 date/size/title",
+      "NativePDF magic/hash, sourcepage citations andCSVroundtrip"
+    ],
+    "command": "node scripts/browser_capture.cjs --out fresh-new/99 --jobs arlington-county-native-job.json && .venv/bin/python -B scripts/replay_one.py --sequence 99 --raw fresh-new/99 --out fresh-new/99-parsed",
+    "evidence_paths": [
+      "raw/99-code-native.meta.json",
+      "raw/99-search-browser.meta.json",
+      "raw/99-search-browser.html",
+      "parsed/99-current-portal-inventory.json",
+      "parsed/99/records.jsonl",
+      "parsed/99/records.csv",
+      "publication-families.json"
+    ],
+    "script_paths": [
+      "scripts/browser_capture.cjs",
+      "scripts/normalize_all.py",
+      "scripts/replay_one.py",
+      "scripts/verify.py"
+    ],
+    "limitations": [
+      "Arlington County Virginia, not Arlington cityTexas. Chapter 1 posted editionSeptember 2011 corroborated by new current portal; no claim all currently enacted law reconciled.",
+      "Official warning says not all chapters current; true copies fromCounty Board Clerk. Zoning separate and unparsed.",
+      "DirectHTTP and percent-encoded current portal-file attempts returned 403 and remain retained failures; successful ordinary headed official native-link download is independent.",
+      "PDF typography/images/arbitrarytables not reconstructed; selected operativeChapter 1 has no table."
+    ],
+    "next_action": "Before production ingestion, reconcile publication currency and separately qualify all inventoried code families; broaden segmentation with source-backed table/image checks.",
+    "record_unit": "legal_section"
+  }
+]

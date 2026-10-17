@@ -1,0 +1,12 @@
+{
+  "checked_at": "2026-10-17T18:08:32.818533+00:00",
+  "method": "Copied package to fresh temporary path without virtualenv or node_modules; ran copied verifier with installed dependencies. No network.",
+  "results": [
+    {
+      "command": "verify_offline.py",
+      "returncode": 0,
+      "stdout": "{\n  \"raw_hashes_verified\": 16,\n  \"portland_section_records\": 77,\n  \"portland_html_tables\": 3,\n  \"portland_zoning_pdf_pages\": 4,\n  \"portland_zoning_geometry_tables\": 1,\n  \"baltimore_records\": 536,\n  \"baltimore_tables\": 67,\n  \"baltimore_article1_sections\": 442,\n  \"baltimore_zoning_title4_sections\": 39,\n  \"baltimore_charter_articleI_sections\": 19,\n  \"baltimore_table_records\": 36,\n  \"milwaukee_section_records\": 3,\n  \"milwaukee_pdf_page_records\": 35,\n  \"milwaukee_geometry_tables\": 17,\n  \"checks\": [\n    \"raw byte SHA256 matches acquisition metadata\",\n    \"unique legal record IDs\",\n    \"Portland Title1 and Title18 section counts >50\",\n    \"Portland noise table 18.10.010 preserved with span metadata\",\n    \"Baltimore ZIP CRC integrity\",\n    \"Baltimore selected HTML tables preserve cells/spans; zoning source37 tables preserved across36 table-heading records\",\n    \"legal cross-references retained as absolute links\",\n    \"PDF page records labeled separately from Milwaukee3 section records\",\n    \"Milwaukee General office use-table row matches9 classifications; rotated headers require review\"\n  ]\n}\nOFFLINE REPLAY PASS: raw integrity, final scripts, and all normalized outputs match.\n",
+      "stderr": ""
+    }
+  ]
+}

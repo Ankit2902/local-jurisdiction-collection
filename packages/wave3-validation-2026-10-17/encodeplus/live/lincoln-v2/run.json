@@ -1,0 +1,81 @@
+{
+  "jurisdiction": "Lincoln, NE",
+  "source_url": "https://online.encodeplus.com/regs/lincoln-ne/",
+  "method": "standalone-python-public-server-rendered-enCodePlus-HTML",
+  "started_at": "2026-10-17T18:45:31.391198+00:00",
+  "command": [
+    "outputs/wave3-validation-2026-10-17/encodeplus/scripts/acquire.py",
+    "lincoln",
+    "--out",
+    "outputs/wave3-validation-2026-10-17/encodeplus/live/lincoln-v2"
+  ],
+  "runtime": "3.12.14",
+  "os": "macOS-26.6.2-arm64-arm-64bit",
+  "script_versions": {
+    "acquire.py": "70a3b0bc433be11e081034ce4776faf7f9ee896a7679586e367e4033371fb85f",
+    "parse.py": "4616bef3eefbe28a8e87a0580ac523de2120855eaf622da7ed6e71165a5ec612",
+    "html_semantics.py": "8201a905d03488b3ddbe041bbc5ec840a481f703687bff18157f1a45aa8e3320",
+    "transport.py": "786ff96dba324e0180d61111cc3924791079702f8c7ed112e2c7914c0062f772"
+  },
+  "complete_corpus": false,
+  "publisher_download": {
+    "status": "blocked",
+    "format": "PDF",
+    "url": "https://online.encodeplus.com/regs/lincoln-ne/export2doc.aspx?pdf=1&tocid=001.021.004.027",
+    "reason": "Publisher export response is not PDF",
+    "scope": "Selected table provision only"
+  },
+  "record_count": 3,
+  "record_unit": "requested operative provision",
+  "table_count": 1,
+  "checks": [
+    {
+      "section_id": "6288",
+      "requested_container_id_exact": true,
+      "toc_heading_matches_body": true,
+      "nonempty_operative_body": true,
+      "table_count": 0,
+      "table_checks": [],
+      "cross_references_retained": 0,
+      "publisher_placeholder_dates_excluded": 1
+    },
+    {
+      "section_id": "6289",
+      "requested_container_id_exact": true,
+      "toc_heading_matches_body": true,
+      "nonempty_operative_body": true,
+      "table_count": 0,
+      "table_checks": [],
+      "cross_references_retained": 2,
+      "publisher_placeholder_dates_excluded": 1
+    },
+    {
+      "section_id": "12858",
+      "requested_container_id_exact": true,
+      "toc_heading_matches_body": true,
+      "nonempty_operative_body": true,
+      "table_count": 1,
+      "table_checks": [
+        {
+          "rows": 4,
+          "cells": 20,
+          "independent_text_span_match": true
+        }
+      ],
+      "cross_references_retained": 2,
+      "publisher_placeholder_dates_excluded": 0
+    }
+  ],
+  "outputs_sha256": {
+    "sections.jsonl": "a17e04d11b9d639fb5675586db087aa5c15930f86ccaca7cebaa49819d691117",
+    "sections.csv": "c025122934cb534989e6dfd4121d6ca6c9e3ceaddc503efdec76b074e13a0a59"
+  },
+  "status": "standalone_e2e_pass",
+  "selected_nodes": [
+    "6288",
+    "6289",
+    "12858"
+  ],
+  "inventory_nodes": 4784,
+  "finished_at": "2026-10-17T18:45:45.701273+00:00"
+}

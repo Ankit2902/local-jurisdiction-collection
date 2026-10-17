@@ -1,0 +1,53 @@
+# Municode core: expanded jurisdiction validation, 17 October 2026
+
+This package tests portable standalone acquisition and bounded normalization for 13 assigned jurisdictions. It does not collect or certify a complete municipal legal corpus, legal currency, applicability, or uncodified legislation. `results.json` is the per-target account of what actually completed. Failures are retained.
+
+Final outcome: all 13 assigned primary publications passed bounded standalone acquisition and normalization. The package contains 40 legal provision records: three primary provisions per jurisdiction, plus one separately described Houston parking-table section. Ten primary publication PDFs downloaded automatically; Austin, Indianapolis/Marion County and Oklahoma City report no enabled primary PDF feature. All complete_corpus flags remain false. Native PDF containers and their first three pages were inspected; normalized provision records use the pinned public API source, and whole PDFs were not parsed as section corpora.
+
+## Runtime and setup
+
+Python 3.9+ on macOS/Linux/POSIX is required (core scripts tested with Python 3.9.6; optional PDF inspection used Python 3.12.14). The shared rate gate uses `fcntl.flock`; Windows is not supported. Core HTTP, parser, and offline verification use only Python's standard library. Optional PDF inspection requires `pip install -r requirements.txt`.
+
+The ordinary headed browser path requires Node 18+ (tested Node version is in receipts), `npm install`, and installed Google Chrome. It uses Playwright directly, without Codex, CUA, imported cookies, an existing user browser profile, proxies, or challenge interaction. All browser instances are independently launched and individually closed. `BROWSER_CHANNEL` can select another supported installed channel; the tested path uses Chrome.
+
+```sh
+npm install
+node collect_browser.cjs 'https://library.municode.com/tx/houston/codes/code_of_ordinances' samples/fresh-houston 3
+python3 normalize.py samples/fresh-houston --offline
+python3 run_all.py --offline
+python3 verify.py
+```
+
+`run_all.py` runs the 13 assigned primary routes serially and skips existing receipt directories. Use --output-root samples/fresh-run to perform a completely fresh live run. The individual collector refuses to overwrite an existing acquisition receipt. It supports `NODE` for a Node executable, and the collector supports `PLAYWRIGHT_MODULE_ROOT` as an optional path to a package.json from which an existing Playwright installation can be resolved. Neither override is needed after `npm install` in this directory. No original project directory or previous sealed package is a runtime dependency.
+
+## Rate limits and source evidence
+
+`municode_shared.py` provides `fetch(url, output_path)`, `get_json` and `api` for direct public HTTP. `gate_cli.py` coordinates browser routes with those HTTP collectors through one shared lock/state directory, default `/tmp/compliSolv-municode-rate-gate`. Set the same `MUNICODE_GATE_DIR` for every concurrent collector using another location. Both transports now reserve starts with a nominal 3.5-second interval, adding a guard around the required 3 seconds. An audit of the initial nominal-3-second trials observed reservation-to-request/log scheduling jitter (minimum logged start gap 2.899 seconds, with several gaps around 2.98–2.99 seconds); this limitation and the remediation are retained in gate-change.json and the shared gate log. No 429 was observed in that audit. The early trials are not represented as perfectly spaced. A 429 imposes a shared cooldown of at least 300 seconds or Retry-After, whichever is longer. Attempts during cooldown stop without network. There are no automatic retries. Redirects in the Python HTTP method are independently gated.
+
+The current browser collector defaults to a minimal document context: it omits application /dist/ assets and third-party assets, fetches the public Organization/Product/Job/TOC/Content APIs from an ordinary visible Chrome page, and gates every issued municode.com request. Publisher security scripts served on municode.com are left unmodified; a visible access challenge stops the run. Set MUNICODE_LEAN=0 to use the full application bootstrap instead. Both methods stop optional image/font/media requests before network and retain source HTML references. The minimal context screenshot is a shell capture; the exact live legal API bodies, not that screenshot, provide substantive legal text evidence. Section illustrations/maps are not acquired or visually qualified. The initial exploratory `probe_browser.cjs` predates the shared browser gate and is retained as exploratory evidence only; its automatic application requests were not individually spaced. The first gated pilot failed its 120-second readiness deadline, and that failure is retained separately from later attempts. Later ordinary Chrome/API checks use longer deadlines to accommodate the shared gate and do not rely on the application UI finishing initialization. Executed scripts and acquisition hashes identify the exact version used.
+
+HTTP transport and browser API acquisition are separately evidenced. The API bodies supply stable section identifiers, text and structural HTML; publisher PDF acquisition/inspection is an additional independent transport test. No PDF page text is silently substituted for section-level API records.
+
+The native PDF feature comes from the publisher's actual `ClientContent` publication inventory and the application's `PublicationPdfDownload/<publicationId>` endpoint. A PDF is accepted only with HTTP 200 and `%PDF-` signature. Publisher PDF URLs can be short-lived signed URLs; repeat the stable PublicationPdfDownload resolver to obtain a fresh download URL rather than reusing a retained expired URL. This is separate from code-section acquisition. No browser print-to-PDF is presented as a publisher download. Houston provides an observed example: the native PDF first cover says Supplement 92 (August 2026), while the online API identifies Supplement 93 Update 2. The entire PDF was not compared against the online edition, and no equivalence is claimed. Publisher PDFs may state that they do not include recent electronic updates; a successful download is not a currency or completeness finding. Failed PDF responses retain their raw bytes and HTTP evidence and are not accepted as PDFs.
+
+## What normalization proves
+
+`normalize.py` operates completely offline on retained `samples.json`. It requires exactly one source document with the requested node ID and a nonempty body, exports identifiers/headings/path/text/source URLs/job IDs, retains the source HTML, footnotes and notes, and extracts HTML links and tables with row/column span values. JSONL and CSV outputs have hashes in `normalized/verification.json`. HTML remains the authoritative representation for nested lists, complicated layout, illustrations and complex nested tables. A zero table count describes only the selected provisions; it does not prove that the source code has no tables.
+
+The full TOC is an inventory, not acquired full text. Separate publications and top-level charter/appendix/development families are inventoried where the live publisher API was accessible. All unsampled families, uncodified ordinances, historical versions, applicability distinctions, referenced adopted standards, and external documents remain outside the tested sample. City/county consolidated targets are each one jurisdiction, and excluded municipalities are not additional targets.
+
+See `results.json`, target receipts, and `scope-inventory.json` for precise acquired scope, counts, native-download outcome, official routing evidence and remaining work. `verify.py` replays retained source evidence; it never makes network requests. A live rerun can encounter new editions, changed URLs, missing features, or access controls and must retain its own new receipts.
+
+## Legal table and cross-reference qualification
+
+The Houston primary sample is supplemented by a separately acquired Section 26-492 (parking-space use classifications), selected from the retained live fullTOC. Its one legal table contains 96 rows and 267 cells. `verify_table.cjs` independently loads the retained source HTML in a network-blocked browser, compares every rendered cell text and row/column span/tag against normalized output, and saves `table-dom-qa.json` and an offline screenshot. All 267 cells matched. The screenshot's first viewport was visually reviewed; this is not a full-table visual review. `acquire_node.cjs` is the standalone, rate-gated source acquisition script. `normalize_supplemental.py` pins the supplemental node to the retained primary TOC/product/job and invokes the same offline normalizer. Houston's `record_count` includes 3 primary provisions plus this 1 separately described supplemental provision.
+
+Many real API cross-references have an empty href and store their target in data-nodeid or data-chunk-id. Normalized links retain every original anchor attribute and the target node ID, rather than treating empty href as absence of a reference. The original HTML remains in each record.
+
+The shared parser's early table line-break issue was found against a real source by the sibling states validation and repaired by preserving block/br boundaries inside cells. The repaired parser was independently checked against both that publication-history table and Houston's substantive legal table.
+
+## Read-only verification
+
+`python3 verify.py` performs network-free replay into temporary output directories and prints results to stdout. It leaves evidence and existing reports untouched. `--report NEW_PATH` is optional when a separate report is wanted. `python3 test_rate_gate.py` checks the cooldown mechanism with a mocked HTTP 429 and a separate temporary gate; it sends no network traffic. Those mechanism tests are distinct from the live source results. `python3 audit_gate.py` reads the retained shared gate log and reports both initial timing jitter and the later settled guard window. Optional `node verify_table.cjs supplemental/houston-parking [NEW_OUTPUT_DIR]` writes fresh QA artifacts to the supplied directory or a new temporary directory; it never overwrites retained QA by default.
+
+The settled shared-log audit covers 234 reservations after a 120-second guard transition window, with minimum logged gap 3.461 seconds and zero directly logged HTTP 429s. This is a gate reservation/start audit, not packet capture; individual browser response statuses remain in acquisition receipts. The early exploratory browser preflight and nominal 3-second jitter are retained separately and are not hidden by this later measurement.

@@ -1,0 +1,337 @@
+
+    <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+    <html>
+    <head>
+
+        <title>Title 18 - Unified Development Ordinance</title>
+        <link type="text/css" rel="Stylesheet" href="jqueryui/css/jqueryui.css" media="all" />
+        <link type="text/css" rel="Stylesheet" href="css/ui.css" media="all" />
+        <link type="text/css" rel="Stylesheet" href="css/customui.css" media="all" />
+        <link type="text/css" rel="Stylesheet" href="css/document.css" media="all" />
+        <link type="text/css" rel="Stylesheet" href="css/customdoc.css" media="all" />
+        <link type="text/css" rel="Stylesheet" href="tablestyles.aspx" media="all" />
+        <link rel="StyleSheet" type="text/css" href="/common/font-awesome/css/all.min.css">
+        <link type="text/css" rel="Stylesheet" href="css/docprint.css" media="print" />
+        <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+        <script type="text/javascript" src="jqueryui/js/jquery-ui-1.8.21.custom.min.js"></script>
+        <script type="text/javascript" src="js/doc-view.js?_t=290"></script>
+        <script type="text/javascript" src="js/tabletools.js"></script>
+        <script type="text/javascript" src="js/tabs.js"></script>
+        <script type="text/javascript">
+            var iframeReady = false;
+        </script>
+        
+    </head>
+    <body class='doc-view'>
+        <script type="text/javascript">
+            $(document).ready(function () {
+                ZP.DocView.InitDef();
+                ZP.DocView.OpenDefinitionPage = null;
+                ZP.DocView.OpenDefinitionMode = '_self';
+                ZP.DocView.OpenXRefPage = 'doc-viewer.aspx#$2-';
+                ZP.DocView.OpenXRefMode = '_blank';
+                $(window).bind('hashchange', ZP.DocView.HashChanged);
+        
+        if (typeof ZP.DocView.ZoomClasses == 'undefined') {
+            ZP.DocView.ZoomClasses = ["Unzoom1", "", "Zoom1", "Zoom2", "Zoom3", "Zoom4"];
+        }
+        ZP.DocView.InitializeZoom();
+        EC.SortedTable.Init(".ord-tbl, .stat-tbl", ".sortable");
+        EC.Tabs.PositionLeftTabs();
+    });
+
+
+        </script>
+
+
+    <div id="doc-viewer">
+        
+
+<div id="doc-view">
+    <div id="doc-view-content">
+        
+<div id="pageControls">
+<script type="text/javascript" >
+    function clearEffDate() {
+        jQuery.get("doc-view-helper.aspx?task=currentversion", function () {
+            window.location.reload();
+        });
+        return false;
+    }
+</script>
+     <div class="pageControls psuedoTable" role="navigation" aria-label="Document Navigation">  
+        <div class="psuedoTableBody" >     
+            <div class="psuedoTableRow">         
+                <div class="pageControls_outer" ></div>
+                <div class="pageControls_inner left">
+                    <a id='button1' onclick='ZP.DocView.PrintDoc("018.041.015",false);return false;' href="#" title="Print" role="button"> 
+                        <img alt="Print" src="resources/btn-print-white.png" /></a>
+                    <a id='Button2' onclick='ZP.DocView.OpenPDF("018.041.015",false);return false;' href="#" title="Export PDF" role="button">
+                        <img alt="Generate PDF" src="resources/btn-makepdf-white.png" /></a>
+                        <a class="popup" params="toobar=0,menubar=0,scrollbars=1,height=436,width=626" href="https://www.facebook.com/sharer/sharer.php?s=100&p[title]=Title+18+-+Unified+Development+Ordinance&p[summary]=Overland+Park%2c+Kansas+Municipal+Code&p[url]=https%3a%2f%2fcodes.opkansas.org%2fmunicipal-code%2fdoc-viewer.aspx%3fsecid%3d5207" title="Click to Share this page" style="text-decoration:none;border:none;" ><img src="resources/share-icon-white.png" alt="Click to Share this page on facebook" /></a>     
+                </div>
+                <div  class="pageControls_inner breadCrumbs" title="Navigation 'breadcrumbs'">
+                     <div class='breadCrumbs'><a href='/municipal-code/doc-viewer.aspx?tocid=018' >Title 18 - Unified Development Ordinance</a> &gt; <a href='/municipal-code/doc-viewer.aspx?tocid=018.041' >18.430 Parking and Loading Regulations</a> &gt; <a href='/municipal-code/doc-viewer.aspx?tocid=018.041.015' >18.430.150  Required Parking</a></div>
+                </div>
+                 <div  class="pageControls_inner right">       
+                     <ul >  
+                         <li>
+                            <a id='button3' class="nav" onclick="ZP.DocView.LoadPrevDoc('018.041.015');return false;" href="#"  title="Previous Section" accesskey="," role="button"><img alt="Go to Previous Section" src="resources/btn-back-white.png" /></a>
+                         </li>  
+                         <li>
+                             <a id='Button4'  class="nav" onclick="ZP.DocView.LoadNextDoc('018.041.015');return false;" href="#"  title="Next Section" accesskey="." role="button"> <img alt="Go to Next Section" src="resources/btn-forward-white.png" /></a>
+                         </li>   
+                         <li>
+                             <a id="pageControls-overflow" onclick="ZP.DocView.PgCntrlOverflowClick(event);return false;" href="#" title="Click for more options" role="button" >
+                            <img src="resources/overflow-btn-white.png" alt="Click for more options" /></a>
+                               
+  <ul class="submenu" role="dialog">
+            <li><a href="/municipal-code/doc-viewer.aspx?secid=5207" onclick="javascript:alert('Right click this icon and select \'add to favorites\' or \'Bookmark this Link\' to bookmark this page');return false;" title="Bookmark this page" >Bookmark</a></li>
+            <li>
+                                        
+                <a id="zoomMinus" onclick="ZP.DocView.DecreaseZoom();return false;" href="#" title="Decrease Zoom" class="zoomLink glyphicon" >&#x2212;</a>
+                <a onclick="ZP.DocView.DefaultZoom();return false;"  href="#" title="Default Zoom"  class="zoomLink" >100%</a>
+                <a id="zoomPlus" onclick="ZP.DocView.IncreaseZoom();return false;" href="#" title="Increase Zoom"  class="zoomLink glyphicon" > &#x2b; </a>
+            </li>
+           
+                           
+                
+                <li><a id="subscribe-btn" onclick="ZP.DocView.OpenSubscribeDlg();return false;" title="Subscribe to Notifications" href="subscribe.aspx" role="button">Subscribe</a></li>
+                <li><a id="unsubscribe-btn" onclick="ZP.DocView.OpenUnsubscribeDlg();return false;" title="Cancel Notifications Subscription" href="unsubscribe.aspx" role="button" >Unsubscribe</a></li>
+                
+</ul>
+                         </li>        
+                        
+                        </ul>   
+                </div>
+                <div class="pageControls_outer"></div>
+            </div>
+        </div>
+    </div> 
+    <div id="subscribe-dialog" title="" aria-live="polite" >
+        <div id="sub-message"></div>
+        <div id="sub-form-cntr"></div>
+    </div>
+</div>
+
+
+        <div id="thePage-outer" >
+            <div id="thePage-wrap" class="thePage-wrap ">
+                <div id="outer-doc-banner"></div>
+                <div id="thePage-border">
+                    <div id="thePage" class="textPage " tocid="018.041.015" secid="6155" role="main" aria-label="Document">
+                        <img id="sectionBanner" title="Document text banner" src="resources/docbanner.png" width="720" valign="Top" alt="Document text banner">
+                        
+                        <section id='secid-5207' class='secLvl1 _018' tabindex='-1' data-secid='5207'> 
+<h1>
+	<strong>Title 18 - Unified Development Ordinance</strong></h1>
+
+
+<p>
+	&nbsp;</p>
+
+
+</section> 
+<section id='secid-6139' class='secLvl2 _018 _018-041' tabindex='-1' data-secid='6139'> 
+<h2>
+	<strong>18.430</strong><strong> </strong><strong>Parking </strong><strong>a</strong><strong>nd Loading Regulations</strong></h2>
+
+
+
+</section> 
+<section id='secid-6155' class='secLvl3 _018 _018-041 _018-041-015' tabindex='-1' data-secid='6155'> 
+<h3>18.430.150 Required Parking</h3>
+
+<p style="text-align:center"><a href="calculators.aspx" target="_blank" title="Go to the Parking Calculator"><span class="calculate">&nbsp;</span></a></p>
+
+<ol class="list-v2">
+	<li>
+	<div class="li-num">A.</div>
+
+	<div class="li-cont">Parking for the zoning districts and certain specific land uses shall be as indicated in the following table.
+	<ol class="list-v2" data-unlistid="25246557">
+		<li>
+		<div class="li-num">1.</div>
+
+		<div class="li-cont">Where a specific use is listed below, parking shall be provided as indicated for that specific use, and the required parking for that zoning district does not have to be provided in addition to it.</div>
+		</li>
+		<li>
+		<div class="li-num">2.</div>
+
+		<div class="li-cont">See 18.430.170 for Shared Parking Reductions.&nbsp; Permission for such shared parking must be received as part of a preliminary or final development plan approval.</div>
+		</li>
+	</ol>
+	</div>
+	</li>
+	<li>
+	<div class="li-num">B.</div>
+
+	<div class="li-cont">&nbsp;Where on-street parking is allowed, a maximum of 50% of the required parking may be provided on-street, subject to good traffic engineering design principles, provided the on-street spaces are located adjacent to the site.&nbsp; On-street parking spaces being counted towards the required parking must be identified on plans at time of submittal to the City.</div>
+	</li>
+	<li>
+	<div class="li-num">C.</div>
+
+	<div class="li-cont">When designated as Area A or Area B in the table below, parking for uses in the following districts and for the following specific uses is required within the range specified according to the Map of Parking Rates in 18.430.160.
+	<ol class="list-v2" data-unlistid="54611725">
+		<li>
+		<div class="li-num">1.</div>
+
+		<div class="li-cont">&nbsp;Projects providing parking outside of these ranges must provide Demand Reduction Amenities according to 18.430.170.</div>
+		</li>
+	</ol>
+	</div>
+	</li>
+</ol>
+
+<table class="general" id="tbl-reqpark" style="width:100%;">
+	<thead>
+		<tr class="heading">
+			<th>&nbsp;Zoning District / Land Use</th>
+			<th colspan="2" rowspan="1">Required Parking</th>
+		</tr>
+		<tr class="sheading">
+			<th>&nbsp;</th>
+			<th>&nbsp;Area A</th>
+			<th>Area B&nbsp;</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<td>A</td>
+			<td colspan="2" rowspan="1">2 off-street per dwelling</td>
+		</tr>
+		<tr>
+			<td>RE, RP-OE, RP-OS, R-1, RP-1, R-1A, RP-1A, RP-1N, R-2, RP-2</td>
+			<td colspan="2" rowspan="1">
+			<p>2 off-street per dwelling (1 must be covered)</p>
+
+			<p>&nbsp;</p>
+
+			<p>Exception: 1 covered parking space is not required for dwellings approved as one of the City&#39;s adopted portfolio home designs</p>
+			</td>
+		</tr>
+		<tr>
+			<td>R-3, RP-3, RP-4, RP-5, RP-6, PRN</td>
+			<td>1 to 2 spaces per unit</td>
+			<td><span>1 to 2.5 spaces per unit</span></td>
+		</tr>
+		<tr>
+			<td>C-O, CP-O, C-1, CP-1, C-2, CP-2, C-3, CP-3, BP, M-1, MP-1, M-2, MP-2</td>
+			<td>1.5 to 2.5 spaces per 1,000 square feet of gross building area exclusive of restaurant uses</td>
+			<td><span>2.5 to 4 spaces per 1,000 square feet of gross building area exclusive of restaurant uses</span></td>
+		</tr>
+		<tr>
+			<td>MXD</td>
+			<td colspan="2" rowspan="1">See the Parking Requirements section of the Mixed Use Design Standards (MUDS 7.1)</td>
+		</tr>
+		<tr>
+			<td>DFD</td>
+			<td colspan="2" rowspan="1">See the Parking Requirements section of the Downtown Form-Based Code (DFD 703)</td>
+		</tr>
+		<tr>
+			<td>Restaurants, clubs or drinking establishments (excluding MXD and DFD)</td>
+			<td colspan="2" rowspan="1">6 to 12 spaces per 1,000 square feet of floor area</td>
+		</tr>
+		<tr>
+			<td>Assembly halls, theaters, athletic fields and other seating facilities</td>
+			<td colspan="2" rowspan="1">1 space for each 3 seats</td>
+		</tr>
+		<tr>
+			<td>Hotels, motels, dormitories and similar boarding facilities</td>
+			<td colspan="2" rowspan="1">1 space for each guest room plus 0.15 spaces for each employee</td>
+		</tr>
+		<tr>
+			<td>Hospitals, nursing or convalescent homes, or congregate care facilities</td>
+			<td colspan="2" rowspan="1">1 space for each 3 beds plus 1 space for each staff person or visiting doctor</td>
+		</tr>
+		<tr>
+			<td>Churches and Religious Facilities (including contiguous facilities)</td>
+			<td colspan="2" rowspan="1">1 space for each 4 seats in the main sanctuary</td>
+		</tr>
+	</tbody>
+</table>
+
+<ol class="list-v2" data-continue="1" start="4">
+	<li>
+	<div class="li-num">D.</div>
+
+	<div class="li-cont">&nbsp;Any use not included in the parking requirements in this title shall be assigned a parking requirement by the Planning Commission or Governing Body.</div>
+	</li>
+	<li>
+	<div class="li-num">E.</div>
+
+	<div class="li-cont">Parking requirements for special uses not identified in the above table shall be determined at the time of plan approval for the special use permit.&nbsp; The parking requirement of the underlying zoning district or the most analogous zoning district may be considered.&nbsp; The Planning Commission and Governing Body may approve the requested parking after considering documentation and/or study provided by the applicant, staff&rsquo;s recommendation, and giving decisive weight to all relevant facts, including but not limited to the following factors:
+	<ol class="list-v2" data-unlistid="34132491">
+		<li>
+		<div class="li-num">1.</div>
+
+		<div class="li-cont">The underlying zoning district,</div>
+		</li>
+		<li>
+		<div class="li-num">2.</div>
+
+		<div class="li-cont">The surrounding land uses, including impact on adjacent residential neighborhoods,</div>
+		</li>
+		<li>
+		<div class="li-num">3.</div>
+
+		<div class="li-cont">Characteristics of the use, including hours of operation and peak parking demand times,</div>
+		</li>
+		<li>
+		<div class="li-num">4.</div>
+
+		<div class="li-cont">Similarity to required parking for other comparable uses in other zoning districts,</div>
+		</li>
+		<li>
+		<div class="li-num">5.</div>
+
+		<div class="li-cont">Availability and accessibility of alternative parking, and</div>
+		</li>
+		<li>
+		<div class="li-num">6.</div>
+
+		<div class="li-cont">Existing or potential shared parking arrangement.</div>
+		</li>
+	</ol>
+	</div>
+	</li>
+</ol>
+
+<p>(History: Ord. ZRR-3503; ZRR-3373 &sect;49, 2023; ZRR-2156, &sect;6, 99; ZRR-1725; ZRR-1637; ZRR-889 &sect;18.50)</p>
+
+<p class='archiveNotice nullValue '>Effective on:&nbsp;1/1/1901</p>
+</section> 
+
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<button id="commentsCTA" title="Add a Comment" aria-label="Add a Comment" role="button" tabindex="2">
+    COMMENTS
+</button>
+
+<!-- hidden div below is for definition popup -->
+<div id="defFrame">
+    <img alt='loading progress' src="resources/progress.gif" /></div>
+<!-- hidden div below is for ajax loading progress-->
+<div id='progress-template' style='display: none;'>
+    <div class="progress" style='padding: 100px;'>
+        <div style='margin: auto; display: block; width: 200px; border: 1px solid #ccc; background-color: #eee; padding: 10px;'>
+            <img alt='loading progress' src='resources/progress.gif' style='margin: auto; display: block;' />
+            <br />
+            <span style='margin: auto; display: block; width: 75px; padding-left: 10px;'>Loading...</span>
+        </div>
+    </div>
+</div>
+<iframe style="width: 1px; height: 1px" src="" id="printiframe" name="printiframe" onload="ZP.DocView.IFrameReady();" title="Print frame" aria-hidden="true" role="presentation"></iframe>
+
+    </div>
+
+
+    </body>
+</html>

@@ -1,0 +1,23 @@
+{
+  "checked_at": "2026-10-17T18:23:27.900614+00:00",
+  "method": "Copied package to fresh temporary path without virtualenv or node_modules; ran copied verifiers using installed dependencies; no network.",
+  "results": [
+    {
+      "command": [
+        "scripts/parse_verify.py",
+        "--offline"
+      ],
+      "returncode": 0,
+      "stdout": "Dallas 5 rendered records; 1 publisher export records\nFort Worth 13 rendered records; 1 publisher export records\nBoston 19 rendered records; 1 publisher export records\nLouisville / Jefferson County Metro 21 rendered records; 1 publisher export records\nSacramento 11 rendered records; 1 publisher export records\nColorado Springs 6 rendered records; 1 publisher export records\nBoise 4 rendered records; 1 publisher export records\nSalt Lake City 13 rendered records; 1 publisher export records\nSioux Falls 12 rendered records; 1 publisher export records\nManchester 23 rendered records; 1 publisher export records\nCity and County of Honolulu 4 rendered records; 1 publisher export records\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "scripts/verify_bundle.py"
+      ],
+      "returncode": 0,
+      "stdout": "verified 433 artifact hashes and 11 jurisdiction result rows\n",
+      "stderr": ""
+    }
+  ]
+}

@@ -1,0 +1,1704 @@
+[
+  {
+    "sequence": 4,
+    "jurisdiction": "Dallas",
+    "state": "TX",
+    "source_url": "https://codelibrary.amlegal.com/codes/dallas/latest/dallas_tx/0-0-0-133465",
+    "source_family": "American Legal",
+    "status": "standalone_e2e_pass",
+    "acquisition_method": "Standalone Playwright headed Google Chrome public page navigation; Python BeautifulSoup offline normalization",
+    "publisher_download": {
+      "status": "passed",
+      "url": "https://export.amlegal.com/api/export-requests/2d11e686-2543-49d9-a40e-8a9336ea4277/download/",
+      "reason": "Actual publisher HTML bytes retained, parsed and matched to rendered source section(s).",
+      "evidence_paths": [
+        "raw/dallas/export-after.html",
+        "raw/dallas/export-selection.html",
+        "raw/dallas/publisher-dallas-tx-1.html",
+        "raw/dallas/export-format.html",
+        "raw/dallas/receipt.json",
+        "parsed/dallas/publisher-scope.json",
+        "parsed/dallas/publisher-records.jsonl",
+        "parsed/dallas/publisher-records.csv"
+      ],
+      "actual_scope": {
+        "actual_headings": [
+          "SEC. 1-1.   HOW CODE DESIGNATED AND CITED."
+        ],
+        "actual_citations": [
+          "1-1"
+        ],
+        "record_count": 1
+      }
+    },
+    "tested_scope": {
+      "rendered_division": "CHAPTER 1 GENERAL PROVISIONS",
+      "supplemental_table_records": 0,
+      "supplemental_table_cells": 0,
+      "supplemental_spanned_cells": 0,
+      "rendered_substantive_records": 5,
+      "publisher_substantive_records": 1,
+      "native_scope": [
+        "SEC. 1-1.   HOW CODE DESIGNATED AND CITED."
+      ]
+    },
+    "complete_corpus": false,
+    "record_count": 5,
+    "cross_reference_count": 2,
+    "table_count": 0,
+    "checks": [
+      {
+        "check": "raw_html_hashes",
+        "passed": true
+      },
+      {
+        "check": "substantive_multiple_records",
+        "passed": true,
+        "count": 5
+      },
+      {
+        "check": "source_identity",
+        "passed": true
+      },
+      {
+        "check": "publication_prefix_binding",
+        "passed": true,
+        "expected_prefix": "https://codelibrary.amlegal.com/codes/dallas/latest/dallas_tx/",
+        "observed_url": "https://codelibrary.amlegal.com/codes/dallas/latest/dallas_tx/0-0-0-133465"
+      },
+      {
+        "check": "headings_citations_text",
+        "passed": true
+      },
+      {
+        "check": "unique_document_ids",
+        "passed": true
+      },
+      {
+        "check": "native_export_parsed",
+        "passed": true,
+        "count": 1
+      },
+      {
+        "check": "native_text_matches_rendered",
+        "passed": true,
+        "matched_records": 1,
+        "native_records": 1
+      },
+      {
+        "check": "native_export_selection_binding",
+        "passed": true,
+        "requested_heading": "SEC. 1-1.   HOW CODE DESIGNATED AND CITED."
+      }
+    ],
+    "command": "node scripts/collect.mjs --out fresh-seq-4 --sequence 4 && python fresh-seq-4/scripts/parse_verify.py --offline --sequence 4",
+    "evidence_paths": [
+      "raw/dallas/export-after.html",
+      "raw/dallas/export-selection.html",
+      "raw/dallas/publisher-dallas-tx-1.html",
+      "raw/dallas/overview.txt",
+      "raw/dallas/native-job.json",
+      "raw/dallas/publication.txt",
+      "raw/dallas/failure.html",
+      "raw/dallas/publication.html",
+      "raw/dallas/native-retry-format.html",
+      "raw/dallas/division.txt",
+      "raw/dallas/native-ready.html",
+      "raw/dallas/sample.html",
+      "raw/dallas/overview.html",
+      "raw/dallas/export-format.html",
+      "raw/dallas/receipt.json",
+      "raw/dallas/sample.txt",
+      "raw/dallas/division.html",
+      "parsed/dallas/table-records.csv",
+      "parsed/dallas/publisher-scope.json",
+      "parsed/dallas/publisher-records.jsonl",
+      "parsed/dallas/records.jsonl",
+      "parsed/dallas/verification.json",
+      "parsed/dallas/records.csv",
+      "parsed/dallas/publisher-records.csv",
+      "parsed/dallas/table-records.jsonl",
+      "research/publication-inventory.json",
+      "research/runtime.json"
+    ],
+    "script_paths": [
+      "scripts/collect.mjs",
+      "scripts/request_exports.mjs",
+      "scripts/download_exports.mjs",
+      "scripts/expand_samples.mjs",
+      "scripts/table_sample.mjs",
+      "scripts/additional_sample.mjs",
+      "scripts/parse_verify.py",
+      "scripts/build_results.py"
+    ],
+    "limitations": [
+      "Bounded substantive sample only; no complete jurisdiction corpus.",
+      "Unrendered later sections, independent publications and uncodified legislation are outside tested scope.",
+      "Only publisher HTML format tested; PDF/Word/Text/EPUB/MOBI controls are inventory observations.",
+      "No substantive table fidelity qualification when table_count is zero.",
+      "Initial collector attempt: Error: page.goto: Download is starting"
+    ],
+    "publication_inventory": {
+      "sequence": 4,
+      "official_route": "https://dallascityhall.com/Pages/codes.aspx",
+      "families": [
+        {
+          "name": "City Code volumes I–III and charter",
+          "route": "https://codelibrary.amlegal.com/codes/dallas/latest/overview",
+          "relationship": "publisher code includes charter and development code chapters 51/51A; bounded sample tested"
+        },
+        {
+          "name": "Volume IV Chapter 51P Planned Development District Regulations",
+          "route": "https://dallascityhall.com/departments/city-attorney/Pages/default.aspx",
+          "relationship": "separate City Attorney publication routed by official codes page; acquisition untested"
+        }
+      ]
+    },
+    "next_action": "Qualify separate publication families, table-rich sections and current supplement boundaries before any full-corpus collection."
+  },
+  {
+    "sequence": 5,
+    "jurisdiction": "Fort Worth",
+    "state": "TX",
+    "source_url": "https://codelibrary.amlegal.com/codes/ftworth/latest/ftworth_tx/0-0-0-745",
+    "source_family": "American Legal",
+    "status": "standalone_e2e_pass",
+    "acquisition_method": "Standalone Playwright headed Google Chrome public page navigation; Python BeautifulSoup offline normalization",
+    "publisher_download": {
+      "status": "passed",
+      "url": "https://export.amlegal.com/api/export-requests/52f76579-a165-460a-aa4a-e407049c2c6b/download/",
+      "reason": "Actual publisher HTML bytes retained, parsed and matched to rendered source section(s).",
+      "evidence_paths": [
+        "raw/ftworth/publisher-ftworth-tx-1.html",
+        "raw/ftworth/export-after.html",
+        "raw/ftworth/export-selection.html",
+        "raw/ftworth/export-format.html",
+        "raw/ftworth/receipt.json",
+        "parsed/ftworth/publisher-scope.json",
+        "parsed/ftworth/publisher-records.jsonl",
+        "parsed/ftworth/publisher-records.csv"
+      ],
+      "actual_scope": {
+        "actual_headings": [
+          "§ 1-1  HOW CODE DESIGNATED AND CITED."
+        ],
+        "actual_citations": [
+          "1-1"
+        ],
+        "record_count": 1
+      }
+    },
+    "tested_scope": {
+      "rendered_division": "CHAPTER 1: GENERAL PROVISIONS",
+      "supplemental_table_records": 0,
+      "supplemental_table_cells": 0,
+      "supplemental_spanned_cells": 0,
+      "rendered_substantive_records": 13,
+      "publisher_substantive_records": 1,
+      "native_scope": [
+        "§ 1-1  HOW CODE DESIGNATED AND CITED."
+      ]
+    },
+    "complete_corpus": false,
+    "record_count": 13,
+    "cross_reference_count": 18,
+    "table_count": 0,
+    "checks": [
+      {
+        "check": "raw_html_hashes",
+        "passed": true
+      },
+      {
+        "check": "substantive_multiple_records",
+        "passed": true,
+        "count": 13
+      },
+      {
+        "check": "source_identity",
+        "passed": true
+      },
+      {
+        "check": "publication_prefix_binding",
+        "passed": true,
+        "expected_prefix": "https://codelibrary.amlegal.com/codes/ftworth/latest/ftworth_tx/",
+        "observed_url": "https://codelibrary.amlegal.com/codes/ftworth/latest/ftworth_tx/0-0-0-745"
+      },
+      {
+        "check": "headings_citations_text",
+        "passed": true
+      },
+      {
+        "check": "unique_document_ids",
+        "passed": true
+      },
+      {
+        "check": "native_export_parsed",
+        "passed": true,
+        "count": 1
+      },
+      {
+        "check": "native_text_matches_rendered",
+        "passed": true,
+        "matched_records": 1,
+        "native_records": 1
+      },
+      {
+        "check": "native_export_selection_binding",
+        "passed": true,
+        "requested_heading": "§ 1-1 HOW CODE DESIGNATED AND CITED."
+      }
+    ],
+    "command": "node scripts/collect.mjs --out fresh-seq-5 --sequence 5 && python fresh-seq-5/scripts/parse_verify.py --offline --sequence 5",
+    "evidence_paths": [
+      "raw/ftworth/publisher-ftworth-tx-1.html",
+      "raw/ftworth/export-after.html",
+      "raw/ftworth/export-selection.html",
+      "raw/ftworth/overview.txt",
+      "raw/ftworth/native-job.json",
+      "raw/ftworth/publication.txt",
+      "raw/ftworth/failure.html",
+      "raw/ftworth/publication.html",
+      "raw/ftworth/native-retry-format.html",
+      "raw/ftworth/native-ready.html",
+      "raw/ftworth/sample.html",
+      "raw/ftworth/part.html",
+      "raw/ftworth/overview.html",
+      "raw/ftworth/sample-expanded.html",
+      "raw/ftworth/export-format.html",
+      "raw/ftworth/part.txt",
+      "raw/ftworth/receipt.json",
+      "raw/ftworth/sample.txt",
+      "parsed/ftworth/table-records.csv",
+      "parsed/ftworth/publisher-scope.json",
+      "parsed/ftworth/publisher-records.jsonl",
+      "parsed/ftworth/records.jsonl",
+      "parsed/ftworth/verification.json",
+      "parsed/ftworth/records.csv",
+      "parsed/ftworth/publisher-records.csv",
+      "parsed/ftworth/table-records.jsonl",
+      "research/publication-inventory.json",
+      "research/runtime.json"
+    ],
+    "script_paths": [
+      "scripts/collect.mjs",
+      "scripts/request_exports.mjs",
+      "scripts/download_exports.mjs",
+      "scripts/expand_samples.mjs",
+      "scripts/table_sample.mjs",
+      "scripts/additional_sample.mjs",
+      "scripts/parse_verify.py",
+      "scripts/build_results.py"
+    ],
+    "limitations": [
+      "Bounded substantive sample only; no complete jurisdiction corpus.",
+      "Unrendered later sections, independent publications and uncodified legislation are outside tested scope.",
+      "Only publisher HTML format tested; PDF/Word/Text/EPUB/MOBI controls are inventory observations.",
+      "No substantive table fidelity qualification when table_count is zero.",
+      "Initial collector attempt: Error: page.goto: Download is starting"
+    ],
+    "publication_inventory": {
+      "sequence": 5,
+      "official_route": "https://www.fortworthtexas.gov/departments/citysecretary/records",
+      "families": [
+        {
+          "name": "Code and Charter",
+          "route": "https://codelibrary.amlegal.com/codes/ftworth/latest/overview",
+          "relationship": "one publisher code; charter Part I; bounded sample tested"
+        },
+        {
+          "name": "Zoning Ordinance Appendix A",
+          "route": "https://www.fortworthtexas.gov/departments/development-services/zoning/ordinance",
+          "relationship": "Appendix A of same city code; official route verified, zoning acquisition untested"
+        }
+      ]
+    },
+    "next_action": "Qualify separate publication families, table-rich sections and current supplement boundaries before any full-corpus collection."
+  },
+  {
+    "sequence": 15,
+    "jurisdiction": "Boston",
+    "state": "MA",
+    "source_url": "https://codelibrary.amlegal.com/codes/boston/latest/boston_ma/0-0-0-1301",
+    "source_family": "American Legal",
+    "status": "standalone_e2e_pass",
+    "acquisition_method": "Standalone Playwright headed Google Chrome public page navigation; Python BeautifulSoup offline normalization",
+    "publisher_download": {
+      "status": "passed",
+      "url": "https://export.amlegal.com/api/export-requests/651848f1-cebd-4aa8-bf01-f3c597ef9aae/download/",
+      "reason": "Actual publisher HTML bytes retained, parsed and matched to rendered source section(s).",
+      "evidence_paths": [
+        "raw/boston/export-selection.html",
+        "raw/boston/export-format.html",
+        "raw/boston/publisher-boston-ma-1.html",
+        "raw/boston/receipt.json",
+        "parsed/boston/publisher-scope.json",
+        "parsed/boston/publisher-records.jsonl",
+        "parsed/boston/publisher-records.csv"
+      ],
+      "actual_scope": {
+        "actual_headings": [
+          "1-1   DEFINITIONS AND RULES OF CONSTRUCTION."
+        ],
+        "actual_citations": [
+          "1-1"
+        ],
+        "record_count": 1
+      }
+    },
+    "tested_scope": {
+      "rendered_division": "CHAPTER I: GENERAL PROVISIONS",
+      "supplemental_table_records": 0,
+      "supplemental_table_cells": 0,
+      "supplemental_spanned_cells": 0,
+      "rendered_substantive_records": 19,
+      "publisher_substantive_records": 1,
+      "native_scope": [
+        "1-1   DEFINITIONS AND RULES OF CONSTRUCTION."
+      ]
+    },
+    "complete_corpus": false,
+    "record_count": 19,
+    "cross_reference_count": 0,
+    "table_count": 0,
+    "checks": [
+      {
+        "check": "raw_html_hashes",
+        "passed": true
+      },
+      {
+        "check": "substantive_multiple_records",
+        "passed": true,
+        "count": 19
+      },
+      {
+        "check": "source_identity",
+        "passed": true
+      },
+      {
+        "check": "publication_prefix_binding",
+        "passed": true,
+        "expected_prefix": "https://codelibrary.amlegal.com/codes/boston/latest/boston_ma/",
+        "observed_url": "https://codelibrary.amlegal.com/codes/boston/latest/boston_ma/0-0-0-1301"
+      },
+      {
+        "check": "headings_citations_text",
+        "passed": true
+      },
+      {
+        "check": "unique_document_ids",
+        "passed": true
+      },
+      {
+        "check": "native_export_parsed",
+        "passed": true,
+        "count": 1
+      },
+      {
+        "check": "native_text_matches_rendered",
+        "passed": true,
+        "matched_records": 1,
+        "native_records": 1
+      },
+      {
+        "check": "native_export_selection_binding",
+        "passed": true,
+        "requested_heading": "1-1   DEFINITIONS AND RULES OF CONSTRUCTION."
+      }
+    ],
+    "command": "node scripts/collect.mjs --out fresh-seq-15 --sequence 15 && python fresh-seq-15/scripts/parse_verify.py --offline --sequence 15",
+    "evidence_paths": [
+      "raw/boston/export-selection.html",
+      "raw/boston/overview.txt",
+      "raw/boston/native-job.json",
+      "raw/boston/publication.txt",
+      "raw/boston/failure.html",
+      "raw/boston/publication.html",
+      "raw/boston/native-retry-format.html",
+      "raw/boston/native-ready.html",
+      "raw/boston/sample.html",
+      "raw/boston/overview.html",
+      "raw/boston/sample-expanded.html",
+      "raw/boston/export-format.html",
+      "raw/boston/publisher-boston-ma-1.html",
+      "raw/boston/receipt.json",
+      "raw/boston/sample.txt",
+      "parsed/boston/table-records.csv",
+      "parsed/boston/publisher-scope.json",
+      "parsed/boston/publisher-records.jsonl",
+      "parsed/boston/records.jsonl",
+      "parsed/boston/verification.json",
+      "parsed/boston/records.csv",
+      "parsed/boston/publisher-records.csv",
+      "parsed/boston/table-records.jsonl",
+      "research/publication-inventory.json",
+      "research/runtime.json"
+    ],
+    "script_paths": [
+      "scripts/collect.mjs",
+      "scripts/request_exports.mjs",
+      "scripts/download_exports.mjs",
+      "scripts/expand_samples.mjs",
+      "scripts/table_sample.mjs",
+      "scripts/additional_sample.mjs",
+      "scripts/parse_verify.py",
+      "scripts/build_results.py"
+    ],
+    "limitations": [
+      "Bounded substantive sample only; no complete jurisdiction corpus.",
+      "Unrendered later sections, independent publications and uncodified legislation are outside tested scope.",
+      "Only publisher HTML format tested; PDF/Word/Text/EPUB/MOBI controls are inventory observations.",
+      "No substantive table fidelity qualification when table_count is zero.",
+      "Initial collector attempt: TimeoutError: locator.click: Timeout 25000ms exceeded."
+    ],
+    "publication_inventory": {
+      "sequence": 15,
+      "official_route": "https://www.boston.gov/departments/city-clerk",
+      "families": [
+        {
+          "name": "Municipal Code including Charter",
+          "route": "https://codelibrary.amlegal.com/codes/boston/latest/overview",
+          "relationship": "bounded sample tested"
+        },
+        {
+          "name": "Boston Zoning Code",
+          "route": "https://www.bostonplans.org/planning-zoning/zoning-code",
+          "relationship": "Independent zoning publication on Municode (official Planning Department route verified); acquisition untested."
+        }
+      ]
+    },
+    "next_action": "Qualify separate publication families, table-rich sections and current supplement boundaries before any full-corpus collection."
+  },
+  {
+    "sequence": 17,
+    "jurisdiction": "Louisville / Jefferson County Metro",
+    "state": "KY",
+    "source_url": "https://codelibrary.amlegal.com/codes/louisvillemetro/latest/loukymetro/0-0-0-9",
+    "source_family": "American Legal",
+    "status": "standalone_e2e_pass",
+    "acquisition_method": "Standalone Playwright headed Google Chrome public page navigation; Python BeautifulSoup offline normalization",
+    "publisher_download": {
+      "status": "passed",
+      "url": "https://export.amlegal.com/api/export-requests/b3fc507c-5598-4799-be4d-4ac616ada9ea/download/",
+      "reason": "Actual publisher HTML bytes retained, parsed and matched to rendered source section(s).",
+      "evidence_paths": [
+        "raw/louisvillemetro/export-selection.html",
+        "raw/louisvillemetro/publisher-louisvillemetro-ky-1.html",
+        "raw/louisvillemetro/export-format.html",
+        "raw/louisvillemetro/receipt.json",
+        "parsed/louisvillemetro/publisher-scope.json",
+        "parsed/louisvillemetro/publisher-records.jsonl",
+        "parsed/louisvillemetro/publisher-records.csv"
+      ],
+      "actual_scope": {
+        "actual_headings": [
+          "§ 10.01  TITLE OF CODE."
+        ],
+        "actual_citations": [
+          "10.01"
+        ],
+        "record_count": 1
+      }
+    },
+    "tested_scope": {
+      "rendered_division": "CHAPTER 10: GENERAL PROVISIONS",
+      "supplemental_table_records": 0,
+      "supplemental_table_cells": 0,
+      "supplemental_spanned_cells": 0,
+      "rendered_substantive_records": 21,
+      "publisher_substantive_records": 1,
+      "native_scope": [
+        "§ 10.01  TITLE OF CODE."
+      ]
+    },
+    "complete_corpus": false,
+    "record_count": 21,
+    "cross_reference_count": 15,
+    "table_count": 0,
+    "checks": [
+      {
+        "check": "raw_html_hashes",
+        "passed": true
+      },
+      {
+        "check": "substantive_multiple_records",
+        "passed": true,
+        "count": 21
+      },
+      {
+        "check": "source_identity",
+        "passed": true
+      },
+      {
+        "check": "publication_prefix_binding",
+        "passed": true,
+        "expected_prefix": "https://codelibrary.amlegal.com/codes/louisvillemetro/latest/loukymetro/",
+        "observed_url": "https://codelibrary.amlegal.com/codes/louisvillemetro/latest/loukymetro/0-0-0-9"
+      },
+      {
+        "check": "headings_citations_text",
+        "passed": true
+      },
+      {
+        "check": "unique_document_ids",
+        "passed": true
+      },
+      {
+        "check": "native_export_parsed",
+        "passed": true,
+        "count": 1
+      },
+      {
+        "check": "native_text_matches_rendered",
+        "passed": true,
+        "matched_records": 1,
+        "native_records": 1
+      },
+      {
+        "check": "native_export_selection_binding",
+        "passed": true,
+        "requested_heading": "§ 10.01 TITLE OF CODE."
+      }
+    ],
+    "command": "node scripts/collect.mjs --out fresh-seq-17 --sequence 17 && python fresh-seq-17/scripts/parse_verify.py --offline --sequence 17",
+    "evidence_paths": [
+      "raw/louisvillemetro/export-selection.html",
+      "raw/louisvillemetro/publisher-louisvillemetro-ky-1.html",
+      "raw/louisvillemetro/overview.txt",
+      "raw/louisvillemetro/native-job.json",
+      "raw/louisvillemetro/publication.txt",
+      "raw/louisvillemetro/failure.html",
+      "raw/louisvillemetro/publication.html",
+      "raw/louisvillemetro/native-retry-format.html",
+      "raw/louisvillemetro/native-ready.html",
+      "raw/louisvillemetro/sample.html",
+      "raw/louisvillemetro/overview.html",
+      "raw/louisvillemetro/native-failure.html",
+      "raw/louisvillemetro/sample-expanded.html",
+      "raw/louisvillemetro/export-format.html",
+      "raw/louisvillemetro/receipt.json",
+      "raw/louisvillemetro/sample.txt",
+      "parsed/louisvillemetro/table-records.csv",
+      "parsed/louisvillemetro/publisher-scope.json",
+      "parsed/louisvillemetro/publisher-records.jsonl",
+      "parsed/louisvillemetro/records.jsonl",
+      "parsed/louisvillemetro/verification.json",
+      "parsed/louisvillemetro/records.csv",
+      "parsed/louisvillemetro/publisher-records.csv",
+      "parsed/louisvillemetro/table-records.jsonl",
+      "research/publication-inventory.json",
+      "research/runtime.json"
+    ],
+    "script_paths": [
+      "scripts/collect.mjs",
+      "scripts/request_exports.mjs",
+      "scripts/download_exports.mjs",
+      "scripts/expand_samples.mjs",
+      "scripts/table_sample.mjs",
+      "scripts/additional_sample.mjs",
+      "scripts/parse_verify.py",
+      "scripts/build_results.py"
+    ],
+    "limitations": [
+      "Bounded substantive sample only; no complete jurisdiction corpus.",
+      "Unrendered later sections, independent publications and uncodified legislation are outside tested scope.",
+      "Only publisher HTML format tested; PDF/Word/Text/EPUB/MOBI controls are inventory observations.",
+      "No substantive table fidelity qualification when table_count is zero.",
+      "Initial collector attempt: TimeoutError: locator.click: Timeout 25000ms exceeded."
+    ],
+    "publication_inventory": {
+      "sequence": 17,
+      "official_route": "https://louisvilleky.gov/government/codes-regulations/land-development-code",
+      "families": [
+        {
+          "name": "Louisville/Jefferson County Metro Government Code",
+          "route": "https://codelibrary.amlegal.com/codes/louisvillemetro/latest/overview",
+          "relationship": "bounded sample tested; single consolidated city/county target"
+        },
+        {
+          "name": "Louisville-Jefferson County Land Development Code",
+          "route": "https://codelibrary.amlegal.com/codes/louisvillemetro/latest/loukyldc/0-0-0-10104",
+          "relationship": "Independent publisher publication within the same library (loukyldc, distinct from loukymetro); live TOC/index inspected, substantive acquisition untested."
+        }
+      ]
+    },
+    "next_action": "Qualify separate publication families, table-rich sections and current supplement boundaries before any full-corpus collection."
+  },
+  {
+    "sequence": 23,
+    "jurisdiction": "Sacramento",
+    "state": "CA",
+    "source_url": "https://codelibrary.amlegal.com/codes/sacramentoca/latest/sacramento_ca/0-0-0-765",
+    "source_family": "American Legal",
+    "status": "standalone_e2e_pass",
+    "acquisition_method": "Standalone Playwright headed Google Chrome public page navigation; Python BeautifulSoup offline normalization",
+    "publisher_download": {
+      "status": "passed",
+      "url": "https://export.amlegal.com/api/export-requests/b04d4a11-33ca-4f5f-b163-dbc26ed3d877/download/",
+      "reason": "Actual publisher HTML bytes retained, parsed and matched to rendered source section(s).",
+      "evidence_paths": [
+        "raw/sacramentoca/export-selection.html",
+        "raw/sacramentoca/publisher-sacramentoca-ca-1.html",
+        "raw/sacramentoca/export-format.html",
+        "raw/sacramentoca/receipt.json",
+        "parsed/sacramentoca/publisher-scope.json",
+        "parsed/sacramentoca/publisher-records.jsonl",
+        "parsed/sacramentoca/publisher-records.csv"
+      ],
+      "actual_scope": {
+        "actual_headings": [
+          "1.04.010   How code designated and cited."
+        ],
+        "actual_citations": [
+          "1.04.010"
+        ],
+        "record_count": 1
+      }
+    },
+    "tested_scope": {
+      "rendered_division": "Title 1 GENERAL PROVISIONS",
+      "supplemental_table_records": 0,
+      "supplemental_table_cells": 0,
+      "supplemental_spanned_cells": 0,
+      "rendered_substantive_records": 11,
+      "publisher_substantive_records": 1,
+      "native_scope": [
+        "1.04.010   How code designated and cited."
+      ]
+    },
+    "complete_corpus": false,
+    "record_count": 11,
+    "cross_reference_count": 6,
+    "table_count": 0,
+    "checks": [
+      {
+        "check": "raw_html_hashes",
+        "passed": true
+      },
+      {
+        "check": "substantive_multiple_records",
+        "passed": true,
+        "count": 11
+      },
+      {
+        "check": "source_identity",
+        "passed": true
+      },
+      {
+        "check": "publication_prefix_binding",
+        "passed": true,
+        "expected_prefix": "https://codelibrary.amlegal.com/codes/sacramentoca/latest/sacramento_ca/",
+        "observed_url": "https://codelibrary.amlegal.com/codes/sacramentoca/latest/sacramento_ca/0-0-0-765"
+      },
+      {
+        "check": "headings_citations_text",
+        "passed": true
+      },
+      {
+        "check": "unique_document_ids",
+        "passed": true
+      },
+      {
+        "check": "native_export_parsed",
+        "passed": true,
+        "count": 1
+      },
+      {
+        "check": "native_text_matches_rendered",
+        "passed": true,
+        "matched_records": 1,
+        "native_records": 1
+      },
+      {
+        "check": "native_export_selection_binding",
+        "passed": true,
+        "requested_heading": "1.04.010   How code designated and cited."
+      }
+    ],
+    "command": "node scripts/collect.mjs --out fresh-seq-23 --sequence 23 && python fresh-seq-23/scripts/parse_verify.py --offline --sequence 23",
+    "evidence_paths": [
+      "raw/sacramentoca/export-selection.html",
+      "raw/sacramentoca/overview.txt",
+      "raw/sacramentoca/native-job.json",
+      "raw/sacramentoca/publication.txt",
+      "raw/sacramentoca/failure.html",
+      "raw/sacramentoca/publication.html",
+      "raw/sacramentoca/publisher-sacramentoca-ca-1.html",
+      "raw/sacramentoca/native-retry-format.html",
+      "raw/sacramentoca/native-ready.html",
+      "raw/sacramentoca/sample.html",
+      "raw/sacramentoca/overview.html",
+      "raw/sacramentoca/sample-expanded.html",
+      "raw/sacramentoca/export-format.html",
+      "raw/sacramentoca/receipt.json",
+      "raw/sacramentoca/sample.txt",
+      "parsed/sacramentoca/table-records.csv",
+      "parsed/sacramentoca/publisher-scope.json",
+      "parsed/sacramentoca/publisher-records.jsonl",
+      "parsed/sacramentoca/records.jsonl",
+      "parsed/sacramentoca/verification.json",
+      "parsed/sacramentoca/records.csv",
+      "parsed/sacramentoca/publisher-records.csv",
+      "parsed/sacramentoca/table-records.jsonl",
+      "research/publication-inventory.json",
+      "research/runtime.json"
+    ],
+    "script_paths": [
+      "scripts/collect.mjs",
+      "scripts/request_exports.mjs",
+      "scripts/download_exports.mjs",
+      "scripts/expand_samples.mjs",
+      "scripts/table_sample.mjs",
+      "scripts/additional_sample.mjs",
+      "scripts/parse_verify.py",
+      "scripts/build_results.py"
+    ],
+    "limitations": [
+      "Bounded substantive sample only; no complete jurisdiction corpus.",
+      "Unrendered later sections, independent publications and uncodified legislation are outside tested scope.",
+      "Only publisher HTML format tested; PDF/Word/Text/EPUB/MOBI controls are inventory observations.",
+      "No substantive table fidelity qualification when table_count is zero.",
+      "Initial collector attempt: TimeoutError: locator.click: Timeout 25000ms exceeded."
+    ],
+    "publication_inventory": {
+      "sequence": 23,
+      "official_route": "https://www.cityofsacramento.gov/clerk",
+      "families": [
+        {
+          "name": "Sacramento City Code including Charter",
+          "route": "https://codelibrary.amlegal.com/codes/sacramentoca/latest/overview",
+          "relationship": "Title 17 Planning and Development Code and Title 18 Additional Development Requirements within same code; bounded sample tested"
+        },
+        {
+          "name": "Table of Resolutions",
+          "route": "https://codelibrary.amlegal.com/codes/sacramentoca/latest/overview",
+          "relationship": "independent publisher publication; route inventory only, acquisition untested"
+        }
+      ]
+    },
+    "next_action": "Qualify separate publication families, table-rich sections and current supplement boundaries before any full-corpus collection."
+  },
+  {
+    "sequence": 28,
+    "jurisdiction": "Colorado Springs",
+    "state": "CO",
+    "source_url": "https://codelibrary.amlegal.com/codes/coloradospringsco/latest/coloradosprings_co/0-0-0-12",
+    "source_family": "American Legal",
+    "status": "standalone_e2e_pass",
+    "acquisition_method": "Standalone Playwright headed Google Chrome public page navigation; Python BeautifulSoup offline normalization",
+    "publisher_download": {
+      "status": "passed",
+      "url": "https://export.amlegal.com/api/export-requests/2760226d-4dd3-4916-9576-03684cfe2cb3/download/",
+      "reason": "Actual publisher HTML bytes retained, parsed and matched to rendered source section(s).",
+      "evidence_paths": [
+        "raw/coloradospringsco/export-selection.html",
+        "raw/coloradospringsco/publisher-coloradospringsco-co-1.html",
+        "raw/coloradospringsco/export-format.html",
+        "raw/coloradospringsco/receipt.json",
+        "parsed/coloradospringsco/publisher-scope.json",
+        "parsed/coloradospringsco/publisher-records.jsonl",
+        "parsed/coloradospringsco/publisher-records.csv"
+      ],
+      "actual_scope": {
+        "actual_headings": [
+          "1.1.101: TITLE:"
+        ],
+        "actual_citations": [
+          "1.1.101"
+        ],
+        "record_count": 1
+      }
+    },
+    "tested_scope": {
+      "rendered_division": "CHAPTER 1 ADMINISTRATION, PERSONNEL AND FINANCE",
+      "supplemental_table_records": 3,
+      "supplemental_table_cells": 545,
+      "supplemental_spanned_cells": 45,
+      "rendered_substantive_records": 6,
+      "publisher_substantive_records": 1,
+      "native_scope": [
+        "1.1.101: TITLE:"
+      ]
+    },
+    "complete_corpus": false,
+    "record_count": 6,
+    "cross_reference_count": 6,
+    "table_count": 12,
+    "checks": [
+      {
+        "check": "raw_html_hashes",
+        "passed": true
+      },
+      {
+        "check": "substantive_multiple_records",
+        "passed": true,
+        "count": 6
+      },
+      {
+        "check": "source_identity",
+        "passed": true
+      },
+      {
+        "check": "publication_prefix_binding",
+        "passed": true,
+        "expected_prefix": "https://codelibrary.amlegal.com/codes/coloradospringsco/latest/coloradosprings_co/",
+        "observed_url": "https://codelibrary.amlegal.com/codes/coloradospringsco/latest/coloradosprings_co/0-0-0-12"
+      },
+      {
+        "check": "headings_citations_text",
+        "passed": true
+      },
+      {
+        "check": "unique_document_ids",
+        "passed": true
+      },
+      {
+        "check": "native_export_parsed",
+        "passed": true,
+        "count": 1
+      },
+      {
+        "check": "native_text_matches_rendered",
+        "passed": true,
+        "matched_records": 1,
+        "native_records": 1
+      },
+      {
+        "check": "native_export_selection_binding",
+        "passed": true,
+        "requested_heading": "1.1.101: TITLE:"
+      },
+      {
+        "check": "operative_table_cells_and_spans",
+        "passed": true,
+        "source_cell_count": 545,
+        "normalized_cell_count": 545,
+        "spanned_cell_count": 45,
+        "scope": "Raw DOM tables/cells/spans; no inferred semantic grid reconstruction"
+      }
+    ],
+    "command": "node scripts/collect.mjs --out fresh-seq-28 --sequence 28 && node fresh-seq-28/scripts/table_sample.mjs && python fresh-seq-28/scripts/parse_verify.py --offline --sequence 28",
+    "evidence_paths": [
+      "raw/coloradospringsco/export-selection.html",
+      "raw/coloradospringsco/overview.txt",
+      "raw/coloradospringsco/native-job.json",
+      "raw/coloradospringsco/publisher-coloradospringsco-co-1.html",
+      "raw/coloradospringsco/publication.txt",
+      "raw/coloradospringsco/failure.html",
+      "raw/coloradospringsco/publication.html",
+      "raw/coloradospringsco/native-retry-format.html",
+      "raw/coloradospringsco/division.txt",
+      "raw/coloradospringsco/native-ready.html",
+      "raw/coloradospringsco/sample.html",
+      "raw/coloradospringsco/overview.html",
+      "raw/coloradospringsco/table-sample.png",
+      "raw/coloradospringsco/sample-expanded.html",
+      "raw/coloradospringsco/export-format.html",
+      "raw/coloradospringsco/table-sample.html",
+      "raw/coloradospringsco/receipt.json",
+      "raw/coloradospringsco/sample.txt",
+      "raw/coloradospringsco/division.html",
+      "parsed/coloradospringsco/table-records.csv",
+      "parsed/coloradospringsco/publisher-scope.json",
+      "parsed/coloradospringsco/publisher-records.jsonl",
+      "parsed/coloradospringsco/records.jsonl",
+      "parsed/coloradospringsco/verification.json",
+      "parsed/coloradospringsco/records.csv",
+      "parsed/coloradospringsco/publisher-records.csv",
+      "parsed/coloradospringsco/table-records.jsonl",
+      "research/publication-inventory.json",
+      "research/runtime.json"
+    ],
+    "script_paths": [
+      "scripts/collect.mjs",
+      "scripts/request_exports.mjs",
+      "scripts/download_exports.mjs",
+      "scripts/expand_samples.mjs",
+      "scripts/table_sample.mjs",
+      "scripts/additional_sample.mjs",
+      "scripts/parse_verify.py",
+      "scripts/build_results.py"
+    ],
+    "limitations": [
+      "Bounded substantive sample only; no complete jurisdiction corpus.",
+      "Unrendered later sections, independent publications and uncodified legislation are outside tested scope.",
+      "Only publisher HTML format tested; PDF/Word/Text/EPUB/MOBI controls are inventory observations.",
+      "No substantive table fidelity qualification when table_count is zero.",
+      "Initial collector attempt: TimeoutError: locator.click: Timeout 25000ms exceeded."
+    ],
+    "publication_inventory": {
+      "sequence": 28,
+      "official_route": "https://coloradosprings.gov/zoning-code",
+      "families": [
+        {
+          "name": "City Code and Charter",
+          "route": "https://codelibrary.amlegal.com/codes/coloradospringsco/latest/overview",
+          "relationship": "UDC Chapter 7 within same code (official zoning page confirms); bounded general sample tested; UDC text untested"
+        }
+      ]
+    },
+    "next_action": "Qualify separate publication families, table-rich sections and current supplement boundaries before any full-corpus collection."
+  },
+  {
+    "sequence": 40,
+    "jurisdiction": "Boise",
+    "state": "ID",
+    "source_url": "https://codelibrary.amlegal.com/codes/boise_id/latest/boise/0-0-0-20",
+    "source_family": "American Legal",
+    "status": "standalone_e2e_pass",
+    "acquisition_method": "Standalone Playwright headed Google Chrome public page navigation; Python BeautifulSoup offline normalization",
+    "publisher_download": {
+      "status": "passed",
+      "url": "https://export.amlegal.com/api/export-requests/0a7feb24-96de-4bba-9a26-e6598af13653/download/",
+      "reason": "Actual publisher HTML bytes retained, parsed and matched to rendered source section(s).",
+      "evidence_paths": [
+        "raw/boise_id/export-selection.html",
+        "raw/boise_id/export-format.html",
+        "raw/boise_id/publisher-boise_id-id-1.html",
+        "raw/boise_id/receipt.json",
+        "parsed/boise_id/publisher-scope.json",
+        "parsed/boise_id/publisher-records.jsonl",
+        "parsed/boise_id/publisher-records.csv"
+      ],
+      "actual_scope": {
+        "actual_headings": [
+          "1-1-1: TITLE:"
+        ],
+        "actual_citations": [
+          "1-1-1"
+        ],
+        "record_count": 1
+      }
+    },
+    "tested_scope": {
+      "rendered_division": "TITLE 1 ADMINISTRATION",
+      "supplemental_table_records": 0,
+      "supplemental_table_cells": 0,
+      "supplemental_spanned_cells": 0,
+      "rendered_substantive_records": 4,
+      "publisher_substantive_records": 1,
+      "native_scope": [
+        "1-1-1: TITLE:"
+      ]
+    },
+    "complete_corpus": false,
+    "record_count": 4,
+    "cross_reference_count": 2,
+    "table_count": 0,
+    "checks": [
+      {
+        "check": "raw_html_hashes",
+        "passed": true
+      },
+      {
+        "check": "substantive_multiple_records",
+        "passed": true,
+        "count": 4
+      },
+      {
+        "check": "source_identity",
+        "passed": true
+      },
+      {
+        "check": "publication_prefix_binding",
+        "passed": true,
+        "expected_prefix": "https://codelibrary.amlegal.com/codes/boise_id/latest/boise/",
+        "observed_url": "https://codelibrary.amlegal.com/codes/boise_id/latest/boise/0-0-0-20"
+      },
+      {
+        "check": "headings_citations_text",
+        "passed": true
+      },
+      {
+        "check": "unique_document_ids",
+        "passed": true
+      },
+      {
+        "check": "native_export_parsed",
+        "passed": true,
+        "count": 1
+      },
+      {
+        "check": "native_text_matches_rendered",
+        "passed": true,
+        "matched_records": 1,
+        "native_records": 1
+      },
+      {
+        "check": "native_export_selection_binding",
+        "passed": true,
+        "requested_heading": "1-1-1: TITLE:"
+      }
+    ],
+    "command": "node scripts/collect.mjs --out fresh-seq-40 --sequence 40 && python fresh-seq-40/scripts/parse_verify.py --offline --sequence 40",
+    "evidence_paths": [
+      "raw/boise_id/export-selection.html",
+      "raw/boise_id/overview.txt",
+      "raw/boise_id/native-job.json",
+      "raw/boise_id/publication.txt",
+      "raw/boise_id/failure.html",
+      "raw/boise_id/publication.html",
+      "raw/boise_id/native-retry-format.html",
+      "raw/boise_id/division.txt",
+      "raw/boise_id/native-ready.html",
+      "raw/boise_id/sample.html",
+      "raw/boise_id/overview.html",
+      "raw/boise_id/export-format.html",
+      "raw/boise_id/publisher-boise_id-id-1.html",
+      "raw/boise_id/receipt.json",
+      "raw/boise_id/sample.txt",
+      "raw/boise_id/division.html",
+      "parsed/boise_id/table-records.csv",
+      "parsed/boise_id/publisher-scope.json",
+      "parsed/boise_id/publisher-records.jsonl",
+      "parsed/boise_id/records.jsonl",
+      "parsed/boise_id/verification.json",
+      "parsed/boise_id/records.csv",
+      "parsed/boise_id/publisher-records.csv",
+      "parsed/boise_id/table-records.jsonl",
+      "research/publication-inventory.json",
+      "research/runtime.json"
+    ],
+    "script_paths": [
+      "scripts/collect.mjs",
+      "scripts/request_exports.mjs",
+      "scripts/download_exports.mjs",
+      "scripts/expand_samples.mjs",
+      "scripts/table_sample.mjs",
+      "scripts/additional_sample.mjs",
+      "scripts/parse_verify.py",
+      "scripts/build_results.py"
+    ],
+    "limitations": [
+      "Bounded substantive sample only; no complete jurisdiction corpus.",
+      "Unrendered later sections, independent publications and uncodified legislation are outside tested scope.",
+      "Only publisher HTML format tested; PDF/Word/Text/EPUB/MOBI controls are inventory observations.",
+      "No substantive table fidelity qualification when table_count is zero.",
+      "Initial collector attempt: TimeoutError: locator.click: Timeout 25000ms exceeded."
+    ],
+    "publication_inventory": {
+      "sequence": 40,
+      "official_route": "https://www.cityofboise.org/departments/planning-and-development-services/planning-and-zoning/zoning/",
+      "families": [
+        {
+          "name": "Boise City Code including Charter",
+          "route": "https://codelibrary.amlegal.com/codes/boise_id/latest/overview",
+          "relationship": "Title 11 Development Code within same publication; bounded sample tested; Title 11 acquisition untested"
+        }
+      ]
+    },
+    "next_action": "Qualify separate publication families, table-rich sections and current supplement boundaries before any full-corpus collection."
+  },
+  {
+    "sequence": 42,
+    "jurisdiction": "Salt Lake City",
+    "state": "UT",
+    "source_url": "https://codelibrary.amlegal.com/codes/saltlakecityut/latest/saltlakecity_ut/0-0-0-107913",
+    "source_family": "American Legal",
+    "status": "standalone_e2e_pass",
+    "acquisition_method": "Standalone Playwright headed Google Chrome public page navigation; Python BeautifulSoup offline normalization",
+    "publisher_download": {
+      "status": "passed",
+      "url": "https://export.amlegal.com/api/export-requests/9688c766-8f4f-441c-93cc-c3f45d6d79eb/download/",
+      "reason": "Actual publisher HTML bytes retained, parsed and matched to rendered source section(s).",
+      "evidence_paths": [
+        "raw/saltlakecityut/export-selection.html",
+        "raw/saltlakecityut/export-format.html",
+        "raw/saltlakecityut/publisher-saltlakecityut-ut-1.html",
+        "raw/saltlakecityut/receipt.json",
+        "parsed/saltlakecityut/publisher-scope.json",
+        "parsed/saltlakecityut/publisher-records.jsonl",
+        "parsed/saltlakecityut/publisher-records.csv"
+      ],
+      "actual_scope": {
+        "actual_headings": [
+          "1.01.010: SALT LAKE CITY CODE ADOPTED:"
+        ],
+        "actual_citations": [
+          "1.01.010"
+        ],
+        "record_count": 1
+      }
+    },
+    "tested_scope": {
+      "rendered_division": "TITLE 1 GENERAL PROVISIONS",
+      "supplemental_table_records": 0,
+      "supplemental_table_cells": 0,
+      "supplemental_spanned_cells": 0,
+      "rendered_substantive_records": 13,
+      "publisher_substantive_records": 1,
+      "native_scope": [
+        "1.01.010: SALT LAKE CITY CODE ADOPTED:"
+      ]
+    },
+    "complete_corpus": false,
+    "record_count": 13,
+    "cross_reference_count": 0,
+    "table_count": 0,
+    "checks": [
+      {
+        "check": "raw_html_hashes",
+        "passed": true
+      },
+      {
+        "check": "substantive_multiple_records",
+        "passed": true,
+        "count": 13
+      },
+      {
+        "check": "source_identity",
+        "passed": true
+      },
+      {
+        "check": "publication_prefix_binding",
+        "passed": true,
+        "expected_prefix": "https://codelibrary.amlegal.com/codes/saltlakecityut/latest/saltlakecity_ut/",
+        "observed_url": "https://codelibrary.amlegal.com/codes/saltlakecityut/latest/saltlakecity_ut/0-0-0-107913"
+      },
+      {
+        "check": "headings_citations_text",
+        "passed": true
+      },
+      {
+        "check": "unique_document_ids",
+        "passed": true
+      },
+      {
+        "check": "native_export_parsed",
+        "passed": true,
+        "count": 1
+      },
+      {
+        "check": "native_text_matches_rendered",
+        "passed": true,
+        "matched_records": 1,
+        "native_records": 1
+      },
+      {
+        "check": "native_export_selection_binding",
+        "passed": true,
+        "requested_heading": "1.01.010: SALT LAKE CITY CODE ADOPTED:"
+      }
+    ],
+    "command": "node scripts/collect.mjs --out fresh-seq-42 --sequence 42 && python fresh-seq-42/scripts/parse_verify.py --offline --sequence 42",
+    "evidence_paths": [
+      "raw/saltlakecityut/export-selection.html",
+      "raw/saltlakecityut/overview.txt",
+      "raw/saltlakecityut/native-job.json",
+      "raw/saltlakecityut/publication.txt",
+      "raw/saltlakecityut/failure.html",
+      "raw/saltlakecityut/publication.html",
+      "raw/saltlakecityut/native-retry-format.html",
+      "raw/saltlakecityut/native-ready.html",
+      "raw/saltlakecityut/sample.html",
+      "raw/saltlakecityut/overview.html",
+      "raw/saltlakecityut/sample-expanded.html",
+      "raw/saltlakecityut/export-format.html",
+      "raw/saltlakecityut/publisher-saltlakecityut-ut-1.html",
+      "raw/saltlakecityut/receipt.json",
+      "raw/saltlakecityut/sample.txt",
+      "parsed/saltlakecityut/table-records.csv",
+      "parsed/saltlakecityut/publisher-scope.json",
+      "parsed/saltlakecityut/publisher-records.jsonl",
+      "parsed/saltlakecityut/records.jsonl",
+      "parsed/saltlakecityut/verification.json",
+      "parsed/saltlakecityut/records.csv",
+      "parsed/saltlakecityut/publisher-records.csv",
+      "parsed/saltlakecityut/table-records.jsonl",
+      "research/publication-inventory.json",
+      "research/runtime.json"
+    ],
+    "script_paths": [
+      "scripts/collect.mjs",
+      "scripts/request_exports.mjs",
+      "scripts/download_exports.mjs",
+      "scripts/expand_samples.mjs",
+      "scripts/table_sample.mjs",
+      "scripts/additional_sample.mjs",
+      "scripts/parse_verify.py",
+      "scripts/build_results.py"
+    ],
+    "limitations": [
+      "Bounded substantive sample only; no complete jurisdiction corpus.",
+      "Unrendered later sections, independent publications and uncodified legislation are outside tested scope.",
+      "Only publisher HTML format tested; PDF/Word/Text/EPUB/MOBI controls are inventory observations.",
+      "No substantive table fidelity qualification when table_count is zero.",
+      "Initial collector attempt: TimeoutError: locator.click: Timeout 25000ms exceeded."
+    ],
+    "publication_inventory": {
+      "sequence": 42,
+      "official_route": "https://www.slc.gov/slc-infobase/",
+      "families": [
+        {
+          "name": "Salt Lake City Code",
+          "route": "https://codelibrary.amlegal.com/codes/saltlakecityut/latest/overview",
+          "relationship": "Title 21A Zoning within same code; bounded sample tested"
+        },
+        {
+          "name": "Policies, Procedures, Administrative Rules and Executive Orders",
+          "route": "https://www.slc.gov/slc-infobase/",
+          "relationship": "official route separately links American Legal policy publication; acquisition untested"
+        }
+      ],
+      "routing_note": "Official infobase retains an old current-through-2020 label; publisher overview contains newer 2026 currentness metadata. Publication dates are retained in raw overview text."
+    },
+    "next_action": "Qualify separate publication families, table-rich sections and current supplement boundaries before any full-corpus collection."
+  },
+  {
+    "sequence": 43,
+    "jurisdiction": "Sioux Falls",
+    "state": "SD",
+    "source_url": "https://codelibrary.amlegal.com/codes/siouxfalls/latest/siouxfalls_sd/0-0-0-45851",
+    "source_family": "American Legal",
+    "status": "standalone_e2e_pass",
+    "acquisition_method": "Standalone Playwright headed Google Chrome public page navigation; Python BeautifulSoup offline normalization",
+    "publisher_download": {
+      "status": "passed",
+      "url": "https://export.amlegal.com/api/export-requests/37ffaed3-c793-4cb8-aa88-52bb35da6e66/download/",
+      "reason": "Actual publisher HTML bytes retained, parsed and matched to rendered source section(s).",
+      "evidence_paths": [
+        "raw/siouxfalls/export-selection.html",
+        "raw/siouxfalls/export-format.html",
+        "raw/siouxfalls/publisher-siouxfalls-sd-1.html",
+        "raw/siouxfalls/receipt.json",
+        "parsed/siouxfalls/publisher-scope.json",
+        "parsed/siouxfalls/publisher-records.jsonl",
+        "parsed/siouxfalls/publisher-records.csv"
+      ],
+      "actual_scope": {
+        "actual_headings": [
+          "§ 10.001  TITLE."
+        ],
+        "actual_citations": [
+          "10.001"
+        ],
+        "record_count": 1
+      }
+    },
+    "tested_scope": {
+      "rendered_division": "TITLE I: GENERAL PROVISIONS",
+      "supplemental_table_records": 0,
+      "supplemental_table_cells": 0,
+      "supplemental_spanned_cells": 0,
+      "rendered_substantive_records": 12,
+      "publisher_substantive_records": 1,
+      "native_scope": [
+        "§ 10.001  TITLE."
+      ]
+    },
+    "complete_corpus": false,
+    "record_count": 12,
+    "cross_reference_count": 1,
+    "table_count": 0,
+    "checks": [
+      {
+        "check": "raw_html_hashes",
+        "passed": true
+      },
+      {
+        "check": "substantive_multiple_records",
+        "passed": true,
+        "count": 12
+      },
+      {
+        "check": "source_identity",
+        "passed": true
+      },
+      {
+        "check": "publication_prefix_binding",
+        "passed": true,
+        "expected_prefix": "https://codelibrary.amlegal.com/codes/siouxfalls/latest/siouxfalls_sd/",
+        "observed_url": "https://codelibrary.amlegal.com/codes/siouxfalls/latest/siouxfalls_sd/0-0-0-45851"
+      },
+      {
+        "check": "headings_citations_text",
+        "passed": true
+      },
+      {
+        "check": "unique_document_ids",
+        "passed": true
+      },
+      {
+        "check": "native_export_parsed",
+        "passed": true,
+        "count": 1
+      },
+      {
+        "check": "native_text_matches_rendered",
+        "passed": true,
+        "matched_records": 1,
+        "native_records": 1
+      },
+      {
+        "check": "native_export_selection_binding",
+        "passed": true,
+        "requested_heading": "§ 10.001 TITLE."
+      }
+    ],
+    "command": "node scripts/collect.mjs --out fresh-seq-43 --sequence 43 && python fresh-seq-43/scripts/parse_verify.py --offline --sequence 43",
+    "evidence_paths": [
+      "raw/siouxfalls/export-selection.html",
+      "raw/siouxfalls/overview.txt",
+      "raw/siouxfalls/native-job.json",
+      "raw/siouxfalls/publication.txt",
+      "raw/siouxfalls/failure.html",
+      "raw/siouxfalls/publication.html",
+      "raw/siouxfalls/native-retry-format.html",
+      "raw/siouxfalls/native-ready.html",
+      "raw/siouxfalls/sample.html",
+      "raw/siouxfalls/overview.html",
+      "raw/siouxfalls/sample-expanded.html",
+      "raw/siouxfalls/export-format.html",
+      "raw/siouxfalls/publisher-siouxfalls-sd-1.html",
+      "raw/siouxfalls/receipt.json",
+      "raw/siouxfalls/sample.txt",
+      "parsed/siouxfalls/table-records.csv",
+      "parsed/siouxfalls/publisher-scope.json",
+      "parsed/siouxfalls/publisher-records.jsonl",
+      "parsed/siouxfalls/records.jsonl",
+      "parsed/siouxfalls/verification.json",
+      "parsed/siouxfalls/records.csv",
+      "parsed/siouxfalls/publisher-records.csv",
+      "parsed/siouxfalls/table-records.jsonl",
+      "research/publication-inventory.json",
+      "research/runtime.json"
+    ],
+    "script_paths": [
+      "scripts/collect.mjs",
+      "scripts/request_exports.mjs",
+      "scripts/download_exports.mjs",
+      "scripts/expand_samples.mjs",
+      "scripts/table_sample.mjs",
+      "scripts/additional_sample.mjs",
+      "scripts/parse_verify.py",
+      "scripts/build_results.py"
+    ],
+    "limitations": [
+      "Bounded substantive sample only; no complete jurisdiction corpus.",
+      "Unrendered later sections, independent publications and uncodified legislation are outside tested scope.",
+      "Only publisher HTML format tested; PDF/Word/Text/EPUB/MOBI controls are inventory observations.",
+      "No substantive table fidelity qualification when table_count is zero.",
+      "Initial collector attempt: TimeoutError: locator.click: Timeout 25000ms exceeded."
+    ],
+    "publication_inventory": {
+      "sequence": 43,
+      "official_route": "https://www.siouxfalls.gov/government/council/city-clerk/city-ordinances-and-charter",
+      "families": [
+        {
+          "name": "Sioux Falls Code and Charter",
+          "route": "https://codelibrary.amlegal.com/codes/siouxfalls/latest/overview",
+          "relationship": "Chapter 160 Shape Places Zoning within same code; bounded sample tested; zoning acquisition untested"
+        }
+      ]
+    },
+    "next_action": "Qualify separate publication families, table-rich sections and current supplement boundaries before any full-corpus collection."
+  },
+  {
+    "sequence": 52,
+    "jurisdiction": "Manchester",
+    "state": "NH",
+    "source_url": "https://codelibrary.amlegal.com/codes/manchester/latest/manchester_nh/0-0-0-58",
+    "source_family": "American Legal",
+    "status": "standalone_e2e_pass",
+    "acquisition_method": "Standalone Playwright headed Google Chrome public page navigation; Python BeautifulSoup offline normalization",
+    "publisher_download": {
+      "status": "passed",
+      "url": "https://export.amlegal.com/api/export-requests/870f7d67-aa9d-4508-8b62-e67ffcb4c840/download/",
+      "reason": "Actual publisher HTML bytes retained, parsed and matched to rendered source section(s).",
+      "evidence_paths": [
+        "raw/manchester/export-selection.html",
+        "raw/manchester/publisher-manchester-nh-1.html",
+        "raw/manchester/export-format.html",
+        "raw/manchester/receipt.json",
+        "parsed/manchester/publisher-scope.json",
+        "parsed/manchester/publisher-records.jsonl",
+        "parsed/manchester/publisher-records.csv"
+      ],
+      "actual_scope": {
+        "actual_headings": [
+          "§ 10.01  TITLE OF CODE."
+        ],
+        "actual_citations": [
+          "10.01"
+        ],
+        "record_count": 1
+      }
+    },
+    "tested_scope": {
+      "rendered_division": "TITLE I: GENERAL PROVISIONS",
+      "supplemental_table_records": 0,
+      "supplemental_table_cells": 0,
+      "supplemental_spanned_cells": 0,
+      "rendered_substantive_records": 23,
+      "publisher_substantive_records": 1,
+      "native_scope": [
+        "§ 10.01  TITLE OF CODE."
+      ]
+    },
+    "complete_corpus": false,
+    "record_count": 23,
+    "cross_reference_count": 2,
+    "table_count": 0,
+    "checks": [
+      {
+        "check": "raw_html_hashes",
+        "passed": true
+      },
+      {
+        "check": "substantive_multiple_records",
+        "passed": true,
+        "count": 23
+      },
+      {
+        "check": "source_identity",
+        "passed": true
+      },
+      {
+        "check": "publication_prefix_binding",
+        "passed": true,
+        "expected_prefix": "https://codelibrary.amlegal.com/codes/manchester/latest/manchester_nh/",
+        "observed_url": "https://codelibrary.amlegal.com/codes/manchester/latest/manchester_nh/0-0-0-58"
+      },
+      {
+        "check": "headings_citations_text",
+        "passed": true
+      },
+      {
+        "check": "unique_document_ids",
+        "passed": true
+      },
+      {
+        "check": "native_export_parsed",
+        "passed": true,
+        "count": 1
+      },
+      {
+        "check": "native_text_matches_rendered",
+        "passed": true,
+        "matched_records": 1,
+        "native_records": 1
+      },
+      {
+        "check": "native_export_selection_binding",
+        "passed": true,
+        "requested_heading": "§ 10.01 TITLE OF CODE."
+      }
+    ],
+    "command": "node scripts/collect.mjs --out fresh-seq-52 --sequence 52 && python fresh-seq-52/scripts/parse_verify.py --offline --sequence 52",
+    "evidence_paths": [
+      "raw/manchester/export-selection.html",
+      "raw/manchester/overview.txt",
+      "raw/manchester/native-job.json",
+      "raw/manchester/publication.txt",
+      "raw/manchester/failure.html",
+      "raw/manchester/publication.html",
+      "raw/manchester/native-retry-format.html",
+      "raw/manchester/native-ready.html",
+      "raw/manchester/sample.html",
+      "raw/manchester/overview.html",
+      "raw/manchester/publisher-manchester-nh-1.html",
+      "raw/manchester/sample-expanded.html",
+      "raw/manchester/export-format.html",
+      "raw/manchester/receipt.json",
+      "raw/manchester/sample.txt",
+      "parsed/manchester/table-records.csv",
+      "parsed/manchester/publisher-scope.json",
+      "parsed/manchester/publisher-records.jsonl",
+      "parsed/manchester/records.jsonl",
+      "parsed/manchester/verification.json",
+      "parsed/manchester/records.csv",
+      "parsed/manchester/publisher-records.csv",
+      "parsed/manchester/table-records.jsonl",
+      "research/publication-inventory.json",
+      "research/runtime.json"
+    ],
+    "script_paths": [
+      "scripts/collect.mjs",
+      "scripts/request_exports.mjs",
+      "scripts/download_exports.mjs",
+      "scripts/expand_samples.mjs",
+      "scripts/table_sample.mjs",
+      "scripts/additional_sample.mjs",
+      "scripts/parse_verify.py",
+      "scripts/build_results.py"
+    ],
+    "limitations": [
+      "Bounded substantive sample only; no complete jurisdiction corpus.",
+      "Unrendered later sections, independent publications and uncodified legislation are outside tested scope.",
+      "Only publisher HTML format tested; PDF/Word/Text/EPUB/MOBI controls are inventory observations.",
+      "No substantive table fidelity qualification when table_count is zero.",
+      "Initial collector attempt: TimeoutError: locator.click: Timeout 25000ms exceeded."
+    ],
+    "publication_inventory": {
+      "sequence": 52,
+      "official_route": "https://www.manchesternh.gov/Departments/City-Clerk/City-Charter",
+      "families": [
+        {
+          "name": "Manchester Code and Charter",
+          "route": "https://codelibrary.amlegal.com/codes/manchester/latest/overview",
+          "relationship": "charter in same publisher publication; bounded sample tested"
+        },
+        {
+          "name": "Separate zoning/subdivision regulations",
+          "route": "https://www.manchesternh.gov/Business-Center/Ordinances-and-Regulations",
+          "relationship": "official inventory lead; current zoning source needs further qualification; acquisition untested"
+        }
+      ]
+    },
+    "next_action": "Qualify separate publication families, table-rich sections and current supplement boundaries before any full-corpus collection."
+  },
+  {
+    "sequence": 57,
+    "jurisdiction": "City and County of Honolulu",
+    "state": "HI",
+    "source_url": "https://codelibrary.amlegal.com/codes/honolulu/latest/honolulu/0-0-0-18",
+    "source_family": "American Legal",
+    "status": "standalone_e2e_pass",
+    "acquisition_method": "Standalone Playwright headed Google Chrome public page navigation; Python BeautifulSoup offline normalization",
+    "publisher_download": {
+      "status": "passed",
+      "url": "https://export.amlegal.com/api/export-requests/ee4cd431-d716-4169-b4b2-707ddbded0d0/download/",
+      "reason": "Actual publisher HTML bytes retained, parsed and matched to rendered source section(s).",
+      "evidence_paths": [
+        "raw/honolulu/export-selection.html",
+        "raw/honolulu/export-format.html",
+        "raw/honolulu/publisher-honolulu-hi-1.html",
+        "raw/honolulu/receipt.json",
+        "parsed/honolulu/publisher-scope.json",
+        "parsed/honolulu/publisher-records.jsonl",
+        "parsed/honolulu/publisher-records.csv"
+      ],
+      "actual_scope": {
+        "actual_headings": [
+          "§ 1-1.1  Title."
+        ],
+        "actual_citations": [
+          "1-1.1"
+        ],
+        "record_count": 1
+      }
+    },
+    "tested_scope": {
+      "rendered_division": "ARTICLE 3: PENALTIES AND INTEREST",
+      "supplemental_table_records": 0,
+      "supplemental_table_cells": 0,
+      "supplemental_spanned_cells": 0,
+      "rendered_substantive_records": 4,
+      "publisher_substantive_records": 1,
+      "native_scope": [
+        "§ 1-1.1  Title."
+      ]
+    },
+    "complete_corpus": false,
+    "record_count": 4,
+    "cross_reference_count": 0,
+    "table_count": 0,
+    "checks": [
+      {
+        "check": "raw_html_hashes",
+        "passed": true
+      },
+      {
+        "check": "substantive_multiple_records",
+        "passed": true,
+        "count": 4
+      },
+      {
+        "check": "source_identity",
+        "passed": true
+      },
+      {
+        "check": "publication_prefix_binding",
+        "passed": true,
+        "expected_prefix": "https://codelibrary.amlegal.com/codes/honolulu/latest/honolulu/",
+        "observed_url": "https://codelibrary.amlegal.com/codes/honolulu/latest/honolulu/0-0-0-18"
+      },
+      {
+        "check": "headings_citations_text",
+        "passed": true
+      },
+      {
+        "check": "unique_document_ids",
+        "passed": true
+      },
+      {
+        "check": "native_export_parsed",
+        "passed": true,
+        "count": 1
+      },
+      {
+        "check": "native_text_matches_rendered",
+        "passed": true,
+        "matched_records": 1,
+        "native_records": 1
+      },
+      {
+        "check": "native_export_selection_binding",
+        "passed": true,
+        "requested_heading": "§ 1-1.1 Title."
+      }
+    ],
+    "command": "node scripts/collect.mjs --out fresh-seq-57 --sequence 57 && node fresh-seq-57/scripts/additional_sample.mjs && python fresh-seq-57/scripts/parse_verify.py --offline --sequence 57",
+    "evidence_paths": [
+      "raw/honolulu/export-selection.html",
+      "raw/honolulu/overview.txt",
+      "raw/honolulu/native-job.json",
+      "raw/honolulu/publication.txt",
+      "raw/honolulu/failure.html",
+      "raw/honolulu/additional-sample.html",
+      "raw/honolulu/publication.html",
+      "raw/honolulu/native-retry-format.html",
+      "raw/honolulu/native-ready.html",
+      "raw/honolulu/sample.html",
+      "raw/honolulu/overview.html",
+      "raw/honolulu/sample-expanded.html",
+      "raw/honolulu/export-format.html",
+      "raw/honolulu/publisher-honolulu-hi-1.html",
+      "raw/honolulu/receipt.json",
+      "raw/honolulu/sample.txt",
+      "parsed/honolulu/table-records.csv",
+      "parsed/honolulu/publisher-scope.json",
+      "parsed/honolulu/publisher-records.jsonl",
+      "parsed/honolulu/records.jsonl",
+      "parsed/honolulu/verification.json",
+      "parsed/honolulu/records.csv",
+      "parsed/honolulu/publisher-records.csv",
+      "parsed/honolulu/table-records.jsonl",
+      "research/publication-inventory.json",
+      "research/runtime.json"
+    ],
+    "script_paths": [
+      "scripts/collect.mjs",
+      "scripts/request_exports.mjs",
+      "scripts/download_exports.mjs",
+      "scripts/expand_samples.mjs",
+      "scripts/table_sample.mjs",
+      "scripts/additional_sample.mjs",
+      "scripts/parse_verify.py",
+      "scripts/build_results.py"
+    ],
+    "limitations": [
+      "Bounded substantive sample only; no complete jurisdiction corpus.",
+      "Unrendered later sections, independent publications and uncodified legislation are outside tested scope.",
+      "Only publisher HTML format tested; PDF/Word/Text/EPUB/MOBI controls are inventory observations.",
+      "No substantive table fidelity qualification when table_count is zero.",
+      "Initial collector attempt: TimeoutError: locator.click: Timeout 25000ms exceeded."
+    ],
+    "publication_inventory": {
+      "sequence": 57,
+      "official_route": "https://www.honolulucitycouncil.org/city-documents",
+      "families": [
+        {
+          "name": "Revised Ordinances of Honolulu",
+          "route": "https://codelibrary.amlegal.com/codes/honolulu/latest/overview",
+          "relationship": "Chapter 21 Land Use Ordinance within revised ordinances; bounded sample tested; City and County scope"
+        },
+        {
+          "name": "Revised Charter of Honolulu",
+          "route": "https://www.honolulu.gov/cor/wp-content/uploads/sites/17/2025/01/Charter-FINAL-1-16-2025.pdf",
+          "relationship": "independent official PDF; acquisition untested; not substituted for ordinances"
+        }
+      ]
+    },
+    "next_action": "Qualify separate publication families, table-rich sections and current supplement boundaries before any full-corpus collection."
+  }
+]

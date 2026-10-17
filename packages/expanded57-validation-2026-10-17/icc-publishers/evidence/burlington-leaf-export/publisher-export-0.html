@@ -1,0 +1,437 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+  <html xmlns="http://www.w3.org/1999/xhtml">
+ <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta http-equiv="Content-Style-Type" content="text/css" />
+<style>body
+{
+    font-family: Arial, sans-serif;
+}
+/*Styles for NT page*/
+#cityname, #codification, .codified, .cpc {
+   font-weight: bold;
+   text-align: left;
+	font-size: .9em;
+}
+#cityname {
+   margin-top: 3em;
+   font-size: 1.25em;
+}
+
+.cpc {  margin: 0;  padding-bottom: .5em; }
+
+/* Navigation buttons */
+
+#navTop {
+	text-align: right;
+	margin: 1em 1.8em;
+	padding-bottom: 1em;
+}
+#navBottom {
+	margin: 1em 1.8em;
+	padding-top: 1em;
+	text-align: left;
+}
+
+#navTop *, #navBottom *  {
+	text-decoration: none;
+}
+
+img { border:0px; }
+#mainContent img { display: block; margin: 1em auto; }
+#mainContent a img {border:1px solid;}
+#mainContent h3 img.addthis-img {
+    border:0;vertical-align:bottom;float:right;margin:0px;
+}
+
+@media (max-width: 767.98px)
+{
+    #mainContent h3 img.addthis-img {
+        vertical-align: middle;
+        float: none;
+        display: inline;
+        margin-left: 5px;
+    }
+}
+
+#mainContent h2 img.addthis-img,
+#mainContent h1 img.addthis-img {
+    border:0;vertical-align:top;float:right;margin:0px;
+}
+
+
+
+ h1, h2 {
+	font-size: 1.4em;
+	line-height: 1.2;
+	text-align:center;
+	margin:1em auto;
+}
+
+p, h3, h4 {
+	font-size: 1em;
+	line-height: 1.64;
+	margin: 0em;
+	font-style: normal;
+	font-variant: normal;
+	text-transform: normal;
+	vertical-align: baseline;
+	font-weight: normal;
+	text-align: left;
+}
+/* add default bottom margin, which we don't want in h3 */
+p { margin-bottom: 1.25em; }
+
+h3, h4 { font-weight: bold; }
+
+.ArticleTOC, .digArt, .artdig, .ArtDig {
+	margin-top: 1em;
+	text-align: center;
+}
+
+.Article, .DivisionTOC, .art, .digDiv, .digdiv, .Divdig, .divdig,
+.Rxhead, .CHRepealed, .TitleRepealed,  .RxHead,
+.TitleReserved, .CHReserved, .ReservedC, .CH, .CHTitle,
+.Division, .div, .divname, .DivisionName, .DivName,
+.TableTitle, .GraphicTitle, .Graphic, .graphic, .FL,
+.graphictitle, .graphicname, .CHTOC {
+  font-weight: bold;
+  margin: 1em 0;
+  text-align: center;
+}
+
+.Center, .center, .CellBodyC, .cellbodyc {
+  text-align: center;
+}
+
+.CellBodyR, .cellbodyr {
+	text-align: right;
+}
+
+.CellBodyIndent {	margin-left:1em; }
+.CellHeading {  font-weight: bold; text-align: center; }
+.CellHeadingL {  font-weight: bold; margin:0; }
+.CellHeadingR {  font-weight: bold;  text-align: right; }
+
+.CHTOC a, .CiteTOC a { text-decoration:none !important; font-weight:bold;}
+.CHTOC a:hover, .CiteTOC a:hover { text-decoration: none !important; font-weight:bold;}
+.CHTOC {
+  font-weight: bold;
+}
+
+.digCH, .ctoc {
+  font-weight: normal;
+  margin-top: 1em;
+  margin-bottom:0em;
+}
+.digTitle, .chtoc, .tocch {
+  font-weight: bold;
+}
+
+.Footnote, .footnote, .FootNote, .Note, .note {
+  margin: 1em .8em;
+  font-size: .9em;
+  text-indent: -.8em;
+}
+
+.ordtab, td p.ordtab {
+  min-width:100px;
+  margin: 0;
+  margin-right: 0.9em;
+}
+
+.P0, .P0block, .P1, .P1block { margin-left: 0em;}
+.P2, .P2block {  margin-left: 2.3em; }
+.P3, .P3block {  margin-left: 4.3em; }
+.P4, .P4block {  margin-left: 6.3em; }
+.P5, .P5block {  margin-left: 8.3em; }
+.P6, .P6block {  margin-left: 9.3em; }
+.P7, .P7block {  margin-left: 11.3em; }
+
+.Q1 { font-size: .8em;  margin: 1em 2.3em; }
+
+.Q2 {
+  font-size: .75em;
+  margin: 1em 2.3em;
+  margin-left: 4.3em;
+}
+.Q3 {
+  font-size: .75em;
+  margin: 1em 2.3em;
+  margin-left: 6.3em;
+ }
+.Q4 {
+  font-size: .75em;
+  margin: 1em 2.3em;
+  margin-left: 8.3em;
+}
+.QC {
+  font-size: .75em;
+  margin: 1em 2.3em;
+  text-align:center;
+}
+
+.TableFootnote,  .HistoryNote {
+  font-weight: normal;
+  font-size: .75em;
+}
+
+.Title, .TitleName {
+  font-size: 1em;
+  font-weight: bold;
+  margin: 1em;
+  text-align: center;
+}
+
+.WAC {
+  margin-left: 5.5em;
+  text-indent: -5.5em;
+  margin-bottom:0em;
+}
+
+
+.underline, .under, .Underline, .Under {
+	text-decoration:underline;
+}
+.bold, .Bold {
+  font-weight: bold;
+}
+.bolditalic, .bold_italic, .BoldItalic, .ital, .Bold_Italic, .bold_Italic {
+  font-weight: bold;
+  font-style: italic;
+}
+.italic, .Italic, .emphasis, .Emphasis {
+  font-style: italic;
+}
+.EquationVariables {
+  font-family: Times New Roman;
+  font-style: italic;
+}
+.strikethrough, .Strikethrough, .strikeout, .Strikeout, .linethrough, .Linethrough {
+	text-decoration: line-through;
+}
+.sub, .subscript, .Subscript, .sub, .Sub {
+  vertical-align: sub;
+  font-size:0.75em;
+}
+.super, .Superscript, .superscript, .Super {
+  vertical-align: super;
+  font-size:0.75em;
+  }
+
+ /* Table CSS */
+
+#mainContent table {
+	border-collapse: collapse;
+	margin: 1em auto;
+}
+
+.floatThead-container {
+	margin: 0 auto;
+}
+td,   tr{ background:white; }
+
+caption {
+	margin-left:auto;
+	margin-right:auto;
+	text-align:center;
+}
+
+td p, th p, caption p {
+	font-size: .9em;
+	margin-bottom:0em;
+}
+
+td { padding:3pt; text-align:left; }
+
+table.Ruled, table.RuledWithTitle, table.Format_B,
+table.TitleRules, table.Format_A {
+  border:1px solid black;
+}
+
+#mainContent img.inline-icon,
+#mainContent .ordtab img {
+	display: inline;
+	margin: 0 3px;
+	vertical-align: middle;
+	border: 0;
+}
+
+iframe {width:100%; height:300px;}
+.small-caps { font-variant: small-caps; }
+.uppercase { text-transform: uppercase; }
+/*
+box.jpg is for when codes have the little empty box symbol
+we're attaching it to a dummy class here so that even if it isn't being used
+it won't get deleted by the destroyExtraImages() function.
+Other just-in-case images coulde be added here.
+*/
+.validateMeBabyYeah {
+	background:url('../html/images/box.jpg') no-repeat top right;
+	background:url('../html/images/pdf.png') no-repeat top right;
+}
+
+
+
+@media (min-width: 768px)
+{
+
+	.CiteTOC {
+		margin: 0 0 0 7em;
+		text-indent: -5.8em;
+	}
+
+
+	.digTitle, .chtoc, .tocch {
+		margin: 1em 0 0 2em;
+	}
+}
+
+
+@media print
+{
+  #mainContent {
+    border: 0  !important;
+  }
+
+  body, #mainBody, #mainContent, td, th, table, tr
+  {
+      background: #fff !important;
+      color: black #000 !important;
+  }
+
+  #searchtabs, #codetabs, #SearchForm, #navTop, #navBottom, .pdf, #navBar,
+  #leftSidebar, #topBanner, .modal, .skipnav, table.hovercraft,
+  #mainContent h3 .addthis-img
+  {
+    display: none !important;
+  }
+
+  .hit
+  {
+    background: transparent !important;
+    border-width: 0 !important;
+  }
+
+  #pgFooter {
+      border-top: 1px solid black;
+      margin-top: 2rem; font-size: .9rem;
+  }
+
+  thead { display:table-header-group !important; }
+  tbody {  display:table-row-group !important; }
+  table.hovercraft { display:none !important ;}
+  img, td, tr { page-break-inside: avoid !important; }
+}
+</style>    <title>Burlington</title>
+</head>
+<body>
+    <div id="mainContent">
+    <a id="start" />
+    <h3 class="Cite"><a id="a1x1">1-1</a> How Code designated and cited.</h3>
+            <p class="P1">The ordinances embraced in the following chapters and sections shall constitute and be designated &quot;The Code of Ordinances of the City of Burlington, Vermont,&quot; and may be so cited.</p>
+
+            <p class="HistoryNote">(Rev. Ords. 1962, &sect;&nbsp;101)</p>
+
+      <h3 class="Cite"><a id="a1x2">1-2</a> Rules of construction.</h3>
+            <p class="P1">In the construction of this Code, and of all ordinances, the following rules shall be observed, unless such construction would be inconsistent with the manifest intent of the city council:</p>
+
+            <p class="P1"><span class="italic">Aldermen.</span> The word &quot;aldermen&quot; shall mean the board of aldermen of the City of Burlington (as defined in Section 36 of the City Charter) which, after May 11, 1990, is known as the city council (see &quot;city council&quot;).</p>
+
+            <p class="P1"><span class="italic">City.</span> Whenever the word &quot;city&quot; is used it shall mean the City of Burlington, Vermont.</p>
+
+            <p class="P1"><span class="italic">City council.</span> The words &quot;city council&quot; shall mean:</p>
+
+            <p class="P2">(1)&nbsp;&nbsp;&nbsp;&nbsp;Before May 11, 1990, the legislative body of the city; the board of aldermen acting with the concurrence of the mayor;</p>
+
+            <p class="P2">(2)&nbsp;&nbsp;&nbsp;&nbsp;After May 11, 1990, the body formerly called the board of aldermen (see &quot;aldermen&quot;).</p>
+
+            <p class="P1"><span class="italic">City council with mayor presiding.</span> After May 11, 1990, the &quot;city council,&quot; when it sits with the mayor presiding and voting, is known as the &quot;city council with mayor presiding.&quot;</p>
+
+            <p class="P1"><span class="italic">Computation of time.</span> When time is to be reckoned from a day, date, or an act done, such day, date, or day when such act is done shall not be included in the computation unless otherwise provided.</p>
+
+            <p class="P1"><span class="italic">Corporate limits, corporation limits, city limits.</span> Whenever the words &quot;corporate limits,&quot; &quot;corporation limits&quot; or &quot;city limits&quot; are used, they shall mean the legal boundary of the City of Burlington.</p>
+
+            <p class="P1"><span class="italic">Council.</span> The word &quot;council&quot; shall mean the city council of the City of Burlington.</p>
+
+            <p class="P1"><span class="italic">County.</span> The words &quot;the county&quot; or &quot;this county&quot; shall mean the County of Chittenden in the State of Vermont.</p>
+
+            <p class="P1"><span class="italic">Delegation of authority.</span> Whenever a provision appears requiring the head of a department of the city to do some act or make certain inspections, it is to be construed to authorize the head of the department to designate, delegate and authorize subordinates to perform the required act or make the required inspection unless the terms of the provision or section specifically designate otherwise.</p>
+
+            <p class="P1"><span class="italic">Gender.</span> A word importing the masculine gender only shall extend and be applied to females and to firms, partnerships and corporations as well as to males.</p>
+
+            <p class="P1"><span class="italic">Interpretation.</span> In the interpretation and application of any provision of this Code, it shall be held to be the minimum requirements adopted for the promotion of the public health, safety, comfort, convenience and general welfare. Where any provision of this Code imposes greater restrictions upon the subject matter than the general provisions imposed by this Code, the provision imposing the greater restriction or regulation shall be deemed to be controlling.</p>
+
+            <p class="P1"><span class="italic">Joint authority.</span> All words giving a joint authority to three (3) or more persons or officers shall be construed as giving such authority to a majority of such persons or officers, except as otherwise provided in this Code, the rules and regulations of the city council or the City Charter.</p>
+
+            <p class="P1"><span class="italic">Keeper, proprietor.</span> The words &quot;keeper&quot; and &quot;proprietor&quot; shall mean and include persons, firms, associations, corporations, clubs and partnerships, whether acting by themselves or through a servant, agent or employee.</p>
+
+            <p class="P1"><span class="italic">Month.</span> The word &quot;month&quot; shall mean a calendar month.</p>
+
+            <p class="P1"><span class="italic">Name of officer.</span> Whenever the name of an officer is given, it shall be construed as though the words &quot;of the City of Burlington&quot; were added.</p>
+
+            <p class="P1"><span class="italic">Nontechnical and technical words.</span> Words and phrases shall be construed according to the common and approved usage of the language; but technical words and phrases and such others as may have acquired a peculiar and appropriate meaning in law shall be construed and understood according to such meaning.</p>
+
+            <p class="P1"><span class="italic">Number.</span> A word importing the singular number only may extend and be applied to several persons and things as well as to one person and thing, and words importing the plural number may be applied as if singular.</p>
+
+            <p class="P1"><span class="italic">Oath.</span> The word &quot;oath&quot; shall be construed to include an affirmation in all cases in which, by law, an affirmation may be substituted for an oath, and in such cases, the words &quot;swear&quot; and &quot;sworn&quot; shall be equivalent to the words &quot;affirm&quot; and &quot;affirmed.&quot;</p>
+
+            <p class="P1"><span class="italic">Or, and.</span> &quot;Or&quot; may be read &quot;and,&quot; and &quot;and&quot; may be read &quot;or&quot; if the sense requires it.</p>
+
+            <p class="P1"><span class="italic">Owner.</span> The word &quot;owner,&quot; applied to a building or land, shall include any part owner, joint owner, tenant in common, tenant in partnership, joint tenant, or tenant by the entirety, of the whole or of a part of such building or land.</p>
+
+            <p class="P1"><span class="italic">Person.</span> The word &quot;person&quot; shall extend and be applied to associations, clubs, societies, firms, partnerships and bodies politic and corporate as well as to individuals.</p>
+
+            <p class="P1"><span class="italic">Personal property.</span> The words &quot;personal property&quot; shall include every species of property except real property, as herein described.</p>
+
+            <p class="P1"><span class="italic">Preceding, following.</span> The words &quot;preceding&quot; and &quot;following&quot; shall mean next before and next after, respectively.</p>
+
+            <p class="P1"><span class="italic">Premises.</span> Whenever the word &quot;premises&quot; is used, it shall mean place or places.</p>
+
+            <p class="P1"><span class="italic">Property.</span> The word &quot;property&quot; shall include real and personal property.</p>
+
+            <p class="P1"><span class="italic">Public place.</span> The words &quot;public place&quot; shall mean any park, cemetery, school yard or open space adjacent thereto, all streets and parking fields and all waterways.</p>
+
+            <p class="P1"><span class="italic">Real property.</span> The words &quot;real property&quot; shall include lands, tenements and hereditaments.</p>
+
+            <p class="P1"><span class="italic">Residence.</span> The word &quot;residence&quot; shall be construed to mean the place adopted by a person as his place of habitation, and to which, whenever he is absent, he has the intention of returning. When a person eats at one place and sleeps at another, the place where such person sleeps shall be deemed his residence.</p>
+
+            <p class="P1"><span class="italic">Seal.</span> Whenever the word &quot;seal&quot; is used, it shall mean the city seal.</p>
+
+            <p class="P1"><span class="italic">Sidewalk.</span> The word &quot;sidewalk&quot; shall mean any portion of a street between the curbline and the adjacent property line, intended for the use of pedestrians, excluding parkways.</p>
+
+            <p class="P1"><span class="italic">Signature, subscription.</span> The &quot;signature&quot; or &quot;subscription&quot; of a person shall include a mark when the person cannot write.</p>
+
+            <p class="P1"><span class="italic">State.</span> The words &quot;the state&quot; shall be construed to mean the State of Vermont.</p>
+
+            <p class="P1"><span class="italic">Street.</span> The word &quot;street&quot; shall include the entire width between property lines of every way used for vehicular and pedestrian travel which has become public by authority of the law, and such ways in public places other than highways as the public is permitted to use for vehicular and pedestrian traffic.</p>
+
+            <p class="P1"><span class="italic">Tenant, occupant.</span> The word &quot;tenant&quot; or &quot;occupant,&quot; applied to a building or land, shall include any person holding a written or oral lease or who occupies the whole or a part of such building or land, either alone or with others.</p>
+
+            <p class="P1"><span class="italic">Tense.</span> Words used in the past or present tense include the future as well as the past and present.</p>
+
+            <p class="P1"><span class="italic">Week.</span> The word &quot;week&quot; shall be construed to mean seven (7) days.</p>
+
+            <p class="P1"><span class="italic">Written, in writing.</span> The term &quot;written&quot; or &quot;in writing&quot; shall be construed to include any representation of words, letters or figures, whether by printing or otherwise.</p>
+
+            <p class="P1"><span class="italic">Year.</span> The word &quot;year&quot; shall mean a calendar year.</p>
+
+            <p class="HistoryNote">(Rev. Ords. 1962, &sect;&sect;&nbsp;151&mdash;154; Ord. of 8-13-90; Ord. of 10-25-10(1))</p>
+
+      <h3 class="Cite"><a id="a1x3">1-3</a> Scope and purpose of provisions.</h3>
+            <p class="P1">The ordinances contained in this Code of Ordinances are intended to encompass and to promote the general health, welfare, peace, good order and morals of the community at large and said ordinances have been codified herein for the purpose of facilitating the enforcement thereof.</p>
+
+      
+    </div>
+    <div id="pgFooter">
+<!--BeginNoIndex-->
+<p id="current">The Burlington Code of Ordinances is current through Ord. 8-3-26, passed August 3, 2026.</p>
+<p id="disclaimer">Disclaimer: The city clerk&rsquo;s office has the official version of the Burlington Code of Ordinances. Users should contact the city clerk&rsquo;s office for ordinances passed subsequent to the ordinance cited above.</p>
+
+<p>City Website: <a href="https://www.burlingtonvt.gov/" target="_top">https://www.burlingtonvt.gov/</a><br />
+City Telephone: (802) 865-7136</p>
+<p>Codification services provided by <a href="https://www.generalcode.com/" target="top">General Code</a></p>
+<!--EndNoIndex-->
+</div>
+</body></html>

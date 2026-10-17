@@ -1,0 +1,371 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+  <html xmlns="http://www.w3.org/1999/xhtml">
+ <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta http-equiv="Content-Style-Type" content="text/css" />
+<style>body
+{
+    font-family: Arial, sans-serif;
+}
+/*Styles for NT page*/
+#cityname, #codification, .codified, .cpc {
+   font-weight: bold;
+   text-align: left;
+	font-size: .9em;
+}
+#cityname {
+   margin-top: 3em;
+   font-size: 1.25em;
+}
+
+.cpc {  margin: 0;  padding-bottom: .5em; }
+
+/* Navigation buttons */
+
+#navTop {
+	text-align: right;
+	margin: 1em 1.8em;
+	padding-bottom: 1em;
+}
+#navBottom {
+	margin: 1em 1.8em;
+	padding-top: 1em;
+	text-align: left;
+}
+
+#navTop *, #navBottom *  {
+	text-decoration: none;
+}
+
+img { border:0px; }
+#mainContent img { display: block; margin: 1em auto; }
+#mainContent a img {border:1px solid;}
+#mainContent h3 img.addthis-img {
+    border:0;vertical-align:bottom;float:right;margin:0px;
+}
+
+@media (max-width: 767.98px)
+{
+    #mainContent h3 img.addthis-img {
+        vertical-align: middle;
+        float: none;
+        display: inline;
+        margin-left: 5px;
+    }
+}
+
+#mainContent h2 img.addthis-img,
+#mainContent h1 img.addthis-img {
+    border:0;vertical-align:top;float:right;margin:0px;
+}
+
+
+
+ h1, h2 {
+	font-size: 1.4em;
+	line-height: 1.2;
+	text-align:center;
+	margin:1em auto;
+}
+
+p, h3, h4 {
+	font-size: 1em;
+	line-height: 1.64;
+	margin: 0em;
+	font-style: normal;
+	font-variant: normal;
+	text-transform: normal;
+	vertical-align: baseline;
+	font-weight: normal;
+	text-align: left;
+}
+/* add default bottom margin, which we don't want in h3 */
+p { margin-bottom: 1.25em; }
+
+h3, h4 { font-weight: bold; }
+
+.ArticleTOC, .digArt, .artdig, .ArtDig {
+	margin-top: 1em;
+	text-align: center;
+}
+
+.Article, .DivisionTOC, .art, .digDiv, .digdiv, .Divdig, .divdig,
+.Rxhead, .CHRepealed, .TitleRepealed,  .RxHead,
+.TitleReserved, .CHReserved, .ReservedC, .CH, .CHTitle,
+.Division, .div, .divname, .DivisionName, .DivName,
+.TableTitle, .GraphicTitle, .Graphic, .graphic, .FL,
+.graphictitle, .graphicname, .CHTOC {
+  font-weight: bold;
+  margin: 1em 0;
+  text-align: center;
+}
+
+.Center, .center, .CellBodyC, .cellbodyc {
+  text-align: center;
+}
+
+.CellBodyR, .cellbodyr {
+	text-align: right;
+}
+
+.CellBodyIndent {	margin-left:1em; }
+.CellHeading {  font-weight: bold; text-align: center; }
+.CellHeadingL {  font-weight: bold; margin:0; }
+.CellHeadingR {  font-weight: bold;  text-align: right; }
+
+.CHTOC a, .CiteTOC a { text-decoration:none !important; font-weight:bold;}
+.CHTOC a:hover, .CiteTOC a:hover { text-decoration: none !important; font-weight:bold;}
+.CHTOC {
+  font-weight: bold;
+}
+
+.digCH, .ctoc {
+  font-weight: normal;
+  margin-top: 1em;
+  margin-bottom:0em;
+}
+.digTitle, .chtoc, .tocch {
+  font-weight: bold;
+}
+
+.Footnote, .footnote, .FootNote, .Note, .note {
+  margin: 1em .8em;
+  font-size: .9em;
+  text-indent: -.8em;
+}
+
+.ordtab, td p.ordtab {
+  min-width:100px;
+  margin: 0;
+  margin-right: 0.9em;
+}
+
+.P0, .P0block, .P1, .P1block { margin-left: 0em;}
+.P2, .P2block {  margin-left: 2.3em; }
+.P3, .P3block {  margin-left: 4.3em; }
+.P4, .P4block {  margin-left: 6.3em; }
+.P5, .P5block {  margin-left: 8.3em; }
+.P6, .P6block {  margin-left: 9.3em; }
+.P7, .P7block {  margin-left: 11.3em; }
+
+.Q1 { font-size: .8em;  margin: 1em 2.3em; }
+
+.Q2 {
+  font-size: .75em;
+  margin: 1em 2.3em;
+  margin-left: 4.3em;
+}
+.Q3 {
+  font-size: .75em;
+  margin: 1em 2.3em;
+  margin-left: 6.3em;
+ }
+.Q4 {
+  font-size: .75em;
+  margin: 1em 2.3em;
+  margin-left: 8.3em;
+}
+.QC {
+  font-size: .75em;
+  margin: 1em 2.3em;
+  text-align:center;
+}
+
+.TableFootnote,  .HistoryNote {
+  font-weight: normal;
+  font-size: .75em;
+}
+
+.Title, .TitleName {
+  font-size: 1em;
+  font-weight: bold;
+  margin: 1em;
+  text-align: center;
+}
+
+.WAC {
+  margin-left: 5.5em;
+  text-indent: -5.5em;
+  margin-bottom:0em;
+}
+
+
+.underline, .under, .Underline, .Under {
+	text-decoration:underline;
+}
+.bold, .Bold {
+  font-weight: bold;
+}
+.bolditalic, .bold_italic, .BoldItalic, .ital, .Bold_Italic, .bold_Italic {
+  font-weight: bold;
+  font-style: italic;
+}
+.italic, .Italic, .emphasis, .Emphasis {
+  font-style: italic;
+}
+.EquationVariables {
+  font-family: Times New Roman;
+  font-style: italic;
+}
+.strikethrough, .Strikethrough, .strikeout, .Strikeout, .linethrough, .Linethrough {
+	text-decoration: line-through;
+}
+.sub, .subscript, .Subscript, .sub, .Sub {
+  vertical-align: sub;
+  font-size:0.75em;
+}
+.super, .Superscript, .superscript, .Super {
+  vertical-align: super;
+  font-size:0.75em;
+  }
+
+ /* Table CSS */
+
+#mainContent table {
+	border-collapse: collapse;
+	margin: 1em auto;
+}
+
+.floatThead-container {
+	margin: 0 auto;
+}
+td,   tr{ background:white; }
+
+caption {
+	margin-left:auto;
+	margin-right:auto;
+	text-align:center;
+}
+
+td p, th p, caption p {
+	font-size: .9em;
+	margin-bottom:0em;
+}
+
+td { padding:3pt; text-align:left; }
+
+table.Ruled, table.RuledWithTitle, table.Format_B,
+table.TitleRules, table.Format_A {
+  border:1px solid black;
+}
+
+#mainContent img.inline-icon,
+#mainContent .ordtab img {
+	display: inline;
+	margin: 0 3px;
+	vertical-align: middle;
+	border: 0;
+}
+
+iframe {width:100%; height:300px;}
+.small-caps { font-variant: small-caps; }
+.uppercase { text-transform: uppercase; }
+/*
+box.jpg is for when codes have the little empty box symbol
+we're attaching it to a dummy class here so that even if it isn't being used
+it won't get deleted by the destroyExtraImages() function.
+Other just-in-case images coulde be added here.
+*/
+.validateMeBabyYeah {
+	background:url('../html/images/box.jpg') no-repeat top right;
+	background:url('../html/images/pdf.png') no-repeat top right;
+}
+
+
+
+@media (min-width: 768px)
+{
+
+	.CiteTOC {
+		margin: 0 0 0 7em;
+		text-indent: -5.8em;
+	}
+
+
+	.digTitle, .chtoc, .tocch {
+		margin: 1em 0 0 2em;
+	}
+}
+
+
+@media print
+{
+  #mainContent {
+    border: 0  !important;
+  }
+
+  body, #mainBody, #mainContent, td, th, table, tr
+  {
+      background: #fff !important;
+      color: black #000 !important;
+  }
+
+  #searchtabs, #codetabs, #SearchForm, #navTop, #navBottom, .pdf, #navBar,
+  #leftSidebar, #topBanner, .modal, .skipnav, table.hovercraft,
+  #mainContent h3 .addthis-img
+  {
+    display: none !important;
+  }
+
+  .hit
+  {
+    background: transparent !important;
+    border-width: 0 !important;
+  }
+
+  #pgFooter {
+      border-top: 1px solid black;
+      margin-top: 2rem; font-size: .9rem;
+  }
+
+  thead { display:table-header-group !important; }
+  tbody {  display:table-row-group !important; }
+  table.hovercraft { display:none !important ;}
+  img, td, tr { page-break-inside: avoid !important; }
+}
+</style>    <title>Burlington</title>
+</head>
+<body>
+    <div id="mainContent">
+    <a id="start" />
+    <h1 style="page-break-before:auto" headertitle="Burlington Code of Ordinances" headerdisc="The Burlington Code of Ordinances is current through Ord. 8-3-26, passed August 3, 2026." class="Title"><a id="a1"></a>Chapter 1<br />GENERAL PROVISIONS<sup><a id="awwfootnote_inline_59" href="#59">1</a ></sup></h1>
+            <p class="CiteTOC">1-1&nbsp;&nbsp;&nbsp;&nbsp;How Code designated and cited.</p>
+
+            <p class="CiteTOC">1-2&nbsp;&nbsp;&nbsp;&nbsp;Rules of construction.</p>
+
+            <p class="CiteTOC">1-3&nbsp;&nbsp;&nbsp;&nbsp;Scope and purpose of provisions.</p>
+
+            <p class="CiteTOC">1-4&nbsp;&nbsp;&nbsp;&nbsp;Ordinances repealed.</p>
+
+            <p class="CiteTOC">1-5&nbsp;&nbsp;&nbsp;&nbsp;Effect of repeal of ordinances.</p>
+
+            <p class="CiteTOC">1-6&nbsp;&nbsp;&nbsp;&nbsp;Severability of parts of Code.</p>
+
+            <p class="CiteTOC">1-7&nbsp;&nbsp;&nbsp;&nbsp;Catchlines of sections.</p>
+
+            <p class="CiteTOC">1-8&nbsp;&nbsp;&nbsp;&nbsp;Altering Code.</p>
+
+            <p class="CiteTOC">1-9&nbsp;&nbsp;&nbsp;&nbsp;General penalty; continuing violations.</p>
+
+            <p class="CiteTOC">1-10&nbsp;&nbsp;&nbsp;&nbsp;Prosecution and city circle.</p>
+
+            <p class="CiteTOC">1-11&nbsp;&nbsp;&nbsp;&nbsp;Disposition of fines and penalties.</p>
+
+            <p class="CiteTOC">1-12&nbsp;&nbsp;&nbsp;&nbsp;Copy of Code to be signed and kept in clerk&rsquo;s office; ordinances to be furnished upon request.</p>
+
+            <p class="CiteTOC">1-13&nbsp;&nbsp;&nbsp;&nbsp;Supplementation of Code.</p>
+
+      
+    </div>
+    <div id="pgFooter">
+<!--BeginNoIndex-->
+<p id="current">The Burlington Code of Ordinances is current through Ord. 8-3-26, passed August 3, 2026.</p>
+<p id="disclaimer">Disclaimer: The city clerk&rsquo;s office has the official version of the Burlington Code of Ordinances. Users should contact the city clerk&rsquo;s office for ordinances passed subsequent to the ordinance cited above.</p>
+
+<p>City Website: <a href="https://www.burlingtonvt.gov/" target="_top">https://www.burlingtonvt.gov/</a><br />
+City Telephone: (802) 865-7136</p>
+<p>Codification services provided by <a href="https://www.generalcode.com/" target="top">General Code</a></p>
+<!--EndNoIndex-->
+</div>
+</body></html>

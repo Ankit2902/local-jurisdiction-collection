@@ -1,0 +1,87 @@
+{
+  "network_requests_sent": 0,
+  "findings": [
+    {
+      "publication_folder": "native/clark-title30",
+      "source_pdf_sha256": "1210e8fd53064b1fe9df64892621ca35a657ce9dd3073a539d4c441ff59a97a1",
+      "render_path": "evidence/pdf-visual/clark-title30-page19.png",
+      "render_sha256": "04081619e7d65dc369c8009e5ecc4fc5f718d03cc24a97a013c65b564753cbe7",
+      "pdf_page": 19,
+      "render_method": "pdftoppm -scale-to1500; source PDF unmodified",
+      "visual_review_performed": true,
+      "observed_checks": [
+        {
+          "visually_observed_text": "RS80",
+          "present_in_page_text": true,
+          "present_in_default_grid": false
+        },
+        {
+          "visually_observed_text": "Residential Single-Family 80",
+          "present_in_page_text": true,
+          "present_in_default_grid": true
+        },
+        {
+          "visually_observed_text": "30.02.02",
+          "present_in_page_text": true,
+          "present_in_default_grid": false
+        },
+        {
+          "visually_observed_text": "SMO",
+          "present_in_page_text": true,
+          "present_in_default_grid": false
+        },
+        {
+          "visually_observed_text": "Spring Mountain Overlay",
+          "present_in_page_text": true,
+          "present_in_default_grid": false
+        },
+        {
+          "visually_observed_text": "30.02.26I",
+          "present_in_page_text": true,
+          "present_in_default_grid": false
+        }
+      ],
+      "normalized_table_fidelity": "failed",
+      "finding": "Visual Table30.02-1 has district abbreviations and section references. Default PDF region extraction drops many abbreviations/section cells and the final SMO row. Table grid fidelity failed; page text/PDF are retained and the grid is not promoted to normalized legal table."
+    },
+    {
+      "publication_folder": "native/baton-rouge-udc-uses",
+      "source_pdf_sha256": "bbab7c665fea7a2581e2fdc6128d1cd77a593ce16d1ead839e052628b2e23839",
+      "render_path": "evidence/pdf-visual/baton-rouge-udc-ch9-page2.png",
+      "render_sha256": "5c725bb5b25f4b5939fea37bfc7cf46e46d2de80663a49dd3b13b1b466b49e7d",
+      "pdf_page": 2,
+      "render_method": "pdftoppm -scale-to1500; source PDF unmodified",
+      "visual_review_performed": true,
+      "observed_checks": [
+        {
+          "visually_observed_text": "Agriculture",
+          "present_in_page_text": true,
+          "present_in_default_grid": true
+        },
+        {
+          "visually_observed_text": "Equestrian",
+          "present_in_page_text": true,
+          "present_in_default_grid": true
+        },
+        {
+          "visually_observed_text": "Sec 9.3.3",
+          "present_in_page_text": true,
+          "present_in_default_grid": true
+        },
+        {
+          "visually_observed_text": "Group Home",
+          "present_in_page_text": true,
+          "present_in_default_grid": true
+        },
+        {
+          "visually_observed_text": "RE/A3",
+          "present_in_page_text": true,
+          "present_in_default_grid": false
+        }
+      ],
+      "normalized_table_fidelity": "partial_unproven",
+      "finding": "Visual Table9.A includes merged category headers, multiline labels and permit symbols. Default extraction splits the table into regions; no complete grid fidelity certification."
+    }
+  ],
+  "overall_table_fidelity_certified": false
+}

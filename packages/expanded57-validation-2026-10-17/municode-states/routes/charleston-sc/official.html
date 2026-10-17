@@ -1,0 +1,2001 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+	<meta http-equiv="Content-type" content="text/html; charset=UTF-8" />
+<!-- Google Tag Manager for GA4 -->
+				<script>(function(w,d,s,l,i){w.GAMeasurementID='G-2XTG8TKNGV';w[l]=w[l]||[];w[l].push({'gtm.start':
+				new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+				j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+				'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+				})(window,document,'script','cpDataLayerGA4','GTM-K73C5PS');</script>
+				<!-- End Google Tag Manager for GA4 -->
+				<script type='text/javascript'>
+					var enableTelemetry = 'false'
+					var aiConfig = {
+					instrumentationKey: '1cde048e-3185-4906-aa46-c92a7312b60f'						
+					}
+					var appInsights = window.appInsights || function (a) { function b(a) { c[a] = function () { var b = arguments; c.queue.push(function () { c[a].apply(c, b) }) } } var c = { config: a }, d = document, e = window; setTimeout(function () { var b = d.createElement('script'); b.src = a.url || 'https://js.monitor.azure.com/scripts/a/ai.0.js', d.getElementsByTagName('script')[0].parentNode.appendChild(b) }); try { c.cookie = d.cookie } catch (a) { } c.queue = []; for (var f = ['Event', 'Exception', 'Metric', 'PageView', 'Trace', 'Dependency']; f.length;)b('track' + f.pop()); if (b('setAuthenticatedUserContext'), b('clearAuthenticatedUserContext'), b('startTrackEvent'), b('stopTrackEvent'), b('startTrackPage'), b('stopTrackPage'), b('flush'), !a.disableExceptionTracking) { f = 'onerror', b('_' + f); var g = e[f]; e[f] = function (a, b, d, e, h) { var i = g && g(a, b, d, e, h); return !0 !== i && c['_' + f](a, b, d, e, h), i } } return c }(aiConfig);
+					window.appInsights = appInsights, appInsights.queue && 0 === appInsights.queue.length;
+					// Add telemetry initializer
+					appInsights.queue.push(function() {
+						appInsights.context.addTelemetryInitializer(function(envelope) {
+							var telemetryItem = envelope.data.baseData;
+							// To check the telemetry item’s type:
+							if (!false)
+							{
+								//If the telemetry is not enabled, we still want to capture Google map custom event, so only allow that
+								if (envelope.name.indexOf('.Event') == -1)
+									return false;
+							}
+						});
+					});						
+					appInsights.trackPageView();
+				</script>
+	<script>
+		function populateAntiForgery(token) {
+			var input = document.createElement("input");
+			input.name = "__RequestVerificationToken";
+			input.type = "hidden";
+			input.value = token;
+			var absPat = /^https?:\/\/|^\/\//i;
+			var forms = document.getElementsByTagName("form");
+			for (var i = 0; i < forms.length; i++) {
+				if (forms[i].method == "post" &&
+					!forms[i].querySelector('[name="__RequestVerificationToken"]') &&
+					!absPat.test(forms[i].getAttribute("action"))) {
+					forms[i].appendChild(input.cloneNode());
+				}
+			}
+		}
+
+		function getAntiForgeryToken(callback, error) {
+			var xhr = new XMLHttpRequest();
+			xhr.open("GET", "/antiforgery");
+			xhr.addEventListener("load", function() {
+				try {
+					if (this.status !== 200) {
+						throw Error("Invalid status. Could not retrieve antiforgery token.");
+					}
+					var obj = JSON.parse(this.responseText);
+					callback(obj.token);
+				} catch (e) {
+					typeof error === "function" && error(e);
+				}
+			});
+			xhr.send();
+		}
+
+		getAntiForgeryToken(function(token) {
+			if (document.readyState === "complete"
+				|| document.readyState === "loaded" 
+				|| document.readyState === "interactive") {
+				populateAntiForgery(token);
+				return;
+			}
+			document.addEventListener("DOMContentLoaded", function() {
+				populateAntiForgery(token);
+			}, false);
+		}, console.error);
+	</script>
+			
+
+	<script type="text/javascript">
+		window.departmentHeader = {};
+		window.pageSectionTracker = {};
+		window.isResponsiveEnabled = true;
+		window.isRemoveSetHeights= false;
+		if (window.isRemoveSetHeights) {
+			document.documentElement.className += ' removeSetHeights';
+		}
+		window.mainMenuMediaQuery = 'screen and (max-width: 40em)';
+		window.isMobileBrowserIncludingTablets = false;
+		window.fixedResponsiveMenu = false;
+		window.fullWidthResponsiveMenu = false;
+		window.responsiveMenuHeight = '';
+		window.responsiveMenuFontSize = '';
+		window.isContentAdvisor = false;
+		(function () {
+			window.setSizeCookie = function () {
+				document.cookie = "dpi=" + window.devicePixelRatio + "; path=/";
+				document.cookie = "viewportWidth=" + window.innerWidth + "; path=/";
+				document.cookie = "viewportHeight=" + window.innerHeight + "; path=/";
+				if (screen && screen.width && screen.height) {
+					document.cookie = "screenWidth=" + screen.width + "; path=/";
+					document.cookie = "screenHeight=" + screen.height + "; path=/";
+				}
+				document.cookie = "responsiveGhost=1; path=/";
+			};
+
+			setSizeCookie();
+		}());
+	</script>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<script async src="https://docaccess.com/docbox.js"></script>
+	<meta property="og:type" content="website">
+<meta property="og:site_name" content="City of Charleston, SC">
+<meta property="og:url" content="https://www.charleston-sc.gov/">
+<meta property="og:title" content="City of Charleston, SC | Official Website">
+<meta property="og:description" content="The official website of the City of Charleston, South Carolina. Find city services, pay bills, view council agendas, apply for permits, and access resources for residents, businesses, and visitors.">
+<meta property="og:image" content="https://www.charleston-sc.gov/DocumentCenter/View/41703/Meta-Tag-Logo-">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="City of Charleston, SC | Official Website">
+<meta name="twitter:description" content="The official website of the City of Charleston, South Carolina.">
+<meta name="twitter:image" content="https://www.charleston-sc.gov/DocumentCenter/View/41703/Meta-Tag-Logo-">
+
+<meta name="google-site-verification" content="v7GpdRnIxnVLXFd-hZImDxSlUfMWLzM0EzdiDB9Psuo" />
+
+<script type="text/javascript">
+/*<![CDATA[*/
+(function() {
+var sz = document.createElement('script'); sz.type = 'text/javascript'; sz.async = true;
+sz.src = '//siteimproveanalytics.com/js/siteanalyze_15202859.js';
+var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(sz, s);
+})();
+/*]]>*/
+</script>
+	<meta name="category0" content="Home" />
+<meta name="category1" content="Departments" />
+<meta name="category2" content="Planning, Permitting, &amp; Engineering" />
+<meta name="category3" content="Planning, Preservation &amp; Sustainability" />
+<meta name="category4" content="Divisions" />
+<meta name="category5" content="Zoning" />
+
+	
+	<meta name="theme-color" content="rgb(42, 58, 57)">
+	<link rel="icon" href="/images/favicon.ico" type="image/x-icon" />
+	<link rel="shortcut icon" href="/images/favicon.ico" type="image/x-icon" />
+		<title>Zoning | Charleston, SC - Official Website</title>
+
+		<meta name="description" content="Make sure you&#39;re up to date on zoning and codes before starting a project.">
+		<meta name="keywords" content="Zoning &amp; Codes">
+			<script src="/Assets/Scripts/jQuery/jquery-3.7.1.min.js"></script>
+	<script src="/Assets/Scripts/jQuery/jquery-migrate-3.6.0.min.js" type="text/javascript"></script>
+	
+
+	<!--[if IE 6]><script language="JavaScript" type="text/javascript"> var isie6 = true; </script><![endif]-->
+	<!--[if IE 7]><script language="JavaScript" type="text/javascript"> var isie7 = true; </script><![endif]-->
+	<!--[if IE 8]><script language="JavaScript" type="text/javascript"> var isie8 = true; </script><![endif]-->
+	<!--[if IE 9]><script language="JavaScript" type="text/javascript"> var isie8 = true; </script><![endif]-->
+	<script type="text/javascript"><!--
+	var intCountryCode = 840;
+	var order = '';
+//--></script>
+	
+	<link href="/-2140275272.css" rel="stylesheet" type="text/css" />	<link href="/-1907307800.css" rel="stylesheet" type="text/css" />
+
+	<link rel="stylesheet" type="text/css" href="/Assets/Styles/Print.css" media="print">
+	<script type="text/javascript">
+		window.Pages = window.Pages || {};
+		// FrontEnd RWD initialization
+		window.Pages.rwdReady = $.Deferred();
+		window.Pages.toolBarDeferred = $.Deferred();
+		window.Pages.rwdSetupComplete = $.Deferred();
+		window.Pages.megaMenuLoaded = $.Deferred();
+		window.Pages.angularToolbarComplete = $.Deferred();
+		window.Pages.frontEndToolbarComplete = $.Deferred();
+	</script>
+	<!--CPHeadContent-->
+	<script src="/739942322.js" type="text/javascript"></script>
+	
+	
+	
+	
+
+
+
+
+	<!--[if lte IE 8]><link rel="stylesheet" type="text/css" href="/App_Themes/ie8.css"><![endif]-->
+	<!--[if lte IE 7]><link rel="stylesheet" type="text/css" href="/App_Themes/ie7.css"><![endif]-->
+	<!--[if lte IE 6]><link rel="stylesheet" type="text/css" href="/App_Themes/ie6.css"><![endif]-->
+	<!--[if lt IE 9]><script type="text/javascript" src="/Scripts/html5.js"></script><![endif]-->
+
+	<script type="text/javascript">
+		setEditorVariables(false, 840);
+		function getPrintPreviewType() { return 0; } function printPreview() {pPreview(getPrintPreviewType()); }
+	</script>
+	<script src="/Assets/Scripts/AlpineJS/3.14.1/alpine.min.js" type="text/javascript" defer="defer"></script>
+</head>
+<body class="wide " >
+
+    <script>jQuery(document).click(function (event) {
+	var target = jQuery(event.target);
+	if (target.attr('src') && target.parents('.image').length && target.parents('.widget').length) {
+		var text = target.attr('title');
+		
+		if (!text.length) {
+			text = "N/A";
+		}
+		ga('send',
+			{
+				hitType: 'event',
+				eventCategory: 'Image',
+				eventAction: 'Image - ' + text,
+				eventLabel: window.location.href
+			});
+	}
+	if (target.is('button') || target.hasClass('button') || target.parents().hasClass('button')) {
+		var text = "";
+		if (target.parents('.button')[0]) {
+			text = target.parents('.button').first().text();
+		} else if (target.text().length) {
+			text = target.text();
+		} else if (target.attr('title').length) {
+			text = target.attr('title');
+		}
+		if (!text.length) {
+			text = "N/A";
+		}
+		ga('send',
+			{
+				hitType: 'event',
+				eventCategory: 'Button',
+				eventAction: 'Button - ' + text,
+				eventLabel: window.location.href
+			});
+	}
+	if (target.parents('.widgetCustomHtml').length) {
+		ga('send',
+			{
+				hitType: 'event',
+				eventCategory: 'Custom Html',
+				eventAction: 'Custom Html Clicked',
+				eventLabel: window.location.href
+			});
+	}
+	if (target.parents('.editor').length) {
+		ga('send',
+			{
+				hitType: 'event',
+				eventCategory: 'Editor',
+				eventAction: 'Editor Link Clicked',
+				eventLabel: window.location.href
+			});
+	}
+	if (target.parents('.GraphicLinks').length) {
+		var text = "";
+		var targetGraphicLink = target;
+		if (target.hasClass('widgetGraphicLinksLink')) {
+			targetGraphicLink = jQuery(target.children()[0]);
+		}
+		if (targetGraphicLink.hasClass('text')) {
+			text = targetGraphicLink.text();
+		} else if (targetGraphicLink.attr('src').length) {
+			if (targetGraphicLink.attr('alt').length) {
+				text = targetGraphicLink.attr('alt');
+			} else {
+				text = targetGraphicLink.attr('src');
+			}
+		} else {
+			text = "N/A";
+		}
+		ga('send',
+			{
+				hitType: 'event',
+				eventCategory: 'Graphic Links',
+				eventAction: 'Graphic Link - ' + text,
+				eventLabel: window.location.href
+			});
+	}
+	if (target.parents('.InfoAdvanced').length) {
+		ga('send',
+			{
+				hitType: 'event',
+				eventCategory: 'Info Advanced',
+				eventAction: 'Info Advanced Clicked',
+				eventLabel: window.location.href
+			});
+	}
+	if (target.parents('.list').length) {
+		ga('send',
+			{
+				hitType: 'event',
+				eventCategory: 'List',
+				eventAction: 'List Clicked',
+				eventLabel: window.location.href
+			});
+	}
+	if (target.parents('.megaMenuItem').length || target.parents('.topMenuItem').length) {
+		var megaMenuText = jQuery('.topMenuItem.mouseover').find('span').text();
+		var breadCrumbs = [];
+		jQuery('.breadCrumbs > li').each(function () {
+			 breadCrumbs.push(this.textContent);
+		});
+		var pageTitle = breadCrumbs.join('>');
+		var subTitleText = target.parents('.megaMenuItem').children('.widgetTitle').children().text();
+		var text = "";
+		if (pageTitle) {
+			text += pageTitle + " | ";
+		} else {
+			text += document.title + ' - ';
+		}
+		if (target.text() == "" && megaMenuText == "") {
+			text += "N/A";
+		} else if (target.text().length && megaMenuText.length) {
+			if (megaMenuText == target.text()) {
+				text += megaMenuText;
+			} else {
+				text += megaMenuText + " - " + subTitleText + " - " + target.text();
+			}
+		} else if (target.text() == "") {
+			text += megaMenuText;
+		} else {
+			text += target.text();
+		}
+		if (!text.length) {
+			text = "N/A";
+		}
+		ga('send',
+			{
+				hitType: 'event',
+				eventCategory: 'Mega Menu',
+				eventAction: 'Mega Menu : ' + text,
+				eventLabel: window.location.href
+			});
+	}
+	if (target.parents('.widgetNewsFlash').length && target.parents('.widgetItem').length) {
+		var text = jQuery(target.parents('.widgetItem')[0]).find('.widgetTitle').children().text();
+		if (!text.length) {
+			text = "N/A";
+		}
+		ga('send',
+			{
+				hitType: 'event',
+				eventCategory: 'News Flash',
+				eventAction: 'News Flash - ' + text,
+				eventLabel: window.location.href
+			});
+	}
+	if (target.hasClass('widgetQuickLinksLink') || target.find('.widgetQuickLinksLink').length) {
+		var text = target.text();
+		if (!text.length) {
+			text = "N/A";
+		}
+		ga('send',
+			{
+				hitType: 'event',
+				eventCategory: 'Quick Links',
+				eventAction: 'Quick Links - ' + text,
+				eventLabel: window.location.href
+			});
+	}
+	if (target.attr('src') && target.parents('.cpSlideshow').length) {
+		var text = target.attr('title');
+		if (!text.length) {
+			text = "N/A";
+		}
+		ga('send',
+			{
+				hitType: 'event',
+				eventCategory: 'Slideshow',
+				eventAction: 'Slideshow - ' + text,
+				eventLabel: window.location.href
+			});
+	}
+	if (target.parents('.widgetText').length) {
+		ga('send',
+			{
+				hitType: 'event',
+				eventCategory: 'Text',
+				eventAction: 'Text Link Clicked',
+				eventLabel: window.location.href
+			});
+	}
+});</script>
+	<div id="popoverModal" class="cp-PopOver cp-PopOver--modal cp-AdminWrap" style="position: fixed; display: none;">
+	<div class="cp-PopOver-header">
+		<h3 class="cp-PopOver-title"></h3>
+		<button class="cp-Btn cp-PopOver-close" onclick="closePopOverModal(event)">
+			<svg class="cp-Icon--close" alt="close" title="close">
+				<use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#iconClose"></use>
+			</svg>
+		</button>
+	</div>
+	<div id="cpPopOverBody" class="cp-PopOver-body">
+		<form id="cpPopOverForm" name="cpPopOverForm" novalidate></form>
+	</div>
+	<div id="cpPopOverFooter" class="cp-PopOver-footer">
+		<div class="cp-BtnGroup" id="actionButtons">
+			<!-- Action buttons will be dynamically added here -->
+		</div>
+	</div>
+</div>
+    <div id="fb-root"></div>
+<div id=skipToContentLinks>
+<a href="#ccfc5b8721-3a90-4815-b9f7-8a923bba24bb" target="_self" class="skipToContentLink">Skip to Main Content</a>
+</div>
+    <form id="frmReferenceFormForTelerikEditorDialogs"></form>
+
+        <input type="hidden" id="GoogleMapsKey" value="AIzaSyDWUuE-ifkbhxblF920N8MjpBdTg1Wt784" />
+
+
+
+    <input type="hidden" id="cpcDomain" value="https://cp-civicplusuniversity2.civicplus.com">
+    <input type="hidden" id="hdnStructureID" value="5" />
+    <input type="hidden" id="hdnContentCollectionID" value="ba5584bc-2797-43cf-a669-93c030421626" />
+    <input type="hidden" id="hdnWorkingCopyID" value="00000000-0000-0000-0000-000000000000" />
+    <input type="hidden" id="hdnThemeID" value="8" />
+    <input type="hidden" id="pageIsFrontEnd" value="true" />
+    <input type="hidden" id="pageModuleID" />
+    <input type="hidden" id="pagePageID" value="295" />
+
+    <div id="stickyPlaceholder"></div>
+    <div id="outer-wrap" class="outer-wrap">
+        <div id="inner-wrap" class="inner-wrap">
+                <div id="divToolbars" class="cpToolbars newCP mui-fixed" style="">
+                    
+
+
+
+<!-- Begin Signed Out Bar -->
+<div class="cpToolbar user public">
+    <div class="inner selfClear">
+        <p class="dropdown"><a href="/MyAccount/ProfileCreate" class="myConnections" id="signedOutToolbarCreateProfileButton">Create a Website Account</a> <span class="welcomeMessage">- Manage notification subscriptions, save form progress and more. &nbsp;&nbsp;</span></p>
+        <ul class="nav secondary">
+	        <li><a href="/MyAccount" class="button" id="loggedOutToolbarSignInButton">Website Sign In</a></li>
+        </ul>
+    </div>
+</div>
+<script>
+    $(document).ready(function () {
+        $('#signedOutToolbarCreateProfileButton').click(function (event) {
+            event.preventDefault();
+            window.location.href = '/MyAccount/ProfileCreate?from=url&url=/&dn=' + window.location.origin;
+        });
+
+			
+				$('#loggedOutToolbarSignInButton').click(function (event) {
+					event.preventDefault();
+					window.location.href = '/MyAccount/?from=url&url=' + encodeURIComponent(window.location.href.replace(window.location.origin, '')) + '&dn=' + window.location.host;
+				});
+			
+
+		if ('False' == 'True') {
+            $('#loggedOutToolbarSignInButton').hide();
+		}
+    })
+</script>
+<!-- End Signed Out Bar -->
+
+                </div>
+            <div id="bodyWrapper">
+                <div id="mainNavHolderMobile" class="mainNavHolderMobile"></div>
+                
+<div data-cpRole="structuralContainer" id="bodyContainerTS">
+<!-- Header Container --><header data-cpRole="structuralContainer" id="headerContainerTS" class="fixedTopTS">
+<!-- Custom --><div data-cpRole="structuralContainer" id="customContainer1TS">
+<div class="siteWrap"><div data-cpRole="contentContainer" id="customContent1TS">	<div id="ccf4d5bcc1-6dee-4025-a477-2b6ebc337b00" data-containerid="f4d5bcc1-6dee-4025-a477-2b6ebc337b00" class="pageContent cpGrid cpGrid24 showInMobile">
+				                
+
+
+
+	</div>
+</div></div>
+</div><div class="siteWrap" id="flexHeaderTS"><div data-cpRole="structuralContainer" id="bannerLogoWrapTS">
+<div data-cpRole="banner" id="bannerLogoTS" class="bannerLogoTS empty">
+
+
+
+
+				<a id="bannerLogoTS-17" style="			display: block; text-align: center;
+" class="bannerObject" href="/" target="_self"><img alt="logo of City of Charleston " class="bannerObject" height="783" src="/ImageRepository/Document?documentID=41631" width="2550" /></a>
+</div>
+</div><nav data-cpRole="nav" id="mainNav" class="siteNav mainNav" role="navigation" aria-label="Main navigation">
+<ol id="mainNavMenu" data-parent="1" class="rootNavMenu" role="menu"><!--
+--><li id="MainItem3428" class="topMenuItem" role="none" data-pageid="3428" data-displaymegamenu="False"><!--
+			--><!--
+			--> <a role="menuitem"  id="mainNavGovernment" class="navMainItem mainNavItem mainNavItem1" href="/3428/Government" target="_self">   Government </a>			<!--
+			--><!--
+			--></li><!----><li id="MainItem3425" class="topMenuItem" role="none" data-pageid="3425" data-displaymegamenu="False"><!--
+			--><!--
+			--> <a role="menuitem"  id="mainNavResidents" class="navMainItem mainNavItem mainNavItem2" href="/3425/Residents" target="_self">   Residents </a>			<!--
+			--><!--
+			--></li><!----><li id="MainItem3426" class="topMenuItem" role="none" data-pageid="3426" data-displaymegamenu="False"><!--
+			--><!--
+			--> <a role="menuitem"  id="mainNavBusinesses" class="navMainItem mainNavItem mainNavItem3" href="/3426/Businesses" target="_self">   Businesses </a>			<!--
+			--><!--
+			--></li><!----><li id="MainItem3427" class="topMenuItem" role="none" data-pageid="3427" data-displaymegamenu="False"><!--
+			--><!--
+			--> <a role="menuitem"  id="mainNavVisitors" class="navMainItem mainNavItem mainNavItem4" href="/3427/Visitors" target="_self">   Visitors </a>			<!--
+			--><!--
+			--></li><!---->
+</ol>
+
+
+	<script type="text/javascript">
+		(function () {
+			function setupMenu() {
+				const menuID = 'mainNavMenu';
+				const menuType = MAIN_MENU;
+
+				//setup menu manager properties for main menu
+				if (!menuManager.mobileMainNav && true)
+					menuManager.adjustMainItemsWidth('#' + menuID);
+				menuManager.isMainMenuEditable = false;
+				menuManager.mainMenuMaxSubMenuLevels = 4;
+				menuManager.setMOMMode(2, menuType);
+
+				//Init main menu
+				const setupDraggable = menuManager.isMainMenuEditable;
+				const urlToGetHiddenMenus = '/Pages/MenuMain/HiddenMainSubMenus?pageID=1&moduleID=&themeID=8&menuContainerID=mainNav';
+
+				menuManager.setupMenu(menuID, 'mainNav', menuType, setupDraggable, urlToGetHiddenMenus);
+				menuManager.mainMenuInit = true;
+				menuManager.mainMenuTextResizer = true;
+				if (1.00 > 0)
+					menuManager.mainMenuTextResizerRatio = 1.00;
+				if (window.isResponsiveEnabled)
+					menuManager.mainMenuReady.resolve();
+
+			}
+
+			if (document.readyState === "complete"
+				|| document.readyState === "loaded"
+				|| document.readyState === "interactive") {
+				setupMenu();
+				return;
+			}
+
+			document.addEventListener("DOMContentLoaded", setupMenu);
+		})();
+	</script>
+
+
+<aside data-cpRole="megaMenu" id="megaMenu" class="megaMenu" style="display: none;"><input type="hidden" id="megaMenuPopupDirection" value="0"><input type="hidden" id="megaMenuWidthReference" value="1"></aside></nav><div data-cpRole="contentContainer" id="searchTS">	<div id="ccd68d9b7d-fd77-40de-8398-8c5310970ad3" data-containerid="d68d9b7d-fd77-40de-8398-8c5310970ad3" class="pageContent cpGrid cpGrid24 isLockedContainer showInMobile" data-contentcontainerbreakpoint="17">
+				                
+
+		<div class="row outer wide"><!--
+--><div class="outer col col24 first last" style="" data-widgetcontainerid="6b356b6c-00b5-4da7-957d-e4168812445c">				
+	<div class="row nest first last wide">
+	
+	<div class="inner col col24 first last id451b7af6-3d5e-4208-ae63-d5fb821c134a" style="" data-widgetcontainerid="451b7af6-3d5e-4208-ae63-d5fb821c134a">	
+<div data-widget-id="51ebb1eb-79da-4c36-83a0-24dd2fc75297" data-widget-controller-path="/Layout/WidgetSearch">
+	
+	<script defer type="text/javascript" src="/Common/Controls/jquery-ui-1.14.2/jquery-ui.min.js"></script>
+	<script defer src="/Areas/Layout/Assets/Scripts/Search.js" type="text/javascript"></script>
+	<script defer type="text/javascript">
+
+		$(document).ready(function () {
+			try {
+				// Minimum characters required before performing a search/autocomplete
+				var minPrefixLength = 3;
+				var autoCompleteDebounceDelay = 500;
+				var searchFieldSelector = "#searchField" + '51ebb1eb-79da-4c36-83a0-24dd2fc75297';
+				var checkboxSelector = "#ysnSearchOnlyDept" + '51ebb1eb-79da-4c36-83a0-24dd2fc75297';
+				var buttonSelector = ".widgetSearchButton" + '51ebb1eb-79da-4c36-83a0-24dd2fc75297';
+				var autoCompleteCache = {};
+				var autoCompleteCacheKeys = [];
+				var autoCompleteCacheLimit = 25;
+				var currentAutoCompleteRequest = null;
+				var currentAutoCompleteRequestKey = null;
+				var autoCompleteDebounceTimer = null;
+				var autoCompleteDebounceKey = null;
+				var pendingAutoCompleteResponses = [];
+
+				function normalizeAutoCompleteTerm(term) {
+					return $.trim((term || "") + "").replace(/\s+/g, " ");
+				}
+
+				function shouldSearch(term) {
+					return normalizeAutoCompleteTerm(term).length >= minPrefixLength;
+				}
+
+				function getAutoCompleteUrl() {
+					return '/Search/AutoComplete' + ($(checkboxSelector).is(':checked') || false? '?departmentId=0' : '');
+				}
+
+				function getAutoCompleteCacheKey(requestUrl, term) {
+					return requestUrl + "|" + term.toLowerCase();
+				}
+
+				function cacheAutoCompleteResult(cacheKey, data) {
+					if (!Object.prototype.hasOwnProperty.call(autoCompleteCache, cacheKey)) {
+						autoCompleteCacheKeys.push(cacheKey);
+						if (autoCompleteCacheKeys.length > autoCompleteCacheLimit) {
+							delete autoCompleteCache[autoCompleteCacheKeys.shift()];
+						}
+					}
+					autoCompleteCache[cacheKey] = data;
+				}
+
+				function respondToPendingAutoComplete(data) {
+					var responses = pendingAutoCompleteResponses;
+					pendingAutoCompleteResponses = [];
+					for (var i = 0; i < responses.length; i++) {
+						responses[i](data);
+					}
+				}
+
+				function cancelPendingAutoComplete() {
+					clearTimeout(autoCompleteDebounceTimer);
+					autoCompleteDebounceKey = null;
+					if (currentAutoCompleteRequest != null) {
+						currentAutoCompleteRequest.abort();
+						currentAutoCompleteRequest = null;
+					}
+					currentAutoCompleteRequestKey = null;
+					respondToPendingAutoComplete([]);
+				}
+
+				function createWidgetAutoCompleteSource(options) {
+					return function (request, response) {
+						var term = normalizeAutoCompleteTerm(request.term);
+						if (!options.shouldSearch(term)) {
+							response([]);
+							return;
+						}
+
+						var requestUrl = options.url();
+						var cacheKey = getAutoCompleteCacheKey(requestUrl, term);
+						if (Object.prototype.hasOwnProperty.call(autoCompleteCache, cacheKey)) {
+							response(autoCompleteCache[cacheKey]);
+							if (options.success) {
+								options.success(autoCompleteCache[cacheKey]);
+							}
+							return;
+						}
+
+						if (currentAutoCompleteRequestKey === cacheKey || autoCompleteDebounceKey === cacheKey) {
+							pendingAutoCompleteResponses.push(response);
+							return;
+						}
+
+						cancelPendingAutoComplete();
+						autoCompleteDebounceKey = cacheKey;
+						pendingAutoCompleteResponses.push(response);
+						autoCompleteDebounceTimer = setTimeout(function () {
+							autoCompleteDebounceKey = null;
+							currentAutoCompleteRequestKey = cacheKey;
+							currentAutoCompleteRequest = $.ajax({
+								url: requestUrl,
+								dataType: "json",
+								timeout: options.timeout,
+								data: {
+									term: term,
+								},
+								success: function (data) {
+									if (currentAutoCompleteRequestKey === cacheKey) {
+										cacheAutoCompleteResult(cacheKey, data);
+										respondToPendingAutoComplete(data);
+										if (options.success) {
+											options.success(data);
+										}
+									}
+								},
+								error: function (xmlhttprequest, textstatus, message) {
+									if (textstatus === "abort") {
+										return;
+									}
+
+									if (options.error) {
+										options.error(xmlhttprequest, textstatus, message);
+									}
+
+									respondToPendingAutoComplete([]);
+								},
+								complete: function (xmlhttprequest) {
+									if (currentAutoCompleteRequest === xmlhttprequest) {
+										currentAutoCompleteRequest = null;
+										currentAutoCompleteRequestKey = null;
+									}
+								}
+							});
+						}, options.delay);
+					};
+				}
+
+				// click handler for search buttons
+				$(buttonSelector).click(function (e) {
+					e.preventDefault();
+					var $btn = $(this);
+					var $field = $btn.siblings(".widgetSearchBox");
+					var term = $field.val() + "";
+					if (!shouldSearch(term)) {
+						// do nothing until user types enough characters
+						$field.focus();
+						return;
+					}
+
+					if ($(checkboxSelector).is(':checked') || false)
+					{
+						doWidgetSearch($.trim(term), Number(0));
+					}
+					else {
+						doWidgetSearch($.trim(term), 0);
+					}
+				});
+
+				// enter key handler for the search field
+				$(searchFieldSelector).keypress(function (e) {
+					var code = e.which || e.keyCode;
+					if (code === 13) {
+						e.preventDefault();
+						var $this = $(this);
+						var term = $this.val() + "";
+						if (!shouldSearch(term)) {
+							// do nothing until user types enough characters
+							$this.focus();
+							return false;
+						}
+
+						if ($(checkboxSelector).is(':checked') || false) {
+							doWidgetSearch($.trim(term), Number(0));
+						} else {
+							doWidgetSearch($.trim(term), 0);
+						}
+						return false;
+					}
+					return true;
+				});
+
+				// autocomplete: set minLength and guard source
+				if (true) {
+					var $searchField = $(searchFieldSelector).autocomplete({
+						minLength: minPrefixLength,
+						source: createWidgetAutoCompleteSource({
+							delay: autoCompleteDebounceDelay,
+							timeout: 10000,
+							shouldSearch: shouldSearch,
+							url: getAutoCompleteUrl,
+							success: function () {
+								$('.autoCompleteError').remove();
+							},
+							error: function (xmlhttprequest, textstatus, message) {
+								if (textstatus === "timeout") {
+									if ($(searchFieldSelector).siblings('.autoCompleteError').length == 0)
+										$('<span class="autoCompleteError"><p class="alert error">Search autocomplete is currently not responding. Please try again later.</p></span>').insertAfter($(searchFieldSelector));
+								}
+							}
+						}),
+						html: true,
+						delay: 0,
+						select: function (event, ui) {
+							$(this).val(ui.item.value);
+							$(this).next().click();
+						}
+					});
+
+					$searchField.data("ui-autocomplete")._renderItem = function (ul, item) {
+						return $("<li class=\"itemList\"></li>")
+							.data("ui-autocomplete-item", item)
+							.append("<a>" + item.label + "</a>")
+							.appendTo(ul);
+					};
+				}
+
+				// keep searchBtnApplyQuery consistent with prefix rule
+				window.searchBtnApplyQuery = function() {
+					var $field = $(searchFieldSelector);
+					var term = $field.val() + "";
+					if (shouldSearch(term)) {
+						// update href for the icon/button (if present)
+						var btn = document.getElementById("btnSearchIcon");
+						if (btn) btn.href = "/Search?searchPhrase=" + encodeURIComponent($.trim(term));
+					} else {
+						var btn = document.getElementById("btnSearchIcon");
+						if (btn) btn.href = "#";
+					}
+				};
+			}
+			catch(e) {} //we're going to eat this error. Autocomplete won't work but we dont wan't to break anything else on the page.
+		});
+	</script>
+
+	<section id="widgetPreviewSearch" class="widget widgetSearch skin17 widgetOptionSet48" style="display: block;" aria-label="Search">
+				<!-- For the button right and inside -->
+		<div class="widgetBody buttonRightInside">
+			<input class="widgetSearchBox widgetSearchBox51ebb1eb-79da-4c36-83a0-24dd2fc75297" cp5ph="true" id="searchField51ebb1eb-79da-4c36-83a0-24dd2fc75297" name="searchField" onchange="searchBtnApplyQuery();" placeholder="Search" type="text" value="" />
+						<a href="/Search/Results" id="btnSearchIcon" class="widgetSearchButton widgetSearchButton51ebb1eb-79da-4c36-83a0-24dd2fc75297" role="button"><img alt="Go to Site Search" class="imageHover" data-hover="/ImageRepository/Document?documentID=37898" data-image="/ImageRepository/Document?documentID=37899" src="/ImageRepository/Document?documentID=37899" /></a>
+
+			<label class="searchLabel" aria-hidden="true" for="searchField51ebb1eb-79da-4c36-83a0-24dd2fc75297">Search</label>
+		</div>
+
+	</section>
+
+
+<style scoped>
+	  
+		.widgetSearch ::-webkit-input-placeholder {
+		color: rgba(33, 33, 33, 1);
+	  }
+		.widgetSearch :-moz-placeholder { /* Firefox 18- */
+	   color: rgba(33, 33, 33, 1);
+	}
+		.widgetSearch ::-moz-placeholder {  /* Firefox 19+ */
+	   color: rgba(33, 33, 33, 1);
+	}
+	.widgetSearch :-ms-input-placeholder {
+	   color: rgba(33, 33, 33, 1);
+	}
+	
+
+	.widgetSearch .widgetBody .widgetSearchBox51ebb1eb-79da-4c36-83a0-24dd2fc75297
+	{
+		color: rgba(33, 33, 33, 1);
+		background: none;
+border: 0;
+height: 60px;
+padding: 0 65px 0 20px;
+font-family: Montserrat;
+font-size: 1em;
+	}
+	.widgetSearch .widgetBody .widgetSearchButton51ebb1eb-79da-4c36-83a0-24dd2fc75297
+	{
+		margin: 11px 11px 0 0;
+	}
+	.widgetSearch .widgetSearch-onlyDept51ebb1eb-79da-4c36-83a0-24dd2fc75297
+	{
+		display: inline-block;
+		color: #333;
+		
+		
+		 padding-top: 10px;
+	}
+	#ysnSearchOnlyDept51ebb1eb-79da-4c36-83a0-24dd2fc75297
+	{
+		position: relative;
+		top: .125em;
+	}
+
+</style>
+
+<link rel="stylesheet" href="/Common/Controls/jquery-ui-1.14.2/jquery-ui.min.css">
+<link rel="stylesheet" href="/Common/Controls/jquery-ui-1.14.2/jquery-ui.theme.min.css">
+
+
+
+<script type="text/javascript">
+	//Updates search icons href to have the correct queryString
+	function searchBtnApplyQuery() {
+		document.getElementById("btnSearchIcon").href = "/Search?searchPhrase=" + document.getElementById("searchField51ebb1eb-79da-4c36-83a0-24dd2fc75297").value;
+	}
+</script>
+
+</div>
+
+	</div> <!-- inner column -->
+
+	</div> <!-- inner row -->
+
+			</div><!-- outer column --><!--		--></div> <!-- outer row -->
+
+
+	</div>
+</div></div>
+</header><!-- Banner --><div data-cpRole="structuralContainer" id="bannerContainerTS" class="noOverflowTS">
+<div data-cpRole="banner" id="banner1"><div data-cpRole="structuralContainer" id="bannerSizingTS">
+<div data-cpRole="structuralContainer" id="bannerSearchTS">
+<div class="siteWrap2"><div data-cpRole="contentContainer" id="welcomeTS">	<div id="cc4a52381b-337f-404c-b075-22c575ac97b4" data-containerid="4a52381b-337f-404c-b075-22c575ac97b4" class="pageContent cpGrid cpGrid24 isLockedContainer showInMobile">
+				                
+
+		<div class="row outer wide"><!--
+--><div class="outer col col24 first last" style="" data-widgetcontainerid="170f8b74-0b07-4540-a254-e06610b9593e">				
+	<div class="row nest first last wide">
+	
+	<div class="inner col col24 first last idff28913a-67a0-4e42-b75f-2508f5d232fe" style="" data-widgetcontainerid="ff28913a-67a0-4e42-b75f-2508f5d232fe">	
+ 
+	<div data-widget-id='c79a12a7-714c-4a0b-ac9c-130386d86b06' data-moduleName="customHtml" id='widgetCustomHtmlc79a12a7-714c-4a0b-ac9c-130386d86b06' class="widget widgetCustomHtml skin17 narrow" >
+	<div class="widgetBody pageStyles" id="widgetBodyc79a12a7-714c-4a0b-ac9c-130386d86b06">
+		<div id="customHtmlc79a12a7-714c-4a0b-ac9c-130386d86b06"><div></div></div>
+	</div>
+
+	</div>
+
+	</div> <!-- inner column -->
+
+	</div> <!-- inner row -->
+
+			</div><!-- outer column --><!--		--></div> <!-- outer row -->
+
+
+	</div>
+</div></div>
+</div>
+</div>
+
+
+
+
+		<div id="bannerVideo16" class="hidden"></div>
+			<script type="text/javascript">
+				$(window).on("load", function () {
+					$.when(window.Pages.rwdSetupComplete)
+						.done(function () {
+							renderBannerVideo('bannerVideo16',
+								'banner1',
+								{"BannerVideoID":10,"BannerOptionID":16,"VideoFileName":"/ModuleFiles/BannerVideos/Untitled design (2)-20260817153632.mp4","ImageFileName":"/ImageRepository/Document?documentID=41648","IsLink":false,"LinkAddress":null,"ModifiedBy":0,"ModifiedOn":"\/Date(-62135575200000)\/","VideoFileID":"00000000-0000-0000-0000-000000000000","ImageFileID":"00000000-0000-0000-0000-000000000000","VideoWidth":2250,"VideoHeight":916,"ImageWidth":2250,"ImageHeight":916,"LinkedVideoUrl":"","RecordStatus":0,"AltText":null},
+								'<video autoplay playsinline loop muted style="width: 100%"  poster="/ImageRepository/Document?documentID=41648">		<source src="/ModuleFiles/BannerVideos/Untitled design (2)-20260817153632.mp4" />			<img src="/ImageRepository/Document?documentID=41648" alt="" style="width: 100%"/>	</video>');
+						});
+				});
+			</script>
+
+
+</div>
+</div><!-- Content container --><div data-cpRole="structuralContainer" id="mainContainerTS">
+<div class="siteWrap4"><div data-cpRole="structuralContainer" id="mainWrapTS" class="mainWrap" role="main">
+<div data-cpRole="structuralContainer" id="siteSidebarTS" class="siteSidebar">
+<aside data-cpRole="contentContainer" id="sidebarContainer1TS">	<div id="cc2ec3d194-a095-45f9-9312-ab8f84be0df2" data-containerid="2ec3d194-a095-45f9-9312-ab8f84be0df2" class="pageContent cpGrid cpGrid24 showInMobile">
+				                
+
+
+
+	</div>
+</aside><nav data-cpRole="nav" id="secondaryNav" class="siteNav secondaryNav">
+
+
+
+
+
+	<ol role="menu" id="secondaryMenusecondaryNav" data-parent="295" class="rootNavMenu accordionNav">
+	<li class="topMenuItem sideNavLi hasAccordionChildren" role="menuitem" tabindex="0" id="SideItem2083" data-pageid="2083">
+		<div class="accordionNavItem">
+			<a href="/169/Board-of-Zoning-Appeals-Zoning-BZA-Z" target="_self" class="navMainItem secondaryNavItem cpComponent" data-type="SecondaryMainItem">Board of Zoning Appeals Zoning (BZA-Z)</a>
+		</div>
+			</li>
+	<li class="topMenuItem sideNavLi hasAccordionChildren" role="menuitem" tabindex="-1" id="SideItem2082" data-pageid="2082">
+		<div class="accordionNavItem">
+			<a href="/168/Board-of-Zoning-Appeals-Site-Design-BZA-" target="_self" class="navMainItem secondaryNavItem cpComponent" data-type="SecondaryMainItem">Board of Zoning Appeals Site Design (BZA-SD)</a>
+		</div>
+			</li>
+	<li class="topMenuItem sideNavLi hasAccordionChildren" role="menuitem" tabindex="-1" id="SideItem2084" data-pageid="2084">
+		<div class="accordionNavItem">
+			<a href="/298/Technical-Review-Committee-TRC" target="_self" class="navMainItem secondaryNavItem cpComponent" data-type="SecondaryMainItem">Technical Review Committee (TRC)</a>
+		</div>
+			</li>
+	<li class="topMenuItem sideNavLi hasAccordionChildren" role="menuitem" tabindex="-1" id="SideItem1020" data-pageid="1020">
+		<div class="accordionNavItem">
+			<a href="/2228/GIS-Division" target="_self" class="navMainItem secondaryNavItem cpComponent" data-type="SecondaryMainItem">Zoning Maps</a>
+		</div>
+			</li>
+	<li class="topMenuItem sideNavLi hasAccordionChildren" role="menuitem" tabindex="-1" id="SideItem302" data-pageid="302">
+		<div class="accordionNavItem">
+			<a href="https://library.municode.com/sc/charleston/codes/zoning" target="_self" class="navMainItem secondaryNavItem cpComponent" data-type="SecondaryMainItem">Zoning Ordinance</a>
+		</div>
+			</li>
+	<li class="topMenuItem sideNavLi hasAccordionChildren" role="menuitem" tabindex="-1" id="SideItem2399" data-pageid="2399">
+		<div class="accordionNavItem">
+			<a href="/2399/Tree-Removal-Information" target="_self" class="navMainItem secondaryNavItem cpComponent" data-type="SecondaryMainItem">Tree Removal Information</a>
+		</div>
+			</li>
+	<li class="topMenuItem sideNavLi hasAccordionChildren" role="menuitem" tabindex="-1" id="SideItem2435" data-pageid="2435">
+		<div class="accordionNavItem">
+			<a href="/2435/Zoning-Verification-Letter-Request" target="_self" class="navMainItem secondaryNavItem cpComponent" data-type="SecondaryMainItem">Zoning Verification Letter Request</a>
+		</div>
+			</li>
+	<li class="topMenuItem sideNavLi hasAccordionChildren" role="menuitem" tabindex="-1" id="SideItem2499" data-pageid="2499">
+		<div class="accordionNavItem">
+			<a href="/2499/Accessory-Dwelling-Unit-ADU" target="_self" class="navMainItem secondaryNavItem cpComponent" data-type="SecondaryMainItem">Accessory Dwelling Unit (ADU)</a>
+		</div>
+			</li>
+
+	</ol>
+
+
+	<script type="text/javascript">
+		(function () {
+			function setupSecondaryMenuProperties() {
+				//setup menu manager properties for secondary menu
+				menuManager.isSideMenuEditable = false;
+				menuManager.sideMenuMaxSubMenuLevels = 4;
+				menuManager.sideMenuHasCustomLinks = true;
+			}
+
+			if (document.readyState === "loading") {
+				document.addEventListener("DOMContentLoaded", setupSecondaryMenuProperties, { once: true });
+				return;
+			}
+
+			setupSecondaryMenuProperties();
+		})();
+	</script>
+
+	<script type="text/javascript">
+		(function () {
+			function setupAccordionSecondaryNav() {
+				var $menuContainer = $('#secondaryNav');
+
+				$menuContainer.find('*[id^="SideItem"]').each(function () {
+					var ids = $('[id="' + this.id + '"]');
+					if (ids.length > 1)
+						$.each(ids, function (index, value) {
+							value.id = value.id + '_' + index;
+						});
+				});
+
+				$menuContainer.find('.hasAccordionChildren .openAccordionNav').off('click.secondaryNav').on('click.secondaryNav', function (e) {
+					e.preventDefault();
+					showHideAccordionMenuForSecondaryNav($(this));
+				});
+
+				$menuContainer.find(".grippy").each(function () {
+					menuManager.setupDraggableElement($(this), SIDE_MENU, '#secondaryNav');
+				});
+
+				$menuContainer.find("li").each(function () {
+					menuManager.setupDroppableAccordionElement($(this), SIDE_MENU);
+				});
+			}
+
+			if (document.readyState === "loading") {
+				document.addEventListener("DOMContentLoaded", setupAccordionSecondaryNav, { once: true });
+				return;
+			}
+
+			setupAccordionSecondaryNav();
+		})();
+	</script>
+
+
+
+</nav><aside data-cpRole="contentContainer" id="sidebarContainer2TS">	<div id="cc5b11d4e7-c9b0-42ea-adb6-7a1b1041f04e" data-containerid="5b11d4e7-c9b0-42ea-adb6-7a1b1041f04e" class="pageContent cpGrid cpGrid24 showInMobile">
+				                
+
+
+
+	</div>
+</aside>
+</div><div data-cpRole="structuralContainer" id="outerContentWrapTS" class="outerContentWrap">
+<div data-cpRole="structuralContainer" id="contentWrapTS" class="contentWrap">
+<div data-cpRole="breadCrumbs" id="breadCrumbs" class="breadCrumbContainer">		<ol class="semanticList breadCrumbs">
+			<li><a class="breadCrumb" href="/3284/Home">Home</a></li><li><a class="breadCrumb" href="/2141/Departments">Departments</a></li><li><a class="breadCrumb" href="/2940/Planning-Permitting-Engineering">Planning, Permitting, & Engineering</a></li><li><a class="breadCrumb" href="/272/Planning-Preservation-Sustainability">Planning, Preservation & Sustainability</a></li><li><a class="breadCrumb" href="/741/Divisions">Divisions</a></li><li id="currentBCPage" data-pageid="295"><a href class="breadCrumb" aria-current="page">Zoning</a></li>
+		</ol>
+
+	   
+    
+</div><div data-cpRole="mainContentContainer" id="moduleContent">
+	
+	<div id="page" class="moduleContentNew">
+		
+
+	<input id="hdnPageID" name="hdnPageID" type="hidden" value="295" />
+	<input id="hdnParentID" name="hdnParentID" type="hidden" value="741" />
+	<input id="hdnVersionID" name="hdnVersionID" type="hidden" value="35583" />
+	<input id="pageMenuTitle" name="pageMenuTitle" type="hidden" value="Zoning" />
+	<input id="pageShowFeatureColumn" name="pageShowFeatureColumn" type="hidden" value="True" />
+	<input id="hdnIsLayoutPage" name="hdnIsLayoutPage" type="hidden" value="False" />
+	<input id="hdnPageStatus" name="hdnPageStatus" type="hidden" value="Published" />
+
+				<h1 id="versionHeadLine" class="headline">
+
+Zoning		</h1>
+	
+		<div id="ccfc5b8721-3a90-4815-b9f7-8a923bba24bb" data-containerid="fc5b8721-3a90-4815-b9f7-8a923bba24bb" class="pageContent cpGrid cpGrid24"  data-contentcontainerbreakpoint="30" >
+			
+
+		<div class="row outer wide"><!--
+--><div class="outer col col24 first last" style="" data-widgetcontainerid="1d8d29ef-e340-4fed-bde6-21ebb6594e8e">				
+	<div class="row nest first last wide">
+	
+	<div class="inner col col24 first last id2c7a0d12-e27f-4980-82f4-3302cf30ddd3" style="" data-widgetcontainerid="2c7a0d12-e27f-4980-82f4-3302cf30ddd3">	
+<div class="widget editor pageStyles narrow" id="divEditor36302eed-9288-444e-a52b-05a986032781" data-elementqueryclasses='{"wide-narrow":"min-width:25em"}'>
+	    <div class="fr-view">
+
+
+        <h2 class="subhead1 ">Zoning Division Overview</h2><p>The Zoning Division administers the City&rsquo;s &nbsp;zoning and subdivision regulations. &nbsp;Zoning regulations address a wide range of issues including:</p><ul><li>How property is used, for example the type of commercial use, the number of dwelling units allowed, etc.</li><li>Allowed hours of business use</li><li>Affordable housing</li><li>Building heights and the location of buildings relative to property lines</li><li>Preservation of trees and landscaping requirements. &nbsp;To request a tree removal inspection <a href="/FormCenter/PPS-6/TREE-REMOVAL-REQUEST-90" rel="noopener noreferrer" target="_blank">click here.</a> &nbsp;</li><li>Parking</li><li>Signs</li><li>Size and height</li><li>Subdivision of property and construction of new roads</li><li>Other related matters</li></ul><h2 class="subhead1 ">Zoning Ordinance</h2><p>The City&rsquo;s zoning ordinance is available online by clicking <a aria-label="here Opens in new window" href="https://library.municode.com/sc/charleston/codes/zoning?nodeId=ZOORCHSOCA" rel="noopener noreferrer" target="_blank">here</a>. &nbsp;Originally adopted in 1931, the zoning ordinance has grown in its scope and complexity and continues to be amended to respond to various development and land use issues. &nbsp; Currently, the zoning ordinance consists of:</p><ul><li>48 Base zoning districts</li><li>14 Overlay zoning districts</li><li>22 Old City height districts</li><li>4 Neighborhood Districts</li><li>More than 70 Planned Unit Developments and Neighborhood Districts.</li><li>Preservation and design districts which are administered by the <a aria-label="Preservation Division Opens in new window" href="https://www.charleston-sc.gov/292/Preservation" rel="noopener" target="_blank">Preservation &amp; Urban Design Division</a></li></ul><h2 class="subhead1 ">Boards of Zoning Appeals</h2><p>The Zoning Division administers two Boards of Zoning Appeals:&nbsp;</p><ul><li>The <a href="https://www.charleston-sc.gov/2082/Board-of-Zoning-Appeals-Site-Design-BZA-" rel="noopener noreferrer" target="_blank" aria-label="Board of Zoning Appeals - Site Design Opens in new window">Board of Zoning Appeals - Site Design</a> (BZA-SD), &nbsp;which addresses tree protection, landscaping and other related zoning regulations.</li><li>The <a aria-label="Board of Zoning Appeals - Zoning Opens in new window" href="https://www.charleston-sc.gov/2083/Board-of-Zoning-Appeals-Zoning-BZA-Z" rel="noopener noreferrer" target="_blank">Board of Zoning Appeals - Zoning</a> (BZA-Z), which addresses all other zoning regulations.</li></ul><h2 class="subhead1 ">Other Committees</h2><p>The Zoning Division also administers the City&rsquo;s <a class="Hyperlink" href="/298" rel="noopener noreferrer" target="_blank">Technical Review Committee</a> and coordinates the review and approval process for major subdivisions through the <a aria-label="Planning Commission Opens in new window" class="Hyperlink" href="/173" rel="noopener noreferrer" target="_blank">Planning Commission</a>. &nbsp;Minor subdivisions involving the creation of no more than four lots, property line adjustments and abandonments are reviewed by the <a aria-label="Plat Review Committee Opens in new window" class="Hyperlink" href="/862" rel="noopener noreferrer" target="_blank">Plat Review Committee</a>.</p><h2 class="subhead1 ">Violations</h2><p>Violations are enforced through the City&rsquo;s Livability Court. To file a complaint or notify us of a possible violation, send us an email, use <a href="https://www.charleston-sc.gov/879/Citizen-Support-Center" rel="noopener noreferrer" target="_blank">this form</a> or call 843-724-3765.</p><h2 class="subhead1 ">Permit Center</h2><p>The Permit Center handles things such as issuing permits and business licensing, Board of Architectural Review, Zoning review and Building Inspections and code review. The Permit Center is open Monday through Friday (Except for City Observed Holidays). &nbsp;<a href="https://www.charleston-sc.gov/856/Permit-Center" target="_blank" rel="noopener">Visit the Permit Center webpage for more info.</a></p><h2 class="subhead1 ">Common Requests</h2><p>Common requests handled by the Zoning Division:</p><ul><li><a class="Hyperlink" href="/DocumentCenter/View/230" rel="noopener noreferrer" target="_blank" title="How To Create A Site Plan" aria-label="How To Create A Site Plan (PDF) Opens in new window">How To Create A Site Plan (PDF)</a></li><li><a class="Hyperlink" href="http://gis.charleston-sc.gov/" rel="noopener noreferrer" target="_blank" title="Online Interactive Zoning Maps" aria-label="Online Interactive Zoning Maps Opens in new window">Online Interactive Zoning Maps</a></li><li><a class="Hyperlink" href="/DocumentCenter/View/217" rel="noopener noreferrer" target="_blank" title="Property Line Abandonment, Adjustment, and Resurvey Application" aria-label="Property Line Aband, Adjust, Resurvey Application (PDF) Opens in new window">Property Line Aband, Adjust, Resurvey Application (PDF)</a></li><li><a class="Hyperlink" href="/DocumentCenter/Index/203" rel="noopener noreferrer" target="_blank" title="Sidewalk Cafe Forms and Application">Sidewalk Caf&eacute; Forms and Applications (PDF)</a></li><li><a class="Hyperlink" href="/DocumentCenter/View/1323" rel="noopener noreferrer" target="_blank" title="Sign Approval Application">Sign Approval Application (PDF)</a></li><li><a class="Hyperlink" href="/DocumentCenter/View/17219" rel="noopener noreferrer" target="_blank" aria-label="Subdivision Application (PDF) Opens in new window">Subdivision Application (PDF)</a></li><li><a href="/FormCenter/PPS-6/TREE-REMOVAL-REQUEST-90" rel="noopener noreferrer" target="_blank" aria-label="Tree Removal Request Opens in new window">Tree Removal Request</a></li><li><a href="/FormCenter/PPS-6/ZONING-VERIFICATION-LETTER-REQUEST-97" rel="noopener noreferrer" target="_blank" aria-label="Zoning Verification Letter request Opens in new window">Zoning Verification Letter request</a></li></ul><h2 class="subhead1 ">Related Documents</h2><p>Access other <a href="/DocumentCenter/Index/203">related documents</a>. <a class="Hyperlink" href="/DocumentCenter/Index/203" target="_blank"></a></p>
+    </div>
+
+<script type="text/javascript">
+	$(document).ready(function (e) {		
+	    renderSlideshowIfApplicable($('#divEditor' + '36302eed-9288-444e-a52b-05a986032781'));
+	});
+</script>
+</div>
+
+	</div> <!-- inner column -->
+
+	</div> <!-- inner row -->
+
+			</div><!-- outer column --><!--		--></div> <!-- outer row -->
+
+
+		</div>
+
+	</div>
+
+	
+	<div class="newCP">
+
+	</div>
+</div>
+</div><aside data-cpRole="contentContainer" id="featureColumn" class="secondaryContent">	<div id="cc7ef87025-1282-43af-958d-959cf93d489f" data-containerid="7ef87025-1282-43af-958d-959cf93d489f" class="pageContent cpGrid cpGrid24 showInMobile">
+				                
+
+		<div class="row outer wide"><!--
+--><div class="outer col col24 first last" style="" data-widgetcontainerid="df46dbca-8640-4c9a-8597-482007c404a2">				
+	<div class="row nest first last wide">
+	
+	<div class="inner col col24 first last id9ada8b26-1a79-4490-bc3d-dfad2135508b" style="" data-widgetcontainerid="9ada8b26-1a79-4490-bc3d-dfad2135508b">	
+
+
+
+
+
+
+
+
+<div data-widget-id="34c55dbd-eb04-4b63-ac26-2cc9bcbcb43a" data-moduleWidgetType="cityDirectory" data-widget-controller-path="/CityDirectory/Widget">
+	<div id="cityDirectoryWidget34c55dbd-eb04-4b63-ac26-2cc9bcbcb43a" class="widget widgetStaffDirectory skin18 wide" >
+			<div class="widgetHeader">
+					<h3><a style="" href= /m/directory>Contact Us</a></h3>
+							</div>
+						<ol class="semanticList">
+		<li class="widgetItem h-card">
+
+				<h4 class="widgetTitle field p-name">Planning &amp; Preservation </h4>
+
+
+
+				<div class="field h-adr">
+					<strong>Physical Address</strong>
+<button class="viewMap" data-moduleId="4" onclick="new CivicPlus.Maps().LoadMap(document.getElementById('googleMap13'), '100%', $(document.getElementById('googleMap13')).next('.infotext').children('.address').text());">View Map</button>					<br />
+					<span class="p-street-address">2 George Street</span><br />
+						<span class="p-street-address">Suite 3100</span><br />
+					<span class="locality">Charleston</span>, <span class="p-region">SC</span> <span class="p-postal-code">29401</span>
+
+				</div>
+				<br />
+
+					<script type="text/javascript">
+							$(document).ready(function () {
+								var mode = 2;
+								loadGoogleMapsScript(mode, 'loadMaps');
+							});
+					</script>
+					<div class="field">
+						<br>
+						<div class="mapWrapLazyLoaded">
+							<div id="googleMap13" class="googleMap" style=""></div>
+							<div style="display: none" class="infotext">
+								<div class="address">2 George Street Suite 3100 Charleston SC 29401</div>
+							</div>
+						</div>
+						<a href="https://www.google.com/maps/place/2+George+Street+Suite+3100+Charleston+SC+29401" class="mapLink" title="Open location on Google Maps">Directions</a>
+					</div>
+					<br />
+
+
+				<div class="field p-tel">Phone <a href="tel:8437243765">843-724-3765</a></div>
+													<br />
+
+
+				<div class="field"><a href="/m/directory/department?did=13">Directory</a></div>
+				<br />
+
+		</li>
+									</ol>
+	</div>
+</div>
+	</div> <!-- inner column -->
+
+	</div> <!-- inner row -->
+
+			</div><!-- outer column --><!--		--></div> <!-- outer row -->
+
+
+	</div>
+</aside>
+</div>
+</div></div>
+</div><!-- GBs --><div data-cpRole="structuralContainer" id="gbsContainerTS">
+<div class="siteWrap2"><div data-cpRole="contentContainer" id="gbsTS">	<div id="cc60f40958-3385-4bb1-89bd-61e1c752cd8d" data-containerid="60f40958-3385-4bb1-89bd-61e1c752cd8d" class="pageContent cpGrid cpGrid24 isLockedContainer showInMobile" data-contentcontainerbreakpoint="44">
+				                
+
+
+
+	</div>
+</div></div>
+</div><!-- Footer --><footer data-cpRole="structuralContainer" id="footerContainerTS">
+<div class="siteWrap2"><div data-cpRole="contentContainer" id="footerTS">	<div id="cc0b12a90f-91f6-470d-917b-bfdde0847655" data-containerid="0b12a90f-91f6-470d-917b-bfdde0847655" class="pageContent cpGrid cpGrid24 isLockedContainer showInMobile" data-contentcontainerbreakpoint="55">
+				                
+
+		<div class="row outer wide"><!--
+--><div class="outer col col24 first last" style="" data-widgetcontainerid="41ea1be6-fd71-4630-9ffe-928bd5daf504">				
+	<div class="row nest first last wide">
+	
+	<div class="inner col col24 first last idc7ee2bc4-00d1-4de8-a413-d1525bd8c506" style="" data-widgetcontainerid="c7ee2bc4-00d1-4de8-a413-d1525bd8c506">	
+ 
+	<div data-widget-id='dcf3da51-50d7-49e7-aa2b-cd7eeeaa5236' data-moduleName="customHtml" id='widgetCustomHtmldcf3da51-50d7-49e7-aa2b-cd7eeeaa5236' class="widget widgetCustomHtml skin21 narrow" >
+	<div class="widgetBody pageStyles" id="widgetBodydcf3da51-50d7-49e7-aa2b-cd7eeeaa5236">
+		<div id="customHtmldcf3da51-50d7-49e7-aa2b-cd7eeeaa5236"><div><footer id="chsFooter" class="chs-footer" role="contentinfo" aria-label="Site footer">
+<style>
+#poweredByContainerTS{display:none!important;visibility:hidden!important;height:0!important;min-height:0!important;max-height:0!important;padding:0!important;padding-bottom:0!important;margin:0!important;border:0!important;overflow:hidden!important;line-height:0!important;font-size:0!important;z-index:0!important}
+#poweredByContainerTS *{display:none!important;height:0!important;padding:0!important;margin:0!important}
+@media (max-width:40em){#poweredByContainerTS{padding-bottom:0!important;height:0!important}}
+
+#chsFooter{--charleston:#2A3A39;--charleston-deep:#1C2A29;--midnight:#141F1E;--harbor:#658CB0;--harbor-light:#8FAECB;--palmetto:#516C3A;--oyster:#DFDAD7;--oyster-dim:#AEB6B5;--glow:#F4EFE7;--ease:cubic-bezier(.22,1,.36,1);box-sizing:border-box!important;position:relative!important;overflow:hidden!important;font-family:"Montserrat","Segoe UI",sans-serif!important;background:radial-gradient(120% 120% at 85% 0%,#22322F 0%,#141F1E 55%) #141F1E!important;color:var(--oyster)!important;line-height:1.6!important}
+#chsFooter *{box-sizing:border-box!important}
+#chsFooter a{color:var(--oyster)!important;text-decoration:none!important}
+#chsFooter :focus-visible{outline:3px solid var(--harbor)!important;outline-offset:3px!important;border-radius:4px!important}
+#chsFooter .chsF-topline{height:4px!important;width:100%!important;background:linear-gradient(90deg,var(--harbor) 0%,var(--palmetto) 50%,var(--harbor) 100%)!important}
+#chsFooter .chsF-glow{position:absolute!important;top:-8rem!important;right:-6rem!important;width:32rem!important;max-width:70vw!important;aspect-ratio:1!important;border-radius:50%!important;background:radial-gradient(circle,rgba(101,140,176,.22),rgba(101,140,176,0) 62%)!important;pointer-events:none!important;will-change:transform!important;animation:chsFdrift 50s ease-in-out infinite!important}
+@keyframes chsFdrift{
+  0%{transform:translate3d(0,0,0) scale(1)}
+  25%{transform:translate3d(-30vw,14rem,0) scale(1.12)}
+  50%{transform:translate3d(-62vw,5rem,0) scale(.95)}
+  75%{transform:translate3d(-34vw,22rem,0) scale(1.08)}
+  100%{transform:translate3d(0,0,0) scale(1)}
+}
+#chsFooter .chsF-in{position:relative!important;z-index:1!important;width:min(78rem,100% - clamp(2.5rem,8vw,6rem))!important;margin:0 auto!important}
+
+#chsFooter .chsF-main{display:grid!important;grid-template-columns:1fr!important;gap:clamp(2rem,4vw,3rem)!important;padding:clamp(3rem,6vw,4.5rem) 0 clamp(2.25rem,4.5vw,3rem)!important}
+#chsFooter .chsF-brand .chsF-lock{display:flex!important;flex-direction:column!important;line-height:1!important;color:#fff!important}
+#chsFooter .chsF-brand .chsF-top{font-weight:600!important;font-size:.66rem!important;letter-spacing:.42em!important;text-transform:uppercase!important;margin-bottom:.3rem!important}
+#chsFooter .chsF-brand .chsF-name{font-weight:800!important;font-size:1.6rem!important;letter-spacing:.06em!important;text-transform:uppercase!important}
+#chsFooter .chsF-brand .chsF-name span{font-weight:400!important;letter-spacing:.1em!important}
+#chsFooter .chsF-motto{font-family:"Crimson Text",Georgia,serif!important;font-style:italic!important;font-size:1.15rem!important;color:var(--oyster)!important;margin:1.1rem 0 0!important;max-width:26ch!important}
+#chsFooter .chsF-motto small{display:block!important;font-style:normal!important;font-family:"Montserrat",sans-serif!important;font-size:.7rem!important;letter-spacing:.16em!important;text-transform:uppercase!important;color:var(--oyster-dim)!important;margin-top:.5rem!important}
+#chsFooter address.chsF-addr{font-style:normal!important;margin:1.25rem 0 0!important;font-size:.95rem!important;line-height:1.9!important;color:var(--oyster)!important}
+#chsFooter address.chsF-addr strong{display:block!important;color:#fff!important;font-weight:700!important;font-size:.72rem!important;text-transform:uppercase!important;letter-spacing:.14em!important;margin-bottom:.2rem!important}
+#chsFooter address.chsF-addr a:hover{color:#fff!important;text-decoration:underline!important;text-underline-offset:3px!important}
+
+#chsFooter .chsF-strip{position:relative!important;z-index:1!important;width:100%!important;background:linear-gradient(90deg,rgba(101,140,176,.20) 0%,rgba(101,140,176,.09) 45%,rgba(81,108,58,.14) 100%)!important}
+#chsFooter .chsF-strip-in{width:min(78rem,100% - clamp(2.5rem,8vw,6rem))!important;margin:0 auto!important;display:flex!important;flex-wrap:wrap!important;align-items:center!important;justify-content:space-between!important;gap:.75rem 1.5rem!important;padding:.55rem 0!important}
+#chsFooter .chsF-social{display:flex!important;gap:.6rem!important;margin:0!important;padding:0!important;list-style:none!important}
+#chsFooter .chsF-social a{display:grid!important;place-items:center!important;width:2.2rem!important;height:2.2rem!important;border-radius:50%!important;border:1px solid rgba(223,218,215,.3)!important;color:var(--oyster)!important;transition:background .25s,color .25s,border-color .25s,transform .25s var(--ease)!important}
+#chsFooter .chsF-social a:hover{background:var(--oyster)!important;color:var(--midnight)!important;border-color:var(--oyster)!important;transform:translateY(-2px)!important}
+
+#chsFooter .chsF-wx{display:none!important}
+#chsFooter .chsF-wx.is-ready{display:flex!important;align-items:center!important;flex-wrap:wrap!important;gap:.3rem .7rem!important}
+#chsFooter .chsF-wx-ico{flex:0 0 auto!important;width:1.7rem!important;height:1.7rem!important;color:#fff!important}
+#chsFooter .chsF-wx-ico svg{width:100%!important;height:100%!important;display:block!important;overflow:visible!important}
+#chsFooter .chsF-wx-rays{transform-origin:center!important;transform-box:fill-box!important;animation:chsFspin 26s linear infinite!important}
+@keyframes chsFspin{to{transform:rotate(360deg)}}
+#chsFooter .chsF-wx-temp{font-size:1.15rem!important;font-weight:800!important;color:#fff!important;line-height:1!important}
+#chsFooter .chsF-wx-cond{font-size:.88rem!important;font-weight:600!important;color:#fff!important}
+#chsFooter .chsF-wx-sep{width:1px!important;height:1.1rem!important;background:rgba(223,218,215,.28)!important}
+#chsFooter .chsF-wx-meta{font-size:.68rem!important;font-weight:600!important;letter-spacing:.15em!important;text-transform:uppercase!important;color:var(--harbor-light)!important}
+
+#chsFooter .chsF-cols{display:grid!important;grid-template-columns:repeat(2,1fr)!important;gap:2rem 1.5rem!important}
+#chsFooter .chsF-col h3{margin:0 0 1rem!important;font-weight:700!important;font-size:.72rem!important;text-transform:uppercase!important;letter-spacing:.18em!important;color:var(--harbor-light)!important}
+#chsFooter .chsF-col ul{list-style:none!important;margin:0!important;padding:0!important;display:grid!important;gap:.65rem!important}
+#chsFooter .chsF-col a{font-size:.92rem!important;color:var(--oyster)!important;display:inline-block!important;transition:color .2s,transform .2s var(--ease)!important}
+#chsFooter .chsF-col a:hover{color:#fff!important;transform:translateX(3px)!important}
+
+#chsFooter .chsF-bottom{padding:1.5rem 0 2rem!important}
+#chsFooter .chsF-bottom-in{display:flex!important;flex-wrap:wrap!important;gap:1rem 2rem!important;align-items:center!important;justify-content:space-between!important}
+#chsFooter .chsF-legal{display:flex!important;flex-wrap:wrap!important;gap:.5rem 1.5rem!important;list-style:none!important;margin:0!important;padding:0!important;font-size:.82rem!important}
+#chsFooter .chsF-legal a:hover{color:#fff!important;text-decoration:underline!important;text-underline-offset:3px!important}
+#chsFooter .chsF-copy{margin:0!important;font-family:"Crimson Text",Georgia,serif!important;font-style:italic!important;color:var(--oyster-dim)!important;font-size:.9rem!important}
+#chsFooter .chsF-sr{position:absolute!important;width:1px!important;height:1px!important;overflow:hidden!important;clip:rect(0 0 0 0)!important;white-space:nowrap!important}
+
+@media (max-width:679px){
+  #chsFooter .chsF-strip-in{justify-content:flex-start!important;padding:.75rem 0!important}
+  #chsFooter .chsF-wx-sep{display:none!important}
+}
+@media (min-width:680px){
+  #chsFooter .chsF-cols{grid-template-columns:repeat(4,1fr)!important}
+}
+@media (min-width:1000px){
+  #chsFooter .chsF-main{grid-template-columns:1.5fr 2.5fr!important;gap:clamp(3rem,5vw,5rem)!important}
+}
+@media (prefers-reduced-motion:reduce){#chsFooter *{transition:none!important}#chsFooter .chsF-wx-rays{animation:none!important}#chsFooter .chsF-glow{animation:none!important}}
+</style>
+
+  <div class="chsF-topline"></div>
+  <div class="chsF-glow"></div>
+
+  <div class="chsF-in">
+    <div class="chsF-main">
+      <div class="chsF-brand">
+        <span class="chsF-lock" aria-hidden="true">
+          <span class="chsF-top">City of</span>
+          <span class="chsF-name">Charleston<span>SC</span></span>
+        </span>
+        <p class="chsF-motto">She guards her buildings, customs, and laws.<small>Aedes Mores Juraque Curat</small></p>
+        <address class="chsF-addr">
+          <strong>Citizen Services Desk</strong>
+          <a href="tel:+18437247311">843.724.7311</a> &middot; <a href="mailto:citizenservices@charleston-sc.gov">citizenservices@charleston-sc.gov</a>
+        </address>
+      </div>
+
+      <nav class="chsF-cols" aria-label="Footer links">
+        <div class="chsF-col">
+          <h3>Residents</h3>
+          <ul>
+            <li><a href="https://parkcharleston-sc.com/">Pay Parking Ticket</a></li>
+            <li><a href="https://crm-charlestonsc.govqa.us/WEBAPP/_rs/RequestOpen.aspx?rqst=1">Report an Issue</a></li>
+            <li><a href="https://www.charleston-sc.gov/357/Recreation">Recreation</a></li>
+            <li><a href="https://crm-charlestonsc.govqa.us/WEBAPP/_rs/RequestOpen.aspx?rqst=78">Request a Trash Can</a></li>
+            <li><a href="https://www.charleston-sc.gov/2855/CHS-Trashtracker">Check Trash Schedule</a></li>
+          </ul>
+        </div>
+        <div class="chsF-col">
+          <h3>Business</h3>
+          <ul>
+            <li><a href="https://www.charleston-sc.gov/134/Business-License-Information">Apply for a Business License</a></li>
+            <li><a href="https://www.charleston-sc.gov/856/Permit-Center">Permit Center</a></li>
+            <li><a href="https://www.charleston-sc.gov/295/Zoning">Zoning</a></li>
+            <li><a href="https://www.charleston-sc.gov/131/BIDLINE">BidLink</a></li>
+            <li><a href="https://www.charleston-sc.gov/2894/Small-Business-Enterprise-Office">Small Business Enterprise</a></li>
+          </ul>
+        </div>
+        <div class="chsF-col">
+          <h3>Visitors</h3>
+          <ul>
+            <li><a href="https://www.charleston-sc.gov/161/Visitor-Center">Visitor Center</a></li>
+            <li><a href="https://www.charleston-sc.gov/644/Golf">Municipal Golf Course</a></li>
+            <li><a href="https://www.charleston-sc.gov/1025/Where-to-Park">Parking</a></li>
+            <li><a href="https://www.charleston-sc.gov/calendar.aspx?CID=14,24,38,31">City Calendar</a></li>
+            <li><a href="https://www.charleston-sc.gov/calendar.aspx?CID=14,24,38,31">Events</a></li>
+          </ul>
+        </div>
+        <div class="chsF-col">
+          <h3>Government</h3>
+          <ul>
+            <li><a href="https://www.charleston-sc.gov/400/Mayor">Mayor &amp; Council</a></li>
+            <li><a href="https://www.charleston-sc.gov/3437/47782/Departments">Departments</a></li>
+            <li><a href="https://www.charleston-sc.gov/AgendaCenter">Agendas &amp; Minutes</a></li>
+            <li><a href="https://www.charleston-sc.gov/jobs.aspx">Jobs</a></li>
+            <li><a href="https://www.charleston-sc.gov/m/newsflash?cat=1">News</a></li>
+          </ul>
+        </div>
+      </nav>
+    </div>
+  </div>
+
+  <div class="chsF-strip">
+    <div class="chsF-strip-in">
+      <ul class="chsF-social">
+        <li><a href="https://www.facebook.com/CityCharleston" aria-label="Facebook"><svg width="16" height="16" viewbox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M14 9h3l-.5 3H14v9h-3.5v-9H8V9h2.5V7.2C10.5 4.9 11.9 3 14.6 3H17v3h-1.8c-.9 0-1.2.4-1.2 1.2V9z"></path></svg></a></li>
+        <li><a href="https://twitter.com/CityCharleston" aria-label="X(Twitter)"><svg width="14" height="14" viewbox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.7 3H21l-7.3 8.3L22 21h-6.6l-5.1-6.2L4.4 21H1l7.8-8.9L2 3h6.7l4.6 5.7L17.7 3zm-1.2 16h1.9L7.1 4.9H5.1L16.5 19z"></path></svg></a></li>
+        <li><a href="https://www.instagram.com/citycharlestonsc" aria-label="Instagram"><svg width="16" height="16" viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"></rect><circle cx="12" cy="12" r="4"></circle><circle cx="17.2" cy="6.8" r="1.1" fill="currentColor" stroke="none"></circle></svg></a></li>
+        <li><a href="https://www.youtube.com/@CityofCharlestonSCgov" aria-label="YouTube"><svg width="17" height="17" viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" aria-hidden="true"><rect x="2.5" y="5.5" width="19" height="13" rx="4"></rect><path d="M10 9.5v5l4.5-2.5L10 9.5z" fill="currentColor" stroke="none"></path></svg></a></li>
+      </ul>
+
+      <!----------Google Translate (Mobile & ADA Friendly)--------->
+      <style>
+      #chsFooter #google-translate-container{padding:0!important;display:flex!important;align-items:center!important;gap:.6rem!important}
+      #chsFooter .chsF-trBtn{-webkit-appearance:none!important;appearance:none!important;background:transparent!important;border:0!important;margin:0!important;padding:0!important;min-width:12rem!important;height:2.2rem!important;display:inline-flex!important;align-items:center!important;justify-content:flex-end!important;overflow:hidden!important;cursor:pointer!important;font-family:"Montserrat","Segoe UI",sans-serif!important;font-size:.82rem!important;font-weight:600!important;letter-spacing:.02em!important;color:#AEB6B5!important;transition:color .25s!important}
+      #chsFooter .chsF-trBtn:hover{color:#fff!important}
+      #chsFooter .chsF-trWord{display:inline-block!important;white-space:nowrap!important;transition:opacity .35s cubic-bezier(.22,1,.36,1),transform .35s cubic-bezier(.22,1,.36,1)!important}
+      #chsFooter .chsF-trWord.is-out{opacity:0!important;transform:translateY(-8px)!important}
+      #chsFooter .chsF-trWord.is-in{opacity:0!important;transform:translateY(8px)!important;transition:none!important}
+      @media (prefers-reduced-motion:reduce){#chsFooter .chsF-trBtn{display:none!important}}
+      @media (max-width:679px){#chsFooter .chsF-trBtn{min-width:0!important;justify-content:flex-start!important}}
+      #chsFooter #google_translate_element{line-height:0!important}
+      #chsFooter .goog-te-gadget{font-size:0!important;line-height:0!important;color:transparent!important}
+      #chsFooter .goog-te-gadget>span,#chsFooter .goog-logo-link,#chsFooter .goog-te-gadget img{display:none!important}
+      #chsFooter .goog-te-combo{-webkit-appearance:none!important;-moz-appearance:none!important;appearance:none!important;font-family:"Montserrat","Segoe UI",sans-serif!important;font-size:.82rem!important;font-weight:600!important;letter-spacing:.02em!important;color:#DFDAD7!important;background-color:rgba(20,31,30,.55)!important;border:1px solid rgba(223,218,215,.3)!important;border-radius:999px!important;height:2.2rem!important;margin:0!important;padding:0 2.1rem 0 1rem!important;cursor:pointer!important;text-indent:0!important;vertical-align:middle!important;background-image:url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6' viewBox='0 0 10 6'%3E%3Cpath d='M1 1l4 4 4-4' fill='none' stroke='%23DFDAD7' stroke-width='1.6' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E")!important;background-repeat:no-repeat!important;background-position:right .9rem center!important;background-size:10px 6px!important;transition:background-color .25s,border-color .25s!important}
+      #chsFooter .goog-te-combo:hover{background-color:rgba(223,218,215,.12)!important;border-color:rgba(223,218,215,.5)!important}
+      #chsFooter .goog-te-combo:focus-visible{outline:3px solid #658CB0!important;outline-offset:3px!important}
+      #chsFooter .goog-te-combo option{background:#141F1E!important;color:#DFDAD7!important;font-size:14px!important}
+      #launcher-wrapper {bottom: 50px !important;}
+      </style>
+      <div id="google-translate-container">
+      <button type="button" class="chsF-trBtn" id="chsTrBtn" aria-label="Translate this page"><span class="chsF-trWord" id="chsTrWord" aria-hidden="true">Traducir al español</span></button>
+      <div id="google_translate_element"></div>
+      </div>
+      <script>
+      function googleTranslateElementInit() {
+      new google.translate.TranslateElement({ pageLanguage: "en" }, "google_translate_element");
+      // begin accessibility compliance
+      $('img.goog-te-gadget-icon').attr('alt','Google Translate');
+      $('div#goog-gt-tt div.logo img').attr('alt','translate');
+      $('div#goog-gt-tt .original-text').css('text-align','left');
+      $('.goog-te-gadget-simple .goog-te-menu-value span').css('color','#000000');
+      $('.goog-te-combo').attr('aria-label','google translate languages');
+      $('svg.goog-te-spinner').attr('title','Google Translate Spinner');
+      $('.goog-te-gadget-simple .goog-te-menu-value span').css('color','#000000');
+      }
+      $(function() {
+      $.getScript("//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit");
+      });
+      </script>
+      <script>
+      (function(){
+        var btn=document.getElementById("chsTrBtn");
+        var word=document.getElementById("chsTrWord");
+        if(!btn||!word)return;
+        if(window.matchMedia&&window.matchMedia("(prefers-reduced-motion: reduce)").matches)return;
+        var L=[
+          ["es","Traducir al español"],
+          ["fr","Traduire cette page"],
+          ["de","Diese Seite übersetzen"],
+          ["zh-CN","翻译此页面"],
+          ["vi","Dịch trang này"],
+          ["tl","Isalin ang pahinang ito"],
+          ["pt","Traduzir esta página"],
+          ["ht","Tradui paj sa a"]
+        ];
+        var i=0,timer=null;
+        function show(n){
+          word.classList.add("is-out");
+          setTimeout(function(){
+            i=n%L.length;
+            word.textContent=L[i][1];
+            word.classList.remove("is-out");
+            word.classList.add("is-in");
+            requestAnimationFrame(function(){requestAnimationFrame(function(){word.classList.remove("is-in");});});
+          },360);
+        }
+        function tick(){
+          clearTimeout(timer);
+          timer=setTimeout(function(){show(i+1);tick();},2600);
+        }
+        word.textContent=L[0][1];
+        tick();
+        btn.addEventListener("click",function(){
+          var c=document.querySelector("#chsFooter .goog-te-combo");
+          if(!c)return;
+          c.value=L[i][0];
+          var ev;
+          try{ev=new Event("change",{bubbles:true});}
+          catch(e){ev=document.createEvent("HTMLEvents");ev.initEvent("change",true,true);}
+          c.dispatchEvent(ev);
+        });
+        document.addEventListener("visibilitychange",function(){
+          if(document.hidden){clearTimeout(timer);}else{tick();}
+        });
+      })();
+      </script>
+      <!--------------End Google Translate----------------->
+      <div class="chsF-wx" id="chsWx" aria-live="polite">
+        <span class="chsF-wx-ico" id="chsWxIco" aria-hidden="true"></span>
+        <span class="chsF-wx-temp" id="chsWxTemp"></span>
+        <span class="chsF-wx-cond" id="chsWxCond"></span>
+        <span class="chsF-wx-sep" aria-hidden="true"></span>
+        <span class="chsF-wx-meta" id="chsWxMeta"></span>
+      </div>
+    </div>
+  </div>
+
+  <div class="chsF-in">
+    <div class="chsF-bottom">
+      <div class="chsF-bottom-in">
+        <ul class="chsF-legal">
+          <li><a href="https://www.charleston-sc.gov/FormCenter/ADA-Grievance-Form-11/City-Of-Charleston-ADA-Grievance-Form-50">Disability Accessibility Grievance Form</a></li>
+          <li><a href="https://www.charleston-sc.gov/site/copyright">Copyright Notices</a></li>
+          <li><a href="https://www.charleston-sc.gov/2446/Title-VI">Title VI</a></li>
+          <li><a href="https://www.charleston-sc.gov/801/Freedom-of-Information-Act-Request-FOIA">FOIA</a></li>
+          <li><a href="https://www.charleston-sc.gov/MyAccount">Website Login</a></li>
+        </ul>
+        <p class="chsF-copy">Carolopolis &middot; Condita A.D. 1670 &middot; &copy; 2026 City of Charleston, SC</p>
+      </div>
+    </div>
+  </div>
+
+<script>
+(function(){
+  function zap(){
+    var p=document.getElementById("poweredByContainerTS");
+    if(!p)return;
+    var s=p.style;
+    s.setProperty("display","none","important");
+    s.setProperty("visibility","hidden","important");
+    s.setProperty("height","0","important");
+    s.setProperty("min-height","0","important");
+    s.setProperty("max-height","0","important");
+    s.setProperty("padding","0","important");
+    s.setProperty("padding-bottom","0","important");
+    s.setProperty("margin","0","important");
+    s.setProperty("border","0","important");
+    s.setProperty("overflow","hidden","important");
+    s.setProperty("z-index","0","important");
+  }
+  zap();
+  if(document.readyState==="loading"){document.addEventListener("DOMContentLoaded",zap);}
+  window.addEventListener("load",zap);
+  setTimeout(zap,1500);
+})();
+
+(function(){
+  var f=document.getElementById("chsFooter");
+  function fullBleed(){
+    try{
+      f.style.marginLeft="0";f.style.marginRight="0";f.style.width="";
+      var r=f.getBoundingClientRect();
+      var dw=document.documentElement.clientWidth;
+      f.style.marginLeft=(-r.left)+"px";
+      f.style.marginRight=(-(dw-r.right))+"px";
+    }catch(e){}
+  }
+  if(window.requestAnimationFrame){requestAnimationFrame(fullBleed);}else{fullBleed();}
+  window.addEventListener("load",fullBleed);
+  var t;window.addEventListener("resize",function(){clearTimeout(t);t=setTimeout(fullBleed,150);},{passive:true});
+})();
+
+(function(){
+  var box=document.getElementById("chsWx");
+  if(!box||!window.fetch)return;
+  var elIco=document.getElementById("chsWxIco");
+  var elTemp=document.getElementById("chsWxTemp");
+  var elCond=document.getElementById("chsWxCond");
+  var elMeta=document.getElementById("chsWxMeta");
+  var URL="https://api.open-meteo.com/v1/forecast?latitude=32.7765&longitude=-79.9311"
+    +"&current=temperature_2m,apparent_temperature,is_day,weather_code,wind_speed_10m"
+    +"&daily=temperature_2m_max,temperature_2m_min"
+    +"&temperature_unit=fahrenheit&wind_speed_unit=mph&timezone=America%2FNew_York&forecast_days=1";
+
+  var S='<svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round">';
+  var E='</svg>';
+  var SUN='<circle cx="24" cy="24" r="7.5"/><g class="chsF-wx-rays"><path d="M24 7v4M24 37v4M7 24h4M37 24h4M12 12l2.8 2.8M33.2 33.2L36 36M36 12l-2.8 2.8M14.8 33.2L12 36"/></g>';
+  var MOON='<path d="M31 8a13.5 13.5 0 1 0 11.5 19.5A14.5 14.5 0 0 1 31 8z"/>';
+  var CLOUD='<path d="M16 37h17a7.5 7.5 0 0 0 .8-15A11 11 0 0 0 13 19.5 8.8 8.8 0 0 0 16 37z"/>';
+  var CLOUD_SUN='<circle cx="16.5" cy="14.5" r="5"/><path d="M16.5 4v3M6 14.5h3M9.4 7.4l2.1 2.1M23.6 7.4l-2.1 2.1"/><path d="M20 40h15a7 7 0 0 0 .6-14A10 10 0 0 0 17 24.5 7.8 7.8 0 0 0 20 40z"/>';
+  var DROPS='<path d="M18 41l-2 5M26 41l-2 5M34 41l-2 5"/>';
+  var FLAKES='<path d="M17 42v4M15 43l4 2M19 43l-4 2M31 42v4M29 43l4 2M33 43l-4 2"/>';
+  var BOLT='<path d="M27 38l-7 7h6l-2 6"/>';
+  var FOG='<path d="M9 17h30M13 25h26M9 33h22M15 41h20"/>';
+
+  function icon(code,day){
+    var sky=day?SUN:MOON;
+    if(code===0)return S+sky+E;
+    if(code===1)return S+(day?CLOUD_SUN:MOON+CLOUD)+E;
+    if(code===2)return S+CLOUD_SUN+E;
+    if(code===3)return S+CLOUD+E;
+    if(code===45||code===48)return S+FOG+E;
+    if(code>=95)return S+CLOUD+BOLT+E;
+    if((code>=71&&code<=77)||code===85||code===86)return S+CLOUD+FLAKES+E;
+    if((code>=51&&code<=67)||(code>=80&&code<=82))return S+CLOUD+DROPS+E;
+    return S+CLOUD+E;
+  }
+
+  function label(code){
+    var m={0:"Clear",1:"Mostly clear",2:"Partly cloudy",3:"Overcast",45:"Fog",48:"Freezing fog",
+    51:"Light drizzle",53:"Drizzle",55:"Heavy drizzle",56:"Freezing drizzle",57:"Freezing drizzle",
+    61:"Light rain",63:"Rain",65:"Heavy rain",66:"Freezing rain",67:"Freezing rain",
+    71:"Light snow",73:"Snow",75:"Heavy snow",77:"Snow grains",
+    80:"Rain showers",81:"Rain showers",82:"Heavy showers",85:"Snow showers",86:"Snow showers",
+    95:"Thunderstorms",96:"Thunderstorms",99:"Thunderstorms"};
+    return m[code]||"Current conditions";
+  }
+
+  function render(d){
+    var c=d.current,day=d.daily;
+    var t=Math.round(c.temperature_2m);
+    var hi=Math.round(day.temperature_2m_max[0]);
+    var lo=Math.round(day.temperature_2m_min[0]);
+    var w=Math.round(c.wind_speed_10m);
+    elIco.innerHTML=icon(c.weather_code,c.is_day===1);
+    elTemp.textContent=t+"\u00B0";
+    elCond.textContent=label(c.weather_code)+" in Charleston";
+    elMeta.textContent="H "+hi+"\u00B0 L "+lo+"\u00B0 \u00B7 Wind "+w+" mph";
+    box.className="chsF-wx is-ready";
+  }
+
+  function load(){
+    fetch(URL,{cache:"no-store"})
+      .then(function(r){if(!r.ok)throw 0;return r.json();})
+      .then(function(d){if(d&&d.current)render(d);})
+      .catch(function(){});
+  }
+
+  load();
+  setInterval(load,900000);
+})();
+</script>
+</footer></div></div>
+	</div>
+
+	</div>
+
+	</div> <!-- inner column -->
+
+	</div> <!-- inner row -->
+
+			</div><!-- outer column --><!--		--></div> <!-- outer row -->
+
+
+	</div>
+</div></div>
+</footer><!-- Powered By --><div data-cpRole="structuralContainer" id="poweredByContainerTS">
+<div class="siteWrap2"><div data-cpRole="contentContainer" id="footerLinksTS">	<div id="cc586cd4ed-89d0-4630-a574-1a47074c6216" data-containerid="586cd4ed-89d0-4630-a574-1a47074c6216" class="pageContent cpGrid cpGrid24 isLockedContainer showInMobile">
+				                
+
+
+
+	</div>
+</div><div data-cpRole="contentContainer" id="poweredByTS">	<div id="cc335ff499-9325-41a5-9c3f-008c616d0626" data-containerid="335ff499-9325-41a5-9c3f-008c616d0626" class="pageContent cpGrid cpGrid24 isLockedContainer showInMobile">
+				                
+
+
+
+	</div>
+</div></div>
+</div>
+</div>
+
+            </div>
+        </div>
+    </div>
+
+<link href="/745732998.css" rel="stylesheet" type="text/css" />
+
+<div id="SplashMessageWrapper" class="cp-Splash-wrapper">
+	<div role="dialog" aria-labelledby="cp-Splash-title" aria-describedby="editorContentDesc" aria-modal="true" tabindex="-1" id="SplashMessage" class="hidden cp-Splash cp-Splash--modal is-open">
+		<div class="cp-Splash-header">
+			<h2 class="cp-Splash-title" id="cp-Splash-title">Loading</h2>
+			<button class="cp-Splash-Btn cp-Splash-close" aria-label="Close this modal" title="Close this window">
+				<svg id="iconClose" viewBox="0 0 25 25">
+					<polygon style="fill:currentcolor"
+							 points="18.806,6.98 18.075,6.248 12.532,11.792 6.989,6.248 6.257,6.98 11.786,12.508 6.212,18.084 6.943,18.815 12.532,13.224 18.12,18.815 18.851,18.084 13.277,12.508"></polygon>
+				</svg>
+			</button>
+		</div>
+		<div class="cp-Splash-body">
+			<div class="cp-Splash-Prose editorContent fr-view" id="editorContentDesc">
+				<!-- Content from the Froala Editor will go here. -->
+				Loading
+			</div>
+		</div>
+		<div class="cp-Splash-footer">
+			<button class="cp-Splash-Btn cp-Splash-Btn--NoShow">Do Not Show Again</button>
+			<button class="cp-Splash-Btn cp-Splash-Btn--Close">Close</button>
+		</div>
+	</div>
+</div>
+
+<script src="/Assets/Scripts/APIClient.js"></script>
+<script src="/Assets/Mystique/Shared/Scripts/Moment/Moment.min.js"></script>
+<script src="/Assets/Scripts/SplashModal/SplashModalRender.js"></script>
+<script>
+
+		$(document).ready(function () {
+			var filter = {
+				targetId: '295',
+				targetType: 1
+			}
+
+			new SplashModalRender().triggerRender(filter);
+		});
+</script>
+
+
+	
+	
+	
+	
+
+
+
+	
+
+
+
+
+
+
+    <script src="/-1442400649.js" type="text/javascript"></script>
+    <!-- SiteImprove Script -->
+<script type="text/javascript"> 
+/*<![CDATA[*/ 
+(function() { 
+var sz = document.createElement('script'); sz.type = 'text/javascript'; sz.async = true; 
+sz.src = '//siteimproveanalytics.com/js/siteanalyze_15202859.js'; 
+var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(sz, s); 
+})(); 
+/*]]>*/ 
+</script>
+<!-- End SiteImprove -->
+
+<!-- Fixed Nav Adjustment -->
+<script>
+function fixedNavAdjustment() {        
+	if ($('#doneEditing').length === 0) {
+		var divToolbarsHeight = $('#divToolbars').outerHeight();
+		var fixedNavHeight = $('body.wide .fixedTop_ts').height();
+		var contentOffset = divToolbarsHeight + fixedNavHeight;
+		var narrowShift = divToolbarsHeight;
+		if ($('body.wide #angularToolbarInLegacy').length === 1)
+		{
+			contentOffset -= $('body.wide #angularToolbarInLegacy').outerHeight();
+			narrowShift = '0';
+		}
+		if (!window.matchMedia('screen and (max-width: 60em)').matches) {
+			$('body.wide .fixedTop_ts').css('padding-top', divToolbarsHeight + 'px');
+			$('#bodyWrapper').css('padding-top', contentOffset + 'px');
+		} else {
+			$('.fixedTop_ts').css('padding-top', '0');
+			$('#bodyWrapper').css('padding-top', narrowShift);
+		}
+	} else {
+		$('.fixedTop_ts').css('position', 'relative');
+	}
+};
+ 
+var navAdjustTimeout_ts;
+ 
+$(window).load(function () {
+	setTimeout(function() {
+		fixedNavAdjustment();
+	}, 250);
+	$(window).resize(function() {
+		clearTimeout(navAdjustTimeout_ts);
+		navAdjustTimeout_ts = setTimeout(function() {
+			fixedNavAdjustment();
+		}, 350);
+	});
+	$.when(window.Pages.angularToolbarComplete).done(function () {
+		fixedNavAdjustment();
+	});
+});
+</script>
+<!-- End Fixed Nav Adjustment -->
+
+
+
+<!-- 2024 Fixed Nav Adjustment -->
+<script>
+  function getValueTS(elem, attr) {
+    const val = elem.css(attr);
+    if (val === undefined) return undefined;
+    const num = parseInt(val, 10);
+    if (num === NaN) return undefined;
+    return num;
+  }
+
+  function clampTS(number, min, max) {
+    return Math.min(Math.max(number, min), max);
+  }
+
+  function isPageEditingTS() {
+    return (
+      $("#doneEditing").length > 0 || // In live edit
+      typeof DesignCenter !== "undefined" // In theme manager
+    );
+  }
+
+  const bgColorRegexTS = /rgba\((\d+), (\d+), (\d+), (\d*\.?\d*)\)/;
+  function isTransparentTS(elem) {
+    const bg = elem.css('background-color');
+    if (typeof bg !== "string" || !bg.startsWith('rgba(')) return false;
+    const matchState = bg.match(bgColorRegexTS);
+    if (!matchState || matchState.length !== 5) return false;
+    const alpha = parseFloat(matchState[4], 10);
+    if (!(alpha >= 0 && alpha < 1)) return false;
+    return true;
+  }
+
+  function iterateLeftpads(cb) {
+    const containersTS = $("[class^='siteWrap'],[class*=' siteWrap']");
+    for (let i = 0; i < containersTS.length; i++) {
+      const containerTS = containersTS[i];
+      // Skip the body container and anything with data-skip-leftpad
+      if (
+        containerTS.id !== "bodyContainerTS" &&
+        containerTS.getAttribute('data-skip-leftpad') === null
+      ) {
+        cb(containerTS);
+      }
+    }
+  }
+
+  const anchor = $("#divToolbars");
+
+  // Outer banner padding (push banner down)
+  const outerSizingTS = $("#bannerContainerTS");
+  // Inner banner padding (push banner content down) - Transparent header OR on attaching headers
+  const innerSizingTS = $("#bannerSizingTS");
+  const bodyContainerTS = $("#bodyContainerTS");
+
+  const forceUnfixClassTS = "forceUnfixTS";
+
+  const fixedTopTS = $(".fixedTopTS");
+  const fixedBottomTS = $(".fixedBottomTS");
+  const fixedLeftTS = $(".fixedLeftTS");
+
+  var initialTopTS;
+  var topAttachTS;
+  if (fixedTopTS && fixedTopTS.length === 1) {
+    initialTopTS = getValueTS(fixedTopTS, 'top');
+    const attachment = fixedTopTS.attr('data-attach');
+    if (attachment) topAttachTS = $("#" + attachment);
+    if (!topAttachTS || topAttachTS.length !== 1) topAttachTS = undefined;
+  }
+
+  function resizeAdjustmentTS() {
+    const editing = isPageEditingTS();
+
+    // Fixed top script
+    (function () {
+      if (!fixedTopTS || fixedTopTS.length !== 1 || initialTopTS === undefined) return;
+
+      if (editing) {
+        fixedTopTS[0].classList.add(forceUnfixClassTS);
+      } else {
+        fixedTopTS[0].classList.remove(forceUnfixClassTS);
+      }
+
+      const topPosition = fixedTopTS.css('position');
+      if (topPosition === 'fixed') {
+        if (topAttachTS) {
+          scrollAdjustmentTS();
+        } else {
+          const anchorHeight = anchor.outerHeight() - 1;
+          fixedTopTS.css('top', anchorHeight + initialTopTS);
+        }
+      } else {
+        fixedTopTS.css('top', initialTopTS);
+      }
+
+      if (topPosition === 'fixed' || topPosition === 'absolute') {
+        // Bump the banner content down
+        if (isTransparentTS(fixedTopTS)) {
+          innerSizingTS.css('padding-top', initialTopTS + fixedTopTS.outerHeight() - 1);
+          outerSizingTS.css('padding-top', '');
+
+          try {
+            window.Pages.onResizeHandlersExecute();
+          } catch (e) { }
+        } else {
+          outerSizingTS.css('padding-top', fixedTopTS.outerHeight() - 1);
+          innerSizingTS.css('padding-top', '');
+        }
+      } else {
+        innerSizingTS.css('padding-top', '');
+        outerSizingTS.css('padding-top', '');
+      }
+    })();
+
+    // Fixed bottom script
+    (function () {
+      if (!fixedBottomTS || fixedBottomTS.length === 0) return;
+
+      // If the widget has gone narrow, force unfix
+      if (editing || fixedBottomTS.outerHeight() > 200) {
+        fixedBottomTS[0].classList.add(forceUnfixClassTS);
+      } else {
+        fixedBottomTS[0].classList.remove(forceUnfixClassTS);
+      }
+
+      if (fixedBottomTS.css('position') === 'fixed') {
+        bodyContainerTS.css('padding-bottom', fixedBottomTS.outerHeight());
+      } else {
+        bodyContainerTS.css('padding-bottom', '');
+      }
+    })();
+
+    // Fixed left script
+    (function () {
+      if (!fixedLeftTS || fixedLeftTS.length === 0) return;
+
+      if (editing) {
+        fixedLeftTS[0].classList.add(forceUnfixClassTS);
+      } else {
+        fixedLeftTS[0].classList.remove(forceUnfixClassTS);
+      }
+
+      if (fixedLeftTS.css('position') === 'fixed') {
+        const anchorHeight = anchor.outerHeight() - 1;
+        fixedLeftTS.css('top', anchorHeight);
+        const leftBoundingTS = fixedLeftTS[0].getBoundingClientRect();
+        iterateLeftpads(function (containerTS) {
+          const containerBoundingTS = containerTS.getBoundingClientRect();
+          if (containerBoundingTS.left <= leftBoundingTS.right) {
+            $(containerTS).css('padding-left', leftBoundingTS.width + 16);
+          }
+        });
+      } else {
+        fixedLeftTS.css('top', '');
+        iterateLeftpads(function (containerTS) {
+          $(containerTS).css('padding-left', '');
+        });
+      }
+    })();
+  }
+
+  function scrollAdjustmentTS() {
+    if (!fixedTopTS || fixedTopTS.length !== 1 || !topAttachTS || topAttachTS.length !== 1) return;
+    const topPosition = fixedTopTS.css('position');
+    if (topPosition === 'fixed' || topPosition === 'absolute') {
+      const anchorBounding = anchor[0].getBoundingClientRect();
+      const attachBounding = topAttachTS[0].getBoundingClientRect();
+      const scrollTop = $(window).scrollTop();
+
+      fixedTopTS.css('top', Math.max(anchorBounding.bottom - 1, attachBounding.bottom));
+    } else {
+      fixedTopTS.css('top', initialTopTS);
+    }
+  }
+
+  $(window).load(function () {
+    setTimeout(function () {
+      resizeAdjustmentTS();
+    }, 350);
+
+    $(window).scroll(function () {
+      scrollAdjustmentTS();
+    });
+
+    var adjustTimeoutTS;
+    $(window).resize(function () {
+      clearTimeout(adjustTimeoutTS);
+      adjustTimeoutTS = setTimeout(function () {
+        resizeAdjustmentTS();
+      }, 350);
+    });
+
+    $.when(window.Pages.angularToolbarComplete).done(function () {
+      resizeAdjustmentTS();
+    });
+  });
+</script>
+<!-- End Fixed Nav Adjustment -->
+
+<!-- Move banner to outer wrap --> 
+<script> 
+function moveBannerToOuterWrap() { 
+    if ($(".fixedBannerTS").length) { 
+		if ($("#bannerDivbanner2").length) { 
+			$("#bannerDivbanner2").appendTo("#outer-wrap"); 
+		} else { 
+			setTimeout(function() { 
+				moveBannerToOuterWrap(); 
+			}, 500); 
+		} 
+	}
+} 
+moveBannerToOuterWrap(); 
+</script> 
+<!-- end move banner to outer wrap -->
+
+<!-- Start Chatbot --> 
+<script id="citibot-chatscript" type="text/javascript" src="https://webchat-ui.citibot.net/script.js?account_id=68c10092dc9d94bd9db94111"></script>
+<!-- End Chatbot --><!-- AudioEye --> <script type="text/javascript">!function(){var b=function(){window.__AudioEyeSiteHash="19fc19e1908031e11316beb24c89c1f2";var a=document.createElement("script");a.src="https://wsmcdn.audioeye.com/aem.js";a.type="text/javascript";a.setAttribute("async","");document.getElementsByTagName("body")[0].appendChild(a)};"complete"!==document.readyState?window.addEventListener?window.addEventListener("load",b):window.attachEvent&&window.attachEvent("onload",b):b()}();</script> <!-- End AudioEye -->
+
+
+    <script type="text/javascript">
+        $(function () {
+            document.cookie = "responsiveGhost=0; path=/";
+        });
+        $(window).on("load", function () {
+            $('body').addClass('doneLoading').removeClass('hideContent');
+
+            if ($('#404Content').length > 0)
+                $('div#bodyWrapper').css('padding', '0px');
+        });
+    </script>
+
+    <noscript>
+        <style>
+            body.hideContent {
+                opacity: 1 !important;
+            }
+        </style>
+    </noscript>
+
+        
+<div style="display: none;">
+	<svg xmlns="http://www.w3.org/2000/svg" style="display:none;">
+
+		<symbol id="iconArrow--left" viewbox="0 0 25 25">
+			<title>Arrow Left</title>
+			<polygon style="fill:currentcolor" points="18.044,25 19.498,23.545 8.409,12.454 19.408,1.455 17.954,0 5.502,12.452"></polygon>
+		</symbol>
+
+		<symbol id="iconArrow--right" viewbox="0 0 25 25">
+			<title>Arrow Right</title>
+			<polygon style="fill:currentcolor" points="6.957,0 5.502,1.455 16.591,12.546 5.592,23.545 7.047,25 19.498,12.548"></polygon>
+		</symbol>
+
+	</svg>
+</div>
+    <script type="text/javascript">loadCSS('//fonts.googleapis.com/css?family=Cormorant+Garamond:300,300italic,500,500italic,600,600italic,700,700italic,italic,regular|DM+Sans:100,100italic,200,200italic,300,300italic,500,500italic,600,600italic,700,700italic,800,800italic,900,900italic,italic,regular|Fraunces:100,100italic,200,200italic,300,300italic,500,500italic,600,600italic,700,700italic,800,800italic,900,900italic,italic,regular|Montserrat:500,500italic,600,600italic,700,700italic,800,800italic,italic,regular|Nunito+Sans:200,200italic,300,300italic,500,500italic,600,600italic,700,700italic,800,800italic,900,900italic,italic,regular|Source+Sans+Pro:600,600italic,700,700italic,900,900italic,italic,regular|');</script>
+    
+
+    <div class="hidden activeWidgetSkinComponentsOnPageJson">[]</div>
+        <div style="display: none;">
+            <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+                <symbol id="iconSlideshowArrowLeft" viewBox="0 0 22.68 40">
+                    <title>Slideshow Left Arrow</title>
+                    <g>
+                        <path style="fill:currentcolor;" d="M20,40a2.67,2.67,0,0,1-1.9-.79L.79,21.9a2.68,2.68,0,0,1,0-3.79L18.1.79a2.68,2.68,0,1,1,3.79,3.79L6.47,20,21.89,35.42A2.68,2.68,0,0,1,20,40Z"></path>
+                    </g>
+                </symbol>
+                <symbol id="iconSlideshowArrowRight" viewBox="0 0 22.68 40">
+                    <title>Slideshow Right Arrow</title>
+                    <g>
+                        <path style="fill:currentcolor;" d="M2.68,0a2.67,2.67,0,0,1,1.9.79L21.89,18.1a2.68,2.68,0,0,1,0,3.79L4.58,39.21A2.68,2.68,0,0,1,.79,35.42L16.21,20,.79,4.58A2.68,2.68,0,0,1,2.68,0Z"></path>
+                    </g>
+                </symbol>
+            </svg>
+        </div>
+    
+	
+	
+
+    <div id="root-picker-outlet"></div>
+</body>
+</html>

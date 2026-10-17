@@ -1,0 +1,90 @@
+{
+  "sequence": 35,
+  "jurisdiction": "Aurora",
+  "state": "CO",
+  "source_url": "https://aurora.municipal.codes/Code/1_ArtI",
+  "source_family": "municipal.codes",
+  "status": "standalone_e2e_pass",
+  "acquisition_method": "One ordinary standalone headed Chrome session; official UDO root resolves to Aurora City Code portal; exact observed /Code/1 then /Code/1_ArtI navigation; native Share/Save HTML export. No human/CUA assistance.",
+  "publisher_download": {
+    "status": "passed",
+    "url": "https://aurora.municipal.codes/Code/1_ArtI/export.html?download=true",
+    "reason": "Native publisher HTML acquired;15 operative sections reparse with identical citations/bodies to live DOM.",
+    "native_format": "HTML",
+    "tested_scope": "General City Code chapter1 articleI only",
+    "record_count": 15,
+    "evidence_paths": [
+      "evidence/sample/publisher-export.json",
+      "evidence/sample/publisher-export-0.html",
+      "offline-verification.log"
+    ]
+  },
+  "tested_scope": "General City Code chapter1 articleI,15 operative sections1-1 through1-15; reserved1-16 through1-35 source heading retained but emits no operative record. UDO and Charter are independently exposed publications, not collected.",
+  "complete_corpus": false,
+  "record_count": 15,
+  "table_count": 0,
+  "checks": [
+    "Raw source and native export SHA256 verified.",
+    "15 operative sections parsed to normalized JSONL/CSV; round-trip equal.",
+    "Read-only offline replay byte-identical JSONL/CSV.",
+    "Native HTML citations and bodies identical to live DOM.",
+    "No replacement characters; unique source URLs; nonempty citations and bodies.",
+    "Current source and export currency:Ordinance2026-42, passed August10,2026."
+  ],
+  "command": "printf '%s\\n' 'https://aurora.municipal.codes/Code/1' 'https://aurora.municipal.codes/Code/1_ArtI' | python aurora_probe.py --out fresh/aurora",
+  "offline_command": "python verify_aurora.py",
+  "path_base": "This self-contained Aurora package root; prefix on integration.",
+  "script_paths": [
+    "aurora_probe.py",
+    "collect.py",
+    "verify_aurora.py",
+    "lib/municipal_codes_cli.py",
+    "lib/cp_collect.py",
+    "lib/ecode360.py"
+  ],
+  "evidence_paths": [
+    "official-udo-route.html",
+    "official-udo-route.receipt.json",
+    "http-root-403.html",
+    "http-root-403.receipt.json",
+    "resumption-authorization.json",
+    "evidence/root.html",
+    "evidence/root.json",
+    "evidence/navigation-0.html",
+    "evidence/navigation-1.html",
+    "evidence/sample/source.html",
+    "evidence/sample/acquisition.json",
+    "evidence/sample/records.jsonl",
+    "evidence/sample/records.csv",
+    "evidence/sample/parse-details.json",
+    "evidence/sample/checks.json",
+    "evidence/sample/publisher-export.json",
+    "evidence/sample/publisher-export-0.html",
+    "evidence/sample/native-export-records.jsonl",
+    "evidence/sample/native-export-records.csv",
+    "evidence/runtime.json",
+    "evidence/executed-aurora_probe.py",
+    "evidence/final-events.json",
+    "publication-inventory.json",
+    "offline-verification.log"
+  ],
+  "limitations": [
+    "Bounded general-code sample; full corpus, Charter and UDO completeness not demonstrated.",
+    "Official retained link text is Unified Development Ordinance, but live publisher root explicitly exposes general City Code, UDO and Charter; sample is general Code, not substituted UDO.",
+    "No tables occur in selected operative bodies; complex schedule/table geometry not exercised.",
+    "Reserved section range has no body and is noted unresolved/no-body by reviewed generic parser; explicitly dispositioned as reserved using retained source heading.",
+    "Standalone root HTTP returned403 challenge before the one authorized normal browser session;403 evidence retained."
+  ],
+  "next_action": "Major group integrates prior Municode Product-not-found/codes[] migration evidence. Inventory general Code/UDO/Charter fully before production collection.",
+  "retrieved_at": "2026-10-17T18:23:43.399176+00:00",
+  "raw_sha256": "d8c25be7b284ddfef3419016b540ba6ded2494af50491ef3051679897b24076a",
+  "runtime": {
+    "python": "3.12.14 (main, Aug 25 2026, 13:50:33) [Clang 22.1.3 ]",
+    "platform": "macOS-26.6.2-arm64-arm-64bit",
+    "browser": "155.0.8059.84",
+    "playwright": "1.64.0",
+    "headed": true,
+    "fresh_context": true,
+    "operator_assistance": false
+  }
+}

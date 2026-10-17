@@ -1,0 +1,344 @@
+{
+  "reviewer": "official_sources57",
+  "reviewed_package": "american-legal",
+  "review_mode": "Read-only code/evidence inspection; no network and no package edits. This review file is the only authorized audit write.",
+  "created_utc": "2026-10-17T18:15:59.734199+00:00",
+  "draft_results_treated_as_final": false,
+  "overall_status": "resolved",
+  "findings": [
+    {
+      "id": "AL-01",
+      "severity": "medium",
+      "status": "resolved",
+      "location": "scripts/parse_verify.py native_text_matches_rendered; scripts/build_results.py pub_good",
+      "observed_issue": "Native body verification uses bool(matches) and any(matches), allowing a multi-record export to pass when only one body matches. Requested source heading is recorded but not independently required to match the parsed native export selection.",
+      "recommended_resolution": "Require every claimed native record to match a rendered source body and bind publisher requested_heading to actual exported headings, or explicitly restrict the passed scope to a verified subset.",
+      "observed_evidence": "The reviewed parser sets matches per publisher record, then passes with any(matches); builder promotes publisher_download when that check passes. Agent reports current successful native exports have one parsed record.",
+      "owner_notified": true,
+      "resolution": "Parser requires all native bodies to match and requested heading plus canonical source document-ID equality. Builder requires both native checks. Independent source/native checks passed for retained successes and fresh smoke."
+    },
+    {
+      "id": "AL-02",
+      "severity": "medium",
+      "status": "resolved",
+      "location": "scripts/request_exports.mjs try/catch inside jurisdiction loop",
+      "observed_issue": "Initial403/429 produces a caught partial result, then execution continues to the next same-publisher jurisdiction. No publisher-wide export/asset block monitor/stop was present in reviewed code.",
+      "recommended_resolution": "Monitor relevant page/export responses, persist a publisher stop with Retry-After when exposed, and break/refuse subsequent publisher work after403/429/challenge.",
+      "observed_evidence": "Reviewed code throws on initial403/429, catch writes report.status=partial, then loop continues. This is a rerun guard finding; no block asserted in the current live sweep.",
+      "owner_notified": true,
+      "resolution": "Requester now monitors publisher/export context403/429, captures Retry-After, detects visible challenge text, records access-stop.json and breaks jurisdiction loop. Final current requester has successful retained fresh Dallas run; no induced block or live block retry was performed for review."
+    },
+    {
+      "id": "AL-03",
+      "severity": "high",
+      "status": "resolved",
+      "location": "scripts/request_exports.mjs broad GENERAL PROVISIONS TOC selection; scripts/parse_verify.py source_identity",
+      "observed_issue": "GENERAL PROVISIONS .at(-1) selection can cross publication boundaries; prior page city-title identity can still pass. Concrete Louisville retained receipt changed Metro Code /latest/loukymetro/0-0-0-3 to LDC /latest/loukyldc/0-0-0-10109.",
+      "recommended_resolution": "Constrain navigation/redirect and parser source binding to the expected observed publication prefix; restore and retest the observed Metro Code Chapter10 route /loukymetro/0-0-0-9.",
+      "observed_evidence_paths": [
+        "american-legal/raw/louisvillemetro/receipt.json",
+        "american-legal/routes.json"
+      ],
+      "owner_notified": true,
+      "owner_response": "Owner independently noticed same drift, kept it partial, and plans corrected Metro route retest plus requester/parser prefix guards.",
+      "resolution": "Requester TOC selection constrained to expected publication prefix; parser independently checks routes.json expected prefix and current sample DOM jurisdiction overview identity. Louisville corrected to Metro Code /loukymetro/0-0-0-9 and independently verified21rendered sections,1native \u00a710.01 body."
+    }
+  ],
+  "positive_binding_observation": "Requester binds POST export-job UUID to the exact OPEN link data-request-uuid before native download; this avoids selecting an unrelated prior queue entry.",
+  "final_verification": {
+    "at_utc": "2026-10-17T18:21:06.429212+00:00",
+    "method": "Read-only imports of normalize_html plus independent byte hashes, route/identity/body/heading/document-ID comparisons; requester static code inspection. No package outputs modified and no network opened.",
+    "reviewed_script_sha256": {
+      "scripts/request_exports.mjs": "0330b4c13f5138cdd5df7b4ce5c71344bbd522a4c5d6495f168d82ff493662bf",
+      "scripts/parse_verify.py": "357bf32126940a4b819fd6458c680c83578a1a33ec31040fc45fd8d2d80b4f49",
+      "scripts/build_results.py": "a0f59a5706b2a9c07052e4887c03ea2a375e7a559e0e21db38c2551cbaa1fe19",
+      "scripts/collect.mjs": "1f0b2fd4c04d276d443aa6394846a3a2e3ac0445bc658d257349cac14e9cb3a6"
+    },
+    "retained_independent_checks": [
+      {
+        "package": "american-legal",
+        "jurisdiction": "Dallas",
+        "sample_url": "https://codelibrary.amlegal.com/codes/dallas/latest/dallas_tx/0-0-0-133465",
+        "expected_prefix": "https://codelibrary.amlegal.com/codes/dallas/latest/dallas_tx/",
+        "rendered_records": 5,
+        "native_records": 1,
+        "native_bytes": 1190,
+        "publication_bound": true,
+        "sample_hash_verified": true,
+        "native_hash_verified": true,
+        "native_bodies_all_match": true,
+        "native_headings_bound": true,
+        "native_ids_bound": true,
+        "current_dom_identity": true,
+        "evidence_paths": [
+          "american-legal/raw/dallas/sample.html",
+          "american-legal/raw/dallas/publisher-dallas-tx-1.html",
+          "american-legal/raw/dallas/receipt.json"
+        ]
+      },
+      {
+        "package": "american-legal",
+        "jurisdiction": "Fort Worth",
+        "sample_url": "https://codelibrary.amlegal.com/codes/ftworth/latest/ftworth_tx/0-0-0-745",
+        "expected_prefix": "https://codelibrary.amlegal.com/codes/ftworth/latest/ftworth_tx/",
+        "rendered_records": 13,
+        "native_records": 1,
+        "native_bytes": 2720,
+        "publication_bound": true,
+        "sample_hash_verified": true,
+        "native_hash_verified": true,
+        "native_bodies_all_match": true,
+        "native_headings_bound": true,
+        "native_ids_bound": true,
+        "current_dom_identity": true,
+        "evidence_paths": [
+          "american-legal/raw/ftworth/sample-expanded.html",
+          "american-legal/raw/ftworth/publisher-ftworth-tx-1.html",
+          "american-legal/raw/ftworth/receipt.json"
+        ]
+      },
+      {
+        "package": "american-legal",
+        "jurisdiction": "Boston",
+        "sample_url": "https://codelibrary.amlegal.com/codes/boston/latest/boston_ma/0-0-0-1301",
+        "expected_prefix": "https://codelibrary.amlegal.com/codes/boston/latest/boston_ma/",
+        "rendered_records": 19,
+        "native_records": 1,
+        "native_bytes": 13549,
+        "publication_bound": true,
+        "sample_hash_verified": true,
+        "native_hash_verified": true,
+        "native_bodies_all_match": true,
+        "native_headings_bound": true,
+        "native_ids_bound": true,
+        "current_dom_identity": true,
+        "evidence_paths": [
+          "american-legal/raw/boston/sample-expanded.html",
+          "american-legal/raw/boston/publisher-boston-ma-1.html",
+          "american-legal/raw/boston/receipt.json"
+        ]
+      },
+      {
+        "package": "american-legal",
+        "jurisdiction": "Louisville / Jefferson County Metro",
+        "sample_url": "https://codelibrary.amlegal.com/codes/louisvillemetro/latest/loukymetro/0-0-0-9",
+        "expected_prefix": "https://codelibrary.amlegal.com/codes/louisvillemetro/latest/loukymetro/",
+        "rendered_records": 21,
+        "native_records": 1,
+        "native_bytes": 5153,
+        "publication_bound": true,
+        "sample_hash_verified": true,
+        "native_hash_verified": true,
+        "native_bodies_all_match": true,
+        "native_headings_bound": true,
+        "native_ids_bound": true,
+        "current_dom_identity": true,
+        "evidence_paths": [
+          "american-legal/raw/louisvillemetro/sample-expanded.html",
+          "american-legal/raw/louisvillemetro/publisher-louisvillemetro-ky-1.html",
+          "american-legal/raw/louisvillemetro/receipt.json"
+        ]
+      },
+      {
+        "package": "american-legal",
+        "jurisdiction": "Sacramento",
+        "sample_url": "https://codelibrary.amlegal.com/codes/sacramentoca/latest/sacramento_ca/0-0-0-765",
+        "expected_prefix": "https://codelibrary.amlegal.com/codes/sacramentoca/latest/sacramento_ca/",
+        "rendered_records": 11,
+        "native_records": 1,
+        "native_bytes": 1070,
+        "publication_bound": true,
+        "sample_hash_verified": true,
+        "native_hash_verified": true,
+        "native_bodies_all_match": true,
+        "native_headings_bound": true,
+        "native_ids_bound": true,
+        "current_dom_identity": true,
+        "evidence_paths": [
+          "american-legal/raw/sacramentoca/sample-expanded.html",
+          "american-legal/raw/sacramentoca/publisher-sacramentoca-ca-1.html",
+          "american-legal/raw/sacramentoca/receipt.json"
+        ]
+      },
+      {
+        "package": "american-legal",
+        "jurisdiction": "Colorado Springs",
+        "sample_url": "https://codelibrary.amlegal.com/codes/coloradospringsco/latest/coloradosprings_co/0-0-0-12",
+        "expected_prefix": "https://codelibrary.amlegal.com/codes/coloradospringsco/latest/coloradosprings_co/",
+        "rendered_records": 6,
+        "native_records": 1,
+        "native_bytes": 2120,
+        "publication_bound": true,
+        "sample_hash_verified": true,
+        "native_hash_verified": true,
+        "native_bodies_all_match": true,
+        "native_headings_bound": true,
+        "native_ids_bound": true,
+        "current_dom_identity": true,
+        "evidence_paths": [
+          "american-legal/raw/coloradospringsco/sample-expanded.html",
+          "american-legal/raw/coloradospringsco/publisher-coloradospringsco-co-1.html",
+          "american-legal/raw/coloradospringsco/receipt.json"
+        ]
+      },
+      {
+        "package": "american-legal",
+        "jurisdiction": "Boise",
+        "sample_url": "https://codelibrary.amlegal.com/codes/boise_id/latest/boise/0-0-0-20",
+        "expected_prefix": "https://codelibrary.amlegal.com/codes/boise_id/latest/boise/",
+        "rendered_records": 4,
+        "native_records": 1,
+        "native_bytes": 1715,
+        "publication_bound": true,
+        "sample_hash_verified": true,
+        "native_hash_verified": true,
+        "native_bodies_all_match": true,
+        "native_headings_bound": true,
+        "native_ids_bound": true,
+        "current_dom_identity": true,
+        "evidence_paths": [
+          "american-legal/raw/boise_id/sample.html",
+          "american-legal/raw/boise_id/publisher-boise_id-id-1.html",
+          "american-legal/raw/boise_id/receipt.json"
+        ]
+      },
+      {
+        "package": "american-legal",
+        "jurisdiction": "Salt Lake City",
+        "sample_url": "https://codelibrary.amlegal.com/codes/saltlakecityut/latest/saltlakecity_ut/0-0-0-107913",
+        "expected_prefix": "https://codelibrary.amlegal.com/codes/saltlakecityut/latest/saltlakecity_ut/",
+        "rendered_records": 13,
+        "native_records": 1,
+        "native_bytes": 1082,
+        "publication_bound": true,
+        "sample_hash_verified": true,
+        "native_hash_verified": true,
+        "native_bodies_all_match": true,
+        "native_headings_bound": true,
+        "native_ids_bound": true,
+        "current_dom_identity": true,
+        "evidence_paths": [
+          "american-legal/raw/saltlakecityut/sample-expanded.html",
+          "american-legal/raw/saltlakecityut/publisher-saltlakecityut-ut-1.html",
+          "american-legal/raw/saltlakecityut/receipt.json"
+        ]
+      },
+      {
+        "package": "american-legal",
+        "jurisdiction": "Sioux Falls",
+        "sample_url": "https://codelibrary.amlegal.com/codes/siouxfalls/latest/siouxfalls_sd/0-0-0-45851",
+        "expected_prefix": "https://codelibrary.amlegal.com/codes/siouxfalls/latest/siouxfalls_sd/",
+        "rendered_records": 12,
+        "native_records": 1,
+        "native_bytes": 1790,
+        "publication_bound": true,
+        "sample_hash_verified": true,
+        "native_hash_verified": true,
+        "native_bodies_all_match": true,
+        "native_headings_bound": true,
+        "native_ids_bound": true,
+        "current_dom_identity": true,
+        "evidence_paths": [
+          "american-legal/raw/siouxfalls/sample-expanded.html",
+          "american-legal/raw/siouxfalls/publisher-siouxfalls-sd-1.html",
+          "american-legal/raw/siouxfalls/receipt.json"
+        ]
+      },
+      {
+        "package": "american-legal",
+        "jurisdiction": "Manchester",
+        "sample_url": "https://codelibrary.amlegal.com/codes/manchester/latest/manchester_nh/0-0-0-58",
+        "expected_prefix": "https://codelibrary.amlegal.com/codes/manchester/latest/manchester_nh/",
+        "rendered_records": 23,
+        "native_records": 1,
+        "native_bytes": 914,
+        "publication_bound": true,
+        "sample_hash_verified": true,
+        "native_hash_verified": true,
+        "native_bodies_all_match": true,
+        "native_headings_bound": true,
+        "native_ids_bound": true,
+        "current_dom_identity": true,
+        "evidence_paths": [
+          "american-legal/raw/manchester/sample-expanded.html",
+          "american-legal/raw/manchester/publisher-manchester-nh-1.html",
+          "american-legal/raw/manchester/receipt.json"
+        ]
+      },
+      {
+        "package": "american-legal",
+        "jurisdiction": "City and County of Honolulu",
+        "sample_url": "https://codelibrary.amlegal.com/codes/honolulu/latest/honolulu/0-0-0-18",
+        "expected_prefix": "https://codelibrary.amlegal.com/codes/honolulu/latest/honolulu/",
+        "rendered_records": 1,
+        "native_records": 1,
+        "native_bytes": 2028,
+        "publication_bound": true,
+        "sample_hash_verified": true,
+        "native_hash_verified": true,
+        "native_bodies_all_match": true,
+        "native_headings_bound": true,
+        "native_ids_bound": true,
+        "current_dom_identity": true,
+        "evidence_paths": [
+          "american-legal/raw/honolulu/sample-expanded.html",
+          "american-legal/raw/honolulu/publisher-honolulu-hi-1.html",
+          "american-legal/raw/honolulu/receipt.json"
+        ]
+      },
+      {
+        "package": "american-legal/fresh-smoke",
+        "jurisdiction": "Dallas",
+        "sample_url": "https://codelibrary.amlegal.com/codes/dallas/latest/dallas_tx/0-0-0-133465",
+        "expected_prefix": "https://codelibrary.amlegal.com/codes/dallas/latest/dallas_tx/",
+        "rendered_records": 12,
+        "native_records": 1,
+        "native_bytes": 1190,
+        "publication_bound": true,
+        "sample_hash_verified": true,
+        "native_hash_verified": true,
+        "native_bodies_all_match": true,
+        "native_headings_bound": true,
+        "native_ids_bound": true,
+        "current_dom_identity": true,
+        "evidence_paths": [
+          "american-legal/fresh-smoke/raw/dallas/sample-expanded.html",
+          "american-legal/fresh-smoke/raw/dallas/publisher-dallas-tx-1.html",
+          "american-legal/fresh-smoke/raw/dallas/receipt.json"
+        ]
+      }
+    ],
+    "rate_limit_guard_limit": "403/429 handling reviewed statically; successful fresh native run exercised normal path. Review did not trigger a publisher block or prove behavior for every challenge variation.",
+    "remaining_actionable_findings": []
+  },
+  "intermediate_verification": {
+    "at_utc": "2026-10-17T18:17:07.151809+00:00",
+    "parser_sha256": "d5fbe372ec2bac47655b59b3cac56fd9c3cc1f2555bdad703e00aa3f11b1c943",
+    "code_observations": [
+      "Native body check now requires all(matches).",
+      "Requested heading binding now requires matching native/rendered document IDs.",
+      "Builder requires native body and selection binding checks.",
+      "Source identity now reads the current sample DOM overview link, avoiding chapter-title-only identity regression.",
+      "Publication prefix parser check added."
+    ],
+    "read_only_independent_body_checks": {
+      "jurisdictions": [
+        "Dallas",
+        "Fort Worth",
+        "Boston",
+        "Sacramento",
+        "Colorado Springs",
+        "Boise",
+        "Salt Lake City",
+        "Sioux Falls",
+        "Manchester"
+      ],
+      "native_records_each": 1,
+      "all_native_bodies_match": true,
+      "all_native_headings_requested": true,
+      "all_native_ids_in_rendered": true
+    },
+    "remaining": "Wait for final requester guard changes and retained fresh/Louisville evidence before resolving findings."
+  },
+  "updated_utc": "2026-10-17T18:21:06.429212+00:00"
+}

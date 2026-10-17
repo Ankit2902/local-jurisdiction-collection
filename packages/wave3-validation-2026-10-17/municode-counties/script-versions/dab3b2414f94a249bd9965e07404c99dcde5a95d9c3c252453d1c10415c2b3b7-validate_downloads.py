@@ -1,0 +1,18 @@
+"""Offline PDF integrity/readability check; does not infer full-corpus currency."""
+import hashlib,json,re,unicodedata
+from pathlib import Path
+from pypdf import PdfReader
+ROOT=Path(__file__).resolve().parents[1]
+def run():
+ results=[]
+ for family in ['browser','recovery','http']:
+  for p in (ROOT/family).glob('*/publisher-export.pdf'):
+   r=PdfReader(p);text=r.pages[0].extract_text() or '';result={'path':str(p.relative_to(ROOT)),'bytes':p.stat().st_size,'sha256':hashlib.sha256(p.read_bytes()).hexdigest(),'pdf_reader_opened':True,'page_count':len(r.pages),'first_page_nonempty':bool(text.strip()),'first_page_text_excerpt':text[:1000],'complete_corpus':False}
+   acquisition=p.parent/'publisher-export-response.bin.receipt.json'
+   if not acquisition.exists():acquisition=p.parent/'publisher-export.receipt.json'
+   if acquisition.exists():
+    ar=json.loads(acquisition.read_text());assert result['sha256']==ar['sha256'];result.update(acquisition_receipt=str(acquisition.relative_to(ROOT)),original_capture_name=ar.get('raw_file','publisher-export.pdf'),retained_binary_name='publisher-export.pdf',renaming_note='Valid PDF response retained under .pdf extension; original request receipt preserved unchanged.')
+   front='\n'.join((page.extract_text() or '') for page in r.pages[:8]);front_labels=sorted(set(re.findall(r'SUPPLEMENT\s+(?:NO\.?\s*)?(\d+)',front,re.I)));result.update(front_matter_pages_scanned=min(8,len(r.pages)),front_matter_supplement_labels=front_labels,front_matter_text_sha256=hashlib.sha256(front.encode()).hexdigest());receipt=json.loads((p.parent/'receipt.json').read_text());job=receipt.get('job',{});m=re.search(r'Supplement\s+(\d+)',job.get('Name',''),re.I);pdfm=re.search(r'SUPPLEMENT\s+NO\.?\s*(\d+)',text,re.I);client=receipt['product']['Client'];norm=lambda s:re.sub('[^a-z0-9]','',unicodedata.normalize('NFKD',s).lower());result.update(pdf_cover_jurisdiction_state_match=all(norm(token) in norm(text) for token in re.findall(r'[A-Za-z0-9]+',client['ClientName'])) and norm(client['State']['StateName']) in norm(text),api_client_name=client['ClientName'],api_state_name=client['State']['StateName']);au=re.search(r'(?:Update|Revision)\s*(\d+)',job.get('Name',''),re.I);pu=re.search(r'(?:Update|Revision)\s*(\d+)',text,re.I);alignment=('cover_label_differs' if m[1]!=pdfm[1] or (au and pu and au[1]!=pu[1]) else 'supplement_matches_update_unproven' if au and not pu else 'cover_label_matches') if m and pdfm else 'unproven_missing_comparable_labels';result.update(api_update=au[1] if au else None,pdf_cover_update=pu[1] if pu else None);result.update(api_job_name=job.get('Name'),api_banner=job.get('BannerText'),cover_supplement_matches_api=bool(m and pdfm and m[1]==pdfm[1]),api_supplement=m[1] if m else None,pdf_cover_supplement=pdfm[1] if pdfm else None,edition_alignment_status=alignment,edition_alignment_limit='Cover supplement label only; no full-body equivalence, currency, or completeness assertion')
+   p.with_name('publisher-export.validation.json').write_text(json.dumps(result,indent=2));results.append(result)
+ (ROOT/'publisher-download-verification.json').write_text(json.dumps(results,indent=2));print(json.dumps(results,indent=2))
+if __name__=='__main__':run()

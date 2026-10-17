@@ -1,0 +1,940 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8" lang="en"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9" lang="en"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js" lang="en-US">
+<!--<![endif]-->
+<head>
+	<!-- Published by OpenCities, 1.38.0.1 -->
+
+    
+        
+    
+    
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="theme-color" content="#FFFFFF"/>
+    <title>City Ordinances and Charter - City of Sioux Falls</title>
+	<meta name="generator" content="OpenCities - https://granicus.com/product/opencities" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Using mobile-web-app-capable for now to enable full-screen experience on supported platforms -->
+    <!-- Note: This tag works mainly on Android Chrome. It does NOT enable full-screen mode on iOS Safari. -->
+    <!-- For iOS, the correct tag is: <meta name="apple-mobile-web-app-capable" content="yes"> -->
+    <!-- TODO: Monitor for updated meta tag standards from Apple or other browser vendors -->
+    <meta name="mobile-web-app-capable" content="yes" />
+        <meta name="description" content="Sioux Falls Charter and Code" />
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://www.siouxfalls.gov/government/council/city-clerk/city-ordinances-and-charter" />
+    <meta property="og:title" content="City Ordinances and Charter" />
+    <meta property="og:description" content="Sioux Falls Charter and Code" />
+    <meta property="og:image" content="https://www.siouxfalls.gov/files/ocwebsite/Public/HeroImage/INT23_023_meta-image_1200x627.jpg?w=1200" />
+    <meta property="twitter:card" content="summary" />
+    <meta property="twitter:title" content="City Ordinances and Charter" />
+    <meta property="twitter:description" content="Sioux Falls Charter and Code" />
+    <meta property="twitter:image" content="https://www.siouxfalls.gov/files/ocwebsite/Public/HeroImage/INT23_023_meta-image_1200x627.jpg?w=1080" />
+    <meta property="fb:app_id" content="828362322023852" />
+    <link rel="canonical" href="https://www.siouxfalls.gov/government/council/city-clerk/city-ordinances-and-charter" />
+
+    
+    <link rel="apple-touch-icon" sizes="152x152" href="/files/ocfavicon/Public/apple-touch-icon.png?V=638181899190755597">
+<link rel="icon" type="image/png" sizes="32x32" href="/files/ocfavicon/Public/favicon-32x32.png?V=638181899190755597">
+<link rel="icon" type="image/png" sizes="16x16" href="/files/ocfavicon/Public/favicon-16x16.png?V=638181899190755597">
+<link rel="manifest" href="/files/ocfavicon/Public/site.webmanifest?V=638181899190755597">
+<link rel="shortcut icon" href="/files/ocfavicon/Public/favicon.ico?V=638181899190755597">
+<meta name="msapplication-TileColor" content="#000000">
+<meta name="msapplication-config" content="/files/ocfavicon/Public/browserconfig.xml?V=638181899190755597">
+    <script>
+        (function () {
+            if (window.__UNLOAD_LAZY_PATCH__) return;
+            window.__UNLOAD_LAZY_PATCH__ = true;
+
+            var supportsPageHide = ("onpagehide" in window);
+            var mappedType = supportsPageHide ? "pagehide" : "beforeunload";
+            var nativeAdd = window.addEventListener;
+            var nativeRemove = window.removeEventListener;
+            var unloadMap = null;
+            var patched = false;
+
+            function ensurePatched() {
+                if (patched) return;
+                unloadMap = new WeakMap();
+
+                window.addEventListener = function (type, listener, options) {
+                    if (type === "unload") {
+                        var wrapped = function (evt) {
+                            if (supportsPageHide && evt.persisted) return;
+                            listener.call(this, evt);
+                        };
+                        unloadMap.set(listener, wrapped);
+                        return nativeAdd.call(this, mappedType, wrapped, options);
+                    }
+                    return nativeAdd.call(this, type, listener, options);
+                };
+
+                window.removeEventListener = function (type, listener, options) {
+                    if (type === "unload") {
+                        var wrapped = unloadMap.get(listener);
+                        if (wrapped) {
+                            nativeRemove.call(this, mappedType, wrapped, options);
+                            unloadMap.delete(listener);
+                        }
+                        return;
+                    }
+                    return nativeRemove.call(this, type, listener, options);
+                };
+
+                var orig = null;
+                Object.defineProperty(window, "onunload", {
+                    configurable: true, enumerable: true,
+                    get: function () { return orig; },
+                    set: function (h) {
+                        orig = h;
+                        if (typeof h === "function") window.addEventListener("unload", h);
+                    }
+                });
+                patched = true;
+            }
+
+            window.addEventListener = function (type, listener, options) {
+                if (type === "unload") {
+                    ensurePatched();
+                    return window.addEventListener(type, listener, options);
+                }
+                return nativeAdd.call(this, type, listener, options);
+            };
+
+            window.removeEventListener = function (type, listener, options) {
+                if (type === "unload" && !patched) {
+                    return;
+                }
+                return nativeRemove.call(this, type, listener, options);
+            };
+
+            function patchTelerik() {
+                ensurePatched();
+                var ns = window.RadAjaxNamespace;
+                if (!ns || !ns.EventManager || !ns.EventManager.Add || ns.EventManager.__UnloadPatched) return;
+                var origAdd = ns.EventManager.Add;
+                ns.EventManager.Add = function (el, evtName, handler, clientId) {
+                    if (el === window && evtName === "unload") {
+                        return window.addEventListener("unload", handler);
+                    }
+                    return origAdd.call(this, el, evtName, handler, clientId);
+                };
+                ns.EventManager.__UnloadPatched = true;
+            }
+
+            if (window.RadAjaxNamespace)
+                patchTelerik();
+            else (window.requestIdleCallback || function (cb)
+            {
+                setTimeout(cb, 120);
+            })(patchTelerik);
+        })();
+    </script>
+    <!-- Preconnecting to Google Fonts servers -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <!-- Defer Roboto font loading to avoid render-blocking -->
+    <script>
+        window.addEventListener('DOMContentLoaded', () => {
+            const robotoLink = document.createElement('link');
+            robotoLink.rel = 'stylesheet';
+            robotoLink.href = 'https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap';
+            document.head.appendChild(robotoLink);
+        });
+    </script>
+
+    <style>
+        .gm-style, .gm-style * {
+            font-family: 'Roboto', system-ui, -apple-system, "Segoe UI", Arial, sans-serif !important;
+        }
+    </style>
+
+    <script>
+        document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, "js");
+    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700;900&display=swap" rel="stylesheet">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500&display=swap" rel="stylesheet">
+    
+        
+            <script type="text/javascript">
+                window.__oc_flags_ImprovedBreakpointEventHandling = true;
+            </script>
+            
+        
+    
+    
+    
+        <script type="text/javascript">
+            var __metaQueryBreakpoints = {
+                'sc-size-4': '(max-width: 480px)',
+                'sc-size-3': '(min-width: 480px) and (max-width: 768px)',
+                'sc-size-2': '(min-width: 768px) and (max-width: 992px)',
+                'sc-size-1': '(min-width: 992px)'
+            }
+
+            var __ocSizePoints = [
+                { min: 0, name: 'sc-size-4' },
+                { min: 480, name: 'sc-size-3' },
+                { min: 768, name: 'sc-size-2' },
+                { min: 992, name: 'sc-size-1' }
+            ];
+
+        </script>
+    
+
+    <!-- Framework Section -->
+    
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script>window.jQuery || document.write('<script src="/files/templates/00000000-0000-0000-0000-000000000000/f0699977-4bae-4f0e-b5a2-2c9736b63a4d/v/499/jquery-3.6.0.min.js?seamlessts=639263248119611498" ><\/script>')</script>
+
+    <!--Google Maps API Loader – Improved Version to avoid Warning
+    This script loads the Google Maps JavaScript API using a dynamic and async method.
+    It replaces the old static <script> tag to avoid performance warnings from Google.
+
+    Dynamically creates the <script> tag with loading = async for better performance
+    Builds the API URL with required libraries(places, geometry, marker, geocoding)
+    Uses a Promise and callback(google.maps.__ib__) to confirm when the script is ready
+
+    It Avoids Google’s warning about direct script loading
+    Improves page load speed by loading the API asynchronously-->
+
+    
+        <script>
+            (function (root) {
+                root.OpenCities = root.OpenCities || {};
+                if (!root.OpenCities.GoogleMapsLoader) {
+                    root.OpenCities.GoogleMapsLoader = {
+                        _cbs: [],
+                        _ready: false,
+                        onReady: function (cb) {
+                            if (this._ready) { try { cb(); } catch (e) { console.error(e); } }
+                            else if (typeof cb === 'function') this._cbs.push(cb);
+                        },
+                        _fire: function () {
+                            if (this._ready) return;
+                            this._ready = true;
+                            var q = this._cbs.splice(0);
+                            for (var i = 0; i < q.length; i++) {
+                                try { q[i](); } catch (e) { console.error(e); }
+                            }
+                        }
+                    };
+                }
+            })(window);
+
+            (g => {
+                var h, a, k, p = "The Google Maps JavaScript API", c = "google", l = "importLibrary", q = "__ib__",
+                    m = document, b = window;
+                b = b[c] || (b[c] = {});
+                var d = b.maps || (b.maps = {}), r = new Set, e = new URLSearchParams,
+                    u = () => h || (h = new Promise(async (resolve, reject) => {
+                        a = m.createElement("script");
+                        e.set("libraries", [...r] + "");
+                        for (k in g) e.set(k.replace(/[A-Z]/g, t => "_" + t[0].toLowerCase()), g[k]);
+                        e.set("callback", c + ".maps." + q);
+                        a.src = "https://maps." + c + "apis.com/maps/api/js?" + e.toString();
+                        a.loading = "async";
+                        a.async = true;
+                        a.defer = true;
+                        d[q] = resolve;
+                        a.onerror = () => reject(Error(p + " could not load."));
+                        a.nonce = m.querySelector("script[nonce]")?.nonce || "";
+                        m.head.append(a);
+                    }));
+                if (d[l]) {
+                    console.warn(p + " only loads once. Ignoring duplicate load.");
+                } else {
+                    d[l] = (f, ...n) => (r.add(f), u().then(() => d[l](f, ...n)));
+                }
+            })({
+                key: "AIzaSyDzRUrQMxAz40CS5W953FhNux-Cuu00ceo",
+                v: "3.65"
+            });
+
+            (async () => {
+                try {
+                    if (!google?.maps?.importLibrary) return;
+
+                    if (!window.OpenCities.__mapsLibsPromise) {
+                        window.OpenCities.__mapsLibsPromise = Promise.all([
+                            google.maps.importLibrary('maps'),
+                            google.maps.importLibrary('places'),
+                            google.maps.importLibrary('geocoding'),
+                            google.maps.importLibrary('marker'),
+                            google.maps.importLibrary('geometry')
+                        ]);
+                    }
+                    await window.OpenCities.__mapsLibsPromise;
+
+                    if (window.OpenCities?.GoogleMapsLoader) {
+                        window.OpenCities.GoogleMapsLoader._fire();
+                    }
+                } catch (err) {
+                    console.error('Google Maps failed to initialise', err);
+                }
+            })();
+        </script>
+    
+    <script src="/files/templates/00000000-0000-0000-0000-000000000000/f0699977-4bae-4f0e-b5a2-2c9736b63a4d/v/499/modernizr.custom.710f3bf.js?seamlessts=639263248119611498" defer></script>
+    
+    <!--// End Framework Section -->
+    <!-- OpenCities Section -->
+    <script>
+        var OpenCities = OpenCities || {};
+        OpenCities.Paths = {
+            SiteTemplate: '/files/templates/00000000-0000-0000-0000-000000000000/f0699977-4bae-4f0e-b5a2-2c9736b63a4d/v/499/',
+            ThemePath: '/files/templates/00000000-0000-0000-0000-000000000000/f0699977-4bae-4f0e-b5a2-2c9736b63a4d/v/499/'
+        };
+    </script>
+    <script src='/ocapi/9987ba79-c747-4718-ae09-e5228f86ba19/en-US/websitesettings.js'></script>
+    <script src="/files/templates/00000000-0000-0000-0000-000000000000/f0699977-4bae-4f0e-b5a2-2c9736b63a4d/v/499/oc_head.js?applied=20260918065055"></script>
+    <!-- Script Combine. To enter debug mode for this browser session, enter OcScriptCombineDebug=true as a querystring -->
+<link href="/files/oc-templates/00000000-0000-0000-0000-000000000000/f0699977-4bae-4f0e-b5a2-2c9736b63a4d/v/499/oc_grid.css~oc_style.css~oc_wizard_style.css~oc_main.css~oc_forms.css~oc_wizard.css~oc_wizard_menu.css~oc_main_s1.css~oc_wizard_s1.css~oc_wizard_menu_s1.css~oc_grid_s1.css~OcScriptCombine_Minify0?uniqueid=20260918065055" rel="stylesheet" type="text/css">
+    <!-- Script Combine. To enter debug mode for this browser session, enter OcScriptCombineDebug=true as a querystring -->
+<link href="/files/oc-templates/00000000-0000-0000-0000-000000000000/f0699977-4bae-4f0e-b5a2-2c9736b63a4d/v/499/client_style.css~client.css~client_menu.css~client_s1.css~client_menu_s1.css~client_forms.css~OcScriptCombine_Minify0?uniqueid=20260918065055" rel="stylesheet" type="text/css">
+    <script>
+(function (BackgroundSettings, $, undefined) {
+    BackgroundSettings.initialise = function () {
+        this.Application = {"CSSSelector":".content-outer-container","EnableFade":true,"MediaType":"image"};
+    };
+} (OpenCities.BackgroundSettings = OpenCities.BackgroundSettings || {}, jQuery));
+OpenCities.BackgroundSettings.initialise();
+</script>
+    
+    <!-- Script Combine. To enter debug mode for this browser session, enter OcScriptCombineDebug=true as a querystring -->
+<link href="/files/oc-templates/00000000-0000-0000-0000-000000000000/f0699977-4bae-4f0e-b5a2-2c9736b63a4d/v/499/oc_print.css~client_print.css~OcScriptCombine_Minify0?uniqueid=20260918065055" rel="stylesheet" type="text/css" media="print">
+    <!-- Script Combine. To enter debug mode for this browser session, enter OcScriptCombineDebug=true as a querystring -->
+<script src="/files/oc-templates/00000000-0000-0000-0000-000000000000/f0699977-4bae-4f0e-b5a2-2c9736b63a4d/v/499/external_plugins.js~oc_form_helper.js~oc_main.js~plugins.js~oc_main_init.js~OcScriptCombine_Minify0?uniqueid=20260918065055" defer="true"></script>
+    <!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-M4CFGKXF');</script>
+<!-- End Google Tag Manager -->
+<meta name="google-site-verification" content="aCfQ2l2cRDHgxXab2tLjmE7eHzrqH3yer3E0m6ckXT0" />
+    
+
+                                <script>!function(e){var n="https://s.go-mpulse.net/boomerang/";if("False"=="True")e.BOOMR_config=e.BOOMR_config||{},e.BOOMR_config.PageParams=e.BOOMR_config.PageParams||{},e.BOOMR_config.PageParams.pci=!0,n="https://s2.go-mpulse.net/boomerang/";if(window.BOOMR_API_key="DYTCK-JM9C8-ED4EP-C3GGK-Z575H",function(){function e(){if(!r){var e=document.createElement("script");e.id="boomr-scr-as",e.src=window.BOOMR.url,e.async=!0,o.appendChild(e),r=!0}}function t(e){r=!0;var n,t,a,i,d=document,O=window;if(window.BOOMR.snippetMethod=e?"if":"i",t=function(e,n){var t=d.createElement("script");t.id=n||"boomr-if-as",t.src=window.BOOMR.url,BOOMR_lstart=(new Date).getTime(),e=e||d.body,e.appendChild(t)},!window.addEventListener&&window.attachEvent&&navigator.userAgent.match(/MSIE [67]\./))return window.BOOMR.snippetMethod="s",void t(o,"boomr-async");a=document.createElement("IFRAME"),a.src="about:blank",a.title="",a.role="presentation",a.loading="eager",i=(a.frameElement||a).style,i.width=0,i.height=0,i.border=0,i.display="none",o.appendChild(a);try{O=a.contentWindow,d=O.document.open()}catch(_){n=document.domain,a.src="javascript:var d=document.open();d.domain='"+n+"';void 0;",O=a.contentWindow,d=O.document.open()}if(n)d._boomrl=function(){this.domain=n,t()},d.write("<bo"+"dy onload='document._boomrl();'>");else if(O._boomrl=function(){t()},O.addEventListener)O.addEventListener("load",O._boomrl,!1);else if(O.attachEvent)O.attachEvent("onload",O._boomrl);d.close()}function a(e){window.BOOMR_onload=e&&e.timeStamp||(new Date).getTime()}if(!window.BOOMR||!window.BOOMR.version&&!window.BOOMR.snippetExecuted){window.BOOMR=window.BOOMR||{},window.BOOMR.snippetStart=(new Date).getTime(),window.BOOMR.snippetExecuted=!0,window.BOOMR.snippetVersion=14,window.BOOMR.url=n+"DYTCK-JM9C8-ED4EP-C3GGK-Z575H";var i=document.currentScript||document.getElementsByTagName("script")[0],o=i.parentNode,r=!1,d=document.createElement("link");if(d.relList&&"function"==typeof d.relList.supports&&d.relList.supports("preload")&&"as"in d)window.BOOMR.snippetMethod="p",d.href=window.BOOMR.url,d.rel="preload",d.as="script",d.addEventListener("load",e),d.addEventListener("error",function(){t(!0)}),setTimeout(function(){if(!r)t(!0)},3e3),BOOMR_lstart=(new Date).getTime(),o.appendChild(d);else t(!1);if(window.addEventListener)window.addEventListener("load",a,!1);else if(window.attachEvent)window.attachEvent("onload",a)}}(),"".length>0)if(e&&"performance"in e&&e.performance&&"function"==typeof e.performance.setResourceTimingBufferSize)e.performance.setResourceTimingBufferSize();!function(){if(BOOMR=e.BOOMR||{},BOOMR.plugins=BOOMR.plugins||{},!BOOMR.plugins.AK){var n=""=="true"?1:0,t="",a="eyaqesmsaa3wajqacqdxiaaacrvnhoap-f-c828cf02d-clienttons-s.akamaihd.net",i="false"=="true"?2:1,o={"ak.v":"41","ak.cp":"1688433","ak.ai":parseInt("1075935",10),"ak.ol":"0","ak.cr":16,"ak.ipv":6,"ak.proto":"http/1.1","ak.rid":"1f088a00","ak.r":48121,"ak.a2":n,"ak.m":"dscb","ak.n":"essl","ak.cport":59911,"ak.gh":"23.62.38.231","ak.quicv":"","ak.tlsv":"tls1.2","ak.0rtt":"","ak.0rtt.ed":"","ak.csrc":"-","ak.acc":"bbr","ak.t":"1792260111","ak.ak":"hOBiQwZUYzCg5VSAfCLimQ==1jefgWJzMSZeoOYP1aeDIJ50TdVvF92TJRNzQVoqvIlWHbHZX2NUIJCLqvtH/MbB+TrOYfCy5PF1jEC0Gr1JTSoQw2iwzleYUAQH3FlPeqRpDJr2gHRX+AD4baHH5a+jFPZsKQe2xA82nr40n8rmf+ih5Ciy7xn3sAJZL3pq2Afohl1EHF2j87RJuodXBipzY9edY5Sc2u40QIskWABGYZ/ccZFX78KrqnUmok5QNvuC5If1pIk43NY8PNqpC7H2k1CX+/EOqz4AyGzcbh/qCAtqBuihRdjgAEeI7X952zr6aYygvon2/2mLo/zVsiGzaDMm1zWCuR7nX3yHfK5IhnGfawqBvH6H1hfmJ7LE8uU8XIE+/+va9rBMLY61ghG84Pqgurvv8Gh6bQiJCNnXaVYgD5E3r8P9L+sw9Q1DyHc=","ak.pv":"355","ak.dpoabenc":"","ak.tf":i};if(""!==t)o["ak.ruds"]=t;var r={i:!1,av:function(n){var t="http.initiator";if(n&&(!n[t]||"spa_hard"===n[t]))o["ak.feo"]=void 0!==e.aFeoApplied?1:0,BOOMR.addVar(o)},rv:function(){var e=["ak.cport","ak.cr","ak.csrc","ak.gh","ak.ipv","ak.m","ak.n","ak.ol","ak.proto","ak.quicv","ak.tlsv","ak.0rtt","ak.0rtt.ed","ak.r","ak.acc","ak.t","ak.tf"];BOOMR.removeVar(e)}};BOOMR.plugins.AK={akVars:o,akDNSPreFetchDomain:a,init:function(){if(!r.i){var e=BOOMR.subscribe;e("before_beacon",r.av,null,null),e("onbeacon",r.rv,null,null),r.i=!0}return this},is_complete:function(){return!0}}}}()}(window);</script></head>
+<body class="body layout-modern  site-search-always-visble  content-type-oc-general content-template-oc-full-width group-template-oc-full-width-with-default-header page-name-city-ordinances-and-charter page-sequence-2 page-depth-4 page-section-9 website-type-primary device-desktop " id="body-top">
+    <div id="skip-to-content-container">
+        <a href="#main-content" class="visuallyhidden focusable" id="skip-to-content-link">Skip to main content</a>
+    </div>
+    <script>
+        // OCNOW-11988 (Cursor): Proactively focus skip link when returning from browser chrome.
+        // Must run inline (not deferred oc_main.js) so focus is intercepted before NVDA speaks footer.
+        (function () {
+            var awaitingReentry = false;
+            var inertSupported = 'inert' in HTMLElement.prototype;
+
+            function isExplicitlyOutsideDocument(node) {
+                return node != null && !document.documentElement.contains(node);
+            }
+
+            function getSkipContainer() {
+                return document.getElementById('skip-to-content-container');
+            }
+
+            function getSkipLink() {
+                return document.getElementById('skip-to-content-link');
+            }
+
+            function applyGuard() {
+                awaitingReentry = true;
+                if (!inertSupported) {
+                    return;
+                }
+                var skipContainer = getSkipContainer();
+                var children = document.body.children;
+                for (var i = 0; i < children.length; i++) {
+                    if (children[i] !== skipContainer) {
+                        children[i].setAttribute('inert', '');
+                    }
+                }
+            }
+
+            function clearGuard() {
+                awaitingReentry = false;
+                if (!inertSupported) {
+                    return;
+                }
+                var children = document.body.children;
+                for (var i = 0; i < children.length; i++) {
+                    children[i].removeAttribute('inert');
+                }
+            }
+
+            function isSkipLinkElement(target) {
+                if (!target) {
+                    return false;
+                }
+                var skipContainer = getSkipContainer();
+                return target.id === 'skip-to-content-link' ||
+                    (skipContainer && skipContainer.contains(target));
+            }
+
+            function focusSkipLink() {
+                var skipLink = getSkipLink();
+                if (!skipLink) {
+                    return;
+                }
+                if (window.scrollY > 0) {
+                    window.scrollTo(0, 0);
+                }
+                skipLink.focus({ preventScroll: true });
+            }
+
+            function scheduleGuardIfDocumentLostFocus() {
+                window.setTimeout(function () {
+                    if (!document.hasFocus()) {
+                        applyGuard();
+                    }
+                }, 0);
+            }
+
+            document.addEventListener('focusout', function (e) {
+                if (isExplicitlyOutsideDocument(e.relatedTarget)) {
+                    applyGuard();
+                }
+            }, true);
+
+            document.addEventListener('keydown', function (e) {
+                if (e.key === 'Tab') {
+                    scheduleGuardIfDocumentLostFocus();
+                } else if (e.key === 'F6' || (e.key === 'l' && e.ctrlKey)) {
+                    scheduleGuardIfDocumentLostFocus();
+                }
+            }, true);
+
+            window.addEventListener('focus', function () {
+                if (!awaitingReentry) {
+                    return;
+                }
+                applyGuard();
+                focusSkipLink();
+            }, true);
+
+            document.addEventListener('focusin', function (e) {
+                var reentryFromChrome = awaitingReentry || isExplicitlyOutsideDocument(e.relatedTarget);
+                if (!reentryFromChrome) {
+                    return;
+                }
+                if (isSkipLinkElement(e.target)) {
+                    clearGuard();
+                    return;
+                }
+                applyGuard();
+                focusSkipLink();
+                clearGuard();
+            }, true);
+        })();
+    </script>
+    <form name="mainForm" method="post" action="/government/council/city-clerk/city-ordinances-and-charter" id="mainForm">
+<input type="hidden" name="ctl04_seamless_script_manager_TSM" id="ctl04_seamless_script_manager_TSM" value="" />
+<input type="hidden" name="__SEAMLESSVIEWSTATE" id="__SEAMLESSVIEWSTATE" value="4is52outslb5jyqz3nzm03a0|75ab64d2-6788-4254-ae01-a6c54e5bd36b" />
+<input type="hidden" name="__VIEWSTATE" id="__VIEWSTATE" value="" />
+
+
+<script src="/Telerik.Web.UI.WebResource.axd?_TSM_HiddenField_=ctl04_seamless_script_manager_TSM&amp;compress=1&amp;_TSM_CombinedScripts_=%3b%3bSystem.Web.Extensions%2c+Version%3d4.0.0.0%2c+Culture%3dneutral%2c+PublicKeyToken%3d31bf3856ad364e35%3aen-GB%3add3ac3d5-1e29-4112-8fed-529caffa8f24%3aea597d4b%3bOpenCities.CustomControls%3aen-GB%3a7197b077-b068-4a69-9481-a6cf2e7718f9%3a8e1d32bf" type="text/javascript"></script>
+<script src="/ScriptResource.axd?d=EYVjNsQ7oYmzBqCI0dkEyYe0LYmPcVFL4WPcQCXhKfQwUqkAT7lLra0za-OLMuUUcCyPINdTVMHIWti96-8R_oN-trjXUUZnJRzckxTjid4ecctwwEJyNI-05jZYvXHBRiEKL0MUQMEyEJ2FXanyE1uBk88RxZ1wVK6AUn9D4v8rW-LNx2OOtB8vE3hC8P0jk4XZt7GAPiCeYQolxUlwFZA8cuOfgd4u08OASxFdh8mChz3A0YHhuwRrXGVlulfs9SJVkAvulhjdHYIIp1SRohDxt9acTwxUQrOlxuxC847b00zOOWg9SlpwD_iBuQQ1rOK9WH9O_wN9c2TXm4GeXaQHHT4yQ9IlzZXw6th8ch3f-k_n1yYeeurDMbwChXW1Vh_7rpu00kgmegsg9w2J3ququXIPfy2Gq8IscVTmtwouupfmUzAOicU_yESgQ-dG0" type="text/javascript"></script>
+    
+<script type="text/javascript">
+    try{
+        function SeamlessEndRequestHandler(sender, args) {
+            try {
+                var dataItems = args.get_dataItems();
+                if(dataItems.ctl04_seamless_script_manager)
+                    document.getElementById('__SEAMLESSVIEWSTATE').value = dataItems.ctl04_seamless_script_manager;
+            }
+            catch (e) { }
+        }
+
+        Sys.WebForms.PageRequestManager.getInstance().add_endRequest(SeamlessEndRequestHandler);
+    }
+    catch (e) { }
+</script>
+
+    <div class="unsupported-browser-warning js-element"></div>
+    
+    <div hidden>
+        <span id="new-window-0">opens in new tab or window </span>
+    </div>
+    <div class="overlay-container"></div>
+    
+    <div class="background-container">
+        <div class="page-container">
+            <!-- OC Layout Element GROUP TEMPLATE -->
+            <!--groupTemplateStart--><header><div class="print-header-outer-container print-element">
+<img src="/files/templates/00000000-0000-0000-0000-000000000000/f0699977-4bae-4f0e-b5a2-2c9736b63a4d/v/498/print-header-logo.svg" alt="City of Sioux Falls - Logo" />
+</div>
+            <div class="toolbar-outer-container">
+  <div class="toolbar-inner-container clearfix">
+    <div class="toolbar-item toolbar-quicklinks toolbar-display-dropdown">
+	<button type="button" aria-controls="toolbar-quicklinks-drop-down" aria-expanded="false" class="toolbar-button toolbar-button-quicklinks js-element"><span>Quick Links</span><i aria-hidden="true"></i></button>	
+	<div id="toolbar-quicklinks-drop-down" class="toolbar-drop-down toolbar-quicklinks-drop-down clearfix">
+		<ul>
+		  <li><a href="https://www.siouxfalls.gov/resident-services/contact" class="oc-icon-b oc-i--none link-type-internal"><span>Contact Us</span></a></li>
+		</ul>
+	</div>
+</div><div class="toolbar-item toolbar-language notranslate toolbar-display-dropdown"><div class="no-js-element">
+		  <ul>
+		    <li id="toolbar-language-option-en-us-noscript"><a href="https://www.siouxfalls.gov/government/council/city-clerk/city-ordinances-and-charter?oc_lang=en-US" class="lang-item lang-en-us" data-translate-to="en-us" lang="en-US">English (United States)<span class="visuallyhidden"> Select this as your preferred language</span></a></li><li id="toolbar-language-option-es-noscript"><a href="https://www.siouxfalls.gov/government/council/city-clerk/city-ordinances-and-charter?oc_lang=es" class="lang-item lang-es" data-translate-to="es" lang="en">Spanish<span class="visuallyhidden"> Select this as your preferred language</span></a></li><li id="toolbar-language-option-sw-noscript"><a href="https://www.siouxfalls.gov/government/council/city-clerk/city-ordinances-and-charter?oc_lang=sw" class="lang-item lang-sw" data-translate-to="sw" lang="en">Swahili<span class="visuallyhidden"> Select this as your preferred language</span></a></li><li id="toolbar-language-option-ne-noscript"><a href="https://www.siouxfalls.gov/government/council/city-clerk/city-ordinances-and-charter?oc_lang=ne" class="lang-item lang-ne" data-translate-to="ne" lang="en">Nepali<span class="visuallyhidden"> Select this as your preferred language</span></a></li><li id="toolbar-language-option-am-noscript"><a href="https://www.siouxfalls.gov/government/council/city-clerk/city-ordinances-and-charter?oc_lang=am" class="lang-item lang-am" data-translate-to="am" lang="en">Amharic<span class="visuallyhidden"> Select this as your preferred language</span></a></li><li id="toolbar-language-option-ar-noscript"><a href="https://www.siouxfalls.gov/government/council/city-clerk/city-ordinances-and-charter?oc_lang=ar" class="lang-item lang-ar" data-translate-to="ar" lang="en">Arabic<span class="visuallyhidden"> Select this as your preferred language</span></a></li><li id="toolbar-language-option-ru-noscript"><a href="https://www.siouxfalls.gov/government/council/city-clerk/city-ordinances-and-charter?oc_lang=ru" class="lang-item lang-ru" data-translate-to="ru" lang="en">Russian<span class="visuallyhidden"> Select this as your preferred language</span></a></li><li id="toolbar-language-option-so-noscript"><a href="https://www.siouxfalls.gov/government/council/city-clerk/city-ordinances-and-charter?oc_lang=so" class="lang-item lang-so" data-translate-to="so" lang="en">Somali<span class="visuallyhidden"> Select this as your preferred language</span></a></li>
+          </ul>
+		</div>
+	<button type="button" role="combobox" aria-controls="toolbar-language-drop-down" aria-expanded="false" aria-haspopup="listbox" aria-autocomplete="none" aria-labelledby="toolbar-language-label" class="toolbar-button toolbar-button-language js-element">  
+        <span class="toolbar-language-globe-icon" aria-hidden="true"></span>
+        <span id="toolbar-language-label" class="current-language">
+            Select a language to translate to
+		</span>
+		<i aria-hidden="true"></i>
+	</button>
+	<div id="toolbar-language-drop-down" role="listbox" aria-label="Available languages" class="toolbar-drop-down toolbar-language-drop-down js-element clearfix">
+		<ul role="group">
+		    <li role="presentation"><a id="toolbar-language-option-en-us" role="option" aria-selected="true" href="https://www.siouxfalls.gov/government/council/city-clerk/city-ordinances-and-charter?oc_lang=en-US" class="lang-item lang-en-us" data-translate-to="en-us" lang="en-US">English (United States)<span class="visuallyhidden"> Select this as your preferred language</span></a></li><li role="presentation"><a id="toolbar-language-option-es" role="option" aria-selected="false" href="https://www.siouxfalls.gov/government/council/city-clerk/city-ordinances-and-charter?oc_lang=es" class="lang-item lang-es" data-translate-to="es" lang="en">Spanish<span class="visuallyhidden"> Select this as your preferred language</span></a></li><li role="presentation"><a id="toolbar-language-option-sw" role="option" aria-selected="false" href="https://www.siouxfalls.gov/government/council/city-clerk/city-ordinances-and-charter?oc_lang=sw" class="lang-item lang-sw" data-translate-to="sw" lang="en">Swahili<span class="visuallyhidden"> Select this as your preferred language</span></a></li><li role="presentation"><a id="toolbar-language-option-ne" role="option" aria-selected="false" href="https://www.siouxfalls.gov/government/council/city-clerk/city-ordinances-and-charter?oc_lang=ne" class="lang-item lang-ne" data-translate-to="ne" lang="en">Nepali<span class="visuallyhidden"> Select this as your preferred language</span></a></li><li role="presentation"><a id="toolbar-language-option-am" role="option" aria-selected="false" href="https://www.siouxfalls.gov/government/council/city-clerk/city-ordinances-and-charter?oc_lang=am" class="lang-item lang-am" data-translate-to="am" lang="en">Amharic<span class="visuallyhidden"> Select this as your preferred language</span></a></li><li role="presentation"><a id="toolbar-language-option-ar" role="option" aria-selected="false" href="https://www.siouxfalls.gov/government/council/city-clerk/city-ordinances-and-charter?oc_lang=ar" class="lang-item lang-ar" data-translate-to="ar" lang="en">Arabic<span class="visuallyhidden"> Select this as your preferred language</span></a></li><li role="presentation"><a id="toolbar-language-option-ru" role="option" aria-selected="false" href="https://www.siouxfalls.gov/government/council/city-clerk/city-ordinances-and-charter?oc_lang=ru" class="lang-item lang-ru" data-translate-to="ru" lang="en">Russian<span class="visuallyhidden"> Select this as your preferred language</span></a></li><li role="presentation"><a id="toolbar-language-option-so" role="option" aria-selected="false" href="https://www.siouxfalls.gov/government/council/city-clerk/city-ordinances-and-charter?oc_lang=so" class="lang-item lang-so" data-translate-to="so" lang="en">Somali<span class="visuallyhidden"> Select this as your preferred language</span></a></li>
+        </ul>
+	</div></div>
+  </div>
+</div>
+            <div class="header-outer-container">
+    <div class="header-container header-layout-2  clearfix">
+			<div class="header-site-logo">
+				<a href="https://www.siouxfalls.gov/home" lang="en-US" aria-label="City of Sioux Falls - home - Logo">
+				</a>
+			</div>
+		    <div class="header-website-settings">
+                <button id="btn-mob-nav" type="button" aria-expanded="false" aria-controls="nav">
+                    <i aria-hidden="true"></i><span class="side-menu-btn-text">Menu</span>
+                </button>
+        	</div>
+			
+			<div class="header-search-control-container" id="header-search">
+				<div class="search-inner-container">
+					<div class="sc-search-panel">
+	<label for="ctl07_txtSearch" id="ctl07_lblSearch" class="sc-search-label">Search</label><input name="ctl07$txtSearch" type="text" id="ctl07_txtSearch" class="sc-search-text" placeholder="How can we help you?" /><input type="submit" name="ctl07$btnSearch" value="Search" id="ctl07_btnSearch" class="sc-search-button" />
+</div>
+					<div role="status" id="predictiveResults"></div>
+				</div>
+			</div>
+    </div>
+</div>
+<div class="navigation-outer-container">
+	<div id="nav" role="navigation" class="navigation-container navigation-container-option-1" data-menu-type="horizontal" aria-label="primary">
+        <div class="grid">
+            <div class="col-xs-12">                
+                <ul class="sf-menu" id="sc-main-menu"><li class="nav-section-quarters-1   first-item nav-item-seq-1">
+<a href="https://www.siouxfalls.gov/activities-recreation" class="nav-level-1 nav-has-children"  target="">
+	<i class="item-icon" aria-hidden="true"></i><span class="item-text">Activities & Recreation</span>
+</a>
+<button aria-label="Expand" aria-haspopup="true" class="mobnav-subarrow" aria-controls="sc-menu-second-level-nav-item-seq-1">
+              <i aria-hidden="true"></i>
+              </button>
+<ul id="sc-menu-second-level-nav-item-seq-1">
+
+          
+            <li class=" "><a  href="https://www.siouxfalls.gov/activities-recreation/app" class=""  target="">Parks & Recreation App</a></li><li class=" "><a  href="https://www.siouxfalls.gov/activities-recreation/parks_department" class=""  target="_self">Parks & Recreation</a></li><li class=" "><a  href="https://www.siouxfalls.gov/activities-recreation/recreation" class="nav-has-children"  target="">Recreation & Athletics</a><button aria-label="Expand" aria-haspopup="true" class="mobnav-subarrow-child" aria-controls="sc-menu-third-level-nav-item-seq-1-nav-item-seq-3"><i aria-hidden="true"></i>
+              </button>
+<ul id="sc-menu-third-level-nav-item-seq-1-nav-item-seq-3">
+          
+            <li  class=" "><a href="https://www.siouxfalls.gov/activities-recreation/recreation/programs-classes"  target="">Programs & Classes</a></li><li  class=" "><a href="https://www.siouxfalls.gov/activities-recreation/recreation/leagues"  target="">Recreation Leagues</a></li><li  class=" "><a href="https://www.siouxfalls.gov/activities-recreation/recreation/associations"  target="">Sports Associations</a></li><li  class=" "><a href="https://www.siouxfalls.gov/activities-recreation/recreation/sports-fields"  target="_self">Practice Sport Fields</a></li><li  class=" "><a href="https://www.siouxfalls.gov/activities-recreation/recreation/westside"  target="">Westside Recreation Center</a></li><li  class=" "><a href="https://www.siouxfalls.gov/activities-recreation/recreation/open-gym"  target="">Open Gym</a></li></ul></li><li class=" "><a  href="https://www.siouxfalls.gov/activities-recreation/aquatics" class="nav-has-children"  target="">Aquatics</a><button aria-label="Expand" aria-haspopup="true" class="mobnav-subarrow-child" aria-controls="sc-menu-third-level-nav-item-seq-1-nav-item-seq-4"><i aria-hidden="true"></i>
+              </button>
+<ul id="sc-menu-third-level-nav-item-seq-1-nav-item-seq-4">
+          
+            <li  class=" "><a href="https://www.siouxfalls.gov/activities-recreation/aquatics/pools-splash-pads"  target="">Pools and Splash Pads</a></li><li  class=" "><a href="https://www.siouxfalls.gov/activities-recreation/aquatics/get-a-swim-pass"  target="">Get a Swim Pass</a></li><li  class=" "><a href="https://www.siouxfalls.gov/activities-recreation/aquatics/swimming-lessons"  target="">Swimming Lessons</a></li><li  class=" "><a href="https://www.siouxfalls.gov/activities-recreation/aquatics/swimming-certifications"  target="">Swimming Certifications</a></li><li  class=" "><a href="https://www.siouxfalls.gov/activities-recreation/aquatics/aquatic-events-fitness"  target="">Aquatic Events and Fitness</a></li><li  class=" "><a href="https://www.siouxfalls.gov/activities-recreation/aquatics/rules"  target="">Aquatics Program Policies and Rules</a></li></ul></li><li class=" "><a  href="https://www.siouxfalls.gov/activities-recreation/parks-trails" class="nav-has-children"  target="">Parks & Trails</a><button aria-label="Expand" aria-haspopup="true" class="mobnav-subarrow-child" aria-controls="sc-menu-third-level-nav-item-seq-1-nav-item-seq-5"><i aria-hidden="true"></i>
+              </button>
+<ul id="sc-menu-third-level-nav-item-seq-1-nav-item-seq-5">
+          
+            <li  class=" "><a href="https://www.siouxfalls.gov/activities-recreation/parks-trails/directory"  target="">Parks Directory</a></li><li  class=" "><a href="https://www.siouxfalls.gov/activities-recreation/parks-trails/trails"  target="">Sioux Falls Trail Systems</a></li><li  class=" "><a href="https://www.siouxfalls.gov/activities-recreation/parks-trails/park-finder"  target="_blank">Park Finder Map</a></li></ul></li><li class=" "><a  href="https://www.siouxfalls.gov/activities-recreation/events-venues" class="nav-has-children"  target="">Events & Venues</a><button aria-label="Expand" aria-haspopup="true" class="mobnav-subarrow-child" aria-controls="sc-menu-third-level-nav-item-seq-1-nav-item-seq-6"><i aria-hidden="true"></i>
+              </button>
+<ul id="sc-menu-third-level-nav-item-seq-1-nav-item-seq-6">
+          
+            <li  class=" "><a href="https://www.siouxfalls.gov/activities-recreation/events-venues/special-events"  target="">Plan a Special Event</a></li><li  class=" "><a href="https://www.siouxfalls.gov/activities-recreation/events-venues/community-events-performances"  target="">Community Events & Performances</a></li><li  class=" "><a href="https://www.siouxfalls.gov/activities-recreation/events-venues/specialized-venues"  target="">Specialized Reservations</a></li><li  class=" "><a href="https://www.siouxfalls.gov/activities-recreation/events-venues/library-spaces"  target="_blank">Siouxland Libraries Spaces</a></li><li  class=" "><a href="https://www.siouxfalls.gov/activities-recreation/events-venues/partners"  target="">Partners</a></li></ul></li><li class=" "><a  href="https://www.siouxfalls.gov/activities-recreation/park-volunteer" class=""  target="">Volunteer Opportunities</a></li><li class=" "><a  href="https://www.siouxfalls.gov/activities-recreation/arts-culture" class="nav-has-children"  target="">Arts and Culture</a><button aria-label="Expand" aria-haspopup="true" class="mobnav-subarrow-child" aria-controls="sc-menu-third-level-nav-item-seq-1-nav-item-seq-8"><i aria-hidden="true"></i>
+              </button>
+<ul id="sc-menu-third-level-nav-item-seq-1-nav-item-seq-8">
+          
+            <li  class=" "><a href="https://www.siouxfalls.gov/activities-recreation/arts-culture/arts-plan"  target="">Sioux Falls Arts & Culture Plan</a></li><li  class=" "><a href="https://www.siouxfalls.gov/activities-recreation/arts-culture/art-policy"  target="_blank">Sioux Falls Public Art Policy</a></li><li  class=" "><a href="https://www.siouxfalls.gov/activities-recreation/arts-culture/carver-gallery"  target="">Carver Gallery</a></li></ul></li><li class=" "><a  href="https://www.siouxfalls.gov/activities-recreation/libraries" class=""  target="_blank">Siouxland Libraries</a></li></ul></li>
+          
+            <li class="nav-section-quarters-1   nav-item-seq-2">
+<a href="https://www.siouxfalls.gov/health-safety" class="nav-level-1 nav-has-children"  target="">Health & Safety</a>
+<button aria-label="Expand" aria-haspopup="true" class="mobnav-subarrow" aria-controls="sc-menu-second-level-nav-item-seq-2">
+              <i aria-hidden="true"></i>
+              </button>
+<ul id="sc-menu-second-level-nav-item-seq-2">
+
+          
+            <li class=" "><a  href="https://www.siouxfalls.gov/health-safety/animal-control" class="nav-has-children"  target="">Animal Control</a><button aria-label="Expand" aria-haspopup="true" class="mobnav-subarrow-child" aria-controls="sc-menu-third-level-nav-item-seq-2-nav-item-seq-1"><i aria-hidden="true"></i>
+              </button>
+<ul id="sc-menu-third-level-nav-item-seq-2-nav-item-seq-1">
+          
+            <li  class=" "><a href="https://www.siouxfalls.gov/health-safety/animal-control/contact"  target="">Common Animal Control Issues</a></li><li  class=" "><a href="https://www.siouxfalls.gov/health-safety/animal-control/pet-licenses-vaccinations"  target="">Pet Licensing and Vaccinations</a></li><li  class=" "><a href="https://www.siouxfalls.gov/health-safety/animal-control/pet-waste-information"  target="">Pet Waste Information</a></li><li  class=" "><a href="https://www.siouxfalls.gov/health-safety/animal-control/urban-livestock"  target="">Urban Livestock</a></li><li  class=" "><a href="https://www.siouxfalls.gov/health-safety/animal-control/wildlife"  target="">Wildlife in the City</a></li><li  class=" "><a href="https://www.siouxfalls.gov/health-safety/animal-control/humane-society"  target="_blank">Humane Society of Sioux Falls</a></li></ul></li><li class=" "><a  href="https://www.siouxfalls.gov/health-safety/code-enforcement" class="nav-has-children"  target="">Code Enforcement</a><button aria-label="Expand" aria-haspopup="true" class="mobnav-subarrow-child" aria-controls="sc-menu-third-level-nav-item-seq-2-nav-item-seq-2"><i aria-hidden="true"></i>
+              </button>
+<ul id="sc-menu-third-level-nav-item-seq-2-nav-item-seq-2">
+          
+            <li  class=" "><a href="https://www.siouxfalls.gov/health-safety/code-enforcement/contact"  target="">Code Enforcement Contacts</a></li><li  class=" "><a href="https://www.siouxfalls.gov/health-safety/code-enforcement/categories"  target="">Categories of Code Enforcement</a></li></ul></li><li class=" "><a  href="https://www.siouxfalls.gov/health-safety/emergency-management" class="nav-has-children"  target="">Emergency Management</a><button aria-label="Expand" aria-haspopup="true" class="mobnav-subarrow-child" aria-controls="sc-menu-third-level-nav-item-seq-2-nav-item-seq-3"><i aria-hidden="true"></i>
+              </button>
+<ul id="sc-menu-third-level-nav-item-seq-2-nav-item-seq-3">
+          
+            <li  class=" "><a href="https://www.siouxfalls.gov/health-safety/emergency-management/how-to-prepare"  target="">How to Prepare</a></li><li  class=" "><a href="https://www.siouxfalls.gov/health-safety/emergency-management/storm-damage-fallen-trees"  target="_self">Storm Damage and Fallen Trees</a></li><li  class=" "><a href="https://www.siouxfalls.gov/health-safety/emergency-management/local-hazards"  target="">Local Hazards</a></li><li  class=" "><a href="https://www.siouxfalls.gov/health-safety/emergency-management/snow"  target="_self">Snow & Cold Weather</a></li><li  class=" "><a href="https://www.siouxfalls.gov/health-safety/emergency-management/public-safety-campus"  target="">Public Safety Campus</a></li><li  class=" "><a href="https://www.siouxfalls.gov/health-safety/emergency-management/Traffic-Cameras"  target="_blank">Traffic Cameras</a></li><li  class=" "><a href="https://www.siouxfalls.gov/health-safety/emergency-management/flood"  target="">Flooding and Flash Flooding</a></li></ul></li><li class=" "><a  href="https://www.siouxfalls.gov/health-safety/fire" class="nav-has-children"  target="">Fire Rescue</a><button aria-label="Expand" aria-haspopup="true" class="mobnav-subarrow-child" aria-controls="sc-menu-third-level-nav-item-seq-2-nav-item-seq-4"><i aria-hidden="true"></i>
+              </button>
+<ul id="sc-menu-third-level-nav-item-seq-2-nav-item-seq-4">
+          
+            <li  class=" "><a href="https://www.siouxfalls.gov/health-safety/fire/community-programs-and-safety"  target="">Community Programs and Safety</a></li><li  class=" "><a href="https://www.siouxfalls.gov/health-safety/fire/about"  target="">About SFFR</a></li><li  class=" "><a href="https://www.siouxfalls.gov/health-safety/fire/recruiting"  target="_self">Fire Rescue Recruiting</a></li><li  class=" "><a href="https://www.siouxfalls.gov/health-safety/fire/contact"  target="">Contact Fire Rescue</a></li><li  class=" "><a href="https://www.siouxfalls.gov/health-safety/fire/permits"  target="_self">Fire Permits</a></li><li  class=" "><a href="https://www.siouxfalls.gov/health-safety/fire/fire-reports"  target="">Request a Report</a></li></ul></li><li class=" "><a  href="https://www.siouxfalls.gov/health-safety/health-services" class="nav-has-children"  target="">Health Services</a><button aria-label="Expand" aria-haspopup="true" class="mobnav-subarrow-child" aria-controls="sc-menu-third-level-nav-item-seq-2-nav-item-seq-5"><i aria-hidden="true"></i>
+              </button>
+<ul id="sc-menu-third-level-nav-item-seq-2-nav-item-seq-5">
+          
+            <li  class=" "><a href="https://www.siouxfalls.gov/health-safety/health-services/falls-community-health"  target="">Falls Community Health</a></li><li  class=" "><a href="https://www.siouxfalls.gov/health-safety/health-services/public-health"  target="">Public Health</a></li><li  class=" "><a href="https://www.siouxfalls.gov/health-safety/health-services/inspections"  target="_self">Health Inspections</a></li><li  class=" "><a href="https://www.siouxfalls.gov/health-safety/health-services/contact-us"  target="">Contact the Health Department</a></li></ul></li><li class=" "><a  href="https://www.siouxfalls.gov/health-safety/metro-communications" class="nav-has-children"  target="">Metro Communications</a><button aria-label="Expand" aria-haspopup="true" class="mobnav-subarrow-child" aria-controls="sc-menu-third-level-nav-item-seq-2-nav-item-seq-6"><i aria-hidden="true"></i>
+              </button>
+<ul id="sc-menu-third-level-nav-item-seq-2-nav-item-seq-6">
+          
+            <li  class=" "><a href="https://www.siouxfalls.gov/health-safety/metro-communications/when-to-call"  target="">When to Call 911</a></li><li  class=" "><a href="https://www.siouxfalls.gov/health-safety/metro-communications/metro-comms-careers"  target="_self">Careers</a></li><li  class=" "><a href="https://www.siouxfalls.gov/health-safety/metro-communications/operations-governance"  target="">Operations and Governance</a></li><li  class=" "><a href="https://www.siouxfalls.gov/health-safety/metro-communications/report-requests"  target="">Request an Audio Report</a></li><li  class=" "><a href="https://www.siouxfalls.gov/health-safety/metro-communications/reports-statistics"  target="">Reports and Statistics</a></li><li  class=" "><a href="https://www.siouxfalls.gov/health-safety/metro-communications/metro-board"  target="_self">Metro Executive Board</a></li></ul></li><li class=" "><a  href="https://www.siouxfalls.gov/health-safety/police" class="nav-has-children"  target="">Police</a><button aria-label="Expand" aria-haspopup="true" class="mobnav-subarrow-child" aria-controls="sc-menu-third-level-nav-item-seq-2-nav-item-seq-7"><i aria-hidden="true"></i>
+              </button>
+<ul id="sc-menu-third-level-nav-item-seq-2-nav-item-seq-7">
+          
+            <li  class=" "><a href="https://www.siouxfalls.gov/health-safety/police/file-a-report"  target="_self">File a Police Report</a></li><li  class=" "><a href="https://www.siouxfalls.gov/health-safety/police/police-information"  target="">Police Information & Requests</a></li><li  class=" "><a href="https://www.siouxfalls.gov/health-safety/police/Police-Activity-and-Safety-Resources"  target="">Police Activity and Safety Resources</a></li><li  class=" "><a href="https://www.siouxfalls.gov/health-safety/police/community-outreach"  target="">Community Outreach</a></li><li  class=" "><a href="https://www.siouxfalls.gov/health-safety/police/police-resources"  target="">Police Resources</a></li><li  class=" "><a href="https://www.siouxfalls.gov/health-safety/police/police-recruitment"  target="_self">Police Recruitment</a></li></ul></li></ul></li>
+          
+            <li class="nav-section-quarters-2   nav-item-seq-3">
+<a href="https://www.siouxfalls.gov/resident-services" class="nav-level-1 nav-has-children"  target="">Resident Services</a>
+<button aria-label="Expand" aria-haspopup="true" class="mobnav-subarrow" aria-controls="sc-menu-second-level-nav-item-seq-3">
+              <i aria-hidden="true"></i>
+              </button>
+<ul id="sc-menu-second-level-nav-item-seq-3">
+
+          
+            <li class=" "><a  href="https://www.siouxfalls.gov/resident-services/mobile-web-apps" class="nav-has-children"  target="">Mobile and Web Apps</a><button aria-label="Expand" aria-haspopup="true" class="mobnav-subarrow-child" aria-controls="sc-menu-third-level-nav-item-seq-3-nav-item-seq-1"><i aria-hidden="true"></i>
+              </button>
+<ul id="sc-menu-third-level-nav-item-seq-3-nav-item-seq-1">
+          
+            <li  class=" "><a href="https://www.siouxfalls.gov/resident-services/mobile-web-apps/alert"  target="_blank">City of Sioux Falls Alerts</a></li><li  class=" "><a href="https://www.siouxfalls.gov/resident-services/mobile-web-apps/parks-rec"  target="_self">Parks & Recreation App</a></li><li  class=" "><a href="https://www.siouxfalls.gov/resident-services/mobile-web-apps/customer-self-service"  target="_blank">Customer Self Service</a></li><li  class=" "><a href="https://www.siouxfalls.gov/resident-services/mobile-web-apps/siouxland-libraries"  target="_blank">Siouxland Libraries Apps</a></li><li  class=" "><a href="https://www.siouxfalls.gov/resident-services/mobile-web-apps/neighborhood-connect"  target="_blank">Neighborhood Connect</a></li></ul></li><li class=" "><a  href="https://www.siouxfalls.gov/resident-services/utilities-billing" class="nav-has-children"  target="">Utility Billing</a><button aria-label="Expand" aria-haspopup="true" class="mobnav-subarrow-child" aria-controls="sc-menu-third-level-nav-item-seq-3-nav-item-seq-2"><i aria-hidden="true"></i>
+              </button>
+<ul id="sc-menu-third-level-nav-item-seq-3-nav-item-seq-2">
+          
+            <li  class=" "><a href="https://www.siouxfalls.gov/resident-services/utilities-billing/billing"  target="">Pay a Utility Bill</a></li><li  class=" "><a href="https://www.siouxfalls.gov/resident-services/utilities-billing/onemeter-service"  target="_blank">OneMeter Self Service</a></li><li  class=" "><a href="https://www.siouxfalls.gov/resident-services/utilities-billing/rates"  target="">Utility Rates</a></li><li  class=" "><a href="https://www.siouxfalls.gov/resident-services/utilities-billing/electric-light"  target="">Light, Power & Traffic</a></li><li  class=" "><a href="https://www.siouxfalls.gov/resident-services/utilities-billing/water"  target="">Water Purification</a></li><li  class=" "><a href="https://www.siouxfalls.gov/resident-services/utilities-billing/water-rec"  target="">Water Reclamation</a></li><li  class=" "><a href="https://www.siouxfalls.gov/resident-services/utilities-billing/water-line"  target="_self">Water Service Line Inventory</a></li><li  class=" "><a href="https://www.siouxfalls.gov/resident-services/utilities-billing/row-contractor"  target="_self">Water and Sewer Right-of-Way (ROW) Contractors</a></li></ul></li><li class=" "><a  href="https://www.siouxfalls.gov/resident-services/landfill-and-recycling" class="nav-has-children"  target="">Landfill and Recycling</a><button aria-label="Expand" aria-haspopup="true" class="mobnav-subarrow-child" aria-controls="sc-menu-third-level-nav-item-seq-3-nav-item-seq-3"><i aria-hidden="true"></i>
+              </button>
+<ul id="sc-menu-third-level-nav-item-seq-3-nav-item-seq-3">
+          
+            <li  class=" "><a href="https://www.siouxfalls.gov/resident-services/landfill-and-recycling/landfill"  target="">Sioux Falls Regional Landfill</a></li><li  class=" "><a href="https://www.siouxfalls.gov/resident-services/landfill-and-recycling/recycling"  target="">Sioux Falls Recycles</a></li><li  class=" "><a href="https://www.siouxfalls.gov/resident-services/landfill-and-recycling/disposal-guide"  target="">Know Where It Goes</a></li><li  class=" "><a href="https://www.siouxfalls.gov/resident-services/landfill-and-recycling/hazardous-waste"  target="">Hazardous Wastes</a></li><li  class=" "><a href="https://www.siouxfalls.gov/resident-services/landfill-and-recycling/haulers"  target="">Selecting Your Waste Hauler</a></li><li  class=" "><a href="https://www.siouxfalls.gov/resident-services/landfill-and-recycling/waste-reduction"  target="">Waste Reduction</a></li></ul></li><li class=" "><a  href="https://www.siouxfalls.gov/resident-services/sam" class="nav-has-children"  target="">Sioux Area Metro</a><button aria-label="Expand" aria-haspopup="true" class="mobnav-subarrow-child" aria-controls="sc-menu-third-level-nav-item-seq-3-nav-item-seq-4"><i aria-hidden="true"></i>
+              </button>
+<ul id="sc-menu-third-level-nav-item-seq-3-nav-item-seq-4">
+          
+            <li  class=" "><a href="https://www.siouxfalls.gov/resident-services/sam/fares-passes"  target="_blank">Fares & Passes</a></li><li  class=" "><a href="https://www.siouxfalls.gov/resident-services/sam/routes-schedules"  target="_blank">Routes & Schedules</a></li><li  class=" "><a href="https://www.siouxfalls.gov/resident-services/sam/detours"  target="_blank">Detours</a></li><li  class=" "><a href="https://www.siouxfalls.gov/resident-services/sam/rules-policies"  target="">Rules & Policies</a></li><li  class=" "><a href="https://www.siouxfalls.gov/resident-services/sam/programs"  target="_blank">Programs</a></li><li  class=" "><a href="https://www.siouxfalls.gov/resident-services/sam/how-to-ride"  target="_blank">How to Ride</a></li><li  class=" "><a href="https://www.siouxfalls.gov/resident-services/sam/careers"  target="_blank">Careers With SAM</a></li><li  class=" "><a href="https://www.siouxfalls.gov/resident-services/sam/public-transportation-board"  target="_self">Public Transportation Advisory Board</a></li></ul></li><li class=" "><a  href="https://www.siouxfalls.gov/resident-services/parking-street-services" class="nav-has-children"  target="">Parking & Street Services</a><button aria-label="Expand" aria-haspopup="true" class="mobnav-subarrow-child" aria-controls="sc-menu-third-level-nav-item-seq-3-nav-item-seq-5"><i aria-hidden="true"></i>
+              </button>
+<ul id="sc-menu-third-level-nav-item-seq-3-nav-item-seq-5">
+          
+            <li  class=" "><a href="https://www.siouxfalls.gov/resident-services/parking-street-services/parking"  target="">Public Parking</a></li><li  class=" "><a href="https://www.siouxfalls.gov/resident-services/parking-street-services/snow"  target="">Snow in Sioux Falls</a></li><li  class=" "><a href="https://www.siouxfalls.gov/resident-services/parking-street-services/street-construction"  target="">Street Construction</a></li><li  class=" "><a href="https://www.siouxfalls.gov/resident-services/parking-street-services/street-trees"  target="">Street Trees</a></li><li  class=" "><a href="https://www.siouxfalls.gov/resident-services/parking-street-services/street-maintenance"  target="">Contact Street Maintenance</a></li><li  class=" "><a href="https://www.siouxfalls.gov/resident-services/parking-street-services/traffic-counts"  target="">Traffic Counts</a></li></ul></li><li class=" "><a  href="https://www.siouxfalls.gov/resident-services/housing-neighborhoods" class="nav-has-children"  target="">Housing and Neighborhoods</a><button aria-label="Expand" aria-haspopup="true" class="mobnav-subarrow-child" aria-controls="sc-menu-third-level-nav-item-seq-3-nav-item-seq-6"><i aria-hidden="true"></i>
+              </button>
+<ul id="sc-menu-third-level-nav-item-seq-3-nav-item-seq-6">
+          
+            <li  class=" "><a href="https://www.siouxfalls.gov/resident-services/housing-neighborhoods/housing"  target="">Housing Programs</a></li><li  class=" "><a href="https://www.siouxfalls.gov/resident-services/housing-neighborhoods/fair-housing"  target="_self">Fair Housing</a></li><li  class=" "><a href="https://www.siouxfalls.gov/resident-services/housing-neighborhoods/neighborhoods"  target="">Neighborhoods</a></li><li  class=" "><a href="https://www.siouxfalls.gov/resident-services/housing-neighborhoods/property-tax-refunds"  target="">Property Tax Refunds</a></li><li  class=" "><a href="https://www.siouxfalls.gov/resident-services/housing-neighborhoods/compliance"  target="">Keeping Your Home in Compliance</a></li><li  class=" "><a href="https://www.siouxfalls.gov/resident-services/housing-neighborhoods/Parcel-Finder"  target="_self">Parcel Finder</a></li><li  class=" "><a href="https://www.siouxfalls.gov/resident-services/housing-neighborhoods/tenant"  target="">Tenant Information</a></li><li  class=" "><a href="https://www.siouxfalls.gov/resident-services/housing-neighborhoods/homelessness"  target="">Collaborative Support for Homelessness in Sioux Falls</a></li></ul></li><li class=" "><a  href="https://www.siouxfalls.gov/resident-services/contact" class="nav-has-children"  target="">Contact the City</a><button aria-label="Expand" aria-haspopup="true" class="mobnav-subarrow-child" aria-controls="sc-menu-third-level-nav-item-seq-3-nav-item-seq-7"><i aria-hidden="true"></i>
+              </button>
+<ul id="sc-menu-third-level-nav-item-seq-3-nav-item-seq-7">
+          
+            <li  class=" "><a href="https://www.siouxfalls.gov/resident-services/contact/cosf-app"  target="_self">City of Sioux Falls App</a></li><li  class=" "><a href="https://www.siouxfalls.gov/resident-services/contact/record-request"  target="_self">Public Records Request</a></li><li  class=" "><a href="https://www.siouxfalls.gov/resident-services/contact/nuisance-vegetation"  target="_blank">Nuisance Vegetation</a></li><li  class=" "><a href="https://www.siouxfalls.gov/resident-services/contact/potholes"  target="_self">Potholes</a></li><li  class=" "><a href="https://www.siouxfalls.gov/resident-services/contact/street-lights"  target="">Street Light Outage</a></li><li  class=" "><a href="https://www.siouxfalls.gov/resident-services/contact/traffic-light"  target="_blank">Traffic Signal Concerns</a></li><li  class=" "><a href="https://www.siouxfalls.gov/resident-services/contact/property-maintenance"  target="">Property Maintenance</a></li><li  class=" "><a href="https://www.siouxfalls.gov/resident-services/contact/stormwater"  target="_self">Stormwater & Drainage</a></li><li  class=" "><a href="https://www.siouxfalls.gov/resident-services/contact/utility"  target="_self">Utilities & Billing</a></li><li  class=" "><a href="https://www.siouxfalls.gov/resident-services/contact/departments"  target="_self">City Departments</a></li><li  class=" "><a href="https://www.siouxfalls.gov/resident-services/contact/app-support"  target="">City of Sioux Falls App Support</a></li></ul></li></ul></li>
+          
+            <li class="nav-section-quarters-2   nav-item-seq-4">
+<a href="https://www.siouxfalls.gov/business-permits" class="nav-level-1 nav-has-children"  target="">Business & Permits</a>
+<button aria-label="Expand" aria-haspopup="true" class="mobnav-subarrow" aria-controls="sc-menu-second-level-nav-item-seq-4">
+              <i aria-hidden="true"></i>
+              </button>
+<ul id="sc-menu-second-level-nav-item-seq-4">
+
+          
+            <li class=" "><a  href="https://www.siouxfalls.gov/business-permits/customer-self-service" class=""  target="_blank">CSS - Customer Self Service</a></li><li class=" "><a  href="https://www.siouxfalls.gov/business-permits/permits-licenses-inspections" class="nav-has-children"  target="">Permits, Licenses & Inspections</a><button aria-label="Expand" aria-haspopup="true" class="mobnav-subarrow-child" aria-controls="sc-menu-third-level-nav-item-seq-4-nav-item-seq-2"><i aria-hidden="true"></i>
+              </button>
+<ul id="sc-menu-third-level-nav-item-seq-4-nav-item-seq-2">
+          
+            <li  class=" "><a href="https://www.siouxfalls.gov/business-permits/permits-licenses-inspections/permits"  target="">Permits</a></li><li  class=" "><a href="https://www.siouxfalls.gov/business-permits/permits-licenses-inspections/inspections"  target="">Inspections</a></li><li  class=" "><a href="https://www.siouxfalls.gov/business-permits/permits-licenses-inspections/licensing"  target="">Licensing</a></li><li  class=" "><a href="https://www.siouxfalls.gov/business-permits/permits-licenses-inspections/ordinances-codes"  target="">Ordinances, Codes, and Requirements</a></li></ul></li><li class=" "><a  href="https://www.siouxfalls.gov/business-permits/development-projects" class="nav-has-children"  target="">Development & Major Projects</a><button aria-label="Expand" aria-haspopup="true" class="mobnav-subarrow-child" aria-controls="sc-menu-third-level-nav-item-seq-4-nav-item-seq-3"><i aria-hidden="true"></i>
+              </button>
+<ul id="sc-menu-third-level-nav-item-seq-4-nav-item-seq-3">
+          
+            <li  class=" "><a href="https://www.siouxfalls.gov/business-permits/development-projects/building-services"  target="">Building Services</a></li><li  class=" "><a href="https://www.siouxfalls.gov/business-permits/development-projects/construction-management-and-design"  target="">Construction Management and Design</a></li><li  class=" "><a href="https://www.siouxfalls.gov/business-permits/development-projects/economic-development"  target="">Economic Development</a></li><li  class=" "><a href="https://www.siouxfalls.gov/business-permits/development-projects/future-planning"  target="">Future Planning</a></li><li  class=" "><a href="https://www.siouxfalls.gov/business-permits/development-projects/current-planning"  target="">Current Planning</a></li><li  class=" "><a href="https://www.siouxfalls.gov/business-permits/development-projects/real-estate"  target="">Real Estate</a></li><li  class=" "><a href="https://www.siouxfalls.gov/business-permits/development-projects/planning-commission"  target="_self">Planning Commission</a></li><li  class=" "><a href="https://www.siouxfalls.gov/business-permits/development-projects/parkplanning"  target="_self">Parks Projects & Planning</a></li><li  class=" "><a href="https://www.siouxfalls.gov/business-permits/development-projects/riverline"  target="">Riverline District</a></li></ul></li><li class=" "><a  href="https://www.siouxfalls.gov/business-permits/bids-procurement" class="nav-has-children"  target="">Bids & Procurement</a><button aria-label="Expand" aria-haspopup="true" class="mobnav-subarrow-child" aria-controls="sc-menu-third-level-nav-item-seq-4-nav-item-seq-4"><i aria-hidden="true"></i>
+              </button>
+<ul id="sc-menu-third-level-nav-item-seq-4-nav-item-seq-4">
+          
+            <li  class=" "><a href="https://www.siouxfalls.gov/business-permits/bids-procurement/procurement"  target="_blank">Bid Notification Emails</a></li><li  class=" "><a href="https://www.siouxfalls.gov/business-permits/bids-procurement/eprocurement"  target="">Current Bid Opportunities</a></li><li  class=" "><a href="https://www.siouxfalls.gov/business-permits/bids-procurement/tentative"  target="_blank">Tentative Upcoming Bid Dates</a></li><li  class=" "><a href="https://www.siouxfalls.gov/business-permits/bids-procurement/purchasing-bid-opening"  target="">Bid Opening Information</a></li><li  class=" "><a href="https://www.siouxfalls.gov/business-permits/bids-procurement/vendors"  target="">Vendors</a></li><li  class=" "><a href="https://www.siouxfalls.gov/business-permits/bids-procurement/dbe"  target="">Disadvantaged Business Enterprise (DBE) Information</a></li><li  class=" "><a href="https://www.siouxfalls.gov/business-permits/bids-procurement/auction"  target="">Public Surplus Auctions</a></li><li  class=" "><a href="https://www.siouxfalls.gov/business-permits/bids-procurement/community-partners"  target="">Community Partners Program</a></li></ul></li><li class=" "><a  href="https://www.siouxfalls.gov/business-permits/start-new-business" class="nav-has-children"  target="">Starting a New Business?</a><button aria-label="Expand" aria-haspopup="true" class="mobnav-subarrow-child" aria-controls="sc-menu-third-level-nav-item-seq-4-nav-item-seq-5"><i aria-hidden="true"></i>
+              </button>
+<ul id="sc-menu-third-level-nav-item-seq-4-nav-item-seq-5">
+          
+            <li  class=" "><a href="https://www.siouxfalls.gov/business-permits/start-new-business/irs-tax-information"  target="">IRS Tax Guidelines and Small Business Information</a></li></ul></li><li class=" "><a  href="https://www.siouxfalls.gov/business-permits/currently-licensed-contractors" class=""  target="_self">Currently Licensed Contractors</a></li></ul></li>
+          
+            <li class="nav-section-quarters-3 nav-active-path  nav-item-seq-5">
+<a href="https://www.siouxfalls.gov/government" class="nav-level-1 nav-has-children"  target="">City Government</a>
+<button aria-label="Expand" aria-haspopup="true" class="mobnav-subarrow" aria-controls="sc-menu-second-level-nav-item-seq-5">
+              <i aria-hidden="true"></i>
+              </button>
+<ul id="sc-menu-second-level-nav-item-seq-5">
+
+          
+            <li class=" "><a  href="https://www.siouxfalls.gov/government/mayor" class="nav-has-children"  target="">Mayor's Office</a><button aria-label="Expand" aria-haspopup="true" class="mobnav-subarrow-child" aria-controls="sc-menu-third-level-nav-item-seq-5-nav-item-seq-1"><i aria-hidden="true"></i>
+              </button>
+<ul id="sc-menu-third-level-nav-item-seq-5-nav-item-seq-1">
+          
+            <li  class=" "><a href="https://www.siouxfalls.gov/government/mayor/contact"  target="">Contact the Mayor's Office</a></li><li  class=" "><a href="https://www.siouxfalls.gov/government/mayor/biography-ce"  target="">Meet Mayor Christine Erickson</a></li><li  class=" "><a href="https://www.siouxfalls.gov/government/mayor/meet-the-team"  target="">Meet the Team</a></li><li  class=" "><a href="https://www.siouxfalls.gov/government/mayor/highlights"  target="">Mayor's Office Highlights</a></li><li  class=" "><a href="https://www.siouxfalls.gov/government/mayor/plans-budgets-performance"  target="">Plans, Budgets and Performance</a></li></ul></li><li class="nav-active-path "><a  href="https://www.siouxfalls.gov/government/council" class="nav-has-children"  target="">City Council</a><button aria-label="Expand" aria-haspopup="true" class="mobnav-subarrow-child" aria-controls="sc-menu-third-level-nav-item-seq-5-nav-item-seq-2"><i aria-hidden="true"></i>
+              </button>
+<ul id="sc-menu-third-level-nav-item-seq-5-nav-item-seq-2">
+          
+            <li  class=" "><a href="https://www.siouxfalls.gov/government/council/council-meetings-agendas"  target="">Council Meetings & Agendas</a></li><li  class=" "><a href="https://www.siouxfalls.gov/government/council/council-members"  target="">Council Members</a></li><li  class=" "><a href="https://www.siouxfalls.gov/government/council/about-the-council"  target="">About the Council</a></li><li  class=" "><a href="https://www.siouxfalls.gov/government/council/internal-auditor"  target="">Internal Auditor</a></li><li  class="nav-active-path "><a href="https://www.siouxfalls.gov/government/council/city-clerk"  target="">City Clerk</a></li><li  class=" "><a href="https://www.siouxfalls.gov/government/council/council-programs"  target="">Council Programs</a></li><li  class=" "><a href="https://www.siouxfalls.gov/government/council/district-map"  target="_blank">District Map</a></li><li  class=" "><a href="https://www.siouxfalls.gov/government/council/reg_oversight_dc"  target="">Regulatory Oversight Committee</a></li></ul></li><li class=" "><a  href="https://www.siouxfalls.gov/government/boards-commissions" class="nav-has-children"  target="">Boards, Commissions & Committees</a><button aria-label="Expand" aria-haspopup="true" class="mobnav-subarrow-child" aria-controls="sc-menu-third-level-nav-item-seq-5-nav-item-seq-3"><i aria-hidden="true"></i>
+              </button>
+<ul id="sc-menu-third-level-nav-item-seq-5-nav-item-seq-3">
+          
+            <li  class=" "><a href="https://www.siouxfalls.gov/government/boards-commissions/civil-service-board"  target="">Civil Service Board</a></li><li  class=" "><a href="https://www.siouxfalls.gov/government/boards-commissions/employee-retirement-system"  target="">Employee's Retirement System Board of Trustees</a></li><li  class=" "><a href="https://www.siouxfalls.gov/government/boards-commissions/board-of-historic-preservation"  target="">Board of Historic Preservation+</a></li><li  class=" "><a href="https://www.siouxfalls.gov/government/boards-commissions/sf-parks-recreation-bd"  target="">Parks and Recreation Board</a></li><li  class=" "><a href="https://www.siouxfalls.gov/government/boards-commissions/planning-commission"  target="">Planning Commission</a></li><li  class=" "><a href="https://www.siouxfalls.gov/government/boards-commissions/all"  target="_self">View All</a></li></ul></li><li class=" "><a  href="https://www.siouxfalls.gov/government/departments" class="nav-has-children"  target="">Departments & Divisions</a><button aria-label="Expand" aria-haspopup="true" class="mobnav-subarrow-child" aria-controls="sc-menu-third-level-nav-item-seq-5-nav-item-seq-4"><i aria-hidden="true"></i>
+              </button>
+<ul id="sc-menu-third-level-nav-item-seq-5-nav-item-seq-4">
+          
+            <li  class=" "><a href="https://www.siouxfalls.gov/government/departments/city-attorney"  target="">City Attorneys</a></li><li  class=" "><a href="https://www.siouxfalls.gov/government/departments/city-council"  target="_self">City Council</a></li><li  class=" "><a href="https://www.siouxfalls.gov/government/departments/finance"  target="">Finance</a></li><li  class=" "><a href="https://www.siouxfalls.gov/government/departments/fire-rescue"  target="_self">Fire Rescue</a></li><li  class=" "><a href="https://www.siouxfalls.gov/government/departments/health-services"  target="_self">Health Department</a></li><li  class=" "><a href="https://www.siouxfalls.gov/government/departments/human-resources"  target="">Human Resources</a></li><li  class=" "><a href="https://www.siouxfalls.gov/government/departments/innovation-technology"  target="">Innovation & Technology</a></li><li  class=" "><a href="https://www.siouxfalls.gov/government/departments/library"  target="_self">Library</a></li><li  class=" "><a href="https://www.siouxfalls.gov/government/departments/mayor"  target="_self">Mayor's Office</a></li><li  class=" "><a href="https://www.siouxfalls.gov/government/departments/parks-recreation"  target="">Parks & Recreation</a></li><li  class=" "><a href="https://www.siouxfalls.gov/government/departments/police"  target="_self">Police Department</a></li><li  class=" "><a href="https://www.siouxfalls.gov/government/departments/public-works"  target="">Public Works</a></li><li  class=" "><a href="https://www.siouxfalls.gov/government/departments/planning-development"  target="">Planning & Development Services</a></li></ul></li><li class=" "><a  href="https://www.siouxfalls.gov/government/voting-and-elections" class=""  target="_self">Voting and Elections</a></li><li class=" "><a  href="https://www.siouxfalls.gov/government/careers" class="nav-has-children"  target="">Careers</a><button aria-label="Expand" aria-haspopup="true" class="mobnav-subarrow-child" aria-controls="sc-menu-third-level-nav-item-seq-5-nav-item-seq-6"><i aria-hidden="true"></i>
+              </button>
+<ul id="sc-menu-third-level-nav-item-seq-5-nav-item-seq-6">
+          
+            <li  class=" "><a href="https://www.siouxfalls.gov/government/careers/police-recruitment"  target="">Police Recruitment</a></li><li  class=" "><a href="https://www.siouxfalls.gov/government/careers/sffr-recruiting"  target="">Fire Rescue Recruiting</a></li><li  class=" "><a href="https://www.siouxfalls.gov/government/careers/parks"  target="">Join the Parks and Recreation Team</a></li><li  class=" "><a href="https://www.siouxfalls.gov/government/careers/ascend-internship"  target="">Ascend Internship Program</a></li><li  class=" "><a href="https://www.siouxfalls.gov/government/careers/metro-communications"  target="">Metro Communications Dispatch Careers</a></li></ul></li><li class=" "><a  href="https://www.siouxfalls.gov/government/sustainability" class="nav-has-children"  target="">Sustainability</a><button aria-label="Expand" aria-haspopup="true" class="mobnav-subarrow-child" aria-controls="sc-menu-third-level-nav-item-seq-5-nav-item-seq-7"><i aria-hidden="true"></i>
+              </button>
+<ul id="sc-menu-third-level-nav-item-seq-5-nav-item-seq-7">
+          
+            <li  class=" "><a href="https://www.siouxfalls.gov/government/sustainability/sustainable-grants"  target="">Sustainable Community Grants</a></li><li  class=" "><a href="https://www.siouxfalls.gov/government/sustainability/sustainability-resources"  target="">Sustainability Resources</a></li><li  class=" "><a href="https://www.siouxfalls.gov/government/sustainability/projects-events"  target="">Sustainability Projects and Events</a></li></ul></li><li class=" "><a  href="https://www.siouxfalls.gov/government/citylink" class="nav-has-children"  target="">CityLink - Watch Live</a><button aria-label="Expand" aria-haspopup="true" class="mobnav-subarrow-child" aria-controls="sc-menu-third-level-nav-item-seq-5-nav-item-seq-8"><i aria-hidden="true"></i>
+              </button>
+<ul id="sc-menu-third-level-nav-item-seq-5-nav-item-seq-8">
+          
+            <li  class=" "><a href="https://www.siouxfalls.gov/government/citylink/roku"  target="_blank">Watch CityLink on Roku</a></li><li  class=" "><a href="https://www.siouxfalls.gov/government/citylink/apple-tv"  target="_blank">Watch CityLink on Apple TV</a></li><li  class=" "><a href="https://www.siouxfalls.gov/government/citylink/on-demand"  target="_blank">CityLink - On Demand</a></li></ul></li><li class=" "><a  href="https://www.siouxfalls.gov/government/public-records" class="nav-has-children"  target="">Public Records</a><button aria-label="Expand" aria-haspopup="true" class="mobnav-subarrow-child" aria-controls="sc-menu-third-level-nav-item-seq-5-nav-item-seq-9"><i aria-hidden="true"></i>
+              </button>
+<ul id="sc-menu-third-level-nav-item-seq-5-nav-item-seq-9">
+          
+            <li  class=" "><a href="https://www.siouxfalls.gov/government/public-records/public-records-fees"  target="">Public Records & Fees</a></li><li  class=" "><a href="https://www.siouxfalls.gov/government/public-records/police-records"  target="_blank">Police Records & Court Order Requests</a></li><li  class=" "><a href="https://www.siouxfalls.gov/government/public-records/govt-agency-requests"  target="_blank">Law Enforcement & Government Agency Requests</a></li><li  class=" "><a href="https://www.siouxfalls.gov/government/public-records/city-records"  target="_blank">City of Sioux Falls Public Records Request</a></li></ul></li><li class=" "><a  href="https://www.siouxfalls.gov/government/welcome-to-sioux-falls" class=""  target="">Welcome to Sioux Falls!</a></li></ul></li>
+          
+            </ul>
+            </div>
+        </div>
+    </div>
+</div>
+            </header>
+            <div class="content-outer-container">
+                <div id="main" role="main" class="main-outer-container clearfix">
+                        
+                        <div class="content-main-container">
+                            <div class="grid">
+					            <div class="col-xs-12">
+						            <nav id="breadcrumbs-container" aria-label="You Are Here :">
+							            <span role="list">
+<span role="listitem">
+	<a href="https://www.siouxfalls.gov/home"  lang="en-US">Home</a>
+	<span class="nav-separator" aria-hidden="true" role="presentation">/</span>
+</span>
+          <span role="listitem"><a href="https://www.siouxfalls.gov/government" >City Government</a><span class='nav-separator' aria-hidden="true" role="presentation">/</span></span><span role="listitem">
+	<a href="https://www.siouxfalls.gov/government/council" >
+		City Council
+	</a>
+	<span class='nav-separator' aria-hidden="true" role="presentation">/</span>
+</span>
+<span role="listitem">
+	<a href="https://www.siouxfalls.gov/government/council/city-clerk" >
+		City Clerk
+	</a>
+	<span class='nav-separator' aria-hidden="true" role="presentation">/</span>
+</span>
+<span class="current-page" role="listitem" aria-current="page" >City Ordinances and Charter</span>
+          
+          </span>
+						            </nav>
+					            </div>
+                      
+					            <div class="col-xs-12">
+						            <div class="main-inner-container">
+							            <div id="main-content" class="main-container clearfix">
+							              
+                            <!-- OC Layout Element Conent Template -->
+							              <!--normalTemplateStart--><div class="grid">
+    <div class="col-xs-12 col-m-8">
+        <h1 class='oc-page-title '>City Ordinances and Charter</h1>
+        
+        
+        <p><strong style="font-family: inherit; font-size: 1em;">Sioux Falls Charter and Code</strong></p>
+<p>The&nbsp;<a rel="noopener noreferrer" href="https://codelibrary.amlegal.com/codes/siouxfalls/latest/siouxfalls_sd/0-0-0-45428" target="_blank"><strong>American Legal Publishing&nbsp;Website&nbsp;</strong></a>is a searchable, browsable index of the Sioux Falls Charter and Municipal Code. Once you enter the&nbsp;American Legal Publishing&nbsp;site, you&nbsp;can search or browse to the particular section or chapter you are interested in.</p>
+<p>The original City Charter and amendments thereto are filed with the Secretary of State&rsquo;s Office pursuant to SDCL 6-12-11. To access these documents, use the Secretary of State&rsquo;s&nbsp;<a href="https://sosenterprise.sd.gov/BusinessServices/Business/FilingSearch.aspx"><strong>Business Information Search</strong></a>&nbsp;and enter DM009413 as the &ldquo;Business ID&rdquo;.</p>
+<p>Previous versions of ordinances cited in the Code linked above can be found in the&nbsp;<a href="https://amv.siouxfalls.gov/publicaccess/docs/searchq/"><strong>City Clerk&rsquo;s Records Online</strong></a>&nbsp;portal.</p>
+<p><strong>Note:</strong>&nbsp;There&nbsp;can&nbsp;be a delay from the time an ordinance is adopted to the time it is codified into the electronic version. In case of discrepancy, the official version of the code is on file at the&nbsp;<a href="https://www.siouxfalls.gov/government/council/city-clerk" title="City Clerk's Office"><strong>City Clerk's office</strong></a>.</p>
+
+
+      
+        
+    </div>
+    
+        <div class="col-xs-12 col-m-4">
+            <div class="side-box consultation-snapshot">
+		
+			<h2 class="side-box-title">
+				Resources
+			</h2>
+		
+		
+		<div class="side-box-content">
+			<div class="side-box-section body-content">
+				<p><a href="https://codelibrary.amlegal.com/codes/siouxfalls/latest/siouxfalls_sd/0-0-0-45428">Code of Ordinances of Sioux Falls, South Dakota</a></p>
+<p><a href="https://codelibrary.amlegal.com/codes/siouxfalls/latest/siouxfalls_sd/0-0-0-45465">City of Sioux Falls Charter</a></p>
+<p><a href="https://sdlegislature.gov/Statutes">SD Codified Laws</a></p>
+<p><a href="https://sdlegislature.gov/Constitution">SD Constitution</a></p>
+
+
+			</div>
+		</div>
+		
+	</div>
+            
+        </div>
+    
+    
+</div><!--normalTemplateEnd-->
+                            
+                            
+                            
+							            </div>
+						            </div>
+					            </div>
+                        
+                            </div>
+                        </div>
+                        <div class="back-to-top-container text-center">
+                            <a href="#body-top" id="back-to-top"><i aria-hidden="true"></i><span class="js-visuallyhidden">Back to top</span></a>
+                        </div>
+                </div>
+            </div><!--groupTemplateEnd-->
+            <footer>
+                
+                    <div class="footer-outer-container footer-first-row">
+                        <div class="footer-container clearfix">
+                            <div class="grid grid-pad">
+                                <div class="col-xs-12 col-s-6 col-m-6 col-lg-3 contact-us-footer-widget" >
+	
+			<h2 class="visuallyhidden">Site Footer</h2>
+			<h3 class="footer-title">Contact Us</h3>
+			
+	<p class="city-name">City of Sioux Falls</p>
+<p>City Hall</p>
+<p>224 W. Ninth St.</p>
+<p>Sioux Falls, SD 57104</p>
+<p class="location"><a href="https://goo.gl/maps/dxKNvavR1qfNinVf6" target="_blank">View on Map</a></p>
+<p class="email-us"><a href="https://www.siouxfalls.gov/resident-services/contact" style="font-family: inherit; font-size: 1em;">Contact Us</a></p>
+
+
+	
+	
+</div><div class="col-xs-12 col-s-6 col-m-4 col-lg-3" >
+	
+			<h2 class="visuallyhidden">Site Footer</h2>
+			<h3 class="footer-title">Quick Links</h3>
+			
+	
+	<ul class="footer-links without-icons ">  <li>
+<a href="https://www.siouxfalls.gov/government/departments" target="_self"  >Departments</a>
+</li>
+          <li>
+<a href="https://www.siouxfalls.gov/government/careers" target="_self"  >Careers</a>
+</li>
+          <li>
+<a href="https://www.siouxfalls.gov/news" target="_self"  >News</a>
+</li>
+          <li>
+<a href="https://www.siouxfalls.gov/events" target="_self"  >Events</a>
+</li>
+          <li>
+<a href="https://www.siouxfalls.gov/register-pay" target="_self"  >Register & Pay</a>
+</li>
+          <li>
+<a href="https://www.siouxfalls.gov/dataworks" target="_blank"  >DataWorks</a>
+</li>
+          <li>
+<a href="https://www.siouxfalls.gov/resident-services/mobile-web-apps" target="_self"  >Mobile App</a>
+</li>
+          <li>
+<a href="https://www.siouxfalls.gov/government/departments/human-relations/ada" target="_self"  >Accessibility</a>
+</li>
+          <li>
+<a href="https://www.siouxfalls.gov/government/public-records" target="_self"  >Public Records</a>
+</li>
+           </ul>
+	
+</div><div class="col-xs-12 col-s-6 col-m-6 col-lg-3" >
+	
+			<h2 class="visuallyhidden">Site Footer</h2>
+			<h3 class="footer-title">Share &amp; Connect</h3>
+			
+	
+	<ul class="footer-links with-icons social-media-links">  <li class="footer-link-facebook">
+	<a href="https://www.facebook.com/CityofSiouxFalls" target="_blank"  >
+<i aria-hidden="true"></i>Facebook
+</a>
+</li>
+          <li class="footer-link-instagram">
+	<a href="https://www.instagram.com/cityofsiouxfalls?igsh=Z2dvd3lkd2Y3MzJ6" target="_blank"  >
+<i aria-hidden="true"></i>Instagram
+</a>
+</li>
+          <li class="footer-link-twitter">
+	<a href="https://x.com/CitySiouxFalls" target="_blank"  >
+<i aria-hidden="true"></i>Twitter
+</a>
+</li>
+          <li class="footer-link-linkedin">
+	<a href="https://www.linkedin.com/company/73684/" target="_blank"  >
+<i aria-hidden="true"></i>LinkedIn
+</a>
+</li>
+          <li class="footer-link-youtube">
+	<a href="https://youtube.com/@CityofSiouxFalls" target="_blank"  >
+<i aria-hidden="true"></i>YouTube
+</a>
+</li>
+          <li class="footer-link-nextdoor">
+	<a href="https://nextdoor.com/pages/city-of-sioux-falls-1" target="_blank"  >
+<i aria-hidden="true"></i>Nextdoor
+</a>
+</li>
+           </ul>
+	
+</div>
+                            </div>
+                        </div>
+                    </div>
+                
+                <div class="footer-outer-container footer-second-row">
+                    <div class="footer-container clearfix">
+                        <div class="grid grid-pad footer-secondary-links">
+                            <div class="col-xs-12 col-m-7">
+                                
+                                    <div><a href="https://www.siouxfalls.gov/government/privacy" target="_self"  >Privacy Statement</a>&nbsp;| <a href="https://www.siouxfalls.gov/sitemap" target="_self"  >Sitemap</a></div>
+                                
+                            </div>
+                            <div class="col-xs-12 col-m-5 powered-by">
+                                <div class="right">
+                                    &copy; 2026 City of Sioux Falls&nbsp;|&nbsp;<span class="powered-by">Powered by <a href="https://granicus.com/solution/govaccess/opencities/" target="_blank">Granicus</a></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </footer>
+        </div>
+    </div>
+
+    <script src="/files/oc-resources/b9015858-988c-48a4-9473-7c193df083e4/JsTextSnippets.js?ocsvclang=en-US" type="text/javascript"></script><script></script>
+    
+    <!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-M4CFGKXF"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+    
+    
+    
+
+<script type="text/javascript">
+//<![CDATA[
+window.__TsmHiddenField = $get('ctl04_seamless_script_manager_TSM');//]]>
+</script>
+</form>
+</body>
+</html>

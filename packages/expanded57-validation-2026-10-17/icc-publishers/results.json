@@ -1,0 +1,370 @@
+[
+  {
+    "sequence": 2,
+    "jurisdiction": "Phoenix",
+    "state": "AZ",
+    "source_url": "https://phoenix.municipal.codes/CC/1",
+    "source_family": "municipal.codes",
+    "status": "standalone_e2e_pass",
+    "acquisition_method": "Standalone Python Playwright ordinary headed Google Chrome; fresh isolated browser context; no state import; no CUA; passive ordinary page load followed by observed UI export where tested.",
+    "publisher_download": {
+      "status": "passed",
+      "reason": "Genuine native publisher download acquired through observed ordinary UI; bounded scope only.",
+      "evidence_paths": [
+        "evidence/phoenix-final/publisher-export.json",
+        "publisher-export-verification.json"
+      ],
+      "url": "https://phoenix.municipal.codes/CC/1/export.html?download=true",
+      "native_format": "HTML",
+      "tested_scope": "Chapter1, six operative sections",
+      "record_count": 6
+    },
+    "tested_scope": "City Code chapter 1, six sections 1-1 through 1-6",
+    "complete_corpus": false,
+    "record_count": 6,
+    "table_count": 0,
+    "checks": [
+      "Fresh standalone ordinary headed Chrome acquisition (no CUA/operator assistance).",
+      "Retained raw HTML hash verified.",
+      "Normalized JSONL and CSV round-trip equal.",
+      "Deterministic offline replay byte-equal for JSONL and CSV.",
+      "Unique canonical source URLs; nonempty identifiers/citations/bodies; zero replacement characters.",
+      "Publisher HTML reparses to identical six citations and section bodies; native JSONL/CSV retained."
+    ],
+    "command": ".venv/bin/python collect.py --job phoenix --browser --export --out fresh/phoenix",
+    "command_scope": "Run from this group package root, using a fresh empty output directory; municipal.codes remains stopped by retained rate-limit guard.",
+    "recorded_acquisition_command": "python collect.py --job phoenix --browser --export --out evidence/phoenix-final",
+    "path_base": "icc-publishers/ (this package root)",
+    "offline_command": ".venv/bin/python collect.py --job phoenix --offline --out evidence/phoenix-final",
+    "evidence_paths": [
+      "evidence/phoenix-final/source.html",
+      "evidence/phoenix-final/source.png",
+      "evidence/phoenix-final/acquisition.json",
+      "evidence/phoenix-final/records.jsonl",
+      "evidence/phoenix-final/records.csv",
+      "evidence/phoenix-final/checks.json",
+      "evidence/phoenix-final/parse-details.json",
+      "offline-verification.json",
+      "publication-inventory.json",
+      "runtime.json",
+      "evidence/phoenix-final/executed-collect.py"
+    ],
+    "script_paths": [
+      "collect.py",
+      "verify.py",
+      "verify_exports.py",
+      "lib/ecode360.py",
+      "lib/municipal_codes_cli.py",
+      "lib/cp_collect.py"
+    ],
+    "limitations": [
+      "Bounded substantive validation sample; complete jurisdiction corpus and full publication inventory not demonstrated.",
+      "Tables not present in most selected chapters; Newark tests two layout tables, not a complex schedule with merged numeric cells.",
+      "Images retained as ordered placeholders and metadata; image pixels not transcribed."
+    ],
+    "next_action": "Inventory and qualify charter/zoning/development families before full collection; retain bounded export scope.",
+    "retrieved_at": "2026-10-17T17:58:19.812511+00:00",
+    "raw_sha256": "6df0cc3a89060a126317a465106ffcd17dad6610e65e74c0dd08af48407f1dd5",
+    "runtime": {
+      "python": "3.12.14",
+      "browser": "155.0.8059.84",
+      "playwright": "1.64.0"
+    },
+    "acquisition_script_sha256": "1600cc63f37d8c4c39b51298b2c034747b3172a0e3fde2fb70c77f1142911243"
+  },
+  {
+    "sequence": 33,
+    "jurisdiction": "Bakersfield",
+    "state": "CA",
+    "source_url": "https://bakersfield.municipal.codes/Code/1.01",
+    "source_family": "municipal.codes",
+    "status": "standalone_e2e_pass",
+    "acquisition_method": "Standalone Python Playwright ordinary headed Google Chrome; fresh isolated browser context; no state import; no CUA; passive ordinary page load followed by observed UI export where tested.",
+    "publisher_download": {
+      "status": "blocked",
+      "reason": "A later fresh headed browser received HTTP429 on publisher image resources before export menu qualification; stopped without retries. Earlier successful substantive sample retained separately. Native format/link not qualified for this jurisdiction.",
+      "evidence_paths": [
+        "evidence/bakersfield-final/browser-failure.json",
+        "evidence/BROWSER-STOP.json"
+      ]
+    },
+    "tested_scope": "Municipal Code chapter 1.01, ten sections 1.01.010 through 1.01.100",
+    "complete_corpus": false,
+    "record_count": 10,
+    "table_count": 0,
+    "checks": [
+      "Fresh standalone ordinary headed Chrome acquisition (no CUA/operator assistance).",
+      "Retained raw HTML hash verified.",
+      "Normalized JSONL and CSV round-trip equal.",
+      "Deterministic offline replay byte-equal for JSONL and CSV.",
+      "Unique canonical source URLs; nonempty identifiers/citations/bodies; zero replacement characters."
+    ],
+    "command": ".venv/bin/python collect.py --job bakersfield --browser --export --out fresh/bakersfield",
+    "command_scope": "Run from this group package root, using a fresh empty output directory; municipal.codes remains stopped by retained rate-limit guard.",
+    "recorded_acquisition_command": "python collect.py --job bakersfield --browser --discover --out evidence/bakersfield-browser",
+    "path_base": "icc-publishers/ (this package root)",
+    "offline_command": ".venv/bin/python collect.py --job bakersfield --offline --out evidence/bakersfield-browser",
+    "evidence_paths": [
+      "evidence/bakersfield-browser/source.html",
+      "evidence/bakersfield-browser/source.png",
+      "evidence/bakersfield-browser/acquisition.json",
+      "evidence/bakersfield-browser/records.jsonl",
+      "evidence/bakersfield-browser/records.csv",
+      "evidence/bakersfield-browser/checks.json",
+      "evidence/bakersfield-browser/parse-details.json",
+      "offline-verification.json",
+      "publication-inventory.json",
+      "runtime.json"
+    ],
+    "script_paths": [
+      "collect.py",
+      "verify.py",
+      "verify_exports.py",
+      "lib/ecode360.py",
+      "lib/municipal_codes_cli.py",
+      "lib/cp_collect.py"
+    ],
+    "limitations": [
+      "Bounded substantive validation sample; complete jurisdiction corpus and full publication inventory not demonstrated.",
+      "Tables not present in most selected chapters; Newark tests two layout tables, not a complex schedule with merged numeric cells.",
+      "Images retained as ordered placeholders and metadata; image pixels not transcribed.",
+      "Current municipal.codes network stop is preserved; no automatic retry of publisher download.",
+      "Successful initial browser capture predates executed-driver snapshot retention; acquisition.json records the script hash and exact versions, but original driver bytes are not present. Copied parser bytes/hash and deterministic replay are retained."
+    ],
+    "next_action": "Keep municipal.codes stop; review rate-limit evidence and service guidance before a future explicitly resumed export test. Do not retry in this run.",
+    "retrieved_at": "2026-10-17T17:56:04.920666+00:00",
+    "raw_sha256": "fd5bccc01a38020f4b48ac709c97e24c391de5a30258928906f63c5e9dddf615",
+    "runtime": {
+      "python": "3.12.14",
+      "browser": "155.0.8059.84",
+      "playwright": "1.64.0"
+    },
+    "acquisition_script_sha256": "a137de50bba0b701ceaf5c27a7cfd00675bb989467bd14bbddb17b6c14347614"
+  },
+  {
+    "sequence": 38,
+    "jurisdiction": "Newark",
+    "state": "NJ",
+    "source_url": "https://ecode360.com/36619313",
+    "source_family": "eCode360",
+    "status": "standalone_e2e_pass",
+    "acquisition_method": "Standalone Python Playwright ordinary headed Google Chrome; fresh isolated browser context; no state import; no CUA; passive ordinary page load followed by observed UI export where tested.",
+    "publisher_download": {
+      "status": "passed",
+      "reason": "Genuine native publisher download acquired through observed ordinary UI; bounded scope only.",
+      "evidence_paths": [
+        "evidence/newark-live/publisher-export.json",
+        "publisher-export-verification.json"
+      ],
+      "url": "https://ecode360.com/output/get/754333178",
+      "native_format": "PDF",
+      "tested_scope": "One selected provision 36619353",
+      "record_count": 1
+    },
+    "tested_scope": "Chapter 1:1, ten sections 1:1-1 through 1:1-10; two source layout tables",
+    "complete_corpus": false,
+    "record_count": 10,
+    "table_count": 2,
+    "checks": [
+      "Fresh standalone ordinary headed Chrome acquisition (no CUA/operator assistance).",
+      "Retained raw HTML hash verified.",
+      "Normalized JSONL and CSV round-trip equal.",
+      "Deterministic offline replay byte-equal for JSONL and CSV.",
+      "Unique canonical source URLs; nonempty identifiers/citations/bodies; zero replacement characters.",
+      "Native PDF readable with pypdf; selected substantive body word coverage100%.",
+      "Two tables retain row/cell structure, cell text, spans and intentional image placeholder in semantic HTML."
+    ],
+    "command": ".venv/bin/python collect.py --job newark --browser --export --out fresh/newark",
+    "command_scope": "Run from this group package root, using a fresh empty output directory; municipal.codes remains stopped by retained rate-limit guard.",
+    "recorded_acquisition_command": "python collect.py --job newark --browser --export --out evidence/newark-live",
+    "path_base": "icc-publishers/ (this package root)",
+    "offline_command": ".venv/bin/python collect.py --job newark --offline --out evidence/newark-live",
+    "evidence_paths": [
+      "evidence/newark-live/source.html",
+      "evidence/newark-live/source.png",
+      "evidence/newark-live/acquisition.json",
+      "evidence/newark-live/records.jsonl",
+      "evidence/newark-live/records.csv",
+      "evidence/newark-live/checks.json",
+      "evidence/newark-live/parse-details.json",
+      "offline-verification.json",
+      "publication-inventory.json",
+      "runtime.json",
+      "evidence/newark-live/executed-collect.py"
+    ],
+    "script_paths": [
+      "collect.py",
+      "verify.py",
+      "verify_exports.py",
+      "lib/ecode360.py",
+      "lib/municipal_codes_cli.py",
+      "lib/cp_collect.py"
+    ],
+    "limitations": [
+      "Bounded substantive validation sample; complete jurisdiction corpus and full publication inventory not demonstrated.",
+      "Tables not present in most selected chapters; Newark tests two layout tables, not a complex schedule with merged numeric cells.",
+      "Images retained as ordered placeholders and metadata; image pixels not transcribed.",
+      "Publisher PDF validation proves one selected provision export; no PDF layout/OCR/whole-code extraction claim.",
+      "The source seal-section cross-reference table contains an empty span after “see Section”; preserved as observed instead of inventing a citation."
+    ],
+    "next_action": "Inventory and qualify charter/zoning/development families before full collection; retain bounded export scope.",
+    "retrieved_at": "2026-10-17T17:59:46.068898+00:00",
+    "raw_sha256": "cd33f9dc9d22bd79ae0b29654c1bf6326706789e95ffb9b5ed8d2e0d0d7a8667",
+    "runtime": {
+      "python": "3.12.14",
+      "browser": "155.0.8059.84",
+      "playwright": "1.64.0"
+    },
+    "acquisition_script_sha256": "11d52192a629e4bb4d45784163877d7381e57b89c1ff8c2fe7ca6d563eeeda35"
+  },
+  {
+    "sequence": 39,
+    "jurisdiction": "Municipality of Anchorage",
+    "state": "AK",
+    "source_url": "https://ecode360.com/49388775",
+    "source_family": "eCode360",
+    "status": "standalone_e2e_pass",
+    "acquisition_method": "Standalone Python Playwright ordinary headed Google Chrome; fresh isolated browser context; no state import; no CUA; passive ordinary page load followed by observed UI export where tested.",
+    "publisher_download": {
+      "status": "passed",
+      "reason": "Genuine native publisher download acquired through observed ordinary UI; bounded scope only.",
+      "evidence_paths": [
+        "evidence/anchorage-browser/publisher-export.json",
+        "publisher-export-verification.json"
+      ],
+      "url": "https://ecode360.com/output/get/754333177",
+      "native_format": "PDF",
+      "tested_scope": "One selected provision 49388837",
+      "record_count": 1
+    },
+    "tested_scope": "Municipal Code chapter 1.05, fifteen provisions from1.05.010 through1.05.120 (nonconsecutive numbering as observed)",
+    "complete_corpus": false,
+    "record_count": 15,
+    "table_count": 0,
+    "checks": [
+      "Fresh standalone ordinary headed Chrome acquisition (no CUA/operator assistance).",
+      "Retained raw HTML hash verified.",
+      "Normalized JSONL and CSV round-trip equal.",
+      "Deterministic offline replay byte-equal for JSONL and CSV.",
+      "Unique canonical source URLs; nonempty identifiers/citations/bodies; zero replacement characters.",
+      "Native PDF readable with pypdf; selected substantive body word coverage100%."
+    ],
+    "command": ".venv/bin/python collect.py --job anchorage --browser --export --out fresh/anchorage",
+    "command_scope": "Run from this group package root, using a fresh empty output directory; municipal.codes remains stopped by retained rate-limit guard.",
+    "recorded_acquisition_command": "python collect.py --job anchorage --browser --export --out evidence/anchorage-browser",
+    "path_base": "icc-publishers/ (this package root)",
+    "offline_command": ".venv/bin/python collect.py --job anchorage --offline --out evidence/anchorage-browser",
+    "evidence_paths": [
+      "evidence/anchorage-browser/source.html",
+      "evidence/anchorage-browser/source.png",
+      "evidence/anchorage-browser/acquisition.json",
+      "evidence/anchorage-browser/records.jsonl",
+      "evidence/anchorage-browser/records.csv",
+      "evidence/anchorage-browser/checks.json",
+      "evidence/anchorage-browser/parse-details.json",
+      "offline-verification.json",
+      "publication-inventory.json",
+      "runtime.json"
+    ],
+    "script_paths": [
+      "collect.py",
+      "verify.py",
+      "verify_exports.py",
+      "lib/ecode360.py",
+      "lib/municipal_codes_cli.py",
+      "lib/cp_collect.py"
+    ],
+    "limitations": [
+      "Bounded substantive validation sample; complete jurisdiction corpus and full publication inventory not demonstrated.",
+      "Tables not present in most selected chapters; Newark tests two layout tables, not a complex schedule with merged numeric cells.",
+      "Images retained as ordered placeholders and metadata; image pixels not transcribed.",
+      "Publisher PDF validation proves one selected provision export; no PDF layout/OCR/whole-code extraction claim.",
+      "Initial browser capture predates executed-driver snapshot retention; receipt records script hash/versions, but original driver bytes are not retained. Exact copied parser/hash and deterministic replay are retained."
+    ],
+    "next_action": "Inventory and qualify charter/zoning/development families before full collection; retain bounded export scope.",
+    "retrieved_at": "2026-10-17T17:57:23.015613+00:00",
+    "raw_sha256": "4ea97d07a9612db5dc999db4e9a123e45a7e340761250865cc78d2ed83eb13a4",
+    "runtime": {
+      "python": "3.12.14",
+      "browser": "155.0.8059.84",
+      "playwright": "1.64.0"
+    },
+    "acquisition_script_sha256": "02c99114881fc0ec378e7217358728a95f5c9a22c65321eff22d2c6327181371"
+  },
+  {
+    "sequence": 56,
+    "jurisdiction": "Burlington",
+    "state": "VT",
+    "source_url": "https://www.codepublishing.com/VT/Burlington/#!/Burlington01/Burlington01.html",
+    "source_family": "CodePublishing",
+    "status": "standalone_e2e_pass",
+    "acquisition_method": "Standalone Python Playwright ordinary headed Google Chrome; fresh isolated browser context; no state import; no CUA; passive ordinary page load followed by observed UI export where tested.",
+    "publisher_download": {
+      "status": "passed",
+      "reason": "Genuine native publisher download acquired through observed ordinary UI; bounded scope only.",
+      "evidence_paths": [
+        "evidence/burlington-leaf-export/publisher-export.json",
+        "publisher-export-verification.json"
+      ],
+      "url": "https://www.codepublishing.com/VT/Burlington/cgi/menuCompile.pl",
+      "native_format": "HTML",
+      "tested_scope": "Three observed chapter1 leaf selections1-1 through1-3",
+      "record_count": 3
+    },
+    "tested_scope": "Code of Ordinances chapter1, thirteen sections1-1 through1-13",
+    "complete_corpus": false,
+    "record_count": 13,
+    "table_count": 0,
+    "checks": [
+      "Fresh standalone ordinary headed Chrome acquisition (no CUA/operator assistance).",
+      "Retained raw HTML hash verified.",
+      "Normalized JSONL and CSV round-trip equal.",
+      "Deterministic offline replay byte-equal for JSONL and CSV.",
+      "Unique canonical source URLs; nonempty identifiers/citations/bodies; zero replacement characters.",
+      "Expanded chapter then selected three observed leaf checkboxes; native HTML operative text equals live DOM and normalized native JSONL/CSV retained."
+    ],
+    "command": ".venv/bin/python collect.py --job burlington --browser --export --out fresh/burlington",
+    "command_scope": "Run from this group package root, using a fresh empty output directory; municipal.codes remains stopped by retained rate-limit guard.",
+    "recorded_acquisition_command": "python collect.py --job burlington --browser --export --out evidence/burlington-leaf-export",
+    "path_base": "icc-publishers/ (this package root)",
+    "offline_command": ".venv/bin/python collect.py --job burlington --offline --out evidence/burlington-leaf-export",
+    "evidence_paths": [
+      "evidence/burlington-leaf-export/source.html",
+      "evidence/burlington-leaf-export/source.png",
+      "evidence/burlington-leaf-export/acquisition.json",
+      "evidence/burlington-leaf-export/records.jsonl",
+      "evidence/burlington-leaf-export/records.csv",
+      "evidence/burlington-leaf-export/checks.json",
+      "evidence/burlington-leaf-export/parse-details.json",
+      "offline-verification.json",
+      "publication-inventory.json",
+      "runtime.json",
+      "evidence/burlington-leaf-export/executed-collect.py"
+    ],
+    "script_paths": [
+      "collect.py",
+      "verify.py",
+      "verify_exports.py",
+      "lib/ecode360.py",
+      "lib/municipal_codes_cli.py",
+      "lib/cp_collect.py"
+    ],
+    "limitations": [
+      "Bounded substantive validation sample; complete jurisdiction corpus and full publication inventory not demonstrated.",
+      "Tables not present in most selected chapters; Newark tests two layout tables, not a complex schedule with merged numeric cells.",
+      "Images retained as ordered placeholders and metadata; image pixels not transcribed.",
+      "Selecting an unexpanded chapter checkbox exported only a chapter TOC; retained in evidence/burlington-final and explicitly excluded from substantive export pass.",
+      "Original official DocumentCenter lead and current Government route returned404 to standalone requests; current official route is corroborated by search-visible primary official pages/documents, rather than accepted raw official HTML."
+    ],
+    "next_action": "Inventory and qualify charter/zoning/development families before full collection; retain bounded export scope.",
+    "retrieved_at": "2026-10-17T18:02:17.100859+00:00",
+    "raw_sha256": "2b4bc72af79ebc4aa7dd0cc5f9eff011ebb0aaac1670a91f723e0e9b5535fc7d",
+    "runtime": {
+      "python": "3.12.14",
+      "platform": "macOS-26.6.2-arm64-arm-64bit",
+      "browser": "155.0.8059.84",
+      "playwright": "1.64.0"
+    },
+    "acquisition_script_sha256": "81f621f8472d1d88e58aa650ec44d93e04dd435bf228f102c098f9c52baf3e60"
+  }
+]

@@ -1,0 +1,402 @@
+
+    <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+    <html>
+    <head>
+
+        <title>2100. Zoning Districts and Boundaries</title>
+        <link type="text/css" rel="Stylesheet" href="jqueryui/css/jqueryui.css" media="all" />
+        <link type="text/css" rel="Stylesheet" href="css/ui.css" media="all" />
+        <link type="text/css" rel="Stylesheet" href="css/customui.css" media="all" />
+        <link type="text/css" rel="Stylesheet" href="css/document.css" media="all" />
+        <link type="text/css" rel="Stylesheet" href="css/customdoc.css" media="all" />
+        <link type="text/css" rel="Stylesheet" href="tablestyles.aspx" media="all" />
+        <link rel="StyleSheet" type="text/css" href="/common/font-awesome/css/all.min.css">
+        <link type="text/css" rel="Stylesheet" href="css/docprint.css" media="print" />
+        <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+        <script type="text/javascript" src="jqueryui/js/jquery-ui-1.8.21.custom.min.js"></script>
+        <script type="text/javascript" src="js/doc-view.js?_t=290"></script>
+        <script type="text/javascript" src="js/tabletools.js"></script>
+        <script type="text/javascript" src="js/tabs.js"></script>
+        <script type="text/javascript">
+            var iframeReady = false;
+        </script>
+        
+    </head>
+    <body class='doc-view'>
+        <script type="text/javascript">
+            $(document).ready(function () {
+                ZP.DocView.InitDef();
+                ZP.DocView.OpenDefinitionPage = null;
+                ZP.DocView.OpenDefinitionMode = '_self';
+                ZP.DocView.OpenXRefPage = 'doc-viewer.aspx#$2-';
+                ZP.DocView.OpenXRefMode = '_blank';
+                $(window).bind('hashchange', ZP.DocView.HashChanged);
+        
+        if (typeof ZP.DocView.ZoomClasses == 'undefined') {
+            ZP.DocView.ZoomClasses = ["Unzoom1", "", "Zoom1", "Zoom2", "Zoom3", "Zoom4"];
+        }
+        ZP.DocView.InitializeZoom();
+        EC.SortedTable.Init(".ord-tbl, .stat-tbl", ".sortable");
+        EC.Tabs.PositionLeftTabs();
+    });
+
+
+        </script>
+
+
+    <div id="doc-viewer">
+        
+
+<div id="doc-view">
+    <div id="doc-view-content">
+        
+<div id="pageControls">
+<script type="text/javascript" >
+    function clearEffDate() {
+        jQuery.get("doc-view-helper.aspx?task=currentversion", function () {
+            window.location.reload();
+        });
+        return false;
+    }
+</script>
+     <div class="pageControls psuedoTable" role="navigation" aria-label="Document Navigation">  
+        <div class="psuedoTableBody" >     
+            <div class="psuedoTableRow">         
+                <div class="pageControls_outer" ></div>
+                <div class="pageControls_inner left">
+                    <a id='button1' onclick='ZP.DocView.PrintDoc("001.003.001",false);return false;' href="#" title="Print" role="button"> 
+                        <img alt="Print" src="resources/btn-print-white.png" /></a>
+                    <a id='Button2' onclick='ZP.DocView.OpenPDF("001.003.001",false);return false;' href="#" title="Export PDF" role="button">
+                        <img alt="Generate PDF" src="resources/btn-makepdf-white.png" /></a>
+                        <a class="email-popup" href="mailto:?subject=2100.%20Zoning%20Districts%20and%20Boundaries&amp;body=Fairfax%20County,%20VA%20Zoning%20Ordinance https://online.encodeplus.com/regs/fairfaxcounty-va/doc-viewer.aspx?secid=2230"><img src="resources/email-white.png" alt="Click to Share By Email" /></a>     
+                </div>
+                <div  class="pageControls_inner breadCrumbs" title="Navigation 'breadcrumbs'">
+                     <div class='breadCrumbs'><a href='/regs/fairfaxcounty-va/doc-viewer.aspx?tocid=001' >Fairfax County Zoning Ordinance</a> &gt; <a href='/regs/fairfaxcounty-va/doc-viewer.aspx?tocid=001.003' >Article 2 - Zoning Districts</a> &gt; <a href='/regs/fairfaxcounty-va/doc-viewer.aspx?tocid=001.003.001' >2100. Zoning Districts and Boundaries</a></div>
+                </div>
+                 <div  class="pageControls_inner right">       
+                     <ul >  
+                         <li>
+                            <a id='button3' class="nav" onclick="ZP.DocView.LoadPrevDoc('001.003.001');return false;" href="#"  title="Previous Section" accesskey="," role="button"><img alt="Go to Previous Section" src="resources/btn-back-white.png" /></a>
+                         </li>  
+                         <li>
+                             <a id='Button4'  class="nav" onclick="ZP.DocView.LoadNextDoc('001.003.001');return false;" href="#"  title="Next Section" accesskey="." role="button"> <img alt="Go to Next Section" src="resources/btn-forward-white.png" /></a>
+                         </li>   
+                         <li>
+                             <a id="pageControls-overflow" onclick="ZP.DocView.PgCntrlOverflowClick(event);return false;" href="#" title="Click for more options" role="button" >
+                            <img src="resources/overflow-btn-white.png" alt="Click for more options" /></a>
+                               
+  <ul class="submenu" role="dialog">
+            <li><a href="/regs/fairfaxcounty-va/doc-viewer.aspx?secid=2230" onclick="javascript:alert('Right click this icon and select \'add to favorites\' or \'Bookmark this Link\' to bookmark this page');return false;" title="Bookmark this page" >Bookmark</a></li>
+            <li>
+                                        
+                <a id="zoomMinus" onclick="ZP.DocView.DecreaseZoom();return false;" href="#" title="Decrease Zoom" class="zoomLink glyphicon" >&#x2212;</a>
+                <a onclick="ZP.DocView.DefaultZoom();return false;"  href="#" title="Default Zoom"  class="zoomLink" >100%</a>
+                <a id="zoomPlus" onclick="ZP.DocView.IncreaseZoom();return false;" href="#" title="Increase Zoom"  class="zoomLink glyphicon" > &#x2b; </a>
+            </li>
+           
+                           
+                
+</ul>
+                         </li>        
+                        
+                        </ul>   
+                </div>
+                <div class="pageControls_outer"></div>
+            </div>
+        </div>
+    </div> 
+    <div id="subscribe-dialog" title="" aria-live="polite" >
+        <div id="sub-message"></div>
+        <div id="sub-form-cntr"></div>
+    </div>
+</div>
+
+
+        <div id="thePage-outer" >
+            <div id="thePage-wrap" class="thePage-wrap ">
+                <div id="outer-doc-banner"></div>
+                <div id="thePage-border">
+                    <div id="thePage" class="textPage " tocid="001.003.001" secid="2230" role="main" aria-label="Document">
+                        <img id="sectionBanner" title="Document text banner" src="resources/docbanner.png" width="720" valign="Top" alt="Document text banner">
+                        
+                        <section id='secid-2230' class='secLvl3 _001 _001-003 _001-003-001' tabindex='-1' data-secid='2230'> 
+<h3>2100. Zoning Districts and Boundaries</h3>
+
+<ol class="list-v2">
+	<li data-autopath="1" data-bkid="2230bk1" data-liststylename="default" data-lstruct="d" data-path="sec#.ǁ1." id="secid-2230bk1">
+	<div class="li-num">1.</div>
+
+	<div class="li-cont">
+	<h4>Zoning Districts</h4>
+
+	<p><span style="font-size:inherit; text-indent:0in">The unincorporated territory of the County of Fairfax is divided into the zoning districts presented in this Article and shown in Table 2100.1 below.</span></p>
+	</div>
+	</li>
+</ol>
+
+<table class="general">
+	<thead>
+		<tr class="heading">
+			<th colspan="6" style="border-width: 1px; border-color: rgb(0, 0, 0); border-style: none;">Table 2100.1: Zoning Districts Established<br>
+			ac = acres&nbsp; &nbsp; du = dwelling units</th>
+		</tr>
+		<tr class="sheading">
+			<th style="border-width: 1px; border-color: rgb(0, 0, 0); border-style: none; width: 8.63%;">&nbsp;</th>
+			<th style="border-width: 1px; border-color: rgb(0, 0, 0); border-style: none; width: 31.33%;">District Name</th>
+			<th style="border-top: 1px none rgb(0, 0, 0); border-bottom: 1px none rgb(0, 0, 0); border-left: 1px none rgb(0, 0, 0); width: 10.03%;">Section</th>
+			<th style="border-top: 1px none rgb(0, 0, 0); border-bottom: 1px none rgb(0, 0, 0); border-right: 1px none rgb(0, 0, 0); width: 8.49%;">&nbsp;</th>
+			<th style="border-width: 1px; border-color: rgb(0, 0, 0); border-style: none; width: 31.33%;">District Name</th>
+			<th style="border-width: 1px; border-color: rgb(0, 0, 0); border-style: none; width: 10%;">Section</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr class="subsubheading">
+			<td colspan="3" style="border-bottom:1px none #000000; border-left:1px none #000000; border-top:1px none #000000"><strong>Residential Districts</strong></td>
+			<td colspan="3" style="border-bottom:1px none #000000; border-right:1px none #000000; border-top:1px none #000000"><strong>Industrial Districts</strong></td>
+		</tr>
+		<tr>
+			<td style="border-color:#000000; border-style:none; border-width:1px"><strong>R-A</strong></td>
+			<td style="border-color:#000000; border-style:none; border-width:1px">Rural Agricultural</td>
+			<td style="border-bottom:1px none #000000; border-left:1px none #000000; border-top:1px none #000000"><a class="xref" target="_blank" href="doc-viewer.aspx#secid-2484">2102.1</a></td>
+			<td style="border-bottom:1px none #000000; border-right:1px none #000000; border-top:1px none #000000"><strong>I-I</strong></td>
+			<td style="border-color:#000000; border-style:none; border-width:1px">Industrial Institution</td>
+			<td style="border-color:#000000; border-style:none; border-width:1px"><a class="xref" target="_blank" href="doc-viewer.aspx#secid-2506">2104.1</a></td>
+		</tr>
+		<tr>
+			<td style="border-color:#000000; border-style:none; border-width:1px"><strong>R-C</strong></td>
+			<td style="border-color:#000000; border-style:none; border-width:1px">Residential Conservation</td>
+			<td style="border-bottom:1px none #000000; border-left:1px none #000000; border-top:1px none #000000"><a class="xref" target="_blank" href="doc-viewer.aspx#secid-2485">2102.2</a></td>
+			<td style="border-bottom:1px none #000000; border-right:1px none #000000; border-top:1px none #000000"><strong>I-2</strong></td>
+			<td style="border-color:#000000; border-style:none; border-width:1px">Industrial Research</td>
+			<td style="border-color:#000000; border-style:none; border-width:1px"><a class="xref" target="_blank" href="doc-viewer.aspx#secid-2507">2104.2</a></td>
+		</tr>
+		<tr>
+			<td style="border-color:#000000; border-style:none; border-width:1px"><strong>R-E</strong></td>
+			<td style="border-color:#000000; border-style:none; border-width:1px">Residential Estate</td>
+			<td style="border-bottom:1px none #000000; border-left:1px none #000000; border-top:1px none #000000"><a class="xref" target="_blank" href="doc-viewer.aspx#secid-2486">2102.3</a></td>
+			<td style="border-bottom:1px none #000000; border-right:1px none #000000; border-top:1px none #000000"><strong>I-3</strong></td>
+			<td style="border-color:#000000; border-style:none; border-width:1px">Light Intensity Industrial</td>
+			<td style="border-color:#000000; border-style:none; border-width:1px"><a class="xref" target="_blank" href="doc-viewer.aspx#secid-2508">2104.3</a></td>
+		</tr>
+		<tr>
+			<td style="border-color:#000000; border-style:none; border-width:1px"><strong>R-1</strong></td>
+			<td style="border-color:#000000; border-style:none; border-width:1px">Residential, One Du/Ac</td>
+			<td style="border-bottom:1px none #000000; border-left:1px none #000000; border-top:1px none #000000"><a class="xref" target="_blank" href="doc-viewer.aspx#secid-2487">2102.4</a></td>
+			<td style="border-bottom:1px none #000000; border-right:1px none #000000; border-top:1px none #000000"><strong>I-4</strong></td>
+			<td style="border-color:#000000; border-style:none; border-width:1px">Medium Intensity Industrial</td>
+			<td style="border-color:#000000; border-style:none; border-width:1px"><a class="xref" target="_blank" href="doc-viewer.aspx#secid-2509">2104.4</a></td>
+		</tr>
+		<tr>
+			<td style="border-color:#000000; border-style:none; border-width:1px"><strong>R-2</strong></td>
+			<td style="border-color:#000000; border-style:none; border-width:1px">Residential, Two Du/Ac</td>
+			<td style="border-bottom:1px none #000000; border-left:1px none #000000; border-top:1px none #000000"><a class="xref" target="_blank" href="doc-viewer.aspx#secid-2488">2102.5</a></td>
+			<td style="border-bottom:1px none #000000; border-right:1px none #000000; border-top:1px none #000000"><strong>I-5</strong></td>
+			<td style="border-color:#000000; border-style:none; border-width:1px">General Industrial</td>
+			<td style="border-color:#000000; border-style:none; border-width:1px"><a class="xref" target="_blank" href="doc-viewer.aspx#secid-2510">2104.5</a></td>
+		</tr>
+		<tr>
+			<td style="border-color:#000000; border-style:none; border-width:1px"><strong>R-3</strong></td>
+			<td style="border-color:#000000; border-style:none; border-width:1px">Residential, Three Du/Ac</td>
+			<td style="border-bottom:1px none #000000; border-left:1px none #000000; border-top:1px none #000000"><a class="xref" target="_blank" href="doc-viewer.aspx#secid-2489">2102.6</a></td>
+			<td style="border-bottom:1px none #000000; border-right:1px none #000000; border-top:1px none #000000"><strong>I-6</strong></td>
+			<td style="border-color:#000000; border-style:none; border-width:1px">Heavy Industrial</td>
+			<td style="border-color:#000000; border-style:none; border-width:1px"><a class="xref" target="_blank" href="doc-viewer.aspx#secid-2511">2104.6</a></td>
+		</tr>
+		<tr>
+			<td style="border-color:#000000; border-style:none; border-width:1px"><strong>R-4</strong></td>
+			<td style="border-color:#000000; border-style:none; border-width:1px">Residential, Four Du/Ac</td>
+			<td style="border-bottom:1px none #000000; border-left:1px none #000000; border-top:1px none #000000"><a class="xref" target="_blank" href="doc-viewer.aspx#secid-2490">2102.7</a></td>
+			<td class="subsubheading" colspan="3" style="border-bottom:1px none #000000; border-right:1px none #000000; border-top:1px none #000000"><strong>Planned Development Districts</strong></td>
+		</tr>
+		<tr>
+			<td style="border-color:#000000; border-style:none; border-width:1px"><strong>R-5</strong></td>
+			<td style="border-color:#000000; border-style:none; border-width:1px">Residential, Five Du/Ac</td>
+			<td style="border-bottom:1px none #000000; border-left:1px none #000000; border-top:1px none #000000"><a class="xref" target="_blank" href="doc-viewer.aspx#secid-2491">2102.8</a></td>
+			<td style="border-bottom:1px none #000000; border-right:1px none #000000; border-top:1px none #000000"><strong>PDH</strong></td>
+			<td style="border-color:#000000; border-style:none; border-width:1px"><a class="iLink" target="_blank" href="doc-view.aspx?pn=0&ajax=0&secid=2379">Planned Development</a> Housing</td>
+			<td style="border-color:#000000; border-style:none; border-width:1px"><a class="xref" target="_blank" href="doc-viewer.aspx#secid-2513">2105.2</a></td>
+		</tr>
+		<tr>
+			<td style="border-color:#000000; border-style:none; border-width:1px"><strong>R-8</strong></td>
+			<td style="border-color:#000000; border-style:none; border-width:1px">Residential, Eight Du/Ac</td>
+			<td style="border-bottom:1px none #000000; border-left:1px none #000000; border-top:1px none #000000"><a class="xref" target="_blank" href="doc-viewer.aspx#secid-2492">2102.9</a></td>
+			<td style="border-bottom:1px none #000000; border-right:1px none #000000; border-top:1px none #000000"><strong>PRC</strong></td>
+			<td style="border-color:#000000; border-style:none; border-width:1px">Planned Residential Community</td>
+			<td style="border-color:#000000; border-style:none; border-width:1px"><a class="xref" target="_blank" href="doc-viewer.aspx#secid-2514">2105.3</a></td>
+		</tr>
+		<tr>
+			<td style="border-color:#000000; border-style:none; border-width:1px"><strong>R-12</strong></td>
+			<td style="border-color:#000000; border-style:none; border-width:1px">Residential, Twelve Du/Ac</td>
+			<td style="border-bottom:1px none #000000; border-left:1px none #000000; border-top:1px none #000000"><a class="xref" target="_blank" href="doc-viewer.aspx#secid-2493">2102.10</a></td>
+			<td style="border-bottom:1px none #000000; border-right:1px none #000000; border-top:1px none #000000"><strong>PDC</strong></td>
+			<td style="border-color:#000000; border-style:none; border-width:1px">Planned Development Commercial</td>
+			<td style="border-color:#000000; border-style:none; border-width:1px"><a class="xref" target="_blank" href="doc-viewer.aspx#secid-2515">2105.4</a></td>
+		</tr>
+		<tr>
+			<td style="border-color:#000000; border-style:none; border-width:1px"><strong>R-16</strong></td>
+			<td style="border-color:#000000; border-style:none; border-width:1px">Residential, Sixteen Du/Ac</td>
+			<td style="border-bottom:1px none #000000; border-left:1px none #000000; border-top:1px none #000000"><a class="xref" target="_blank" href="doc-viewer.aspx#secid-2494">2102.11</a></td>
+			<td style="border-bottom:1px none #000000; border-right:1px none #000000; border-top:1px none #000000"><strong>PRM</strong></td>
+			<td style="border-color:#000000; border-style:none; border-width:1px">Planned Residential Mixed-Use</td>
+			<td style="border-color:#000000; border-style:none; border-width:1px"><a class="xref" target="_blank" href="doc-viewer.aspx#secid-2516">2105.5</a></td>
+		</tr>
+		<tr>
+			<td style="border-color:#000000; border-style:none; border-width:1px"><strong>R-20</strong></td>
+			<td style="border-color:#000000; border-style:none; border-width:1px">Residential, Twenty Du/Ac</td>
+			<td style="border-bottom:1px none #000000; border-left:1px none #000000; border-top:1px none #000000"><a class="xref" target="_blank" href="doc-viewer.aspx#secid-2495">2102.12</a></td>
+			<td style="border-bottom:1px none #000000; border-right:1px none #000000; border-top:1px none #000000"><strong>PTC</strong></td>
+			<td style="border-color:#000000; border-style:none; border-width:1px">Planned Tysons Corner Urban</td>
+			<td style="border-color:#000000; border-style:none; border-width:1px"><a class="xref" target="_blank" href="doc-viewer.aspx#secid-2517">2105.6</a></td>
+		</tr>
+		<tr>
+			<td style="border-color:#000000; border-style:none; border-width:1px"><strong>R-30</strong></td>
+			<td style="border-color:#000000; border-style:none; border-width:1px">Residential, Thirty Du/Ac</td>
+			<td style="border-bottom:1px none #000000; border-left:1px none #000000; border-top:1px none #000000"><a class="xref" target="_blank" href="doc-viewer.aspx#secid-2496">2102.13</a></td>
+			<td style="border-bottom:1px none #000000; border-right:1px none #000000; border-top:1px none #000000"><strong>PCC</strong></td>
+			<td style="border-color:#000000; border-style:none; border-width:1px">Planned <a class="iLink" target="_blank" href="doc-view.aspx?pn=0&ajax=0&secid=2636">Continuing Care Facility</a></td>
+			<td style="border-color:#000000; border-style:none; border-width:1px"><a class="xref" target="_blank" href="doc-viewer.aspx#secid-2518">2105.7</a></td>
+		</tr>
+		<tr>
+			<td style="border-color:#000000; border-style:none; border-width:1px"><strong>R-MHP</strong></td>
+			<td style="border-color:#000000; border-style:none; border-width:1px">Residential, Manufactured<br>
+			Home Park</td>
+			<td style="border-bottom:1px none #000000; border-left:1px none #000000; border-top:1px none #000000"><a class="xref" target="_blank" href="doc-viewer.aspx#secid-2497">2102.14</a></td>
+			<td colspan="3" rowspan="10" style="border-bottom:1px none #000000; border-right:1px none #000000; border-top:1px none #000000">&nbsp;</td>
+		</tr>
+		<tr>
+			<td class="subsubheading" colspan="3" style="border-bottom:1px none #000000; border-left:1px none #000000; border-top:1px none #000000"><strong>Commercial Districts</strong></td>
+		</tr>
+		<tr>
+			<td style="border-color:#000000; border-style:none; border-width:1px"><strong>C-1</strong></td>
+			<td style="border-color:#000000; border-style:none; border-width:1px">Low-Rise Office Transitional</td>
+			<td style="border-bottom:1px none #000000; border-left:1px none #000000; border-top:1px none #000000"><a class="xref" target="_blank" href="doc-viewer.aspx#secid-2498">2103.1</a></td>
+		</tr>
+		<tr>
+			<td style="border-color:#000000; border-style:none; border-width:1px"><strong>C-2</strong></td>
+			<td style="border-color:#000000; border-style:none; border-width:1px">Limited Office</td>
+			<td style="border-bottom:1px none #000000; border-left:1px none #000000; border-top:1px none #000000"><a class="xref" target="_blank" href="doc-viewer.aspx#secid-2499">2103.2</a></td>
+		</tr>
+		<tr>
+			<td style="border-color:#000000; border-style:none; border-width:1px"><strong>C-3</strong></td>
+			<td style="border-color:#000000; border-style:none; border-width:1px">Office</td>
+			<td style="border-bottom:1px none #000000; border-left:1px none #000000; border-top:1px none #000000"><a class="xref" target="_blank" href="doc-viewer.aspx#secid-2500">2103.3</a></td>
+		</tr>
+		<tr>
+			<td style="border-color:#000000; border-style:none; border-width:1px"><strong>C-4</strong></td>
+			<td style="border-color:#000000; border-style:none; border-width:1px">High Intensity Office</td>
+			<td style="border-bottom:1px none #000000; border-left:1px none #000000; border-top:1px none #000000"><a class="xref" target="_blank" href="doc-viewer.aspx#secid-2501">2103.4</a></td>
+		</tr>
+		<tr>
+			<td style="border-color:#000000; border-style:none; border-width:1px"><strong>C-5</strong></td>
+			<td style="border-color:#000000; border-style:none; border-width:1px">Neighborhood Retail Commercial</td>
+			<td style="border-bottom:1px none #000000; border-left:1px none #000000; border-top:1px none #000000"><a class="xref" target="_blank" href="doc-viewer.aspx#secid-2502">2103.5</a></td>
+		</tr>
+		<tr>
+			<td style="border-color:#000000; border-style:none; border-width:1px"><strong>C-6</strong></td>
+			<td style="border-color:#000000; border-style:none; border-width:1px">Community Retail Commercial</td>
+			<td style="border-bottom:1px none #000000; border-left:1px none #000000; border-top:1px none #000000"><a class="xref" target="_blank" href="doc-viewer.aspx#secid-2503">2103.6</a></td>
+		</tr>
+		<tr>
+			<td style="border-color:#000000; border-style:none; border-width:1px"><strong>C-7</strong></td>
+			<td style="border-color:#000000; border-style:none; border-width:1px">Regional Retail Commercial</td>
+			<td style="border-bottom:1px none #000000; border-left:1px none #000000; border-top:1px none #000000"><a class="xref" target="_blank" href="doc-viewer.aspx#secid-2504">2103.7</a></td>
+		</tr>
+		<tr>
+			<td style="border-color:#000000; border-style:none; border-width:1px"><strong>C-8</strong></td>
+			<td style="border-color:#000000; border-style:none; border-width:1px">Highway Commercial</td>
+			<td style="border-bottom:1px none #000000; border-left:1px none #000000; border-top:1px none #000000"><a class="xref" target="_blank" href="doc-viewer.aspx#secid-2505">2103.8</a></td>
+		</tr>
+	</tbody>
+</table>
+
+<ol class="list-v2" data-continue="1" start="2">
+	<li>
+	<div class="li-num">2.</div>
+
+	<div class="li-cont">
+	<h4>Zoning Map</h4>
+
+	<p><span style="font-size:inherit; text-indent:0in">The map entitled &ldquo;Official Zoning Map, Fairfax County, Virginia&rdquo; indicates the location and boundaries of the zoning districts established by this Ordinance. These locations and boundaries derive from the authoritative data source as maintained by the Department of Information Technology. A copy of the official Zoning Map is on file in the Office of the Zoning Administrator, and it may be kept in either hardcopy or digital form. This Ordinance incorporates the official Zoning Map.</span></p>
+	</div>
+	</li>
+	<li>
+	<div class="li-num">3.</div>
+
+	<div class="li-cont">
+	<h4>Zoning of Entire Jurisdictional Area</h4>
+
+	<ol>
+		<li data-unlistid="35832383">
+		<div class="li-num">A.</div>
+
+		<div class="li-cont">It is the intent of this Ordinance that the entire unincorporated area of the County of Fairfax, including all land, water areas, and waterways, be included in the districts established by this Ordinance. Any area on the Official Zoning Map that is not shown in a specific zoning district is zoned to the R-C District.</div>
+		</li>
+		<li data-unlistid="35832383">
+		<div class="li-num">B.</div>
+
+		<div class="li-cont">Unless otherwise specifically designated, all water areas, waterways, <a class="iLink" target="_blank" href="doc-view.aspx?pn=0&ajax=0&secid=2296">alleys</a>, roads, streets, highways, railroads, and other rights-of-way are deemed to be in the same zoning district as the immediately abutting property. Unless specifically designated, where the <a class="iLink" target="_blank" href="doc-view.aspx?pn=0&ajax=0&secid=2305">center line</a> of any water areas, waterways, or rights-of-way serves as a zoning district boundary, the zoning of each area is deemed to be the same as that of the abutting property up to the center line.</div>
+		</li>
+	</ol>
+	</div>
+	</li>
+	<li data-autopath="1" data-bkid="2230bk2" data-liststylename="default" data-lstruct="d" data-path="sec#.ǁ4." id="secid-2230bk2">
+	<div class="li-num">4.</div>
+
+	<div class="li-cont">
+	<h4>Zoning District Boundaries</h4>
+
+	<p><span style="font-size:inherit; text-indent:0in">If uncertainties exist with respect to the intended boundaries of a zoning district as shown on the Official Zoning Map, the following rules apply:</span></p>
+
+	<ol>
+		<li data-unlistid="94918152">
+		<div class="li-num">A.</div>
+
+		<div class="li-cont">Where a zoning district boundary is indicated as approximately following the center line of a street, alley, railroad, or waterway, the center line is the zoning district boundary, and where a zoning district boundary is indicated as approximately following the line of a <a class="iLink" target="_blank" href="doc-view.aspx?pn=0&ajax=0&secid=2344">lot</a> or other parcel of record, the lot or parcel line is the zoning district boundary.</div>
+		</li>
+		<li data-unlistid="94918152">
+		<div class="li-num">B.</div>
+
+		<div class="li-cont">Any zoning district boundary shown extended to or into any body of water bounding the County is deemed to extend straight to the County boundary.</div>
+		</li>
+		<li data-unlistid="94918152">
+		<div class="li-num">C.</div>
+
+		<div class="li-cont">Where uncertainties continue to exist or where further interpretation is required beyond that presented above, the Zoning Administrator will make a determination in accordance with Section <a class="xref" target="_blank" href="doc-viewer.aspx#secid-2226">1108</a>. Any <a class="iLink" target="_blank" href="doc-view.aspx?pn=0&ajax=0&secid=2374">person</a> aggrieved by the Zoning Administrator&rsquo;s decision may appeal that decision as described in subsection <a class='xref' href='doc-viewer.aspx#secid-2589bk3' target='_blank'>8100.10.A(1)</a>.</div>
+		</li>
+	</ol>
+	</div>
+	</li>
+</ol>
+
+<p class='archiveNotice nullValue '></p>
+</section> 
+
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- hidden div below is for definition popup -->
+<div id="defFrame">
+    <img alt='loading progress' src="resources/progress.gif" /></div>
+<!-- hidden div below is for ajax loading progress-->
+<div id='progress-template' style='display: none;'>
+    <div class="progress" style='padding: 100px;'>
+        <div style='margin: auto; display: block; width: 200px; border: 1px solid #ccc; background-color: #eee; padding: 10px;'>
+            <img alt='loading progress' src='resources/progress.gif' style='margin: auto; display: block;' />
+            <br />
+            <span style='margin: auto; display: block; width: 75px; padding-left: 10px;'>Loading...</span>
+        </div>
+    </div>
+</div>
+<iframe style="width: 1px; height: 1px" src="" id="printiframe" name="printiframe" onload="ZP.DocView.IFrameReady();" title="Print frame" aria-hidden="true" role="presentation"></iframe>
+
+    </div>
+
+
+    </body>
+</html>

@@ -1,0 +1,917 @@
+
+    <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+    <html>
+    <head>
+
+        <title>CODE OF ORDINANCES SAVANNAH, GEORGIA</title>
+        <link type="text/css" rel="Stylesheet" href="jqueryui/css/jqueryui.css" media="all" />
+        <link type="text/css" rel="Stylesheet" href="css/ui.css" media="all" />
+        <link type="text/css" rel="Stylesheet" href="css/customui.css" media="all" />
+        <link type="text/css" rel="Stylesheet" href="css/document.css" media="all" />
+        <link type="text/css" rel="Stylesheet" href="css/customdoc.css" media="all" />
+        <link type="text/css" rel="Stylesheet" href="tablestyles.aspx" media="all" />
+        <link rel="StyleSheet" type="text/css" href="/common/font-awesome/css/all.min.css">
+        <link type="text/css" rel="Stylesheet" href="css/docprint.css" media="print" />
+        <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+        <script type="text/javascript" src="jqueryui/js/jquery-ui-1.8.21.custom.min.js"></script>
+        <script type="text/javascript" src="js/doc-view.js?_t=290"></script>
+        <script type="text/javascript" src="js/tabletools.js"></script>
+        <script type="text/javascript" src="js/tabs.js"></script>
+        <script type="text/javascript">
+            var iframeReady = false;
+        </script>
+        
+    </head>
+    <body class='doc-view'>
+        <script type="text/javascript">
+            $(document).ready(function () {
+                ZP.DocView.InitDef();
+                ZP.DocView.OpenDefinitionPage = null;
+                ZP.DocView.OpenDefinitionMode = '_self';
+                ZP.DocView.OpenXRefPage = 'doc-viewer.aspx#$2-';
+                ZP.DocView.OpenXRefMode = '_blank';
+                $(window).bind('hashchange', ZP.DocView.HashChanged);
+        
+        if (typeof ZP.DocView.ZoomClasses == 'undefined') {
+            ZP.DocView.ZoomClasses = ["Unzoom1", "", "Zoom1", "Zoom2", "Zoom3", "Zoom4"];
+        }
+        ZP.DocView.InitializeZoom();
+        EC.SortedTable.Init(".ord-tbl, .stat-tbl", ".sortable");
+        EC.Tabs.PositionLeftTabs();
+    });
+
+
+        </script>
+
+
+    <div id="doc-viewer">
+        
+
+<div id="doc-view">
+    <div id="doc-view-content">
+        
+<div id="pageControls">
+<script type="text/javascript" >
+    function clearEffDate() {
+        jQuery.get("doc-view-helper.aspx?task=currentversion", function () {
+            window.location.reload();
+        });
+        return false;
+    }
+</script>
+     <div class="pageControls psuedoTable" role="navigation" aria-label="Document Navigation">  
+        <div class="psuedoTableBody" >     
+            <div class="psuedoTableRow">         
+                <div class="pageControls_outer" ></div>
+                <div class="pageControls_inner left">
+                    <a id='button1' onclick='ZP.DocView.PrintDoc("001.004.008.017.013",false);return false;' href="#" title="Print" role="button"> 
+                        <img alt="Print" src="resources/btn-print.png" /></a>
+                    <a id='Button2' onclick='ZP.DocView.OpenPDF("001.004.008.017.013",false);return false;' href="#" title="Export PDF" role="button">
+                        <img alt="Generate PDF" src="resources/btn-makepdf.png" /></a>
+                        <a class="popup" params="toobar=0,menubar=0,scrollbars=1,height=436,width=626" href="https://www.facebook.com/sharer/sharer.php?s=100&p[title]=CODE+OF+ORDINANCES+SAVANNAH%2c+GEORGIA&p[summary]=Savannah%2c+Georgia+City+of+Savannah+Code+of+Ordinances&p[url]=https%3a%2f%2fonline.encodeplus.com%2fregs%2fsavannah-ga%2fdoc-viewer.aspx%3fsecid%3d1" title="Click to Share this page" style="text-decoration:none;border:none;" ><img src="resources/share-icon.png" alt="Click to Share this page on facebook" /></a>     
+                </div>
+                <div  class="pageControls_inner breadCrumbs" title="Navigation 'breadcrumbs'">
+                     <div class='breadCrumbs'><a href='/regs/savannah-ga/doc-viewer.aspx?tocid=001' >CODE OF ORDINANCES SAVANNAH, GEORGIA</a> &gt; <a href='/regs/savannah-ga/doc-viewer.aspx?tocid=001.004' >DIVISION II</a> &gt; <a href='/regs/savannah-ga/doc-viewer.aspx?tocid=001.004.008' >Part 8 - PLANNING AND REGULATION OF DEVELOPMENT</a> &gt; <a href='/regs/savannah-ga/doc-viewer.aspx?tocid=001.004.008.017' >CHAPTER 15. – DEVELOPMENT IMPACT FEE ORDINANCE</a> &gt; <a href='/regs/savannah-ga/doc-viewer.aspx?tocid=001.004.008.017.013' >Attachment A. - Impact Fee Schedule</a></div>
+                </div>
+                 <div  class="pageControls_inner right">       
+                     <ul >  
+                         <li>
+                            <a id='button3' class="nav" onclick="ZP.DocView.LoadPrevDoc('001.004.008.017.013');return false;" href="#"  title="Previous Section" accesskey="," role="button"><img alt="Go to Previous Section" src="resources/btn-back.png" /></a>
+                         </li>  
+                         <li>
+                             <a id='Button4'  class="nav" onclick="ZP.DocView.LoadNextDoc('001.004.008.017.013');return false;" href="#"  title="Next Section" accesskey="." role="button"> <img alt="Go to Next Section" src="resources/btn-forward.png" /></a>
+                         </li>   
+                         <li>
+                             <a id="pageControls-overflow" onclick="ZP.DocView.PgCntrlOverflowClick(event);return false;" href="#" title="Click for more options" role="button" >
+                            <img src="resources/overflow-btn.png" alt="Click for more options" /></a>
+                               
+  <ul class="submenu" role="dialog">
+            <li><a href="/regs/savannah-ga/doc-viewer.aspx?secid=1" onclick="javascript:alert('Right click this icon and select \'add to favorites\' or \'Bookmark this Link\' to bookmark this page');return false;" title="Bookmark this page" >Bookmark</a></li>
+            <li>
+                                        
+                <a id="zoomMinus" onclick="ZP.DocView.DecreaseZoom();return false;" href="#" title="Decrease Zoom" class="zoomLink glyphicon" >&#x2212;</a>
+                <a onclick="ZP.DocView.DefaultZoom();return false;"  href="#" title="Default Zoom"  class="zoomLink" >100%</a>
+                <a id="zoomPlus" onclick="ZP.DocView.IncreaseZoom();return false;" href="#" title="Increase Zoom"  class="zoomLink glyphicon" > &#x2b; </a>
+            </li>
+           
+                           
+                
+                <li><a id="subscribe-btn" onclick="ZP.DocView.OpenSubscribeDlg();return false;" title="Subscribe to Notifications" href="subscribe.aspx" role="button">Subscribe</a></li>
+                <li><a id="unsubscribe-btn" onclick="ZP.DocView.OpenUnsubscribeDlg();return false;" title="Cancel Notifications Subscription" href="unsubscribe.aspx" role="button" >Unsubscribe</a></li>
+                
+</ul>
+                         </li>        
+                        
+                        </ul>   
+                </div>
+                <div class="pageControls_outer"></div>
+            </div>
+        </div>
+    </div> 
+    <div id="subscribe-dialog" title="" aria-live="polite" >
+        <div id="sub-message"></div>
+        <div id="sub-form-cntr"></div>
+    </div>
+</div>
+
+
+        <div id="thePage-outer" >
+            <div id="thePage-wrap" class="thePage-wrap ">
+                <div id="outer-doc-banner"></div>
+                <div id="thePage-border">
+                    <div id="thePage" class="textPage " tocid="001.004.008.017.013" secid="7137" role="main" aria-label="Document">
+                        <img id="sectionBanner" title="Document text banner" src="resources/docbanner.png" width="720" valign="Top" alt="Document text banner">
+                        
+                        <section id='secid-1' class='secLvl1 _001' tabindex='-1' data-secid='1'> 
+<h1>CODE OF ORDINANCES SAVANNAH, GEORGIA</h1>
+
+
+
+
+</section> 
+<section id='secid-6486' class='secLvl2 _001 _001-004' tabindex='-1' data-secid='6486'> 
+<h2>DIVISION II</h2>
+
+
+
+
+</section> 
+<section id='secid-2344' class='secLvl3 _001 _001-004 _001-004-008' tabindex='-1' data-secid='2344'> 
+<h2>Part 8- PLANNING AND REGULATION OF DEVELOPMENT<sup>[1]</sup></h2>
+
+
+
+
+</section> 
+<section id='secid-7091' class='secLvl4 _001 _001-004 _001-004-008 _001-004-008-017' tabindex='-1' data-secid='7091'> 
+<h4>CHAPTER 15. &ndash; DEVELOPMENT IMPACT FEE ORDINANCE</h4>
+
+
+
+
+<p>(<span data-ordfnote='1'>Ord. of <a href='doclibrary.aspx?id=488ba746-b9a4-498d-923a-67d083797e3f' target='_blank'>2-23-2023(12)</a>, &#167; 1</span>)</p>
+
+
+</section> 
+<section id='secid-7137' class='secLvl5 _001 _001-004 _001-004-008 _001-004-008-017 _001-004-008-017-013' tabindex='-1' data-secid='7137'> 
+<h5>Attachment A. - Impact Fee Schedule</h5>
+
+<table class="general">
+	<thead>
+		<tr class="heading">
+			<th colspan="8" style="width:100%;">Impact Fee Schedule</th>
+		</tr>
+		<tr class="sheading">
+			<th style="width:24.8%;">Land Use</th>
+			<th style="width:11.8%;">Parks &amp; Recreation Components</th>
+			<th style="width:10.5%;">Trail System</th>
+			<th style="width:11.6%;">Fire Protection</th>
+			<th style="width:11%;">Law Enforcement</th>
+			<th style="width:11.1%;">Road Improvements</th>
+			<th style="width:10.8%;">Total Impact Fee</th>
+			<th style="width:8.4%;">For Each</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr class="subsubheading">
+			<td colspan="8"><em>Residential</em></td>
+		</tr>
+		<tr class="alt1">
+			<td>Single-Family Detached Housing</td>
+			<td style="text-align:right">$1,769.8490</td>
+			<td style="text-align:right">$76.6431</td>
+			<td style="text-align:right">$1,055.1640</td>
+			<td style="text-align:right">$850.2371</td>
+			<td style="text-align:right">$178.9578</td>
+			<td style="text-align:right">$3,930.8511</td>
+			<td>dwelling</td>
+		</tr>
+		<tr class="alt2">
+			<td>Duplex or Townhouse 1-3 stories</td>
+			<td style="text-align:right">$1,769.8490</td>
+			<td style="text-align:right">$76.6431</td>
+			<td style="text-align:right">$1,055.1640</td>
+			<td style="text-align:right">$850.2371</td>
+			<td style="text-align:right">$136.6380</td>
+			<td style="text-align:right">$3,888.5312</td>
+			<td>dwelling</td>
+		</tr>
+		<tr class="alt1">
+			<td>Mid-Rise Multi-Family 4-10 stories</td>
+			<td style="text-align:right">$1,769.8490</td>
+			<td style="text-align:right">$76.6431</td>
+			<td style="text-align:right">$1,055.1640</td>
+			<td style="text-align:right">$850.2371</td>
+			<td style="text-align:right">$90.1431</td>
+			<td style="text-align:right">$3,842.0364</td>
+			<td>dwelling</td>
+		</tr>
+		<tr class="subsubheading">
+			<td colspan="8"><em>Industrial</em></td>
+		</tr>
+		<tr class="alt2">
+			<td>General Light Industrial</td>
+			<td style="text-align:right">$ -</td>
+			<td style="text-align:right">$0.0523</td>
+			<td style="text-align:right">$0.7206</td>
+			<td style="text-align:right">$0.5807</td>
+			<td style="text-align:right">$0.0907</td>
+			<td style="text-align:right">$1.4444</td>
+			<td>Square foot</td>
+		</tr>
+		<tr class="alt1">
+			<td>Manufacturing</td>
+			<td style="text-align:right">$ -</td>
+			<td style="text-align:right">$0.0642</td>
+			<td style="text-align:right">$0.8844</td>
+			<td style="text-align:right">$0.7127</td>
+			<td style="text-align:right">$0.0901</td>
+			<td style="text-align:right">$1.7515</td>
+			<td>Square foot</td>
+		</tr>
+		<tr class="alt2">
+			<td>Warehousing</td>
+			<td style="text-align:right">$ -</td>
+			<td style="text-align:right">$0.0114</td>
+			<td style="text-align:right">$0.1582</td>
+			<td style="text-align:right">$0.1275</td>
+			<td style="text-align:right">$0.0324</td>
+			<td style="text-align:right">$0.3297</td>
+			<td>Square foot</td>
+		</tr>
+		<tr class="alt1">
+			<td>High-Cube Warehouse, short term</td>
+			<td style="text-align:right">$ -</td>
+			<td style="text-align:right">$0.0221</td>
+			<td style="text-align:right">$0.3053</td>
+			<td style="text-align:right">$0.2460</td>
+			<td style="text-align:right">$0.0265</td>
+			<td style="text-align:right">$0.6002</td>
+			<td>Square foot</td>
+		</tr>
+		<tr class="alt2">
+			<td>High- Cube Warehouse, fulfillment center</td>
+			<td style="text-align:right">$ -</td>
+			<td style="text-align:right">$0.0221</td>
+			<td style="text-align:right">$0.3053</td>
+			<td style="text-align:right">$0.2460</td>
+			<td style="text-align:right">$0.0343</td>
+			<td style="text-align:right">$0.6080</td>
+			<td>Square foot</td>
+		</tr>
+		<tr class="alt1">
+			<td>High-Cube Hub Warehouse</td>
+			<td style="text-align:right">$ -</td>
+			<td style="text-align:right">$0.0232</td>
+			<td style="text-align:right">$0.3196</td>
+			<td style="text-align:right">$0.2575</td>
+			<td style="text-align:right">$0.0878</td>
+			<td style="text-align:right">$0.6882</td>
+			<td>Square foot</td>
+		</tr>
+		<tr class="alt2">
+			<td>Specialty Trade Contractor</td>
+			<td style="text-align:right">$ -</td>
+			<td style="text-align:right">$0.0918</td>
+			<td style="text-align:right">$1.2643</td>
+			<td style="text-align:right">$1.0188</td>
+			<td style="text-align:right">$0.1863</td>
+			<td style="text-align:right">$2.5613</td>
+			<td>Square foot</td>
+		</tr>
+		<tr class="subsubheading">
+			<td colspan="8"><em>Lodging</em></td>
+		</tr>
+		<tr class="alt1">
+			<td>Hotel or Conference Motel</td>
+			<td style="text-align:right">$ -</td>
+			<td style="text-align:right">$18.9155</td>
+			<td style="text-align:right">$260.4148</td>
+			<td style="text-align:right">$209.8387</td>
+			<td style="text-align:right">$151.6302</td>
+			<td style="text-align:right">$640.7994</td>
+			<td>Room</td>
+		</tr>
+		<tr class="alt2">
+			<td>All Suites Hotel</td>
+			<td style="text-align:right">$ -</td>
+			<td style="text-align:right">$31.3810</td>
+			<td style="text-align:right">$432.0298</td>
+			<td style="text-align:right">$348.1239</td>
+			<td style="text-align:right">$83.5010</td>
+			<td style="text-align:right">$895.0358</td>
+			<td>room</td>
+		</tr>
+		<tr class="alt1">
+			<td>Motel</td>
+			<td style="text-align:right">$ -</td>
+			<td style="text-align:right">$4.5183</td>
+			<td style="text-align:right">$62.2056</td>
+			<td style="text-align:right">$50.1244</td>
+			<td style="text-align:right">$63.5746</td>
+			<td style="text-align:right">$180.4231</td>
+			<td>room</td>
+		</tr>
+		<tr class="subsubheading">
+			<td colspan="8"><em>Recreational</em></td>
+		</tr>
+		<tr class="alt2">
+			<td>Movie Theater</td>
+			<td style="text-align:right">$ -</td>
+			<td style="text-align:right">$0.0480</td>
+			<td style="text-align:right">$0.6621</td>
+			<td style="text-align:right">$0.5335</td>
+			<td style="text-align:right">$1.4819</td>
+			<td style="text-align:right">$2.7257</td>
+			<td>square foot</td>
+		</tr>
+		<tr class="alt1">
+			<td>Amusement Park</td>
+			<td style="text-align:right">$ -</td>
+			<td style="text-align:right">$0.0754</td>
+			<td style="text-align:right">$1.0392</td>
+			<td style="text-align:right">$0.8374</td>
+			<td style="text-align:right">$1,013.5882</td>
+			<td style="text-align:right">$1,015.5404</td>
+			<td>acre</td>
+		</tr>
+		<tr class="alt2">
+			<td>Racquet/Tennis Club</td>
+			<td style="text-align:right">$ -</td>
+			<td style="text-align:right">$0.0161</td>
+			<td style="text-align:right">$0.2219</td>
+			<td style="text-align:right">$0.1788</td>
+			<td style="text-align:right">$0.4120</td>
+			<td style="text-align:right">$0.8289</td>
+			<td>square foot</td>
+		</tr>
+		<tr class="alt1">
+			<td>Recreational Community Center</td>
+			<td style="text-align:right">$ -</td>
+			<td style="text-align:right">$0.0359</td>
+			<td style="text-align:right">$0.4943</td>
+			<td style="text-align:right">$0.3983</td>
+			<td style="text-align:right">$0.5469</td>
+			<td style="text-align:right">$1.4754</td>
+			<td>square foot</td>
+		</tr>
+		<tr class="subsubheading">
+			<td colspan="8"><em>Institutional</em></td>
+		</tr>
+		<tr class="alt2">
+			<td>Private Elementary School</td>
+			<td style="text-align:right">$ -</td>
+			<td style="text-align:right">$0.7638</td>
+			<td style="text-align:right">$10.5160</td>
+			<td style="text-align:right">$8.4736</td>
+			<td style="text-align:right">$292.8228</td>
+			<td style="text-align:right">$312.5763</td>
+			<td>employee</td>
+		</tr>
+		<tr class="alt1">
+			<td>Private Middle School (Junior High)</td>
+			<td style="text-align:right">$ -</td>
+			<td style="text-align:right">$0.8538</td>
+			<td style="text-align:right">$11.7545</td>
+			<td style="text-align:right">$9.4716</td>
+			<td style="text-align:right">$382.7761</td>
+			<td style="text-align:right">$404.8561</td>
+			<td>employee</td>
+		</tr>
+		<tr class="alt2">
+			<td>Private High School</td>
+			<td style="text-align:right">$ -</td>
+			<td style="text-align:right">$0.7553</td>
+			<td style="text-align:right">$10.3991</td>
+			<td style="text-align:right">$8.3795</td>
+			<td style="text-align:right">$267.0134</td>
+			<td style="text-align:right">$286.5474</td>
+			<td>employee</td>
+		</tr>
+		<tr class="alt1">
+			<td>Church/Place of Worship</td>
+			<td style="text-align:right">$ -</td>
+			<td style="text-align:right">$0.0128</td>
+			<td style="text-align:right">$0.1774</td>
+			<td style="text-align:right">$0.1429</td>
+			<td style="text-align:right">$0.1442</td>
+			<td style="text-align:right">$0.4775</td>
+			<td>square foot</td>
+		</tr>
+		<tr class="alt2">
+			<td><a class="iLink" target="_blank" href="doc-view.aspx?pn=0&ajax=0&secid=7104">Day</a> Care Center</td>
+			<td style="text-align:right">$ -</td>
+			<td style="text-align:right">$0.0756</td>
+			<td style="text-align:right">$1.0409</td>
+			<td style="text-align:right">$0.8388</td>
+			<td style="text-align:right">$0.9037</td>
+			<td style="text-align:right">$2.8591</td>
+			<td>square foot</td>
+		</tr>
+		<tr class="alt1">
+			<td>Cemetery</td>
+			<td style="text-align:right">$ -</td>
+			<td style="text-align:right">$3.5388</td>
+			<td style="text-align:right">$48.7205</td>
+			<td style="text-align:right">$39.2584</td>
+			<td style="text-align:right">$114.2445</td>
+			<td style="text-align:right">$205.7624</td>
+			<td>acre</td>
+		</tr>
+		<tr class="subsubheading">
+			<td colspan="8"><em>Medical</em></td>
+		</tr>
+		<tr class="alt2">
+			<td>Hospital</td>
+			<td style="text-align:right">$ -</td>
+			<td style="text-align:right">$0.0969</td>
+			<td style="text-align:right">$1.3351</td>
+			<td style="text-align:right">$1.0758</td>
+			<td style="text-align:right">$0.2043</td>
+			<td style="text-align:right">$2.7124</td>
+			<td>square foot</td>
+		</tr>
+		<tr class="alt1">
+			<td>Nursing Home</td>
+			<td style="text-align:right">$ -</td>
+			<td style="text-align:right">$0.0692</td>
+			<td style="text-align:right">$0.9531</td>
+			<td style="text-align:right">$0.7680</td>
+			<td style="text-align:right">$0.1280</td>
+			<td style="text-align:right">$1.9184</td>
+			<td>square foot</td>
+		</tr>
+		<tr class="alt2">
+			<td>Clinic</td>
+			<td style="text-align:right">$ -</td>
+			<td style="text-align:right">$0.0918</td>
+			<td style="text-align:right">$1.2642</td>
+			<td style="text-align:right">$1.0187</td>
+			<td style="text-align:right">$0.7135</td>
+			<td style="text-align:right">$3.0883</td>
+			<td>square foot</td>
+		</tr>
+		<tr class="alt1">
+			<td>Veterinary Clinic</td>
+			<td style="text-align:right">$ -</td>
+			<td style="text-align:right">$0.0575</td>
+			<td style="text-align:right">$0.7918</td>
+			<td style="text-align:right">$0.6380</td>
+			<td style="text-align:right">$0.4080</td>
+			<td style="text-align:right">$1.8954</td>
+			<td>square foot</td>
+		</tr>
+		<tr class="subsubheading">
+			<td colspan="8"><em>Office</em></td>
+		</tr>
+		<tr class="alt2">
+			<td>General Office Building</td>
+			<td style="text-align:right">$ -</td>
+			<td style="text-align:right">$0.1105</td>
+			<td style="text-align:right">$1.5214</td>
+			<td style="text-align:right">$1.2259</td>
+			<td style="text-align:right">$0.2057</td>
+			<td style="text-align:right">$3.0636</td>
+			<td>square foot</td>
+		</tr>
+		<tr class="alt1">
+			<td>Small Office Building</td>
+			<td style="text-align:right">$ -</td>
+			<td style="text-align:right">$0.0621</td>
+			<td style="text-align:right">$0.8556</td>
+			<td style="text-align:right">$0.6894</td>
+			<td style="text-align:right">$0.2730</td>
+			<td style="text-align:right">$1.8803</td>
+			<td>square foot</td>
+		</tr>
+		<tr class="alt2">
+			<td>Corporate Headquarters Building</td>
+			<td style="text-align:right">$ -</td>
+			<td style="text-align:right">$0.1168</td>
+			<td style="text-align:right">$1.6085</td>
+			<td style="text-align:right">$1.2961</td>
+			<td style="text-align:right">$0.1508</td>
+			<td style="text-align:right">$3.1723</td>
+			<td>square foot</td>
+		</tr>
+		<tr class="alt1">
+			<td>Single-Tenant Office Building</td>
+			<td style="text-align:right">$ -</td>
+			<td style="text-align:right">$0.1152</td>
+			<td style="text-align:right">$1.5866</td>
+			<td style="text-align:right">$1.2785</td>
+			<td style="text-align:right">$0.2480</td>
+			<td style="text-align:right">$3.2284</td>
+			<td>square foot</td>
+		</tr>
+		<tr class="alt2">
+			<td>Medical-Dental Office Building</td>
+			<td style="text-align:right">$ -</td>
+			<td style="text-align:right">$0.1403</td>
+			<td style="text-align:right">$1.9317</td>
+			<td style="text-align:right">$1.5565</td>
+			<td style="text-align:right">$0.6831</td>
+			<td style="text-align:right">$4.3118</td>
+			<td>square foot</td>
+		</tr>
+		<tr class="alt1">
+			<td>Office Park</td>
+			<td style="text-align:right">$ -</td>
+			<td style="text-align:right">$0.1061</td>
+			<td style="text-align:right">$1.4615</td>
+			<td style="text-align:right">$1.1776</td>
+			<td style="text-align:right">$0.2100</td>
+			<td style="text-align:right">$2.9554</td>
+			<td>square foot</td>
+		</tr>
+		<tr class="alt2">
+			<td>Research and <a class="iLink" target="_blank" href="doc-view.aspx?pn=0&ajax=0&secid=7106">Development</a> Center</td>
+			<td style="text-align:right">$ -</td>
+			<td style="text-align:right">$0.1116</td>
+			<td style="text-align:right">$1.5366</td>
+			<td style="text-align:right">$1.2382</td>
+			<td style="text-align:right">$0.2102</td>
+			<td style="text-align:right">$3.0967</td>
+			<td>square foot</td>
+		</tr>
+		<tr class="alt1">
+			<td>Business Park</td>
+			<td style="text-align:right">$ -</td>
+			<td style="text-align:right">$0.1045</td>
+			<td style="text-align:right">$1.4391</td>
+			<td style="text-align:right">$1.1596</td>
+			<td style="text-align:right">$0.2360</td>
+			<td style="text-align:right">$2.9394</td>
+			<td>square foot</td>
+		</tr>
+		<tr class="subsubheading">
+			<td colspan="8"><em>Retail</em></td>
+		</tr>
+		<tr class="alt2">
+			<td>Building Material and Lumber Store</td>
+			<td style="text-align:right">$ -</td>
+			<td style="text-align:right">$0.0233</td>
+			<td style="text-align:right">$0.3217</td>
+			<td style="text-align:right">$0.2592</td>
+			<td style="text-align:right">$0.3235</td>
+			<td style="text-align:right">$0.9278</td>
+			<td>square foot</td>
+		</tr>
+		<tr class="alt1">
+			<td>Variety Store</td>
+			<td style="text-align:right">$ -</td>
+			<td style="text-align:right">$0.0226</td>
+			<td style="text-align:right">$0.3112</td>
+			<td style="text-align:right">$0.2508</td>
+			<td style="text-align:right">$1.2081</td>
+			<td style="text-align:right">$1.7927</td>
+			<td>square foot</td>
+		</tr>
+		<tr class="alt2">
+			<td>Free-Standing Discount Store</td>
+			<td style="text-align:right">$ -</td>
+			<td style="text-align:right">$0.0742</td>
+			<td style="text-align:right">$1.0222</td>
+			<td style="text-align:right">$0.8237</td>
+			<td style="text-align:right">$1.0223</td>
+			<td style="text-align:right">$2.9425</td>
+			<td>square foot</td>
+		</tr>
+		<tr class="alt1">
+			<td>Hardware/Paint Store</td>
+			<td style="text-align:right">$ -</td>
+			<td style="text-align:right">$0.0098</td>
+			<td style="text-align:right">$0.1362</td>
+			<td style="text-align:right">$0.1097</td>
+			<td style="text-align:right">$0.1531</td>
+			<td style="text-align:right">$0.4090</td>
+			<td>square foot</td>
+		</tr>
+		<tr class="alt2">
+			<td>Nursery (Garden Center)</td>
+			<td style="text-align:right">$ -</td>
+			<td style="text-align:right">$0.1059</td>
+			<td style="text-align:right">$1.4580</td>
+			<td style="text-align:right">$1.1748</td>
+			<td style="text-align:right">$1.2923</td>
+			<td style="text-align:right">$4.0311</td>
+			<td>square foot</td>
+		</tr>
+		<tr class="alt1">
+			<td>Nursery (Wholesale)</td>
+			<td style="text-align:right">$ -</td>
+			<td style="text-align:right">$0.0565</td>
+			<td style="text-align:right">$0.7789</td>
+			<td style="text-align:right">$0.6276</td>
+			<td style="text-align:right">$0.7401</td>
+			<td style="text-align:right">$2.2033</td>
+			<td>square foot</td>
+		</tr>
+		<tr class="alt2">
+			<td>Shopping Center</td>
+			<td style="text-align:right">$ -</td>
+			<td style="text-align:right">$0.0721</td>
+			<td style="text-align:right">$0.9929</td>
+			<td style="text-align:right">$0.8001</td>
+			<td style="text-align:right">$0.7023</td>
+			<td style="text-align:right">$2.5675</td>
+			<td>square foot</td>
+		</tr>
+		<tr class="alt1">
+			<td>Strip Retail Plaza</td>
+			<td style="text-align:right">$ -</td>
+			<td style="text-align:right">$0.0721</td>
+			<td style="text-align:right">$0.9929</td>
+			<td style="text-align:right">$0.8001</td>
+			<td style="text-align:right">$1.0333</td>
+			<td style="text-align:right">$2.8985</td>
+			<td>square foot</td>
+		</tr>
+		<tr class="alt2">
+			<td>Automobile Sales (New)</td>
+			<td style="text-align:right">$ -</td>
+			<td style="text-align:right">$0.0843</td>
+			<td style="text-align:right">$1.1617</td>
+			<td style="text-align:right">$0.9361</td>
+			<td style="text-align:right">$0.5283</td>
+			<td style="text-align:right">$2.7106</td>
+			<td>square foot</td>
+		</tr>
+		<tr class="alt1">
+			<td>Automobile Sales (Used)</td>
+			<td style="text-align:right">$ -</td>
+			<td style="text-align:right">$0.0736</td>
+			<td style="text-align:right">$1.0134</td>
+			<td style="text-align:right">$0.8165</td>
+			<td style="text-align:right">$0.5135</td>
+			<td style="text-align:right">$2.4171</td>
+			<td>square foot</td>
+		</tr>
+		<tr class="alt2">
+			<td>Recreation Vehicle Sales</td>
+			<td style="text-align:right">$ -</td>
+			<td style="text-align:right">$0.0215</td>
+			<td style="text-align:right">$0.2965</td>
+			<td style="text-align:right">$0.2389</td>
+			<td style="text-align:right">$0.0948</td>
+			<td style="text-align:right">$0.6519</td>
+			<td>square foot</td>
+		</tr>
+		<tr class="alt1">
+			<td>Auto Parts Store</td>
+			<td style="text-align:right">$ -</td>
+			<td style="text-align:right">$0.0325</td>
+			<td style="text-align:right">$0.4486</td>
+			<td style="text-align:right">$0.3615</td>
+			<td style="text-align:right">$1.0356</td>
+			<td style="text-align:right">$1.8784</td>
+			<td>square foot</td>
+		</tr>
+		<tr class="alt2">
+			<td>Tire Store</td>
+			<td style="text-align:right">$ -</td>
+			<td style="text-align:right">$0.0434</td>
+			<td style="text-align:right">$0.5982</td>
+			<td style="text-align:right">$0.4820</td>
+			<td style="text-align:right">$0.5254</td>
+			<td style="text-align:right">$1.6492</td>
+			<td>square foot</td>
+		</tr>
+		<tr class="alt1">
+			<td>Supermarket</td>
+			<td style="text-align:right">$ -</td>
+			<td style="text-align:right">$0.0726</td>
+			<td style="text-align:right">$0.9999</td>
+			<td style="text-align:right">$0.8057</td>
+			<td style="text-align:right">$1.7808</td>
+			<td style="text-align:right">$3.6592</td>
+			<td>square foot</td>
+		</tr>
+		<tr class="alt2">
+			<td>Discount Club</td>
+			<td style="text-align:right">$ -</td>
+			<td style="text-align:right">$0.0447</td>
+			<td style="text-align:right">$0.6161</td>
+			<td style="text-align:right">$0.4964</td>
+			<td style="text-align:right">$0.8057</td>
+			<td style="text-align:right">$1.9630</td>
+			<td>square foot</td>
+		</tr>
+		<tr class="alt1">
+			<td>Sporting Goods Superstore</td>
+			<td style="text-align:right">$ -</td>
+			<td style="text-align:right">$0.1818</td>
+			<td style="text-align:right">$2.5032</td>
+			<td style="text-align:right">$2.0170</td>
+			<td style="text-align:right">$0.4512</td>
+			<td style="text-align:right">$5.1533</td>
+			<td>square foot</td>
+		</tr>
+		<tr class="alt2">
+			<td>Pharmacy/Drugstore - no drive-through</td>
+			<td style="text-align:right">$ -</td>
+			<td style="text-align:right">$0.0532</td>
+			<td style="text-align:right">$0.7324</td>
+			<td style="text-align:right">$0.5902</td>
+			<td style="text-align:right">$1.7094</td>
+			<td style="text-align:right">$3.0853</td>
+			<td>square foot</td>
+		</tr>
+		<tr class="alt1">
+			<td>Pharmacy/Drugstore - w/ drive-through</td>
+			<td style="text-align:right">$ -</td>
+			<td style="text-align:right">$0.0566</td>
+			<td style="text-align:right">$0.7805</td>
+			<td style="text-align:right">$0.6289</td>
+			<td style="text-align:right">$2.0571</td>
+			<td style="text-align:right">$3.5233</td>
+			<td>square foot</td>
+		</tr>
+		<tr class="alt2">
+			<td>Furniture Store</td>
+			<td style="text-align:right">$ -</td>
+			<td style="text-align:right">$0.0195</td>
+			<td style="text-align:right">$0.2693</td>
+			<td style="text-align:right">$0.2170</td>
+			<td style="text-align:right">$0.1195</td>
+			<td style="text-align:right">$0.6255</td>
+			<td>square foot</td>
+		</tr>
+		<tr class="subsubheading">
+			<td colspan="8"><em>Services</em></td>
+		</tr>
+		<tr class="alt1">
+			<td>Drive-in Bank</td>
+			<td style="text-align:right">$ -</td>
+			<td style="text-align:right">$0.1040</td>
+			<td style="text-align:right">$1.4329</td>
+			<td style="text-align:right">$1.1546</td>
+			<td style="text-align:right">$1.9043</td>
+			<td style="text-align:right">$4.5961</td>
+			<td>square foot</td>
+		</tr>
+		<tr class="alt2">
+			<td>Fast Casual Restaurant</td>
+			<td style="text-align:right">$ -</td>
+			<td style="text-align:right">$0.1711</td>
+			<td style="text-align:right">$2.3566</td>
+			<td style="text-align:right">$1.8989</td>
+			<td style="text-align:right">$1.8434</td>
+			<td style="text-align:right">$6.2703</td>
+			<td>square foot</td>
+		</tr>
+		<tr class="alt1">
+			<td>Fine Dining Restaurant</td>
+			<td style="text-align:right">$ -</td>
+			<td style="text-align:right">$0.1711</td>
+			<td style="text-align:right">$2.3566</td>
+			<td style="text-align:right">$1.8989</td>
+			<td style="text-align:right">$1.5910</td>
+			<td style="text-align:right">$6.0179</td>
+			<td>square foot</td>
+		</tr>
+		<tr class="alt2">
+			<td>High-Turnover (Sit-Down) Restaurant</td>
+			<td style="text-align:right">$ -</td>
+			<td style="text-align:right">$0.1711</td>
+			<td style="text-align:right">$2.3566</td>
+			<td style="text-align:right">$1.8989</td>
+			<td style="text-align:right">$2.0343</td>
+			<td style="text-align:right">$6.4612</td>
+			<td>square foot</td>
+		</tr>
+		<tr class="alt1">
+			<td>Fast-Food Restaurant</td>
+			<td style="text-align:right">$ -</td>
+			<td style="text-align:right">$0.3564</td>
+			<td style="text-align:right">$4.9076</td>
+			<td style="text-align:right">$3.9545</td>
+			<td style="text-align:right">$8.8716</td>
+			<td style="text-align:right">$18.0902</td>
+			<td>square foot</td>
+		</tr>
+		<tr class="alt2">
+			<td>Quick Lubrication Vehicle Shop</td>
+			<td style="text-align:right">$ -</td>
+			<td style="text-align:right">$0.1476</td>
+			<td style="text-align:right">$2.0322</td>
+			<td style="text-align:right">$1.6375</td>
+			<td style="text-align:right">$1.3202</td>
+			<td style="text-align:right">$5.1376</td>
+			<td>square foot</td>
+		</tr>
+		<tr class="alt1">
+			<td>Automobile Parts &amp; Service</td>
+			<td style="text-align:right">$ -</td>
+			<td style="text-align:right">$0.0492</td>
+			<td style="text-align:right">$0.6781</td>
+			<td style="text-align:right">$0.5464</td>
+			<td style="text-align:right">$0.3150</td>
+			<td style="text-align:right">$1.5889</td>
+			<td>square foot</td>
+		</tr>
+		<tr class="alt2">
+			<td>Gasoline/Service Station</td>
+			<td style="text-align:right">$ -</td>
+			<td style="text-align:right">$6.6407</td>
+			<td style="text-align:right">$91.4241</td>
+			<td style="text-align:right">$73.6683</td>
+			<td style="text-align:right">$172.0100</td>
+			<td style="text-align:right">$343.7433</td>
+			<td>pump</td>
+		</tr>
+		<tr class="alt1">
+			<td>Convenience Store w/gas (&lt;5501 sf)</td>
+			<td style="text-align:right">$ -</td>
+			<td style="text-align:right">$9.9269</td>
+			<td style="text-align:right">$136.6659</td>
+			<td style="text-align:right">$110.1235</td>
+			<td style="text-align:right">$257.1300</td>
+			<td style="text-align:right">$513.8463</td>
+			<td>pump</td>
+		</tr>
+		<tr class="alt2">
+			<td>Convenience Store w/gas (&gt; 5500 sf)</td>
+			<td style="text-align:right">$ -</td>
+			<td style="text-align:right">$13.3482</td>
+			<td style="text-align:right">$183.7678</td>
+			<td style="text-align:right">$148.0777</td>
+			<td style="text-align:right">$345.7500</td>
+			<td style="text-align:right">$690.9438</td>
+			<td>pump</td>
+		</tr>
+		<tr class="alt1">
+			<td>Self-Service Car Wash</td>
+			<td style="text-align:right">$ -</td>
+			<td style="text-align:right">$4.1695</td>
+			<td style="text-align:right">$57.4025</td>
+			<td style="text-align:right">$46.2542</td>
+			<td style="text-align:right">$108.0000</td>
+			<td style="text-align:right">$215.8262</td>
+			<td>stall</td>
+		</tr>
+		<tr class="alt2">
+			<td>Car Wash &amp; Detail Center</td>
+			<td style="text-align:right">$ -</td>
+			<td style="text-align:right">$6.0303</td>
+			<td style="text-align:right">$83.0210</td>
+			<td style="text-align:right">$66.8972</td>
+			<td style="text-align:right">$156.2000</td>
+			<td style="text-align:right">$312.1487</td>
+			<td>stall</td>
+		</tr>
+		<tr class="alt1">
+			<td>Truck Stop</td>
+			<td style="text-align:right">$ -</td>
+			<td style="text-align:right">$8.6478</td>
+			<td style="text-align:right">$119.0571</td>
+			<td style="text-align:right">$95.9346</td>
+			<td style="text-align:right">$224.0000</td>
+			<td style="text-align:right">$447.6396</td>
+			<td>pump</td>
+		</tr>
+	</tbody>
+	<tfoot>
+		<tr class="tfooter">
+			<td colspan="8" style="width:100%">NOTE: Impact fee amounts are shown to four decimal places for accuracy. The fee applicable to a particular <a class="iLink" target="_blank" href="doc-view.aspx?pn=0&ajax=0&secid=7096">building permit</a> will be rounded down to the nearest penny.<br>
+			&ldquo;Square foot&rdquo; means square foot of gross building floor area.</td>
+		</tr>
+	</tfoot>
+</table>
+
+<p class='archiveNotice  '>Effective on:&nbsp;7/1/2023</p>
+</section> 
+
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<button id="commentsCTA" title="Add a Comment" aria-label="Add a Comment" role="button" tabindex="2">
+    COMMENTS
+</button>
+
+<!-- hidden div below is for definition popup -->
+<div id="defFrame">
+    <img alt='loading progress' src="resources/progress.gif" /></div>
+<!-- hidden div below is for ajax loading progress-->
+<div id='progress-template' style='display: none;'>
+    <div class="progress" style='padding: 100px;'>
+        <div style='margin: auto; display: block; width: 200px; border: 1px solid #ccc; background-color: #eee; padding: 10px;'>
+            <img alt='loading progress' src='resources/progress.gif' style='margin: auto; display: block;' />
+            <br />
+            <span style='margin: auto; display: block; width: 75px; padding-left: 10px;'>Loading...</span>
+        </div>
+    </div>
+</div>
+<iframe style="width: 1px; height: 1px" src="" id="printiframe" name="printiframe" onload="ZP.DocView.IFrameReady();" title="Print frame" aria-hidden="true" role="presentation"></iframe>
+
+    </div>
+
+
+    </body>
+</html>

@@ -1,0 +1,287 @@
+[
+  {
+    "sequence": 67,
+    "jurisdiction": "Lincoln",
+    "state": "NE",
+    "source_url": "https://online.encodeplus.com/regs/lincoln-ne/",
+    "source_family": "enCodePlus public server-rendered code portal",
+    "status": "standalone_e2e_pass",
+    "acquisition_method": "Standalone Python HTTP: independent TOC, three observed operative node IDs, requested-node HTML normalization; publisher-native PDF via observed export polling flow",
+    "publisher_download": {
+      "status": "passed",
+      "url": "https://online.encodeplus.com/regs/lincoln-ne/export2doc.aspx?pdf=1&tocid=001.021.004.027&file=doc-001.021.004.027-pid-404.pdf",
+      "reason": "Native Aspose.Words PDF produced by visible Export PDF function, initial HTML status page → observed polling JSON → File token download. Selected table provision only. Initial run blocked-at-status-page report preserved; native qualification resolves it.",
+      "evidence_paths": [
+        "native/lincoln-qualified/export.json",
+        "native/lincoln-qualified/publisher.pdf",
+        "native/lincoln-qualified/publisher.pdf.receipt.json",
+        "native/lincoln-qualified/qa.json",
+        "native/lincoln-qualified/rendered"
+      ],
+      "pages": 1,
+      "scope": "Only 12858 operative provision, not full publication"
+    },
+    "tested_scope": {
+      "record_unit": "requested operative provision, one record per observed leaf section ID",
+      "selected_section_ids": [
+        "6288",
+        "6289",
+        "12858"
+      ],
+      "headings": [
+        "1.04.020 Title of Office.",
+        "1.04.030 Interpretation of Language.",
+        "20.12.140 Table No. R301.2 Amended; Climatic and Geographic Design Criteria."
+      ],
+      "inventory_nodes": 4784,
+      "native_pdf_scope": "One selected table-bearing provision"
+    },
+    "complete_corpus": false,
+    "record_count": 3,
+    "table_count": 1,
+    "checks": [
+      {
+        "section_id": "6288",
+        "requested_container_id_exact": true,
+        "toc_heading_matches_body": true,
+        "nonempty_operative_body": true,
+        "table_count": 0,
+        "table_checks": [],
+        "cross_references_retained": 0,
+        "publisher_placeholder_dates_excluded": 1
+      },
+      {
+        "section_id": "6289",
+        "requested_container_id_exact": true,
+        "toc_heading_matches_body": true,
+        "nonempty_operative_body": true,
+        "table_count": 0,
+        "table_checks": [],
+        "cross_references_retained": 2,
+        "publisher_placeholder_dates_excluded": 1
+      },
+      {
+        "section_id": "12858",
+        "requested_container_id_exact": true,
+        "toc_heading_matches_body": true,
+        "nonempty_operative_body": true,
+        "table_count": 1,
+        "table_checks": [
+          {
+            "rows": 4,
+            "cells": 20,
+            "independent_text_span_match": true
+          }
+        ],
+        "cross_references_retained": 2,
+        "publisher_placeholder_dates_excluded": 0
+      },
+      {
+        "key": "lincoln",
+        "pdf_sha256": "75cee353f171c7ac8645022c5b7f5c642cbd6be893c23eb6a24d9078e82acd89",
+        "page_count": 1,
+        "publication_identity_matches": true,
+        "operative_heading_and_table_anchors": {
+          "20.12.140": true,
+          "CLIMATIC AND GEOGRAPHIC DESIGN CRITERIA": true,
+          "25 psf": true,
+          "115 mph": true,
+          "36\"": true,
+          "December 15, 2025": true
+        },
+        "producer": "Aspose.Words for .NET 20.5",
+        "native_export_not_browser_print": true,
+        "edition_alignment": "Selected section headings, table values and retained histories match HTML anchors; no codewide current-through date established"
+      }
+    ],
+    "command": [
+      "python scripts/acquire.py lincoln --out /fresh/lincoln",
+      "python scripts/native_export.py /fresh/lincoln/publisher-table-export.pdf --out /fresh/lincoln-native",
+      "python scripts/verify.py"
+    ],
+    "tested_command": [
+      "outputs/wave3-validation-2026-10-17/encodeplus/scripts/acquire.py",
+      "lincoln",
+      "--out",
+      "outputs/wave3-validation-2026-10-17/encodeplus/live/lincoln-v2"
+    ],
+    "tested_runtime": {
+      "python": "3.12.14",
+      "os": "macOS-26.6.2-arm64-arm-64bit",
+      "browser_required": false
+    },
+    "evidence_paths": [
+      "live/lincoln-v2/run.json",
+      "live/lincoln-v2/toc.html",
+      "live/lincoln-v2/toc.html.receipt.json",
+      "live/lincoln-v2/inventory.json",
+      "live/lincoln-v2/normalized/sections.jsonl",
+      "live/lincoln-v2/normalized/sections.csv",
+      "live/lincoln-v2/script-versions",
+      "native/lincoln-qualified",
+      "publication-inventory.json",
+      "discovery-live",
+      "platform"
+    ],
+    "script_paths": [
+      "scripts/acquire.py",
+      "scripts/parse.py",
+      "scripts/html_semantics.py",
+      "scripts/transport.py",
+      "scripts/native_export.py",
+      "scripts/pdf_qa.py",
+      "scripts/verify.py"
+    ],
+    "limitations": [
+      "Exactly3 hardcoded selected sections; full corpus ingestion, closure and hierarchy completeness untested.",
+      "Separate linked publications, model-code text, attachments and image-only legal tables not ingested.",
+      "No authoritative codewide current-through date established. Native export/HTML alignment qualified only by sampled identity, heading and table anchors.",
+      "HTTP tested on Python3.12.14/macOS26.6.2arm64; POSIX flock transport compatible with Linux but Linux not live tested.",
+      "547 publisher TOC declared-depth gaps; flat IDs retained, best-effort TOC paths explicitly incomplete; sampled body paths come from canonical breadcrumbs.",
+      "Official Lincoln attorney page returned403; retained evidence. Current linked publisher code acquisition succeeded without browser or challenge interaction."
+    ],
+    "next_action": "Build full TOC traversal with explicit container/leaf ownership; canonical breadcrumb hierarchy and version closure; acquire separately published families and image/PDF attachments; reconcile current-through editions before production."
+  },
+  {
+    "sequence": 82,
+    "jurisdiction": "Overland Park",
+    "state": "KS",
+    "source_url": "https://codes.opkansas.org/municipal-code/",
+    "source_family": "enCodePlus public server-rendered code portal",
+    "status": "standalone_e2e_pass",
+    "acquisition_method": "Standalone Python HTTP: independent TOC, three observed operative node IDs, requested-node HTML normalization; publisher-native PDF via observed export polling flow",
+    "publisher_download": {
+      "status": "passed",
+      "url": "https://codes.opkansas.org/municipal-code/export2doc.aspx?pdf=1&tocid=018.041.015&file=doc-018.041.015-pid-591.pdf",
+      "reason": "Native Aspose.Words PDF produced by visible Export PDF function, initial HTML status page → observed polling JSON → File token download. Selected table provision only. Initial run blocked-at-status-page report preserved; native qualification resolves it.",
+      "evidence_paths": [
+        "native/overland-qualified/export.json",
+        "native/overland-qualified/publisher.pdf",
+        "native/overland-qualified/publisher.pdf.receipt.json",
+        "native/overland-qualified/qa.json",
+        "native/overland-qualified/rendered"
+      ],
+      "pages": 2,
+      "scope": "Only 6155 operative provision, not full publication"
+    },
+    "tested_scope": {
+      "record_unit": "requested operative provision, one record per observed leaf section ID",
+      "selected_section_ids": [
+        "3",
+        "4",
+        "6155"
+      ],
+      "headings": [
+        "1.01.010 Generally.",
+        "1.01.020 Publication-Effect.",
+        "18.430.150 Required Parking"
+      ],
+      "inventory_nodes": 4381,
+      "native_pdf_scope": "One selected table-bearing provision"
+    },
+    "complete_corpus": false,
+    "record_count": 3,
+    "table_count": 1,
+    "checks": [
+      {
+        "section_id": "3",
+        "requested_container_id_exact": true,
+        "toc_heading_matches_body": true,
+        "nonempty_operative_body": true,
+        "table_count": 0,
+        "table_checks": [],
+        "cross_references_retained": 0,
+        "publisher_placeholder_dates_excluded": 1
+      },
+      {
+        "section_id": "4",
+        "requested_container_id_exact": true,
+        "toc_heading_matches_body": true,
+        "nonempty_operative_body": true,
+        "table_count": 0,
+        "table_checks": [],
+        "cross_references_retained": 0,
+        "publisher_placeholder_dates_excluded": 1
+      },
+      {
+        "section_id": "6155",
+        "requested_container_id_exact": true,
+        "toc_heading_matches_body": true,
+        "nonempty_operative_body": true,
+        "table_count": 1,
+        "table_checks": [
+          {
+            "rows": 13,
+            "cells": 29,
+            "independent_text_span_match": true
+          }
+        ],
+        "cross_references_retained": 0,
+        "publisher_placeholder_dates_excluded": 1
+      },
+      {
+        "key": "overland",
+        "pdf_sha256": "7949d52f81aa9d423f5b053197f4ed92d7d169febfaa3c88d435c1d7cba085b1",
+        "page_count": 2,
+        "publication_identity_matches": true,
+        "operative_heading_and_table_anchors": {
+          "18.430.150 Required Parking": true,
+          "Zoning District / Land Use": true,
+          "1 to 2.5 spaces per unit": true,
+          "1 space for each 3 seats": true,
+          "ZRR-3503": true
+        },
+        "producer": "Aspose.Words for .NET 20.5",
+        "native_export_not_browser_print": true,
+        "edition_alignment": "Selected section headings, table values and retained histories match HTML anchors; no codewide current-through date established"
+      }
+    ],
+    "command": [
+      "python scripts/acquire.py overland --out /fresh/overland",
+      "python scripts/native_export.py /fresh/overland/publisher-table-export.pdf --out /fresh/overland-native",
+      "python scripts/verify.py"
+    ],
+    "tested_command": [
+      "outputs/wave3-validation-2026-10-17/encodeplus/scripts/acquire.py",
+      "overland",
+      "--out",
+      "outputs/wave3-validation-2026-10-17/encodeplus/live/overland-v2"
+    ],
+    "tested_runtime": {
+      "python": "3.12.14",
+      "os": "macOS-26.6.2-arm64-arm-64bit",
+      "browser_required": false
+    },
+    "evidence_paths": [
+      "live/overland-v2/run.json",
+      "live/overland-v2/toc.html",
+      "live/overland-v2/toc.html.receipt.json",
+      "live/overland-v2/inventory.json",
+      "live/overland-v2/normalized/sections.jsonl",
+      "live/overland-v2/normalized/sections.csv",
+      "live/overland-v2/script-versions",
+      "native/overland-qualified",
+      "publication-inventory.json",
+      "discovery-live",
+      "platform"
+    ],
+    "script_paths": [
+      "scripts/acquire.py",
+      "scripts/parse.py",
+      "scripts/html_semantics.py",
+      "scripts/transport.py",
+      "scripts/native_export.py",
+      "scripts/pdf_qa.py",
+      "scripts/verify.py"
+    ],
+    "limitations": [
+      "Exactly3 hardcoded selected sections; full corpus ingestion, closure and hierarchy completeness untested.",
+      "Separate linked publications, model-code text, attachments and image-only legal tables not ingested.",
+      "No authoritative codewide current-through date established. Native export/HTML alignment qualified only by sampled identity, heading and table anchors.",
+      "HTTP tested on Python3.12.14/macOS26.6.2arm64; POSIX flock transport compatible with Linux but Linux not live tested.",
+      "Initial DFD802 Use Table candidate is PNG; retained negative evidence. Actual required-parking HTMLtable independently qualified.",
+      "Publisher nullValue Effective1/1/1901 placeholder excluded from legal text/date claims with explicit dispositions."
+    ],
+    "next_action": "Build full TOC traversal with explicit container/leaf ownership; canonical breadcrumb hierarchy and version closure; acquire separately published families and image/PDF attachments; reconcile current-through editions before production."
+  }
+]

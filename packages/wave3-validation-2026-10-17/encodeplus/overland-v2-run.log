@@ -1,0 +1,81 @@
+{
+  "jurisdiction": "Overland Park, KS",
+  "source_url": "https://codes.opkansas.org/municipal-code/",
+  "method": "standalone-python-public-server-rendered-enCodePlus-HTML",
+  "started_at": "2026-10-17T18:45:45.855034+00:00",
+  "command": [
+    "outputs/wave3-validation-2026-10-17/encodeplus/scripts/acquire.py",
+    "overland",
+    "--out",
+    "outputs/wave3-validation-2026-10-17/encodeplus/live/overland-v2"
+  ],
+  "runtime": "3.12.14",
+  "os": "macOS-26.6.2-arm64-arm-64bit",
+  "script_versions": {
+    "acquire.py": "70a3b0bc433be11e081034ce4776faf7f9ee896a7679586e367e4033371fb85f",
+    "parse.py": "4616bef3eefbe28a8e87a0580ac523de2120855eaf622da7ed6e71165a5ec612",
+    "html_semantics.py": "8201a905d03488b3ddbe041bbc5ec840a481f703687bff18157f1a45aa8e3320",
+    "transport.py": "786ff96dba324e0180d61111cc3924791079702f8c7ed112e2c7914c0062f772"
+  },
+  "complete_corpus": false,
+  "publisher_download": {
+    "status": "blocked",
+    "format": "PDF",
+    "url": "https://codes.opkansas.org/municipal-code/export2doc.aspx?pdf=1&tocid=018.041.015",
+    "reason": "Publisher export response is not PDF",
+    "scope": "Selected table provision only"
+  },
+  "record_count": 3,
+  "record_unit": "requested operative provision",
+  "table_count": 1,
+  "checks": [
+    {
+      "section_id": "3",
+      "requested_container_id_exact": true,
+      "toc_heading_matches_body": true,
+      "nonempty_operative_body": true,
+      "table_count": 0,
+      "table_checks": [],
+      "cross_references_retained": 0,
+      "publisher_placeholder_dates_excluded": 1
+    },
+    {
+      "section_id": "4",
+      "requested_container_id_exact": true,
+      "toc_heading_matches_body": true,
+      "nonempty_operative_body": true,
+      "table_count": 0,
+      "table_checks": [],
+      "cross_references_retained": 0,
+      "publisher_placeholder_dates_excluded": 1
+    },
+    {
+      "section_id": "6155",
+      "requested_container_id_exact": true,
+      "toc_heading_matches_body": true,
+      "nonempty_operative_body": true,
+      "table_count": 1,
+      "table_checks": [
+        {
+          "rows": 13,
+          "cells": 29,
+          "independent_text_span_match": true
+        }
+      ],
+      "cross_references_retained": 0,
+      "publisher_placeholder_dates_excluded": 1
+    }
+  ],
+  "outputs_sha256": {
+    "sections.jsonl": "55e7b3ac54dc24bfe627299410158d7854633e23274f4ef368a519fd4c4eba62",
+    "sections.csv": "371aa945d50493f75a57256f43416f0b9938ff8c1af1b23e40bbfc14c70d1cee"
+  },
+  "status": "standalone_e2e_pass",
+  "selected_nodes": [
+    "3",
+    "4",
+    "6155"
+  ],
+  "inventory_nodes": 4381,
+  "finished_at": "2026-10-17T18:46:03.306607+00:00"
+}

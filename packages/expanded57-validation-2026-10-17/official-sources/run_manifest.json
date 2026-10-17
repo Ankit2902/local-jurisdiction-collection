@@ -1,0 +1,50 @@
+{
+  "created_utc": "2026-10-17T18:03:03.467617+00:00",
+  "runtime": {
+    "python": "3.12.14",
+    "node": "24.19.0",
+    "playwright": "1.62.1",
+    "browser": "Google Chrome155.0.8059.84 via Playwright channel=chrome; headless=false",
+    "dependencies": "requirements.txt and package.json"
+  },
+  "commands": [
+    "python acquire.py --only portland_index portland_title1 portland_title18 portland_zoning portland_charter_index portland_charter portland_zoning_ch10",
+    "python acquire.py --only baltimore_index baltimore_repo baltimore_html_bulk",
+    "node milwaukee_browser.cjs",
+    "node milwaukee_native_download.cjs",
+    "python validate.py --offline",
+    "python verify_offline.py"
+  ],
+  "script_sha256": {
+    "acquire.py": "f4678bdaf9d1c9eff5dd1a46fc5f9503c656ee9646f1ab3b6b4136c37b7ec674",
+    "validate.py": "828b0cccb2b53567fe3d4ea63dde64fd550ca66f72235efb18934cd414986621",
+    "verify_offline.py": "592d003a5f55aadf9dd0aac471b661f1572864c6f1da19682a72f9bbfe5abcde",
+    "milwaukee_browser.cjs": "e854f8f2b43237ab4ab683fba00be635da4dbea4001c59324b846c8954b01c5a",
+    "milwaukee_native_download.cjs": "537a9468b5ebd0dd08543f2093b14d9c7bfdc3ea27e0652b5477eee839048bf7",
+    "milwaukee_navigation.cjs": "65dcd93c87d6629e22b1da1fd2c8c0684e357c583bd92e09f65d746326196990",
+    "requirements.txt": "cc2371f360e412b10e9e76567145b036fbfa3103e37c02289afe7fd574ce4ac6",
+    "package.json": "24bdd30d6c460cfceaf4fb699c631c9561e049cf65fcb2c24fe872beec53bf3d",
+    "README.md": "40df0f7a063b5a6077f739b28083343ae41f4f5d1cb29549349ffd9a06386823",
+    "results.json": "1c2e022c61aa8404f67b67d4814df61e0363e1e804777d1794dcd599d57e78c6"
+  },
+  "parsed_sha256": {
+    "baltimore_crossref_checks.json": "007922aad79bfdf4869f49e8fc6047a2bfe0c6628fc764d146f4000e47b38bc4",
+    "baltimore_inventory.json": "0e95e0b4d7d1623d64a3c53c505bc6d7b57c1fa3533a11a0687777d9f2fb6663",
+    "baltimore_sections.csv": "cc2b72490ca40cc3bdfe3c148bf2c0147dd01db139c529dd69a635aff542e1dd",
+    "baltimore_sections.jsonl": "9dce4813a2485f9670ed6d7f63bae796c705d86b059bc1a27505f6cc71d5698f",
+    "milwaukee_inventory.json": "8c07dfbbef6764911ab3392a878fe253b08f4f629c1ff985e523069aa149dea9",
+    "milwaukee_sections.csv": "85860bc69e1e7b533412f3b52336aadb185bbc56ef4ec765a90e1552fe9536a7",
+    "milwaukee_sections.jsonl": "b418ad7c075c0fc7172091e385610c0812e29f47a0f7849a64d24be20534da58",
+    "milwaukee_zoning_pdf_pages.csv": "1c6e93b5fb90ab7f5f503d4a8297d1af2111c4bedeb92fa123c7c8399c66ddfe",
+    "milwaukee_zoning_pdf_pages.jsonl": "a0fd614f67db09ddd05cf7fe2d79344de07ee547b6d57780d0c2d2e1b5216372",
+    "portland_inventory.json": "c6fdcb5c705f4720b6a34b7a842b5bf717d6ffa545e00784878ed9c2b142ea67",
+    "portland_sections.csv": "da225de119b7bdec199a454cea2123709519c540b6fa269a9a7bc03ed0d31496",
+    "portland_sections.jsonl": "acae582def47ea3be31005a15bfb44ef3e69db27f8b865cba1e8fa7b0ee0df03",
+    "portland_zoning_pdf_pages.csv": "727fda100906a22789c1a3ee0cb768571cd9d1165ce4f4b6047c4c46a14f048b",
+    "portland_zoning_pdf_pages.jsonl": "40a6dc581d5b324bae2d7d49166a8460520e1514594940553b7d7bfb8d478c78",
+    "verification.json": "e8b1ba2db508b8257574abb78cc7dfada5a266d8ab84c3058e4c10e40338c3c7",
+    "verified_raw_manifest.json": "b6fe2856c384ffaa54e5a942b61f287bd6b312d7ccfeb0c96fe4b4a49534269e"
+  },
+  "complete_corpus": false,
+  "browser_native_live_log": "raw/milwaukee_native_run.log"
+}

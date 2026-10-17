@@ -1,0 +1,1348 @@
+[
+  {
+    "sequence": 60,
+    "jurisdiction": "Henderson",
+    "state": "NV",
+    "source_url": "https://library.municode.com/nv/henderson/codes/code_of_ordinances",
+    "source_family": "Municode",
+    "status": "standalone_e2e_pass",
+    "acquisition_method": "standalone-headed-chrome-public-application-api",
+    "publisher_download": {
+      "status": "passed",
+      "url": "https://mcclibrary.blob.core.usgovcloudapi.net/publication-official-copy-pdfs/3257/Final.pdf?sv=2026-06-06&se=2026-10-17T19%3A47%3A33Z&sr=b&sp=r&rscd=attachment%3B+filename%3D%22Henderson%2C+NV+Code+of+Ordinances.pdf%22&sig=u86Yyf2TsWJgreJvbf0oD%2FinKWNwA2wA2sU8aoJjG3I%3D",
+      "reason": "Native publisher PDF automatically acquired; first-page jurisdiction/state and edition indicators match observed latest-job metadata. Body-level full-document currency/completeness not tested.",
+      "bytes": 18739994,
+      "sha256": "487eaf288a92a0a20da1f6318575dd81e8648d2e57061f0b4075985935291f7f",
+      "publication_id": 3257,
+      "evidence_paths": [
+        "live/henderson/publisher-export.receipt.json",
+        "live/henderson/publisher-export.pdf",
+        "live/henderson/publisher-pdf-inspection.json",
+        "live/henderson/edition-check.json"
+      ],
+      "transport_status": "passed",
+      "source_edition_status": "passed"
+    },
+    "tested_scope": "3 substantive primary leaf provisions from Code of Ordinances plus 2 explicitly supplemental operative provisions; live pinned primary TOC, visible publication inventory, latest-job metadata; native PDF where enabled",
+    "complete_corpus": false,
+    "record_count": 5,
+    "record_unit": "Substantive section/provision, not TOC node or PDF page",
+    "primary_record_count": 3,
+    "table_count": 1,
+    "primary_path": "live/henderson",
+    "supplemental_paths": [
+      "supplemental/henderson-investigation-fees",
+      "supplemental/henderson-license-fees"
+    ],
+    "checks": [
+      {
+        "node_id": "TIT1GEPR_CH1.02ESEFCO_1.02.010TI",
+        "exact_requested_doc_present": true,
+        "nonempty_body": true,
+        "heading_present": true,
+        "table_count": 0,
+        "cross_reference_links": 0,
+        "source_html_retained": true
+      },
+      {
+        "node_id": "TIT1GEPR_CH1.02ESEFCO_1.02.020PRDECOEXOR",
+        "exact_requested_doc_present": true,
+        "nonempty_body": true,
+        "heading_present": true,
+        "table_count": 0,
+        "cross_reference_links": 0,
+        "source_html_retained": true
+      },
+      {
+        "node_id": "TIT1GEPR_CH1.02ESEFCO_1.02.030CODONOAFPROFRI",
+        "exact_requested_doc_present": true,
+        "nonempty_body": true,
+        "heading_present": true,
+        "table_count": 0,
+        "cross_reference_links": 0,
+        "source_html_retained": true
+      },
+      {
+        "publication_identity_observed": true,
+        "job_product_id_matches": true,
+        "visible_primary_publication": true,
+        "uncodified_counts_inventoried": true
+      }
+    ],
+    "command": "python3 scripts/run_browser.py --sequence 60 --out-root /FRESH/EMPTY/output-root",
+    "evidence_paths": [
+      "live/henderson/receipt.json",
+      "live/henderson/samples.json",
+      "live/henderson/toc-full.json",
+      "live/henderson/client-content.json",
+      "live/henderson/family-inventory.json",
+      "live/henderson/normalized/sections.jsonl",
+      "live/henderson/normalized/sections.csv",
+      "live/henderson/normalized/verification.json",
+      "supplemental/henderson-investigation-fees/acquisition-receipt.json",
+      "supplemental/henderson-license-fees/acquisition-receipt.json",
+      "supplemental/henderson-investigation-fees/normalized/verification.json",
+      "supplemental/henderson-license-fees/normalized/verification.json",
+      "supplemental/henderson-license-fees/table-qa/table-dom-qa.json",
+      "supplemental/henderson-license-fees/cross-reference-qa.json",
+      "evidence/official-routes/henderson/receipt.json"
+    ],
+    "script_paths": [
+      "scripts/collect_browser.cjs",
+      "scripts/gate_cli.py",
+      "scripts/normalize.py",
+      "scripts/run_browser.py",
+      "scripts/verify.py",
+      "scripts/acquire_node.cjs",
+      "scripts/normalize_supplemental.py",
+      "scripts/verify_table.cjs",
+      "scripts/check_references.py"
+    ],
+    "limitations": [
+      "Three substantive primary leaf provisions are a bounded sample; TOC size/native PDF pages do not establish complete normalized corpus.",
+      "Other inventoried charter/zoning/development/administrative families and uncodified ordinances are not fully acquired or normalized.",
+      "Ordinary headed Chrome required; direct HTTP denied routes remain stopped after shared wave3 access challenges. No challenge interaction, imported cookies, masking or proxies.",
+      "Minimal workflow page screenshots depict publisher document shell only; substantive source proof is retained live API responses.",
+      "Native PDF inspection covers container and first three pages; remaining pages and body-level correspondence not verified.",
+      "Executed acquisition used an earlier portable collector version; exact executed source retained and current offline verifier independently rechecks publication identity and raw-response binding. Later fresh-target runs validate final portable implementation.",
+      "This early PDF transport receipt does not record redirect hops. Later fresh-target runs exercise the manually gated redirect-capable implementation; no redirect-chain claim is made for this historical receipt.",
+      "Standalone government routing-page HTTP returned 403. No challenge interaction or government-host retry was used; primary publisher identity/acquisition evidence is separate. Current official routing is not independently proven by these denied standalone requests."
+    ],
+    "next_action": "Before production ingestion, select and acquire all required visible/separate code families plus uncodified ordinance bodies; validate whole-document edition/body correspondence, full normalization coverage and update handling.",
+    "official_routing_checks": [
+      {
+        "path": "evidence/official-routes/henderson/receipt.json",
+        "url": "https://www.cityofhenderson.com/government/departments/city-clerk",
+        "status": 403,
+        "final_url": null,
+        "method": "government-only-ordinary-http-routing"
+      }
+    ],
+    "edition": {
+      "product_id": 14896,
+      "job_id": 475955,
+      "name": "Supplement 59",
+      "banner": "MUNICIPAL CODE\r\nCity of\r\nHENDERSON, NEVADA\r\n\r\nCodified through\r\nOrdinance No. 4163, adopted June 16, 2026.\r\n(Supp. No. 59)",
+      "online_date": "2026-09-15T12:43:38",
+      "publications": [
+        {
+          "productName": "Code of Ordinances",
+          "productId": 14896,
+          "latestUpdatedDate": "2026-09-15T12:43:38",
+          "hasOrdbank": true,
+          "contentTypeId": "CODES",
+          "newOrdCount": 24,
+          "hideInLibrary": false,
+          "hasPdfDownloadEnabled": true,
+          "hasPdf": true,
+          "publicationId": 3257,
+          "showLastModifiedPublicationDate": true
+        }
+      ]
+    }
+  },
+  {
+    "sequence": 61,
+    "jurisdiction": "Orlando",
+    "state": "FL",
+    "source_url": "https://library.municode.com/fl/orlando/codes/code_of_ordinances",
+    "source_family": "Municode",
+    "status": "standalone_e2e_pass",
+    "acquisition_method": "standalone-headed-chrome-public-api-minimal-document",
+    "publisher_download": {
+      "status": "partial",
+      "url": "https://mcclibrary.blob.core.usgovcloudapi.net/publication-official-copy-pdfs/1380/Final.pdf?sv=2026-06-06&se=2026-10-17T19%3A51%3A47Z&sr=b&sp=r&rscd=attachment%3B+filename%3D%22Orlando%2C+FL+Code+of+Ordinances.pdf%22&sig=%2Flf51SCEFqQzjz7qkpA9EA14jPA9MfpwlSVtal9vSuo%3D",
+      "reason": "Native PDF acquired and structurally readable; jurisdiction/edition first-page comparison not fully matched. See edition-check; full document currency unproved.",
+      "bytes": 1247473,
+      "sha256": "91f7550480c474024de49f82b8741c73e3516733874f4e950ddf64592ec313cc",
+      "publication_id": 1380,
+      "evidence_paths": [
+        "live/orlando/publisher-export.receipt.json",
+        "live/orlando/publisher-export.pdf",
+        "live/orlando/publisher-pdf-inspection.json",
+        "live/orlando/edition-check.json"
+      ],
+      "transport_status": "passed",
+      "source_edition_status": "partial"
+    },
+    "tested_scope": "3 substantive primary leaf provisions from Code of Ordinances; live pinned primary TOC, visible publication inventory, latest-job metadata; native PDF where enabled",
+    "complete_corpus": false,
+    "record_count": 3,
+    "record_unit": "Substantive section/provision, not TOC node or PDF page",
+    "primary_record_count": 3,
+    "table_count": 0,
+    "primary_path": "live/orlando",
+    "supplemental_paths": [],
+    "checks": [
+      {
+        "node_id": "TITIICICO_CH1GEPR_S1.01HOCODECI",
+        "exact_requested_doc_present": true,
+        "nonempty_body": true,
+        "heading_present": true,
+        "table_count": 0,
+        "cross_reference_links": 0,
+        "source_html_retained": true
+      },
+      {
+        "node_id": "TITIICICO_CH1GEPR_S1.02RUCO",
+        "exact_requested_doc_present": true,
+        "nonempty_body": true,
+        "heading_present": true,
+        "table_count": 0,
+        "cross_reference_links": 0,
+        "source_html_retained": true
+      },
+      {
+        "node_id": "TITIICICO_CH1GEPR_S1.03PRCOCOEXOR",
+        "exact_requested_doc_present": true,
+        "nonempty_body": true,
+        "heading_present": true,
+        "table_count": 0,
+        "cross_reference_links": 0,
+        "source_html_retained": true
+      },
+      {
+        "publication_identity_observed": true,
+        "job_product_id_matches": true,
+        "visible_primary_publication": true,
+        "uncodified_counts_inventoried": true
+      }
+    ],
+    "command": "python3 scripts/run_browser.py --sequence 61 --out-root /FRESH/EMPTY/output-root",
+    "evidence_paths": [
+      "live/orlando/receipt.json",
+      "live/orlando/samples.json",
+      "live/orlando/toc-full.json",
+      "live/orlando/client-content.json",
+      "live/orlando/family-inventory.json",
+      "live/orlando/normalized/sections.jsonl",
+      "live/orlando/normalized/sections.csv",
+      "live/orlando/normalized/verification.json",
+      "evidence/official-routes/orlando/receipt.json",
+      "evidence/official-routes/orlando-city-code/receipt.json"
+    ],
+    "script_paths": [
+      "scripts/collect_browser.cjs",
+      "scripts/gate_cli.py",
+      "scripts/normalize.py",
+      "scripts/run_browser.py",
+      "scripts/verify.py"
+    ],
+    "limitations": [
+      "Three substantive primary leaf provisions are a bounded sample; TOC size/native PDF pages do not establish complete normalized corpus.",
+      "Other inventoried charter/zoning/development/administrative families and uncodified ordinances are not fully acquired or normalized.",
+      "Ordinary headed Chrome required; direct HTTP denied routes remain stopped after shared wave3 access challenges. No challenge interaction, imported cookies, masking or proxies.",
+      "Minimal workflow page screenshots depict publisher document shell only; substantive source proof is retained live API responses.",
+      "Native PDF inspection covers container and first three pages; remaining pages and body-level correspondence not verified.",
+      "Executed acquisition used an earlier portable collector version; exact executed source retained and current offline verifier independently rechecks publication identity and raw-response binding. Later fresh-target runs validate final portable implementation.",
+      "This early PDF transport receipt does not record redirect hops. Later fresh-target runs exercise the manually gated redirect-capable implementation; no redirect-chain claim is made for this historical receipt."
+    ],
+    "next_action": "Before production ingestion, select and acquire all required visible/separate code families plus uncodified ordinance bodies; validate whole-document edition/body correspondence, full normalization coverage and update handling.",
+    "official_routing_checks": [
+      {
+        "path": "evidence/official-routes/orlando/receipt.json",
+        "url": "https://www.orlando.gov/Building-Development/Code-Enforcement",
+        "status": 200,
+        "final_url": "https://www.orlando.gov/Building-Development/Code-Enforcement",
+        "method": "government-only-ordinary-http-routing"
+      },
+      {
+        "path": "evidence/official-routes/orlando-city-code/receipt.json",
+        "url": "https://www.orlando.gov/Our-Government/Records-and-Documents/View-City-Code",
+        "status": 302,
+        "final_url": null,
+        "method": "government-only-ordinary-http-routing"
+      }
+    ],
+    "edition": {
+      "product_id": 13349,
+      "job_id": 498909,
+      "name": "Supplement 93 Update 1",
+      "banner": "CODE\r\nCity of\r\nORLANDO, FLORIDA\r\n\r\nCodified through\r\nOrdinance No. 2026-10, adopted April 6, 2026, Document # 26051113c.\r\n(Supp. No. 93, Update 1)",
+      "online_date": "2026-10-07T15:49:01",
+      "publications": [
+        {
+          "productName": "Code of Ordinances",
+          "productId": 13349,
+          "latestUpdatedDate": "2026-10-07T15:49:01",
+          "hasOrdbank": true,
+          "contentTypeId": "CODES",
+          "newOrdCount": 0,
+          "hideInLibrary": false,
+          "hasPdfDownloadEnabled": true,
+          "hasPdf": true,
+          "publicationId": 1380,
+          "showLastModifiedPublicationDate": true
+        }
+      ]
+    }
+  },
+  {
+    "sequence": 62,
+    "jurisdiction": "Lexington-Fayette Urban County",
+    "state": "KY",
+    "source_url": "https://library.municode.com/ky/lexington-fayette_urban/codes/code_of_ordinances",
+    "source_family": "Municode",
+    "status": "standalone_e2e_pass",
+    "acquisition_method": "standalone-headed-chrome-public-api-minimal-document",
+    "publisher_download": {
+      "status": "passed",
+      "url": "https://mcclibrary.blob.core.usgovcloudapi.net/publication-official-copy-pdfs/4514/Final.pdf?sv=2026-06-06&se=2026-10-17T19%3A55%3A34Z&sr=b&sp=r&rscd=attachment%3B+filename%3D%22Lexington-Fayette+Urban%2C+KY+Code+of+Ordinances.pdf%22&sig=4W406blWlxoktKzwseWA8kHhNGWEdAYTAqjXVhp8GtI%3D",
+      "reason": "Native publisher PDF automatically acquired; first-page jurisdiction/state and edition indicators match observed latest-job metadata. Body-level full-document currency/completeness not tested.",
+      "bytes": 9141372,
+      "sha256": "160db8824fb302c430d353724ac020bc28158dbc6c4d67eb23e9d8a311d7103c",
+      "publication_id": 4514,
+      "evidence_paths": [
+        "live/lexington-fayette-urban-county/publisher-export.receipt.json",
+        "live/lexington-fayette-urban-county/publisher-export.pdf",
+        "live/lexington-fayette-urban-county/publisher-pdf-inspection.json",
+        "live/lexington-fayette-urban-county/edition-check.json"
+      ],
+      "transport_status": "passed",
+      "source_edition_status": "passed"
+    },
+    "tested_scope": "3 substantive primary leaf provisions from Code of Ordinances; live pinned primary TOC, visible publication inventory, latest-job metadata; native PDF where enabled",
+    "complete_corpus": false,
+    "record_count": 3,
+    "record_unit": "Substantive section/provision, not TOC node or PDF page",
+    "primary_record_count": 3,
+    "table_count": 0,
+    "primary_path": "live/lexington-fayette-urban-county",
+    "supplemental_paths": [],
+    "checks": [
+      {
+        "node_id": "CH1GEPR_S1-1HOCODEC",
+        "exact_requested_doc_present": true,
+        "nonempty_body": true,
+        "heading_present": true,
+        "table_count": 0,
+        "cross_reference_links": 0,
+        "source_html_retained": true
+      },
+      {
+        "node_id": "CH1GEPR_S1-2DERUC",
+        "exact_requested_doc_present": true,
+        "nonempty_body": true,
+        "heading_present": true,
+        "table_count": 0,
+        "cross_reference_links": 0,
+        "source_html_retained": true
+      },
+      {
+        "node_id": "CH1GEPR_S1-3CAS",
+        "exact_requested_doc_present": true,
+        "nonempty_body": true,
+        "heading_present": true,
+        "table_count": 0,
+        "cross_reference_links": 0,
+        "source_html_retained": true
+      },
+      {
+        "publication_identity_observed": true,
+        "job_product_id_matches": true,
+        "visible_primary_publication": true,
+        "uncodified_counts_inventoried": true
+      }
+    ],
+    "command": "python3 scripts/run_browser.py --sequence 62 --out-root /FRESH/EMPTY/output-root",
+    "evidence_paths": [
+      "live/lexington-fayette-urban-county/receipt.json",
+      "live/lexington-fayette-urban-county/samples.json",
+      "live/lexington-fayette-urban-county/toc-full.json",
+      "live/lexington-fayette-urban-county/client-content.json",
+      "live/lexington-fayette-urban-county/family-inventory.json",
+      "live/lexington-fayette-urban-county/normalized/sections.jsonl",
+      "live/lexington-fayette-urban-county/normalized/sections.csv",
+      "live/lexington-fayette-urban-county/normalized/verification.json",
+      "evidence/official-routes/lexington/receipt.json"
+    ],
+    "script_paths": [
+      "scripts/collect_browser.cjs",
+      "scripts/gate_cli.py",
+      "scripts/normalize.py",
+      "scripts/run_browser.py",
+      "scripts/verify.py"
+    ],
+    "limitations": [
+      "Three substantive primary leaf provisions are a bounded sample; TOC size/native PDF pages do not establish complete normalized corpus.",
+      "Other inventoried charter/zoning/development/administrative families and uncodified ordinances are not fully acquired or normalized.",
+      "Ordinary headed Chrome required; direct HTTP denied routes remain stopped after shared wave3 access challenges. No challenge interaction, imported cookies, masking or proxies.",
+      "Minimal workflow page screenshots depict publisher document shell only; substantive source proof is retained live API responses.",
+      "Native PDF inspection covers container and first three pages; remaining pages and body-level correspondence not verified.",
+      "Official Lexington route links fixed job485367. Current latest job resolved live; one urban-county code target, not two governments. Separately published official zoning/subdivision rules remain outside this sample.",
+      "Executed acquisition used an earlier portable collector version; exact executed source retained and current offline verifier independently rechecks publication identity and raw-response binding. Later fresh-target runs validate final portable implementation."
+    ],
+    "next_action": "Before production ingestion, select and acquire all required visible/separate code families plus uncodified ordinance bodies; validate whole-document edition/body correspondence, full normalization coverage and update handling.",
+    "official_routing_checks": [
+      {
+        "path": "evidence/official-routes/lexington/receipt.json",
+        "url": "https://www.lexingtonky.gov/government/laws-ordinances/code-ordinances",
+        "status": 200,
+        "final_url": "https://www.lexingtonky.gov/government/laws-ordinances/code-ordinances",
+        "method": null
+      }
+    ],
+    "edition": {
+      "product_id": 17500,
+      "job_id": 485367,
+      "name": "Republication",
+      "banner": "LEXINGTON-FAYETTE URBAN COUNTY, KENTUCKY\r\nCODE of ORDINANCES\r\n\r\nCodified through\r\nOrdinance No. 048-2025, adopted June 26, 2025\r\n(Republication)",
+      "online_date": "2026-07-17T08:24:47",
+      "publications": [
+        {
+          "productName": "Code of Ordinances",
+          "productId": 17500,
+          "latestUpdatedDate": "2026-07-17T08:24:47",
+          "hasOrdbank": true,
+          "contentTypeId": "CODES",
+          "newOrdCount": 26,
+          "hideInLibrary": false,
+          "hasPdfDownloadEnabled": true,
+          "hasPdf": true,
+          "publicationId": 4514,
+          "showLastModifiedPublicationDate": true
+        },
+        {
+          "productName": "Zoning Ordinance",
+          "productId": 17501,
+          "latestUpdatedDate": "2026-07-17T06:56:05",
+          "hasOrdbank": true,
+          "contentTypeId": "CODES",
+          "newOrdCount": 8,
+          "hideInLibrary": false,
+          "hasPdfDownloadEnabled": true,
+          "hasPdf": true,
+          "publicationId": 4513,
+          "showLastModifiedPublicationDate": true
+        }
+      ]
+    }
+  },
+  {
+    "sequence": 64,
+    "jurisdiction": "Greensboro",
+    "state": "NC",
+    "source_url": "https://library.municode.com/nc/greensboro/codes/code_of_ordinances",
+    "source_family": "Municode",
+    "status": "standalone_e2e_pass",
+    "acquisition_method": "standalone-headed-chrome-public-api-minimal-document",
+    "publisher_download": {
+      "status": "partial",
+      "url": "https://mcclibrary.blob.core.usgovcloudapi.net/publication-official-copy-pdfs/3384/Final.pdf?sv=2026-06-06&se=2026-10-17T19%3A58%3A05Z&sr=b&sp=r&rscd=attachment%3B+filename%3D%22Greensboro%2C+NC+Code+of+Ordinances.pdf%22&sig=NqqbaAgw9q%2Fo5Ilz3EtUzOAOAQBS3RyYUHcY6wKDetc%3D",
+      "reason": "Native PDF acquired and structurally readable; jurisdiction/edition first-page comparison not fully matched. See edition-check; full document currency unproved.",
+      "bytes": 26453660,
+      "sha256": "7fb1bb2a5c13cdecd6b16b39275dbfe51d45b8a39d8413a9ef810e42bc3b4a89",
+      "publication_id": 3384,
+      "evidence_paths": [
+        "live/greensboro/publisher-export.receipt.json",
+        "live/greensboro/publisher-export.pdf",
+        "live/greensboro/publisher-pdf-inspection.json",
+        "live/greensboro/edition-check.json"
+      ],
+      "transport_status": "passed",
+      "source_edition_status": "partial"
+    },
+    "tested_scope": "3 substantive primary leaf provisions from Code of Ordinances; live pinned primary TOC, visible publication inventory, latest-job metadata; native PDF where enabled",
+    "complete_corpus": false,
+    "record_count": 3,
+    "record_unit": "Substantive section/provision, not TOC node or PDF page",
+    "primary_record_count": 3,
+    "table_count": 0,
+    "primary_path": "live/greensboro",
+    "supplemental_paths": [],
+    "checks": [
+      {
+        "node_id": "COOR_CH1GEPR_S1-1HOCODECI",
+        "exact_requested_doc_present": true,
+        "nonempty_body": true,
+        "heading_present": true,
+        "table_count": 0,
+        "cross_reference_links": 1,
+        "source_html_retained": true
+      },
+      {
+        "node_id": "COOR_CH1GEPR_S1-2RUCO",
+        "exact_requested_doc_present": true,
+        "nonempty_body": true,
+        "heading_present": true,
+        "table_count": 0,
+        "cross_reference_links": 0,
+        "source_html_retained": true
+      },
+      {
+        "node_id": "COOR_CH1GEPR_S1-3CASEHINOETRECO",
+        "exact_requested_doc_present": true,
+        "nonempty_body": true,
+        "heading_present": true,
+        "table_count": 0,
+        "cross_reference_links": 0,
+        "source_html_retained": true
+      },
+      {
+        "publication_identity_observed": true,
+        "job_product_id_matches": true,
+        "visible_primary_publication": true,
+        "uncodified_counts_inventoried": true
+      }
+    ],
+    "command": "python3 scripts/run_browser.py --sequence 64 --out-root /FRESH/EMPTY/output-root",
+    "evidence_paths": [
+      "live/greensboro/receipt.json",
+      "live/greensboro/samples.json",
+      "live/greensboro/toc-full.json",
+      "live/greensboro/client-content.json",
+      "live/greensboro/family-inventory.json",
+      "live/greensboro/normalized/sections.jsonl",
+      "live/greensboro/normalized/sections.csv",
+      "live/greensboro/normalized/verification.json",
+      "evidence/official-routes/greensboro/receipt.json"
+    ],
+    "script_paths": [
+      "scripts/collect_browser.cjs",
+      "scripts/gate_cli.py",
+      "scripts/normalize.py",
+      "scripts/run_browser.py",
+      "scripts/verify.py"
+    ],
+    "limitations": [
+      "Three substantive primary leaf provisions are a bounded sample; TOC size/native PDF pages do not establish complete normalized corpus.",
+      "Other inventoried charter/zoning/development/administrative families and uncodified ordinances are not fully acquired or normalized.",
+      "Ordinary headed Chrome required; direct HTTP denied routes remain stopped after shared wave3 access challenges. No challenge interaction, imported cookies, masking or proxies.",
+      "Minimal workflow page screenshots depict publisher document shell only; substantive source proof is retained live API responses.",
+      "Native PDF inspection covers container and first three pages; remaining pages and body-level correspondence not verified.",
+      "Executed acquisition used an earlier portable collector version; exact executed source retained and current offline verifier independently rechecks publication identity and raw-response binding. Later fresh-target runs validate final portable implementation.",
+      "Standalone government routing-page HTTP returned 403. No challenge interaction or government-host retry was used; primary publisher identity/acquisition evidence is separate. Current official routing is not independently proven by these denied standalone requests."
+    ],
+    "next_action": "Before production ingestion, select and acquire all required visible/separate code families plus uncodified ordinance bodies; validate whole-document edition/body correspondence, full normalization coverage and update handling.",
+    "official_routing_checks": [
+      {
+        "path": "evidence/official-routes/greensboro/receipt.json",
+        "url": "https://www.greensboro-nc.gov/government/city-clerk",
+        "status": 403,
+        "final_url": null,
+        "method": "government-only-ordinary-http-routing"
+      }
+    ],
+    "edition": {
+      "product_id": 10736,
+      "job_id": 499157,
+      "name": "Supplement 133 Update 1",
+      "banner": "CODE OF ORDINANCES\r\nCity of\r\nGREENSBORO, NORTH CAROLINA\r\n\r\nCodified through\r\nOrdinances of June 16, 2026.\r\n(Supp. No. 133, Update 1)",
+      "online_date": "2026-09-10T12:29:28",
+      "publications": [
+        {
+          "productName": "Code of Ordinances",
+          "productId": 10736,
+          "latestUpdatedDate": "2026-09-10T12:29:28",
+          "hasOrdbank": false,
+          "contentTypeId": "CODES",
+          "newOrdCount": 0,
+          "hideInLibrary": false,
+          "hasPdfDownloadEnabled": true,
+          "hasPdf": true,
+          "publicationId": 3384,
+          "showLastModifiedPublicationDate": true
+        }
+      ]
+    }
+  },
+  {
+    "sequence": 65,
+    "jurisdiction": "Durham",
+    "state": "NC",
+    "source_url": "https://library.municode.com/nc/durham/codes/code_of_ordinances",
+    "source_family": "Municode",
+    "status": "standalone_e2e_pass",
+    "acquisition_method": "standalone-headed-chrome-public-api-minimal-document",
+    "publisher_download": {
+      "status": "partial",
+      "url": "https://mcclibrary.blob.core.usgovcloudapi.net/publication-official-copy-pdfs/593/Final.pdf?sv=2026-06-06&se=2026-10-17T20%3A00%3A15Z&sr=b&sp=r&rscd=attachment%3B+filename%3D%22Durham%2C+NC+Code+of+Ordinances.pdf%22&sig=OAbSZm2t7EgasuIDq%2F9UM0EkyCo%2Bjenu5qeFioUkVxQ%3D",
+      "reason": "Native PDF acquired and structurally readable; jurisdiction/edition first-page comparison not fully matched. See edition-check; full document currency unproved.",
+      "bytes": 8364003,
+      "sha256": "76035bf40590a997d313502ad52b0803e1d30497eb10d2761a5395930779b612",
+      "publication_id": 593,
+      "evidence_paths": [
+        "live/durham/publisher-export.receipt.json",
+        "live/durham/publisher-export.pdf",
+        "live/durham/publisher-pdf-inspection.json",
+        "live/durham/edition-check.json"
+      ],
+      "transport_status": "passed",
+      "source_edition_status": "partial"
+    },
+    "tested_scope": "3 substantive primary leaf provisions from Code of Ordinances; live pinned primary TOC, visible publication inventory, latest-job metadata; native PDF where enabled",
+    "complete_corpus": false,
+    "record_count": 3,
+    "record_unit": "Substantive section/provision, not TOC node or PDF page",
+    "primary_record_count": 3,
+    "table_count": 0,
+    "primary_path": "live/durham",
+    "supplemental_paths": [],
+    "checks": [
+      {
+        "node_id": "PTIICOOR_CH1GEPR_S1-1HOCODECI",
+        "exact_requested_doc_present": true,
+        "nonempty_body": true,
+        "heading_present": true,
+        "table_count": 0,
+        "cross_reference_links": 0,
+        "source_html_retained": true
+      },
+      {
+        "node_id": "PTIICOOR_CH1GEPR_S1-2DERUCO",
+        "exact_requested_doc_present": true,
+        "nonempty_body": true,
+        "heading_present": true,
+        "table_count": 0,
+        "cross_reference_links": 5,
+        "source_html_retained": true
+      },
+      {
+        "node_id": "PTIICOOR_CH1GEPR_S1-3SUCOORLIINTRNASEFE",
+        "exact_requested_doc_present": true,
+        "nonempty_body": true,
+        "heading_present": true,
+        "table_count": 0,
+        "cross_reference_links": 0,
+        "source_html_retained": true
+      },
+      {
+        "publication_identity_observed": true,
+        "job_product_id_matches": true,
+        "visible_primary_publication": true,
+        "uncodified_counts_inventoried": true
+      }
+    ],
+    "command": "python3 scripts/run_browser.py --sequence 65 --out-root /FRESH/EMPTY/output-root",
+    "evidence_paths": [
+      "live/durham/receipt.json",
+      "live/durham/samples.json",
+      "live/durham/toc-full.json",
+      "live/durham/client-content.json",
+      "live/durham/family-inventory.json",
+      "live/durham/normalized/sections.jsonl",
+      "live/durham/normalized/sections.csv",
+      "live/durham/normalized/verification.json",
+      "evidence/official-routes/durham/receipt.json",
+      "evidence/official-routes/durham/web-routing-corroboration.json"
+    ],
+    "script_paths": [
+      "scripts/collect_browser.cjs",
+      "scripts/gate_cli.py",
+      "scripts/normalize.py",
+      "scripts/run_browser.py",
+      "scripts/verify.py"
+    ],
+    "limitations": [
+      "Three substantive primary leaf provisions are a bounded sample; TOC size/native PDF pages do not establish complete normalized corpus.",
+      "Other inventoried charter/zoning/development/administrative families and uncodified ordinances are not fully acquired or normalized.",
+      "Ordinary headed Chrome required; direct HTTP denied routes remain stopped after shared wave3 access challenges. No challenge interaction, imported cookies, masking or proxies.",
+      "Minimal workflow page screenshots depict publisher document shell only; substantive source proof is retained live API responses.",
+      "Native PDF inspection covers container and first three pages; remaining pages and body-level correspondence not verified.",
+      "Publisher latest-job metadata is updated September 2026 but its codified-through banner states Ordinance 16682, enacted June 15, 2020. This unresolved publisher metadata currency discrepancy requires confirmation before legal reliance; separate UDO and fee-schedule families not acquired.",
+      "Executed acquisition used an earlier portable collector version; exact executed source retained and current offline verifier independently rechecks publication identity and raw-response binding. Later fresh-target runs validate final portable implementation.",
+      "Standalone government routing-page HTTP returned 403. No challenge interaction or government-host retry was used; primary publisher identity/acquisition evidence is separate. Current official routing is not independently proven by these denied standalone requests."
+    ],
+    "next_action": "Before production ingestion, select and acquire all required visible/separate code families plus uncodified ordinance bodies; validate whole-document edition/body correspondence, full normalization coverage and update handling.",
+    "official_routing_checks": [
+      {
+        "path": "evidence/official-routes/durham/receipt.json",
+        "url": "https://www.durhamnc.gov/4134/Documents-Resources",
+        "status": 403,
+        "final_url": null,
+        "method": "government-only-ordinary-http-routing"
+      }
+    ],
+    "edition": {
+      "product_id": 19967,
+      "job_id": 493842,
+      "name": "Supplement 37 Update 1",
+      "banner": "CODE OF ORDINANCES\r\nCity of\r\nDURHAM, NORTH CAROLINA\r\n\r\nCodified through\r\nOrdinance No. 16682, enacted June 15, 2020.\r\n(Supp. No. 37, Update 1)",
+      "online_date": "2026-09-14T18:04:11",
+      "publications": [
+        {
+          "productName": "Code of Ordinances",
+          "productId": 19967,
+          "latestUpdatedDate": "2026-09-14T18:04:11",
+          "hasOrdbank": true,
+          "contentTypeId": "CODES",
+          "newOrdCount": 1,
+          "hideInLibrary": false,
+          "hasPdfDownloadEnabled": true,
+          "hasPdf": true,
+          "publicationId": 593,
+          "showLastModifiedPublicationDate": true
+        }
+      ]
+    }
+  },
+  {
+    "sequence": 66,
+    "jurisdiction": "Jersey City",
+    "state": "NJ",
+    "source_url": "https://library.municode.com/nj/jersey_city/codes/code_of_ordinances",
+    "source_family": "Municode",
+    "status": "standalone_e2e_pass",
+    "acquisition_method": "standalone-headed-chrome-public-api-minimal-document",
+    "publisher_download": {
+      "status": "passed",
+      "url": "https://mcclibrary.blob.core.usgovcloudapi.net/publication-official-copy-pdfs/935/Final.pdf?sv=2026-06-06&se=2026-10-17T20%3A01%3A42Z&sr=b&sp=r&rscd=attachment%3B+filename%3D%22Jersey+City%2C+NJ+Code+of+Ordinances.pdf%22&sig=8r9BEbsB2oswem1IdG0nCFRCjPxuxSFuxGdtOyvJgmE%3D",
+      "reason": "Native publisher PDF automatically acquired; first-page jurisdiction/state and edition indicators match observed latest-job metadata. Body-level full-document currency/completeness not tested.",
+      "bytes": 26492452,
+      "sha256": "8f166bc54f0a71cc82ef98d7366a5e86c32f24160eebf5db088a740164abf27e",
+      "publication_id": 935,
+      "evidence_paths": [
+        "live/jersey-city/publisher-export.receipt.json",
+        "live/jersey-city/publisher-export.pdf",
+        "live/jersey-city/publisher-pdf-inspection.json",
+        "live/jersey-city/edition-check.json"
+      ],
+      "transport_status": "passed",
+      "source_edition_status": "passed"
+    },
+    "tested_scope": "3 substantive primary leaf provisions from Code of Ordinances; live pinned primary TOC, visible publication inventory, latest-job metadata; native PDF where enabled",
+    "complete_corpus": false,
+    "record_count": 3,
+    "record_unit": "Substantive section/provision, not TOC node or PDF page",
+    "primary_record_count": 3,
+    "table_count": 0,
+    "primary_path": "live/jersey-city",
+    "supplemental_paths": [],
+    "checks": [
+      {
+        "node_id": "CH1GEPR_ARTIADCO_S1-1AD1995CO",
+        "exact_requested_doc_present": true,
+        "nonempty_body": true,
+        "heading_present": true,
+        "table_count": 0,
+        "cross_reference_links": 1,
+        "source_html_retained": true
+      },
+      {
+        "node_id": "CH1GEPR_ARTIADCO_S1-2TEAP",
+        "exact_requested_doc_present": true,
+        "nonempty_body": true,
+        "heading_present": true,
+        "table_count": 0,
+        "cross_reference_links": 0,
+        "source_html_retained": true
+      },
+      {
+        "node_id": "CH1GEPR_ARTIADCO_S1-3COSUPROR",
+        "exact_requested_doc_present": true,
+        "nonempty_body": true,
+        "heading_present": true,
+        "table_count": 0,
+        "cross_reference_links": 0,
+        "source_html_retained": true
+      },
+      {
+        "publication_identity_observed": true,
+        "job_product_id_matches": true,
+        "visible_primary_publication": true,
+        "uncodified_counts_inventoried": true
+      }
+    ],
+    "command": "python3 scripts/run_browser.py --sequence 66 --out-root /FRESH/EMPTY/output-root",
+    "evidence_paths": [
+      "live/jersey-city/receipt.json",
+      "live/jersey-city/samples.json",
+      "live/jersey-city/toc-full.json",
+      "live/jersey-city/client-content.json",
+      "live/jersey-city/family-inventory.json",
+      "live/jersey-city/normalized/sections.jsonl",
+      "live/jersey-city/normalized/sections.csv",
+      "live/jersey-city/normalized/verification.json",
+      "evidence/official-routes/jersey-city/receipt.json"
+    ],
+    "script_paths": [
+      "scripts/collect_browser.cjs",
+      "scripts/gate_cli.py",
+      "scripts/normalize.py",
+      "scripts/run_browser.py",
+      "scripts/verify.py"
+    ],
+    "limitations": [
+      "Three substantive primary leaf provisions are a bounded sample; TOC size/native PDF pages do not establish complete normalized corpus.",
+      "Other inventoried charter/zoning/development/administrative families and uncodified ordinances are not fully acquired or normalized.",
+      "Ordinary headed Chrome required; direct HTTP denied routes remain stopped after shared wave3 access challenges. No challenge interaction, imported cookies, masking or proxies.",
+      "Minimal workflow page screenshots depict publisher document shell only; substantive source proof is retained live API responses.",
+      "Native PDF inspection covers container and first three pages; remaining pages and body-level correspondence not verified.",
+      "Executed acquisition used an earlier portable collector version; exact executed source retained and current offline verifier independently rechecks publication identity and raw-response binding. Later fresh-target runs validate final portable implementation."
+    ],
+    "next_action": "Before production ingestion, select and acquire all required visible/separate code families plus uncodified ordinance bodies; validate whole-document edition/body correspondence, full normalization coverage and update handling.",
+    "official_routing_checks": [
+      {
+        "path": "evidence/official-routes/jersey-city/receipt.json",
+        "url": "https://www.jerseycitynj.gov/home2",
+        "status": 200,
+        "final_url": "https://www.jerseycitynj.gov/home2",
+        "method": "government-only-ordinary-http-routing"
+      }
+    ],
+    "edition": {
+      "product_id": 16093,
+      "job_id": 494294,
+      "name": "Supplement 53",
+      "banner": "CODE\r\nof\r\nJERSEY CITY, NEW JERSEY\r\n\r\nCodified through\r\n(Covering Ordinances through 26-016, passed February 11, 2026)\r\n(Supp. No. 53)",
+      "online_date": "2026-09-29T18:48:51",
+      "publications": [
+        {
+          "productName": "Code of Ordinances",
+          "productId": 16093,
+          "latestUpdatedDate": "2026-09-29T18:48:51",
+          "hasOrdbank": true,
+          "contentTypeId": "CODES",
+          "newOrdCount": 0,
+          "hideInLibrary": false,
+          "hasPdfDownloadEnabled": true,
+          "hasPdf": true,
+          "publicationId": 935,
+          "showLastModifiedPublicationDate": true
+        }
+      ]
+    }
+  },
+  {
+    "sequence": 68,
+    "jurisdiction": "Plano",
+    "state": "TX",
+    "source_url": "https://library.municode.com/tx/plano/codes/code_of_ordinances",
+    "source_family": "Municode",
+    "status": "standalone_e2e_pass",
+    "acquisition_method": "standalone-headed-chrome-public-api-minimal-document",
+    "publisher_download": {
+      "status": "passed",
+      "url": "https://mcclibrary.blob.core.usgovcloudapi.net/publication-official-copy-pdfs/1447/Final.pdf?sv=2026-06-06&se=2026-10-17T20%3A03%3A13Z&sr=b&sp=r&rscd=attachment%3B+filename%3D%22Plano%2C+TX+Code+of+Ordinances.pdf%22&sig=IBa6CNMx15cKFsbSTfIB1vC9NUT2tuenNUpqTr%2Be4uA%3D",
+      "reason": "Native publisher PDF automatically acquired; first-page jurisdiction/state and edition indicators match observed latest-job metadata. Body-level full-document currency/completeness not tested.",
+      "bytes": 28760387,
+      "sha256": "6d31ada3dc0c681e1e054db74c0b9fbb833a5156411e7494a84c688a2b550f8e",
+      "publication_id": 1447,
+      "evidence_paths": [
+        "live/plano/publisher-export.receipt.json",
+        "live/plano/publisher-export.pdf",
+        "live/plano/publisher-pdf-inspection.json",
+        "live/plano/edition-check.json"
+      ],
+      "transport_status": "passed",
+      "source_edition_status": "passed"
+    },
+    "tested_scope": "3 substantive primary leaf provisions from Code of Ordinances; live pinned primary TOC, visible publication inventory, latest-job metadata; native PDF where enabled",
+    "complete_corpus": false,
+    "record_count": 3,
+    "record_unit": "Substantive section/provision, not TOC node or PDF page",
+    "primary_record_count": 3,
+    "table_count": 0,
+    "primary_path": "live/plano",
+    "supplemental_paths": [],
+    "checks": [
+      {
+        "node_id": "PTIICOOR_CH1GEPR_S1-1HOCODECI",
+        "exact_requested_doc_present": true,
+        "nonempty_body": true,
+        "heading_present": true,
+        "table_count": 0,
+        "cross_reference_links": 1,
+        "source_html_retained": true
+      },
+      {
+        "node_id": "PTIICOOR_CH1GEPR_S1-2CASE",
+        "exact_requested_doc_present": true,
+        "nonempty_body": true,
+        "heading_present": true,
+        "table_count": 0,
+        "cross_reference_links": 1,
+        "source_html_retained": true
+      },
+      {
+        "node_id": "PTIICOOR_CH1GEPR_S1-3RUCODE",
+        "exact_requested_doc_present": true,
+        "nonempty_body": true,
+        "heading_present": true,
+        "table_count": 0,
+        "cross_reference_links": 0,
+        "source_html_retained": true
+      },
+      {
+        "publication_identity_observed": true,
+        "job_product_id_matches": true,
+        "visible_primary_publication": true,
+        "uncodified_counts_inventoried": true
+      }
+    ],
+    "command": "python3 scripts/run_browser.py --sequence 68 --out-root /FRESH/EMPTY/output-root",
+    "evidence_paths": [
+      "live/plano/receipt.json",
+      "live/plano/samples.json",
+      "live/plano/toc-full.json",
+      "live/plano/client-content.json",
+      "live/plano/family-inventory.json",
+      "live/plano/normalized/sections.jsonl",
+      "live/plano/normalized/sections.csv",
+      "live/plano/normalized/verification.json",
+      "evidence/official-routes/plano/receipt.json",
+      "evidence/official-routes/plano-browser/receipt.json"
+    ],
+    "script_paths": [
+      "scripts/collect_browser.cjs",
+      "scripts/gate_cli.py",
+      "scripts/normalize.py",
+      "scripts/run_browser.py",
+      "scripts/verify.py"
+    ],
+    "limitations": [
+      "Three substantive primary leaf provisions are a bounded sample; TOC size/native PDF pages do not establish complete normalized corpus.",
+      "Other inventoried charter/zoning/development/administrative families and uncodified ordinances are not fully acquired or normalized.",
+      "Ordinary headed Chrome required; direct HTTP denied routes remain stopped after shared wave3 access challenges. No challenge interaction, imported cookies, masking or proxies.",
+      "Minimal workflow page screenshots depict publisher document shell only; substantive source proof is retained live API responses.",
+      "Native PDF inspection covers container and first three pages; remaining pages and body-level correspondence not verified.",
+      "Executed acquisition used an earlier portable collector version; exact executed source retained and current offline verifier independently rechecks publication identity and raw-response binding. Later fresh-target runs validate final portable implementation."
+    ],
+    "next_action": "Before production ingestion, select and acquire all required visible/separate code families plus uncodified ordinance bodies; validate whole-document edition/body correspondence, full normalization coverage and update handling.",
+    "official_routing_checks": [
+      {
+        "path": "evidence/official-routes/plano/receipt.json",
+        "url": "https://www.plano.gov/municipal-codes-and-ordinances",
+        "status": 200,
+        "final_url": "https://www.plano.gov/municipal-codes-and-ordinances",
+        "method": "government-only-ordinary-http-routing"
+      },
+      {
+        "path": "evidence/official-routes/plano-browser/receipt.json",
+        "url": "https://www.plano.gov/municipal-codes-and-ordinances",
+        "status": 200,
+        "final_url": null,
+        "method": "ordinary-headed-browser-government-route-only"
+      }
+    ],
+    "edition": {
+      "product_id": 10327,
+      "job_id": 491931,
+      "name": "Supplement 153",
+      "banner": "CODE OF ORDINANCES\r\nCity of\r\nPLANO, TEXAS\r\n\r\nCodified through\r\nOrdinance No. 2025-10-2, adopted October 13, 2025.\r\n(Supp. No. 153)",
+      "online_date": "2026-07-09T12:26:13",
+      "publications": [
+        {
+          "productName": "Code of Ordinances",
+          "productId": 10327,
+          "latestUpdatedDate": "2026-07-09T12:26:13",
+          "hasOrdbank": false,
+          "contentTypeId": "CODES",
+          "newOrdCount": 0,
+          "hideInLibrary": false,
+          "hasPdfDownloadEnabled": true,
+          "hasPdf": true,
+          "publicationId": 1447,
+          "showLastModifiedPublicationDate": true
+        }
+      ]
+    }
+  },
+  {
+    "sequence": 69,
+    "jurisdiction": "Madison",
+    "state": "WI",
+    "source_url": "https://library.municode.com/wi/madison/codes/code_of_ordinances",
+    "source_family": "Municode",
+    "status": "standalone_e2e_pass",
+    "acquisition_method": "standalone-headed-chrome-public-api-minimal-document",
+    "publisher_download": {
+      "status": "partial",
+      "url": "https://mcclibrary.blob.core.usgovcloudapi.net/publication-official-copy-pdfs/3198/Final.pdf?sv=2026-06-06&se=2026-10-17T20%3A04%3A48Z&sr=b&sp=r&rscd=attachment%3B+filename%3D%22Madison%2C+WI+Code+of+Ordinances.pdf%22&sig=AkdSLEmUhka3GmcJqdtgeRD3dLc%2Fm9D%2Fo1VIkQBsenI%3D",
+      "reason": "Native PDF acquired and structurally readable; jurisdiction/edition first-page comparison not fully matched. See edition-check; full document currency unproved.",
+      "bytes": 42853565,
+      "sha256": "dc0fc341d00416be7df57438506db3c9743cf96b07edfe43c9bfdcc4b2818643",
+      "publication_id": 3198,
+      "evidence_paths": [
+        "live/madison/publisher-export.receipt.json",
+        "live/madison/publisher-export.pdf",
+        "live/madison/publisher-pdf-inspection.json",
+        "live/madison/edition-check.json"
+      ],
+      "transport_status": "passed",
+      "source_edition_status": "partial"
+    },
+    "tested_scope": "3 substantive primary leaf provisions from Code of Ordinances; live pinned primary TOC, visible publication inventory, latest-job metadata; native PDF where enabled",
+    "complete_corpus": false,
+    "record_count": 3,
+    "record_unit": "Substantive section/provision, not TOC node or PDF page",
+    "primary_record_count": 3,
+    "table_count": 0,
+    "primary_path": "live/madison",
+    "supplemental_paths": [],
+    "checks": [
+      {
+        "node_id": "COORMAWIVOICH1--10_CH1COEFORTHPU_1.01COOR",
+        "exact_requested_doc_present": true,
+        "nonempty_body": true,
+        "heading_present": true,
+        "table_count": 0,
+        "cross_reference_links": 0,
+        "source_html_retained": true
+      },
+      {
+        "node_id": "COORMAWIVOICH1--10_CH1COEFORTHPU_1.02WHTHRUCOSHNOAP",
+        "exact_requested_doc_present": true,
+        "nonempty_body": true,
+        "heading_present": true,
+        "table_count": 0,
+        "cross_reference_links": 0,
+        "source_html_retained": true
+      },
+      {
+        "node_id": "COORMAWIVOICH1--10_CH1COEFORTHPU_1.03RETICHSEONOR",
+        "exact_requested_doc_present": true,
+        "nonempty_body": true,
+        "heading_present": true,
+        "table_count": 0,
+        "cross_reference_links": 1,
+        "source_html_retained": true
+      },
+      {
+        "publication_identity_observed": true,
+        "job_product_id_matches": true,
+        "visible_primary_publication": true,
+        "uncodified_counts_inventoried": true
+      }
+    ],
+    "command": "python3 scripts/run_browser.py --sequence 69 --out-root /FRESH/EMPTY/output-root",
+    "evidence_paths": [
+      "live/madison/receipt.json",
+      "live/madison/samples.json",
+      "live/madison/toc-full.json",
+      "live/madison/client-content.json",
+      "live/madison/family-inventory.json",
+      "live/madison/normalized/sections.jsonl",
+      "live/madison/normalized/sections.csv",
+      "live/madison/normalized/verification.json",
+      "evidence/official-routes/madison/receipt.json",
+      "evidence/official-routes/madison-legacy-domain/receipt.json",
+      "madison-official-links.json"
+    ],
+    "script_paths": [
+      "scripts/collect_browser.cjs",
+      "scripts/gate_cli.py",
+      "scripts/normalize.py",
+      "scripts/run_browser.py",
+      "scripts/verify.py"
+    ],
+    "limitations": [
+      "Three substantive primary leaf provisions are a bounded sample; TOC size/native PDF pages do not establish complete normalized corpus.",
+      "Other inventoried charter/zoning/development/administrative families and uncodified ordinances are not fully acquired or normalized.",
+      "Ordinary headed Chrome required; direct HTTP denied routes remain stopped after shared wave3 access challenges. No challenge interaction, imported cookies, masking or proxies.",
+      "Minimal workflow page screenshots depict publisher document shell only; substantive source proof is retained live API responses.",
+      "Native PDF inspection covers container and first three pages; remaining pages and body-level correspondence not verified.",
+      "Assigned madison.gov/attorney route returned404. Current cityofmadison.com/attorney official page200 supplies the current Municode link; retained government route correction evidence.",
+      "Executed acquisition used an earlier portable collector version; exact executed source retained and current offline verifier independently rechecks publication identity and raw-response binding. Later fresh-target runs validate final portable implementation."
+    ],
+    "next_action": "Before production ingestion, select and acquire all required visible/separate code families plus uncodified ordinance bodies; validate whole-document edition/body correspondence, full normalization coverage and update handling.",
+    "official_routing_checks": [
+      {
+        "path": "evidence/official-routes/madison/receipt.json",
+        "url": "https://madison.gov/attorney",
+        "status": 404,
+        "final_url": null,
+        "method": null
+      },
+      {
+        "path": "evidence/official-routes/madison-legacy-domain/receipt.json",
+        "url": "https://www.cityofmadison.com/attorney",
+        "status": 200,
+        "final_url": "https://www.cityofmadison.com/attorney",
+        "method": "ordinary-http-official-government-routing-only"
+      }
+    ],
+    "edition": {
+      "product_id": 50000,
+      "job_id": 500136,
+      "name": "Revision 28 - Supplement 3",
+      "banner": "CODE OF ORDINANCES\r\nCity of\r\nMADISON, WISCONSIN\r\n\r\nCodified through\r\nORD-26-00040, published August 3, 2026.\r\n(Rev. 28, Update 3)",
+      "online_date": "2026-09-01T14:22:08",
+      "publications": [
+        {
+          "productName": "Code of Ordinances",
+          "productId": 50000,
+          "latestUpdatedDate": "2026-09-01T14:22:08",
+          "hasOrdbank": true,
+          "contentTypeId": "CODES",
+          "newOrdCount": 3,
+          "hideInLibrary": false,
+          "hasPdfDownloadEnabled": true,
+          "hasPdf": true,
+          "publicationId": 3198,
+          "showLastModifiedPublicationDate": true
+        }
+      ]
+    }
+  },
+  {
+    "sequence": 70,
+    "jurisdiction": "Reno",
+    "state": "NV",
+    "source_url": "https://library.municode.com/nv/reno/codes/administrative_code",
+    "source_family": "Municode",
+    "status": "standalone_e2e_pass",
+    "acquisition_method": "standalone-headed-chrome-public-api-minimal-document",
+    "publisher_download": {
+      "status": "partial",
+      "url": "https://mcclibrary.blob.core.usgovcloudapi.net/publication-official-copy-pdfs/1514/Final.pdf?sv=2026-06-06&se=2026-10-17T20%3A09%3A56Z&sr=b&sp=r&rscd=attachment%3B+filename%3D%22Reno%2C+NV+Administrative+Code.pdf%22&sig=LpG8Q1fRgBg9O5TvF19cj3GupGJyDdHtvTeDzreuKvM%3D",
+      "reason": "Native PDF acquired and structurally readable; jurisdiction/edition first-page comparison not fully matched. See edition-check; full document currency unproved.",
+      "bytes": 9877804,
+      "sha256": "daa51a0d821f46039cb70188d84c38847ae1294593c09cc7092791276d3ff469",
+      "publication_id": 1514,
+      "evidence_paths": [
+        "recovery/reno/publisher-export.receipt.json",
+        "recovery/reno/publisher-export.pdf",
+        "recovery/reno/publisher-pdf-inspection.json",
+        "recovery/reno/edition-check.json"
+      ],
+      "transport_status": "passed",
+      "source_edition_status": "partial"
+    },
+    "tested_scope": "3 substantive primary leaf provisions from Administrative Code; live pinned primary TOC, visible publication inventory, latest-job metadata; native PDF where enabled",
+    "complete_corpus": false,
+    "record_count": 3,
+    "record_unit": "Substantive section/provision, not TOC node or PDF page",
+    "primary_record_count": 3,
+    "table_count": 0,
+    "primary_path": "recovery/reno",
+    "supplemental_paths": [],
+    "checks": [
+      {
+        "node_id": "PT2READCO_TIT1GEPR_CH1.01COINCO_S1.01.010DECI",
+        "exact_requested_doc_present": true,
+        "nonempty_body": true,
+        "heading_present": true,
+        "table_count": 0,
+        "cross_reference_links": 1,
+        "source_html_retained": true
+      },
+      {
+        "node_id": "PT2READCO_TIT1GEPR_CH1.01COINCO_S1.01.020DE",
+        "exact_requested_doc_present": true,
+        "nonempty_body": true,
+        "heading_present": true,
+        "table_count": 0,
+        "cross_reference_links": 0,
+        "source_html_retained": true
+      },
+      {
+        "node_id": "PT2READCO_TIT1GEPR_CH1.01COINCO_S1.01.030GRIN",
+        "exact_requested_doc_present": true,
+        "nonempty_body": true,
+        "heading_present": true,
+        "table_count": 0,
+        "cross_reference_links": 0,
+        "source_html_retained": true
+      },
+      {
+        "publication_identity_observed": true,
+        "job_product_id_matches": true,
+        "visible_primary_publication": true,
+        "uncodified_counts_inventoried": true
+      }
+    ],
+    "command": "python3 scripts/run_browser.py --sequence 70 --out-root /FRESH/EMPTY/output-root",
+    "evidence_paths": [
+      "recovery/reno/receipt.json",
+      "recovery/reno/samples.json",
+      "recovery/reno/toc-full.json",
+      "recovery/reno/client-content.json",
+      "recovery/reno/family-inventory.json",
+      "recovery/reno/normalized/sections.jsonl",
+      "recovery/reno/normalized/sections.csv",
+      "recovery/reno/normalized/verification.json",
+      "evidence/official-routes/reno/receipt.json",
+      "live/reno/receipt.json",
+      "evidence/reno-current-inventory/acquisition-receipt.json",
+      "evidence/reno-current-inventory/content.json"
+    ],
+    "script_paths": [
+      "scripts/collect_browser.cjs",
+      "scripts/gate_cli.py",
+      "scripts/normalize.py",
+      "scripts/run_browser.py",
+      "scripts/verify.py"
+    ],
+    "limitations": [
+      "Three substantive primary leaf provisions are a bounded sample; TOC size/native PDF pages do not establish complete normalized corpus.",
+      "Other inventoried charter/zoning/development/administrative families and uncodified ordinances are not fully acquired or normalized.",
+      "Ordinary headed Chrome required; direct HTTP denied routes remain stopped after shared wave3 access challenges. No challenge interaction, imported cookies, masking or proxies.",
+      "Minimal workflow page screenshots depict publisher document shell only; substantive source proof is retained live API responses.",
+      "Native PDF inspection covers container and first three pages; remaining pages and body-level correspondence not verified.",
+      "Official Reno page links Administrative Code, acquired here as primary municipal code book. Separately visible Land Development Code is inventoried but not ingested. The initial assumed code_of_ordinances product lookup returned Model:null; that failed attempt remains retained."
+    ],
+    "next_action": "Before production ingestion, select and acquire all required visible/separate code families plus uncodified ordinance bodies; validate whole-document edition/body correspondence, full normalization coverage and update handling.",
+    "official_routing_checks": [
+      {
+        "path": "evidence/official-routes/reno/receipt.json",
+        "url": "https://www.reno.gov/government/departments/city-attorney/civil-division/faqs.php",
+        "status": 200,
+        "final_url": "https://www.reno.gov/government/departments/city-attorney/civil-division/faqs.php",
+        "method": null
+      }
+    ],
+    "edition": {
+      "product_id": 14160,
+      "job_id": 496578,
+      "name": "Supplement 65 Update 1",
+      "banner": "ADMINISTRATIVE CODE\r\nCity of\r\nRENO, NEVADA\r\n\r\nCodified through\r\nOrdinance No. 6740, adopted May 6, 2026.\r\n(Supp. No. 65, Update 1)",
+      "online_date": "2026-09-21T11:48:36",
+      "publications": [
+        {
+          "productName": "Administrative Code",
+          "productId": 14160,
+          "latestUpdatedDate": "2026-09-21T11:48:36",
+          "hasOrdbank": true,
+          "contentTypeId": "CODES",
+          "newOrdCount": 10,
+          "hideInLibrary": false,
+          "hasPdfDownloadEnabled": true,
+          "hasPdf": true,
+          "publicationId": 1514,
+          "showLastModifiedPublicationDate": true
+        },
+        {
+          "productName": "Land Development Code",
+          "productId": 14345,
+          "latestUpdatedDate": "2026-03-09T12:55:21",
+          "hasOrdbank": true,
+          "contentTypeId": "CODES",
+          "newOrdCount": 1,
+          "hideInLibrary": false,
+          "hasPdfDownloadEnabled": true,
+          "hasPdf": true,
+          "publicationId": 1515,
+          "showLastModifiedPublicationDate": true
+        }
+      ]
+    }
+  },
+  {
+    "sequence": 74,
+    "jurisdiction": "St. Petersburg",
+    "state": "FL",
+    "source_url": "https://library.municode.com/fl/st._petersburg/codes/code_of_ordinances",
+    "source_family": "Municode",
+    "status": "standalone_e2e_pass",
+    "acquisition_method": "standalone-headed-chrome-public-api-minimal-document",
+    "publisher_download": {
+      "status": "partial",
+      "url": "https://mcclibrary.blob.core.usgovcloudapi.net/publication-official-copy-pdfs/1721/Final.pdf?sv=2026-06-06&se=2026-10-17T20%3A06%3A51Z&sr=b&sp=r&rscd=attachment%3B+filename%3D%22St.+Petersburg%2C+FL+Code+of+Ordinances.pdf%22&sig=jcsjNgWgfgtAhukO5KCo5FhNkwqyENKV6RBJAe9Jsvg%3D",
+      "reason": "Native PDF acquired and structurally readable; jurisdiction/edition first-page comparison not fully matched. See edition-check; full document currency unproved.",
+      "bytes": 53809202,
+      "sha256": "7bcb694cf051fd42ada5c44b2e4118d208177fff9013ffdabdf4702781f0177c",
+      "publication_id": 1721,
+      "evidence_paths": [
+        "live/st-petersburg/publisher-export.receipt.json",
+        "live/st-petersburg/publisher-export.pdf",
+        "live/st-petersburg/publisher-pdf-inspection.json",
+        "live/st-petersburg/edition-check.json"
+      ],
+      "transport_status": "passed",
+      "source_edition_status": "partial"
+    },
+    "tested_scope": "3 substantive primary leaf provisions from Code of Ordinances; live pinned primary TOC, visible publication inventory, latest-job metadata; native PDF where enabled",
+    "complete_corpus": false,
+    "record_count": 3,
+    "record_unit": "Substantive section/provision, not TOC node or PDF page",
+    "primary_record_count": 3,
+    "table_count": 0,
+    "primary_path": "live/st-petersburg",
+    "supplemental_paths": [],
+    "checks": [
+      {
+        "node_id": "PTIISTPECO_CH1GEPR_S1-1HOCODECI",
+        "exact_requested_doc_present": true,
+        "nonempty_body": true,
+        "heading_present": true,
+        "table_count": 0,
+        "cross_reference_links": 0,
+        "source_html_retained": true
+      },
+      {
+        "node_id": "PTIISTPECO_CH1GEPR_S1-2DERUCO",
+        "exact_requested_doc_present": true,
+        "nonempty_body": true,
+        "heading_present": true,
+        "table_count": 0,
+        "cross_reference_links": 1,
+        "source_html_retained": true
+      },
+      {
+        "node_id": "PTIISTPECO_CH1GEPR_S1-3CASEEFHINORE",
+        "exact_requested_doc_present": true,
+        "nonempty_body": true,
+        "heading_present": true,
+        "table_count": 0,
+        "cross_reference_links": 0,
+        "source_html_retained": true
+      },
+      {
+        "publication_identity_observed": true,
+        "job_product_id_matches": true,
+        "visible_primary_publication": true,
+        "uncodified_counts_inventoried": true
+      }
+    ],
+    "command": "python3 scripts/run_browser.py --sequence 74 --out-root /FRESH/EMPTY/output-root",
+    "evidence_paths": [
+      "live/st-petersburg/receipt.json",
+      "live/st-petersburg/samples.json",
+      "live/st-petersburg/toc-full.json",
+      "live/st-petersburg/client-content.json",
+      "live/st-petersburg/family-inventory.json",
+      "live/st-petersburg/normalized/sections.jsonl",
+      "live/st-petersburg/normalized/sections.csv",
+      "live/st-petersburg/normalized/verification.json",
+      "evidence/official-routes/st-petersburg/receipt.json"
+    ],
+    "script_paths": [
+      "scripts/collect_browser.cjs",
+      "scripts/gate_cli.py",
+      "scripts/normalize.py",
+      "scripts/run_browser.py",
+      "scripts/verify.py"
+    ],
+    "limitations": [
+      "Three substantive primary leaf provisions are a bounded sample; TOC size/native PDF pages do not establish complete normalized corpus.",
+      "Other inventoried charter/zoning/development/administrative families and uncodified ordinances are not fully acquired or normalized.",
+      "Ordinary headed Chrome required; direct HTTP denied routes remain stopped after shared wave3 access challenges. No challenge interaction, imported cookies, masking or proxies.",
+      "Minimal workflow page screenshots depict publisher document shell only; substantive source proof is retained live API responses.",
+      "Native PDF inspection covers container and first three pages; remaining pages and body-level correspondence not verified.",
+      "Executed acquisition used an earlier portable collector version; exact executed source retained and current offline verifier independently rechecks publication identity and raw-response binding. Later fresh-target runs validate final portable implementation."
+    ],
+    "next_action": "Before production ingestion, select and acquire all required visible/separate code families plus uncodified ordinance bodies; validate whole-document edition/body correspondence, full normalization coverage and update handling.",
+    "official_routing_checks": [
+      {
+        "path": "evidence/official-routes/st-petersburg/receipt.json",
+        "url": "https://www.stpete.org/",
+        "status": 200,
+        "final_url": "https://www.stpete.org/",
+        "method": "government-only-ordinary-http-routing"
+      }
+    ],
+    "edition": {
+      "product_id": 14674,
+      "job_id": 499702,
+      "name": "Supplement 55 Update 1",
+      "banner": "CODE OF ORDINANCES\r\nCity of\r\nST. PETERSBURG, FLORIDA\r\n\r\nCodified through\r\nOrdinance No. 635-H, adopted May 14, 2026.\r\n(Supp. No. 55, Update 1)",
+      "online_date": "2026-09-25T17:07:40",
+      "publications": [
+        {
+          "productName": "Code of Ordinances",
+          "productId": 14674,
+          "latestUpdatedDate": "2026-09-25T17:07:40",
+          "hasOrdbank": false,
+          "contentTypeId": "CODES",
+          "newOrdCount": 0,
+          "hideInLibrary": false,
+          "hasPdfDownloadEnabled": true,
+          "hasPdf": true,
+          "publicationId": 1721,
+          "showLastModifiedPublicationDate": true
+        }
+      ]
+    }
+  }
+]

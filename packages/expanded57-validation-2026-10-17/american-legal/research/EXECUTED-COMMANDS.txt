@@ -1,0 +1,29 @@
+Authoritative working directory: /Users/oliverflint/My Drive/Claude/Projects/CompliSolv 2.00/outputs/expanded57-validation-2026-10-17/american-legal
+
+Live acquisition (executed source snapshot c957e7c6f5d95749744d76c750c9e09409321e7ad1a538c4cc5d8c2d704a5049):
+PLAYWRIGHT_MODULE='/Users/oliverflint/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/node_modules/playwright' '/Users/oliverflint/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/bin/node' scripts/collect.mjs
+
+Native-download recovery test for Dallas:
+PLAYWRIGHT_MODULE='/Users/oliverflint/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/node_modules/playwright' '/Users/oliverflint/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/bin/node' scripts/download_exports.mjs --sequence 4
+
+Offline replay:
+.venv/bin/python scripts/parse_verify.py --offline
+
+The absolute runtime paths above describe this test environment. They are NOT runtime imports in deliverable scripts. A relocated installation uses npm install and node scripts/collect.mjs.
+
+Final native/expansion sweep (one publisher context; no blocks observed):
+PLAYWRIGHT_MODULE='<installed Playwright module>' node scripts/request_exports.mjs
+
+Publication-constrained Louisville retest with final stop-aware requester:
+PLAYWRIGHT_MODULE='<installed Playwright module>' node scripts/request_exports.mjs --sequence 17
+
+Bounded operative UDC table acquisition:
+PLAYWRIGHT_MODULE='<installed Playwright module>' node scripts/table_sample.mjs
+
+Exact current fresh-output collector smoke test:
+PLAYWRIGHT_MODULE='<installed Playwright module>' node scripts/collect.mjs --out fresh-smoke --sequence 4
+.venv/bin/python fresh-smoke/scripts/parse_verify.py --offline --sequence 4
+
+Honolulu retest and additional observed operative article:
+PLAYWRIGHT_MODULE='<installed Playwright module>' node scripts/request_exports.mjs --sequence 57
+PLAYWRIGHT_MODULE='<installed Playwright module>' node scripts/additional_sample.mjs

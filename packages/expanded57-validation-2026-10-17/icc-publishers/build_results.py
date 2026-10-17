@@ -1,0 +1,35 @@
+#!/usr/bin/env python3
+"""Build explicit bounded-scope handoff from retained checks; no network."""
+import json,platform,hashlib
+from pathlib import Path
+ROOT=Path(__file__).resolve().parent
+
+def load(p):return json.loads((ROOT/p).read_text())
+def save(p,o):(ROOT/p).write_text(json.dumps(o,ensure_ascii=False,indent=2)+'\n')
+SAMPLES={'Phoenix':'phoenix-final','Bakersfield':'bakersfield-browser','Newark':'newark-live','Municipality of Anchorage':'anchorage-browser','Burlington':'burlington-leaf-export'}
+SCOPES={'Phoenix':'City Code chapter 1, six sections 1-1 through 1-6','Bakersfield':'Municipal Code chapter 1.01, ten sections 1.01.010 through 1.01.100','Newark':'Chapter 1:1, ten sections 1:1-1 through 1:1-10; two source layout tables','Municipality of Anchorage':'Municipal Code chapter 1.05, fifteen provisions from1.05.010 through1.05.120 (nonconsecutive numbering as observed)','Burlington':'Code of Ordinances chapter1, thirteen sections1-1 through1-13'}
+SLUG={'Municipality of Anchorage':'anchorage'}
+results=[]
+for a in load('assignment.json'):
+ name=a['jurisdiction'];slug=SLUG.get(name,name.lower());folder=SAMPLES[name];d='evidence/'+folder;check=load(d+'/checks.json');meta=load(d+'/acquisition.json');job=load('jobs.json')[slug]
+ limitations=['Bounded substantive validation sample; complete jurisdiction corpus and full publication inventory not demonstrated.','Tables not present in most selected chapters; Newark tests two layout tables, not a complex schedule with merged numeric cells.','Images retained as ordered placeholders and metadata; image pixels not transcribed.']
+ checks=['Fresh standalone ordinary headed Chrome acquisition (no CUA/operator assistance).','Retained raw HTML hash verified.','Normalized JSONL and CSV round-trip equal.','Deterministic offline replay byte-equal for JSONL and CSV.','Unique canonical source URLs; nonempty identifiers/citations/bodies; zero replacement characters.']
+ export={'status':'passed','reason':'Genuine native publisher download acquired through observed ordinary UI; bounded scope only.','evidence_paths':[d+'/publisher-export.json','publisher-export-verification.json']}
+ if slug=='bakersfield':
+  export={'status':'blocked','reason':'A later fresh headed browser received HTTP429 on publisher image resources before export menu qualification; stopped without retries. Earlier successful substantive sample retained separately. Native format/link not qualified for this jurisdiction.','evidence_paths':['evidence/bakersfield-final/browser-failure.json','evidence/BROWSER-STOP.json']}
+  limitations+=['Current municipal.codes network stop is preserved; no automatic retry of publisher download.','Successful initial browser capture predates executed-driver snapshot retention; acquisition.json records the script hash and exact versions, but original driver bytes are not present. Copied parser bytes/hash and deterministic replay are retained.']
+ elif slug=='phoenix':export.update(url='https://phoenix.municipal.codes/CC/1/export.html?download=true',native_format='HTML',tested_scope='Chapter1, six operative sections',record_count=6);checks.append('Publisher HTML reparses to identical six citations and section bodies; native JSONL/CSV retained.')
+ elif slug in ['newark','anchorage']:
+  e=load(d+'/publisher-export.json');export.update(url=e['downloads'][0]['url'],native_format='PDF',tested_scope='One selected provision '+e['selected_id'],record_count=1);checks.append('Native PDF readable with pypdf; selected substantive body word coverage100%.')
+  limitations.append('Publisher PDF validation proves one selected provision export; no PDF layout/OCR/whole-code extraction claim.')
+  if slug=='anchorage':limitations.append('Initial browser capture predates executed-driver snapshot retention; receipt records script hash/versions, but original driver bytes are not retained. Exact copied parser/hash and deterministic replay are retained.')
+  else:checks.append('Two tables retain row/cell structure, cell text, spans and intentional image placeholder in semantic HTML.');limitations.append('The source seal-section cross-reference table contains an empty span after “see Section”; preserved as observed instead of inventing a citation.')
+ else:
+  export.update(url='https://www.codepublishing.com/VT/Burlington/cgi/menuCompile.pl',native_format='HTML',tested_scope='Three observed chapter1 leaf selections1-1 through1-3',record_count=3)
+  checks.append('Expanded chapter then selected three observed leaf checkboxes; native HTML operative text equals live DOM and normalized native JSONL/CSV retained.')
+  limitations+=['Selecting an unexpanded chapter checkbox exported only a chapter TOC; retained in evidence/burlington-final and explicitly excluded from substantive export pass.','Original official DocumentCenter lead and current Government route returned404 to standalone requests; current official route is corroborated by search-visible primary official pages/documents, rather than accepted raw official HTML.']
+ recorded_command=f'python collect.py --job {slug} --browser'+(' --discover' if slug=='bakersfield' else ' --export')+f' --out {d}'
+ command=f'.venv/bin/python collect.py --job {slug} --browser --export --out fresh/{slug}'
+ r={'sequence':a['sequence'],'jurisdiction':name,'state':a['state'],'source_url':meta['url'],'source_family':job['family'],'status':'standalone_e2e_pass','acquisition_method':'Standalone Python Playwright ordinary headed Google Chrome; fresh isolated browser context; no state import; no CUA; passive ordinary page load followed by observed UI export where tested.','publisher_download':export,'tested_scope':SCOPES[name],'complete_corpus':False,'record_count':check['record_count'],'table_count':check['table_count'],'checks':checks,'command':command,'command_scope':'Run from this group package root, using a fresh empty output directory; municipal.codes remains stopped by retained rate-limit guard.','recorded_acquisition_command':recorded_command,'path_base':'icc-publishers/ (this package root)','offline_command':f'.venv/bin/python collect.py --job {slug} --offline --out {d}','evidence_paths':[d+'/source.html',d+'/source.png',d+'/acquisition.json',d+'/records.jsonl',d+'/records.csv',d+'/checks.json',d+'/parse-details.json','offline-verification.json','publication-inventory.json','runtime.json']+([d+'/executed-collect.py'] if (ROOT/d/'executed-collect.py').exists() else []),'script_paths':['collect.py','verify.py','verify_exports.py','lib/ecode360.py','lib/municipal_codes_cli.py','lib/cp_collect.py'],'limitations':limitations,'next_action':'Inventory and qualify charter/zoning/development families before full collection; retain bounded export scope.' if slug!='bakersfield' else 'Keep municipal.codes stop; review rate-limit evidence and service guidance before a future explicitly resumed export test. Do not retry in this run.','retrieved_at':meta['retrieved_at'],'raw_sha256':meta['sha256'],'runtime':meta['runtime'],'acquisition_script_sha256':meta.get('script_sha256')}
+ results.append(r)
+save('results.json',results)

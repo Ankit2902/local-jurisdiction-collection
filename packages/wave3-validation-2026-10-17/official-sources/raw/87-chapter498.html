@@ -1,0 +1,448 @@
+
+    <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+    <html>
+    <head>
+
+        <title>CODE OF ORDINANCES SAVANNAH, GEORGIA</title>
+        <link type="text/css" rel="Stylesheet" href="jqueryui/css/jqueryui.css" media="all" />
+        <link type="text/css" rel="Stylesheet" href="css/ui.css" media="all" />
+        <link type="text/css" rel="Stylesheet" href="css/customui.css" media="all" />
+        <link type="text/css" rel="Stylesheet" href="css/document.css" media="all" />
+        <link type="text/css" rel="Stylesheet" href="css/customdoc.css" media="all" />
+        <link type="text/css" rel="Stylesheet" href="tablestyles.aspx" media="all" />
+        <link rel="StyleSheet" type="text/css" href="/common/font-awesome/css/all.min.css">
+        <link type="text/css" rel="Stylesheet" href="css/docprint.css" media="print" />
+        <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+        <script type="text/javascript" src="jqueryui/js/jquery-ui-1.8.21.custom.min.js"></script>
+        <script type="text/javascript" src="js/doc-view.js?_t=290"></script>
+        <script type="text/javascript" src="js/tabletools.js"></script>
+        <script type="text/javascript" src="js/tabs.js"></script>
+        <script type="text/javascript">
+            var iframeReady = false;
+        </script>
+        
+    </head>
+    <body class='doc-view'>
+        <script type="text/javascript">
+            $(document).ready(function () {
+                ZP.DocView.InitDef();
+                ZP.DocView.OpenDefinitionPage = null;
+                ZP.DocView.OpenDefinitionMode = '_self';
+                ZP.DocView.OpenXRefPage = 'doc-viewer.aspx#$2-';
+                ZP.DocView.OpenXRefMode = '_blank';
+                $(window).bind('hashchange', ZP.DocView.HashChanged);
+        
+        if (typeof ZP.DocView.ZoomClasses == 'undefined') {
+            ZP.DocView.ZoomClasses = ["Unzoom1", "", "Zoom1", "Zoom2", "Zoom3", "Zoom4"];
+        }
+        ZP.DocView.InitializeZoom();
+        EC.SortedTable.Init(".ord-tbl, .stat-tbl", ".sortable");
+        EC.Tabs.PositionLeftTabs();
+    });
+
+
+        </script>
+
+
+    <div id="doc-viewer">
+        
+
+<div id="doc-view">
+    <div id="doc-view-content">
+        
+<div id="pageControls">
+<script type="text/javascript" >
+    function clearEffDate() {
+        jQuery.get("doc-view-helper.aspx?task=currentversion", function () {
+            window.location.reload();
+        });
+        return false;
+    }
+</script>
+     <div class="pageControls psuedoTable" role="navigation" aria-label="Document Navigation">  
+        <div class="psuedoTableBody" >     
+            <div class="psuedoTableRow">         
+                <div class="pageControls_outer" ></div>
+                <div class="pageControls_inner left">
+                    <a id='button1' onclick='ZP.DocView.PrintDoc("001.004.001.001",false);return false;' href="#" title="Print" role="button"> 
+                        <img alt="Print" src="resources/btn-print.png" /></a>
+                    <a id='Button2' onclick='ZP.DocView.OpenPDF("001.004.001.001",false);return false;' href="#" title="Export PDF" role="button">
+                        <img alt="Generate PDF" src="resources/btn-makepdf.png" /></a>
+                        <a class="popup" params="toobar=0,menubar=0,scrollbars=1,height=436,width=626" href="https://www.facebook.com/sharer/sharer.php?s=100&p[title]=CODE+OF+ORDINANCES+SAVANNAH%2c+GEORGIA&p[summary]=Savannah%2c+Georgia+City+of+Savannah+Code+of+Ordinances&p[url]=https%3a%2f%2fonline.encodeplus.com%2fregs%2fsavannah-ga%2fdoc-viewer.aspx%3fsecid%3d1" title="Click to Share this page" style="text-decoration:none;border:none;" ><img src="resources/share-icon.png" alt="Click to Share this page on facebook" /></a>     
+                </div>
+                <div  class="pageControls_inner breadCrumbs" title="Navigation 'breadcrumbs'">
+                     <div class='breadCrumbs'><a href='/regs/savannah-ga/doc-viewer.aspx?tocid=001' >CODE OF ORDINANCES SAVANNAH, GEORGIA</a> &gt; <a href='/regs/savannah-ga/doc-viewer.aspx?tocid=001.004' >DIVISION II</a> &gt; <a href='/regs/savannah-ga/doc-viewer.aspx?tocid=001.004.001' >Part 1 - INTRODUCTION</a> &gt; <a href='/regs/savannah-ga/doc-viewer.aspx?tocid=001.004.001.001' >CHAPTER 1. - ADOPTION OF CODE</a></div>
+                </div>
+                 <div  class="pageControls_inner right">       
+                     <ul >  
+                         <li>
+                            <a id='button3' class="nav" onclick="ZP.DocView.LoadPrevDoc('001.004.001.001');return false;" href="#"  title="Previous Section" accesskey="," role="button"><img alt="Go to Previous Section" src="resources/btn-back.png" /></a>
+                         </li>  
+                         <li>
+                             <a id='Button4'  class="nav" onclick="ZP.DocView.LoadNextDoc('001.004.001.001');return false;" href="#"  title="Next Section" accesskey="." role="button"> <img alt="Go to Next Section" src="resources/btn-forward.png" /></a>
+                         </li>   
+                         <li>
+                             <a id="pageControls-overflow" onclick="ZP.DocView.PgCntrlOverflowClick(event);return false;" href="#" title="Click for more options" role="button" >
+                            <img src="resources/overflow-btn.png" alt="Click for more options" /></a>
+                               
+  <ul class="submenu" role="dialog">
+            <li><a href="/regs/savannah-ga/doc-viewer.aspx?secid=1" onclick="javascript:alert('Right click this icon and select \'add to favorites\' or \'Bookmark this Link\' to bookmark this page');return false;" title="Bookmark this page" >Bookmark</a></li>
+            <li>
+                                        
+                <a id="zoomMinus" onclick="ZP.DocView.DecreaseZoom();return false;" href="#" title="Decrease Zoom" class="zoomLink glyphicon" >&#x2212;</a>
+                <a onclick="ZP.DocView.DefaultZoom();return false;"  href="#" title="Default Zoom"  class="zoomLink" >100%</a>
+                <a id="zoomPlus" onclick="ZP.DocView.IncreaseZoom();return false;" href="#" title="Increase Zoom"  class="zoomLink glyphicon" > &#x2b; </a>
+            </li>
+           
+                           
+                
+                <li><a id="subscribe-btn" onclick="ZP.DocView.OpenSubscribeDlg();return false;" title="Subscribe to Notifications" href="subscribe.aspx" role="button">Subscribe</a></li>
+                <li><a id="unsubscribe-btn" onclick="ZP.DocView.OpenUnsubscribeDlg();return false;" title="Cancel Notifications Subscription" href="unsubscribe.aspx" role="button" >Unsubscribe</a></li>
+                
+</ul>
+                         </li>        
+                        
+                        </ul>   
+                </div>
+                <div class="pageControls_outer"></div>
+            </div>
+        </div>
+    </div> 
+    <div id="subscribe-dialog" title="" aria-live="polite" >
+        <div id="sub-message"></div>
+        <div id="sub-form-cntr"></div>
+    </div>
+</div>
+
+
+        <div id="thePage-outer" >
+            <div id="thePage-wrap" class="thePage-wrap ">
+                <div id="outer-doc-banner"></div>
+                <div id="thePage-border">
+                    <div id="thePage" class="textPage " tocid="001.004.001.001" secid="498" role="main" aria-label="Document">
+                        <img id="sectionBanner" title="Document text banner" src="resources/docbanner.png" width="720" valign="Top" alt="Document text banner">
+                        
+                        <section id='secid-1' class='secLvl1 _001' tabindex='-1' data-secid='1'> 
+<h1>CODE OF ORDINANCES SAVANNAH, GEORGIA</h1>
+
+
+
+
+</section> 
+<section id='secid-6486' class='secLvl2 _001 _001-004' tabindex='-1' data-secid='6486'> 
+<h2>DIVISION II</h2>
+
+
+
+
+</section> 
+<section id='secid-497' class='secLvl3 _001 _001-004 _001-004-001' tabindex='-1' data-secid='497'> 
+<h2>Part 1 - INTRODUCTION</h2>
+
+
+
+
+</section> 
+<section id='secid-498' class='secLvl4 _001 _001-004 _001-004-001 _001-004-001-001' tabindex='-1' data-secid='498'> 
+<h3>CHAPTER 1. - ADOPTION OF CODE</h3>
+
+<div class="mini-TOC" data-endlevel="5" data-id="mini-TOC" data-startlevel="5">
+<div class="mini-TOC-label"><strong>Contents:</strong></div>
+
+<ul><li><a class="tocLink" href="doc-viewer.aspx#secid-499">Sec. 1-1001. - Code adopted.</a></li>
+<li><a class="tocLink" href="doc-viewer.aspx#secid-500">Sec. 1-1002. - Effective date; resolutions.</a></li>
+<li><a class="tocLink" href="doc-viewer.aspx#secid-501">Sec. 1-1003. - Subjects not affected.</a></li>
+<li><a class="tocLink" href="doc-viewer.aspx#secid-502">Sec. 1-1004. - Provisions considered as continuations of existing ordinances.</a></li>
+<li><a class="tocLink" href="doc-viewer.aspx#secid-503">Sec. 1-1005. - Effect of repeal or expiration of ordinances.</a></li>
+<li><a class="tocLink" href="doc-viewer.aspx#secid-504">Sec. 1-1006. - Tampering with Code prohibited.</a></li>
+<li><a class="tocLink" href="doc-viewer.aspx#secid-505">Sec. 1-1007. - Official copy of Code.</a></li>
+<li><a class="tocLink" href="doc-viewer.aspx#secid-506">Sec. 1-1008. - Amendments to Code.</a></li>
+<li><a class="tocLink" href="doc-viewer.aspx#secid-507">Sec. 1-1009. - How Code designated and cited.</a></li>
+<li><a class="tocLink" href="doc-viewer.aspx#secid-508">Sec. 1-1010. - Rules of construction.</a></li>
+<li><a class="tocLink" href="doc-viewer.aspx#secid-533">Sec. 1-1011. - Severability of parts of Code.</a></li>
+<li><a class="tocLink" href="doc-viewer.aspx#secid-534">Sec. 1-1012. - Catchlines of sections.</a></li>
+<li><a class="tocLink" href="doc-viewer.aspx#secid-535">Sec. 1-1013. - General penalty.</a></li>
+</ul>
+</div>
+
+
+</section> 
+<section id='secid-499' class='secLvl5 _001 _001-004 _001-004-001 _001-004-001-001 _001-004-001-001-001' tabindex='-1' data-secid='499'> 
+<h5>Sec. 1-1001. - Code adopted.</h5>
+
+<p>This recodification, consisting of parts 1 through 9, each inclusive, is hereby enacted as the &quot;Code of Ordinances, Savannah, Georgia,&quot; and shall be treated and considered as a new and original comprehensive ordinance of the city which shall supersede all other general and permanent ordinances enacted by the mayor and aldermen prior to March 26, 1976, except such as by reference thereto are expressly saved from repeal or continued in force and effect for any purpose, and except for chapters 2 and 3 of part 8 hereof, known as the subdivision and zoning ordinances, respectively, which are in no way affected by this section.</p>
+
+<p>(Code 1977, &sect; 1-1001)</p>
+
+<p class='archiveNotice nullValue '>Effective on:&nbsp;1/1/1901</p>
+</section> 
+<section id='secid-500' class='secLvl5 _001 _001-004 _001-004-001 _001-004-001-001 _001-004-001-001-002' tabindex='-1' data-secid='500'> 
+<h5>Sec. 1-1002. - Effective date; resolutions.</h5>
+
+<p>All provisions of such Code shall be in full force and effect 30 days from the date this chapter becomes law and all ordinances of a general and permanent nature of the city enacted on final passage on or before March 26, 1976, and not in such Code or recognized and continued in force by reference herein and which are in conflict herewith are hereby repealed from and after the effective date of this chapter, except as hereinafter provided.</p>
+
+<p>(Code 1977, &sect; 1-1002)</p>
+
+<p class='archiveNotice nullValue '>Effective on:&nbsp;1/1/1901</p>
+</section> 
+<section id='secid-501' class='secLvl5 _001 _001-004 _001-004-001 _001-004-001-001 _001-004-001-001-003' tabindex='-1' data-secid='501'> 
+<h5>Sec. 1-1003. - Subjects not affected.</h5>
+
+<p>The repeal provided for in section <a class="xref" target="_blank" href="doc-viewer.aspx#secid-500">1-1002</a> hereof shall not affect any offense or act committed or done or any penalty or forfeiture incurred or any contract or right established or accruing before the effective date of this chapter; nor shall such repeal affect any ordinance or resolution promising or guaranteeing the payment of money for the city or authorizing the issuance of any bonds of the city or any evidence of the city&#39;s indebtedness, or any contract or obligation assumed by the city; nor shall such repeal affect the administrative regulations or resolutions of the mayor and aldermen not in conflict or inconsistent with the provisions of such Code; nor shall such repeal affect any right or franchise granted by any ordinance or resolution of the mayor and aldermen to any person, firm or corporation; nor shall such repeal affect any ordinance dedicating, naming, establishing, locating, relocating, opening, paving, widening, vacating, etc., any street or public way in the city; nor shall such repeal affect the annual appropriation ordinance; nor shall such repeal affect any ordinance levying or imposing taxes; nor shall such repeal affect any ordinance establishing and prescribing the street grades of any street in the city; nor shall such repeal affect any ordinance providing for local improvements and assessing charges therefor; nor shall such repeal affect any ordinance dedicating or accepting any plat or subdivision in the city; nor shall such repeal affect any ordinance extending the limits of the city; nor shall such repeal be construed to revive any ordinance or part thereof that has been repealed by a subsequent ordinance which is repealed by this ordinance.</p>
+
+<p>(Code 1977, &sect; 1-1003)</p>
+
+<p class='archiveNotice nullValue '>Effective on:&nbsp;1/1/1901</p>
+</section> 
+<section id='secid-502' class='secLvl5 _001 _001-004 _001-004-001 _001-004-001-001 _001-004-001-001-004' tabindex='-1' data-secid='502'> 
+<h5>Sec. 1-1004. - Provisions considered as continuations of existing ordinances.</h5>
+
+<p>The provisions appearing in this Code, so far as they are the same as those ordinances existing at the time of the effective date of this Code, shall be considered as continuations thereof and not as new enactments.</p>
+
+<p>(Code 1977, &sect; 1-1004)</p>
+
+<p class='archiveNotice nullValue '>Effective on:&nbsp;1/1/1901</p>
+</section> 
+<section id='secid-503' class='secLvl5 _001 _001-004 _001-004-001 _001-004-001-001 _001-004-001-001-005' tabindex='-1' data-secid='503'> 
+<h5>Sec. 1-1005. - Effect of repeal or expiration of ordinances.</h5>
+
+<ol style="list-style-type:lower-alpha">
+	<li>The repeal of an ordinance, or its expiration by virtue of any provision contained therein, shall not revive any ordinances in force before or at the time the ordinance repealed took effect.</li>
+	<li>The repeal of an ordinance shall not affect any punishment or penalty incurred before the repeal took effect nor any suit, prosecution or proceeding pending at the time of the repeal for an offense committed under the ordinance repealed.</li>
+</ol>
+
+<p>(Code 1977, &sect; 1-1005)</p>
+
+<p class='archiveNotice nullValue '>Effective on:&nbsp;1/1/1901</p>
+</section> 
+<section id='secid-504' class='secLvl5 _001 _001-004 _001-004-001 _001-004-001-001 _001-004-001-001-006' tabindex='-1' data-secid='504'> 
+<h5>Sec. 1-1006. - Tampering with Code prohibited.</h5>
+
+<p>It shall be unlawful for any person in the city to change or amend by additions or deletions any part of this Code, or to insert or delete pages or portions thereof, or to alter or tamper with such Code in any manner whatsoever which will cause the law of the city to be misrepresented thereby. Any person violating this section shall be punished as provided in section <a class="xref" target="_blank" href="doc-viewer.aspx#secid-535">1-1013</a>.</p>
+
+<p>(Code 1977, &sect; 1-1006)</p>
+
+<p class='archiveNotice nullValue '>Effective on:&nbsp;1/1/1901</p>
+</section> 
+<section id='secid-505' class='secLvl5 _001 _001-004 _001-004-001 _001-004-001-001 _001-004-001-001-007' tabindex='-1' data-secid='505'> 
+<h5>Sec. 1-1007. - Official copy of Code.</h5>
+
+<p>A copy of such Code shall be kept on file in the office of the clerk of council, preserved in looseleaf form, or in such other form as the clerk may consider expedient. It shall be the express duty of the clerk of council to insert in their designated places all amendments or ordinances which indicate the intention of the mayor and aldermen to make the same a part of such Code when the same have been printed or reprinted in page form, and to extract from such Code all provisions which may be from time to time repealed by the mayor and aldermen. This copy of such Code shall be available for all persons desiring to examine the same and shall be considered the official Code of Ordinances of the city and shall be so certified by the clerk.</p>
+
+<p>(Code 1977, &sect; 1-1007)</p>
+
+<p class='archiveNotice nullValue '>Effective on:&nbsp;1/1/1901</p>
+</section> 
+<section id='secid-506' class='secLvl5 _001 _001-004 _001-004-001 _001-004-001-001 _001-004-001-001-008' tabindex='-1' data-secid='506'> 
+<h5>Sec. 1-1008. - Amendments to Code.</h5>
+
+<ol style="list-style-type:lower-alpha">
+	<li>Any and all additions or amendments to such Code, when passed in such form as to indicate the intention of the mayor and aldermen to make the same a part thereof, shall be deemed to be incorporated in such Code so that reference to the &quot;Code of Ordinances, Savannah, Georgia&quot; shall be understood and intended to include such additions and amendments.</li>
+	<li>In case of the amendment of any section of such Code for which a penalty is not provided, the general penalty as provided in section <a class="xref" target="_blank" href="doc-viewer.aspx#secid-535">1-1013</a> of such Code shall apply to the section as amended; or in case such amendment contains provisions for which a penalty, other than the aforementioned general penalty, is provided in another section in the same chapter, the penalty so provided in such other section shall be held to relate to the section amended, unless such penalty is specifically repealed therein.</li>
+</ol>
+
+<p>(Code 1977, &sect; 1-1008)</p>
+
+<p class='archiveNotice nullValue '>Effective on:&nbsp;1/1/1901</p>
+</section> 
+<section id='secid-507' class='secLvl5 _001 _001-004 _001-004-001 _001-004-001-001 _001-004-001-001-009' tabindex='-1' data-secid='507'> 
+<h5>Sec. 1-1009. - How Code designated and cited.</h5>
+
+<p>The ordinances embraced in the following parts and sections shall constitute and be designated &quot;The Code of the City of Savannah, 1977,&quot; and may be so cited. Such Code may also be cited as &quot;Savannah Code.&quot;</p>
+
+<p>(Code 1977, &sect; 1-1009)</p>
+
+<p><strong>Editor&#39;s note&mdash; </strong>Section <a class="xref" target="_blank" href="doc-viewer.aspx#secid-507">1-1009</a> originally provided that this Code shall be designated &quot;The Code of the City of Savannah, 1976.&quot; An ordinance of December 14, 1978, provided that the designation be changed to &quot;The Code of the City of Savannah, 1977,&quot; since the same was adopted in that year.</p>
+
+<p class='archiveNotice nullValue '>Effective on:&nbsp;1/1/1901</p>
+</section> 
+<section id='secid-508' class='secLvl5 _001 _001-004 _001-004-001 _001-004-001-001 _001-004-001-001-010' tabindex='-1' data-secid='508'> 
+<h5>Sec. 1-1010. - Rules of construction.</h5>
+
+<p>In the construction of this Code and of all ordinances, the following rules shall be observed, unless such construction would be inconsistent with the manifest intent of the mayor and aldermen:</p>
+
+
+</section> 
+<section id='secid-509' class='secLvl6 _001 _001-004 _001-004-001 _001-004-001-001 _001-004-001-001-010 _001-004-001-001-010-001' tabindex='-1' data-secid='509'> 
+<p><strong class="def">City</strong><em>.</em> The words "city," "the city" or "this city" shall be construed as if the words "of Savannah" followed them.</p>
+
+<p class='archiveNotice nullValue '>Effective on:&nbsp;1/1/1901</p>
+</section> 
+<section id='secid-510' class='secLvl6 _001 _001-004 _001-004-001 _001-004-001-001 _001-004-001-001-010 _001-004-001-001-010-002' tabindex='-1' data-secid='510'> 
+<p><strong class="def">Clerk</strong><em>.</em> The word "clerk" shall mean the clerk of council.</p>
+
+<p class='archiveNotice nullValue '>Effective on:&nbsp;1/1/1901</p>
+</section> 
+<section id='secid-511' class='secLvl6 _001 _001-004 _001-004-001 _001-004-001-001 _001-004-001-001-010 _001-004-001-001-010-003' tabindex='-1' data-secid='511'> 
+<p><strong class="def">Computation of time</strong><em>.</em> Unless otherwise specifically provided, the time within which an act is required by law to be done shall be computed by excluding the first day or the last; except, that if the last day shall fall on a Sunday or a legal holiday, another day shall be added in the computation.</p>
+
+<p class='archiveNotice nullValue '>Effective on:&nbsp;1/1/1901</p>
+</section> 
+<section id='secid-512' class='secLvl6 _001 _001-004 _001-004-001 _001-004-001-001 _001-004-001-001-010 _001-004-001-001-010-004' tabindex='-1' data-secid='512'> 
+<p><strong class="def">Council</strong><em>.</em> Wherever the term "council" or "city council" is used the same shall be held to mean the "mayor and aldermen of the City of Savannah in council assembled."</p>
+
+<p class='archiveNotice nullValue '>Effective on:&nbsp;1/1/1901</p>
+</section> 
+<section id='secid-513' class='secLvl6 _001 _001-004 _001-004-001 _001-004-001-001 _001-004-001-001-010 _001-004-001-001-010-005' tabindex='-1' data-secid='513'> 
+<p><strong class="def">County</strong><em>.</em> The words "the county" or "this county" shall mean Chatham County, Georgia.</p>
+
+<p class='archiveNotice nullValue '>Effective on:&nbsp;1/1/1901</p>
+</section> 
+<section id='secid-514' class='secLvl6 _001 _001-004 _001-004-001 _001-004-001-001 _001-004-001-001-010 _001-004-001-001-010-006' tabindex='-1' data-secid='514'> 
+<p><strong class="def">Gender</strong><em>.</em> A word importing the masculine gender only shall extend and be applied to females and to firms, partnerships and corporations as well as to males, unless the context indicates otherwise.</p>
+
+<p class='archiveNotice nullValue '>Effective on:&nbsp;1/1/1901</p>
+</section> 
+<section id='secid-515' class='secLvl6 _001 _001-004 _001-004-001 _001-004-001-001 _001-004-001-001-010 _001-004-001-001-010-007' tabindex='-1' data-secid='515'> 
+<p><strong class="def">Joint authority</strong><em>.</em> All words giving a joint authority to three or more persons or officers shall be construed as giving such authority to a majority of such persons or officers, or to a quorum.</p>
+
+<p class='archiveNotice nullValue '>Effective on:&nbsp;1/1/1901</p>
+</section> 
+<section id='secid-516' class='secLvl6 _001 _001-004 _001-004-001 _001-004-001-001 _001-004-001-001-010 _001-004-001-001-010-008' tabindex='-1' data-secid='516'> 
+<p><strong class="def">Keeper</strong><strong class="def"> </strong>and<strong class="def"> </strong><strong class="def">proprietor</strong><em>.</em> The words &quot;keeper&quot; and &quot;proprietor&quot; shall mean and include persons, firms, associations, corporations, clubs and copartnerships, whether acting by themselves or as a servant, agent or employee.</p>
+
+<p class='archiveNotice nullValue '>Effective on:&nbsp;1/1/1901</p>
+</section> 
+<section id='secid-517' class='secLvl6 _001 _001-004 _001-004-001 _001-004-001-001 _001-004-001-001-010 _001-004-001-001-010-009' tabindex='-1' data-secid='517'> 
+<p><strong class="def">Land</strong><em>.</em> "Land" and "real estate" include rights and easements of an incorporeal nature.</p>
+
+<p class='archiveNotice nullValue '>Effective on:&nbsp;1/1/1901</p>
+</section> 
+<section id='secid-518' class='secLvl6 _001 _001-004 _001-004-001 _001-004-001-001 _001-004-001-001-010 _001-004-001-001-010-010' tabindex='-1' data-secid='518'> 
+<p><strong class="def">Month</strong><em>.</em> The word "month" shall mean a calendar month.</p>
+
+<p class='archiveNotice nullValue '>Effective on:&nbsp;1/1/1901</p>
+</section> 
+<section id='secid-519' class='secLvl6 _001 _001-004 _001-004-001 _001-004-001-001 _001-004-001-001-010 _001-004-001-001-010-011' tabindex='-1' data-secid='519'> 
+<p><strong class="def">Number</strong><em>.</em> The singular or plural shall each include the other, unless expressly excluded.</p>
+
+<p class='archiveNotice nullValue '>Effective on:&nbsp;1/1/1901</p>
+</section> 
+<section id='secid-520' class='secLvl6 _001 _001-004 _001-004-001 _001-004-001-001 _001-004-001-001-010 _001-004-001-001-010-012' tabindex='-1' data-secid='520'> 
+<p><strong class="def">Oath</strong><em>.</em> The word "oath" includes affirmation. When an oath is required or authorized by law, an affirmation in lieu thereof may be taken by a person having conscientious scruples against taking an oath. An affirmation has the same force and effect as an oath.</p>
+
+<p class='archiveNotice nullValue '>Effective on:&nbsp;1/1/1901</p>
+</section> 
+<section id='secid-521' class='secLvl6 _001 _001-004 _001-004-001 _001-004-001-001 _001-004-001-001-010 _001-004-001-001-010-013' tabindex='-1' data-secid='521'> 
+<p><strong class="def">Owner</strong><em>.</em> The word "owner," applied to a building or land, shall include any part owner, joint owner, tenant in common, joint tenant or person in possession under a bond for title.</p>
+
+<p class='archiveNotice nullValue '>Effective on:&nbsp;1/1/1901</p>
+</section> 
+<section id='secid-522' class='secLvl6 _001 _001-004 _001-004-001 _001-004-001-001 _001-004-001-001-010 _001-004-001-001-010-014' tabindex='-1' data-secid='522'> 
+<p><strong class="def">Person</strong><em>.</em> The word "person" shall extend and be applied to associations, firms, partnerships and bodies politic and corporate as well as to individuals.</p>
+
+<p class='archiveNotice nullValue '>Effective on:&nbsp;1/1/1901</p>
+</section> 
+<section id='secid-523' class='secLvl6 _001 _001-004 _001-004-001 _001-004-001-001 _001-004-001-001-010 _001-004-001-001-010-015' tabindex='-1' data-secid='523'> 
+<p><strong class="def">Personal property</strong><em>.</em> "Personal property" includes every specie of property, except real property, as defined in this section.</p>
+
+<p class='archiveNotice nullValue '>Effective on:&nbsp;1/1/1901</p>
+</section> 
+<section id='secid-524' class='secLvl6 _001 _001-004 _001-004-001 _001-004-001-001 _001-004-001-001-010 _001-004-001-001-010-016' tabindex='-1' data-secid='524'> 
+<p><strong class="def">Property</strong><em>.</em> "Property" includes real, personal and mixed estates and interests.</p>
+
+<p class='archiveNotice nullValue '>Effective on:&nbsp;1/1/1901</p>
+</section> 
+<section id='secid-525' class='secLvl6 _001 _001-004 _001-004-001 _001-004-001-001 _001-004-001-001-010 _001-004-001-001-010-017' tabindex='-1' data-secid='525'> 
+<p><strong class="def">Sidewalk</strong><em>.</em> The word "sidewalk" shall mean any portion of a street between the curbline and the adjacent property line, intended for the use of pedestrians, except crosswalks.</p>
+
+<p class='archiveNotice nullValue '>Effective on:&nbsp;1/1/1901</p>
+</section> 
+<section id='secid-526' class='secLvl6 _001 _001-004 _001-004-001 _001-004-001-001 _001-004-001-001-010 _001-004-001-001-010-018' tabindex='-1' data-secid='526'> 
+<p><strong class="def">Real property</strong><em>.</em> "Real property" shall include lands, tenements and hereditaments.</p>
+
+<p class='archiveNotice nullValue '>Effective on:&nbsp;1/1/1901</p>
+</section> 
+<section id='secid-527' class='secLvl6 _001 _001-004 _001-004-001 _001-004-001-001 _001-004-001-001-010 _001-004-001-001-010-019' tabindex='-1' data-secid='527'> 
+<p><strong class="def">Signature</strong> or <strong class="def">subscription</strong><em>.</em> "Signature" or "subscription" includes a mark intended as such when the person cannot write.</p>
+
+<p class='archiveNotice nullValue '>Effective on:&nbsp;1/1/1901</p>
+</section> 
+<section id='secid-528' class='secLvl6 _001 _001-004 _001-004-001 _001-004-001-001 _001-004-001-001-010 _001-004-001-001-010-020' tabindex='-1' data-secid='528'> 
+<p><strong class="def">State</strong><em>.</em> The words "the state" or "this state" shall be construed to mean the State of Georgia.</p>
+
+<p class='archiveNotice nullValue '>Effective on:&nbsp;1/1/1901</p>
+</section> 
+<section id='secid-529' class='secLvl6 _001 _001-004 _001-004-001 _001-004-001-001 _001-004-001-001-010 _001-004-001-001-010-021' tabindex='-1' data-secid='529'> 
+<p><strong class="def">Street</strong><em>.</em> Whenever the word "street" is mentioned in this Code, it shall be construed to include a public highway, road, avenue, court, way, lane or alley; and it shall also be construed to include a sidewalk or footpath, unless the contrary is expressed or unless such construction would be inconsistent with the manifest intent of the mayor and aldermen.</p>
+
+<p class='archiveNotice nullValue '>Effective on:&nbsp;1/1/1901</p>
+</section> 
+<section id='secid-530' class='secLvl6 _001 _001-004 _001-004-001 _001-004-001-001 _001-004-001-001-010 _001-004-001-001-010-022' tabindex='-1' data-secid='530'> 
+<p><strong class="def">Tenant</strong> or <strong class="def">occupant</strong><em>.</em> The word "tenant" or "occupant," applied to a building or land, shall include any person holding a written or oral lease of, or who occupies, the whole or a part of such building or land, either alone or with others.</p>
+
+<p class='archiveNotice nullValue '>Effective on:&nbsp;1/1/1901</p>
+</section> 
+<section id='secid-531' class='secLvl6 _001 _001-004 _001-004-001 _001-004-001-001 _001-004-001-001-010 _001-004-001-001-010-023' tabindex='-1' data-secid='531'> 
+<p><strong class="def">Written</strong><em>, </em><strong class="def">in writing</strong><em>.</em> "Written" or "in writing" shall be construed to include any representation of words, letters or figures, whether by printing or otherwise.</p>
+
+<p class='archiveNotice nullValue '>Effective on:&nbsp;1/1/1901</p>
+</section> 
+<section id='secid-532' class='secLvl6 _001 _001-004 _001-004-001 _001-004-001-001 _001-004-001-001-010 _001-004-001-001-010-024' tabindex='-1' data-secid='532'> 
+<p><strong class="def">Year</strong><em>.</em> The word "year" shall mean a calendar year.</p><p>(Code 1977, § 1-1010)</p><p><strong>State Law reference— </strong>Construction of statutes, O.C.G.A. § 1-3-1 et seq.</p>
+
+<p class='archiveNotice nullValue '>Effective on:&nbsp;1/1/1901</p>
+</section> 
+<section id='secid-533' class='secLvl5 _001 _001-004 _001-004-001 _001-004-001-001 _001-004-001-001-011' tabindex='-1' data-secid='533'> 
+<h5>Sec. 1-1011. - Severability of parts of Code.</h5>
+
+<p>It is hereby declared to be the intention of the mayor and aldermen that the sections, paragraphs, sentences, clauses and phrases of this Code are severable, and if any phrase, clause, sentence, paragraph or section of this Code shall be declared unconstitutional by the valid judgment or decree of any court of competent jurisdiction, such unconstitutionality shall not affect any of the remaining phrases, clauses, sentences, paragraphs and sections of this Code, since the same would have been enacted by the mayor and aldermen without the incorporation in this Code of any such unconstitutional phrase, clause, sentence, paragraph or section.</p>
+
+<p>(Code 1977, &sect; 1-1011)</p>
+
+<p class='archiveNotice nullValue '>Effective on:&nbsp;1/1/1901</p>
+</section> 
+<section id='secid-534' class='secLvl5 _001 _001-004 _001-004-001 _001-004-001-001 _001-004-001-001-012' tabindex='-1' data-secid='534'> 
+<h5>Sec. 1-1012. - Catchlines of sections.</h5>
+
+<p>The catchlines of the several sections of this Code printed in boldface type are intended as mere catchwords to indicate the contents of the section and shall not be deemed or taken to be titles of such sections nor as any part of the section, nor, unless expressly so provided, shall they be so deemed when any of such sections, including the catchlines, are amended or reenacted.</p>
+
+<p>(Code 1977, &sect; 1-1012)</p>
+
+<p class='archiveNotice nullValue '>Effective on:&nbsp;1/1/1901</p>
+</section> 
+<section id='secid-535' class='secLvl5 _001 _001-004 _001-004-001 _001-004-001-001 _001-004-001-001-013' tabindex='-1' data-secid='535'> 
+<h5>Sec. 1-1013. - General penalty.</h5>
+
+<p>Whenever in this Code or in any ordinance of the city any act is prohibited or is made or declared to be unlawful or an offense, or whenever in such Code or ordinance the doing of any act is required or the failure to do any act is declared to be unlawful, where no specific penalty is provided therefor, the violation of such provision of this Code or any such ordinance shall be punishable by a fine not to exceed $1,000.00 or imprisonment for not more than 30 days as provided by O.C.G.A &sect; 36-30-8 provided, however, that the trial court, pursuant to O.C.G.A &sect; 36-32-3 et seq. may impose such sentence as is provided in O.C.G.A. &sect; 15-10-60 and pursuant to section (b) thereof, the trial court may suspend the service of the sentence imposed in the case upon such terms and conditions as it may prescribe for the payment of the fine, for performance of community service in lieu of a fine or incarceration, for the payment of restitution to a victim, or other condition relating to the underlying offense. Service of the sentence, when so suspended by the trial court, shall be under such terms and conditions as the court may prescribe and as defined in said section. (Act 168, &sect; 1, Ga. L. 2003, effective 7/1/2003).</p>
+
+<p>(Code 1977, &sect; 1-1013; Ord. of 4-15-2004, &sect; 1)</p>
+
+<p><strong>State Law reference&mdash; </strong>Confinement of ordinance violators, O.C.G.A. &sect; 36-30-8.</p>
+
+<p class='archiveNotice nullValue '>Effective on:&nbsp;1/1/1901</p>
+</section> 
+
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<button id="commentsCTA" title="Add a Comment" aria-label="Add a Comment" role="button" tabindex="2">
+    COMMENTS
+</button>
+
+<!-- hidden div below is for definition popup -->
+<div id="defFrame">
+    <img alt='loading progress' src="resources/progress.gif" /></div>
+<!-- hidden div below is for ajax loading progress-->
+<div id='progress-template' style='display: none;'>
+    <div class="progress" style='padding: 100px;'>
+        <div style='margin: auto; display: block; width: 200px; border: 1px solid #ccc; background-color: #eee; padding: 10px;'>
+            <img alt='loading progress' src='resources/progress.gif' style='margin: auto; display: block;' />
+            <br />
+            <span style='margin: auto; display: block; width: 75px; padding-left: 10px;'>Loading...</span>
+        </div>
+    </div>
+</div>
+<iframe style="width: 1px; height: 1px" src="" id="printiframe" name="printiframe" onload="ZP.DocView.IFrameReady();" title="Print frame" aria-hidden="true" role="presentation"></iframe>
+
+    </div>
+
+
+    </body>
+</html>

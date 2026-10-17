@@ -1,0 +1,10 @@
+// Native published PDF downloads via an ordinary headed Chrome link click.
+const {chromium}=require('playwright');const fs=require('node:fs'),path=require('node:path'),os=require('node:os'),crypto=require('node:crypto');
+const out=path.resolve(process.argv[2]||__dirname),profile=fs.mkdtempSync(path.join(os.tmpdir(),'complisolv-mke-'));
+fs.mkdirSync(path.join(profile,'Default'));fs.writeFileSync(path.join(profile,'Default','Preferences'),JSON.stringify({plugins:{always_open_pdf_externally:true}}));
+(async()=>{const c=await chromium.launchPersistentContext(profile,{channel:'chrome',headless:false,acceptDownloads:true});try{
+ const p=await c.newPage(); const r=await p.goto('https://city.milwaukee.gov/cityclerk/lrb/ordinances/tableofcontents',{waitUntil:'domcontentloaded',timeout:60000});
+ if(r.status()!==200)throw Error('Index blocked: '+r.status());
+ let resolveDownload; const event=new Promise(resolve=>{resolveDownload=resolve});p.on('download',resolveDownload);c.on('page',q=>q.on('download',resolveDownload));await p.getByRole('link',{name:'Residential Districts',exact:true}).click();let timer;const d=await Promise.race([event,new Promise((_,reject)=>{timer=setTimeout(()=>reject(Error('No native download event within 45 seconds')),45000)})]);clearTimeout(timer);const fn='raw/milwaukee_residential_native.pdf';await d.saveAs(path.join(out,fn));const buf=fs.readFileSync(path.join(out,fn));
+ const m={url:d.url(),retrieved_utc:new Date().toISOString(),method:'ordinary headed Chrome published link click; native PDF download',path:fn,bytes:buf.length,sha256:crypto.createHash('sha256').update(buf).digest('hex'),pdf_signature:buf.subarray(0,5).toString()};fs.writeFileSync(path.join(out,'raw/milwaukee_residential_native.meta.json'),JSON.stringify(m,null,2));console.log(JSON.stringify(m));if(!buf.subarray(0,5).equals(Buffer.from('%PDF-')))throw Error('Not a PDF');
+}finally{await c.close();fs.rmSync(profile,{recursive:true,force:true});}})().catch(e=>{fs.writeFileSync(path.join(out,'raw/milwaukee_native_download.error.txt'),String(e));console.error(e);process.exitCode=1});

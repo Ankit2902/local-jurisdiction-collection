@@ -1,0 +1,150 @@
+[
+  {
+    "jurisdiction": "Phoenix",
+    "official_route": "https://www.phoenix.gov/administration/departments/pdd/tools-resources/codes-ordinance.html",
+    "resolved_publisher": "https://phoenix.municipal.codes/",
+    "families": [
+      {
+        "name": "Phoenix City Code",
+        "base": "https://phoenix.municipal.codes/CC",
+        "sample_tested": true
+      },
+      {
+        "name": "Phoenix Zoning Ordinance",
+        "base": "https://phoenix.municipal.codes/ZO",
+        "sample_tested": false
+      },
+      {
+        "name": "Phoenix City Charter",
+        "base": "https://phoenix.municipal.codes/Charter",
+        "sample_tested": false
+      }
+    ],
+    "evidence": [
+      "evidence/routes/phoenix-official.html",
+      "evidence/phoenix-final/source.html"
+    ],
+    "complete_inventory": false
+  },
+  {
+    "jurisdiction": "Bakersfield",
+    "official_route": "https://www.bakersfieldcity.us/our-government",
+    "resolved_publisher": "https://bakersfield.municipal.codes/Code",
+    "families": [
+      {
+        "name": "Bakersfield Municipal Code",
+        "base": "https://bakersfield.municipal.codes/Code",
+        "sample_tested": true
+      },
+      {
+        "name": "Charter of the City of Bakersfield",
+        "sample_tested": false,
+        "note": "separate publication tab observed; base not independently qualified"
+      },
+      {
+        "name": "Zoning/development code scope",
+        "sample_tested": false,
+        "note": "Not independently inventoried in this bounded sample; inspect complete publication TOC before full collection."
+      }
+    ],
+    "evidence": [
+      "evidence/routes/bakersfield-official.html",
+      "evidence/bakersfield-browser/source.html"
+    ],
+    "complete_inventory": false
+  },
+  {
+    "jurisdiction": "Newark",
+    "official_route": "https://www.newarknj.gov/DocumentCenter/View/676/Engineering-Checklist-for-New-Applications-August-2023-PDF",
+    "resolved_publisher": "https://ecode360.com/NE4043",
+    "families": [
+      {
+        "name": "City Code",
+        "sample_tested": true
+      },
+      {
+        "name": "Charter / ChapterC",
+        "url": "https://ecode360.com/36953361",
+        "sample_tested": false
+      },
+      {
+        "name": "TitleXLI Zoning and Land Use Regulations",
+        "url": "https://ecode360.com/37745895",
+        "sample_tested": false
+      }
+    ],
+    "evidence": [
+      "evidence/newark-code/source.html",
+      "evidence/newark-live/source.html"
+    ],
+    "note": "Official planning checklist and2023 user-friendly zoning PDF route users to eCode360;2023 PDF warns amendments are not automatically incorporated. Official PDF contents corroborated via web search, not raw HTTP artifact in this package.",
+    "complete_inventory": false
+  },
+  {
+    "jurisdiction": "Municipality of Anchorage",
+    "official_route": "https://www.muni.org/Departments/Assembly/PressReleases/Pages/Municipal-Clerk-Launches-New-Online-Municode-Platform.aspx",
+    "resolved_publisher": "https://ecode360.com/AN6998",
+    "migration": "Official May27,2026 launch notice links eCode360 AN6998, replacing previous service; do not use old Municode as current route.",
+    "families": [
+      {
+        "name": "PartI Charter / TitleCHA",
+        "sample_tested": false
+      },
+      {
+        "name": "PartII Anchorage Municipal Code",
+        "sample_tested": true
+      },
+      {
+        "name": "Title21 Land Use Planning",
+        "sample_tested": false
+      },
+      {
+        "name": "TitleR21 Planning and Zoning",
+        "sample_tested": false,
+        "note": "Additional planning/zoning historical material is separately inventoried by publisher; scope must be reviewed before collection."
+      }
+    ],
+    "evidence": [
+      "evidence/routes/anchorage-official.html",
+      "evidence/anchorage-browser/source.html"
+    ],
+    "additional_scope_source": "https://ecode360.com/AN6998",
+    "complete_inventory": false
+  },
+  {
+    "jurisdiction": "Burlington",
+    "original_official_route": "https://www.burlingtonvt.gov/DocumentCenter/View/2824",
+    "original_route_http_status": 404,
+    "current_official_route": "https://www.burlingtonvt.gov/27/Government",
+    "resolved_publisher": "https://www.codepublishing.com/VT/Burlington/",
+    "families": [
+      {
+        "name": "Code of Ordinances chapters1\u201331",
+        "sample_tested": true
+      },
+      {
+        "name": "Charter and Related Laws",
+        "url": "https://www.codepublishing.com/VT/Burlington/#!/BurlingtonCH/BurlingtonCH.html",
+        "sample_tested": false
+      },
+      {
+        "name": "AppendixA Burlington Comprehensive Development Ordinance",
+        "url": "https://www.codepublishing.com/VT/Burlington/#!/BurlingtonAxA/BurlingtonAxA.html",
+        "sample_tested": false
+      },
+      {
+        "name": "AppendicesB\u2013E council/traffic/parks/airport regulations",
+        "sample_tested": false
+      }
+    ],
+    "evidence": [
+      "evidence/burlington-browser/source.html",
+      "evidence/burlington-leaf-export/source.html",
+      "evidence/routes/burlington-official.receipt.json",
+      "evidence/routes/burlington-current.receipt.json"
+    ],
+    "official_corroboration": "https://www.burlingtonvt.gov/DocumentCenter/View/1411/Burlington-City-Ordinance-31-19-31-26-31-43-31-49-PDF",
+    "note": "Government page and official water ordinance PDF corroborated through web search; standalone official requests returned404. Publisher chapter acquisition/download succeeded.",
+    "complete_inventory": false
+  }
+]

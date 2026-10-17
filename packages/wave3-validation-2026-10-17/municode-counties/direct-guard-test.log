@@ -1,0 +1,8 @@
+Traceback (most recent call last):
+  File "/Users/oliverflint/My Drive/Claude/Projects/CompliSolv 2.00/outputs/wave3-validation-2026-10-17/municode-counties/scripts/collect_http.py", line 73, in <module>
+    r=run(a,out)
+      ^^^^^^^^^^
+  File "/Users/oliverflint/My Drive/Claude/Projects/CompliSolv 2.00/outputs/wave3-validation-2026-10-17/municode-counties/scripts/collect_http.py", line 14, in run
+    if context.exists() and json.loads(context.read_text()).get('direct_http')=='stopped':raise RuntimeError('Direct HTTP remains stopped by coordinated access refusal. Use the authorized ordinary browser collector; do not retry denied HTTP routes.')
+                                                                                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+RuntimeError: Direct HTTP remains stopped by coordinated access refusal. Use the authorized ordinary browser collector; do not retry denied HTTP routes.

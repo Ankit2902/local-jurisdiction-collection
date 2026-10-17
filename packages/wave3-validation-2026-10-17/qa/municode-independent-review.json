@@ -1,0 +1,204 @@
+{
+  "reviewed_at": "2026-10-17T18:52:16.774499+00:00",
+  "reviewer": "icc_publishers57 independent read-only review",
+  "scope": "Current municode-cities portable collectors/normalization/validation, not initial retained executed snapshots. No network or other-group mutations.",
+  "inspected_files": {
+    "municode-cities/scripts/collect_browser.cjs": "84eea3f358075546e80b1592cac66f3f73663ba685c3f93742a70e8d62b23ff7",
+    "municode-cities/scripts/normalize.py": "a1316e6451e09b13a66668995cddf805199bd66ad7af30e1f8bd4b6f246fff9f",
+    "municode-cities/scripts/normalize_supplemental.py": "6c426e4e5e3f302cb34168a7ef4b8f68d0c6c32ddb55f0957a8d2338257a6783",
+    "municode-cities/scripts/inspect_pdf.py": "3154751e4177415f0598e36f76c9294e36869f268233a2cfcfeaa51735177154",
+    "municode-cities/scripts/verify_table.cjs": "0775d7a32b84b3266d5748cc704a624b7afa229998198bd52af0029f226d4c36",
+    "municode-cities/scripts/gate_cli.py": "1f358d2d9a4f8851b5e37437164152724606fb711be4e032aeea7a44277d65df",
+    "municode-cities/scripts/municode_shared.py": "3b91d6959df7106c174c071e11652c489c78709c850600fbd18e217c6cb1c6a9",
+    "municode-cities/scripts/run_browser.py": "ea43c5a363f0b99129f0fc13165c9781dcb17cd6a8079ae2d65307b3e3d252a3"
+  },
+  "method": [
+    "Read current source and selected retained identity/publication evidence.",
+    "Scan retained live samples for table-bearing requested Docs.",
+    "Execute LegalHTML in memory with flat/nested table examples, without files or network."
+  ],
+  "findings": [
+    {
+      "id": "R1",
+      "priority": "high",
+      "area": "Shared rate gate / native PDF redirects",
+      "location": "municode-cities/scripts/collect_browser.cjs:48",
+      "finding": "ctx.request.get(pdfUrl) uses automatic redirects outside browser ctx.route. Only the initial URL is reserved and the final response inspected; intermediate PDF redirects are not individually gated or inspected.",
+      "recommendation": "Disable automatic redirects for the request-context download, and explicitly reserve, inspect and record each redirect hop before following it. Preserve challenge/429 stop behavior on every response.",
+      "current_scope": "Portable live-method safety gap. Review did not establish an actual redirected rate-limit event in current retained evidence.",
+      "disposition": "resolved_in_current_source_not_live_retested",
+      "followup_note": "Current PDF loop uses maxRedirects0, reserves every hop, records hops and checks challenge/403/429 before following redirects. No independent network retest."
+    },
+    {
+      "id": "R2",
+      "priority": "high",
+      "area": "Fail-closed shared challenge stop",
+      "location": "municode-cities/scripts/collect_browser.cjs:25",
+      "finding": "The lean root branch throws for non200 or visible Just-a-moment/Access-denied but does not persist stop-browser. The shared stop currently depends on a cf-mitigated response header; a headerless visible challenge can fail one target while run_browser continues with the next.",
+      "recommendation": "Classify visible access challenges separately from ordinary missing-route errors and persist the shared family stop before throwing; include Attention-required and equivalent challenge outcomes. Apply equivalent classification to API challenge responses.",
+      "current_scope": "Portable family-stop safety gap, not a claim that every HTTP404 must stop all targets.",
+      "disposition": "resolved_in_current_source_not_live_retested",
+      "followup_note": "Lean visible/root refusal now persists shared stop; API/organization403/429 paths also persist refusal. No network retest by independent reviewer."
+    },
+    {
+      "id": "R3",
+      "priority": "medium",
+      "area": "Publication and edition identity binding",
+      "location": "municode-cities/scripts/collect_browser.cjs:30-44",
+      "finding": "Cached response reuse chooses the first Products/name, Jobs/latest and ClientContent response by URL substring. The current code verifies state/client name and visible ClientContent product, but does not assert job.ProductId===product.ProductID. The full-bootstrap path can therefore reuse a different publication response from the same municipality.",
+      "recommendation": "Filter cached responses to exact requested client/publication/product URL parameters and assert organization-to-product ClientID, job.ProductId-to-ProductID and visible ClientContent binding before TOC/content acquisition.",
+      "current_scope": "Default minimal path makes explicit requests and is narrower; full-bootstrap optional path and explicit Job binding remain underqualified. No wrong-current-city sample was demonstrated.",
+      "disposition": "resolved_in_current_source_not_live_retested",
+      "followup_note": "Current collector asserts lean organization/client equality, validates full-mode publication-name and query-client consistency, pins Jobs/latest and ClientContent to exact IDs and asserts job.ProductId. No wrong retained sample asserted."
+    },
+    {
+      "id": "R4",
+      "priority": "medium",
+      "area": "Normalization and live qualification",
+      "location": "municode-cities/scripts/normalize.py:38-54; municode-cities/scripts/run_browser.py:24-27",
+      "finding": "The normalizer requires one requested DocID and nonempty text but does not require an acquired/no-access-stop receipt, validate raw samples against response hashes, or verify product/job identity linkage. The runner normalizes samples whenever samples.json exists even when acquisition status failed.",
+      "recommendation": "Bind normalized content to accepted raw API response evidence and product/job/source identity. Distinguish useful partial retained-source normalization from a successful standalone live acquisition; do not let a normalizer output alone promote a failed/access-stopped run to E2E pass.",
+      "current_scope": "Qualification-design gap. A failed native export can coexist with usable earlier legal API bytes; preserve those scopes separately instead of overstating or discarding them.",
+      "disposition": "resolved_with_explicit_bounded_qualification",
+      "followup_note": "Current scripts/verify.py now checks both primary and supplemental raw acquisition bindings: HTTP200/acquired/noaccessstop, exact product/job/node queries, source bytes hashes, sample-content equality, executed source hashes and supplemental observed TOC membership. The normalizer guard remains complemented by the final read-only verifier."
+    },
+    {
+      "id": "R5",
+      "priority": "medium",
+      "area": "Native PDF source and currency qualification",
+      "location": "municode-cities/scripts/collect_browser.cjs:48; municode-cities/scripts/inspect_pdf.py:5-9",
+      "finding": "The collector marks publisher_download passed for HTTP200+%PDF signature. inspect_pdf reads PDF structure and first selected pages but does not match sampled provision bodies or edition/banner text to the native PDF.",
+      "recommendation": "Keep byte acquisition success as a valid transport outcome, but label source/edition qualification separately or perform bounded sample/currency matching before claiming a source-matched export pass.",
+      "current_scope": "Actual native download bytes remain valid evidence; this is missing source/currency qualification, not an allegation of a wrong or synthetic PDF.",
+      "disposition": "resolved_with_explicit_bounded_qualification",
+      "followup_note": "Current edition_check.py and Henderson edition-check evidence qualify native PDF first-page jurisdiction/state and supplement against observed API job metadata. Independent reviewer also read the actual native PDF first page locally and confirmed HENDERSON/NEVADA/SUPPLEMENT59. build_results.py explicitly excludes body-level correspondence/full current-law completeness, downgrades unmatched header editions to partial and records first-pages-only scope. Byte transport success is retained as a separate valid outcome."
+    },
+    {
+      "id": "R6",
+      "priority": "medium",
+      "area": "Rendered QA provenance",
+      "location": "municode-cities/scripts/collect_browser.cjs:53-54",
+      "finding": "The code computes sampleUrl but never navigates there. In lean mode application /dist/ assets are omitted, so rendered.html/png capture the bootstrap page rather than the selected substantive section.",
+      "recommendation": "Label these artifacts as bootstrap-shell evidence, or deliberately perform and qualify selected-section rendering. Keep API acquisition proof distinct from rendered substantive QA claims.",
+      "current_scope": "Documentation/receipt provenance correction; API-backed substantive sampling can still pass independently.",
+      "disposition": "resolved_in_current_source",
+      "followup_note": "Receipt now explicitly labels lean screenshot as normal publisher shell and full-mode screenshot as unasserted page state. Substantive API evidence is distinguished."
+    },
+    {
+      "id": "R7",
+      "priority": "medium",
+      "area": "Table fidelity / CSV text",
+      "location": "municode-cities/scripts/normalize.py:10-25; municode-cities/scripts/verify_table.cjs:3",
+      "finding": "LegalHTML adds no plain-text separator at td/th boundaries, so adjacent cell values concatenate in text/CSV (in-memory example: Unit+Rate becomes UnitRate). It stores only one active table/row/cell, so nested tables overwrite outer state and lose outer metadata rows/tail cells. verify_table inspects only the first JSONL record.",
+      "recommendation": "Add explicit cell/row separators to plain text, use a stack or fail closed on nested tables, and qualify table-bearing records actually covered by DOM comparison. Scope any unsupported nested-table behavior explicitly.",
+      "current_scope": "Reproduced read-only in memory; no currently retained table-bearing live sample was found during this review scan, so no existing table damage is asserted. Original HTML remains recoverable.",
+      "disposition": "resolved_in_current_parser_with_scoped_table_qa",
+      "followup_note": "Flat/nested parser fixes independently verified in memory. Final design explicitly scopes browser DOM QA to one supplemental record; no claim that all primary provisions have source-backed table QA. Queued live table QA outcome itself was not presumed by this source review."
+    }
+  ],
+  "resolution_status": "Final requested narrow current-code rescan completed with no new material finding. Original findings remain resolved/scoped as recorded. No network/live reacquisition by reviewer; root final result verification and manifest sealing remain required.",
+  "positive_boundaries": [
+    "Explicit expected state/client names are required.",
+    "Requested document IDs are matched exactly and empty bodies rejected.",
+    "Original source HTML, node identifiers, product/job IDs and hashes are retained.",
+    "Browser route gate rechecks blocked state after reserving requests; challenge/429 shared gate uses atomic stop before waiting on lock.",
+    "complete_corpus is false and selection is bounded."
+  ],
+  "followup_review": {
+    "reviewed_at": "2026-10-17T18:52:58.644181+00:00",
+    "trigger": "Core reported portable-code patch; current files reread directly.",
+    "files_sha256": {
+      "municode-cities/scripts/collect_browser.cjs": "84eea3f358075546e80b1592cac66f3f73663ba685c3f93742a70e8d62b23ff7",
+      "municode-cities/scripts/normalize.py": "a1316e6451e09b13a66668995cddf805199bd66ad7af30e1f8bd4b6f246fff9f",
+      "municode-cities/scripts/normalize_supplemental.py": "6c426e4e5e3f302cb34168a7ef4b8f68d0c6c32ddb55f0957a8d2338257a6783",
+      "municode-cities/scripts/inspect_pdf.py": "3154751e4177415f0598e36f76c9294e36869f268233a2cfcfeaa51735177154",
+      "municode-cities/scripts/verify_table.cjs": "0775d7a32b84b3266d5748cc704a624b7afa229998198bd52af0029f226d4c36",
+      "municode-cities/scripts/gate_cli.py": "1f358d2d9a4f8851b5e37437164152724606fb711be4e032aeea7a44277d65df",
+      "municode-cities/scripts/municode_shared.py": "3b91d6959df7106c174c071e11652c489c78709c850600fbd18e217c6cb1c6a9",
+      "municode-cities/scripts/run_browser.py": "ea43c5a363f0b99129f0fc13165c9781dcb17cd6a8079ae2d65307b3e3d252a3",
+      "municode-cities/scripts/acquire_node.cjs": "7487a15f977d4cf6aaa4331fdce05b128042550d6751d54b658cd787da27d8a2"
+    },
+    "read_only_in_memory_checks": {
+      "flat_cell_separators": true,
+      "nested_outer_cells_rows_preserved": true
+    },
+    "network_calls": 0,
+    "additional_mutations": "Only this independent audit JSON updated."
+  },
+  "subsequent_reviews": [
+    {
+      "reviewed_at": "2026-10-17T18:53:53.574951+00:00",
+      "trigger": "Core reported final bounded collector fixes and new verifier.",
+      "files_sha256": {
+        "municode-cities/scripts/collect_browser.cjs": "2e91629d646a3b6c6f81140fdea19fb404efbd67b6dd5b327de76f71061154c5",
+        "municode-cities/scripts/normalize.py": "a1316e6451e09b13a66668995cddf805199bd66ad7af30e1f8bd4b6f246fff9f",
+        "municode-cities/scripts/verify.py": "f6ce540965d41eec4cf854d25cf149509fc6d48d8cceb36c857a65561e543ec1",
+        "municode-cities/scripts/normalize_supplemental.py": "6c426e4e5e3f302cb34168a7ef4b8f68d0c6c32ddb55f0957a8d2338257a6783",
+        "municode-cities/scripts/verify_table.cjs": "0775d7a32b84b3266d5748cc704a624b7afa229998198bd52af0029f226d4c36"
+      },
+      "network_calls": 0,
+      "summary": "High-priority collector safety gaps resolved by current-source inspection; primary source binding resolved; supplemental raw binding and final PDF edition evidence remain pending inspection."
+    },
+    {
+      "reviewed_at": "2026-10-17T18:55:46.781974+00:00",
+      "trigger": "Final supplemental raw binding, PDF edition checker and bounded handoff reporting became available.",
+      "files_sha256": {
+        "municode-cities/scripts/collect_browser.cjs": "2e91629d646a3b6c6f81140fdea19fb404efbd67b6dd5b327de76f71061154c5",
+        "municode-cities/scripts/normalize.py": "a1316e6451e09b13a66668995cddf805199bd66ad7af30e1f8bd4b6f246fff9f",
+        "municode-cities/scripts/verify.py": "024f42aeb8c69f116687909311d10d985fd17a3edd4c71aa1c7ddf5735048dd4",
+        "municode-cities/scripts/edition_check.py": "ac67fae3a0a1a4ddb989789ca0306c0308324e658602987db58cf0dc9c4f7f7d",
+        "municode-cities/scripts/build_results.py": "c8b2fe54720a782e7e0da237e76ab8b2b3687785a9b415373ebea0e9b5d04a21",
+        "municode-cities/scripts/normalize_supplemental.py": "6c426e4e5e3f302cb34168a7ef4b8f68d0c6c32ddb55f0957a8d2338257a6783",
+        "municode-cities/scripts/verify_table.cjs": "0775d7a32b84b3266d5748cc704a624b7afa229998198bd52af0029f226d4c36"
+      },
+      "independent_local_pdf_header_check": {
+        "path": "municode-cities/live/henderson/publisher-export.pdf",
+        "sha256": "487eaf288a92a0a20da1f6318575dd81e8648d2e57061f0b4075985935291f7f",
+        "first_page_identity": "Henderson,Nevada",
+        "supplement": "59",
+        "matches_api_job": true,
+        "scope": "First native page only; no body/corpus-completeness test."
+      },
+      "network_calls": 0,
+      "summary": "All initial material code findings resolved in reviewed current source or satisfied by explicit bounded qualification; no independent live rerun. Root final package verifier/manifests remain required."
+    },
+    {
+      "reviewed_at": "2026-10-17T19:10:18.883222+00:00",
+      "trigger": "Root-requested final narrow rescan of denied-PDF evidence/null-product deltas plus strengthened verifier and table/link QA.",
+      "files_sha256": {
+        "municode-cities/scripts/collect_browser.cjs": "7f18f5619d39affca4e31e714c2314b68eb8bab21e9767f90ac25d113ae7a506",
+        "municode-cities/scripts/normalize.py": "a1316e6451e09b13a66668995cddf805199bd66ad7af30e1f8bd4b6f246fff9f",
+        "municode-cities/scripts/verify.py": "73a39bd911df1978f4b70db1f72702b1992452b6d23b10fe5577a0c8441ad9f5",
+        "municode-cities/scripts/verify_table.cjs": "351f9c885c273f7d3ccb3ef2a2380eb869210c7f823840954b44c9fb74c0e9f3"
+      },
+      "collector_delta_assessment": [
+        "Null Products/name Model now raises an explicit missing-publication error before dereferencing/client binding; no substitute publication is silently accepted.",
+        "PDF403/429/challenge branch retains denied response bytes/headers only after persisting stop/cooldown, then throws. This preserves refusal evidence without issuing a further request.",
+        "No new material issue found in these deltas; earlier gated/manual-hop and fail-closed behaviors remain present."
+      ],
+      "verifier_delta_assessment": [
+        "Raw Product, latest Job, pinned TOC and ClientContent values are compared against retained HTTP200 responses.",
+        "Replayed normalized record/table counts must equal reported counts.",
+        "Native PDF edition report is bound to PDF hash; DOM QA bound to normalized file and current QA script; cross-reference result requires all internal targets in same TOC."
+      ],
+      "retained_table_qa_observed": {
+        "passed": true,
+        "row_count": 176,
+        "cell_count": 528,
+        "link_count": 114,
+        "link_mismatches": [],
+        "source_node_id": "TIT4BURELI_CH4.05BULIFESC_4.05.420BULISUFE"
+      },
+      "retained_cross_reference_qa_observed": {
+        "internal_target_count": 105,
+        "targets_in_same_toc": 105,
+        "unresolved_targets": [],
+        "source_attributes_preserved": true,
+        "same_product_attributes": true
+      },
+      "network_calls": 0,
+      "live_result_scope": "Reno Administrative Code recovery was pending at review request; this rescan does not presume its live acquisition or qualification outcome. Root must run final group verifier/manifest against sealed results.",
+      "summary": "No new material code finding in requested final deltas. Reviewed normalizer hash remainsa1316e6451e09b13a66668995cddf805199bd66ad7af30e1f8bd4b6f246fff9f."
+    }
+  ]
+}

@@ -1,0 +1,17 @@
+{
+  "network_requests": 0,
+  "tests": [
+    {
+      "script": "scripts/test_rate_gate.py",
+      "returncode": 0,
+      "stdout": "",
+      "stderr": "test_429_retry_after_persisted_and_no_second_request (__main__.GateTests) ... ok\ntest_browser_429_persists_atomic_stop_and_actual_cooldown (__main__.GateTests) ... ok\ntest_browser_authorization_does_not_resume_direct_http (__main__.GateTests) ... ok\ntest_browser_cli_refuses_existing_cooldown (__main__.GateTests) ... ok\n\n----------------------------------------------------------------------\nRan 4 tests in 0.210s\n\nOK\n"
+    },
+    {
+      "script": "scripts/test_parser.py",
+      "returncode": 0,
+      "stdout": "",
+      "stderr": "test_cells_remain_separate_in_search_text (__main__.ParserRegression) ... ok\ntest_internal_link_attributes_and_linebreaks (__main__.ParserRegression) ... ok\ntest_nested_table_restores_outer_tail_cell_and_row (__main__.ParserRegression) ... ok\n\n----------------------------------------------------------------------\nRan 3 tests in 0.000s\n\nOK\n"
+    }
+  ]
+}

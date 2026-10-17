@@ -1,0 +1,851 @@
+[
+  {
+    "sequence": 59,
+    "jurisdiction": "Cleveland",
+    "state": "OH",
+    "complete_corpus": false,
+    "boundary_note": "",
+    "limitations": [
+      "Only bounded operative samples were normalized. Complete publication traversal, reconciliation and jurisdiction-corpus completeness are untested.",
+      "These general-provision samples contain no operative HTML tables. Table validation is supplied separately by Fairfax County zoning and does not qualify every American Legal layout."
+    ],
+    "next_action": "Implement pinned-edition traversal of each inventoried publication, enumerate all leaf provisions, preserve complex layouts and reconcile counts before production ingestion.",
+    "source_url": "https://codelibrary.amlegal.com/codes/cleveland/latest/cleveland_oh/0-0-0-1193",
+    "source_family": "American Legal",
+    "status": "standalone_e2e_pass",
+    "acquisition_method": "Standalone Playwright ordinary headed Chrome, bounded TOC navigation/scrolling; publisher Download → Save HTML → actual native bytes",
+    "publisher_download": {
+      "status": "passed",
+      "url": "https://export.amlegal.com/api/export-requests/420591bb-a65a-4b9b-a6ce-612e38a6aa4f/download/",
+      "reason": "Actual selected-section native HTML parsed; every exported body matches canonical source ID and complete normalized body, requested heading bound. Not browser print; not a whole-book export.",
+      "bytes": 2148,
+      "sha256": "5f451b2306c89a27bff1c0f8186a9cb1d1f2d55a3d4abf6771ecf5c728e090b1",
+      "record_count": 1,
+      "scope": "Selected substantive section identified by parsed publisher headings",
+      "evidence_paths": [
+        "raw/cleveland/publisher-cleveland-oh-1.html",
+        "raw/cleveland/native-job.json",
+        "parsed/cleveland/publisher/sections.jsonl",
+        "parsed/cleveland/validation.json"
+      ]
+    },
+    "tested_scope": "Bounded rendered chapter/general-provision sample plus one native selected substantive section; no full-publication export/traversal",
+    "record_count": 8,
+    "record_unit": "complete rendered operative section within bounded sample",
+    "table_count": 0,
+    "checks": [
+      {
+        "check": "source_hashes",
+        "passed": true
+      },
+      {
+        "check": "current_dom_jurisdiction_identity",
+        "passed": true
+      },
+      {
+        "check": "expected_publication_binding",
+        "passed": true,
+        "expected_prefix": "https://codelibrary.amlegal.com/codes/cleveland/latest/cleveland_oh/"
+      },
+      {
+        "check": "multiple_substantive_sections",
+        "passed": true,
+        "count": 8
+      },
+      {
+        "check": "citations_headings_text",
+        "passed": true
+      },
+      {
+        "check": "unique_document_ids",
+        "passed": true
+      },
+      {
+        "check": "all_native_bodies_match_source",
+        "passed": true,
+        "matched": 1,
+        "total": 1
+      },
+      {
+        "check": "native_requested_heading_and_id_binding",
+        "passed": true
+      }
+    ],
+    "command": "python scripts/collect_alp.py --sequence 59 --out runs/fresh-cleveland-REPLACE_WITH_NEW_DIRECTORY",
+    "evidence_paths": [
+      "raw/cleveland/receipt.json",
+      "raw/cleveland/sample-expanded.html",
+      "parsed/cleveland/sections.jsonl",
+      "parsed/cleveland/sections.csv",
+      "parsed/cleveland/validation.json"
+    ],
+    "script_paths": [
+      "scripts/collect_alp.py",
+      "scripts/discover_alp.mjs",
+      "scripts/alp_export.mjs",
+      "scripts/alp_normalize.py",
+      "scripts/replay.py"
+    ],
+    "runtime": {
+      "os": "macOS-26.6.2-arm64-arm-64bit",
+      "node": "v24.19.0",
+      "browser": "155.0.8059.84",
+      "python": "3.9.6 (default, May 22 2026, 11:13:45) \n[Clang 21.0.0 (clang-2100.1.1.101)]"
+    },
+    "edition": {
+      "version_label": " Created with Sketch. 2026 S-28 (current) 2026 S-28 (current) Compare to: - No Earlier Versions -",
+      "publication_front_matter": "CITY OF CLEVELAND, OHIO CODE OF ORDINANCES CITY OF CLEVELAND, OHIO CODE OF ORDINANCES Current through legislation passed September 28, 2026 Published by: American Legal Publishing Cincinnati, Ohio 800-445-5588 www.amlegal.com ",
+      "native_job_version": "f0e7839e-f7cd-45ed-a9a9-a52efe04fd04",
+      "full_publication_edition_equivalence_tested": false
+    },
+    "current_municode_engine_live_smoke": {
+      "jurisdiction": "Fairfax County",
+      "scope": "Two-node fresh-output wrapper execution; supports current shared engine, not an additional jurisdiction corpus",
+      "script_sha256": "2e91629d646a3b6c6f81140fdea19fb404efbd67b6dd5b327de76f71061154c5",
+      "evidence_paths": [
+        "runs/fairfax-current-smoke/receipt.json",
+        "runs/fairfax-current-smoke/normalized/validation.json",
+        "research/fairfax-current-smoke.log"
+      ]
+    }
+  },
+  {
+    "sequence": 63,
+    "jurisdiction": "Cincinnati",
+    "state": "OH",
+    "complete_corpus": false,
+    "boundary_note": "",
+    "limitations": [
+      "Only bounded operative samples were normalized. Complete publication traversal, reconciliation and jurisdiction-corpus completeness are untested.",
+      "Initial direct HTTP was challenged403; retained failure receipts are not successes. Direct HTTP remains stopped. Separate root-authorized ordinary browser workflow passed without challenge interaction/cookie transfer/masking.",
+      "API HTML is substantive source evidence; minimal-browser rendered.html/screenshot is an application shell, not rendered-section text QA.",
+      "Current collector source is the Fairfax minimal normal-document/browser API version; Cincinnati retains its exact full-bootstrap executed version. Fresh wrapper also passed2-node Fairfax County smoke with exact final collector; no broader corpus is implied."
+    ],
+    "next_action": "Implement pinned-edition traversal of each inventoried publication, enumerate all leaf provisions, preserve complex layouts and reconcile counts before production ingestion.",
+    "source_url": "https://library.municode.com/oh/cincinnati/codes/code_of_ordinances",
+    "source_family": "Municode (official current route)",
+    "status": "standalone_e2e_pass",
+    "acquisition_method": "standalone-headed-chrome-public-application-api",
+    "publisher_download": {
+      "status": "partial",
+      "url": "https://mcclibrary.blob.core.usgovcloudapi.net/publication-official-copy-pdfs/419/Final.pdf?sv=2026-06-06&se=2026-10-17T19%3A50%3A15Z&sr=b&sp=r&rscd=attachment%3B+filename%3D%22Cincinnati%2C+OH+Code+of+Ordinances.pdf%22&sig=yKSlX0ZJtQO%2BiEdVTIqkkruKehqcvvr7zVZvmoyIxco%3D",
+      "reason": "Whole publication downloaded; first35 front-matter pages plus12 pages at observed Administrative Code bookmark extracted for bounded sample matching. Full PDF normalization and edition equivalence are untested.",
+      "download_outcome": {
+        "status": "passed",
+        "url": "https://mcclibrary.blob.core.usgovcloudapi.net/publication-official-copy-pdfs/419/Final.pdf?sv=2026-06-06&se=2026-10-17T19%3A50%3A15Z&sr=b&sp=r&rscd=attachment%3B+filename%3D%22Cincinnati%2C+OH+Code+of+Ordinances.pdf%22&sig=yKSlX0ZJtQO%2BiEdVTIqkkruKehqcvvr7zVZvmoyIxco%3D",
+        "reason": "Publisher-native publication PDF acquired automatically",
+        "bytes": 40380442,
+        "sha256": "2c22c107a727ea95144ba82438f7c5a5e9c35a169782f208a9c83a660bb32214",
+        "publication_id": 419
+      },
+      "parsed_outcome": {
+        "status": "partial",
+        "pdf_page_count": 3616,
+        "parsed_pages": 47,
+        "page_numbers": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15,
+          16,
+          17,
+          18,
+          19,
+          20,
+          21,
+          22,
+          23,
+          24,
+          25,
+          26,
+          27,
+          28,
+          29,
+          30,
+          31,
+          32,
+          33,
+          34,
+          35,
+          241,
+          242,
+          243,
+          244,
+          245,
+          246,
+          247,
+          248,
+          249,
+          250,
+          251,
+          252
+        ],
+        "matched_nodes": [
+          {
+            "node_id": "THADCO_ARTIGE_S1PRAPOF",
+            "heading": "Sec. 1. - Principal Appointive Officers.",
+            "probe": "the city manager, the assistant city managers, the city solicitor and the police chief",
+            "body_probe_in_native_pdf": false
+          },
+          {
+            "node_id": "THADCO_ARTIGE_S2DEPEDUWHOFTIDI",
+            "heading": "Sec. 2. - Designation to Perform Duties Where Office Title Discontinued.",
+            "probe": "whenever in the ordinances of the city of cincinnati it is provided that anything",
+            "body_probe_in_native_pdf": false
+          },
+          {
+            "node_id": "THADCO_ARTIGE_S3ADORDE",
+            "heading": "Sec. 3. - Administrative Organization of Departments.",
+            "probe": "the director or chief administrative officer of each department, with the approval",
+            "body_probe_in_native_pdf": false
+          }
+        ],
+        "edition_front_matter": [
+          "SUPPLEMENT NO. 47 \nVOLUMES I AND II \nMarch 2026 \n \nMUNICIPAL CODE \nCity of \nCINCINNATI, OHIO \n \nLooseleaf Supplement \n \n This Supplement contains all ordinances deemed advisable to be included at this time \nthrough: \n  \nOrdinance No. 0010-2026, effective January 14, 2026. \n \n See the Zoning Code Table of Amendments and Table of Ordinances Modifying the \n1979 Municipal Code — Volume II for further information. \n \n Included in the Charter is: \n \nElection of November 4, 2025. \n \n See the Charter Comparative Table for further information. \n \nRemove Old Pages Insert New Pages \nVOLUME I \nxiii—xxvi xiii—xxvi \nChecklist of up-to-date pages Checklist of up-to-date pages \n(following Table of Contents) \nSH:13, SH:14 SH:13, SH:14 \nCHT:9—CHT:12 CHT:9—CHT:12 \nCHT:29—CHT:54 CHT:29—CHT:54 \nCD413:1 CD413:1 \nCD413:9—CD413:12 CD413:9—CD413:12 \nCD509:3—CD509:6 CD509:3—CD509:6 \nCD723:47, CD723:48 CD723:47, CD723:48 \nCD730:3—CD730:15 CD730:3—CD730:15 \nCD871:1—CD871:15 CD871:1—CD871:16 \nCD911:7—CD911:10 CD911:7—CD911:10 \nCD1041:3, CD1041:4 CD1041:3, CD1041:4 \nVOLUME II \nxiii—xxvi xiii—xxvi \nCCT:207—CCT:210 CCT:207—CCT:210 \nCDi:1—CDi:134 CDi:1—CDi:134 \n \n Insert and maintain this instruction sheet in front of this publication. File removed ",
+          "INSTRUCTION SHEET—Cont'd.\n \n \npages for reference. \n \n \n "
+        ],
+        "scope": "Whole publication downloaded; first35 front-matter pages plus12 pages at observed Administrative Code bookmark extracted for bounded sample matching. Full PDF normalization and edition equivalence are untested.",
+        "edition_comparison": {
+          "matches_live_latest": false,
+          "native": "Supplement47,March2026; throughOrd0010-2026 effectiveJanuary14,2026",
+          "live": "MUNICIPAL CODE\r\nCity of\r\nCINCINNATI, OHIO\r\n\r\nCodified through\r\nOrdinance No. 0223-2026(Emer.), effective June 17, 2026.\r\n(Supp. No. 48, Update 4)",
+          "reason": "Native publisher PDF lags current API edition"
+        }
+      },
+      "evidence_paths": [
+        "runs/cincinnati-browser/publisher-export.receipt.json",
+        "runs/cincinnati-browser/publisher-export.pdf",
+        "runs/cincinnati-browser/normalized/publisher-sample-pages.jsonl"
+      ]
+    },
+    "tested_scope": "Three exact requested leaf provisions acquired through normal headed-browser public application APIs, pinned product/job identity and visible publication inventory; source-backed structured HTML retained",
+    "record_count": 3,
+    "record_unit": "exact requested leaf provision bound to live product/job IDs",
+    "table_count": 0,
+    "checks": [
+      {
+        "check": "retained_raw_response_and_executed_script_hashes",
+        "passed": true
+      },
+      {
+        "check": "exact_jurisdiction_state_and_visible_publication_identity",
+        "passed": true
+      },
+      {
+        "check": "pinned_job_requested_doc_body_and_heading",
+        "passed": true
+      },
+      {
+        "check": "unique_multiple_substantive_nodes",
+        "passed": true
+      },
+      {
+        "check": "native_pdf_valid_and_bounded_parsing",
+        "passed": true,
+        "matched_body_probes": 0,
+        "total_sample_nodes": 3
+      }
+    ],
+    "command": "python scripts/collect_municode.py --sequence 63 --out runs/fresh-cincinnati-browser-REPLACE_WITH_NEW_DIRECTORY",
+    "evidence_paths": [
+      "runs/cincinnati-browser/receipt.json",
+      "runs/cincinnati-browser/samples.json",
+      "runs/cincinnati-browser/normalized/sections.jsonl",
+      "runs/cincinnati-browser/normalized/sections.csv",
+      "runs/cincinnati-browser/normalized/validation.json"
+    ],
+    "script_paths": [
+      "scripts/collect_municode.py",
+      "scripts/collect_browser.cjs",
+      "scripts/gate_cli.py",
+      "scripts/normalize.py",
+      "scripts/replay.py"
+    ],
+    "runtime": {
+      "os": "darwin",
+      "architecture": "arm64",
+      "node": "v24.19.0",
+      "browser": "155.0.8059.84"
+    },
+    "edition": {
+      "job": {
+        "Id": 500133,
+        "Name": "Supplement 48 Update 4",
+        "ProductId": 19996,
+        "Product": null,
+        "PublishDate": "2026-06-17T04:00:00",
+        "MaxTrackingDate": "2026-08-21T16:48:03",
+        "OnlinePostDate": "2026-09-18T15:17:38.283411",
+        "IsPublished": false,
+        "IsLatest": true,
+        "BannerText": "MUNICIPAL CODE\r\nCity of\r\nCINCINNATI, OHIO\r\n\r\nCodified through\r\nOrdinance No. 0223-2026(Emer.), effective June 17, 2026.\r\n(Supp. No. 48, Update 4)",
+        "PublicationContentOrigin": "FullService_G2H",
+        "OnlineDate": "2026-08-21T16:48:03"
+      },
+      "product_name": "Code of Ordinances",
+      "basis": "Pinned live Jobs/latest identity; whole-publication edition equivalence untested"
+    },
+    "alternatives": [
+      {
+        "source_url": "https://www.cincinnati-oh.gov/sites/dote/assets/File/Appendix%20E%20Cincinnati%20Municipal%20Code.pdf",
+        "status": "bounded_official_pdf_import_pass_currency_unqualified",
+        "record_count": 3,
+        "scope": "Appendix E compilation, first3 delimited Chapter317 sections; filename label ch319 misleading",
+        "evidence_paths": [
+          "raw/official/cincinnati-ch319-excerpt.pdf",
+          "parsed/cincinnati-official-excerpt/sections.jsonl",
+          "parsed/cincinnati-official-excerpt/validation.json"
+        ],
+        "limitation": "No current-through date established; visible source histories include 2002/2003. Not substituted for current Municode corpus."
+      }
+    ],
+    "current_municode_engine_live_smoke": {
+      "jurisdiction": "Fairfax County",
+      "scope": "Two-node fresh-output wrapper execution; supports current shared engine, not an additional jurisdiction corpus",
+      "script_sha256": "2e91629d646a3b6c6f81140fdea19fb404efbd67b6dd5b327de76f71061154c5",
+      "evidence_paths": [
+        "runs/fairfax-current-smoke/receipt.json",
+        "runs/fairfax-current-smoke/normalized/validation.json",
+        "research/fairfax-current-smoke.log"
+      ]
+    }
+  },
+  {
+    "sequence": 72,
+    "jurisdiction": "Fort Wayne",
+    "state": "IN",
+    "complete_corpus": false,
+    "boundary_note": "",
+    "limitations": [
+      "Only bounded operative samples were normalized. Complete publication traversal, reconciliation and jurisdiction-corpus completeness are untested.",
+      "These general-provision samples contain no operative HTML tables. Table validation is supplied separately by Fairfax County zoning and does not qualify every American Legal layout."
+    ],
+    "next_action": "Implement pinned-edition traversal of each inventoried publication, enumerate all leaf provisions, preserve complex layouts and reconcile counts before production ingestion.",
+    "source_url": "https://codelibrary.amlegal.com/codes/ftwayne/latest/ftwayne_in/0-0-0-73",
+    "source_family": "American Legal",
+    "status": "standalone_e2e_pass",
+    "acquisition_method": "Standalone Playwright ordinary headed Chrome, bounded TOC navigation/scrolling; publisher Download → Save HTML → actual native bytes",
+    "publisher_download": {
+      "status": "passed",
+      "url": "https://export.amlegal.com/api/export-requests/c4182aea-86bc-42e9-a7bf-e50cb0870f0d/download/",
+      "reason": "Actual selected-section native HTML parsed; every exported body matches canonical source ID and complete normalized body, requested heading bound. Not browser print; not a whole-book export.",
+      "bytes": 903,
+      "sha256": "476defa151aa6664847cb6a446e1b3af26da5d3c2b575e66ba2211fedc447580",
+      "record_count": 1,
+      "scope": "Selected substantive section identified by parsed publisher headings",
+      "evidence_paths": [
+        "raw/ftwayne/publisher-ftwayne-in-1.html",
+        "raw/ftwayne/native-job.json",
+        "parsed/ftwayne/publisher/sections.jsonl",
+        "parsed/ftwayne/validation.json"
+      ]
+    },
+    "tested_scope": "Bounded rendered chapter/general-provision sample plus one native selected substantive section; no full-publication export/traversal",
+    "record_count": 19,
+    "record_unit": "complete rendered operative section within bounded sample",
+    "table_count": 0,
+    "checks": [
+      {
+        "check": "source_hashes",
+        "passed": true
+      },
+      {
+        "check": "current_dom_jurisdiction_identity",
+        "passed": true
+      },
+      {
+        "check": "expected_publication_binding",
+        "passed": true,
+        "expected_prefix": "https://codelibrary.amlegal.com/codes/ftwayne/latest/ftwayne_in/"
+      },
+      {
+        "check": "multiple_substantive_sections",
+        "passed": true,
+        "count": 19
+      },
+      {
+        "check": "citations_headings_text",
+        "passed": true
+      },
+      {
+        "check": "unique_document_ids",
+        "passed": true
+      },
+      {
+        "check": "all_native_bodies_match_source",
+        "passed": true,
+        "matched": 1,
+        "total": 1
+      },
+      {
+        "check": "native_requested_heading_and_id_binding",
+        "passed": true
+      }
+    ],
+    "command": "python scripts/collect_alp.py --sequence 72 --out runs/fresh-ftwayne-REPLACE_WITH_NEW_DIRECTORY",
+    "evidence_paths": [
+      "raw/ftwayne/receipt.json",
+      "raw/ftwayne/sample-expanded.html",
+      "parsed/ftwayne/sections.jsonl",
+      "parsed/ftwayne/sections.csv",
+      "parsed/ftwayne/validation.json"
+    ],
+    "script_paths": [
+      "scripts/collect_alp.py",
+      "scripts/discover_alp.mjs",
+      "scripts/alp_export.mjs",
+      "scripts/alp_normalize.py",
+      "scripts/replay.py"
+    ],
+    "runtime": {
+      "os": "macOS-26.6.2-arm64-arm-64bit",
+      "node": "v24.19.0",
+      "browser": "155.0.8059.84",
+      "python": "3.9.6 (default, May 22 2026, 11:13:45) \n[Clang 21.0.0 (clang-2100.1.1.101)]"
+    },
+    "edition": {
+      "version_label": " Created with Sketch. 2026 S-60 (current) 2026 S-60 (current) Compare to: - No Earlier Versions -",
+      "publication_front_matter": "FORT WAYNE, INDIANA CODE OF ORDINANCES FORT WAYNE, INDIANA CODE OF ORDINANCES 2026 S-60 Supplement contains: Local legislation current through Ord. G-19-26, passed 7-14-26, and Res. 83-19, passed 12-17-19 State legislation current through Legislative Service, 2025 Acts, Pamphlet No. 3 Published by: American Legal Publishing 525 Vine Street, Suite 310 Cincinnati, Ohio  45202 1-800-445-5588 www.amlegal.com ",
+      "native_job_version": "bb49a33f-0de3-476f-9246-c462d381bfe9",
+      "full_publication_edition_equivalence_tested": false
+    },
+    "current_municode_engine_live_smoke": {
+      "jurisdiction": "Fairfax County",
+      "scope": "Two-node fresh-output wrapper execution; supports current shared engine, not an additional jurisdiction corpus",
+      "script_sha256": "2e91629d646a3b6c6f81140fdea19fb404efbd67b6dd5b327de76f71061154c5",
+      "evidence_paths": [
+        "runs/fairfax-current-smoke/receipt.json",
+        "runs/fairfax-current-smoke/normalized/validation.json",
+        "research/fairfax-current-smoke.log"
+      ]
+    }
+  },
+  {
+    "sequence": 75,
+    "jurisdiction": "Toledo",
+    "state": "OH",
+    "complete_corpus": false,
+    "boundary_note": "",
+    "limitations": [
+      "Only bounded operative samples were normalized. Complete publication traversal, reconciliation and jurisdiction-corpus completeness are untested.",
+      "These general-provision samples contain no operative HTML tables. Table validation is supplied separately by Fairfax County zoning and does not qualify every American Legal layout."
+    ],
+    "next_action": "Implement pinned-edition traversal of each inventoried publication, enumerate all leaf provisions, preserve complex layouts and reconcile counts before production ingestion.",
+    "source_url": "https://codelibrary.amlegal.com/codes/toledo/latest/toledo_oh/0-0-0-84683",
+    "source_family": "American Legal",
+    "status": "standalone_e2e_pass",
+    "acquisition_method": "Standalone Playwright ordinary headed Chrome, bounded TOC navigation/scrolling; publisher Download → Save HTML → actual native bytes",
+    "publisher_download": {
+      "status": "passed",
+      "url": "https://export.amlegal.com/api/export-requests/16f229b6-c3bd-4292-ad03-87762a700ccb/download/",
+      "reason": "Actual selected-section native HTML parsed; every exported body matches canonical source ID and complete normalized body, requested heading bound. Not browser print; not a whole-book export.",
+      "bytes": 1933,
+      "sha256": "c719d30f55fb327f7ef3c7757fd45e928b77fb0d17e189fdfa13afbac6794076",
+      "record_count": 1,
+      "scope": "Selected substantive section identified by parsed publisher headings",
+      "evidence_paths": [
+        "raw/toledo/publisher-toledo-oh-1.html",
+        "raw/toledo/native-job.json",
+        "parsed/toledo/publisher/sections.jsonl",
+        "parsed/toledo/validation.json"
+      ]
+    },
+    "tested_scope": "Bounded rendered chapter/general-provision sample plus one native selected substantive section; no full-publication export/traversal",
+    "record_count": 9,
+    "record_unit": "complete rendered operative section within bounded sample",
+    "table_count": 0,
+    "checks": [
+      {
+        "check": "source_hashes",
+        "passed": true
+      },
+      {
+        "check": "current_dom_jurisdiction_identity",
+        "passed": true
+      },
+      {
+        "check": "expected_publication_binding",
+        "passed": true,
+        "expected_prefix": "https://codelibrary.amlegal.com/codes/toledo/latest/toledo_oh/"
+      },
+      {
+        "check": "multiple_substantive_sections",
+        "passed": true,
+        "count": 9
+      },
+      {
+        "check": "citations_headings_text",
+        "passed": true
+      },
+      {
+        "check": "unique_document_ids",
+        "passed": true
+      },
+      {
+        "check": "all_native_bodies_match_source",
+        "passed": true,
+        "matched": 1,
+        "total": 1
+      },
+      {
+        "check": "native_requested_heading_and_id_binding",
+        "passed": true
+      }
+    ],
+    "command": "python scripts/collect_alp.py --sequence 75 --out runs/fresh-toledo-REPLACE_WITH_NEW_DIRECTORY",
+    "evidence_paths": [
+      "raw/toledo/receipt.json",
+      "raw/toledo/sample-expanded.html",
+      "parsed/toledo/sections.jsonl",
+      "parsed/toledo/sections.csv",
+      "parsed/toledo/validation.json"
+    ],
+    "script_paths": [
+      "scripts/collect_alp.py",
+      "scripts/discover_alp.mjs",
+      "scripts/alp_export.mjs",
+      "scripts/alp_normalize.py",
+      "scripts/replay.py"
+    ],
+    "runtime": {
+      "os": "macOS-26.6.2-arm64-arm-64bit",
+      "node": "v24.19.0",
+      "browser": "155.0.8059.84",
+      "python": "3.9.6 (default, May 22 2026, 11:13:45) \n[Clang 21.0.0 (clang-2100.1.1.101)]"
+    },
+    "edition": {
+      "version_label": " Created with Sketch. 2026 S-105 (current) 2026 S-105 (current) Compare to: - No Earlier Versions -",
+      "publication_front_matter": "TOLEDO MUNICIPAL CODE TOLEDO MUNICIPAL CODE Complete to June 30, 2026 Published by: American Legal Publishing 525 Vine Street, Suite 310 Cincinnati, Ohio  45202 Tel: (800) 445-5588 Internet: http://www.amlegal.com ",
+      "native_job_version": "a74acc18-7515-47d6-b213-72ec5bd22030",
+      "full_publication_edition_equivalence_tested": false
+    },
+    "current_municode_engine_live_smoke": {
+      "jurisdiction": "Fairfax County",
+      "scope": "Two-node fresh-output wrapper execution; supports current shared engine, not an additional jurisdiction corpus",
+      "script_sha256": "2e91629d646a3b6c6f81140fdea19fb404efbd67b6dd5b327de76f71061154c5",
+      "evidence_paths": [
+        "runs/fairfax-current-smoke/receipt.json",
+        "runs/fairfax-current-smoke/normalized/validation.json",
+        "research/fairfax-current-smoke.log"
+      ]
+    }
+  },
+  {
+    "sequence": 94,
+    "jurisdiction": "San Diego County",
+    "state": "CA",
+    "complete_corpus": false,
+    "boundary_note": "Collect county enactments as a separate legal layer; applicability may differ between incorporated and unincorporated areas. Do not sum county and city populations.",
+    "limitations": [
+      "Only bounded operative samples were normalized. Complete publication traversal, reconciliation and jurisdiction-corpus completeness are untested.",
+      "These general-provision samples contain no operative HTML tables. Table validation is supplied separately by Fairfax County zoning and does not qualify every American Legal layout."
+    ],
+    "next_action": "Implement pinned-edition traversal of each inventoried publication, enumerate all leaf provisions, preserve complex layouts and reconcile counts before production ingestion.",
+    "source_url": "https://codelibrary.amlegal.com/codes/san_diego/latest/sandiego_regs/0-0-0-71736",
+    "source_family": "American Legal",
+    "status": "standalone_e2e_pass",
+    "acquisition_method": "Standalone Playwright ordinary headed Chrome, bounded TOC navigation/scrolling; publisher Download → Save HTML → actual native bytes",
+    "publisher_download": {
+      "status": "passed",
+      "url": "https://export.amlegal.com/api/export-requests/383c0ac4-caf2-498a-98fa-3fe5d149c115/download/",
+      "reason": "Actual selected-section native HTML parsed; every exported body matches canonical source ID and complete normalized body, requested heading bound. Not browser print; not a whole-book export.",
+      "bytes": 1368,
+      "sha256": "a6ecc82529ab3e0bc7d14a232d6c939f315a417d26ea695caab6418538265fb5",
+      "record_count": 1,
+      "scope": "Selected substantive section identified by parsed publisher headings",
+      "evidence_paths": [
+        "raw/san_diego/publisher-san_diego-ca-1.html",
+        "raw/san_diego/native-job.json",
+        "parsed/san_diego/publisher/sections.jsonl",
+        "parsed/san_diego/validation.json"
+      ]
+    },
+    "tested_scope": "Bounded rendered chapter/general-provision sample plus one native selected substantive section; no full-publication export/traversal",
+    "record_count": 19,
+    "record_unit": "complete rendered operative section within bounded sample",
+    "table_count": 0,
+    "checks": [
+      {
+        "check": "source_hashes",
+        "passed": true
+      },
+      {
+        "check": "current_dom_jurisdiction_identity",
+        "passed": true
+      },
+      {
+        "check": "expected_publication_binding",
+        "passed": true,
+        "expected_prefix": "https://codelibrary.amlegal.com/codes/san_diego/latest/sandiego_regs/"
+      },
+      {
+        "check": "multiple_substantive_sections",
+        "passed": true,
+        "count": 19
+      },
+      {
+        "check": "citations_headings_text",
+        "passed": true
+      },
+      {
+        "check": "unique_document_ids",
+        "passed": true
+      },
+      {
+        "check": "all_native_bodies_match_source",
+        "passed": true,
+        "matched": 1,
+        "total": 1
+      },
+      {
+        "check": "native_requested_heading_and_id_binding",
+        "passed": true
+      }
+    ],
+    "command": "python scripts/collect_alp.py --sequence 94 --out runs/fresh-san_diego-REPLACE_WITH_NEW_DIRECTORY",
+    "evidence_paths": [
+      "raw/san_diego/receipt.json",
+      "raw/san_diego/sample-expanded.html",
+      "parsed/san_diego/sections.jsonl",
+      "parsed/san_diego/sections.csv",
+      "parsed/san_diego/validation.json"
+    ],
+    "script_paths": [
+      "scripts/collect_alp.py",
+      "scripts/discover_alp.mjs",
+      "scripts/alp_export.mjs",
+      "scripts/alp_normalize.py",
+      "scripts/replay.py"
+    ],
+    "runtime": {
+      "os": "macOS-26.6.2-arm64-arm-64bit",
+      "node": "v24.19.0",
+      "browser": "155.0.8059.84",
+      "python": "3.9.6 (default, May 22 2026, 11:13:45) \n[Clang 21.0.0 (clang-2100.1.1.101)]"
+    },
+    "edition": {
+      "version_label": " Created with Sketch. 2026 S-141 (current) 2026 S-141 (current) Compare to: - No Earlier Versions -",
+      "publication_front_matter": "SAN DIEGO COUNTY CODE OF REGULATORY ORDINANCES SAN DIEGO COUNTY CODE OF REGULATORY ORDINANCES Contains 2026 S-141 Supplement Current through Ord. No. 11008 (N.S.), effective 7-24-26 Published by: American Legal Publishing 525 Vine Street, Suite 310 Cincinnati, Ohio  45202 Tel: (800) 445-5588 Internet: http://www.amlegal.com ________ Adopted by Ordinance No. 2020 (New Series) Effective April 1, 1960 ________ Published by Order of the Board of Supervisors ________ Updated and Reprinted, February, 2000 ________ ",
+      "native_job_version": "ab86b7ac-463e-475c-8132-44261fe15e45",
+      "full_publication_edition_equivalence_tested": false
+    },
+    "current_municode_engine_live_smoke": {
+      "jurisdiction": "Fairfax County",
+      "scope": "Two-node fresh-output wrapper execution; supports current shared engine, not an additional jurisdiction corpus",
+      "script_sha256": "2e91629d646a3b6c6f81140fdea19fb404efbd67b6dd5b327de76f71061154c5",
+      "evidence_paths": [
+        "runs/fairfax-current-smoke/receipt.json",
+        "runs/fairfax-current-smoke/normalized/validation.json",
+        "research/fairfax-current-smoke.log"
+      ]
+    }
+  },
+  {
+    "sequence": 100,
+    "jurisdiction": "Fairfax County",
+    "state": "VA",
+    "complete_corpus": false,
+    "boundary_note": "Collect county enactments as a separate legal layer; applicability may differ between incorporated and unincorporated areas. Do not sum county and city populations.",
+    "limitations": [
+      "Only bounded operative samples were normalized. Complete publication traversal, reconciliation and jurisdiction-corpus completeness are untested.",
+      "Initial direct HTTP was challenged403; retained failure receipts are not successes. Direct HTTP remains stopped. Separate root-authorized ordinary browser workflow passed without challenge interaction/cookie transfer/masking.",
+      "API HTML is substantive source evidence; minimal-browser rendered.html/screenshot is an application shell, not rendered-section text QA.",
+      "Current collector source is the Fairfax minimal normal-document/browser API version; Cincinnati retains its exact full-bootstrap executed version. Fresh wrapper also passed2-node Fairfax County smoke with exact final collector; no broader corpus is implied."
+    ],
+    "next_action": "Implement pinned-edition traversal of each inventoried publication, enumerate all leaf provisions, preserve complex layouts and reconcile counts before production ingestion.",
+    "source_url": "https://library.municode.com/va/fairfax_county/codes/code_of_ordinances",
+    "source_family": "Municode (official current route)",
+    "status": "standalone_e2e_pass",
+    "acquisition_method": "standalone-headed-chrome-public-api-minimal-document",
+    "publisher_download": {
+      "status": "unavailable",
+      "url": null,
+      "reason": "ClientContent inventory reports no enabled publication PDF for primary code",
+      "download_outcome": {
+        "status": "unavailable",
+        "reason": "ClientContent inventory reports no enabled publication PDF for primary code",
+        "publication": null
+      },
+      "parsed_outcome": {
+        "status": "unavailable",
+        "reason": "ClientContent inventory reports no enabled publication PDF for primary code",
+        "parsed_pages": 0,
+        "matched_nodes": []
+      },
+      "evidence_paths": [
+        "runs/fairfax-county-browser/client-content.json",
+        "runs/fairfax-county-browser/receipt.json"
+      ]
+    },
+    "tested_scope": "Three exact requested leaf provisions acquired through normal headed-browser public application APIs, pinned product/job identity and visible publication inventory; source-backed structured HTML retained",
+    "record_count": 3,
+    "record_unit": "exact requested leaf provision bound to live product/job IDs",
+    "table_count": 0,
+    "checks": [
+      {
+        "check": "retained_raw_response_and_executed_script_hashes",
+        "passed": true
+      },
+      {
+        "check": "exact_jurisdiction_state_and_visible_publication_identity",
+        "passed": true
+      },
+      {
+        "check": "pinned_job_requested_doc_body_and_heading",
+        "passed": true
+      },
+      {
+        "check": "unique_multiple_substantive_nodes",
+        "passed": true
+      }
+    ],
+    "command": "python scripts/collect_municode.py --sequence 100 --out runs/fresh-fairfax-county-browser-REPLACE_WITH_NEW_DIRECTORY",
+    "evidence_paths": [
+      "runs/fairfax-county-browser/receipt.json",
+      "runs/fairfax-county-browser/samples.json",
+      "runs/fairfax-county-browser/normalized/sections.jsonl",
+      "runs/fairfax-county-browser/normalized/sections.csv",
+      "runs/fairfax-county-browser/normalized/validation.json"
+    ],
+    "script_paths": [
+      "scripts/collect_municode.py",
+      "scripts/collect_browser.cjs",
+      "scripts/gate_cli.py",
+      "scripts/normalize.py",
+      "scripts/replay.py"
+    ],
+    "runtime": {
+      "os": "darwin",
+      "architecture": "arm64",
+      "node": "v24.19.0",
+      "browser": "155.0.8059.84"
+    },
+    "edition": {
+      "job": {
+        "Id": 493833,
+        "Name": "Supplement 180",
+        "ProductId": 10051,
+        "Product": null,
+        "PublishDate": "2026-02-17T05:00:00",
+        "MaxTrackingDate": "2026-08-26T14:14:25",
+        "OnlinePostDate": "2026-08-26T20:59:08.471645",
+        "IsPublished": false,
+        "IsLatest": true,
+        "BannerText": "CODE \r\nCounty of\r\nFAIRFAX, VIRGINIA\r\n\r\nCodified through\r\nOrdinance No. 03-26-M-60, adopted February 17, 2026.\r\n(Supp. No. 180, 8-26)",
+        "PublicationContentOrigin": "FullService_G2H",
+        "OnlineDate": "2026-08-26T14:14:25"
+      },
+      "product_name": "Code of Ordinances",
+      "basis": "Pinned live Jobs/latest identity; whole-publication edition equivalence untested"
+    },
+    "alternatives": [
+      {
+        "source_family": "enCodePlus; independent County Zoning Ordinance Chapter112.2",
+        "source_url": "https://online.encodeplus.com/regs/fairfaxcounty-va/doc-viewer.aspx?secid=2214",
+        "status": "standalone_e2e_pass",
+        "record_count": 3,
+        "record_unit": "requested operative zoning provision",
+        "table_count": 1,
+        "table_cell_count": 114,
+        "spanned_cell_count": 6,
+        "publisher_download": {
+          "status": "passed",
+          "url": "https://online.encodeplus.com/regs/fairfaxcounty-va/export2doc.aspx?pdf=1&tocid=001.003.001",
+          "bytes": 70335,
+          "sha256": "adb0bdb25eb007f07f8bcf32c238f812d58e361ba90ed54c844244ac2d045581",
+          "scope": {
+            "section_id": "2230",
+            "heading": "2100. Zoning Districts and Boundaries",
+            "tocid": "001.003.001"
+          },
+          "reason": "Publisher OpenPDF action; actual bytes retained. PDF parsing/edition comparison recorded separately.",
+          "parsed_outcome": {
+            "check": "native_pdf_valid_and_identified",
+            "passed": true,
+            "pages": 2,
+            "all_source_table_cells_present": true,
+            "matched_source_table_cells": 114,
+            "scope": "Selected zoning §2100; primary general county code remains a separate publication"
+          }
+        },
+        "checks": [
+          {
+            "section_id": "2218",
+            "requested_container_id_exact": true,
+            "toc_heading_matches_body": true,
+            "nonempty_operative_body": true,
+            "table_count": 0,
+            "table_checks": [],
+            "cross_references_retained": 0,
+            "publisher_placeholder_dates_excluded": 1
+          },
+          {
+            "section_id": "2219",
+            "requested_container_id_exact": true,
+            "toc_heading_matches_body": true,
+            "nonempty_operative_body": true,
+            "table_count": 0,
+            "table_checks": [],
+            "cross_references_retained": 0,
+            "publisher_placeholder_dates_excluded": 1
+          },
+          {
+            "section_id": "2230",
+            "requested_container_id_exact": true,
+            "toc_heading_matches_body": true,
+            "nonempty_operative_body": true,
+            "table_count": 1,
+            "table_checks": [
+              {
+                "rows": 26,
+                "cells": 114,
+                "independent_text_span_match": true
+              }
+            ],
+            "cross_references_retained": 42,
+            "publisher_placeholder_dates_excluded": 1
+          },
+          {
+            "check": "native_pdf_valid_and_identified",
+            "passed": true,
+            "pages": 2,
+            "all_source_table_cells_present": true,
+            "matched_source_table_cells": 114,
+            "scope": "Selected zoning §2100; primary general county code remains a separate publication"
+          }
+        ],
+        "evidence_paths": [
+          "runs/fairfax-zoning-live/receipt.json",
+          "runs/fairfax-zoning-live/parsed/sections.jsonl",
+          "runs/fairfax-zoning-live/parsed/sections.csv",
+          "runs/fairfax-zoning-live/publisher-section.pdf",
+          "parsed/fairfax-zoning-validation.json",
+          "research/fairfax-zoning-native-page-1.png"
+        ],
+        "command": "python scripts/fairfax_encode.py --out runs/fairfax-zoning-FRESH",
+        "limitation": "Independent zoning sample, not primary CountyCode; native PDF footer July1,2026 vs official zoning update July2,2026. Exact full-edition equivalence unproven."
+      }
+    ],
+    "current_municode_engine_live_smoke": {
+      "jurisdiction": "Fairfax County",
+      "scope": "Two-node fresh-output wrapper execution; supports current shared engine, not an additional jurisdiction corpus",
+      "script_sha256": "2e91629d646a3b6c6f81140fdea19fb404efbd67b6dd5b327de76f71061154c5",
+      "evidence_paths": [
+        "runs/fairfax-current-smoke/receipt.json",
+        "runs/fairfax-current-smoke/normalized/validation.json",
+        "research/fairfax-current-smoke.log"
+      ]
+    }
+  }
+]

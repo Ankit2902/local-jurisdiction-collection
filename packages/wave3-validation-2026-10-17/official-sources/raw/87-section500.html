@@ -1,0 +1,195 @@
+
+    <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+    <html>
+    <head>
+
+        <title>CODE OF ORDINANCES SAVANNAH, GEORGIA</title>
+        <link type="text/css" rel="Stylesheet" href="jqueryui/css/jqueryui.css" media="all" />
+        <link type="text/css" rel="Stylesheet" href="css/ui.css" media="all" />
+        <link type="text/css" rel="Stylesheet" href="css/customui.css" media="all" />
+        <link type="text/css" rel="Stylesheet" href="css/document.css" media="all" />
+        <link type="text/css" rel="Stylesheet" href="css/customdoc.css" media="all" />
+        <link type="text/css" rel="Stylesheet" href="tablestyles.aspx" media="all" />
+        <link rel="StyleSheet" type="text/css" href="/common/font-awesome/css/all.min.css">
+        <link type="text/css" rel="Stylesheet" href="css/docprint.css" media="print" />
+        <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+        <script type="text/javascript" src="jqueryui/js/jquery-ui-1.8.21.custom.min.js"></script>
+        <script type="text/javascript" src="js/doc-view.js?_t=290"></script>
+        <script type="text/javascript" src="js/tabletools.js"></script>
+        <script type="text/javascript" src="js/tabs.js"></script>
+        <script type="text/javascript">
+            var iframeReady = false;
+        </script>
+        
+    </head>
+    <body class='doc-view'>
+        <script type="text/javascript">
+            $(document).ready(function () {
+                ZP.DocView.InitDef();
+                ZP.DocView.OpenDefinitionPage = null;
+                ZP.DocView.OpenDefinitionMode = '_self';
+                ZP.DocView.OpenXRefPage = 'doc-viewer.aspx#$2-';
+                ZP.DocView.OpenXRefMode = '_blank';
+                $(window).bind('hashchange', ZP.DocView.HashChanged);
+        
+        if (typeof ZP.DocView.ZoomClasses == 'undefined') {
+            ZP.DocView.ZoomClasses = ["Unzoom1", "", "Zoom1", "Zoom2", "Zoom3", "Zoom4"];
+        }
+        ZP.DocView.InitializeZoom();
+        EC.SortedTable.Init(".ord-tbl, .stat-tbl", ".sortable");
+        EC.Tabs.PositionLeftTabs();
+    });
+
+
+        </script>
+
+
+    <div id="doc-viewer">
+        
+
+<div id="doc-view">
+    <div id="doc-view-content">
+        
+<div id="pageControls">
+<script type="text/javascript" >
+    function clearEffDate() {
+        jQuery.get("doc-view-helper.aspx?task=currentversion", function () {
+            window.location.reload();
+        });
+        return false;
+    }
+</script>
+     <div class="pageControls psuedoTable" role="navigation" aria-label="Document Navigation">  
+        <div class="psuedoTableBody" >     
+            <div class="psuedoTableRow">         
+                <div class="pageControls_outer" ></div>
+                <div class="pageControls_inner left">
+                    <a id='button1' onclick='ZP.DocView.PrintDoc("001.004.001.001.002",false);return false;' href="#" title="Print" role="button"> 
+                        <img alt="Print" src="resources/btn-print.png" /></a>
+                    <a id='Button2' onclick='ZP.DocView.OpenPDF("001.004.001.001.002",false);return false;' href="#" title="Export PDF" role="button">
+                        <img alt="Generate PDF" src="resources/btn-makepdf.png" /></a>
+                        <a class="popup" params="toobar=0,menubar=0,scrollbars=1,height=436,width=626" href="https://www.facebook.com/sharer/sharer.php?s=100&p[title]=CODE+OF+ORDINANCES+SAVANNAH%2c+GEORGIA&p[summary]=Savannah%2c+Georgia+City+of+Savannah+Code+of+Ordinances&p[url]=https%3a%2f%2fonline.encodeplus.com%2fregs%2fsavannah-ga%2fdoc-viewer.aspx%3fsecid%3d1" title="Click to Share this page" style="text-decoration:none;border:none;" ><img src="resources/share-icon.png" alt="Click to Share this page on facebook" /></a>     
+                </div>
+                <div  class="pageControls_inner breadCrumbs" title="Navigation 'breadcrumbs'">
+                     <div class='breadCrumbs'><a href='/regs/savannah-ga/doc-viewer.aspx?tocid=001' >CODE OF ORDINANCES SAVANNAH, GEORGIA</a> &gt; <a href='/regs/savannah-ga/doc-viewer.aspx?tocid=001.004' >DIVISION II</a> &gt; <a href='/regs/savannah-ga/doc-viewer.aspx?tocid=001.004.001' >Part 1 - INTRODUCTION</a> &gt; <a href='/regs/savannah-ga/doc-viewer.aspx?tocid=001.004.001.001' >CHAPTER 1. - ADOPTION OF CODE</a> &gt; <a href='/regs/savannah-ga/doc-viewer.aspx?tocid=001.004.001.001.002' >Sec. 1-1002. - Effective date; resolutions.</a></div>
+                </div>
+                 <div  class="pageControls_inner right">       
+                     <ul >  
+                         <li>
+                            <a id='button3' class="nav" onclick="ZP.DocView.LoadPrevDoc('001.004.001.001.002');return false;" href="#"  title="Previous Section" accesskey="," role="button"><img alt="Go to Previous Section" src="resources/btn-back.png" /></a>
+                         </li>  
+                         <li>
+                             <a id='Button4'  class="nav" onclick="ZP.DocView.LoadNextDoc('001.004.001.001.002');return false;" href="#"  title="Next Section" accesskey="." role="button"> <img alt="Go to Next Section" src="resources/btn-forward.png" /></a>
+                         </li>   
+                         <li>
+                             <a id="pageControls-overflow" onclick="ZP.DocView.PgCntrlOverflowClick(event);return false;" href="#" title="Click for more options" role="button" >
+                            <img src="resources/overflow-btn.png" alt="Click for more options" /></a>
+                               
+  <ul class="submenu" role="dialog">
+            <li><a href="/regs/savannah-ga/doc-viewer.aspx?secid=1" onclick="javascript:alert('Right click this icon and select \'add to favorites\' or \'Bookmark this Link\' to bookmark this page');return false;" title="Bookmark this page" >Bookmark</a></li>
+            <li>
+                                        
+                <a id="zoomMinus" onclick="ZP.DocView.DecreaseZoom();return false;" href="#" title="Decrease Zoom" class="zoomLink glyphicon" >&#x2212;</a>
+                <a onclick="ZP.DocView.DefaultZoom();return false;"  href="#" title="Default Zoom"  class="zoomLink" >100%</a>
+                <a id="zoomPlus" onclick="ZP.DocView.IncreaseZoom();return false;" href="#" title="Increase Zoom"  class="zoomLink glyphicon" > &#x2b; </a>
+            </li>
+           
+                           
+                
+                <li><a id="subscribe-btn" onclick="ZP.DocView.OpenSubscribeDlg();return false;" title="Subscribe to Notifications" href="subscribe.aspx" role="button">Subscribe</a></li>
+                <li><a id="unsubscribe-btn" onclick="ZP.DocView.OpenUnsubscribeDlg();return false;" title="Cancel Notifications Subscription" href="unsubscribe.aspx" role="button" >Unsubscribe</a></li>
+                
+</ul>
+                         </li>        
+                        
+                        </ul>   
+                </div>
+                <div class="pageControls_outer"></div>
+            </div>
+        </div>
+    </div> 
+    <div id="subscribe-dialog" title="" aria-live="polite" >
+        <div id="sub-message"></div>
+        <div id="sub-form-cntr"></div>
+    </div>
+</div>
+
+
+        <div id="thePage-outer" >
+            <div id="thePage-wrap" class="thePage-wrap ">
+                <div id="outer-doc-banner"></div>
+                <div id="thePage-border">
+                    <div id="thePage" class="textPage " tocid="001.004.001.001.002" secid="500" role="main" aria-label="Document">
+                        <img id="sectionBanner" title="Document text banner" src="resources/docbanner.png" width="720" valign="Top" alt="Document text banner">
+                        
+                        <section id='secid-1' class='secLvl1 _001' tabindex='-1' data-secid='1'> 
+<h1>CODE OF ORDINANCES SAVANNAH, GEORGIA</h1>
+
+
+
+
+</section> 
+<section id='secid-6486' class='secLvl2 _001 _001-004' tabindex='-1' data-secid='6486'> 
+<h2>DIVISION II</h2>
+
+
+
+
+</section> 
+<section id='secid-497' class='secLvl3 _001 _001-004 _001-004-001' tabindex='-1' data-secid='497'> 
+<h2>Part 1 - INTRODUCTION</h2>
+
+
+
+
+</section> 
+<section id='secid-498' class='secLvl4 _001 _001-004 _001-004-001 _001-004-001-001' tabindex='-1' data-secid='498'> 
+<h3>CHAPTER 1. - ADOPTION OF CODE</h3>
+
+
+
+
+</section> 
+<section id='secid-500' class='secLvl5 _001 _001-004 _001-004-001 _001-004-001-001 _001-004-001-001-002' tabindex='-1' data-secid='500'> 
+<h5>Sec. 1-1002. - Effective date; resolutions.</h5>
+
+<p>All provisions of such Code shall be in full force and effect 30 days from the date this chapter becomes law and all ordinances of a general and permanent nature of the city enacted on final passage on or before March 26, 1976, and not in such Code or recognized and continued in force by reference herein and which are in conflict herewith are hereby repealed from and after the effective date of this chapter, except as hereinafter provided.</p>
+
+<p>(Code 1977, &sect; 1-1002)</p>
+
+<p class='archiveNotice nullValue '>Effective on:&nbsp;1/1/1901</p>
+</section> 
+
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<button id="commentsCTA" title="Add a Comment" aria-label="Add a Comment" role="button" tabindex="2">
+    COMMENTS
+</button>
+
+<!-- hidden div below is for definition popup -->
+<div id="defFrame">
+    <img alt='loading progress' src="resources/progress.gif" /></div>
+<!-- hidden div below is for ajax loading progress-->
+<div id='progress-template' style='display: none;'>
+    <div class="progress" style='padding: 100px;'>
+        <div style='margin: auto; display: block; width: 200px; border: 1px solid #ccc; background-color: #eee; padding: 10px;'>
+            <img alt='loading progress' src='resources/progress.gif' style='margin: auto; display: block;' />
+            <br />
+            <span style='margin: auto; display: block; width: 75px; padding-left: 10px;'>Loading...</span>
+        </div>
+    </div>
+</div>
+<iframe style="width: 1px; height: 1px" src="" id="printiframe" name="printiframe" onload="ZP.DocView.IFrameReady();" title="Print frame" aria-hidden="true" role="presentation"></iframe>
+
+    </div>
+
+
+    </body>
+</html>

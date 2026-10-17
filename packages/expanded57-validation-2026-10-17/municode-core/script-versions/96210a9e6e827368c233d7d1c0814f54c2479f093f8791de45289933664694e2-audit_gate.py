@@ -1,0 +1,9 @@
+"""Read-only audit of retained shared request-start log. Never performs network or mutates evidence."""
+import argparse,json
+from pathlib import Path
+from datetime import datetime,timezone
+from urllib.parse import urlparse
+ROOT=Path(__file__).resolve().parent
+p=argparse.ArgumentParser();p.add_argument('--log',type=Path,default=ROOT/'rate-gate-requests.jsonl');p.add_argument('--change',type=Path,default=ROOT/'gate-change.json');a=p.parse_args();rows=[json.loads(line) for line in a.log.read_text().splitlines() if line.strip()];times=[datetime.fromisoformat(r['started_at'].replace('Z','+00:00')).timestamp() for r in rows];change=json.loads(a.change.read_text());cut=datetime.fromisoformat(change['changed_at']).timestamp()+120;settled=[t for t in times if t>=cut]
+def mingap(ts):return min([ts[i]-ts[i-1] for i in range(1,len(ts))],default=None)
+report={'request_reservations_logged':len(rows),'first_logged_utc':rows[0]['started_at'] if rows else None,'last_logged_utc':rows[-1]['started_at'] if rows else None,'minimum_all_logged_start_gap_seconds':mingap(times),'initial_target_seconds':3,'remediated_nominal_interval_seconds':3.5,'settled_window_start_utc':datetime.fromtimestamp(cut,timezone.utc).isoformat(),'settled_window_note':'Starts120s after guard patch to allow existing copied helpers/drivers to drain/restart','settled_window_count':len(settled),'minimum_settled_logged_start_gap_seconds':mingap(settled),'logged_direct_http_429_count':sum(r.get('status')==429 for r in rows),'scope_note':'Gate reservation/start log, not packet capture. Browser response statuses are in individual acquisition receipts; the gate log includes both public API and ordinary application resource reservations. Initial exploratory unpaced browser preflight is explicitly excluded and retained separately.'};print(json.dumps(report,indent=2))

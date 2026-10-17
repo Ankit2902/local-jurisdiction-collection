@@ -1,0 +1,24 @@
+# Expanded 57 validation handoff
+
+User requests Sol subagents to validate live collection for the first 57 proposed jurisdictions, prioritizing standalone scripts and publisher downloads. Deliver tested methods, not a production full-corpus collection. Prior user explicitly authorized both Codex CUA and standalone ordinary headed browser runtimes. Requests/urllib, Playwright and normal installed headed browsers are permitted here. Prefer no Codex runtime dependency. Never bypass access challenges, paywalls, login requirements or rate limits. Record 403/429 and respect Retry-After; no proxy/IP rotation.
+
+Authoritative workspace is `/Users/oliverflint/My Drive/Claude/Projects/CompliSolv 2.00`. The similarly named CloudStorage directory has stale placeholders. Do not modify databases or existing sealed packages. Write only in your assigned subdirectory, unless you explicitly own a shared file. No GitHub push is requested in this turn.
+
+Read assignment.json. Resolve current primary code and official source route, including publisher migrations. Inventory separately published charter/zoning/development code families; do not call a sample or single publication a complete jurisdiction corpus.
+
+Prior packages available under outputs: local-extraction-e2e-2026-10-15, local-extraction-standalone-2026-10-15, ecode360-headed-2026-10-16. Reuse reviewed code where suitable, copy dependencies into your deliverable so it can run after relocation. Avoid runtime dependency on the old packages or this machine's absolute paths.
+
+For each target, attempt a real standalone acquisition through parsing and normalized JSONL/CSV output. Prefer publisher-native downloadable code PDFs/HTML/XML/ZIP where available; then documented public HTTP content or ordinary browser acquisition. Browser print-to-PDF is not publisher export. No generic homepage-only or synthetic parser test counts as live end-to-end. Aim for a bounded substantive sample with identifiers/headings/citations and multiple sections; include table/cross-reference quality checks when source has them. Full publisher exports may be downloaded when reasonably sized, but mark section/record completeness precisely. Capture raw evidence, acquisition time/URL, content hashes, command, runtime and script hash, output counts, and validation checks. Keep failure evidence too.
+
+Deliver in your directory: runnable scripts, dependency requirements, README.md with setup/examples/limitations, results.json, test/verification command, raw sample evidence and parsed sample outputs. Use conservative status: standalone_e2e_pass, standalone_partial, manual_download_import_pass, cua_only, blocked, untested. Record publisher_download status separately: passed, partial, unavailable, blocked, not_tested. A manual download import does not prove automated acquisition.
+
+results.json must be an array, exactly one object per assignment row, with: sequence, jurisdiction, state, source_url, source_family, status, acquisition_method, publisher_download (object with status, url if known, reason and evidence paths), tested_scope, complete_corpus (false unless rigorously demonstrated), record_count, table_count if measured, checks (array), command, evidence_paths (relative to package root), script_paths (relative to package root), limitations (array), next_action. Additional useful fields allowed. No PASS without evidence and a currently rerunnable script. Prefer scripts supporting --offline replay of retained raw evidence for root verification.
+
+Network etiquette: keep per-family live requests serial and slow. Municode core agent owns shared acquisition implementation; other Municode agents may investigate official pages and exports while waiting for it, then reuse the core's rate-limited mechanism. Core must coordinate a cross-process publisher lock/rate gate across all 3 groups (default >=3 seconds between requests and a shared cooldown on 429). Do not retry repeated blocks during a cooldown. All agents report early blockers and source migrations to root; pursue useful offline/alternative-source work while rate-limited.
+
+Bundled Python: /Users/oliverflint/.cache/codex-runtimes/codex-primary-runtime/dependencies/python/bin/python3
+Bundled Node: /Users/oliverflint/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/bin/node
+Bundled node_modules: /Users/oliverflint/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/node_modules
+Do not modify bundled dependency directories. If extra packages required, use a dedicated venv in your directory and exclude venv/browser profiles from deliverable.
+
+Be candid about bounded validation. Stop after meaningful successful checks; no unnecessary whole-code crawling. If blocked, still deliver scripts with precise tested/untested parts and useful publisher-download alternatives. Root will independently check the integrated handoff.

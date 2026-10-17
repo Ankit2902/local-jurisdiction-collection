@@ -1,0 +1,582 @@
+[
+  {
+    "sequence": 73,
+    "jurisdiction": "Buffalo",
+    "state": "NY",
+    "source_url": "https://ecode360.com/11767296",
+    "source_family": "eCode360",
+    "status": "standalone_e2e_pass",
+    "acquisition_method": "Standalone Python Playwright ordinary headed Chrome, fresh isolated context; observed public current publisher route and UI-native export; no human/CUA assistance or imported state.",
+    "publisher_download": {
+      "status": "passed",
+      "url": "https://ecode360.com/output/get/754333215",
+      "reason": "Actual native bytes retained and source-match verification passed.",
+      "native_format": "PDF",
+      "tested_scope": "Selected section § 175-1: Enumeration of fees.",
+      "record_count": 1,
+      "bytes": 301076,
+      "sha256": "f49f586527107fbbac29a0a45f3786b24f8fd38620b32f503fe92abc9f4dce53",
+      "evidence_paths": [
+        "evidence/buffalo/sample/publisher-export.json",
+        "evidence/buffalo/sample/publisher-export-0.pdf",
+        "evidence/offline-verification.json",
+        "evidence/buffalo/sample/publisher-export-text.txt"
+      ]
+    },
+    "tested_scope": "Chapter175 Fees, five section records175-1 through175-5;39tables.",
+    "complete_corpus": false,
+    "record_count": 5,
+    "record_units": "Owned source content nodes, including section and independently owned article history bodies as counted below.",
+    "record_type_counts": {
+      "section": 5
+    },
+    "repealed_reserved_records": [],
+    "table_count": 39,
+    "table_qa": [
+      {
+        "node_id": "13589773",
+        "tables": 37,
+        "rows": 1602,
+        "cells": 5591,
+        "spanned_cells": 989,
+        "text_and_geometry_equal": true
+      },
+      {
+        "node_id": "13589999",
+        "tables": 1,
+        "rows": 15,
+        "cells": 75,
+        "spanned_cells": 0,
+        "text_and_geometry_equal": true
+      },
+      {
+        "node_id": "13590000",
+        "tables": 1,
+        "rows": 8,
+        "cells": 16,
+        "spanned_cells": 8,
+        "text_and_geometry_equal": true
+      }
+    ],
+    "checks": [
+      "Raw source and native download SHA256 verified.",
+      "Deterministic read-only offline replay byte-equal JSONL/CSV; CSV round-trip equal.",
+      "Expected publisher customer/code/date identity and requested chapter bodyGUID verified for eCode360.",
+      "Unique canonical record URLs; nonempty citations/bodies; zero replacement characters.",
+      "Negative offline tests reject altered raw evidence and wrong publication edition.",
+      "Genuine selected-section publisher PDF acquired through observed UI;selected-body word coverage100%.",
+      "Source table row/cell structure, spans and characters ignoring whitespace preserved: 39tables, 1625rows, 5682cells, 997spanned cells.",
+      "All 274 source anchor targets in owned bodies preserved in semanticHTML."
+    ],
+    "command": ".venv/bin/python collect.py --job buffalo --browser --export --out fresh/buffalo",
+    "offline_command": ".venv/bin/python verify.py",
+    "path_base": "icc-ecode/ package root; prefix during aggregate integration",
+    "evidence_paths": [
+      "evidence/buffalo/sample/source.html",
+      "evidence/buffalo/sample/source.png",
+      "evidence/buffalo/sample/acquisition.json",
+      "evidence/buffalo/sample/executed-collect.py",
+      "evidence/buffalo/sample/executed-normalizer.py",
+      "evidence/buffalo/sample/records.jsonl",
+      "evidence/buffalo/sample/records.csv",
+      "evidence/buffalo/sample/parse-details.json",
+      "evidence/buffalo/sample/checks.json",
+      "publication-inventory.json",
+      "official-routing.json",
+      "evidence/offline-verification.json",
+      "evidence/routes/buffalo.html",
+      "evidence/routes/buffalo.receipt.json"
+    ],
+    "script_paths": [
+      "collect.py",
+      "verify.py",
+      "finalize.py",
+      "summarize_scope.py",
+      "lib/ecode360.py",
+      "lib/municipal_codes_cli.py",
+      "lib/cp_collect.py"
+    ],
+    "limitations": [
+      "Bounded validation only; full jurisdiction corpus and complete expanded inventory untested.",
+      "NativePDF qualification uses selected-body word coverage, not exhaustive numeric-cell/layout/OCR equivalence. DOM table QA is independently measured.",
+      "Images remain ordered placeholders/URLs where present; image pixels are not transcribed.",
+      "Official publisher route corroborated by primary official page indexed on web; raw standalone official request403 retained. Official page warns eCode may lag recent legislation.",
+      "Initial added node guard expected a chapter GUID in section-header markup and conservatively rejected parsing; corrected offline to authoritative body[data-guid], while preserving exact original drivers and bound corrected normalizer. No content re-acquisition was needed for this correction."
+    ],
+    "next_action": "Review separate charter/zoning/development inventory, pending laws and edition currency before expanding collection; no full ingestion yet.",
+    "retrieved_at": "2026-10-17T18:40:33.062721+00:00",
+    "runtime": {
+      "python": "3.12.14",
+      "platform": "macOS-26.6.2-arm64-arm-64bit",
+      "browser": "155.0.8059.84",
+      "playwright": "1.64.0"
+    },
+    "raw_sha256": "7bd033b776e94957b37e417836e2df92259f7f37dc3f2bd492bcb45f85814e13",
+    "acquisition_script_sha256": "cfccab5cd7e051d035fb0175404123f7e651d714889bdd8ee6d6cbc2b4107a8f",
+    "normalization_driver_sha256": "556c5f0ccca17ffcdf5ecced49977911716f4b88d9cf3c8b4586c1fbae3dfa63"
+  },
+  {
+    "sequence": 79,
+    "jurisdiction": "Tacoma",
+    "state": "WA",
+    "source_url": "https://ecode360.com/48356458",
+    "source_family": "eCode360",
+    "status": "standalone_e2e_pass",
+    "acquisition_method": "Standalone Python Playwright ordinary headed Chrome, fresh isolated context; observed public current publisher route and UI-native export; no human/CUA assistance or imported state.",
+    "publisher_download": {
+      "status": "passed",
+      "url": "https://ecode360.com/output/get/754333216",
+      "reason": "Actual native bytes retained and source-match verification passed.",
+      "native_format": "PDF",
+      "tested_scope": "Selected section § 1.07.120: Unlawful acts.",
+      "record_count": 1,
+      "bytes": 49127,
+      "sha256": "bf4d68ffce5bbaad12a6729d2e1e0baa796899fdcd7930c6383e1a06d5f98943",
+      "evidence_paths": [
+        "evidence/tacoma/sample/publisher-export.json",
+        "evidence/tacoma/sample/publisher-export-0.pdf",
+        "evidence/offline-verification.json",
+        "evidence/tacoma/sample/publisher-export-text.txt"
+      ]
+    },
+    "tested_scope": "Chapter1.07 Equity in Contracting,14section records1.07.010 through1.07.140, including the source repealed section1.07.050 history body.",
+    "complete_corpus": false,
+    "record_count": 14,
+    "record_units": "Owned source content nodes, including section and independently owned article history bodies as counted below.",
+    "record_type_counts": {
+      "section": 14
+    },
+    "repealed_reserved_records": [
+      "§ 1.07.050: (Repealed)"
+    ],
+    "table_count": 0,
+    "table_qa": [],
+    "checks": [
+      "Raw source and native download SHA256 verified.",
+      "Deterministic read-only offline replay byte-equal JSONL/CSV; CSV round-trip equal.",
+      "Expected publisher customer/code/date identity and requested chapter bodyGUID verified for eCode360.",
+      "Unique canonical record URLs; nonempty citations/bodies; zero replacement characters.",
+      "Negative offline tests reject altered raw evidence and wrong publication edition.",
+      "Genuine selected-section publisher PDF acquired through observed UI;selected-body word coverage100%.",
+      "All 99 source anchor targets in owned bodies preserved in semanticHTML."
+    ],
+    "command": ".venv/bin/python collect.py --job tacoma --browser --export --out fresh/tacoma",
+    "offline_command": ".venv/bin/python verify.py",
+    "path_base": "icc-ecode/ package root; prefix during aggregate integration",
+    "evidence_paths": [
+      "evidence/tacoma/sample/source.html",
+      "evidence/tacoma/sample/source.png",
+      "evidence/tacoma/sample/acquisition.json",
+      "evidence/tacoma/sample/executed-collect.py",
+      "evidence/tacoma/sample/executed-normalizer.py",
+      "evidence/tacoma/sample/records.jsonl",
+      "evidence/tacoma/sample/records.csv",
+      "evidence/tacoma/sample/parse-details.json",
+      "evidence/tacoma/sample/checks.json",
+      "publication-inventory.json",
+      "official-routing.json",
+      "evidence/offline-verification.json",
+      "evidence/routes/tacoma.html",
+      "evidence/routes/tacoma.receipt.json"
+    ],
+    "script_paths": [
+      "collect.py",
+      "verify.py",
+      "finalize.py",
+      "summarize_scope.py",
+      "lib/ecode360.py",
+      "lib/municipal_codes_cli.py",
+      "lib/cp_collect.py"
+    ],
+    "limitations": [
+      "Bounded validation only; full jurisdiction corpus and complete expanded inventory untested.",
+      "NativePDF qualification uses selected-body word coverage, not exhaustive numeric-cell/layout/OCR equivalence. DOM table QA is independently measured.",
+      "Images remain ordered placeholders/URLs where present; image pixels are not transcribed.",
+      "Source repealed/reserved heading/history records preserved: § 1.07.050: (Repealed)",
+      "Initial added node guard expected a chapter GUID in section-header markup and conservatively rejected parsing; corrected offline to authoritative body[data-guid], while preserving exact original drivers and bound corrected normalizer. No content re-acquisition was needed for this correction."
+    ],
+    "next_action": "Review separate charter/zoning/development inventory, pending laws and edition currency before expanding collection; no full ingestion yet.",
+    "retrieved_at": "2026-10-17T18:41:10.888696+00:00",
+    "runtime": {
+      "python": "3.12.14",
+      "platform": "macOS-26.6.2-arm64-arm-64bit",
+      "browser": "155.0.8059.84",
+      "playwright": "1.64.0"
+    },
+    "raw_sha256": "6a92693f45bfe8576b84f61238ddd4bd49a96b3c29657db80c3610bc7453ae94",
+    "acquisition_script_sha256": "cfccab5cd7e051d035fb0175404123f7e651d714889bdd8ee6d6cbc2b4107a8f",
+    "normalization_driver_sha256": "556c5f0ccca17ffcdf5ecced49977911716f4b88d9cf3c8b4586c1fbae3dfa63"
+  },
+  {
+    "sequence": 81,
+    "jurisdiction": "Rochester",
+    "state": "NY",
+    "source_url": "https://ecode360.com/8672788",
+    "source_family": "eCode360",
+    "status": "standalone_e2e_pass",
+    "acquisition_method": "Standalone Python Playwright ordinary headed Chrome, fresh isolated context; observed public current publisher route and UI-native export; no human/CUA assistance or imported state.",
+    "publisher_download": {
+      "status": "passed",
+      "url": "https://ecode360.com/output/get/754333218",
+      "reason": "Actual native bytes retained and source-match verification passed.",
+      "native_format": "PDF",
+      "tested_scope": "Selected section § 1-11: Reference to sections.",
+      "record_count": 1,
+      "bytes": 45613,
+      "sha256": "0e65ff8f20e4758f4d4b65b80fe81cd7bcc105ac759db406d24d625f4f927067",
+      "evidence_paths": [
+        "evidence/rochester/sample/publisher-export.json",
+        "evidence/rochester/sample/publisher-export-0.pdf",
+        "evidence/offline-verification.json",
+        "evidence/rochester/sample/publisher-export-text.txt"
+      ]
+    },
+    "tested_scope": "Chapter1 General Provisions,14section records1-1 through1-14.",
+    "complete_corpus": false,
+    "record_count": 14,
+    "record_units": "Owned source content nodes, including section and independently owned article history bodies as counted below.",
+    "record_type_counts": {
+      "section": 14
+    },
+    "repealed_reserved_records": [],
+    "table_count": 0,
+    "table_qa": [],
+    "checks": [
+      "Raw source and native download SHA256 verified.",
+      "Deterministic read-only offline replay byte-equal JSONL/CSV; CSV round-trip equal.",
+      "Expected publisher customer/code/date identity and requested chapter bodyGUID verified for eCode360.",
+      "Unique canonical record URLs; nonempty citations/bodies; zero replacement characters.",
+      "Negative offline tests reject altered raw evidence and wrong publication edition.",
+      "Genuine selected-section publisher PDF acquired through observed UI;selected-body word coverage100%.",
+      "All 26 source anchor targets in owned bodies preserved in semanticHTML."
+    ],
+    "command": ".venv/bin/python collect.py --job rochester --browser --export --out fresh/rochester",
+    "offline_command": ".venv/bin/python verify.py",
+    "path_base": "icc-ecode/ package root; prefix during aggregate integration",
+    "evidence_paths": [
+      "evidence/rochester/sample/source.html",
+      "evidence/rochester/sample/source.png",
+      "evidence/rochester/sample/acquisition.json",
+      "evidence/rochester/sample/executed-collect.py",
+      "evidence/rochester/sample/executed-normalizer.py",
+      "evidence/rochester/sample/records.jsonl",
+      "evidence/rochester/sample/records.csv",
+      "evidence/rochester/sample/parse-details.json",
+      "evidence/rochester/sample/checks.json",
+      "publication-inventory.json",
+      "official-routing.json",
+      "evidence/offline-verification.json",
+      "evidence/routes/rochester.html",
+      "evidence/routes/rochester.receipt.json"
+    ],
+    "script_paths": [
+      "collect.py",
+      "verify.py",
+      "finalize.py",
+      "summarize_scope.py",
+      "lib/ecode360.py",
+      "lib/municipal_codes_cli.py",
+      "lib/cp_collect.py"
+    ],
+    "limitations": [
+      "Bounded validation only; full jurisdiction corpus and complete expanded inventory untested.",
+      "NativePDF qualification uses selected-body word coverage, not exhaustive numeric-cell/layout/OCR equivalence. DOM table QA is independently measured.",
+      "Images remain ordered placeholders/URLs where present; image pixels are not transcribed.",
+      "Initial added node guard expected a chapter GUID in section-header markup and conservatively rejected parsing; corrected offline to authoritative body[data-guid], while preserving exact original drivers and bound corrected normalizer. No content re-acquisition was needed for this correction."
+    ],
+    "next_action": "Review separate charter/zoning/development inventory, pending laws and edition currency before expanding collection; no full ingestion yet.",
+    "retrieved_at": "2026-10-17T18:41:30.962029+00:00",
+    "runtime": {
+      "python": "3.12.14",
+      "platform": "macOS-26.6.2-arm64-arm-64bit",
+      "browser": "155.0.8059.84",
+      "playwright": "1.64.0"
+    },
+    "raw_sha256": "c0d5f5f14c917026c12b338f83a53aeb22fe9ecbe036fd39201cf2a12c1cc256",
+    "acquisition_script_sha256": "cfccab5cd7e051d035fb0175404123f7e651d714889bdd8ee6d6cbc2b4107a8f",
+    "normalization_driver_sha256": "556c5f0ccca17ffcdf5ecced49977911716f4b88d9cf3c8b4586c1fbae3dfa63"
+  },
+  {
+    "sequence": 86,
+    "jurisdiction": "Eugene",
+    "state": "OR",
+    "source_url": "https://eugene.municipal.codes/EC/1",
+    "source_family": "municipal.codes",
+    "status": "standalone_e2e_pass",
+    "acquisition_method": "Standalone Python Playwright ordinary headed Chrome, fresh isolated context; observed public current publisher route and UI-native export; no human/CUA assistance or imported state.",
+    "publisher_download": {
+      "status": "passed",
+      "url": "https://eugene.municipal.codes/EC/1/export.html?download=true",
+      "reason": "Actual native bytes retained and source-match verification passed.",
+      "native_format": "HTML",
+      "tested_scope": "Eight operative chapter1 sections, citations/bodies equal live DOM",
+      "record_count": 8,
+      "bytes": 45188,
+      "sha256": "b8b6b76a731ffd15aa39e4e15156d9d41eaf50c0072f41c47e39a09c0b0dcd5d",
+      "evidence_paths": [
+        "evidence/eugene/sample/publisher-export.json",
+        "evidence/eugene/sample/publisher-export-0.html",
+        "evidence/offline-verification.json",
+        "evidence/eugene/sample/native-export-records.jsonl",
+        "evidence/eugene/sample/native-export-records.csv"
+      ]
+    },
+    "tested_scope": "Chapter1 General, eight source section records.",
+    "complete_corpus": false,
+    "record_count": 8,
+    "record_units": "Owned source content nodes, including section and independently owned article history bodies as counted below.",
+    "record_type_counts": {
+      "section": 8
+    },
+    "repealed_reserved_records": [],
+    "table_count": 0,
+    "table_qa": [],
+    "checks": [
+      "Raw source and native download SHA256 verified.",
+      "Deterministic read-only offline replay byte-equal JSONL/CSV; CSV round-trip equal.",
+      "Expected publisher customer/code/date identity and requested chapter bodyGUID verified for eCode360.",
+      "Unique canonical record URLs; nonempty citations/bodies; zero replacement characters.",
+      "Negative offline tests reject altered raw evidence and wrong publication edition.",
+      "Genuine publisherHTML native export reparses to identical eight citations/bodies; normalized nativeJSONL/CSV retained."
+    ],
+    "command": ".venv/bin/python collect.py --job eugene --browser --export --out fresh/eugene",
+    "offline_command": ".venv/bin/python verify.py",
+    "path_base": "icc-ecode/ package root; prefix during aggregate integration",
+    "evidence_paths": [
+      "evidence/eugene/sample/source.html",
+      "evidence/eugene/sample/source.png",
+      "evidence/eugene/sample/acquisition.json",
+      "evidence/eugene/sample/executed-collect.py",
+      "evidence/eugene/sample/executed-normalizer.py",
+      "evidence/eugene/sample/records.jsonl",
+      "evidence/eugene/sample/records.csv",
+      "evidence/eugene/sample/parse-details.json",
+      "evidence/eugene/sample/checks.json",
+      "publication-inventory.json",
+      "official-routing.json",
+      "evidence/offline-verification.json",
+      "evidence/routes/eugene.html",
+      "evidence/routes/eugene.receipt.json"
+    ],
+    "script_paths": [
+      "collect.py",
+      "verify.py",
+      "finalize.py",
+      "summarize_scope.py",
+      "lib/ecode360.py",
+      "lib/municipal_codes_cli.py",
+      "lib/cp_collect.py"
+    ],
+    "limitations": [
+      "Bounded validation only; full jurisdiction corpus and complete expanded inventory untested.",
+      "NativePDF qualification uses selected-body word coverage, not exhaustive numeric-cell/layout/OCR equivalence. DOM table QA is independently measured.",
+      "Images remain ordered placeholders/URLs where present; image pixels are not transcribed.",
+      "Official standalone city-code route403 retained; primary official comprehensive-plan PDF and indexed official page corroborate municipal.codes.",
+      "Charter not independently located/collected; chapter9 LandUse observed withinCode; table/appendix inventory is incomplete."
+    ],
+    "next_action": "Review separate charter/zoning/development inventory, pending laws and edition currency before expanding collection; no full ingestion yet.",
+    "retrieved_at": "2026-10-17T18:41:47.354272+00:00",
+    "runtime": {
+      "python": "3.12.14",
+      "platform": "macOS-26.6.2-arm64-arm-64bit",
+      "browser": "155.0.8059.84",
+      "playwright": "1.64.0"
+    },
+    "raw_sha256": "30c0ac0b747e0ab45f3f838c47bb654c0dbcad3c0cababf43305bbe192a3966d",
+    "acquisition_script_sha256": "cfccab5cd7e051d035fb0175404123f7e651d714889bdd8ee6d6cbc2b4107a8f",
+    "normalization_driver_sha256": "556c5f0ccca17ffcdf5ecced49977911716f4b88d9cf3c8b4586c1fbae3dfa63"
+  },
+  {
+    "sequence": 92,
+    "jurisdiction": "Albany",
+    "state": "NY",
+    "source_url": "https://ecode360.com/7678194",
+    "source_family": "eCode360",
+    "status": "standalone_e2e_pass",
+    "acquisition_method": "Standalone Python Playwright ordinary headed Chrome, fresh isolated context; observed public current publisher route and UI-native export; no human/CUA assistance or imported state.",
+    "publisher_download": {
+      "status": "passed",
+      "url": "https://ecode360.com/output/get/754333221",
+      "reason": "Actual native bytes retained and source-match verification passed.",
+      "native_format": "PDF",
+      "tested_scope": "Selected section § 1-13: When effective.",
+      "record_count": 1,
+      "bytes": 45947,
+      "sha256": "4d6d3a76b2ec5a62a487f41629a507de5e0831ae3d8d2771c5390329c7b2e462",
+      "evidence_paths": [
+        "evidence/albany/sample-current/publisher-export.json",
+        "evidence/albany/sample-current/publisher-export-0.pdf",
+        "evidence/offline-verification.json",
+        "evidence/albany/sample-current/publisher-export-text.txt"
+      ]
+    },
+    "tested_scope": "Chapter1 General Provisions,16content-node records:14sections1-1 through1-14 plus two independently owned article history bodies;1table.",
+    "complete_corpus": false,
+    "record_count": 16,
+    "record_units": "Owned source content nodes, including section and independently owned article history bodies as counted below.",
+    "record_type_counts": {
+      "article": 2,
+      "section": 14
+    },
+    "repealed_reserved_records": [],
+    "table_count": 1,
+    "table_qa": [
+      {
+        "node_id": "7678196",
+        "tables": 1,
+        "rows": 110,
+        "cells": 430,
+        "spanned_cells": 83,
+        "text_and_geometry_equal": true
+      }
+    ],
+    "checks": [
+      "Raw source and native download SHA256 verified.",
+      "Deterministic read-only offline replay byte-equal JSONL/CSV; CSV round-trip equal.",
+      "Expected publisher customer/code/date identity and requested chapter bodyGUID verified for eCode360.",
+      "Unique canonical record URLs; nonempty citations/bodies; zero replacement characters.",
+      "Negative offline tests reject altered raw evidence and wrong publication edition.",
+      "Genuine selected-section publisher PDF acquired through observed UI;selected-body word coverage100%.",
+      "Source table row/cell structure, spans and characters ignoring whitespace preserved: 1tables, 110rows, 430cells, 83spanned cells.",
+      "All 145 source anchor targets in owned bodies preserved in semanticHTML."
+    ],
+    "command": ".venv/bin/python collect.py --job albany --browser --export --out fresh/albany",
+    "offline_command": ".venv/bin/python verify.py",
+    "path_base": "icc-ecode/ package root; prefix during aggregate integration",
+    "evidence_paths": [
+      "evidence/albany/sample-current/source.html",
+      "evidence/albany/sample-current/source.png",
+      "evidence/albany/sample-current/acquisition.json",
+      "evidence/albany/sample-current/executed-collect.py",
+      "evidence/albany/sample-current/executed-normalizer.py",
+      "evidence/albany/sample-current/records.jsonl",
+      "evidence/albany/sample-current/records.csv",
+      "evidence/albany/sample-current/parse-details.json",
+      "evidence/albany/sample-current/checks.json",
+      "publication-inventory.json",
+      "official-routing.json",
+      "evidence/offline-verification.json",
+      "evidence/routes/albany.html",
+      "evidence/routes/albany.receipt.json"
+    ],
+    "script_paths": [
+      "collect.py",
+      "verify.py",
+      "finalize.py",
+      "summarize_scope.py",
+      "lib/ecode360.py",
+      "lib/municipal_codes_cli.py",
+      "lib/cp_collect.py"
+    ],
+    "limitations": [
+      "Bounded validation only; full jurisdiction corpus and complete expanded inventory untested.",
+      "NativePDF qualification uses selected-body word coverage, not exhaustive numeric-cell/layout/OCR equivalence. DOM table QA is independently measured.",
+      "Images remain ordered placeholders/URLs where present; image pixels are not transcribed.",
+      "Two article history-body rows are included as article records with blank section_number and populated article field, not counted as additional sections.",
+      "Initial sample attempt pointed to AL0934 TOC and emitted no provisions; retained separately and excluded from pass. The successful sample-current uses observed general-provisions chapterGUID.",
+      "Official Find route404 retained; primary official Residential Property Guide corroborates AL0934, with live publisher customer identity verified."
+    ],
+    "next_action": "Review separate charter/zoning/development inventory, pending laws and edition currency before expanding collection; no full ingestion yet.",
+    "retrieved_at": "2026-10-17T18:44:01.559755+00:00",
+    "runtime": {
+      "python": "3.12.14",
+      "platform": "macOS-26.6.2-arm64-arm-64bit",
+      "browser": "155.0.8059.84",
+      "playwright": "1.64.0"
+    },
+    "raw_sha256": "2def5e75b275ba8c2962e3b48f91aacc2422a3abb9354929e3d22ce60d08726b",
+    "acquisition_script_sha256": "bdf8ec47f3e9c7cc4b202306add7d18c3503d2ff3f66f78b3c1aaa95f95e196a",
+    "normalization_driver_sha256": "556c5f0ccca17ffcdf5ecced49977911716f4b88d9cf3c8b4586c1fbae3dfa63"
+  },
+  {
+    "sequence": 98,
+    "jurisdiction": "Allegheny County",
+    "state": "PA",
+    "source_url": "https://ecode360.com/8480144",
+    "source_family": "eCode360",
+    "status": "standalone_e2e_pass",
+    "acquisition_method": "Standalone Python Playwright ordinary headed Chrome, fresh isolated context; observed public current publisher route and UI-native export; no human/CUA assistance or imported state.",
+    "publisher_download": {
+      "status": "passed",
+      "url": "https://ecode360.com/output/get/754333219",
+      "reason": "Actual native bytes retained and source-match verification passed.",
+      "native_format": "PDF",
+      "tested_scope": "Selected section § 203-13: Repealer.",
+      "record_count": 1,
+      "bytes": 46092,
+      "sha256": "c5086bc359e39247bfbba3c9cde10e768baa26508949c391fe4be19722008475",
+      "evidence_paths": [
+        "evidence/allegheny/sample/publisher-export.json",
+        "evidence/allegheny/sample/publisher-export-0.pdf",
+        "evidence/offline-verification.json",
+        "evidence/allegheny/sample/publisher-export-text.txt"
+      ]
+    },
+    "tested_scope": "Chapter203 Adoption of Code,13section records203-1 through203-13.",
+    "complete_corpus": false,
+    "record_count": 13,
+    "record_units": "Owned source content nodes, including section and independently owned article history bodies as counted below.",
+    "record_type_counts": {
+      "section": 13
+    },
+    "repealed_reserved_records": [],
+    "table_count": 0,
+    "table_qa": [],
+    "checks": [
+      "Raw source and native download SHA256 verified.",
+      "Deterministic read-only offline replay byte-equal JSONL/CSV; CSV round-trip equal.",
+      "Expected publisher customer/code/date identity and requested chapter bodyGUID verified for eCode360.",
+      "Unique canonical record URLs; nonempty citations/bodies; zero replacement characters.",
+      "Negative offline tests reject altered raw evidence and wrong publication edition.",
+      "Genuine selected-section publisher PDF acquired through observed UI;selected-body word coverage100%.",
+      "All 10 source anchor targets in owned bodies preserved in semanticHTML."
+    ],
+    "command": ".venv/bin/python collect.py --job allegheny --browser --export --out fresh/allegheny",
+    "offline_command": ".venv/bin/python verify.py",
+    "path_base": "icc-ecode/ package root; prefix during aggregate integration",
+    "evidence_paths": [
+      "evidence/allegheny/sample/source.html",
+      "evidence/allegheny/sample/source.png",
+      "evidence/allegheny/sample/acquisition.json",
+      "evidence/allegheny/sample/executed-collect.py",
+      "evidence/allegheny/sample/executed-normalizer.py",
+      "evidence/allegheny/sample/records.jsonl",
+      "evidence/allegheny/sample/records.csv",
+      "evidence/allegheny/sample/parse-details.json",
+      "evidence/allegheny/sample/checks.json",
+      "publication-inventory.json",
+      "official-routing.json",
+      "evidence/offline-verification.json",
+      "evidence/routes/allegheny.html",
+      "evidence/routes/allegheny.receipt.json"
+    ],
+    "script_paths": [
+      "collect.py",
+      "verify.py",
+      "finalize.py",
+      "summarize_scope.py",
+      "lib/ecode360.py",
+      "lib/municipal_codes_cli.py",
+      "lib/cp_collect.py"
+    ],
+    "limitations": [
+      "Bounded validation only; full jurisdiction corpus and complete expanded inventory untested.",
+      "NativePDF qualification uses selected-body word coverage, not exhaustive numeric-cell/layout/OCR equivalence. DOM table QA is independently measured.",
+      "Images remain ordered placeholders/URLs where present; image pixels are not transcribed.",
+      "Publisher code explicitly includes legislation only throughJune4,2024; subsequent laws/current legal completeness not established.",
+      "County enactments are a separate legal layer from Pittsburgh and other municipalities; applicability varies by provision.",
+      "Initial added node guard expected a chapter GUID in section-header markup and conservatively rejected parsing; corrected offline to authoritative body[data-guid], while preserving exact original drivers and bound corrected normalizer. No content re-acquisition was needed for this correction."
+    ],
+    "next_action": "Review separate charter/zoning/development inventory, pending laws and edition currency before expanding collection; no full ingestion yet.",
+    "retrieved_at": "2026-10-17T18:43:09.666632+00:00",
+    "runtime": {
+      "python": "3.12.14",
+      "platform": "macOS-26.6.2-arm64-arm-64bit",
+      "browser": "155.0.8059.84",
+      "playwright": "1.64.0"
+    },
+    "raw_sha256": "234540a3a8197740f02e3673e6fda0463172e4f410df42beb78880ec5a366a3f",
+    "acquisition_script_sha256": "cfccab5cd7e051d035fb0175404123f7e651d714889bdd8ee6d6cbc2b4107a8f",
+    "normalization_driver_sha256": "556c5f0ccca17ffcdf5ecced49977911716f4b88d9cf3c8b4586c1fbae3dfa63"
+  }
+]

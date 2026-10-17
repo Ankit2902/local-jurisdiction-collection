@@ -1,0 +1,1 @@
+Historical failure provenance only. Direct Municode HTTP stopped after retained403 challenges. Do not rerun these collectors. Current supported workflow is ../collect_municode.py using the coordinated ordinary-browser gate. Exact executed failure versions are also retained under runs/*-live/script-versions.

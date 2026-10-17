@@ -1,0 +1,189 @@
+
+    <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+    <html>
+    <head>
+
+        <title>Title 1 - General Provisions</title>
+        <link type="text/css" rel="Stylesheet" href="jqueryui/css/jqueryui.css" media="all" />
+        <link type="text/css" rel="Stylesheet" href="css/ui.css" media="all" />
+        <link type="text/css" rel="Stylesheet" href="css/customui.css" media="all" />
+        <link type="text/css" rel="Stylesheet" href="css/document.css" media="all" />
+        <link type="text/css" rel="Stylesheet" href="css/customdoc.css" media="all" />
+        <link type="text/css" rel="Stylesheet" href="tablestyles.aspx" media="all" />
+        <link rel="StyleSheet" type="text/css" href="/common/font-awesome/css/all.min.css">
+        <link type="text/css" rel="Stylesheet" href="css/docprint.css" media="print" />
+        <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+        <script type="text/javascript" src="jqueryui/js/jquery-ui-1.8.21.custom.min.js"></script>
+        <script type="text/javascript" src="js/doc-view.js?_t=290"></script>
+        <script type="text/javascript" src="js/tabletools.js"></script>
+        <script type="text/javascript" src="js/tabs.js"></script>
+        <script type="text/javascript">
+            var iframeReady = false;
+        </script>
+        
+    </head>
+    <body class='doc-view'>
+        <script type="text/javascript">
+            $(document).ready(function () {
+                ZP.DocView.InitDef();
+                ZP.DocView.OpenDefinitionPage = null;
+                ZP.DocView.OpenDefinitionMode = '_self';
+                ZP.DocView.OpenXRefPage = 'doc-viewer.aspx#$2-';
+                ZP.DocView.OpenXRefMode = '_blank';
+                $(window).bind('hashchange', ZP.DocView.HashChanged);
+        
+        if (typeof ZP.DocView.ZoomClasses == 'undefined') {
+            ZP.DocView.ZoomClasses = ["Unzoom1", "", "Zoom1", "Zoom2", "Zoom3", "Zoom4"];
+        }
+        ZP.DocView.InitializeZoom();
+        EC.SortedTable.Init(".ord-tbl, .stat-tbl", ".sortable");
+        EC.Tabs.PositionLeftTabs();
+    });
+
+
+        </script>
+
+
+    <div id="doc-viewer">
+        
+
+<div id="doc-view">
+    <div id="doc-view-content">
+        
+<div id="pageControls">
+<script type="text/javascript" >
+    function clearEffDate() {
+        jQuery.get("doc-view-helper.aspx?task=currentversion", function () {
+            window.location.reload();
+        });
+        return false;
+    }
+</script>
+     <div class="pageControls psuedoTable" role="navigation" aria-label="Document Navigation">  
+        <div class="psuedoTableBody" >     
+            <div class="psuedoTableRow">         
+                <div class="pageControls_outer" ></div>
+                <div class="pageControls_inner left">
+                    <a id='button1' onclick='ZP.DocView.PrintDoc("001.001.001",false);return false;' href="#" title="Print" role="button"> 
+                        <img alt="Print" src="resources/btn-print-white.png" /></a>
+                    <a id='Button2' onclick='ZP.DocView.OpenPDF("001.001.001",false);return false;' href="#" title="Export PDF" role="button">
+                        <img alt="Generate PDF" src="resources/btn-makepdf-white.png" /></a>
+                        <a class="popup" params="toobar=0,menubar=0,scrollbars=1,height=436,width=626" href="https://www.facebook.com/sharer/sharer.php?s=100&p[title]=Title+1+-+General+Provisions&p[summary]=Overland+Park%2c+Kansas+Municipal+Code&p[url]=https%3a%2f%2fcodes.opkansas.org%2fmunicipal-code%2fdoc-viewer.aspx%3fsecid%3d1" title="Click to Share this page" style="text-decoration:none;border:none;" ><img src="resources/share-icon-white.png" alt="Click to Share this page on facebook" /></a>     
+                </div>
+                <div  class="pageControls_inner breadCrumbs" title="Navigation 'breadcrumbs'">
+                     <div class='breadCrumbs'><a href='/municipal-code/doc-viewer.aspx?tocid=001' >Title 1 - General Provisions</a> &gt; <a href='/municipal-code/doc-viewer.aspx?tocid=001.001' >1.01  Code Adoption.</a> &gt; <a href='/municipal-code/doc-viewer.aspx?tocid=001.001.001' >1.01.010 Generally.</a></div>
+                </div>
+                 <div  class="pageControls_inner right">       
+                     <ul >  
+                         <li>
+                            <a id='button3' class="nav" onclick="ZP.DocView.LoadPrevDoc('001.001.001');return false;" href="#"  title="Previous Section" accesskey="," role="button"><img alt="Go to Previous Section" src="resources/btn-back-white.png" /></a>
+                         </li>  
+                         <li>
+                             <a id='Button4'  class="nav" onclick="ZP.DocView.LoadNextDoc('001.001.001');return false;" href="#"  title="Next Section" accesskey="." role="button"> <img alt="Go to Next Section" src="resources/btn-forward-white.png" /></a>
+                         </li>   
+                         <li>
+                             <a id="pageControls-overflow" onclick="ZP.DocView.PgCntrlOverflowClick(event);return false;" href="#" title="Click for more options" role="button" >
+                            <img src="resources/overflow-btn-white.png" alt="Click for more options" /></a>
+                               
+  <ul class="submenu" role="dialog">
+            <li><a href="/municipal-code/doc-viewer.aspx?secid=1" onclick="javascript:alert('Right click this icon and select \'add to favorites\' or \'Bookmark this Link\' to bookmark this page');return false;" title="Bookmark this page" >Bookmark</a></li>
+            <li>
+                                        
+                <a id="zoomMinus" onclick="ZP.DocView.DecreaseZoom();return false;" href="#" title="Decrease Zoom" class="zoomLink glyphicon" >&#x2212;</a>
+                <a onclick="ZP.DocView.DefaultZoom();return false;"  href="#" title="Default Zoom"  class="zoomLink" >100%</a>
+                <a id="zoomPlus" onclick="ZP.DocView.IncreaseZoom();return false;" href="#" title="Increase Zoom"  class="zoomLink glyphicon" > &#x2b; </a>
+            </li>
+           
+                           
+                
+                <li><a id="subscribe-btn" onclick="ZP.DocView.OpenSubscribeDlg();return false;" title="Subscribe to Notifications" href="subscribe.aspx" role="button">Subscribe</a></li>
+                <li><a id="unsubscribe-btn" onclick="ZP.DocView.OpenUnsubscribeDlg();return false;" title="Cancel Notifications Subscription" href="unsubscribe.aspx" role="button" >Unsubscribe</a></li>
+                
+</ul>
+                         </li>        
+                        
+                        </ul>   
+                </div>
+                <div class="pageControls_outer"></div>
+            </div>
+        </div>
+    </div> 
+    <div id="subscribe-dialog" title="" aria-live="polite" >
+        <div id="sub-message"></div>
+        <div id="sub-form-cntr"></div>
+    </div>
+</div>
+
+
+        <div id="thePage-outer" >
+            <div id="thePage-wrap" class="thePage-wrap ">
+                <div id="outer-doc-banner"></div>
+                <div id="thePage-border">
+                    <div id="thePage" class="textPage " tocid="001.001.001" secid="3" role="main" aria-label="Document">
+                        <img id="sectionBanner" title="Document text banner" src="resources/docbanner.png" width="720" valign="Top" alt="Document text banner">
+                        
+                        <section id='secid-1' class='secLvl1 _001' tabindex='-1' data-secid='1'> 
+<h1>
+	Title 1 - General Provisions</h1>
+
+
+<p>
+	&nbsp;</p>
+
+
+</section> 
+<section id='secid-2' class='secLvl2 _001 _001-001' tabindex='-1' data-secid='2'> 
+<h2>
+	1.01 - Code Adoption<sup>1</sup></h2>
+<ol start="1" style="list-style-type: decimal;" class="list-v2">
+	<li><div class='li-num'>1.</div><div class='li-cont'>
+		For the statutory provisions regarding compilation, revision and codification of the general ordinances of cities, see K.S.A. 12-3014 <i>et seq</i>.</div></li>
+</ol>
+
+
+
+</section> 
+<section id='secid-3' class='secLvl3 _001 _001-001 _001-001-001' tabindex='-1' data-secid='3'> 
+<h3>
+	1.01.010 Generally.</h3>
+<p>
+	Pursuant to the provisions of Sections 12-3014 and 12-3015 of Kansas Statutes Annotated, as amended, there is adopted the &quot;Overland Park Municipal Code&quot; as published by Book Publishing Company, Seattle, Washington, together with those secondary codes adopted by reference as authorized by K.S.A. 12-3015, as amended, save and except those portions of the secondary codes as are deleted or modified by the provisions of the &quot;Overland Park Municipal Code.&quot;</p>
+<p>
+	(History: Ord. MC-750 &sect;1, 73; Eff. 6-1-73)</p>
+
+<p class='archiveNotice nullValue '>Effective on:&nbsp;1/1/1901</p>
+</section> 
+
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<button id="commentsCTA" title="Add a Comment" aria-label="Add a Comment" role="button" tabindex="2">
+    COMMENTS
+</button>
+
+<!-- hidden div below is for definition popup -->
+<div id="defFrame">
+    <img alt='loading progress' src="resources/progress.gif" /></div>
+<!-- hidden div below is for ajax loading progress-->
+<div id='progress-template' style='display: none;'>
+    <div class="progress" style='padding: 100px;'>
+        <div style='margin: auto; display: block; width: 200px; border: 1px solid #ccc; background-color: #eee; padding: 10px;'>
+            <img alt='loading progress' src='resources/progress.gif' style='margin: auto; display: block;' />
+            <br />
+            <span style='margin: auto; display: block; width: 75px; padding-left: 10px;'>Loading...</span>
+        </div>
+    </div>
+</div>
+<iframe style="width: 1px; height: 1px" src="" id="printiframe" name="printiframe" onload="ZP.DocView.IFrameReady();" title="Print frame" aria-hidden="true" role="presentation"></iframe>
+
+    </div>
+
+
+    </body>
+</html>

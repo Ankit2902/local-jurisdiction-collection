@@ -1,8 +1,25 @@
 # Local jurisdiction collection
 
-Technical handoff for source discovery, acquisition scripts, parsing, and validation of the **30 jurisdictions in the reviewed collection backlog**. This repository contains all five completed handoff stages, their source evidence, tested scripts, sample exports, and original ZIP archives. It does not contain a new database audit or completed full-jurisdiction corpora.
+Technical handoff for source discovery, acquisition scripts, parsing, and validation of the **original 30-jurisdiction backlog and 100 additional local jurisdictions**. The expansion adds major cities, populous counties, and coverage in states missing from the earlier inventory. This is a collection-method handoff: its live tests use bounded substantive samples, and no completed full-jurisdiction corpus or new database audit is claimed.
 
-## Start with the current results
+## Expanded scope: 100 additional jurisdictions
+
+Use the [combined 100-jurisdiction index](EXPANDED-SCOPE.md) to find the latest result and runbook for every target, or [expanded-scope-index.json](expanded-scope-index.json) for machine-readable scope, source, qualification and next-action fields.
+
+The [recommendation inventory](packages/local-jurisdiction-expansion-2026-10-17/recommendations.json) records the selection rationale, sources, ordering and waves. Its [visual report](packages/local-jurisdiction-expansion-2026-10-17/jurisdiction-shortlist.html) presents the proposed coverage. The inventory starts from 74 existing scope entries across 12 states; the proposals would bring the planned scope to 174 jurisdictions across all 50 states. These are scope counts, not collected-corpus counts.
+
+| Wave | Scope | Handoff |
+|---|---|---|
+| 1 and 2 | Recommendations 1–57 | [README](packages/expanded57-validation-2026-10-17/README.md) · [jurisdiction matrix](packages/expanded57-validation-2026-10-17/JURISDICTIONS.md) · [machine-readable results](packages/expanded57-validation-2026-10-17/results57.json) |
+| 3 | Recommendations 58–100 | [README](packages/wave3-validation-2026-10-17/README.md) · [jurisdiction matrix](packages/wave3-validation-2026-10-17/JURISDICTIONS.md) · [machine-readable results](packages/wave3-validation-2026-10-17/results43.json) |
+
+Waves 1 and 2 passed standalone live acquisition through normalization for 56 of 57 targets; Milwaukee remains partial. Native publisher downloads are a separate measure: 49 passed, two are partial, five were unavailable and one was blocked. Each row identifies the tested publications, sample size, exact command, retained evidence, source currency, and remaining work. Wave 3 passed standalone live acquisition through normalization for all 43 targets; native-download outcomes are 31 passed, eight partial due to edition qualifications, and four unavailable for the primary code. Separate Cambridge and Fairfax zoning exports passed. Across all 100 expansion targets, the result is 99 standalone sample passes and one partial result, with 80 native-download passes, ten partial, nine unavailable and one blocked. No complete jurisdiction corpus is claimed.
+
+Start with each group’s README for the tested runtime and fresh-output command. HTTP and ordinary headed-browser collectors run without Codex. Browser automation uses a normal locally installed Chrome session with Playwright; macOS was tested. No claim is made that all collectors have been tested on Linux, Windows, or unattended headless infrastructure. All groups include offline validation or deterministic parsing checks.
+
+The [release](https://github.com/OliverFlint-98/local-jurisdiction-collection/releases/tag/expanded-scope-validation-2026-10-17) contains the complete sealed wave archives. Large evidence files are restored with the helper described below. Scripts and reports remain browsable in Git.
+
+## Original 30-jurisdiction backlog: current results
 
 Use these packages in precedence order; later work supersedes earlier runtime and validation claims for the jurisdictions it covers.
 
@@ -40,7 +57,7 @@ All directories and archives below preserve their delivered bytes. Historical re
 | Standalone and publisher-export validation | [Standalone handoff](packages/local-extraction-standalone-2026-10-15/README.md) | [ZIP](archives/local-extraction-standalone-2026-10-15.zip) |
 | eCode360 headed acquisition and publisher PDFs | [Latest eCode360 handoff](packages/ecode360-headed-2026-10-16/README.md) | [ZIP](archives/ecode360-headed-2026-10-16.zip) |
 
-[Archives](archives/) also contains the supplied SHA-256 and archive-verification sidecars. The latest package is named by its UTC date, October 16, 2026.
+[Archives](archives/) contains the original backlog ZIPs and supplied SHA-256/verification sidecars. The expanded validation archives, dated October 17, 2026, are attached to the repository release; their expected hashes and restoration members are recorded in [RELEASE-ASSETS.json](RELEASE-ASSETS.json).
 
 ## Verify the repository delivery
 
@@ -48,8 +65,17 @@ All directories and archives below preserve their delivered bytes. Historical re
 git clone https://github.com/OliverFlint-98/local-jurisdiction-collection.git
 cd local-jurisdiction-collection
 python3 verify_delivery.py
+
+# Download the full expanded validation ZIPs and restore large evidence files.
+# Private repository access uses the existing Git credential helper.
+python3 fetch_evidence.py
+python3 verify_delivery.py --full
 ```
 
-The standard-library verifier checks every delivered package/archive file against [DELIVERY-MANIFEST.json](DELIVERY-MANIFEST.json). Individual sealed packages also have their own manifests and verification commands. Run tests in a working copy if they write logs, so the original evidence remains verifiable.
+These helpers require Python 3.10 or later and only the standard library. The verifier checks delivered package/archive files against [DELIVERY-MANIFEST.json](DELIVERY-MANIFEST.json). Before release evidence is restored, it reports `PASS_GIT_FILES` and lists the deferred files. `--full` requires every byte, including the full release archives. The download helper checks archive SHA-256, then restores only the manifest’s exact missing large files and verifies their hashes. It refuses to overwrite altered evidence.
 
-This repository includes scripts, runbooks, source inventories, public-source captures, actual publisher files, screenshots/renders, validation receipts, exact executed script revisions, regression tests, and sample exports. Local virtual environments, installed browser runtimes, browser profiles, Python caches, and unrelated CompliSolv project data are excluded. Git attributes disable line-ending conversion to preserve sealed source and evidence hashes. Files are stored directly in Git; Git LFS is not required for this delivery.
+You can restrict restoration with `--package expanded57-validation-2026-10-17` or `--package wave3-validation-2026-10-17`. For a ZIP downloaded separately, use `--package NAME --from-archive /path/to/NAME.zip`. Private releases require repository access; no credentials are included in this handoff.
+
+Individual sealed packages also have manifests and offline verification commands. Run any tests that write files in a working copy or fresh output directory so that original evidence remains verifiable. Hash checks establish byte integrity, not legal completeness or ongoing publisher availability.
+
+This repository includes scripts, runbooks, source inventories, public-source captures, actual publisher files, screenshots/renders, validation receipts, exact executed script revisions, regression tests, and sample exports. Local virtual environments, installed browser runtimes, browser profiles, Python caches, and unrelated CompliSolv project data are excluded. Git attributes disable line-ending conversion to preserve sealed source and evidence hashes. Files of 50 MiB or less in the new packages are stored in Git. Larger evidence and the complete expanded validation ZIPs are stored as repository release assets, with their exact restoration paths and SHA-256 hashes in the delivery manifests. Git LFS is not required.
