@@ -1,0 +1,1143 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="default-contrast">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Laws - Statute Text</title>
+    <link href="/mgawebsite/Content/css?v=2kNGGuTgFtNZcwng640idt63VBeArBfH-CxxZRI7n0g1" rel="stylesheet"/>
+
+    <script src="/mgawebsite/bundles/modernizr?v=inCVuEFe6J4Q07A0AcRsbJic_UE5MwpRMNGcOtk94TE1"></script>
+
+    <link href="https://use.typekit.net/rnf4kpu.css" rel="stylesheet" type="text/css">
+
+    <script src="/mgawebsite/Scripts/AccessibilityWidget.js"></script>
+</head>
+
+<body>
+
+    <div style="background-image:url('/Images/Current/Home/header-background.png'); background-attachment: fixed; position:-webkit-sticky; position: sticky; top: 0; z-index:9999; ">
+        <!--#region FBShareButton-->
+
+<script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v3.3"></script>
+
+
+<!--#endregion-->
+
+
+
+<div class="header header-padding ">
+    <div class="container-fluid">
+        <div class="row">
+
+            
+            <div class="col-sm-6 align-self-center">
+                <a class="header-logo-link" href="/mgawebsite/">
+                    <img class="header-logo mobile-header-image" src="/Images/Current/Shared/MGALogo.png" alt="Maryland General Assembly" />
+                </a>
+            </div>
+
+            
+            <div class="col-sm-6 align-self-center">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col text-right header-links p-0 mobile-header-links">
+                            <a class="header-links" href="https://dls.maryland.gov/home/" rel="noreferrer noopener" target="_blank">Legislative Services</a>
+                            &nbsp;|&nbsp;
+                            <a class="header-links" href="https://www.ola.state.md.us/" rel="noreferrer noopener" target="_blank">Legislative Audits</a>
+                        </div>
+                    </div>
+
+                    <div class="row mt-3 justify-content-end">
+
+                        <div class="col-auto p-0">
+                            <form class="form" id="frm">
+                                <div id="group" class="input-group">
+
+                                    
+
+                                    <div class="input-group-prepend">
+                                        <label for="bill-search" class="input-group-text">Search</label>
+                                    </div>
+                                    <input id="bill-search" class="form-control" type="search" placeholder="i.e. Bill search, keyword">
+                                    <div class="input-group-append">
+                                        <button class="btn bill-search-btn" id="searchBtn" type="submit" value="Number" title="Search">
+                                            <i class="fa fa-search" title="Search" value="Search"></i>
+                                        </button>
+                                    </div>
+
+                                </div>
+                                <span id="errMsg" class="error hide-on-mobile">Bill number does not exist.</span>
+                                <span id="errMsg2" class="error hide-on-mobile">Enter a vaild keyword.</span>
+
+                            </form>
+                        </div>
+
+                        <div class="col-auto p-0 hide-on-mobile">
+
+                            <div class="container-fluid">
+                                <div class="row">
+                                    <div class="col-auto pr-1">
+                                        <div id="social">
+                                            <a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://mgaleg.maryland.gov/mgawebsite/laws/StatuteText?article=gtp&amp;section=9-304%2F&amp;amp;src=sdkpreparse" class="fb-xfbml-parse-ignore"><img class="rounded header-icons" alt="Facebook" style="opacity:100;" src="/Images/Icons/Facebook.png" /></a>
+                                            <a id="btnTwitter" target="_blank" href="https://twitter.com/intent/tweet?text=Check%20out%20this%20article%20on%20MGA%21%20https://mgaleg.maryland.gov/mgawebsite/laws/StatuteText?article=gtp&amp;section=9-304"><img class="rounded header-icons" alt="Twitter" style="opacity: 100; border: var(--dark-button-border);" src="/Images/Icons/Twitter.png" /></a>
+                                            <a href="/mgawebsite/Information/YouTubeChannelInfo"><img class="rounded header-icons" alt="Youtube Channels" style="opacity:100;" src="/Images/Icons/YouTube.png" /></a>
+                                            
+                                            <button class="header-button p-0" aria-label="My MGA modal open button" onclick="$('#myMgaModal').modal('toggle');"><img class="rounded header-icons" style="opacity:100" alt="MY MGA" src="/Images/Icons/MyMGA.png" /></button>
+                                            <div class="modal fade" data-backdrop="false" id="myMgaModal" data-bs-backdrop="false" aria-labelledby="exampleModalLabel" aria-hidden="true" role="dialog">
+    <div class="modal-dialog mt-0" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLongTitle">MyMGA</h5>
+            </div>
+            <div class="modal-body m-0 p-0">
+                <div>
+        <ul class="nav navbar-nav navbar-right">
+            <li><a class="popover-link" href="/mgawebsite/Account/Login?registerId=Tracking" style="color:black;">Sign In</a></li>
+            <li><a class="popover-link" href="/mgawebsite/Account/Register/Tracking" style="color:black;">Register</a> </li>
+            <li><a class="popover-link" href="/mgawebsite/Account/ForgotPassword/Tracking" style="color:black;">Forgot Password</a></li>
+        </ul>
+</div>
+            </div>
+        </div>
+    </div>
+</div>
+                                            <button class="header-button p-0" aria-label="My MGA modal open button" onclick="$('#accessibilityModal').modal('toggle');"><img class="rounded header-icons" style="opacity:100" alt="MY MGA" src="/Images/Icons/Accessibility.jpg" /></button>
+                                            <div class="modal fade" data-backdrop="false" id="accessibilityModal" data-bs-backdrop="false" aria-labelledby="exampleModalLabel" aria-hidden="true" role="dialog">
+    <div class="modal-dialog mt-0" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLongTitle">Accessibility Tools</h5>
+            </div>
+            <div class="modal-body m-0 p-0">
+                <div>
+    <div class="row pb-3" style="margin-left:1px;">
+        
+        <div class="col-auto" style="border: 2px solid black; background-color: #f2f2f2; border-radius:5px;padding-right:1.8rem;">
+            <div class="custom-control custom-switch">
+                <input aria-label="toggle images" class="custom-control-input" type="checkbox" id="toggleImages" onchange="toggleImages()" />
+                <label style="color:black;" class="custom-control-label" for="toggleImages"> Hide Images</label>
+            </div>
+        </div>
+    </div>
+    
+    <div class="row pb-3">
+        <div class="col-auto">
+            <button class="contrast-btn" aria-label="contrast" onclick="toggleContrast();">
+                <span id="contrastButtonText">Default Contrast</span>
+                <div class="row" style="margin-left:5px;margin-right:10px;padding-top:10px;">
+                    <div class="col-sm-4 accessibility-button-content">
+                        <div class="progress accessability-progress pg-accessiblility-start">
+                            <div id="prgDefaultContrast" class="progress-bar pg-accessibility" role="progressbar" style="width: 100%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+                        </div>
+                    </div>
+                    <div class="col-sm-4 accessibility-button-content">
+                        <div class="progress accessability-progress pg-accessiblility-middle">
+                            <div id="prgHighContrast" class="progress-bar pg-accessibility" role="progressbar" style="width: 0%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+                        </div>
+                    </div>
+                    <div class="col-sm-4 accessibility-button-content">
+                        <div class="progress accessability-progress pg-accessiblility-end">
+                            <div id="prgLowContrast" class="progress-bar pg-accessibility" role="progressbar" style="width: 0%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+                        </div>
+                    </div>
+                </div>
+            </button>
+        </div>
+    </div>
+    <div class="row pb-3">
+        <div class="col-auto accessibility-zoom-col">
+            <button title="Zoom In" aria-label="zoom in" onclick="zoomIn()" class="accessibility-zoom-btn"><span class="fa fa-search-plus accessibility-zoom-btn-content"></span></button>
+        </div>
+        <div class="col-auto accessibility-zoom-col">
+            <button title="Zoom Out" aria-label="zoom out" onclick="zoomOut()" class="accessibility-zoom-btn"><span class="fa fa-search-minus accessibility-zoom-btn-content"></span></button>
+        </div>
+        <div class="col-auto accessibility-zoom-col">
+            <button title="Reset Zoom" aria-label="reset zoom" onclick="resetZoom()" class="accessibility-zoom-btn"><span class="fa fa-refresh accessibility-zoom-btn-content"></span></button>
+        </div>
+    </div>
+    <div class="row pb-3">
+        <div class="col-auto">
+            <button aria-label="Reset Settings" onclick="clearSettings()" style="width:11rem;border:2px solid black;border-radius:5px;">Reset All Settings</button>
+        </div>
+    </div>
+    <div class="row pb-3">
+        <div class="col-auto">
+            <button aria-label="Request Accessibility Services" onclick="window.open('https://forms.gle/dfFFqjL9UeoiKyDs6')" style="width:11rem;border:2px solid black;border-radius:5px;">Request Accessibility Services</button>
+
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-auto">
+            <button aria-label="Accessibility Feedback" onclick="window.open('mailto:webmaster@mgadls.state.md.us')" style="width:11rem;border:2px solid black;border-radius:5px;">Accessibility Feedback</button>
+        </div>
+    </div>
+</div>
+
+            </div>
+        </div>
+    </div>
+</div>
+                                        </div>
+                                    </div>
+                                    
+                                    
+                                </div>
+                                
+                            </div>
+                            <div class="row" style="margin-right: 15px; flex-flow: row-reverse;">
+                                
+                                <div class="col-auto">
+                                    <div class="row justify-content-end pt-2 pb-2 ml-0 mt-0 header-links mobile-header-links text-right">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="/mgawebsite/Scripts/jquery-3.4.1.min.js"></script>
+<script>
+    $(document).ready(function () {
+
+        $('[data-toggle="popover"]').popover({
+            html: true,
+            sanitize: false
+        });
+
+        $('html').on('click', function (e) {
+            if (!$(e.target).is('.mymga-popover') && $(e.target).closest('.popover').length == 0) {
+                $(".mymga-popover").popover('hide');
+            }
+            if (!$(e.target).is('.access-popover') && $(e.target).closest('.popover').length == 0) {
+                $(".access-popover").popover('hide');
+            }
+        });
+
+        $('#searchBtn').click(function (e) {
+
+            const webroot = '/mgawebsite';
+            const currentYrSess = '2026RS';
+
+            var elemVal = $('#bill-search').val();
+
+            e.preventDefault();
+
+
+            var config =
+            {
+                validateBillNumber: webroot + '/Search/CheckBillFormatAndExists',
+                error: 'error',
+                message: 'A processing error has occurred.'
+            }
+
+
+            function ValidateBillNumber(val) {
+                var searchReg = /[\sA-Za-z]+[\sA-Za-z]+$/;
+                var url = config.validateBillNumber;
+                $.ajax({
+                    url: url,
+                    data: {
+                        billNumber: val
+                    },
+                    method: "GET",
+                    success: function (data) {
+
+                        if (data.indexOf("exec_order") >= 0) {
+                            var flag = 'exec_order:';
+                            if (data.indexOf(flag) >= 0) {
+                                var url = data.replace(flag, '');
+                                window.open(url);
+                                return true;
+                            }
+                        }
+
+                        if (data.indexOf(config.error) >= 0 && !searchReg.test(elemVal)) {
+                            $('#errMsg').removeClass("error").addClass("error-show").removeClass("hide-on-mobile");
+                            //$('#bill-search').addClass("is-invalid");
+                            //$('#social').addClass("com-style");
+                            //$('#group').removeClass("search-style").addClass("com-style");
+                        }
+                        else if (data.indexOf(config.error) >= 0 && searchReg.test(elemVal) == true) {
+
+                            window.location.href = webroot + '/Search/FullText' + '?category=&dropXSL=no&isadvanced=&rpp=500&pr=mgasearch&query=' + elemVal + '&order=r&af1like=' + currentYrSess + '&notq=#full-text-search-results-complete';
+                        }
+                        else {
+                            var arrResults = data.split(',');
+                            var billNum = arrResults[0];
+                            var yearAndSession = arrResults[1];
+                            var currentSession = arrResults[2];
+
+                            var ysAppend = '';
+                            if (yearAndSession != currentSession) {
+                                ysAppend = '/?ys=' + yearAndSession;
+                            }
+                            else {
+                                ysAppend = '/?ys=' + currentSession;
+                            }
+
+                            window.location.href = webroot + '/Legislation/Details/' + billNum + ysAppend;
+                        }
+                    },
+                    error: function (xhr) {
+                        var errMsg = url + ' ==> ' + config.message
+                        alert(errMsg);
+                        console.log(errMsg);
+                    }
+                });
+            }
+
+
+            //var searchReg = /^[a-zA-Z0-9-]+$/;
+
+            if (elemVal != "") {
+                ValidateBillNumber(elemVal);
+            }
+            else {
+                $('#errMsg').removeClass("error-show").addClass("error").addClass("hide-on-mobile");
+                //$('#social').addClass("search-style");
+                //$('#group').addClass("search-style");
+
+            }
+            //else {
+
+            //    if (!searchReg.test(elemVal)) {
+            //        $('#errMsg2').removeClass("error").addClass("error-show");
+
+            //    } else {
+            //        window.location.href = webroot + '/Search/FullText';
+            //        $('#input-box').val() = elemVal;
+            //    }
+            //}
+
+        });
+
+
+    });
+    $(document).ready(function () {
+        //****************************************************
+        //set to the last selected session for these pages
+        //****************************************************
+        const mgaWebroot = '/mgawebsite';
+        var legisSearchPage = mgaWebroot + "/Search/Legislation";
+        var sessionFilter = 0;
+        var sessionUrlParm = '?session=';
+
+        var elem = $('a[href$="' + legisSearchPage + '"]:not(#btnTwitter)');
+        elem.attr('href', '#');
+        elem.on('click', function () {
+            var legisSearchFilters = JSON.parse(sessionStorage.getItem('legisSearchFilters'));
+            if (legisSearchFilters != null) {//saved filters
+                window.location.href = legisSearchPage + sessionUrlParm + legisSearchFilters[sessionFilter].value;
+            }
+            else {
+                window.location.href = legisSearchPage;
+            }
+        })
+    });
+</script>
+
+
+        <div class="hide-on-mobile">
+
+    <div class="navbar navbar-expand-sm header-padding layout-navbar panel-group">
+        <div class="container-fluid">
+
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <i class="fa fa-bars nav-menu-icon"></i>
+                <span class="nav-menu-icon">Menu</span>
+            </button>
+
+            <div class="hide-on-non-mobile">
+                <a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://mgaleg.maryland.gov/mgawebsite/laws/StatuteText?article=gtp&amp;section=9-304%2F&amp;amp;src=sdkpreparse" class="fb-xfbml-parse-ignore"><img class="rounded header-icons mobile-header-icons" alt="facebook" src="/Images/Icons/Facebook.png" /></a>
+                <a id="btnTwitter" target="_blank" href=https://twitter.com/intent/tweet?text=Check%20out%20this%20article%20on%20MGA%21%20https://mgaleg.maryland.gov/mgawebsite/laws/StatuteText?article=gtp&amp;section=9-304><img class="rounded header-icons mobile-header-icons" alt="twitter" src="/Images/Icons/Twitter.png" /></a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarMgaTrackingContent" aria-controls="navbarMgaTrackingContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <img class="rounded header-icons mobile-header-icons" alt="My MGA" src="/Images/Icons/MyMGA.png" style="border: 1px solid white;" />
+                </button>
+                
+            </div>
+
+            <div class="navbar-collapse collapse mobile-navbar" id="navbarSupportedContent">
+                <ul class="nav justify-content-around navbar-nav" style="width:100%;">
+                    <li>
+                        <div class="dropdown">
+<a class="nav-link navbar-text dropbtn" href="/mgawebsite/Members/District">MEMBERS</a>    <div id="navCollapseMembers" class="dropdown-content">
+<a class="dropdown-item" href="/mgawebsite/Members/District" target="_self">Find My Representatives</a>
+<a class="dropdown-item" href="/mgawebsite/Members/Index/senate" target="_self">Senate</a>
+<a class="dropdown-item" href="/mgawebsite/Members/Index/house" target="_self">House</a>
+<a class="dropdown-item" href="/mgawebsite/Members/Publications" target="_self">Publications</a>
+<a class="dropdown-item" href="/mgawebsite/Members/RelatedLinks" target="_self">Related Links</a>
+<a class="dropdown-item" href="/mgawebsite/Members/About" target="_self">About</a>
+    </div>
+</div>
+
+                    </li>
+                    <li>
+                        <div class="dropdown">
+<a class="nav-link navbar-text dropbtn" href="/mgawebsite/Committees/Charts">COMMITTEES</a>    <div id="navCollapseCommittees" class="dropdown-content">
+<a class="dropdown-item" href="/mgawebsite/Committees/Charts" target="_self">Charts</a>
+<a class="dropdown-item" href="/mgawebsite/Committees/Index/senate" target="_self">Senate</a>
+<a class="dropdown-item" href="/mgawebsite/Committees/Index/house" target="_self">House</a>
+<a class="dropdown-item" href="/mgawebsite/Committees/Index/other" target="_self">Other</a>
+<a class="dropdown-item" href="/mgawebsite/Committees/Publications" target="_self">Publications</a>
+<a class="dropdown-item" href="/mgawebsite/Committees/RelatedLinks" target="_self">Related Links</a>
+<a class="dropdown-item" href="/mgawebsite/Committees/About" target="_self">About</a>
+    </div>
+</div>
+
+                    </li>
+                    <li>
+                        <div class="dropdown">
+<a class="nav-link navbar-text dropbtn" href="/mgawebsite/Meetings/Day">MEETINGS</a>    <div id="navCollapseMeetings" class="dropdown-content">
+<a class="dropdown-item" href="/mgawebsite/Meetings/Day" target="_self">Day(s)</a>
+<a class="dropdown-item" href="/mgawebsite/Meetings/Week" target="_self">Week</a>
+<a class="dropdown-item" href="/mgawebsite/Meetings/Month" target="_self">Month</a>
+<a class="dropdown-item" href="/mgawebsite/Meetings/UpdateReport" target="_self">Update Report</a>
+<a class="dropdown-item" href="/mgawebsite/Meetings/Publications" target="_self">Publications</a>
+<a class="dropdown-item" href="/mgawebsite/Meetings/About" target="_self">About</a>
+    </div>
+</div>
+
+                    </li>
+                    <li>
+                        <div class="dropdown">
+<a class="nav-link navbar-text dropbtn" href="/mgawebsite/Legislation/Charts">LEGISLATION</a>    <div id="navCollapseLegislation" class="dropdown-content">
+<a class="dropdown-item" href="/mgawebsite/Legislation/Charts" target="_self">Charts</a>
+<a class="dropdown-item" href="/mgawebsite/Legislation/Index/senate" target="_self">Senate</a>
+<a class="dropdown-item" href="/mgawebsite/Legislation/Index/house" target="_self">House</a>
+<a class="dropdown-item" href="/mgawebsite/Legislation/Publications" target="_self">Publications</a>
+<a class="dropdown-item" href="/mgawebsite/Legislation/About" target="_self">About</a>
+    </div>
+</div>
+
+                    </li>
+                    <li>
+                        <div class="dropdown">
+<a class="nav-link navbar-text dropbtn" href="/mgawebsite/Budget/Charts">BUDGET</a>    <div id="navCollapseBudget" class="dropdown-content">
+<a class="dropdown-item" href="/mgawebsite/Budget/Charts" target="_self">Charts</a>
+<a class="dropdown-item" href="/mgawebsite/Budget/Analyses" target="_self">Analyses</a>
+<a class="dropdown-item" href="/mgawebsite/Budget/Legislation" target="_self">Legislation</a>
+<a class="dropdown-item" href="/mgawebsite/Budget/BondInitiatives" target="_self">Bond Initiatives</a>
+<a class="dropdown-item" href="/mgawebsite/Budget/Publications" target="_self">Publications</a>
+<a class="dropdown-item" href="/mgawebsite/Budget/RelatedLinks" target="_self">Related Links</a>
+<a class="dropdown-item" href="/mgawebsite/Budget/About" target="_self">About</a>
+    </div>
+</div>
+
+                    </li>
+                    <li>
+                        <div class="dropdown">
+<a class="nav-link navbar-text dropbtn dropbtn-active" href="/mgawebsite/Laws/Statutes">LAWS</a>    <div id="navCollapseLaws" class="dropdown-content">
+<a class="dropdown-item" href="/mgawebsite/Laws/Statutes" target="_self">Statutes</a>
+<a class="dropdown-item" href="/mgawebsite/Laws/Counties" target="_self">Counties</a>
+<a class="dropdown-item" href="/mgawebsite/Laws/Municipalities" target="_self">Municipalities</a>
+<a class="dropdown-item" href="/mgawebsite/Laws/Publications" target="_self">Publications</a>
+<a class="dropdown-item" href="/mgawebsite/Laws/RelatedLinks" target="_self">Related Links</a>
+<a class="dropdown-item" href="/mgawebsite/Laws/About" target="_self">About</a>
+    </div>
+</div>
+
+                    </li>
+                    <li>
+                        <div class="dropdown">
+<a class="nav-link navbar-text dropbtn" href="/mgawebsite/FloorActions/Status">FLOOR ACTIONS</a>    <div id="navCollapseFloorActions" class="dropdown-content">
+<a class="dropdown-item" href="/mgawebsite/FloorActions/Status" target="_self">Status</a>
+<a class="dropdown-item" href="/mgawebsite/FloorActions/Agenda/agendas" target="_self">Agendas</a>
+<a class="dropdown-item" href="/mgawebsite/FloorActions/Index/senate" target="_self">Senate Index</a>
+<a class="dropdown-item" href="/mgawebsite/FloorActions/Index/house" target="_self">House Index</a>
+<a class="dropdown-item" href="/mgawebsite/FloorActions/FollowBothChambers" target="_blank">Follow Both Chambers</a>
+<a class="dropdown-item" href="/mgawebsite/FloorActions/Publications" target="_self">Publications</a>
+<a class="dropdown-item" href="/mgawebsite/FloorActions/About" target="_self">About</a>
+    </div>
+</div>
+
+                    </li>
+                    <li>
+                        <div class="dropdown">
+<a class="nav-link navbar-text dropbtn" href="/mgawebsite/Redistricting/Congressional">REDISTRICTING</a>    <div id="navCollapseRedistricting" class="dropdown-content">
+<a class="dropdown-item" href="/mgawebsite/Redistricting/Congressional" target="_self">Congressional</a>
+<a class="dropdown-item" href="/mgawebsite/Redistricting/Legislative" target="_self">Legislative</a>
+    </div>
+</div>
+
+                    </li>
+                    <li>
+                        <div class="dropdown">
+<a class="nav-link navbar-text dropbtn" href="/mgawebsite/Search/Legislation">SEARCH</a>    <div id="navCollapseSearch" class="dropdown-content">
+<a class="dropdown-item" href="/mgawebsite/Search/Legislation" target="_self">Legislation</a>
+<a class="dropdown-item" href="/mgawebsite/Search/FullText" target="_self">Full Text</a>
+<a class="dropdown-item" href="/mgawebsite/Search/Publications" target="_self">Publications</a>
+<a class="dropdown-item" href="/mgawebsite/Search/Media" target="_self">Media</a>
+    </div>
+</div>
+
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+        <div class="hide-on-non-mobile">
+
+    <div class="navbar navbar-expand-sm header-padding layout-navbar panel-group">
+        <div class="container-fluid panel-default">
+
+            <button id="btnMenu" class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation" onclick="toggleMyMGA();toggleYouTube()">
+                <i class="fa fa-bars nav-menu-icon"></i>
+                <span class="nav-menu-icon">Menu</span>
+            </button>
+
+            <div class="hide-on-non-mobile">
+                <a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://mgaleg.maryland.gov/mgawebsite/laws/StatuteText?article=gtp&amp;section=9-304%2F&amp;amp;src=sdkpreparse" class="fb-xfbml-parse-ignore"><img class="rounded header-icons mobile-header-icons" alt="Facebook" src="/Images/Icons/Facebook.png" /></a>
+                <a id="btnTwitter" target="_blank" href=https://twitter.com/intent/tweet?text=Check%20out%20this%20article%20on%20MGA%21%20https://mgaleg.maryland.gov/mgawebsite/laws/StatuteText?article=gtp&amp;section=9-304><img class="rounded header-icons mobile-header-icons" alt="Twitter" src="/Images/Icons/Twitter.png" /></a>
+                <button id="btnYouTube" class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarYouTubeContent" aria-controls="navbarYouTubeContent" aria-expanded="false" aria-label="Toggle navigation" onclick="toggleMenu();toggleMyMGA();">
+                    <img class="rounded header-icons mobile-header-icons" alt="Youtube Channels" src="/Images/Icons/YouTube.png" style="border: 1px solid white;" />
+                </button>
+                <button id="btnMyMGA" class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarMgaTrackingContent" aria-controls="navbarMgaTrackingContent" aria-expanded="false" aria-label="Toggle navigation" onclick="toggleMenu();toggleYouTube();">
+                    <img class="rounded header-icons mobile-header-icons" alt="My MGA" src="/Images/Icons/MyMGA.png" style="border: 1px solid white;" />
+                </button>
+
+                
+            </div>
+
+            <div class="navbar-collapse collapse mobile-navbar" id="navbarSupportedContent">
+                <ul class="nav justify-content-around navbar-nav" style="width:100%;">
+                    <li>
+                        <div class="">
+        <a class="nav-link navbar-text dropbtn " data-toggle="collapse" href="#navCollapseMembers" role="button" aria-expanded="false" aria-controls="navCollapseMembers">MEMBERS</a>
+    <div id="navCollapseMembers" class="collapse">
+<a class="dropdown-item navbar-text" href="/mgawebsite/Members/District" target="_self">Find My Representatives</a>
+<a class="dropdown-item navbar-text" href="/mgawebsite/Members/Index/senate" target="_self">Senate</a>
+<a class="dropdown-item navbar-text" href="/mgawebsite/Members/Index/house" target="_self">House</a>
+<a class="dropdown-item navbar-text" href="/mgawebsite/Members/Publications" target="_self">Publications</a>
+<a class="dropdown-item navbar-text" href="/mgawebsite/Members/RelatedLinks" target="_self">Related Links</a>
+<a class="dropdown-item navbar-text" href="/mgawebsite/Members/About" target="_self">About</a>
+    </div>
+</div>
+
+                    </li>
+                    <li>
+                        <div class="">
+        <a class="nav-link navbar-text dropbtn " data-toggle="collapse" href="#navCollapseCommittees" role="button" aria-expanded="false" aria-controls="navCollapseMembers">COMMITTEES</a>
+    <div id="navCollapseCommittees" class="collapse">
+<a class="dropdown-item navbar-text" href="/mgawebsite/Committees/Index/senate" target="_self">Senate</a>
+<a class="dropdown-item navbar-text" href="/mgawebsite/Committees/Index/house" target="_self">House</a>
+<a class="dropdown-item navbar-text" href="/mgawebsite/Committees/Index/other" target="_self">Other</a>
+<a class="dropdown-item navbar-text" href="/mgawebsite/Committees/Publications" target="_self">Publications</a>
+<a class="dropdown-item navbar-text" href="/mgawebsite/Committees/RelatedLinks" target="_self">Related Links</a>
+<a class="dropdown-item navbar-text" href="/mgawebsite/Committees/About" target="_self">About</a>
+    </div>
+</div>
+
+                    </li>
+                    <li>
+                        <div class="">
+        <a class="nav-link navbar-text dropbtn " data-toggle="collapse" href="#navCollapseMeetings" role="button" aria-expanded="false" aria-controls="navCollapseMembers">MEETINGS</a>
+    <div id="navCollapseMeetings" class="collapse">
+<a class="dropdown-item navbar-text" href="/mgawebsite/Meetings/Day" target="_self">Day(s)</a>
+<a class="dropdown-item navbar-text" href="/mgawebsite/Meetings/UpdateReport" target="_self">Update Report</a>
+<a class="dropdown-item navbar-text" href="/mgawebsite/Meetings/Publications" target="_self">Publications</a>
+<a class="dropdown-item navbar-text" href="/mgawebsite/Meetings/About" target="_self">About</a>
+    </div>
+</div>
+
+                    </li>
+                    <li>
+                        <div class="">
+        <a class="nav-link navbar-text dropbtn " data-toggle="collapse" href="#navCollapseLegislation" role="button" aria-expanded="false" aria-controls="navCollapseMembers">LEGISLATION</a>
+    <div id="navCollapseLegislation" class="collapse">
+<a class="dropdown-item navbar-text" href="/mgawebsite/Legislation/Index/senate" target="_self">Senate</a>
+<a class="dropdown-item navbar-text" href="/mgawebsite/Legislation/Index/house" target="_self">House</a>
+<a class="dropdown-item navbar-text" href="/mgawebsite/Legislation/Publications" target="_self">Publications</a>
+<a class="dropdown-item navbar-text" href="/mgawebsite/Legislation/About" target="_self">About</a>
+    </div>
+</div>
+
+                    </li>
+                    <li>
+                        <div class="">
+        <a class="nav-link navbar-text dropbtn " data-toggle="collapse" href="#navCollapseBudget" role="button" aria-expanded="false" aria-controls="navCollapseMembers">BUDGET</a>
+    <div id="navCollapseBudget" class="collapse">
+<a class="dropdown-item navbar-text" href="/mgawebsite/Budget/Analyses" target="_self">Analyses</a>
+<a class="dropdown-item navbar-text" href="/mgawebsite/Budget/Legislation" target="_self">Legislation</a>
+<a class="dropdown-item navbar-text" href="/mgawebsite/Budget/BondInitiatives" target="_self">Bond Initiatives</a>
+<a class="dropdown-item navbar-text" href="/mgawebsite/Budget/Publications" target="_self">Publications</a>
+<a class="dropdown-item navbar-text" href="/mgawebsite/Budget/RelatedLinks" target="_self">Related Links</a>
+<a class="dropdown-item navbar-text" href="/mgawebsite/Budget/About" target="_self">About</a>
+    </div>
+</div>
+
+                    </li>
+                    <li>
+                        <div class="">
+        <a class="nav-link navbar-text dropbtn  dropbtn-active" data-toggle="collapse" href="#navCollapseLaws" role="button" aria-expanded="false" aria-controls="navCollapseMembers">LAWS</a>
+    <div id="navCollapseLaws" class="collapse">
+<a class="dropdown-item navbar-text" href="/mgawebsite/Laws/Statutes" target="_self">Statutes</a>
+<a class="dropdown-item navbar-text" href="/mgawebsite/Laws/Counties" target="_self">Counties</a>
+<a class="dropdown-item navbar-text" href="/mgawebsite/Laws/Municipalities" target="_self">Municipalities</a>
+<a class="dropdown-item navbar-text" href="/mgawebsite/Laws/Publications" target="_self">Publications</a>
+<a class="dropdown-item navbar-text" href="/mgawebsite/Laws/RelatedLinks" target="_self">Related Links</a>
+<a class="dropdown-item navbar-text" href="/mgawebsite/Laws/About" target="_self">About</a>
+    </div>
+</div>
+
+                    </li>
+                    <li>
+                        <div class="">
+        <a class="nav-link navbar-text dropbtn " data-toggle="collapse" href="#navCollapseFloorActions" role="button" aria-expanded="false" aria-controls="navCollapseMembers">FLOOR ACTIONS</a>
+    <div id="navCollapseFloorActions" class="collapse">
+<a class="dropdown-item navbar-text" href="/mgawebsite/FloorActions/Status" target="_self">Status</a>
+<a class="dropdown-item navbar-text" href="/mgawebsite/FloorActions/Agenda/agendas" target="_self">Agendas</a>
+<a class="dropdown-item navbar-text" href="/mgawebsite/FloorActions/Index/senate" target="_self">Senate Index</a>
+<a class="dropdown-item navbar-text" href="/mgawebsite/FloorActions/Index/house" target="_self">House Index</a>
+<a class="dropdown-item navbar-text" href="/mgawebsite/FloorActions/Publications" target="_self">Publications</a>
+<a class="dropdown-item navbar-text" href="/mgawebsite/FloorActions/About" target="_self">About</a>
+    </div>
+</div>
+
+                    </li>
+                    <li>
+                        <div class="">
+        <a class="nav-link navbar-text dropbtn " data-toggle="collapse" href="#navCollapseRedistricting" role="button" aria-expanded="false" aria-controls="navCollapseMembers">REDISTRICTING</a>
+    <div id="navCollapseRedistricting" class="collapse">
+<a class="dropdown-item navbar-text" href="/mgawebsite/Redistricting/Congressional" target="_self">Congressional</a>
+<a class="dropdown-item navbar-text" href="/mgawebsite/Redistricting/Legislative" target="_self">Legislative</a>
+    </div>
+</div>
+
+                    </li>
+                    <li>
+                        <div class="">
+        <a class="nav-link navbar-text dropbtn " data-toggle="collapse" href="#navCollapseSearch" role="button" aria-expanded="false" aria-controls="navCollapseMembers">SEARCH</a>
+    <div id="navCollapseSearch" class="collapse">
+<a class="dropdown-item navbar-text" href="/mgawebsite/Search/Legislation" target="_self">Legislation</a>
+<a class="dropdown-item navbar-text" href="/mgawebsite/Search/FullText" target="_self">Full Text</a>
+<a class="dropdown-item navbar-text" href="/mgawebsite/Search/Publications" target="_self">Publications</a>
+<a class="dropdown-item navbar-text" href="/mgawebsite/Search/Media" target="_self">Media</a>
+    </div>
+</div>
+
+                    </li>
+                </ul>
+            </div>
+                <div class="navbar-collapse collapse mobile-navbar hide-on-non-mobile" id="navbarMgaTrackingContent">
+                    <ul class="nav justify-content-around navbar-nav" style="width:100%;">
+
+                        <li>
+                            <a class="nav-link navbar-text dropbtn" href="/mgawebsite/MyMGATracking/ManageLists">Track</a>
+                        </li>
+                        <li>
+                            <a class="nav-link navbar-text dropbtn" href="/mgawebsite/MyMGATracking/WitnessSignup">Witness Signup</a>
+                        </li>
+                        <li>
+                            <a class="nav-link navbar-text dropbtn" href="/mgawebsite/MyMGATracking/FAQ">FAQ</a>
+                        </li>
+                        <li>
+                            <a class="nav-link navbar-text dropbtn" href="/mgawebsite/Manage/ChangePassword">Change Password</a>
+                        </li>
+                        <li>
+                            <a class="nav-link navbar-text dropbtn" href="/mgawebsite/MyMGATracking/CancelAccount">Cancel Account</a>
+                        </li>
+                        
+                    </ul>
+                </div>
+                <div class="navbar-collapse collapse mobile-navbar hide-on-non-mobile" id="navbarYouTubeContent">
+                    <ul class="nav justify-content-around navbar-nav" style="width:100%;">
+                        <li>
+                            <a class="nav-link navbar-text dropbtn" href="/mgawebsite/Information/YouTubeChannelInfo?id=s">Senate</a>
+                        </li>
+                        <li>
+                            <a class="nav-link navbar-text dropbtn" href="/mgawebsite/Information/YouTubeChannelInfo?id=h">House</a>
+                        </li>
+                        <li>
+                            <a class="nav-link navbar-text dropbtn" href="/mgawebsite/Information/YouTubeChannelInfo?id=o">Other</a>
+                        </li>
+                        <li>
+                            <a class="nav-link navbar-text dropbtn" href="/mgawebsite/Information/YouTubeChannelInfoAbout">About</a>
+                        </li>
+                    </ul>
+                </div>
+
+        </div>
+    </div>
+</div>
+    </div>
+
+    <div class="container-fluid zero-out-padding-horizontal">
+
+        
+            <div class="container-fluid rounded view-page-content">
+                    <div class="row">
+                        <div id="leftNavPrint" class="col-sm-4 col-md-3 col-lg-2">
+                            <div id="memberNav" class="list-group text-center left-nav hide-on-mobile">
+<a class="list-group-item list-group-item-action active" href="/mgawebsite/Laws/Statutes" target="_self">Statutes</a>
+<a class="list-group-item list-group-item-action" href="/mgawebsite/Laws/Counties" target="_self">Counties</a>
+<a class="list-group-item list-group-item-action" href="/mgawebsite/Laws/Municipalities" target="_self">Municipalities</a>
+<a class="list-group-item list-group-item-action" href="/mgawebsite/Laws/Publications" target="_self">Publications</a>
+<a class="list-group-item list-group-item-action" href="/mgawebsite/Laws/RelatedLinks" target="_self">Related Links</a>
+<a class="list-group-item list-group-item-action" href="/mgawebsite/Laws/About" target="_self">About</a>
+</div>
+                        </div>
+                        <div id="mainBody" class="col-sm-8 col-md-9 col-lg-10 col-print-12">
+                            
+
+
+<div class="container-fluid">  
+    
+    <div class="row">
+        <div class="col-sm-12">
+            <h2>Statutes Text</h2>
+        </div>
+    </div>
+</div>
+
+<div class="row ml-3">
+    <div class="col-sm-12">
+        <div id="StatuteText">
+<html><div style="text-align: center;"><span style="font-weight: bold;">Article - Tax - Property</span></div><br><br><div class="row"><div class="btn-group" role="group"><button class="btn sub-navbar-button Previous">Previous</button><button class="btn sub-navbar-button Next">Next</button></div></div><br><br>&sect;9&ndash;304.<br><br>&nbsp;&nbsp;&nbsp;&nbsp;(a)&nbsp;&nbsp;&nbsp;&nbsp;(1)&nbsp;&nbsp;&nbsp;&nbsp;The Mayor and City Council of Baltimore City shall grant, by law, a property tax credit under this section against the county property tax imposed on real property that:<br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(i)&nbsp;&nbsp;&nbsp;&nbsp;is subject to a perpetual conservation easement donated to the Maryland Environmental Trust on or before June 30, 1986; and<br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(ii)&nbsp;&nbsp;&nbsp;&nbsp;is not eligible for a credit under &sect; 9&ndash;107 of this title.<br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(2)&nbsp;&nbsp;&nbsp;&nbsp;The Mayor and City Council of Baltimore City shall provide, by law, for:<br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(i)&nbsp;&nbsp;&nbsp;&nbsp;the amount and duration of the property tax credit under this section; and<br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(ii)&nbsp;&nbsp;&nbsp;&nbsp;any other provisions necessary to carry out the property tax credit under this section.<br><br>&nbsp;&nbsp;&nbsp;&nbsp;(b)&nbsp;&nbsp;&nbsp;&nbsp;The Mayor and City Council of Baltimore City may grant, by law, a property tax credit under this section against the county property tax imposed on:<br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(1)&nbsp;&nbsp;&nbsp;&nbsp;real property that is leased, occupied, and used only by the Arc Baltimore, Inc.;<br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(2)&nbsp;&nbsp;&nbsp;&nbsp;personal property that is owned by the Northwest Family Sport Center, Inc.; and<br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(3)&nbsp;&nbsp;&nbsp;&nbsp;property that is:<br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(i)&nbsp;&nbsp;&nbsp;&nbsp;owned by the South Baltimore Little League;<br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(ii)&nbsp;&nbsp;&nbsp;&nbsp;located at 1101 E. Fort Avenue, Baltimore, Maryland; and<br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(iii)&nbsp;&nbsp;&nbsp;&nbsp;used for amateur sports.<br><br>&nbsp;&nbsp;&nbsp;&nbsp;(c)&nbsp;&nbsp;&nbsp;&nbsp;(1)&nbsp;&nbsp;&nbsp;&nbsp;In this subsection, &ldquo;vacant dwelling&rdquo; means residential real property that:<br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(i)&nbsp;&nbsp;&nbsp;&nbsp;contains no more than four dwelling units; and<br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(ii)&nbsp;&nbsp;&nbsp;&nbsp;1.&nbsp;&nbsp;&nbsp;&nbsp;has been cited with a vacant building notice; or<br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2.&nbsp;&nbsp;&nbsp;&nbsp;has been owned by the Mayor and City Council of Baltimore City for 1 year and is in need of substantial repair to comply with applicable city codes.<br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(2)&nbsp;&nbsp;&nbsp;&nbsp;The Mayor and City Council of Baltimore City may grant, by law, a property tax credit under this subsection against the county property tax imposed on real property that is owned by qualifying owners of vacant dwellings.<br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(3)&nbsp;&nbsp;&nbsp;&nbsp;A property tax credit granted under this subsection may not exceed the amount of county property tax imposed on the increased value of the residential real property that is due to the improvements made to the property immediately before the occupancy permit was issued, multiplied by:<br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(i)&nbsp;&nbsp;&nbsp;&nbsp;100% for the first taxable year in which the property qualifies for the tax credit;<br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(ii)&nbsp;&nbsp;&nbsp;&nbsp;80% for the second taxable year in which the property qualifies for the tax credit;<br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(iii)&nbsp;&nbsp;&nbsp;&nbsp;60% for the third taxable year in which the property qualifies for the tax credit;<br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(iv)&nbsp;&nbsp;&nbsp;&nbsp;40% for the fourth taxable year in which the property qualifies for the tax credit;<br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(v)&nbsp;&nbsp;&nbsp;&nbsp;20% for the fifth taxable year in which the property qualifies for the tax credit; and<br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(vi)&nbsp;&nbsp;&nbsp;&nbsp;0% for each taxable year thereafter.<br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(4)&nbsp;&nbsp;&nbsp;&nbsp;Owners of vacant dwellings may qualify for the tax credit authorized by this subsection by:<br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(i)&nbsp;&nbsp;&nbsp;&nbsp;substantially rehabilitating the vacant dwelling in compliance with the code and laws applied to dwellings;<br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(ii)&nbsp;&nbsp;&nbsp;&nbsp;occupying the dwelling after rehabilitation as their principal residence; and<br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(iii)&nbsp;&nbsp;&nbsp;&nbsp;satisfying other requirements as may be provided by the Mayor and City Council of Baltimore City.<br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(5)&nbsp;&nbsp;&nbsp;&nbsp;The Mayor and City Council of Baltimore City may provide for procedures necessary and appropriate for the submission of an application for and the granting of a property tax credit under this subsection.<br><br>&nbsp;&nbsp;&nbsp;&nbsp;(d)&nbsp;&nbsp;&nbsp;&nbsp;(1)&nbsp;&nbsp;&nbsp;&nbsp;(i)&nbsp;&nbsp;&nbsp;&nbsp;In this subsection the following words have the meanings indicated.<br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(ii)&nbsp;&nbsp;&nbsp;&nbsp;&ldquo;Eligible dwelling&rdquo; means residential real property that is:<br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1.&nbsp;&nbsp;&nbsp;&nbsp;a newly constructed dwelling; or<br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2.&nbsp;&nbsp;&nbsp;&nbsp;a substantially rehabilitated dwelling.<br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(iii)&nbsp;&nbsp;&nbsp;&nbsp;1.&nbsp;&nbsp;&nbsp;&nbsp;&ldquo;Major building component&rdquo; means a component, at least 50% of which is replaced, that:<br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;A.&nbsp;&nbsp;&nbsp;&nbsp;is significant to the dwelling and its use;<br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;B.&nbsp;&nbsp;&nbsp;&nbsp;is normally expected to last the useful life of the dwelling; and<br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;C.&nbsp;&nbsp;&nbsp;&nbsp;is not minor or cosmetic.<br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2.&nbsp;&nbsp;&nbsp;&nbsp;&ldquo;Major building component&rdquo; includes:<br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;A.&nbsp;&nbsp;&nbsp;&nbsp;roof structures;<br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;B.&nbsp;&nbsp;&nbsp;&nbsp;wall or floor structures;<br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;C.&nbsp;&nbsp;&nbsp;&nbsp;foundations; or<br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;D.&nbsp;&nbsp;&nbsp;&nbsp;plumbing, central heating and air conditioning, or electrical systems.<br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(iv)&nbsp;&nbsp;&nbsp;&nbsp;1.&nbsp;&nbsp;&nbsp;&nbsp;&ldquo;Newly constructed dwelling&rdquo; means residential real property that has not been previously occupied since its construction and for which the building permit for construction was issued:<br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;A.&nbsp;&nbsp;&nbsp;&nbsp;on or after October 1, 1994, but before July 1, 2019; or<br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;B.&nbsp;&nbsp;&nbsp;&nbsp;on or after July 1, 2020.<br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2.&nbsp;&nbsp;&nbsp;&nbsp;&ldquo;Newly constructed dwelling&rdquo; includes a &ldquo;vacant dwelling&rdquo; as defined in subsection (c)(1) of this section that has been rehabilitated in compliance with applicable local laws and regulations and has not been previously occupied since the rehabilitation.<br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(v)&nbsp;&nbsp;&nbsp;&nbsp;&ldquo;Owner&rdquo; means &ldquo;homeowner&rdquo; as defined in &sect; 9&ndash;105 of this title.<br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(vi)&nbsp;&nbsp;&nbsp;&nbsp;1.&nbsp;&nbsp;&nbsp;&nbsp;&ldquo;Substantially rehabilitated dwelling&rdquo; means residential real property that, on or after July 1, 2020, has undergone repairs, replacements, or improvements:<br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;A.&nbsp;&nbsp;&nbsp;&nbsp;of two or more major building components;<br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;B.&nbsp;&nbsp;&nbsp;&nbsp;that comply with local laws and regulations; and<br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;C.&nbsp;&nbsp;&nbsp;&nbsp;for which the direct construction costs incurred by the owner exceed $6,500 or, after the completion of the repairs, replacements, or improvements, 30% of the property&rsquo;s assessed value in the taxable year.<br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2.&nbsp;&nbsp;&nbsp;&nbsp;&ldquo;Substantially rehabilitated dwelling&rdquo; does not include a rehabilitated &ldquo;vacant dwelling&rdquo; as defined in subsection (c)(1) of this section.<br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(2)&nbsp;&nbsp;&nbsp;&nbsp;The Mayor and City Council of Baltimore City may grant, by law, a property tax credit under this subsection against the county property tax imposed on eligible dwellings that are owned by qualifying owners.<br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(3)&nbsp;&nbsp;&nbsp;&nbsp;A property tax credit granted under this subsection may not exceed the sum of:<br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(i)&nbsp;&nbsp;&nbsp;&nbsp;the amount of county property tax imposed on the real property that is attributable to the first $300,000 of assessed value, less the amount of any other credit applicable in that year that is attributable to that amount of assessed value, multiplied by:<br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1.&nbsp;&nbsp;&nbsp;&nbsp;100% for the first taxable year in which the property qualifies for the tax credit;<br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2.&nbsp;&nbsp;&nbsp;&nbsp;40% for the second taxable year in which the property qualifies for the tax credit;<br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3.&nbsp;&nbsp;&nbsp;&nbsp;30% for the third taxable year in which the property qualifies for the tax credit;<br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;4.&nbsp;&nbsp;&nbsp;&nbsp;20% for the fourth taxable year in which the property qualifies for the tax credit;<br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;5.&nbsp;&nbsp;&nbsp;&nbsp;10% for the fifth taxable year in which the property qualifies for the tax credit; and<br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;6.&nbsp;&nbsp;&nbsp;&nbsp;0% for each taxable year thereafter;<br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(ii)&nbsp;&nbsp;&nbsp;&nbsp;the amount of county property tax imposed on the real property that is attributable to the amount of assessed value in excess of $300,000 but not exceeding $500,000, less the amount of any other credit applicable in that year that is attributable to that amount of assessed value, multiplied by:<br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1.&nbsp;&nbsp;&nbsp;&nbsp;50% for the first taxable year in which the property qualifies for the tax credit;<br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2.&nbsp;&nbsp;&nbsp;&nbsp;40% for the second taxable year in which the property qualifies for the tax credit;<br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3.&nbsp;&nbsp;&nbsp;&nbsp;30% for the third taxable year in which the property qualifies for the tax credit;<br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;4.&nbsp;&nbsp;&nbsp;&nbsp;20% for the fourth taxable year in which the property qualifies for the tax credit;<br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;5.&nbsp;&nbsp;&nbsp;&nbsp;10% for the fifth taxable year in which the property qualifies for the tax credit; and<br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;6.&nbsp;&nbsp;&nbsp;&nbsp;0% for each taxable year thereafter; and<br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(iii)&nbsp;&nbsp;&nbsp;&nbsp;the amount of county property tax imposed on the real property that is attributable to the amount of assessed value in excess of $500,000, less the amount of any other credit applicable in that year that is attributable to that amount of assessed value, multiplied by:<br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1.&nbsp;&nbsp;&nbsp;&nbsp;25% for the first taxable year in which the property qualifies for the tax credit;<br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2.&nbsp;&nbsp;&nbsp;&nbsp;20% for the second taxable year in which the property qualifies for the tax credit;<br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3.&nbsp;&nbsp;&nbsp;&nbsp;15% for the third taxable year in which the property qualifies for the tax credit;<br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;4.&nbsp;&nbsp;&nbsp;&nbsp;10% for the fourth taxable year in which the property qualifies for the tax credit;<br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;5.&nbsp;&nbsp;&nbsp;&nbsp;5% for the fifth taxable year in which the property qualifies for the tax credit; and<br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;6.&nbsp;&nbsp;&nbsp;&nbsp;0% for each taxable year thereafter.<br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(4)&nbsp;&nbsp;&nbsp;&nbsp;Notwithstanding the credit amount calculated under paragraph (3) of this subsection, the Mayor and City Council of Baltimore City may establish, by law, maximum limits on the cumulative property tax credit allowed under this subsection or on the amount of the credit allowed for any year.<br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(5)&nbsp;&nbsp;&nbsp;&nbsp;Owners of eligible dwellings may qualify for the tax credit authorized by this subsection by:<br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(i)&nbsp;&nbsp;&nbsp;&nbsp;if the eligible dwelling is a newly constructed dwelling, purchasing the newly constructed dwelling;<br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(ii)&nbsp;&nbsp;&nbsp;&nbsp;occupying the eligible dwelling as their principal residence;<br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(iii)&nbsp;&nbsp;&nbsp;&nbsp;filing a State income tax return during the period of the tax credit as a resident of Baltimore City; and<br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(iv)&nbsp;&nbsp;&nbsp;&nbsp;satisfying other requirements as may be provided by the Mayor and City Council of Baltimore City.<br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(6)&nbsp;&nbsp;&nbsp;&nbsp;(i)&nbsp;&nbsp;&nbsp;&nbsp;The Mayor and City Council of Baltimore City may provide, by law, for two application periods during which owners can apply for the property tax credit under this subsection based on:<br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1.&nbsp;&nbsp;&nbsp;&nbsp;A.&nbsp;&nbsp;&nbsp;&nbsp;if the dwelling is a newly constructed dwelling, the purchase date of the dwelling; or<br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;B.&nbsp;&nbsp;&nbsp;&nbsp;if the dwelling is a substantially rehabilitated dwelling, the date on which the rehabilitation is completed; and<br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2.&nbsp;&nbsp;&nbsp;&nbsp;the date of the assessment notice.<br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(ii)&nbsp;&nbsp;&nbsp;&nbsp;If granted, the tax credit shall be applied against the owner&rsquo;s property taxes as long as the owner remains the owner&ndash;occupant of the dwelling for which the credit is received.<br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(iii)&nbsp;&nbsp;&nbsp;&nbsp;The Mayor and City Council of Baltimore City shall provide for any procedures necessary and appropriate for implementing the application periods.<br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(7)&nbsp;&nbsp;&nbsp;&nbsp;The Mayor and City Council of Baltimore City may provide for additional procedures necessary and appropriate for the submission of an application for and the granting of a property tax credit under this subsection, including procedures for granting partial credits for eligibility for less than a full taxable year.<br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(8)&nbsp;&nbsp;&nbsp;&nbsp;The estimated amount of all tax credits received by owners under this subsection in any fiscal year shall be reported by the Director of Finance of Baltimore City as a &ldquo;tax expenditure&rdquo; for that fiscal year and shall be included in the publication of the City&rsquo;s budget for any subsequent fiscal year with the estimated or actual City property tax revenue for the applicable fiscal year.<br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(9)&nbsp;&nbsp;&nbsp;&nbsp;(i)&nbsp;&nbsp;&nbsp;&nbsp;After June 30, 2025, additional owners of eligible dwellings may not be granted a credit under this subsection.<br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(ii)&nbsp;&nbsp;&nbsp;&nbsp;This paragraph does not apply to an owner&rsquo;s continuing receipt of a credit as allowed in paragraph (3) of this subsection, with respect to a property for which a tax credit under this subsection was received for a taxable year ending on or before June 30, 2025.<br><br>&nbsp;&nbsp;&nbsp;&nbsp;(e)&nbsp;&nbsp;&nbsp;&nbsp;(1)&nbsp;&nbsp;&nbsp;&nbsp;(i)&nbsp;&nbsp;&nbsp;&nbsp;In this subsection the following words have the meanings indicated.<br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(ii)&nbsp;&nbsp;&nbsp;&nbsp;&ldquo;Dwelling&rdquo; has the meaning stated in &sect; 9&ndash;105(a)(2) of this title.<br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(iii)&nbsp;&nbsp;&nbsp;&nbsp;&ldquo;Homeowner&rdquo; has the meaning stated in &sect; 9&ndash;105(a)(3) of this title.<br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(2)&nbsp;&nbsp;&nbsp;&nbsp;The Mayor and City Council of Baltimore City may grant, by law, a property tax credit against the county property tax imposed on a dwelling that:<br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(i)&nbsp;&nbsp;&nbsp;&nbsp;is owned by a homeowner;<br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(ii)&nbsp;&nbsp;&nbsp;&nbsp;has been substantially improved since the last reassessment; and<br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(iii)&nbsp;&nbsp;&nbsp;&nbsp;is reassessed at a higher value.<br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(3)&nbsp;&nbsp;&nbsp;&nbsp;Subject to paragraph (4) of this subsection, a tax credit under this subsection shall equal the amount of county property tax imposed on the increased value of the dwelling that is due to the improvements made to the property, multiplied by:<br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(i)&nbsp;&nbsp;&nbsp;&nbsp;100% for the first taxable year following the first reassessment after the improvements are made;<br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(ii)&nbsp;&nbsp;&nbsp;&nbsp;80% for the second taxable year following the first reassessment after the improvements are made;<br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(iii)&nbsp;&nbsp;&nbsp;&nbsp;60% for the third taxable year following the first reassessment after the improvements are made;<br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(iv)&nbsp;&nbsp;&nbsp;&nbsp;40% for the fourth taxable year following the first reassessment after the improvements are made;<br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(v)&nbsp;&nbsp;&nbsp;&nbsp;20% for the fifth taxable year following the first reassessment after the improvements are made; and<br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(vi)&nbsp;&nbsp;&nbsp;&nbsp;0% for each taxable year thereafter.<br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(4)&nbsp;&nbsp;&nbsp;&nbsp;(i)&nbsp;&nbsp;&nbsp;&nbsp;To continue eligibility for a tax credit under this subsection, a dwelling must remain in compliance with the local housing code.<br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(ii)&nbsp;&nbsp;&nbsp;&nbsp;If a dwelling owned by a person who has received a tax credit under this subsection is found to be in violation of the local housing code, the property owner is not eligible for any further tax credit under this subsection until the dwelling is determined again to be in compliance with the local housing code.<br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(iii)&nbsp;&nbsp;&nbsp;&nbsp;A dwelling that is again brought into compliance is eligible for a tax credit at the rate it would have been eligible before the violation of the local housing code.<br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(5)&nbsp;&nbsp;&nbsp;&nbsp;If a dwelling that is eligible for a tax credit under this subsection is transferred, the grantee is eligible for the balance of the property tax credits under this subsection in the same manner and under the same conditions as the grantor of the property.<br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(6)&nbsp;&nbsp;&nbsp;&nbsp;The property tax credit may not apply to the value of the improvements to the dwelling that exceed $100,000.<br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(7)&nbsp;&nbsp;&nbsp;&nbsp;To receive the tax credit under this subsection, the homeowner shall have the burden of showing that the increase in assessment is due to the value of the improvements to the dwelling that were made since the last assessment of the dwelling.<br><br>&nbsp;&nbsp;&nbsp;&nbsp;(f)&nbsp;&nbsp;&nbsp;&nbsp;(1)&nbsp;&nbsp;&nbsp;&nbsp;(i)&nbsp;&nbsp;&nbsp;&nbsp;In this subsection the following words have the meanings indicated.<br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(ii)&nbsp;&nbsp;&nbsp;&nbsp;&ldquo;Market&ndash;rate rental housing project&rdquo; means a multifamily dwelling containing five or more units in which none of the units are subject to government restrictions on the amount of rent charged or the income level of the tenant.<br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(iii)&nbsp;&nbsp;&nbsp;&nbsp;&ldquo;Newly constructed&rdquo; means that an occupancy permit is issued on or after October 1, 1995.<br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(2)&nbsp;&nbsp;&nbsp;&nbsp;The Mayor and City Council of Baltimore City may grant, by law, a property tax credit under this subsection against the county property tax imposed on newly constructed market&ndash;rate rental housing projects.<br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(3)&nbsp;&nbsp;&nbsp;&nbsp;A property tax credit granted under this subsection may not exceed the amount of county property tax imposed on the real property, less the amount of any other credit applicable in that year, multiplied by:<br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(i)&nbsp;&nbsp;&nbsp;&nbsp;50% for the first taxable year in which the property qualifies for the tax credit;<br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(ii)&nbsp;&nbsp;&nbsp;&nbsp;40% for the second taxable year in which the property qualifies for the tax credit;<br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(iii)&nbsp;&nbsp;&nbsp;&nbsp;30% for the third taxable year in which the property qualifies for the tax credit;<br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(iv)&nbsp;&nbsp;&nbsp;&nbsp;20% for the fourth taxable year in which the property qualifies for the tax credit;<br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(v)&nbsp;&nbsp;&nbsp;&nbsp;10% for the fifth taxable year in which the property qualifies for the tax credit; and<br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(vi)&nbsp;&nbsp;&nbsp;&nbsp;0% for each taxable year thereafter.<br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(4)&nbsp;&nbsp;&nbsp;&nbsp;The Mayor and City Council of Baltimore City may provide additional eligibility requirements.<br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(5)&nbsp;&nbsp;&nbsp;&nbsp;The Mayor and City Council of Baltimore City may provide for procedures for the submission of an application for a property tax credit under this subsection and the granting of the credit, including procedures for the granting of a partial credit for property qualifying for the credit for less than a full taxable year.<br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(6)&nbsp;&nbsp;&nbsp;&nbsp;A newly constructed market&ndash;rate rental housing project may not qualify for the first taxable year of a tax credit under this subsection after June 30, 2001.<br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(7)&nbsp;&nbsp;&nbsp;&nbsp;An ordinance of the Mayor and City Council of Baltimore City authorizing tax credits in accordance with this subsection shall require:<br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(i)&nbsp;&nbsp;&nbsp;&nbsp;the development of a method, to be approved by the Board of Estimates, for analysis of the public costs and benefits of the tax credits; and<br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(ii)&nbsp;&nbsp;&nbsp;&nbsp;an annual report to the Board of Estimates and to the Mayor and City Council of Baltimore City of the results and findings of that analysis.<br><br>&nbsp;&nbsp;&nbsp;&nbsp;(g)&nbsp;&nbsp;&nbsp;&nbsp;(1)&nbsp;&nbsp;&nbsp;&nbsp;(i)&nbsp;&nbsp;&nbsp;&nbsp;In this subsection the following words have the meanings indicated.<br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(ii)&nbsp;&nbsp;&nbsp;&nbsp;&ldquo;Director&rdquo; means the Director of the Department of Finance of Baltimore City.<br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(iii)&nbsp;&nbsp;&nbsp;&nbsp;&ldquo;Dwelling&rdquo; has the meaning indicated in &sect; 9&ndash;105 of this title.<br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(iv)&nbsp;&nbsp;&nbsp;&nbsp;&ldquo;Homeowner&rdquo; has the meaning indicated in &sect; 9&ndash;105 of this title.<br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(2)&nbsp;&nbsp;&nbsp;&nbsp;The Mayor and City Council of Baltimore City shall grant, by law, a property tax credit under this subsection against the county property tax imposed on a dwelling located in Baltimore City that is newly purchased by a homeowner who has received a credit under &sect; 9&ndash;105 of this title for the preceding 5 years for a dwelling located in Baltimore City.<br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(3)&nbsp;&nbsp;&nbsp;&nbsp;(i)&nbsp;&nbsp;&nbsp;&nbsp;To qualify for the credit under this subsection, a homeowner shall submit an application to the Director as provided in this paragraph.<br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(ii)&nbsp;&nbsp;&nbsp;&nbsp;The application shall be:<br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1.&nbsp;&nbsp;&nbsp;&nbsp;made on the form that the Director requires; and<br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2.&nbsp;&nbsp;&nbsp;&nbsp;according to procedures established by the Director.<br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(4)&nbsp;&nbsp;&nbsp;&nbsp;(i)&nbsp;&nbsp;&nbsp;&nbsp;The credit under this subsection is a fixed amount of $4,000 to be applied to the homeowner&rsquo;s property tax bill over a period of 5 years as follows:<br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1.&nbsp;&nbsp;&nbsp;&nbsp;$1,000 in the first year;<br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2.&nbsp;&nbsp;&nbsp;&nbsp;$900 in the second year;<br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3.&nbsp;&nbsp;&nbsp;&nbsp;$800 in the third year;<br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;4.&nbsp;&nbsp;&nbsp;&nbsp;$700 in the fourth year; and<br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;5.&nbsp;&nbsp;&nbsp;&nbsp;$600 in the fifth year.<br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(ii)&nbsp;&nbsp;&nbsp;&nbsp;1.&nbsp;&nbsp;&nbsp;&nbsp;The Mayor and City Council of Baltimore City may increase the total amount provided under subparagraph (i) of this paragraph by up to an additional $1,000 for a homeowner who purchases a dwelling located within a low or moderate income census tract, as designated from time to time by the U.S. Department of Housing and Urban Development and in which at least 51% of the persons living in the tract are in households earning 80% or less of the area median income.<br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2.&nbsp;&nbsp;&nbsp;&nbsp;A homeowner residing within a low or moderate income census tract as described under subsubparagraph 1 of this subparagraph when the homeowner submits an application under paragraph (3) of this subsection shall remain eligible for the increased credit under this subparagraph even if the census tract changes following the date of application and the homeowner would otherwise be ineligible for the increased credit during the 5&ndash;year period.<br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3.&nbsp;&nbsp;&nbsp;&nbsp;The Director may establish additional criteria necessary to carry out this subparagraph.<br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(5)&nbsp;&nbsp;&nbsp;&nbsp;A homeowner may not receive the credit under this subsection, or a portion of the credit, if, in any year, the application of the credit, or a portion of the credit, would reduce the homeowner&rsquo;s property tax liability below the homeowner&rsquo;s property tax liability for the dwelling previously occupied by the homeowner.<br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(6)&nbsp;&nbsp;&nbsp;&nbsp;In any year in which a homeowner receives a credit under this subsection, the homeowner may not receive:<br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(i)&nbsp;&nbsp;&nbsp;&nbsp;the local portion of the credit under &sect; 9&ndash;105 of this title; or<br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(ii)&nbsp;&nbsp;&nbsp;&nbsp;except for the property tax credit provided under &sect; 9&ndash;221 of this title, any other property tax credit provided by Baltimore City.<br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(7)&nbsp;&nbsp;&nbsp;&nbsp;The credit under this subsection may not be transferred to:<br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(i)&nbsp;&nbsp;&nbsp;&nbsp;a person who purchases a dwelling from a homeowner who received the credit under this subsection; or<br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(ii)&nbsp;&nbsp;&nbsp;&nbsp;a dwelling that is subsequently purchased by a homeowner who received the credit under this subsection.<br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(8)&nbsp;&nbsp;&nbsp;&nbsp;After the termination of the credit under this subsection, a homeowner is entitled to the local portion of the credit under &sect; 9&ndash;105 of this title, which shall be calculated:<br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(i)&nbsp;&nbsp;&nbsp;&nbsp;as if the homeowner had received the credit under &sect; 9&ndash;105 of this title beginning in the second year the homeowner occupied the dwelling; and<br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(ii)&nbsp;&nbsp;&nbsp;&nbsp;based on the full assessed value of the dwelling in each year the homeowner received the credit under this subsection.<br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(9)&nbsp;&nbsp;&nbsp;&nbsp;(i)&nbsp;&nbsp;&nbsp;&nbsp;Baltimore City shall allocate no more than $3,000,000 for each year that applications for the credit under this subsection are accepted to pay:<br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1.&nbsp;&nbsp;&nbsp;&nbsp;the total cost of the credits for the approved applicants during the year for the entire period during which the applicants will receive the credit; and<br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2.&nbsp;&nbsp;&nbsp;&nbsp;the cost of administering the credit by the Department of Finance of Baltimore City.<br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(ii)&nbsp;&nbsp;&nbsp;&nbsp;The Director shall review and approve applications for the credit under this subsection based on:<br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1.&nbsp;&nbsp;&nbsp;&nbsp;the date the application was received; and<br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2.&nbsp;&nbsp;&nbsp;&nbsp;the availability of the funds allocated for the credit under subparagraph (i) of this paragraph.<br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(10)&nbsp;&nbsp;&nbsp;&nbsp;The Department of Finance of Baltimore City may adopt regulations as necessary to carry out this subsection.<br><br>&nbsp;&nbsp;&nbsp;&nbsp;(h)&nbsp;&nbsp;&nbsp;&nbsp;(1)&nbsp;&nbsp;&nbsp;&nbsp;(i)&nbsp;&nbsp;&nbsp;&nbsp;In this subsection the following words have the meanings indicated.<br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(ii)&nbsp;&nbsp;&nbsp;&nbsp;&ldquo;Eligible construction&rdquo; means construction of a new supermarket or any substantial renovation of an existing supermarket.<br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(iii)&nbsp;&nbsp;&nbsp;&nbsp;&ldquo;Supermarket&rdquo; means a grocery store that has:<br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1.&nbsp;&nbsp;&nbsp;&nbsp;all major food departments, including produce, meat, seafood, dairy, and canned and packaged goods;<br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2.&nbsp;&nbsp;&nbsp;&nbsp;more than 50% of total sales derived from food sales; and<br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3.&nbsp;&nbsp;&nbsp;&nbsp;more than 50% of total floor space dedicated to food sales.<br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(2)&nbsp;&nbsp;&nbsp;&nbsp;The Mayor and City Council of Baltimore City may grant, by law, a property tax credit under this subsection against the county personal property tax imposed on personal property that is owned by a supermarket that:<br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(i)&nbsp;&nbsp;&nbsp;&nbsp;completes eligible construction; and<br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(ii)&nbsp;&nbsp;&nbsp;&nbsp;is located in a food desert retail incentive area.<br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(3)&nbsp;&nbsp;&nbsp;&nbsp;The Mayor and City Council of Baltimore City shall, by law, designate what constitutes a food desert retail incentive area for purposes of the tax credit under this subsection.<br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(4)&nbsp;&nbsp;&nbsp;&nbsp;A property tax credit granted under this subsection for a taxable year may not exceed the amount of property tax imposed on the personal property of a supermarket in that year.<br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(5)&nbsp;&nbsp;&nbsp;&nbsp;The Mayor and City Council of Baltimore City may establish, by law:<br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(i)&nbsp;&nbsp;&nbsp;&nbsp;limits on the cumulative amount of property tax credits granted under this subsection;<br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(ii)&nbsp;&nbsp;&nbsp;&nbsp;additional limitations on the amount of the credit;<br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(iii)&nbsp;&nbsp;&nbsp;&nbsp;additional eligibility requirements for supermarkets to qualify for the tax credit under this subsection;<br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(iv)&nbsp;&nbsp;&nbsp;&nbsp;additional criteria for what constitutes eligible construction that may qualify a supermarket for the tax credit under this subsection; and<br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(v)&nbsp;&nbsp;&nbsp;&nbsp;any other provisions necessary to carry out this subsection.<br><br>&nbsp;&nbsp;&nbsp;&nbsp;(i)&nbsp;&nbsp;&nbsp;&nbsp;(1)&nbsp;&nbsp;&nbsp;&nbsp;(i)&nbsp;&nbsp;&nbsp;&nbsp;In this subsection the following words have the meanings indicated.<br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(ii)&nbsp;&nbsp;&nbsp;&nbsp;&ldquo;Dwelling&rdquo; has the meaning stated in &sect; 9&ndash;105 of this title.<br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(iii)&nbsp;&nbsp;&nbsp;&nbsp;&ldquo;Public safety officer&rdquo; means a firefighter, an emergency medical technician, or a law enforcement officer who is a sworn member of and employed full time by:<br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1.&nbsp;&nbsp;&nbsp;&nbsp;the Baltimore City Fire Department;<br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2.&nbsp;&nbsp;&nbsp;&nbsp;the Baltimore City Police Department;<br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3.&nbsp;&nbsp;&nbsp;&nbsp;the Baltimore City Sheriff&rsquo;s Office; or<br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;4.&nbsp;&nbsp;&nbsp;&nbsp;the Baltimore City Public School System.<br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(2)&nbsp;&nbsp;&nbsp;&nbsp;The Mayor and City Council of Baltimore City may grant, by law, a property tax credit under this subsection against the county property tax imposed on a dwelling located in Baltimore City that is owned by a public safety officer if the public safety officer is otherwise eligible for the credit authorized under &sect; 9&ndash;105 of this title.<br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(3)&nbsp;&nbsp;&nbsp;&nbsp;In any taxable year, the credit under this subsection:<br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(i)&nbsp;&nbsp;&nbsp;&nbsp;may not exceed $2,500 per dwelling; and<br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(ii)&nbsp;&nbsp;&nbsp;&nbsp;may not exceed the amount of property tax imposed on the dwelling.<br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(4)&nbsp;&nbsp;&nbsp;&nbsp;(i)&nbsp;&nbsp;&nbsp;&nbsp;Except as provided in subparagraph (ii) of this paragraph, in any taxable year in which a public safety officer receives a credit under this subsection, the public safety officer may not receive any other property tax credit provided by Baltimore City.<br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(ii)&nbsp;&nbsp;&nbsp;&nbsp;In addition to the credit under this subsection, a public safety officer may receive:<br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1.&nbsp;&nbsp;&nbsp;&nbsp;the local portion of the credit authorized under &sect; 9&ndash;105 of this title; and<br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2.&nbsp;&nbsp;&nbsp;&nbsp;the credit authorized under &sect; 9&ndash;221 of this title.<br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(5)&nbsp;&nbsp;&nbsp;&nbsp;The Mayor and City Council of Baltimore City may establish, by law:<br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(i)&nbsp;&nbsp;&nbsp;&nbsp;subject to paragraph (3) of this subsection, the amount and application of the credit under this subsection;<br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(ii)&nbsp;&nbsp;&nbsp;&nbsp;the duration of the credit;<br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(iii)&nbsp;&nbsp;&nbsp;&nbsp;additional eligibility requirements for public safety officers to qualify for the credit;<br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(iv)&nbsp;&nbsp;&nbsp;&nbsp;regulations and procedures for the application and uniform processing of requests for the credit under this subsection; and<br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(v)&nbsp;&nbsp;&nbsp;&nbsp;any other provisions necessary to carry out this subsection.<br><br>&nbsp;&nbsp;&nbsp;&nbsp;(j)&nbsp;&nbsp;&nbsp;&nbsp;(1)&nbsp;&nbsp;&nbsp;&nbsp;(i)&nbsp;&nbsp;&nbsp;&nbsp;In this subsection the following words have the meanings indicated.<br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(ii)&nbsp;&nbsp;&nbsp;&nbsp;&ldquo;Newly constructed dwelling&rdquo; has the meaning stated in subsection (d) of this section.<br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(iii)&nbsp;&nbsp;&nbsp;&nbsp;&ldquo;Vacant dwelling&rdquo; has the meaning stated in subsection (c) of this section.<br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(2)&nbsp;&nbsp;&nbsp;&nbsp;The Mayor and City Council of Baltimore City may grant, by law, a property tax credit under this subsection against the county property tax imposed on real property that:<br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(i)&nbsp;&nbsp;&nbsp;&nbsp;is located in any neighborhood that the Baltimore City Housing Department determines has a vacant dwelling rate of at least 35% for each of the prior 3 years; and<br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(ii)&nbsp;&nbsp;&nbsp;&nbsp;is owned by qualifying owners of a vacant or newly constructed dwelling.<br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(3)&nbsp;&nbsp;&nbsp;&nbsp;A property tax credit granted under this subsection shall be up to 100% of the property tax imposed on the value of the improvements for the first 10 taxable years in which the property qualifies for the tax credit.<br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(4)&nbsp;&nbsp;&nbsp;&nbsp;Owners of vacant or newly constructed dwellings may qualify for the tax credit authorized under this subsection by:<br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(i)&nbsp;&nbsp;&nbsp;&nbsp;1.&nbsp;&nbsp;&nbsp;&nbsp;substantially rehabilitating a vacant dwelling in compliance with the code and laws applied to dwellings; or<br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2.&nbsp;&nbsp;&nbsp;&nbsp;A.&nbsp;&nbsp;&nbsp;&nbsp;purchasing a newly constructed dwelling; and<br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;B.&nbsp;&nbsp;&nbsp;&nbsp;occupying the newly constructed dwelling as their principal residence; and<br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(ii)&nbsp;&nbsp;&nbsp;&nbsp;filing a State income tax return during the period of the tax credit as a resident of Baltimore City.<br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(5)&nbsp;&nbsp;&nbsp;&nbsp;Notwithstanding paragraph (4) of this subsection, a community development corporation or a developer may qualify for the tax credit under this subsection if the community development corporation or developer purchases the dwelling to be used as residential rental property.<br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(6)&nbsp;&nbsp;&nbsp;&nbsp;The Mayor and City Council of Baltimore City shall provide for procedures necessary and appropriate for the submission of an application for and the granting of a property tax credit under this subsection.<br><br>&nbsp;&nbsp;&nbsp;&nbsp;(k)&nbsp;&nbsp;&nbsp;&nbsp;(1)&nbsp;&nbsp;&nbsp;&nbsp;(i)&nbsp;&nbsp;&nbsp;&nbsp;In this subsection the following words have the meanings indicated.<br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(ii)&nbsp;&nbsp;&nbsp;&nbsp;&ldquo;Dwelling&rdquo; has the meaning stated in &sect; 9&ndash;105 of this title.<br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(iii)&nbsp;&nbsp;&nbsp;&nbsp;&ldquo;Low&ndash;income employee&rdquo; means an individual who:<br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1.&nbsp;&nbsp;&nbsp;&nbsp;is employed full&ndash;time by Baltimore City;<br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2.&nbsp;&nbsp;&nbsp;&nbsp;is among the 25% lowest&ndash;paid, full&ndash;time Baltimore City employees; and<br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3.&nbsp;&nbsp;&nbsp;&nbsp;owns a dwelling located in Baltimore City.<br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(2)&nbsp;&nbsp;&nbsp;&nbsp;The Mayor and City Council of Baltimore City may grant, by law, a property tax credit under this subsection against the county property tax imposed on a dwelling located in Baltimore City that is owned by a low&ndash;income employee if the low&ndash;income employee is otherwise eligible for the credit authorized under &sect; 9&ndash;105 of this title.<br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(3)&nbsp;&nbsp;&nbsp;&nbsp;In any taxable year, the credit under this section may not exceed the lesser of:<br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(i)&nbsp;&nbsp;&nbsp;&nbsp;$2,500 per dwelling; or<br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(ii)&nbsp;&nbsp;&nbsp;&nbsp;the amount of property tax imposed on the dwelling.<br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(4)&nbsp;&nbsp;&nbsp;&nbsp;The Mayor and City Council of Baltimore City may establish, by law:<br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(i)&nbsp;&nbsp;&nbsp;&nbsp;subject to paragraph (3) of this subsection, the amount and application of the credit under this section;<br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(ii)&nbsp;&nbsp;&nbsp;&nbsp;the duration of the credit;<br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(iii)&nbsp;&nbsp;&nbsp;&nbsp;additional eligibility requirements for the low&ndash;income employee to qualify for the credit;<br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(iv)&nbsp;&nbsp;&nbsp;&nbsp;regulations and procedures for the application and uniform processing of requests for the credit under this subsection; and<br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(v)&nbsp;&nbsp;&nbsp;&nbsp;any other provisions necessary to carry out this subsection.<br><br><div class="row"><div class="btn-group" role="group"><button class="btn sub-navbar-button Previous">Previous</button><button class="btn sub-navbar-button Next">Next</button></div></div><br></html>
+
+
+
+
+
+
+
+
+
+
+
+
+        </div>
+    </div>
+</div>
+<br />
+
+
+                        </div>
+                    </div>
+
+                 <!-- Modal display for validation -->
+<div class="modal fade" id="validateModal" style="z-index:100000" tabindex="-1" aria-labelledby="staticBackdropLabelChanged" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header d-inline fw-bold">
+                <i class="fa-solid fa-circle-exclamation text-danger"></i>
+                <span class="d-inline">Validation</span>
+            </div>
+            <div class="modal-body d-inline">
+                <div class="d-inline"><span tabindex="0">Please fix the following: <br/> <div class="validation-summary-valid" data-valmsg-summary="true"><ul><li style="display:none"></li>
+</ul></div></span></div>
+            </div>
+
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" id="modalOK" data-dismiss="modal">OK</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+            </div>
+
+    </div>
+
+     <!-- Modal display for validation -->
+<div class="modal fade" id="alertSuccessModal" style="z-index:100000" tabindex="-1" aria-labelledby="staticBackdropLabelChanged" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header d-inline">
+                <i class="fa-solid fa-circle-exclamation text-warning"></i>
+                <div id="alertTitle" class="d-inline">Success</div>
+            </div>
+            <div class="modal-body">
+                <div class="d-inline">
+                    <span tabindex="0" id="alertSuccessMsg">
+                    </span>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" data-dismiss="modal" aria-label="Okay"><i class="fa fa-check"></i> Okay</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+    <footer>
+        
+<div class="footer">
+
+
+    <!-- Footer Links -->
+    <div class="container-fluid text-center text-md-left">
+
+        <!-- Grid row -->
+        <div class="row">
+
+            <!-- Grid column -->
+            <div class="col-md-2 mx-auto">
+
+                <img src="/Images/Current/Shared/Seal_of_Maryland.png" class="footer-seal" alt="Maryland General Assembly" />
+
+            </div>
+            <!-- Grid column -->
+
+            <hr class="clearfix w-100 d-md-none">
+
+            <!-- Grid column -->
+            <div class="col-md-3 mx-auto">
+
+                <!-- Links -->
+                <div class="footer-header mt-1 mb-1">Helpful Links</div>
+
+                <ul class="list-unstyled">
+                    <li>
+                        <div class="footer-content"><a class="footer-links" href="https://www.maryland.gov/Pages/default.aspx" rel="noreferrer noopener" target="_blank">Executive Branch</a></div>
+                    </li>
+                    <li>
+                        <div class="footer-content"><a class="footer-links" href="https://www.courts.state.md.us/" rel="noreferrer noopener" target="_blank">Judicial Branch</a></div>
+                    </li>
+                    <li>
+                        <div class="footer-content"><a class="footer-links" href="http://dls.maryland.gov/home/" rel="noreferrer noopener" target="_blank">Department of Legislative Services</a></div>
+                    </li>
+                    <li>
+                        <div class="footer-content"><a class="footer-links" href="https://www.ola.state.md.us/" rel="noreferrer noopener" target="_blank">Office of Legislative Audits</a></div>
+                    </li>
+                    <li>
+                        <div class="footer-content"><a class="footer-links" href="https://www.ola.state.md.us/fraud/ola-fraud-hotline/" rel="noreferrer noopener" target="_blank">Report Fraud & Abuse in State Government</a></div>
+                    </li>
+                </ul>
+
+            </div>
+            <!-- Grid column -->
+
+            <hr class="clearfix w-100 d-md-none">
+
+            <!-- Grid column -->
+            <div class="col-md-3 mx-auto">
+
+                <!-- Links -->
+                <div class="footer-header mt-1 mb-1">Quick Links</div>
+
+                <ul class="list-unstyled">
+                    <li>
+                        <div class="footer-content"><a class="footer-links" href="http://dls.maryland.gov/library/educational-tours/" target="_blank">Guided Tours</a></div>
+                    </li>
+                    <li>
+                        <div class="footer-content"><a class="footer-links" href="/mgawebsite/Information/Text/contact_us">Contact Us</a></div>
+                    </li>
+                    <li>
+                        <div class="footer-content"><a class="footer-links" href="/mgawebsite/Information/Text/visit">Visit</a></div>
+                    </li>
+                    <li>
+                        <div class="footer-content"><a class="footer-links" href="/mgawebsite/Information/Text/about_mga">About the General Assembly</a></div>
+                    </li>
+                    <li>
+                        <div class="footer-content"><a class="footer-links" href="/mgawebsite/Information/Text/access">Accessibility</a></div>
+                    </li>
+                    <li>
+                        <div class="footer-content"><a class="footer-links" href="/mgawebsite/Information/Text/privacy_notice">Privacy Notice</a></div>
+                    </li>
+                    <li>
+                        <div class="footer-content"><a class="footer-links" rel="noreferrer noopener" target="_blank" href="/mgawebsite/Information/VideoTutorials">Video Tutorials</a></div>
+
+                    </li>
+                </ul>
+
+            </div>
+            <!-- Grid column -->
+
+            <hr class="clearfix w-100 d-md-none">
+
+            <!-- Grid column -->
+            <div class="col-md-3 mx-auto">
+
+                <!-- Links -->
+                <div class="footer-header mt-1 mb-1">Helpful Tools</div>
+
+                <ul class="list-unstyled">
+                    <li>
+                        <div class="footer-content">Download <a href="#" class="footer-links" data-toggle="modal" data-target="#legislative-data">Legislative Data</a>
+
+<!-- Modal -->
+<div class="modal fade contactForm modal-color" id="legislative-data" tabindex="-1" role="dialog" aria-labelledby="legislativeDataLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title bold-text modal-text-color" id="legislativeDataLabel">Open Legislative Data Download</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="modal-text-color">You are about to download a "comma-separated values" (CSV) file and/or a JSON file.</div>
+
+                <div class="btn-style modal-text-color">
+                    <text class="bold-text">The file includes</text> information such as number, sponsor, title, legislative status, synopsis, committee assignments,
+                    legislative history, hearing dates, etc for each piece of legislation introduced during the selected legislative session.
+                </div>
+
+                <div class="btn-style modal-text-color">
+                    <text class="bold-text">A word about the file format:</text> CSV and JSON files are common file formats, widely supported by consumer and business applications and is used to move data between programs.
+                    The file you download can be imported into Excel, a text editor, browser, or any other application that supports the CSV and JSON formats. To save, right-click button and save as desired file format.
+                </div>
+
+                <div class="modal-text-color modal-style">
+                    <ul class="list-unstyled">
+                        <li class="modal-style">
+                            2026 Regular Session <a href="/2026rs/misc/billsmasterlist/BillMasterList.csv" type="button" class="btn btn-primary msg-style">CSV</a>
+                            <a href="/2026rs/misc/billsmasterlist/legislation.json" type="button" class="btn btn-primary msg-style" target="_blank">JSON</a>
+                            &nbsp;*Updated hourly
+                        </li>
+
+                        <li class="modal-style">
+                            2025 Regular Session <a href="/2025rs/misc/billsmasterlist/BillMasterList.csv" type="button" class="btn btn-primary msg-style">CSV</a>
+                            <a href="/2025rs/misc/billsmasterlist/legislation.json" type="button" class="btn btn-primary msg-style" target="_blank">JSON</a>
+                        </li>
+
+                        <li class="modal-style">
+                            2024 Regular Session <a href="/2024rs/misc/billsmasterlist/BillMasterList.csv" type="button" class="btn btn-primary msg-style">CSV</a>
+                            <a href="/2024rs/misc/billsmasterlist/legislation.json" type="button" class="btn btn-primary msg-style" target="_blank">JSON</a>
+                        </li>
+
+                        <li class="modal-style">
+                            2023 Regular Session <a href="/2023rs/misc/billsmasterlist/BillMasterList.csv" type="button" class="btn btn-primary msg-style">CSV</a>
+                            <a href="/2023rs/misc/billsmasterlist/legislation.json" type="button" class="btn btn-primary msg-style" target="_blank">JSON</a>
+                        </li>
+
+                        <li class="modal-style">
+                            2022 Regular Session <a href="/2022rs/misc/billsmasterlist/BillMasterList.csv" type="button" class="btn btn-primary msg-style">CSV</a>
+                            <a href="/2022rs/misc/billsmasterlist/legislation.json" type="button" class="btn btn-primary msg-style" target="_blank">JSON</a>
+                        </li>
+
+                        <li class="modal-style">
+                            2021 Special Session <a href="/2021s1/misc/billsmasterlist/BillMasterList.csv" type="button" class="btn btn-primary msg-style">CSV</a>
+                            <a href="/2021s1/misc/billsmasterlist/legislation.json" type="button" class="btn btn-primary msg-style" target="_blank">JSON</a>
+                        </li>
+
+                        <li class="modal-style">
+                            2021 Regular Session <a href="/2021rs/misc/billsmasterlist/BillMasterList.csv" type="button" class="btn btn-primary msg-style">CSV</a>
+                            <a href="/2021rs/misc/billsmasterlist/legislation.json" type="button" class="btn btn-primary msg-style" target="_blank">JSON</a>
+                        </li>
+
+                        <li class="modal-style">
+                            2020 Regular Session <a href="/2020rs/misc/billsmasterlist/BillMasterList.csv" type="button" class="btn btn-primary msg-style">CSV</a>
+                            <a href="/2020rs/misc/billsmasterlist/legislation.json" type="button" class="btn btn-primary msg-style" target="_blank">JSON</a>
+                        </li>
+
+
+                        <li class="modal-style">
+                            2019 Regular Session <a href="/2019rs/misc/billsmasterlist/BillMasterList.csv" type="button" class="btn btn-primary msg-style">CSV</a>
+                            <a href="/2019rs/misc/billsmasterlist/legislation.json" type="button" class="btn btn-primary msg-style" target="_blank">JSON</a>
+                        </li>
+
+
+                        <li class="modal-style">
+                            2018 Regular Session <a href="/2018rs/misc/billsmasterlist/BillMasterList.csv" type="button" class="btn btn-primary msg-style">CSV</a>
+                            <a href="/2018rs/misc/billsmasterlist/legislation.json" type="button" class="btn btn-primary msg-style" target="_blank">JSON</a>
+                        </li>
+
+
+                        <li class="modal-style">
+                            2017 Regular Session <a href="/2017rs/misc/billsmasterlist/BillMasterList.csv" type="button" class="btn btn-primary msg-style">CSV</a>
+                            <a href="/2017rs/misc/billsmasterlist/legislation.json" type="button" class="btn btn-primary msg-style" target="_blank">JSON</a>
+                        </li>
+
+                    </ul>
+                </div>
+
+            </div>
+            <div class="modal-footer">
+                <a href="http://mgaleg.maryland.gov/pubs-current/current-open-data-help.pdf" target="_blank">Open Data Help</a>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+                    </li>
+                    <li>
+                        <div class="mt-4 footer-content" id="google_translate_element"></div>
+                    </li>
+                </ul>
+
+            </div>
+            <!-- Grid column -->
+
+        </div>
+        <!-- Grid row -->
+
+    </div>
+    <!-- Footer Links -->
+
+
+</div>
+
+
+<script type="text/javascript">
+    function googleTranslateElementInit() {
+        new google.translate.TranslateElement({ pageLanguage: 'en' }, 'google_translate_element');
+    }
+</script>
+
+<script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+    </footer>
+
+    
+    <a id="back-to-top" href="#" class="btn btn-primary btn-lg back-to-top" role="button" title="Click to return on the top page" data-toggle="tooltip" data-placement="left"><span class="fa fa-chevron-up"></span><span class="sr-only">Click to return on the top page</span></a>
+
+    <!-- Modal for displaying interface to confirmation modal -->
+<div class="modal fade" id="alertModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" style="z-index:100000" role="dialog" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document" aria-labelledby="alertTitle">
+        <div class="modal-content">
+            <div class="modal-header d-inline">
+                <i class="fa-solid fa-circle-exclamation text-warning"></i>
+                <div id="alertTitle" class="d-inline">Alert</div>
+            </div>
+            <div class="modal-body">
+                <div class="d-inline"><span tabindex="0" id="alertMsg"></div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" data-dismiss="modal" aria-label="yes" id="btnAlertOkay"><i class="fa fa-check"></i> Okay</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+    <script src="/mgawebsite/bundles/lib?v=bH4mn383BfL7r5ZlzPxe1_OHWdSczUP24T_TNDIM3pA1"></script>
+
+    
+
+    <script type="text/javascript">
+
+        window.onload = function () {
+            findContrast();
+            findToggleImages();
+            findZoom();
+        };
+
+        $(document).ready(function () {
+            //$('#access').on('shown.bs.popover', function () {
+            //    document.getElementById('toggleImages').checked = localStorage.getItem("toggleImages") == 'true';
+            //    setContrast(localStorage.getItem("contrast"));
+            //});
+
+            //Scroll to top logic
+            JumpToTop('#back-to-top');
+
+        });
+
+        $('body').click(function (e) {
+            $("#myMgaModal").modal("hide");
+            if ($(e.target).parents("#accessibilityModal").length != 1) {
+                $("#accessibilityModal").modal("hide");
+            }
+        });
+
+        $("#myMgaModal").on('hidden.bs.modal', function () {
+            if ($("#accessibilityModal").hasClass('show') && !$('body').hasClass('modal-open')) {
+                $('body').addClass('modal-open');
+            }
+        })
+
+        $("#accessibilityModal").on('hidden.bs.modal', function () {
+            if ($("#myMgaModal").hasClass('show') && !$('body').hasClass('modal-open')) {
+                $('body').addClass('modal-open');
+            }
+        })
+
+        if ('0' != '0') {
+            $('#validateModal').modal('toggle');
+        }
+
+
+        if ('' != '' && '' != null) {
+            $('#alertSuccessModal').modal('toggle');
+        }
+
+        //Logic for mobile controls of the two menu buttons
+        function toggleMyMGA() {
+            var temp = $('#navbarMgaTrackingContent').prop('class');
+            if (temp.indexOf('show') > -1) {
+                $('#btnMyMGA').click();
+            }
+        }
+
+        function toggleMenu() {
+            var temp = $('#navbarSupportedContent').prop('class');
+            if (temp.indexOf('show') > -1) {
+                $('#btnMenu').click();
+            }
+        }
+
+        function toggleYouTube() {
+            var temp = $('#navbarYouTubeContent').prop('class');
+            if (temp.indexOf('show') > -1) {
+                $('#btnYouTube').click();
+            }
+        }
+    </script>
+
+    
+    <script>
+        $(document).ready(function () {
+            $(".Next").click(function (e) {
+                e.preventDefault();
+                var art = 'gtp';
+                var sec = '9-304';
+                var enact = 'False';
+                var arch = 'False';
+                var temp = '/mgawebsite';
+
+                $.ajax({
+                    url: temp + "/api/Laws/GetNext",
+                    data: { articleCode: art, sectionCode: sec, enactments: enact },
+                    method: "GET",
+                    success: function (result) {
+                        if (result != "") {
+                            window.location.href = "StatuteText?article=" + art + "&section=" + result + "&enactments=" + enact + "&archived=" + arch;
+                        }
+                        else {
+                            alert("File not Found");
+                        }
+                    },
+                    error: function (XMLHttpRequest, textStatus, errorThrown) {
+                        alert("File not found");
+                        console.log(errorThrown);
+                    }
+                });
+            });
+
+            $(".Previous").click(function (e) {
+                e.preventDefault();
+                var art = 'gtp';
+                var sec = '9-304';
+                var enact = 'False';
+                var arch = 'False';
+                var temp = '/mgawebsite';
+
+                $.ajax({
+                    url: temp + "/api/Laws/GetPrevious",
+                    data: { articleCode: art, sectionCode: sec, enactments: enact },
+                    method: "GET",
+                    success: function (result) {
+                        if (result != "") {
+                            window.location.href = "StatuteText?article=" + art + "&section=" + result + "&enactments=" + enact + "&archived=" + arch;
+                        }
+                        else {
+                            alert("File not Found");
+                        }
+                    },
+                    error: function (XMLHttpRequest, textStatus, errorThrown) {
+                        alert("File not found");
+                        console.log(errorThrown);
+                    }
+                });
+            });
+        });
+    </script>
+
+
+
+</body>
+</html>

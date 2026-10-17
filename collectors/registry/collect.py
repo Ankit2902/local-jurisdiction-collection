@@ -9,7 +9,7 @@ from catalog import load_catalog
 HERE=Path(__file__).resolve().parent
 
 def main():
- p=argparse.ArgumentParser(description=__doc__);p.add_argument('action',nargs='?',default='status',choices=['plan','status','collect','verify']);p.add_argument('--cohort',choices=['expansion','original','all'],default='all');p.add_argument('--target');p.add_argument('--publication');p.add_argument('--all',action='store_true');p.add_argument('--out');p.add_argument('--resume',action='store_true');p.add_argument('--max-items',type=int);p.add_argument('--python',default=sys.executable);a=p.parse_args()
+ p=argparse.ArgumentParser(description=__doc__);p.add_argument('action',nargs='?',default='status',choices=['plan','status','collect','verify']);p.add_argument('--cohort',choices=['expansion','original','all'],default='all');p.add_argument('--target');p.add_argument('--publication');p.add_argument('--all',action='store_true');p.add_argument('--out');p.add_argument('--resume',action='store_true');p.add_argument('--upgrade-code',action='store_true');p.add_argument('--native-export',action='store_true');p.add_argument('--retry-native-export',action='store_true');p.add_argument('--max-items',type=int);p.add_argument('--python',default=sys.executable);a=p.parse_args()
  catalog=load_catalog(getattr(a,'cohort','all'));targets=catalog['targets'];pubs={x['id']:x for x in catalog['publications']};matches=[t for t in targets if not a.target or t['id']==a.target]
  if a.target and len(matches)!=1:p.error('Unknown target ID')
  if a.action in ['collect','verify'] and (not a.target or not a.out or a.all):p.error('Explicit single --target and --out required; no all-target execution is provided')
@@ -24,7 +24,7 @@ def main():
  for t in matches:
   pub=pubs[a.publication or t['primary_publication_id']]
   try:
-   plan=command(pub,t,a.out or ('{OUT}/'+pub['id']),a.python,a.resume,a.max_items,a.action=='verify');plan.update(target_id=t['id'],jurisdiction=t['jurisdiction'],state=t['state'],runnable=True)
+   plan=command(pub,t,a.out or ('{OUT}/'+pub['id']),a.python,a.resume,a.max_items,a.action=='verify',a.upgrade_code,a.native_export,a.retry_native_export);plan.update(target_id=t['id'],jurisdiction=t['jurisdiction'],state=t['state'],runnable=True)
   except Unsupported as e:plan={'target_id':t['id'],'publication_id':pub['id'],'runnable':False,'unsupported_reason':str(e)}
   plan['observed_access_advisories']=pub.get('observed_access_advisories',[])
   selected.append(plan)

@@ -8,11 +8,29 @@ from pathlib import Path
 import shutil
 import sys
 import time
-from urllib.parse import urlsplit, parse_qs
+from urllib.parse import urlsplit, parse_qs, urlencode
 from .model import Invalid, analyze, checked, digest, read, save
+from .publisher import script_role, section_renderability, RENDERER_SHA256
+from .image_content import is_image_content
+from .source_response import response_role, read_nonimage_response
 
 HERE = Path(__file__).resolve().parent
 GATE = Path.home()/'.local/state/local-jurisdiction-collection/gridics'
+
+
+def enforce_access_advisory():
+    """Preserve the observed workflow stop in fresh installs, before I/O."""
+    path = HERE.parent/'registry/access-advisories.json'
+    try:
+        catalog = read(path)
+    except Exception as error:
+        raise Invalid('Published access advisory catalog missing/unreadable; known Gridics PDF HEAD 403 stop remains. Use the complete package.') from error
+    if catalog.get('schema_version') != 1 or not isinstance(catalog.get('advisories'),list):
+        raise Invalid('Unsupported published access advisory catalog; known Gridics workflow stop remains')
+    advisories = [a for a in catalog['advisories'] if a.get('family') == 'gridics' and a.get('operator_review_required') is True]
+    if not advisories:
+        raise Invalid('Known Gridics PDF HEAD 403 stop is absent from advisory catalog; no automatic release or retry')
+    raise Invalid('Published Gridics workflow access stop requires operator review before browser startup: exact source-linked Cupertino PDF HEAD returned HTTP 403. Other publication routes after that event are untested. Offline verify/replay remain available; no automatic retry or clearing.')
 
 
 def now():
@@ -21,6 +39,16 @@ def now():
 
 def sources():
     return {p.name:digest(p.read_bytes()) for p in sorted(HERE.glob('*.py'))}
+
+
+def native_tree_url(source_url, document_id, root, revision):
+    """Exact public client loadData route, source inventory ID + pinned revision."""
+    base=urlsplit(source_url)
+    if base.scheme!='https' or base.hostname!='codehub.gridics.com' or not str(document_id).isdigit() or not str(revision).isdigit():
+        raise Invalid('Unbound native source identity/revision')
+    if root.get('docId')!=str(document_id) or not root.get('id') or root.get('path')!='/'+root['id']:
+        raise Invalid('Source root identity/path mismatch')
+    return 'https://codehub.gridics.com/api/v1/codehub/'+str(document_id)+'?'+urlencode({'tree':1,'_format':'json','pathes[]':root['id'],'revision':revision})
 
 
 def write_outputs(output, config, analyzed=None):
@@ -91,7 +119,8 @@ def replay(source,output,config):
 
 
 def acquire(output, config, resume):
-    from playwright.sync_api import sync_playwright
+    enforce_access_advisory()
+    from playwright.sync_api import sync_playwright, TimeoutError as PlaywrightTimeout
     output.mkdir(parents=True,exist_ok=True)
     manifest_path = output/'acquisition.json'
     binding = {'config':config,'collector_sources':sources()}
@@ -129,7 +158,7 @@ def acquire(output, config, resume):
             events.append({'url':request.url,'action':'aborted','kind':request.resource_type,'phase':phase,'at':now()})
             r.abort()
             return
-        if host=='codehub.gridics.com' and request.resource_type in {'document','xhr','fetch'}:
+        if host=='codehub.gridics.com' and request.resource_type in {'document','xhr','fetch','stylesheet'}:
             with (GATE/'lock').open('a+') as lock:
                 fcntl.flock(lock,fcntl.LOCK_EX)
                 if stop.exists():
@@ -141,22 +170,28 @@ def acquire(output, config, resume):
                 events.append({'url':request.url,'action':'continued','kind':request.resource_type,'phase':phase,'epoch':epoch,'at':now()})
         r.continue_()
     def response(r):
-        if urlsplit(r.url).hostname!='codehub.gridics.com' or r.request.resource_type not in {'document','xhr','fetch'}:
+        role=response_role(r.url,r.request.resource_type)
+        if role is None:
             return
         if r.status in {401,403,429}:
             save(stop,{'url':r.url,'status':r.status,'at':now()})
         try:
             content_type=r.headers.get('content-type','')
-            if content_type.strip().lower().startswith('image/'):
-                events.append({'url':r.url,'action':'image_body_not_saved','phase':phase})
-                return
-            raw=r.body()
-            if raw.startswith((b'\x89PNG',b'\xff\xd8\xff',b'GIF87a',b'GIF89a')) or raw[:4]==b'RIFF' and raw[8:12]==b'WEBP':
-                events.append({'url':r.url,'action':'image_body_not_saved','phase':phase})
+            raw,image_reason=read_nonimage_response(r)
+            if raw is None:
+                events.append({'url':r.url,'action':'image_body_not_saved','reason':image_reason,'phase':phase})
                 return
             path='response-'+str(len(responses)).zfill(5)+'.bin'
             (output/path).write_bytes(raw)
-            responses.append({'url':r.url,'status':r.status,'method':r.request.method,'request_data':r.request.post_data,'content_type':content_type,'path':path,'sha256':digest(raw),'bytes':len(raw),'phase':phase,'epoch':epoch,'at':now()})
+            row={'url':r.url,'status':r.status,'method':r.request.method,'request_data':r.request.post_data,'resource_type':r.request.resource_type,'response_role':role,'content_type':content_type,'path':path,'sha256':digest(raw),'bytes':len(raw),'phase':phase,'epoch':epoch,'at':now()}
+            if role=='stylesheet':
+                try:
+                    row['source_document_url']=r.request.frame.url
+                except Exception:
+                    row['source_document_url']=None
+                    row['source_document_binding_error']='Observed stylesheet request has no accessible owner frame'
+                row['stylesheet_note']='Actually requested first-party stylesheet original source; no CSS URLs or image assets imported by collector'
+            responses.append(row)
             persist()
         except Exception as error:
             failures.append({'url':r.url,'error':str(error),'phase':phase})
@@ -190,7 +225,6 @@ def acquire(output, config, resume):
                     page=context.new_page()
                     page.on('response',response)
                     page.goto(config['source_url'],wait_until='domcontentloaded',timeout=120000)
-                    page.locator('div.section[data-path]').first.wait_for(timeout=120000)
                     if config['identity_term'].casefold() not in page.title().casefold():
                         raise Invalid('Rendered publisher identity mismatch')
                     root_response=await_response(page,lambda r: parse_qs(urlsplit(r['url']).query).get('topLevel')==['1'])
@@ -211,20 +245,49 @@ def acquire(output, config, resume):
                         rows=[]
                     else:
                         rows=[]
+                    revision=parse_qs(urlsplit(root_response['url']).query).get('revision',[])
+                    if len(revision)!=1:
+                        raise Invalid('Native inventory has no single pinned revision')
                     for root in roots[len(rows):]:
                         path=root['path']
                         url=base+'#'+path
-                        if page.url!=url:
-                            page.goto(url,wait_until='domcontentloaded',timeout=120000)
-                        source=page.locator('div.section[data-path="'+path+'"]')
-                        source.wait_for(timeout=120000)
-                        tree_response=await_response(page,lambda r: parse_qs(urlsplit(r['url']).query).get('tree')==['1'] and parse_qs(urlsplit(r['url']).query).get('pathes[]') in ([path],[path.lstrip('/')]))
-                        dom=source.evaluate('(n)=>n.outerHTML')
-                        name=phase+'-'+root['id']+'.html'
-                        (output/name).write_text(dom)
-                        rows.append({'root':root,'url':url,'tree_response':tree_response,'dom_path':name,'dom_sha256':digest(dom.encode())})
+                        api=native_tree_url(config['source_url'],config['document_id'],root,revision[0])
+                        def matches_tree(r):
+                            query=parse_qs(urlsplit(r['url']).query)
+                            return urlsplit(r['url']).path=='/api/v1/codehub/'+str(config['document_id']) and query.get('tree')==['1'] and query.get('revision')==revision and query.get('pathes[]') in ([path],[path.lstrip('/')])
+                        # First retain the complete source tree, including roots
+                        # the public client intentionally cannot put in its DOM.
+                        fresh=[r for r in responses if r.get('epoch')==epoch and r.get('phase')==phase and r.get('status')==200 and matches_tree(r)]
+                        if not fresh:
+                            fetched=page.evaluate('''async url=>{const r=await fetch(url);const mime=r.headers.get('content-type')||'';if(mime.trim().toLowerCase().startsWith('image/')){if(r.body)await r.body.cancel();return {status:r.status,url:r.url,image_body_cancelled:true}}await r.arrayBuffer();return {status:r.status,url:r.url}}''',api)
+                            if stop.exists() or fetched['status']!=200 or fetched.get('image_body_cancelled'):
+                                raise Invalid('Native tree request failed; retained source cannot be skipped')
+                        tree_response=await_response(page,matches_tree)
+                        eligibility=section_renderability(root)
+                        renderer_qualified=any(script_role(r.get('url',''))=='renderer' and r.get('epoch')==epoch and r.get('phase')==phase and r.get('status')==200 and digest(checked(output,r))==RENDERER_SHA256 for r in responses)
+                        row={'root':root,'url':url,'tree_response':tree_response,'dom_path':None,'dom_sha256':None,'renderability':eligibility,'renderer_profile_qualified':renderer_qualified}
+                        if eligibility['eligible'] or not renderer_qualified:
+                            if page.url!=url:
+                                page.goto(url,wait_until='domcontentloaded',timeout=120000)
+                            source=page.locator('div.section[data-path="'+path+'"]')
+                            try:
+                                source.wait_for(timeout=120000)
+                                dom=source.evaluate('(n)=>n.outerHTML')
+                                name=phase+'-'+root['id']+'.html'
+                                (output/name).write_text(dom)
+                                row.update(dom_path=name,dom_sha256=digest(dom.encode()),render_status='captured')
+                            except PlaywrightTimeout:
+                                if stop.exists():
+                                    raise Invalid('Publisher stop observed while waiting for DOM')
+                                row.update(render_status='dom_unavailable',render_diagnostic={'reason':'Ordinary root DOM unavailable after normal navigation; no renderer exemption claimed; native-only evidence retained'})
+                        else:
+                            row.update(render_status='source_unrenderable',render_diagnostic={'reason':'Pinned public renderer cannot expose this source root; never drop its native descendants','source_reasons':eligibility['reasons']})
+                        if row.get('render_status')!='captured':
+                            diagnostic=page.content();name=phase+'-'+root['id']+'-diagnostic.html';(output/name).write_text(diagnostic)
+                            row.update(diagnostic_dom_path=name,diagnostic_dom_sha256=digest(diagnostic.encode()))
+                        rows.append(row)
                         save(checkpoint,{'phase':phase,'roots_response':root_response,'roots':rows,'phase_complete':False})
-                        print(json.dumps({'phase':phase,'root':root['text'],'collected':len(rows),'total':len(roots)}),flush=True)
+                        print(json.dumps({'phase':phase,'root_id':root['id'],'root':root.get('text'),'render_status':row['render_status'],'collected':len(rows),'total':len(roots)}),flush=True)
                     save(checkpoint,{'phase':phase,'roots_response':root_response,'roots':rows,'phase_complete':True})
                     context.close()
                 browser.close()

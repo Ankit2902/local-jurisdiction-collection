@@ -198,6 +198,29 @@ class Tests(unittest.TestCase):
    with patch.object(module,'fetch',fake),patch.object(module,'code_hashes',lambda:versions if not changed[0] else versions|{'unexecuted_revision.py':'f'*64}):
     report=module.collect('lincoln-access-management',out)
    self.assertFalse(report['publication_text_complete']);self.assertEqual(read_json(out/'checkpoint.json')['phase'],'failed');self.assertTrue(any('source changed' in f['reason'] for f in read_json(out/'checkpoint.json')['failures']))
+ def test_finished_collection_explicit_native_retry_keeps_failure_and_refreshes_end(self):
+  pdf=(HERE/'fixtures/amm-full-export.pdf').read_bytes();failed=[False];calls=[]
+  def fake(url,out,timeout=120):
+   calls.append(str(out));status=200
+   if 'doc-view.js' in url:data=b'var mURL = "export2doc.aspx?pdf=1&tocid=" + id';ctype='application/javascript'
+   elif 'component.aspx' in url:
+    if not failed[0]:failed[0]=True;data=b'';ctype='application/json';status=None
+    else:data=b'{"Ready":true,"File":"test.pdf"}';ctype='application/json'
+   elif '&file=' in url:data=pdf;ctype='application/pdf'
+   elif 'export2doc.aspx' in url:data=b"<script>$.get('component.aspx?name=export2doc',function(){});</script>";ctype='text/html'
+   else:return self.fake(url,out,timeout)
+   meta={'url':url,'http_status':status,'headers':{'Content-Type':ctype},'sha256':digest(data),'bytes':len(data),'challenge':False};atomic_bytes(out,data);atomic_json(pathlib.Path(str(out)+'.receipt.json'),meta)
+   if status is None:raise TimeoutError('Retained original native timeout')
+   return data,meta
+  with tempfile.TemporaryDirectory() as td:
+   out=pathlib.Path(td)/'run'
+   with self.assertRaisesRegex(AssertionError,'requires --resume'):module.collect('lincoln-access-management',out,want_native=True,retry_native=True)
+   with patch.object(module,'fetch',fake):first=module.collect('lincoln-access-management',out,want_native=True)
+   self.assertTrue(first['publication_text_complete']);self.assertFalse(first['native_export_complete']);self.assertEqual(read_json(out/'checkpoint.json')['phase'],'finished');failed_receipt=out/'native/attempt-0/poll-0.json.receipt.json';before=failed_receipt.read_bytes()
+   with patch.object(module,'fetch') as fetch:module.collect('lincoln-access-management',out,resume=True,want_native=True);fetch.assert_not_called()
+   with patch.object(module,'fetch',fake):second=module.collect('lincoln-access-management',out,resume=True,want_native=True,retry_native=True)
+   self.assertTrue(second['native_export_complete']);self.assertEqual(failed_receipt.read_bytes(),before);state=read_json(out/'checkpoint.json');self.assertEqual(state['generation'],1);self.assertTrue(state['end_blocks'][0]['path'].startswith('end-1/'));self.assertEqual(state['native_export_retries'][0]['prior_native_export']['status'],'failed');self.assertTrue((out/'native/attempt-1/publication.pdf').is_file())
+   history=out/'native-retry-history'/(state['native_export_retries'][0]['prior_checkpoint_sha256']+'.json');history.write_bytes(b'corrupt native retry lineage');self.assertFalse(verify(out)['publication_text_complete'])
  def test_retained_paths_cannot_escape_relocated_package(self):
   from .util import validate_file
   with tempfile.TemporaryDirectory() as td:
@@ -242,4 +265,133 @@ class Tests(unittest.TestCase):
   body.append(BeautifulSoup('<object type="IMAGE/PNG" data="https://example.invalid/opaque-image"></object><source src="DATA:IMAGE/PNG;base64,PIXELS_SENTINEL">','html.parser'))
   record=next(r for r in parse_document(str(soup),'5',cfg,known) if r['id']=='6')
   self.assertEqual(record['text'].count('[IMAGE]'),2);self.assertNotIn('PIXELS_SENTINEL',json.dumps(record));self.assertNotIn('opaque-image',record['body_html']);self.assertFalse(record['assets']);self.assertEqual(len(record['image_refs']),2)
+ def test_completion_gate_survives_write_jitter_network_errors_and_host_scopes(self):
+  from . import transport
+  from unittest.mock import MagicMock
+  clock=[1000.0];starts=[];completions=[];real_atomic=transport.atomic_json
+  def atomic_jitter(path,value):
+   real_atomic(path,value);clock[0]+=0.6
+  def sleep(delay):clock[0]+=delay
+  class Response:
+   status=200;headers={'Content-Type':'text/plain'}
+   def read(self):clock[0]+=0.8;return b'Native source bytes'
+   def close(self):clock[0]+=0.2;completions.append(clock[0])
+  def open_request(req,timeout=120):
+   starts.append(clock[0]);clock[0]+=0.3
+   if len(starts)==2:
+    completions.append(clock[0]);raise TimeoutError('Source connection timed out')
+   return Response()
+  with tempfile.TemporaryDirectory() as td:
+   root=pathlib.Path(td);gate=root/'gate';gate.mkdir();atomic_json(gate/'state.json',{'cooldown_until':999.0,'retained_history':'unchanged'});blocked='https://stopped.example.invalid/a.pdf';atomic_json(scope_path(gate,blocked),{'stopped':True,'stop_reason':{'status':403,'url':blocked}});blocked_before=scope_path(gate,blocked).read_bytes();opener=MagicMock();opener.open.side_effect=open_request
+   with patch.dict(os.environ,{'ENCODEPLUS_GATE_DIR':str(gate)}),patch.object(transport.time,'time',side_effect=lambda:clock[0]),patch.object(transport.time,'sleep',side_effect=sleep),patch.object(transport,'atomic_json',side_effect=atomic_jitter),patch('urllib.request.build_opener',return_value=opener):
+    transport.fetch('https://online.encodeplus.com/first',root/'first.bin')
+    with self.assertRaises(Stopped):transport.fetch('https://external.example.invalid/timed-out.pdf',root/'error.bin')
+    transport.fetch('https://codes.opkansas.org/third',root/'third.bin')
+    with self.assertRaises(Stopped):transport.fetch(blocked,root/'blocked.bin')
+   self.assertEqual(len(starts),3);self.assertGreaterEqual(starts[1]-completions[0],transport.REQUEST_GAP_SECONDS);self.assertGreaterEqual(starts[2]-completions[1],transport.REQUEST_GAP_SECONDS);state=read_json(gate/'state.json');self.assertGreaterEqual(state['last_completed'],completions[2]);self.assertEqual(state['cooldown_until'],999.0);self.assertEqual(state['retained_history'],'unchanged');self.assertEqual(scope_path(gate,blocked).read_bytes(),blocked_before);self.assertFalse(read_json(root/'blocked.bin.receipt.json')['request_attempted']);self.assertIsNone(read_json(root/'error.bin.receipt.json')['http_status'])
+ def test_refusal_body_read_error_preserves_stop_and_completion(self):
+  from . import transport
+  from urllib.error import HTTPError
+  from unittest.mock import MagicMock
+  class BrokenBody(io.BytesIO):
+   def read(self,*args):raise TimeoutError('Refusal body timed out')
+  with tempfile.TemporaryDirectory() as td:
+   root=pathlib.Path(td);url='https://online.encodeplus.com/refused';opener=MagicMock();opener.open.side_effect=HTTPError(url,403,'Forbidden',{'Content-Type':'text/plain'},BrokenBody())
+   with patch.dict(os.environ,{'ENCODEPLUS_GATE_DIR':str(root/'gate')}),patch('urllib.request.build_opener',return_value=opener):
+    with self.assertRaises(Stopped):transport.fetch(url,root/'refused.bin')
+    with self.assertRaises(Stopped):transport.fetch(url,root/'blocked.bin')
+   state=read_json(root/'gate/state.json');receipt=read_json(root/'refused.bin.receipt.json');self.assertTrue(state['stopped']);self.assertIn('last_completed',state);self.assertEqual(receipt['http_status'],403);self.assertTrue(receipt['challenge']);self.assertIn('response read failed',receipt['error']);self.assertEqual(opener.open.call_count,1);self.assertFalse(read_json(root/'blocked.bin.receipt.json')['request_attempted'])
+ def test_native_explicit_upgrade_revalidates_raw_and_refreshes_closing(self):
+  from . import native_document as native
+  import shutil
+  data=(HERE/'fixtures/overland-solid-waste-native.pdf').read_bytes();cfg=read_json(HERE/'configs/native-82-4b983dc51ab6.json');requests=[]
+  def fake(url,out,timeout=120):
+   requests.append(str(out));meta={'url':url,'http_status':200,'headers':{'Content-Type':'application/pdf'},'sha256':digest(data),'bytes':len(data),'challenge':False};atomic_bytes(out,data);atomic_json(pathlib.Path(str(out)+'.receipt.json'),meta);return data,meta
+  with tempfile.TemporaryDirectory() as td:
+   out=pathlib.Path(td)/'native';bad=pathlib.Path(td)/'corrupt'
+   with patch.object(module,'fetch',fake):native.collect(cfg,out,interrupt_after_start=True)
+   state=read_json(out/'checkpoint.json');prior_script=b'Synthetic preceding native parser revision fixture';prior_sha=digest(prior_script);atomic_bytes(out/'script-versions'/(prior_sha+'.py'),prior_script);state['code_hashes']['native_document.py']=prior_sha;atomic_json(out/'checkpoint.json',state);prior=(out/'checkpoint.json').read_bytes();start=(out/'raw/start.pdf').read_bytes();shutil.copytree(out,bad);(bad/'raw/start.pdf').write_bytes(b'corrupt')
+   with self.assertRaisesRegex(AssertionError,'explicit --upgrade-code'):native.collect(cfg,out,resume=True)
+   with patch.object(module,'fetch',fake):report=native.collect(cfg,out,resume=True,upgrade_code=True)
+   self.assertTrue(report['native_document_complete']);upgraded=read_json(out/'checkpoint.json');self.assertEqual(upgraded['end']['path'],'raw/end-1.pdf');history=out/'checkpoint-history'/(digest(prior)+'.json');self.assertEqual(history.read_bytes(),prior);self.assertEqual((out/'raw/start.pdf').read_bytes(),start);self.assertEqual(upgraded['code_upgrades'][0]['prior_code_hashes']['native_document.py'],prior_sha);self.assertEqual(len(requests),2);history.write_bytes(b'corrupt upgrade lineage');self.assertFalse(native.verify(out)['native_document_complete'])
+   with patch.object(module,'fetch') as fetch:
+    with self.assertRaises(ValueError):native.collect(cfg,bad,resume=True,upgrade_code=True)
+    fetch.assert_not_called()
+ def test_public_open_encrypted_integrity_and_actual_password_refusal(self):
+  from .documents import qualify_document
+  from pypdf import PdfWriter
+  data=(HERE/'fixtures/public-open-pfm-sheet.pdf').read_bytes();before=digest(data);q=qualify_document(data,'https://example.gov/public.pdf','application/pdf');self.assertEqual(q['pages'],1);self.assertTrue(q['public_open_encryption']['encrypted']);self.assertFalse(q['public_open_encryption']['credentials_supplied']);self.assertEqual(q['public_open_encryption']['independent_page_count'],1);self.assertEqual(digest(data),before);self.assertEqual(digest((HERE/'fixtures/public-open-pfm-sheet.pdf').read_bytes()),before)
+  writer=PdfWriter();writer.add_blank_page(width=72,height=72);writer.encrypt(user_password='known-synthetic-user-password',owner_password='known-synthetic-owner-password',algorithm='AES-128');stream=io.BytesIO();writer.write(stream)
+  with self.assertRaisesRegex(ValueError,'unqualified'):qualify_document(stream.getvalue(),'https://example.gov/password-required.pdf','application/pdf')
+ def test_public_open_encrypted_corruption_and_dependency_fail_closed(self):
+  from .documents import qualify_document
+  data=(HERE/'fixtures/public-open-pfm-sheet.pdf').read_bytes()
+  for bad in [b'',data[:1000],data[:-2000]]:
+   with self.assertRaises(ValueError):qualify_document(bad,'https://example.gov/public.pdf','application/pdf')
+  with patch.dict('sys.modules',{'pypdfium2':None}):
+   with self.assertRaisesRegex(ValueError,'unqualified'):qualify_document(data,'https://example.gov/public.pdf','application/pdf')
+ def test_exact_authority_relation_source_witness_and_unknown_required(self):
+  cfg={'base':'https://online.encodeplus.com/regs/fairfaxcounty-va-pfm/'};board='https://www.fairfaxcounty.gov/boardofsupervisors/';raw=(HERE/'fixtures/pfm-node-9-source.html').read_text();row=parse_document(raw,'9',cfg,{})[0];self.assertNotIn(board,[x['url'] for x in row['assets']]);self.assertTrue(row['qualified_reference_dispositions']);ledger=row['qualified_reference_dispositions'][0];self.assertEqual(ledger['type'],'qualified_authority_cross_reference');self.assertEqual(ledger['source_context_sha256'],digest(ledger['source_context'].encode()));self.assertIn('9',ledger['source_witness']['source_node_ids']);self.assertEqual(ledger['source_witness']['raw_sha256'],'185128e4c386d243433dc9150fbe6542d2c057f40b1f466cc4e08723cf7605b0');self.assertIn('Board',row['text'])
+  # A genuinely described adopted soils map remains unresolved at its advertised location.
+  soil=parse_document((HERE/'fixtures/pfm-node-544-source.html').read_text(),'544',cfg,{})[0];self.assertIn('https://www.fairfaxcounty.gov/',[x['url'] for x in soil['assets']]);self.assertNotIn(board,[x['url'] for x in soil['assets']])
+  changed=raw.replace('1975','1974');unknown=parse_document(changed,'9',cfg,{})[0];self.assertIn(board,[x['url'] for x in unknown['assets']]);other=parse_document(raw,'9',{'base':'https://online.encodeplus.com/regs/other-publication/'},{})[0];self.assertIn(board,[x['url'] for x in other['assets']])
+  pdf=raw.replace('href="https://www.fairfaxcounty.gov/boardofsupervisors/"','href="https://example.gov/adopted-map.pdf"');direct=parse_document(pdf,'9',cfg,{})[0];self.assertIn('https://example.gov/adopted-map.pdf',[x['url'] for x in direct['assets']])
+ def test_source_bound_malformed_internal_refs_and_same_edition_alternative(self):
+  from .publication_references import reconcile,INTERNAL,ALTERNATIVE
+  f=read_json(HERE/'fixtures/overland-reference-records.json');records=copy.deepcopy(f['records']);before=copy.deepcopy(records)
+  with patch('socket.socket',side_effect=AssertionError('No network')):reconcile(records,f['config'])
+  for url,q in INTERNAL.items():
+   self.assertNotIn(url,[a['url'] for a in records[q['owner_id']]['assets']]);self.assertIn(url,[x['attributes'].get('href') for x in records[q['owner_id']]['links']]);self.assertTrue(records[q['substantive_target_witness']['id']]['text'].replace('[IMAGE]','').strip())
+  row=records[ALTERNATIVE['owner_id']];self.assertIn(ALTERNATIVE['url'],[a['url'] for a in row['assets']]);self.assertNotIn(ALTERNATIVE['original_url'],[a['url'] for a in row['assets']]);self.assertTrue(any(a.get('original_source_url')==ALTERNATIVE['original_url'] for a in row['assets']))
+  for ident,r in records.items():
+   for key in ['text','tables','links','html','body_html','body_sha256']:self.assertEqual(r[key],before[ident][key])
+ def test_malformed_reference_target_scope_and_substantive_witness_negatives(self):
+  from .publication_references import reconcile,INTERNAL
+  f=read_json(HERE/'fixtures/overland-reference-records.json')
+  for url,q in INTERNAL.items():
+   for field in ['heading','path','body_sha256','source_url']:
+    rs=copy.deepcopy(f['records']);rs[q['target']['id']][field]=[{'id':'wrong','heading':'wrong'}] if field=='path' else 'wrong';reconcile(rs,f['config']);self.assertIn(url,[a['url'] for a in rs[q['owner_id']]['assets']])
+   rs=copy.deepcopy(f['records']);rs[q['substantive_target_witness']['id']]['text']='[IMAGE]';reconcile(rs,f['config']);self.assertIn(url,[a['url'] for a in rs[q['owner_id']]['assets']])
+   rs=copy.deepcopy(f['records']);del rs[q['target']['id']];reconcile(rs,f['config']);self.assertIn(url,[a['url'] for a in rs[q['owner_id']]['assets']])
+  rs=copy.deepcopy(f['records']);reconcile(rs,f['config']|{'identity':'Different publication or edition'});self.assertEqual(rs,f['records'])
+ def test_same_edition_document_binding_wrong_owner_hash_and_metadata(self):
+  from .publication_references import reconcile,qualify_bound_document,ALTERNATIVE
+  f=read_json(HERE/'fixtures/overland-reference-records.json');rs=copy.deepcopy(f['records']);rs[ALTERNATIVE['owner_id']]['body_sha256']='wrongedition';reconcile(rs,f['config']);self.assertIn(ALTERNATIVE['original_url'],[a['url'] for a in rs[ALTERNATIVE['owner_id']]['assets']])
+  rs=copy.deepcopy(f['records']);reconcile(rs,f['config'])
+  with self.assertRaisesRegex(ValueError,'SHA/edition mismatch'):qualify_bound_document(rs,ALTERNATIVE['url'],(HERE/'fixtures/overland-solid-waste-native.pdf').read_bytes())
+  a=next(a for a in rs[ALTERNATIVE['owner_id']]['assets'] if a['url']==ALTERNATIVE['url'] and a.get('source_qualified_alternative'));a['source_qualified_alternative']['expected_pages']=1
+  with self.assertRaisesRegex(ValueError,'Unqualified alternative'):qualify_bound_document(rs,ALTERNATIVE['url'],b'wrong')
+ def test_wrapped_image_text_quoted_terminal_and_ambiguous_boundaries(self):
+  from .model import redact_text_image_uris,replace_images
+  from bs4 import BeautifulSoup
+  quoted='Legal caption before "DATA:IMAGE/PNG;base64,FIRST_SENTINEL\nSECOND_SENTINEL" Legal caption after.'
+  self.assertEqual(redact_text_image_uris(quoted),'Legal caption before "[IMAGE]" Legal caption after.')
+  self.assertEqual(redact_text_image_uris('Legal caption. data:image/png;base64,FIRST_SENTINEL  '),'Legal caption. [IMAGE]  ')
+  for ambiguous in ['Legal caption. data:image/png;base64,FIRST_SENTINEL\nSECOND_SENTINEL', 'data:image/png;base64,FIRST_SENTINEL Legal caption must survive.', 'data:image/svg+xml,<svg>payload</svg>']:
+   with self.assertRaisesRegex(ValueError,'Unsupported ambiguous image text boundary') as error:redact_text_image_uris(ambiguous)
+   self.assertNotIn('SENTINEL',str(error.exception))
+  soup=BeautifulSoup('<section><p>'+quoted+'</p><div data="data:image/png;base64,FIRST_SENTINEL\nSECOND_SENTINEL">Separate legal text.</div></section>','html.parser');refs=replace_images(soup.section,'https://example.gov/')
+  self.assertNotIn('SENTINEL',str(soup));self.assertNotIn('SENTINEL',json.dumps(refs));self.assertIn('Legal caption after.',str(soup));self.assertIn('Separate legal text.',str(soup));self.assertEqual(str(soup).count('[IMAGE]'),2)
+ def test_pdf_wrapped_image_metadata_bounded_recursive_redaction(self):
+  from .pdf_structure import redact_metadata,pages
+  from pypdf import PdfWriter
+  from pypdf.generic import DictionaryObject,NameObject,TextStringObject,ArrayObject,FloatObject
+  value={'title':'Caption "DATA:IMAGE/PNG;base64,FIRST_SENTINEL\nSECOND_SENTINEL" preserved suffix','other':['Separate legal caption.'],'uri':'data:image/png;base64,FIRST_SENTINEL\nSECOND_SENTINEL'}
+  normalized=redact_metadata(value);self.assertNotIn('SENTINEL',json.dumps(normalized));self.assertIn('preserved suffix',normalized['title']);self.assertEqual(normalized['other'][0],value['other'][0])
+  writer=PdfWriter();page=writer.add_blank_page(width=72,height=72);annotation=DictionaryObject({NameObject('/Type'):NameObject('/Annot'),NameObject('/Subtype'):NameObject('/Link'),NameObject('/Rect'):ArrayObject([FloatObject(0),FloatObject(0),FloatObject(30),FloatObject(30)]),NameObject('/Contents'):TextStringObject(value['title']),NameObject('/A'):DictionaryObject({NameObject('/S'):NameObject('/URI'),NameObject('/URI'):TextStringObject(value['uri'])})});page[NameObject('/Annots')]=ArrayObject([writer._add_object(annotation)]);stream=io.BytesIO();writer.write(stream)
+  records,_=pages(stream.getvalue(),{'id':'synthetic-annotation','url':'https://example.gov/test.pdf','heading':'Test','raw_ref':'retained-synthetic'}, {'publication':'Test','jurisdiction':'Test','state':'KS'});serialized=json.dumps(records);self.assertNotIn('SENTINEL',serialized);self.assertIn('[IMAGE]',serialized);self.assertIn('preserved suffix',serialized)
+ def test_literal_svg_metadata_typed_uri_and_legal_text_boundaries(self):
+  from .pdf_structure import redact_metadata,pages
+  from pypdf import PdfWriter
+  from pypdf.generic import DictionaryObject,NameObject,TextStringObject,ArrayObject,FloatObject
+  svg='data:image/svg+xml,<svg><text>VECTOR_SENTINEL</text></svg>'
+  for value in [svg,'  DATA:IMAGE/SVG+XML,<svg><text>VECTOR_SENTINEL</text></svg>  ','data:image/svg+xml,<svg/>']:
+   self.assertEqual(redact_metadata(value),'[IMAGE]')
+  for value in ['Before "'+svg+'" after legal caption.',svg+' Legal caption must survive.',svg+' mandatory legal caption.<svg></svg>','data:image/svg+xml,<svg/> mandatory legal caption.</svg>','data:image/svg+xml,<svg marker="x>y"/> mandatory legal caption.</svg>','data:image/svg+xml,<svg><svg></svg></svg>','data:image/svg+xml,<svg xmlns="urn:svg"><text>VECTOR_SENTINEL</text></svg>','data:image/png;base64,FIRST_SENTINEL\nLegal caption must survive.']:
+   with self.assertRaisesRegex(ValueError,'Unsupported ambiguous inline-image text boundary') as error:redact_metadata({'text':value})
+   self.assertNotIn('SENTINEL',str(error.exception))
+  self.assertEqual(redact_metadata({'uri':'data:image/png;base64,FIRST_SENTINEL\nSECOND_SENTINEL','contents':'Separate legal caption.'}),{'uri':'[IMAGE]','contents':'Separate legal caption.'})
+  self.assertEqual(redact_metadata({'uri':'data:image/svg+xml,<svg xmlns="urn:svg"><text>VECTOR_SENTINEL</text></svg>'}),{'uri':'[IMAGE]'})
+  writer=PdfWriter();page=writer.add_blank_page(width=72,height=72);annotation=DictionaryObject({NameObject('/Type'):NameObject('/Annot'),NameObject('/Subtype'):NameObject('/Link'),NameObject('/Rect'):ArrayObject([FloatObject(0),FloatObject(0),FloatObject(30),FloatObject(30)]),NameObject('/Contents'):TextStringObject(svg),NameObject('/A'):DictionaryObject({NameObject('/S'):NameObject('/URI'),NameObject('/URI'):TextStringObject(svg)})});page[NameObject('/Annots')]=ArrayObject([writer._add_object(annotation)]);stream=io.BytesIO();writer.write(stream)
+  records,_=pages(stream.getvalue(),{'id':'synthetic-svg','url':'https://example.gov/test.pdf','heading':'Test','raw_ref':'synthetic-annotation'}, {'publication':'Test','jurisdiction':'Test','state':'KS'});serialized=json.dumps(records);self.assertNotIn('VECTOR_SENTINEL',serialized);self.assertNotIn('<svg',serialized.lower());self.assertIn('[IMAGE]',serialized)
 if __name__=='__main__':unittest.main(verbosity=2)

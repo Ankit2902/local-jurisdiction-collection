@@ -7,6 +7,35 @@ sys.dont_write_bytecode=True
 import collect,model,openlaw_xml
 BASE=pathlib.Path(__file__).resolve().parent
 class Readiness(unittest.TestCase):
+ def test_malformed_selfclosed_svg_cannot_consume_legal_html_prose(self):
+  import html
+  config={'mode':'html_single','content_selector':'main','legal_marker_regex':'Operative legal rule','publication':'Fixture code','jurisdiction':'Fixture','state':'ZZ'};item={'id':'fixture','url':'https://fixture.invalid/law','heading':'Qualified legal document','raw_ref':'raw/fixture.bin'}
+  for opening in ['<svg/>','<svg / >','<svg foo="x"/>']:
+   uri='data:image/svg+xml,'+opening+' mandatory legal caption.</svg>'
+   with self.assertRaisesRegex(ValueError,'Unqualified literal image-markup boundary'):model.redact_image_metadata(uri)
+   source=('<main><h1>Operative legal rule</h1><p>'+html.escape(uri)+'</p></main>').encode()
+   with self.assertRaisesRegex(ValueError,'Unqualified literal image-markup boundary'):model.html_records(source,item,config)
+ def test_literal_svg_known_attributes_and_unknown_prose_boundary(self):
+  uri='data:image/svg+xml,<svg><text>VECTOR_SENTINEL</text></svg>'
+  self.assertEqual(model.redact_image_metadata(uri),'[IMAGE]');self.assertEqual(model.redact_image_metadata('  '+uri.upper()),'[IMAGE]')
+  node=BeautifulSoup('<main><h1>Operative legal rule</h1><a href="/law">Mandatory legal caption</a></main>','html.parser').main;node.a['data-image-metadata']=uri
+  result=model.semantics(node,'https://fixture.invalid/');self.assertIn('Mandatory legal caption',result['text']);self.assertNotIn('VECTOR_SENTINEL',json.dumps(result));self.assertEqual(result['links'][0]['attributes']['data-image-metadata'],'[IMAGE]')
+  with self.assertRaisesRegex(ValueError,'Unqualified literal image-markup boundary'):model.redact_image_metadata('Before legal text "'+uri+'" after legal caption remains mandatory.')
+ def test_known_whole_html_attribute_uri_boundary_preserves_legal_body(self):
+  node=BeautifulSoup('<main><h1>Operative legal rule</h1><a href="/law">Available legal caption must remain fully available.</a></main>','html.parser').main;node.a['data-image-metadata']='DATA:IMAGE/PNG;base64,QUJD\nPIXEL_CONTINUATION_MUST_NOT_SURVIVE';config={'mode':'html_single','content_selector':'main','legal_marker_regex':'Operative legal rule','publication':'Fixture code','jurisdiction':'Fixture','state':'ZZ'};item={'id':'fixture','url':'https://fixture.invalid/law','heading':'Qualified legal document','raw_ref':'raw/fixture.bin'}
+  rows,_=model.html_records(str(node).encode(),item,config);self.assertIn('Available legal caption',rows[0]['text']);self.assertEqual(BeautifulSoup(rows[0]['html'],'html.parser').a['data-image-metadata'],'[IMAGE]');self.assertEqual(rows[0]['links'][0]['attributes']['data-image-metadata'],'[IMAGE]');self.assertNotIn('PIXEL_CONTINUATION',json.dumps(rows));self.assertEqual(model.redact_image_metadata(['DATA:IMAGE/PNG;base64,AAA','PIXEL_CONTINUATION'],attribute_boundary=True),['[IMAGE]'])
+ def test_wrapped_image_payload_in_nonimage_html_metadata_is_fully_redacted(self):
+  payload='DaTa:ImAgE/png;base64,AAA\nCONTINUATION\r\nSECONDLINE\tTAIL999'
+  node=BeautifulSoup('<main><a href="/law">Available legal caption</a></main>','html.parser').main;node.a['data-alt']='Caption "'+payload+'" Suffix'
+  result=model.semantics(node,'https://fixture.invalid/');encoded=json.dumps(result);self.assertNotIn('CONTINUATION',encoded);self.assertNotIn('TAIL999',encoded);self.assertNotIn('data:image/',encoded.lower());self.assertEqual(result['text'],'Available legal caption');self.assertEqual(BeautifulSoup(result['html'],'html.parser').a['data-alt'],'Caption "[IMAGE]" Suffix');self.assertEqual(result['links'][0]['attributes']['data-alt'],'Caption "[IMAGE]" Suffix')
+  self.assertEqual(model.redact_image_metadata('Before "'+payload+'" After'),'Before "[IMAGE]" After')
+ def test_real_html_records_reject_ambiguous_unquoted_uri_prose(self):
+  config={'mode':'html_single','content_selector':'main','legal_marker_regex':'Operative legal rule','publication':'Fixture code','jurisdiction':'Fixture','state':'ZZ'};item={'id':'fixture','url':'https://fixture.invalid/law','heading':'Qualified legal document','raw_ref':'raw/fixture.bin'}
+  for whitespace in [' ','\n','\t']:
+   with self.subTest(whitespace=repr(whitespace)):
+    source=('<main><h1>Operative legal rule</h1><p>Existing legal prefix data:image/png;base64,AAA'+whitespace+'Mandatory legal caption must survive this normalization.</p></main>').encode()
+    with self.assertRaisesRegex(ValueError,'Ambiguous unquoted image data URI'):model.html_records(source,item,config)
+  source=b'<main><h1>Operative legal rule</h1><p>Existing legal prefix &quot;data:image/png;base64,AAA&quot; Mandatory legal caption must survive this normalization.</p></main>';rows,_=model.html_records(source,item,config);self.assertIn('Mandatory legal caption must survive',rows[0]['text']);self.assertIn('[IMAGE]',rows[0]['text'])
  def test_image_metadata_and_nested_cell_ownership(self):
   pixel='data:image/png;base64,UNIQUEPIXELPAYLOAD123456789'
   node=BeautifulSoup('<main><table><tr><td background="outer.png">Outer<table><tr><td style="background-image:url(inner.png)">Inner</td></tr></table></td></tr></table><source src="'+pixel+'"><object data="map.png"></object><a href="'+pixel+'" data-alt="'+pixel+'">'+pixel+'</a><input type="image" src="opaque"><iframe src="'+pixel+'"></iframe></main>','html.parser').main;result=model.semantics(node,'https://fixture.invalid/');encoded=json.dumps(result);self.assertNotIn('UNIQUEPIXELPAYLOAD123456789',encoded);self.assertNotIn('data:image/',encoded);s=BeautifulSoup(result['html'],'html.parser');self.assertIn('[IMAGE]',s.select('table table td')[0].get_text());self.assertFalse(s.select('[background],img,source,object,iframe,input[type=image]'));self.assertGreaterEqual(result['image_placeholder_count'],7);self.assertTrue(all(not a['required'] for a in result['assets'] if model.image_asset(a)))

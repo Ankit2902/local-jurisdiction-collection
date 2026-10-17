@@ -57,3 +57,36 @@ For an existing run, `doctor ... --out /absolute/path/output` inspects required 
 All adapters are subject to [the image policy](../IMAGE-POLICY.md): no separate image download/extraction, and literal `[IMAGE]` in normalized HTML/text, preserving image-only source IDs and headings. Original publisher documents may inherently contain embedded images; those immutable files are source evidence. Required nonimage attachments remain separately reconciled. A placeholder is not a transcription of a diagram or scanned legal text.
 
 The launcher does not upload data, alter the database, or send credentials. Acquisition outputs can be large; choose a disk with adequate space and preserve job metadata alongside the evidence.
+
+## Explicit enCodePlus workflow actions
+
+The active registry now dispatches six exact Overland Park native documents through `collectors.encodeplus.native_document`, using literal observed publisher URLs and pinned original file hashes/page counts. For example:
+
+```sh
+python3.12 collect.py run --target 82 --publication 82-4b983dc51ab6 --out /absolute/new/solid-waste
+python3.12 collect.py verify --target 82 --publication 82-4b983dc51ab6 --out /absolute/new/solid-waste
+```
+
+A verified native file and all-page capture can return family exit0 while the shared launcher returns2 with `native_capture_verified:true` and `publication_accepted:false`. The native adapter deliberately leaves legal section segmentation, reading order, table semantics and edition acceptance qualified. This is not an image omission failure: images intentionally become `[IMAGE]`, and native originals may inherently contain images without separate image acquisition.
+
+For HTML publications, request the visible publisher export on the **initial** job if it is needed:
+
+```sh
+python3.12 collect.py run --target 67 --out /absolute/new/lincoln --native-export
+```
+
+Ordinary repeated `run` reuses the exact original job options and performs offline verification after a successful capture. It does not retry a failed export. An explicit same-revision export retry on an existing matching HTML job originally created with native export is:
+
+```sh
+python3.12 collect.py run --target 67 --out /absolute/new/lincoln --native-export --retry-native-export
+```
+
+Explicit revision migration is supported only for existing exact enCodePlus HTML/native jobs:
+
+```sh
+python3.12 collect.py run --target 67 --out /absolute/new/lincoln --upgrade-code
+```
+
+The launcher preserves the prior job bytes/hash, source/configuration/runtime binding and original options. The family verifies old script snapshots and cached response hashes, records checkpoint history, reparses every retained source and acquires fresh closing witnesses. An HTML upgrade with original `native_export:true` deliberately revalidates that entire requested workflow, including a new export attempt. Same-revision `--retry-native-export` is the separate action when no code upgrade is needed. Failed export prefixes/results and prior checkpoint histories remain retained.
+
+These actions do not adopt unowned outputs, change publication/configuration or enable native export on a job originally created without it. Start a fresh job when original options differ. Wrong-family actions, missing checkpoints, corrupt lineage and mismatched source/configuration are refused. Existing access stops and cooldowns still apply before any request; no flag clears or bypasses them. Family direct commands remain available for explicitly supported migrations of evidence not owned by the shared launcher.

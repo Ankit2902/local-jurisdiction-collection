@@ -4,6 +4,8 @@ Current operator recovery, readiness scope, source binding and offline download/
 
 Both live families currently have retained access stops; run the offline readiness workflow before any production acquisition.
 
+The current image-policy hardening also removes wrapped image data from arbitrary HTML attributes. Such an attribute becomes `[IMAGE]` plus a hash of its complete original value; visible legal text and unrelated source attributes are preserved. The targeted regression is `python -B collectors/qa/test_ecode_multiline_images.py`. Evidence under `collectors/qa/followup-proof-receipts/ecode-multiline-images` records this parser delta separately from older sealed acquisition proofs; it does not establish new live publisher access.
+
 Run from the repository root with Python 3.12+ on POSIX and the dependencies in `requirements-tested.txt` (Beautiful Soup, Playwright, requests and pypdf). Collection uses an installed ordinary, headed Google Chrome (`channel="chrome"`) and a new owned context; it has no Codex, database, remote-browser or old-output-package dependency. It closes only its own browser/context. Verification and synthetic tests need no browser or network.
 
 ```sh

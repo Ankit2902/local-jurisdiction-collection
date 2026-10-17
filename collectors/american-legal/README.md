@@ -6,7 +6,7 @@ This standalone collector supports dynamic American Legal publication selection,
 
 ## Install
 
-Use Python 3.9+ on macOS/Linux (the shared gate uses `fcntl`), Node18+ and ordinary installed Google Chrome. Windows locking is untested. Live proof used Python3.9.6, Node24.19.0, Playwright1.62.1, Chrome155.0.8059.84 on macOS26.6.2/arm64. No Codex runtime/API, imported browser profile, masking or challenge interaction is used. PyMuPDF1.26.5 now supplies PDF text geometry and native ruled-table candidates alongside the independent pypdf text engine.
+Use Python 3.12+ on macOS/Linux (the shared gate uses `fcntl`), Node20+ and ordinary installed Google Chrome. Windows locking is untested. Current PDF source proofs use Python3.12.14, pdfminer.six20251107, pypdf6.21.1 and PyMuPDF1.26.5. Earlier acquisition evidence records Python3.9.6 separately. Browser proof uses Node24.19.0, Playwright1.62.1, Chrome155.0.8059.84 on macOS26.6.2/arm64. No Codex runtime/API, imported browser profile, masking or challenge interaction is used. PyMuPDF1.26.5 now supplies PDF text geometry and native ruled-table candidates alongside the independent pypdf text engine.
 
 ```sh
 python3 -m venv .venv
@@ -42,7 +42,7 @@ Exit codes are **0** for sound complete publication text plus required nonimage 
 
 ## Checkpoints and access stops
 
-Atomic raw-cache and checkpoint writes bind requests to source URLs, original hashes, publication identity and independent inventory hash. Resume revalidates every cached source, refreshes current publication identity, rejects edition/configuration changes, rebuilds outputs deterministically and fetches only uncached legal ranges. Exact executed revisions are retained by content hash in each run's `script-versions/`; `scripts/` retains the latest run revision. A native export job is durably checkpointed immediately after its publisher POST. Resume validates that original whole-book scope/edition and downloads the same UUID through the observed public publisher download route using an ordinary headed browser. The original UI scope and posted job are retained; no cookies/fingerprints are imported and no second job is created for an existing checkpoint. Actual HTTP status/headers and download failure/length checks are retained. `export-checkpoint.json` binds the completed download hash and original scope UI to that job. A policy change requires a new directory; prior proof is retained under its original policy. The final current-source live run is `index-current-final`; `index-no-images-final` is supporting current-policy resume proof. The earlier `index-native-final`, `form-based-pdf-final` and `ordinance-index-live` normalized outputs are superseded by the image policy. Only the renderer reference's retained raw packets are recomputed for the comparison.
+Atomic raw-cache and checkpoint writes bind requests to source URLs, original hashes, publication identity and independent inventory hash. Resume revalidates every cached source, refreshes current publication identity, rejects edition/configuration changes, rebuilds outputs deterministically and fetches only uncached legal ranges. Exact executed revisions are retained by content hash in each run's `script-versions/`; `scripts/` retains the latest run revision. A native export job is durably checkpointed immediately after its publisher POST. Resume validates that original whole-book scope/edition and downloads the same UUID through the observed public publisher download route using an ordinary headed browser. The original UI scope and posted job are retained; no cookies/fingerprints are imported and no second job is created for an existing checkpoint. Actual HTTP status/headers and download failure/length checks are retained. `export-checkpoint.json` binds the completed download hash and original scope UI to that job. A policy change requires a new directory; prior proof is retained under its original policy. The historical stage's final current-source live run was `index-current-final`; `index-no-images-final` is supporting current-policy resume proof. The earlier `index-native-final`, `form-based-pdf-final` and `ordinance-index-live` normalized outputs are superseded by the image policy. Only the renderer reference's retained raw packets are recomputed for the comparison.
 
 The shared publisher gate is `/tmp/compliSolv-american-legal-full-gate` unless `AMLEGAL_GATE_DIR` is set. All processes must share it. Starts are separated by3.5seconds.403/429/challenge stops persist, Retry-After is recorded, and there is no reset command. A challenge requires operator investigation, not another transport/profile/proxy attempt. Direct HTTP returned403 in this stage and remains stopped; the previously qualified ordinary headed-browser route succeeded. Unrelated export-panel polling is omitted during renderer traversal. Fresh whole-export creation follows the visible publisher controls; resumed existing jobs use their observed public UUID download route under the same gate.
 
@@ -94,13 +94,13 @@ The renderer-reference ZIP is a raw-only comparison input, not a standalone fina
 
 The prior sealed validation established that the genuine independently published San Diego County Comprehensive Ordinance List has30 TOC entries (cover plus1998–2026), all explicit leaves. Full index traversal and a whole-publication native HTML export reconcile all30 IDs and97 rich blocks. The index contains1940 distinct nonimage ordinance-PDF references; those were deliberately not mass-downloaded, so complete ordinance corpus and nonimage attachment completeness are false. This is whole **index-publication** text proof, not a nested whole municipal regulatory code proof.
 
-Cleveland's independently published Form-Based Code is a single native PDF publication with212 pages; the full original file and all page-layer outputs were acquired/parsed. Whole Cleveland Codified Ordinances also produced a genuine22,331,790-byte native HTML file, but its full nested independent inventory was not acquired, so it is retained as native-file/scope proof only. Recursive nested main-code behavior is qualified by independent raw-inventory fault tests, not mislabeled as a completed live nested municipal code.
+The historical sealed stage retained Cleveland's independent212-page Form-Based Code PDF and an initial native main-code file. The later readiness acquisition completed the genuine nested primary:6,140 TOC nodes,459 independently captured branches in each of two equal start/end sweeps,43,676 uniquely owned native blocks,322 tables/7,738 cells and5 required PDFs. Its original executed-v3 output is immutable. Independent browser DOM QA subsequently found31 inline-spacing discrepancies; the new serializer fixes source adjacency and the followup package records a new, separately versioned replay and independent re-audit. Inventory/file success alone does not certify lexical table fidelity.
 
 Before scaling, choose each independently published code/charter/zoning/policy family, review county applicability, allocate time for full dynamic inventories and nonimage required documents, and audit special formats. No full runs across all100 jurisdictions have been performed or implied.
 
 ## Readiness extension
 
-The active readiness work is recorded in `validation-summary.json` and the new `outputs/collection-readiness-2026-10-17/american-legal` package. A full nested Cleveland primary code acquisition is running with independent branch inventory, whole-code native export and all required nonimage documents. Do not equate the prior index proof or source route mappings with completed primary regulatory-code verification.
+The active readiness work is recorded in `validation-summary.json` and the new `outputs/collection-readiness-2026-10-17/american-legal` package. The original nested Cleveland primary acquisition is terminal; its original source/execution lineage remains separate from the followup normalization replay and current-source validation. Do not equate the prior index proof or source route mappings with completed primary regulatory-code verification.
 
 All retained PDF attachments now get normalized page records. PDF character agreement, positional text and qualified simple ruled-grid geometry are tested; ambiguous parallel columns, diagram fragments and incomplete ruled grids remain explicit diagnostics. Automatic table candidates do not certify all tables or legal reading order. The offline PDF inspection CLI can qualify already retained native bytes without a new publisher acquisition:
 
@@ -114,8 +114,82 @@ All retained PDF attachments now get normalized page records. PDF character agre
 
 The live-index fixture was recomputed under the current verifier from its unchanged original raw evidence and explicitly records offline reprocessing. This is compatibility replay, not a new live acquisition.
 
-The readiness checkpoint retains 45 passing production-path fault cases. A real localhost headed-browser interruption test also confirms that an in-flight interrupted RPC closes its owned browser processes (0 remaining; 0.083 seconds), without publisher traffic. The active Cleveland run deliberately interrupted a real submitted native job, then resumed the same UUID and retained the actual 22,331,790-byte HTTP200 HTML download; final full-code independent end reconciliation remains pending until its terminal coverage receipt exists.
+The earlier readiness checkpoint retained45 passing production-path fault cases; current suites and exact counts are recorded separately in the followup receipts. A real localhost headed-browser interruption test also confirms that an in-flight interrupted RPC closes its owned browser processes (0 remaining; 0.083 seconds), without publisher traffic. The active Cleveland run deliberately interrupted a real submitted native job, then resumed the same UUID and retained the actual 22,331,790-byte HTTP200 HTML download; the terminal receipt now retains the complete independent end sweep. Current parser qualification additionally requires the followup source-fidelity audits.
 
-The delivered validator also rejects accidentally supplied separate image bytes before any decoder or XML image parser. A regression mocks both raster and SVG decoders to raise; image URL, MIME and signature cases still return policy-excluded. The ongoing Cleveland executed-v3 source predates that defensive unreachable-path removal and remains separately retained; its live execution is not relabeled.
+The delivered validator also rejects accidentally supplied separate image bytes before any decoder or XML image parser. A regression mocks both raster and SVG decoders to raise; image URL, MIME and signature cases still return policy-excluded. The completed original Cleveland executed-v3 source predates that defensive unreachable-path removal and remains separately retained; its live execution is not relabeled.
 
 Image MIME types, data URI schemes, input image types and existing CSS image syntax are matched without regard to case. Uppercase image references receive the same literal placeholder, metadata redaction and no-transport disposition; an original raw-cell audit covers the uppercase case as well. The later executed-v5 snapshot is distinct from retained v3/v4 live or implementation revisions.
+
+## Controlled source-fidelity followup
+
+New evidence belongs to `outputs/collection-readiness-followup-2026-10-17/american-legal`; prior packages and executed snapshots remain immutable. The collector runtime in `executed-v6` is distinct from original Cleveland `executed-v3`. A normalization replay copies retained source evidence to a fresh sibling directory, retains the acquisition execution history unchanged, snapshots the new parser separately and recomputes all output and coverage. It never sends publisher requests. Execute from an immutable source snapshot when other development may continue.
+
+```sh
+.venv/bin/python collectors/american-legal/replay.py \
+  --from /EVIDENCE/original-acquired-native-HTML-run \
+  --out /FRESH/PATH/normalization-replay
+.venv/bin/python /FRESH/PATH/normalization-replay/normalization-scripts/verify.py \
+  /FRESH/PATH/normalization-replay --offline
+```
+
+`normalization-replay.json` binds original run/native/output hashes, new output hashes, parser revisions and Python runtime. `scripts/` still describes the historical acquisition; `normalization-scripts/` describes the new replay. A replay is not a fresh acquisition or a new source-edition check.
+
+The inline serializer preserves source adjacency across emphasis, superscripts and styled word fragments. It adds whitespace at rendered block/row/cell boundaries, including nested tables. Source comparisons retain case and punctuation. Independent original HTML browser-DOM cell audits are separate from the Python parser audit; both are needed because identical separator-based text extraction can reproduce the same error in parser and auditor.
+
+Tagged PDFs use the publisher's full forward `StructTreeRoot/K` order, page/MCID ownership, source roles and table span attributes. Every source reference must be accounted for exactly once; unknown/unbound nonartifact glyphs, duplicate references, unsupported object references, unknown roles and unencountered source content fail qualification. Explicit Artifact text is retained as source metadata and excluded from body only by that source declaration. The forward tree preserves cross-page continuations even where a native reverse ParentTree device reports an empty structure path. Literal ActualText variants remain separate from visible Unicode. Geometry contributes only documented word/line separators. No broad case, punctuation or compatibility normalization is used for source-fidelity acceptance.
+
+Each image logical entry remains exactly `[IMAGE]`. Direct Figure-owned vector glyph labels are retained in a separate searchable `available_figure_text` ledger, bound to Figure ID, source reference, page, MCID, hash and source order; these are available source text, never OCR or image transcription. Explicit Caption/text child subtrees remain in the logical body at their source position. The original212-page Form-Based Code has236 Figures and no separately tagged Figure descendants; the generic Figure+Caption case is nevertheless tested. Its102 direct Figure text blocks contain8,629 original characters. Original source image bytes remain only inside the retained native publication; no image stream is decoded or extracted.
+
+`pdf-pages.jsonl` owns each source text block once. The first page carries `tagged_document` with the full source inventory, logical sequence, table grid and clearly labeled derived full-book text/table views. Page-level available-label views refer to those owned blocks. Complete source reconstruction is distinct from inferred legal-provision segmentation, which remains false. `pdf_image_xobject_count_complete` is false for a tagged profile that inventories source Figures instead of image resources; an unknown image-resource count is not reported as a known zero.
+
+Untagged PDFs remain conservative. A page with zero native source glyphs, empty pypdf text and no positioned text is explicitly policy-N/A for text fidelity, with original image draw operations represented by `[IMAGE]`; scanned text is not claimed as transcribed. A separate narrow profile can qualify a single closed native grid only when every original nonwhitespace glyph and its exact order, every cell border/span, optional single-line trailing ordinance citation and every image draw/cell placeholder reconcile. Rotation/cropping, annotations/ActualText outside the profile, open/ambiguous grids, unowned operative text and unsupported layouts remain unqualified. Table-border graphics preserved as a qualified grid are not mislabeled as an extra image.
+
+The tagged parser's durable per-page cache binds source, full source-inventory and parser hashes. An interruption after page1 must resume to byte-identical whole-book output without fetching retained native bytes; JSONL uses deterministic key ordering. A read-only verifier always reparses original source rather than trusting cache success.
+
+```sh
+.venv/bin/python collectors/american-legal/test_faults.py
+.venv/bin/python collectors/american-legal/test_pdf_tags.py
+.venv/bin/python collectors/american-legal/test_pdf_native.py
+.venv/bin/python collectors/american-legal/test_pdf_publication.py
+.venv/bin/python collectors/american-legal/audit_native.py /EVIDENCE/native-HTML-run
+.venv/bin/python collectors/american-legal/audit_pdf_tags.py /EVIDENCE/tagged-PDF-publication-run
+```
+
+The independent PDF auditor imports neither `model` nor `pdf_tags`. It reconstructs original roles/order/MCIDs/ActualText/table cells with PDFminer and compares every page against a separate MuPDF native glyph device with image decoding disabled, including available Figure text. `--owner` explicitly selects a PDF owner when a run contains more than one tagged PDF. Raw/native Unicode disagreements remain visible; availability of a full file or a sampled page never promotes an entire book. Current full-book outcomes and residuals are in the followup validation summary, not inferred from synthetic faults.
+
+The current independent font-encoding check permits only an observed, explicitly bound `ff` ligature interpretation: original Type1 font Encoding Differences must map the exact reader CID to `/f_f`, the independent native glyph must have the same font and position, and both literal Unicode sequences remain in the audit receipt. The original source label remains `Coffee`; native `Coﬀee` is retained as a source-encoding-resolved variant, never silently substituted. Wrong-font and moved-glyph faults fail. Every other character comparison remains strict. Run `test_pdf_encoding.py` for the compact2.7KB derived-font fixture; its original native source hash/page/font ID and synthetic nature are recorded alongside it.
+
+## Completed followup proof and remaining scope
+
+The final clean Cleveland retained-source replay (`cleveland-final-v6`) passes full recomputation:6,140/6,140 nodes,459 independently retained branches in each equal start/end sweep,43,676 uniquely owned original blocks,322 tables/7,738 cells and all5 required PDFs. Independent Chrome source-DOM QA prepares images inertly before attachment and confirms all322 tables/7,738 cells with0 mismatches and0 resource requests. Independent source-PDF QA confirms four policy-N/A no-glyph pages plus the fifth page's2,201 nonwhitespace glyphs,18 cells,188 original border edges and9 literal cell-image placeholders; image-stream decode tripwires remain untouched. Original executed-v3 proof and the31 detected inline discrepancies remain retained separately.
+
+Fresh live `form-based-current-v6` completes the independent single-node Form-Based Code publication and the genuine54,780,031-byte native212-page PDF, closing edition check, all-page normalization and fresh read-only source recomputation. The final independent full-book audit passes25,210 source nodes,11,662 references,143 tables/6,658 cells,190,391 nonimage body characters and all102 available Figure-label blocks/8,629 characters. All212 native page checks pass:211 strict Unicode matches and one explicitly source-encoding-resolved `/f_f`/`ﬀ` variant. Both literal variants and per-instance original font/CID/position proof are retained.236 logical Figure entries remain `[IMAGE]`; no image stream is decoded, rendered, extracted or OCRed. The PDF's embedded document creation date is March2024; its containing publisher bundle is2026 S-28, which does not imply that the native file was rewritten in2026.
+
+The frozen v7 package has87 network-free cases across five suites (46 existing production faults,21 tagged/Caption/label cases,9 native-grid cases,7 whole-PDF collection/resume cases,4 exact encoding-binding cases). Its collection/parser runtime is byte-identical to the live v6 runtime; independent auditor, standalone inspector packaging and regression updates have their own exact source hashes. Installation metadata records Node20 minimum from Playwright1.62.1's actual engine declaration; proof used Node24.19.0. The dependency lock records the tested shared Python3.12 runtime, including fonttools4.67.0 and pdfminer.six20251107.
+
+The remaining14 primary publications are running serially from the frozen revision under the shared access-stop gate. Their own receipts determine completion; source-route mapping, synthetic tests and these two completed Cleveland scopes never promote all15 primaries, all separately published books or an entire jurisdiction. The1940 underlying San Diego ordinance PDFs remain an explicit uncompleted secondary-document scope until genuine acquisition/qualification. DOCX/XLSX/ZIP container-byte validation does not qualify those documents' legal text. Unsupported PDF layouts and inferred legal-provision segmentation remain explicit limitations.
+
+### Image metadata hardening revision v8
+
+Revision v8 closes prefixed and multiline `data:image/` payload leaks in arbitrary
+HTML attributes, reference metadata, PDF structure attributes and node/inline
+ActualText. Images remain excluded from transport and decoding. Opaque image
+metadata values become literal `[IMAGE]` with source hashes. Every syntactically
+bounded quoted base64 image URI inside ActualText becomes `[IMAGE]` while the exact
+surrounding prose remains available. An ambiguous unquoted mixed ActualText value
+retains its safe source prefix and original hash, and makes source interpretation
+qualification false; the collector cannot silently accept that value as complete
+legal text. Multiple image URIs are processed individually.
+
+Run the additional 25 offline policy probes with:
+
+```sh
+python test_image_metadata.py
+```
+
+Together with the existing five suites, revision v8 has 112 passing tests. The
+retained genuine Cleveland HTML and PDF proofs keep their original v3/v6/v7
+execution lineage. Their metadata exposure/differential receipt identifies whether
+this policy-only revision affects those exact source bytes; that receipt is an
+offline compatibility check, not a fresh publisher acquisition. The remaining
+primary live queue continues its already frozen v7 source independently.

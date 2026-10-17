@@ -1,0 +1,13 @@
+{
+  "source": "collectors/official/pdf_structure.py",
+  "copied_sha256": "8341b33f36dbc52a20a229f04816d21d358a9f25a2399cab5a4a4c1e28e49251",
+  "mode": "Copied stable pure offline parser; no transport imported, no image pixel extraction/render/OCR",
+  "upstream_tests": "collectors/official/test_pdf_structure.py;5source/geometry/merged-cell/vector/truncation tests. EPactualnativefull-file tests separate.",
+  "local_delta": {
+    "parent_sha256": "8341b33f36dbc52a20a229f04816d21d358a9f25a2399cab5a4a4c1e28e49251",
+    "current_sha256": "5e5e0230c159ddd4585e4c6b959e6d627c19b33be75b8148cab7c33aa48d57b7",
+    "change": "Only redact_metadata image-URI boundary: whitespace continuation included inside bounded metadata values. No table/glyph/cell/image-geometry algorithm adoption.",
+    "tests": "proofs/reference-image-36-tests.log; proof actual6page reread +5nativeannotation sets",
+    "image_operations": "No image bytes extraction/render/pixels/OCR/network"
+  }
+}

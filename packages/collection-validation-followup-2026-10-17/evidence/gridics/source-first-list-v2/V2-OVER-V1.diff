@@ -1,0 +1,531 @@
+diff -ruN /Users/oliverflint/My Drive/Claude/Projects/CompliSolv 2.00/outputs/collection-readiness-next-2026-10-17/gridics/isolated-source-first-candidate-v1/collectors/gridics/collect.py /Users/oliverflint/My Drive/Claude/Projects/CompliSolv 2.00/outputs/collection-readiness-next-2026-10-17/gridics/isolated-source-first-list-candidate-v2/collectors/gridics/collect.py
+--- /Users/oliverflint/My Drive/Claude/Projects/CompliSolv 2.00/outputs/collection-readiness-next-2026-10-17/gridics/isolated-source-first-candidate-v1/collectors/gridics/collect.py	2026-10-17 17:28:19
++++ /Users/oliverflint/My Drive/Claude/Projects/CompliSolv 2.00/outputs/collection-readiness-next-2026-10-17/gridics/isolated-source-first-list-candidate-v2/collectors/gridics/collect.py	2026-10-17 17:49:03
+@@ -12,6 +12,7 @@
+ from .model import Invalid, analyze, checked, digest, read, save
+ from .publisher import script_role, section_renderability, RENDERER_SHA256
+ from .image_content import is_image_content
++from .source_response import response_role, read_nonimage_response
+ 
+ HERE = Path(__file__).resolve().parent
+ GATE = Path.home()/'.local/state/local-jurisdiction-collection/gridics'
+@@ -157,7 +158,7 @@
+             events.append({'url':request.url,'action':'aborted','kind':request.resource_type,'phase':phase,'at':now()})
+             r.abort()
+             return
+-        if host=='codehub.gridics.com' and request.resource_type in {'document','xhr','fetch'}:
++        if host=='codehub.gridics.com' and request.resource_type in {'document','xhr','fetch','stylesheet'}:
+             with (GATE/'lock').open('a+') as lock:
+                 fcntl.flock(lock,fcntl.LOCK_EX)
+                 if stop.exists():
+@@ -169,22 +170,28 @@
+                 events.append({'url':request.url,'action':'continued','kind':request.resource_type,'phase':phase,'epoch':epoch,'at':now()})
+         r.continue_()
+     def response(r):
+-        if urlsplit(r.url).hostname!='codehub.gridics.com' or (r.request.resource_type not in {'document','xhr','fetch'} and not (r.request.resource_type == 'script' and script_role(r.url))):
++        role=response_role(r.url,r.request.resource_type)
++        if role is None:
+             return
+         if r.status in {401,403,429}:
+             save(stop,{'url':r.url,'status':r.status,'at':now()})
+         try:
+             content_type=r.headers.get('content-type','')
+-            if is_image_content(content_type):
+-                events.append({'url':r.url,'action':'image_body_not_saved','phase':phase})
++            raw,image_reason=read_nonimage_response(r)
++            if raw is None:
++                events.append({'url':r.url,'action':'image_body_not_saved','reason':image_reason,'phase':phase})
+                 return
+-            raw=r.body()
+-            if is_image_content(content_type, raw[:2048]):
+-                events.append({'url':r.url,'action':'image_body_not_saved','phase':phase})
+-                return
+             path='response-'+str(len(responses)).zfill(5)+'.bin'
+             (output/path).write_bytes(raw)
+-            responses.append({'url':r.url,'status':r.status,'method':r.request.method,'request_data':r.request.post_data,'content_type':content_type,'path':path,'sha256':digest(raw),'bytes':len(raw),'phase':phase,'epoch':epoch,'at':now()})
++            row={'url':r.url,'status':r.status,'method':r.request.method,'request_data':r.request.post_data,'resource_type':r.request.resource_type,'response_role':role,'content_type':content_type,'path':path,'sha256':digest(raw),'bytes':len(raw),'phase':phase,'epoch':epoch,'at':now()}
++            if role=='stylesheet':
++                try:
++                    row['source_document_url']=r.request.frame.url
++                except Exception:
++                    row['source_document_url']=None
++                    row['source_document_binding_error']='Observed stylesheet request has no accessible owner frame'
++                row['stylesheet_note']='Actually requested first-party stylesheet original source; no CSS URLs or image assets imported by collector'
++            responses.append(row)
+             persist()
+         except Exception as error:
+             failures.append({'url':r.url,'error':str(error),'phase':phase})
+diff -ruN /Users/oliverflint/My Drive/Claude/Projects/CompliSolv 2.00/outputs/collection-readiness-next-2026-10-17/gridics/isolated-source-first-candidate-v1/collectors/gridics/fixtures/miami-observed-stylesheet-document-provenance.json /Users/oliverflint/My Drive/Claude/Projects/CompliSolv 2.00/outputs/collection-readiness-next-2026-10-17/gridics/isolated-source-first-list-candidate-v2/collectors/gridics/fixtures/miami-observed-stylesheet-document-provenance.json
+--- /Users/oliverflint/My Drive/Claude/Projects/CompliSolv 2.00/outputs/collection-readiness-next-2026-10-17/gridics/isolated-source-first-candidate-v1/collectors/gridics/fixtures/miami-observed-stylesheet-document-provenance.json	1969-12-31 18:00:00
++++ /Users/oliverflint/My Drive/Claude/Projects/CompliSolv 2.00/outputs/collection-readiness-next-2026-10-17/gridics/isolated-source-first-list-candidate-v2/collectors/gridics/fixtures/miami-observed-stylesheet-document-provenance.json	2026-10-17 17:49:57
+@@ -0,0 +1,7 @@
++{
++  "source": "outputs/collection-readiness-next-2026-10-17/gridics/miami-missing-root-diagnosis/response-000.bin",
++  "sha256": "dc45638ac58b9836874e7436a88f759b93c98ceb9b3935a366684dce256b9f90",
++  "bytes": 15800,
++  "scope": "Exact pre-stop ordinary publisher document, stylesheet locators only; stylesheet bodies not acquired. No request in this fixture preparation.",
++  "network_requests": 0
++}
+diff -ruN /Users/oliverflint/My Drive/Claude/Projects/CompliSolv 2.00/outputs/collection-readiness-next-2026-10-17/gridics/isolated-source-first-candidate-v1/collectors/gridics/fixtures/miami-observed-stylesheet-document.html /Users/oliverflint/My Drive/Claude/Projects/CompliSolv 2.00/outputs/collection-readiness-next-2026-10-17/gridics/isolated-source-first-list-candidate-v2/collectors/gridics/fixtures/miami-observed-stylesheet-document.html
+--- /Users/oliverflint/My Drive/Claude/Projects/CompliSolv 2.00/outputs/collection-readiness-next-2026-10-17/gridics/isolated-source-first-candidate-v1/collectors/gridics/fixtures/miami-observed-stylesheet-document.html	1969-12-31 18:00:00
++++ /Users/oliverflint/My Drive/Claude/Projects/CompliSolv 2.00/outputs/collection-readiness-next-2026-10-17/gridics/isolated-source-first-list-candidate-v2/collectors/gridics/fixtures/miami-observed-stylesheet-document.html	2026-10-17 17:49:57
+@@ -0,0 +1,32 @@
++<!DOCTYPE html>
++<html  lang="en" dir="ltr">
++  <head>
++    <meta charset="utf-8" />
++<meta name="Generator" content="Drupal 10 (https://www.drupal.org)" />
++<meta name="MobileOptimized" content="width" />
++<meta name="HandheldFriendly" content="true" />
++<meta name="viewport" content="width=device-width, initial-scale=1.0" />
++<meta name="description" content="Search the Miami - Comprehensive Plan Comprehensive Neighborhood Plan text." />
++<link rel="apple-touch-icon" sizes="57x57" href="/themes/custom/gridics/images/home-icon/home-icon-57.png" />
++<link rel="apple-touch-icon" sizes="72x72" href="/themes/custom/gridics/images/home-icon/home-icon-72.png" />
++<link rel="apple-touch-icon" sizes="114x114" href="/themes/custom/gridics/images/home-icon/home-icon-114.png" />
++<link rel="apple-touch-icon" sizes="144x144" href="/themes/custom/gridics/images/home-icon/home-icon-144.png" />
++<link rel="icon" href="/themes/custom/gridics/favicon.ico" type="image/vnd.microsoft.icon" />
++
++    <title>City of Miami - Comprehensive Plan FL Comprehensive Neighborhood Plan | Gridics</title>
++    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Condensed:300,400,700" rel="stylesheet" type="text/css">
++    <link rel="stylesheet" media="all" href="/build/css/gridics.css?tmudor" />
++<link rel="stylesheet" media="all" href="/build/gridics-icons/style.css?tmudor" />
++
++    
++  </head>
++  <body class="path-code-hub-entity">
++  
++  <div id="root"></div>
++  
++  <script type="application/json" data-drupal-selector="drupal-settings-json">{"path":{"baseUrl":"\/","pathPrefix":"","currentPath":"code_hub_entity\/94","currentPathIsAdmin":false,"isFront":false,"currentLanguage":"en","currentQuery":{"q":"us\/fl\/miami-comp"}},"pluralDelimiter":"\u0003","currentUser":{"uid":"0","ch_permissions":[],"field_user_first_name":null,"field_user_last_name":null,"field_home_telephone":null,"mail":"","gridicsApiPublicToken":"eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwczpcL1wvYWNjb3VudHMuZ3JpZGljcy5jb20iLCJpYXQiOjE3OTE4ODkxMjAsInVpZCI6IjAiLCJtYWlsIjoiIiwiZXhwIjoxNzkxOTc1NTIwfQ.py9WPFe3SMw0jCvBiEzGbeMX3ZmxvfCurtW4rXoLNEo","picture":"https:\/\/accounts.gridics.com\/sites\/all\/themes\/gridics\/images\/default-user.png","is_admin":false,"roles":["anonymous"],"current_uid":0,"token":"NSD6Q5KP--RZMVf1eG6zWGpoTijZN53CArNiCHlVxSY","legal_disclaimer":null,"intro_disabled":null},"disclaimersSettings":{"codehub":{"version":3,"disclaimer":"The codes, ordinance and any other documents shown on this site are provided for informational purposes only and may not reflect the most current legislation adopted by the Municipality. Contents are optimized for web viewing and may not reflect the formatting and pagination of the official copy.\r\nAll information provided by Gridics via any and all of its software applications is derived using both proprietary and third party data. At Gridics, we aim to deliver the most accurate and up-to-date data possible, but we cannot guarantee the accuracy of the information delivered via our platform. Each user of our software applications is responsible for determining its suitability for his or her intended use or purpose and should contact a legal professional and\/or architect before making any real estate investment decisions. Gridics shall have no liability for the accuracy of the data or lack thereof, or for any decisions made or not made by users, or for any action taken or not taken by users in reliance upon any of the data."},"map":{"version":0,"disclaimer":"The information provided by Gridics via any and all of its software applications is for informational purposes only and is derived using both proprietary and third party data. At Gridics, we aim to deliver the most accurate and up-to-date data possible, but we cannot guarantee the accuracy of the information delivered via our platform. Each user of our software applications is responsible for determining its suitability for his or her intended use or purpose and should contact a legal professional and\/or architect before making any real estate investment decisions. Gridics shall have no liability for the accuracy of the data or lack thereof, or for any decisions made or not made by users, or for any action taken or not taken by users in reliance upon any of the data."},"zonecheck":{"version":0,"disclaimer":"The information provided by Gridics via any and all of its software applications is for informational purposes only and is derived using both proprietary and third party data. At Gridics, we aim to deliver the most accurate and up-to-date data possible, but we cannot guarantee the accuracy of the information delivered via our platform. Each user of our software applications is responsible for determining its suitability for his or her intended use or purpose and should contact a legal professional and\/or architect before making any real estate investment decisions. Gridics shall have no liability for the accuracy of the data or lack thereof, or for any decisions made or not made by users, or for any action taken or not taken by users in reliance upon any of the data."}},"pageData":{"id":"94","vid":"8626","hasEditAccess":false,"draft":null,"name":"Miami Comprehensive Neighborhood Plan","fieldLogo":"https:\/\/codehub.gridics.com\/..\/files\/logo\/2020-07\/miami-seal-2019_0.png","fieldMapImage":null,"fieldMapLink":null,"fieldZoneiqTitle":"Miami Comprehensive Neighborhood Plan","fieldZonecheckTitle":"Miami Comprehensive Neighborhood Plan","revisions":[{"vid":"8626","revision_created":"Mar 30, 2026 20:07:53","editor_version":null,"restored_from":null,"revision_log_message":"Ord. 14384","mail":"mzabala@gridics.com"},{"vid":"7345","revision_created":"Nov 22, 2024 15:54:01","editor_version":null,"restored_from":null,"revision_log_message":".","mail":"luciana.lins@gridics.com"},{"vid":"7344","revision_created":"Nov 22, 2024 15:48:04","editor_version":null,"restored_from":null,"revision_log_message":"Appendix updated","mail":"luciana.lins@gridics.com"},{"vid":"7343","revision_created":"Nov 22, 2024 15:35:05","editor_version":null,"restored_from":null,"revision_log_message":".","mail":"luciana.lins@gridics.com"},{"vid":"7342","revision_created":"Nov 22, 2024 15:31:13","editor_version":null,"restored_from":null,"revision_log_message":"Intergovernmental coordination updated","mail":"luciana.lins@gridics.com"},{"vid":"7341","revision_created":"Nov 22, 2024 15:22:40","editor_version":null,"restored_from":null,"revision_log_message":"Property rights updated","mail":"luciana.lins@gridics.com"},{"vid":"7340","revision_created":"Nov 22, 2024 15:17:01","editor_version":null,"restored_from":null,"revision_log_message":"Capital Imp updated","mail":"luciana.lins@gridics.com"},{"vid":"7339","revision_created":"Nov 22, 2024 15:00:07","editor_version":null,"restored_from":null,"revision_log_message":"Education updated","mail":"luciana.lins@gridics.com"},{"vid":"7338","revision_created":"Nov 22, 2024 14:44:18","editor_version":null,"restored_from":null,"revision_log_message":"Natural resource updated","mail":"luciana.lins@gridics.com"},{"vid":"7337","revision_created":"Nov 22, 2024 14:35:59","editor_version":null,"restored_from":null,"revision_log_message":"Coastal updated","mail":"luciana.lins@gridics.com"},{"vid":"7336","revision_created":"Nov 22, 2024 13:58:50","editor_version":null,"restored_from":null,"revision_log_message":"Parks updated","mail":"luciana.lins@gridics.com"},{"vid":"7335","revision_created":"Nov 22, 2024 13:44:31","editor_version":null,"restored_from":null,"revision_log_message":"Ports updated","mail":"luciana.lins@gridics.com"},{"vid":"7334","revision_created":"Nov 22, 2024 13:27:48","editor_version":null,"restored_from":null,"revision_log_message":"Transportation is updated","mail":"luciana.lins@gridics.com"},{"vid":"7333","revision_created":"Nov 22, 2024 13:15:46","editor_version":null,"restored_from":null,"revision_log_message":"Solid waste updated","mail":"luciana.lins@gridics.com"},{"vid":"7332","revision_created":"Nov 22, 2024 13:04:08","editor_version":null,"restored_from":null,"revision_log_message":"Portable water updated","mail":"luciana.lins@gridics.com"},{"vid":"7331","revision_created":"Nov 22, 2024 12:05:57","editor_version":null,"restored_from":null,"revision_log_message":"Goundwater updated","mail":"luciana.lins@gridics.com"},{"vid":"7330","revision_created":"Nov 22, 2024 12:01:18","editor_version":null,"restored_from":null,"revision_log_message":"Sanitary updated","mail":"luciana.lins@gridics.com"},{"vid":"7329","revision_created":"Nov 22, 2024 11:44:57","editor_version":null,"restored_from":null,"revision_log_message":".","mail":"luciana.lins@gridics.com"},{"vid":"7328","revision_created":"Nov 22, 2024 11:42:44","editor_version":null,"restored_from":null,"revision_log_message":"Housing updated","mail":"luciana.lins@gridics.com"},{"vid":"7327","revision_created":"Nov 21, 2024 16:40:28","editor_version":null,"restored_from":null,"revision_log_message":"Ord. 14263 - Interpretation of the future land use map undated","mail":"luciana.lins@gridics.com"},{"vid":"7326","revision_created":"Nov 21, 2024 16:06:05","editor_version":null,"restored_from":null,"revision_log_message":"Ord. 14263 Future Land Use updated ","mail":"luciana.lins@gridics.com"},{"vid":"7325","revision_created":"Nov 21, 2024 15:50:50","editor_version":null,"restored_from":null,"revision_log_message":"Future Land Use updated","mail":"luciana.lins@gridics.com"},{"vid":"7324","revision_created":"Nov 21, 2024 14:03:36","editor_version":null,"restored_from":null,"revision_log_message":"Ord. 14263","mail":"luciana.lins@gridics.com"},{"vid":"7202","revision_created":"Oct 02, 2024 14:17:52","editor_version":null,"restored_from":null,"revision_log_message":"Changed the amended date to today\u0027s (Oct, 2nd 2024)","mail":"luciana.lins@gridics.com"},{"vid":"7201","revision_created":"Oct 02, 2024 14:15:19","editor_version":null,"restored_from":null,"revision_log_message":"Ord. 14305","mail":"luciana.lins@gridics.com"},{"vid":"6582","revision_created":"Apr 16, 2024 12:51:37","editor_version":null,"restored_from":null,"revision_log_message":"14218","mail":"luciana.lins@gridics.com"},{"vid":"6414","revision_created":"Mar 05, 2024 12:13:26","editor_version":null,"restored_from":null,"revision_log_message":"new pdf link cm-1","mail":"luciana.lins@gridics.com"},{"vid":"6387","revision_created":"Feb 28, 2024 16:57:52","editor_version":null,"restored_from":null,"revision_log_message":"nn","mail":"luciana.lins@gridics.com"},{"vid":"6386","revision_created":"Feb 28, 2024 16:52:05","editor_version":null,"restored_from":null,"revision_log_message":"added CM-1 link","mail":"luciana.lins@gridics.com"},{"vid":"6385","revision_created":"Feb 28, 2024 15:07:24","editor_version":null,"restored_from":null,"revision_log_message":"hh","mail":"luciana.lins@gridics.com"},{"vid":"6384","revision_created":"Feb 28, 2024 14:50:15","editor_version":null,"restored_from":null,"revision_log_message":"oiiii","mail":"luciana.lins@gridics.com"},{"vid":"6383","revision_created":"Feb 28, 2024 14:21:25","editor_version":null,"restored_from":null,"revision_log_message":"hh","mail":"luciana.lins@gridics.com"},{"vid":"6382","revision_created":"Feb 28, 2024 14:16:07","editor_version":null,"restored_from":null,"revision_log_message":"gg","mail":"luciana.lins@gridics.com"},{"vid":"6381","revision_created":"Feb 28, 2024 12:55:19","editor_version":null,"restored_from":null,"revision_log_message":"oi","mail":"luciana.lins@gridics.com"},{"vid":"6380","revision_created":"Feb 28, 2024 12:16:05","editor_version":null,"restored_from":null,"revision_log_message":"oi","mail":"luciana.lins@gridics.com"},{"vid":"5328","revision_created":"Jun 12, 2023 06:21:42","editor_version":null,"restored_from":null,"revision_log_message":" ","mail":"cherilyn@puente.co"},{"vid":"5321","revision_created":"Jun 12, 2023 05:04:07","editor_version":null,"restored_from":null,"revision_log_message":" ","mail":"cherilyn@puente.co"},{"vid":"5300","revision_created":"Jun 04, 2023 11:51:47","editor_version":null,"restored_from":null,"revision_log_message":" ","mail":"cherilyn@puente.co"},{"vid":"5299","revision_created":"Jun 04, 2023 11:46:01","editor_version":null,"restored_from":null,"revision_log_message":" ","mail":"cherilyn@puente.co"},{"vid":"5298","revision_created":"Jun 02, 2023 15:20:51","editor_version":null,"restored_from":null,"revision_log_message":" ","mail":"cherilyn@puente.co"},{"vid":"5297","revision_created":"Jun 02, 2023 15:08:54","editor_version":null,"restored_from":null,"revision_log_message":" ","mail":"cherilyn@puente.co"},{"vid":"5296","revision_created":"Jun 02, 2023 15:04:35","editor_version":null,"restored_from":null,"revision_log_message":" ","mail":"cherilyn@puente.co"},{"vid":"4979","revision_created":"Feb 01, 2023 10:57:03","editor_version":null,"restored_from":null,"revision_log_message":" ","mail":"cherilyn@puente.co"},{"vid":"4977","revision_created":"Feb 01, 2023 10:45:34","editor_version":null,"restored_from":null,"revision_log_message":" ","mail":"cherilyn@puente.co"},{"vid":"4975","revision_created":"Feb 01, 2023 10:41:32","editor_version":null,"restored_from":null,"revision_log_message":" ","mail":"cherilyn@puente.co"},{"vid":"4512","revision_created":"May 05, 2022 14:19:09","editor_version":null,"restored_from":null,"revision_log_message":"Added Property Rights- Approved by Sue Trone","mail":"HBernat@miamigov.com"},{"vid":"3309","revision_created":"Jul 16, 2021 15:04:55","editor_version":null,"restored_from":null,"revision_log_message":"Provided all updates required for adoption of O-13938 (Amending Ordinances Table + all modifications). ","mail":"strone@miamigov.com"},{"vid":"3053","revision_created":"Apr 14, 2021 07:07:09","editor_version":null,"restored_from":null,"revision_log_message":"formatting","mail":"webadmin@gridics.com"},{"vid":"2747","revision_created":"Dec 09, 2020 12:16:23","editor_version":null,"restored_from":null,"revision_log_message":"formatting","mail":"mkircher@gridics.com"},{"vid":"2547","revision_created":"Sep 28, 2020 15:49:06","editor_version":null,"restored_from":null,"revision_log_message":"client request","mail":"mkircher@gridics.com"},{"vid":"2545","revision_created":"Sep 28, 2020 15:44:49","editor_version":null,"restored_from":null,"revision_log_message":"client request","mail":"mkircher@gridics.com"},{"vid":"2312","revision_created":"Aug 04, 2020 17:13:30","editor_version":null,"restored_from":null,"revision_log_message":"sfsdf","mail":null},{"vid":"2311","revision_created":"Aug 04, 2020 13:46:17","editor_version":null,"restored_from":null,"revision_log_message":"werwerw","mail":null},{"vid":"2303","revision_created":"Jul 22, 2020 03:23:06","editor_version":null,"restored_from":null,"revision_log_message":"Removed empty line","mail":"mzabala@gridics.com"},{"vid":"2302","revision_created":"Jul 22, 2020 02:58:49","editor_version":null,"restored_from":null,"revision_log_message":null,"mail":"webadmin@gridics.com"}],"cityDisclaimersSettings":[],"textStatus":"public","mapStatus":"public","checkStatus":"public","editorVersion":null,"exportToStatus":"unpublished","options":null,"metatags":{"title":"City of Miami - Comprehensive Plan FL Comprehensive Neighborhood Plan | Gridics","description":"Search the Miami - Comprehensive Plan Comprehensive Neighborhood Plan text.","canonical_url":null}},"user":{"uid":0,"permissionsHash":"85bfb76a11aec61b80be82f456ed0e13b6c2914422f0fa89bfae3f284754a142"}}</script>
++<script src="/sites/default/files/js/js_fGWff3Kyz-M6WyZ_cyXRUzkyi0KBP2H9NAFxKqE3-mM.js?scope=footer&amp;delta=0&amp;language=en&amp;theme=gridics&amp;include=eJxLzk9JzShNii9KTUwu0QeTulnFOsn5Ran6KUWlBYk5waklJZl56cUAXo4Qbg"></script>
++<script src="/react/init/js?tmudor"></script>
++
++  </body>
++</html>
+diff -ruN /Users/oliverflint/My Drive/Claude/Projects/CompliSolv 2.00/outputs/collection-readiness-next-2026-10-17/gridics/isolated-source-first-candidate-v1/collectors/gridics/list_markers.py /Users/oliverflint/My Drive/Claude/Projects/CompliSolv 2.00/outputs/collection-readiness-next-2026-10-17/gridics/isolated-source-first-list-candidate-v2/collectors/gridics/list_markers.py
+--- /Users/oliverflint/My Drive/Claude/Projects/CompliSolv 2.00/outputs/collection-readiness-next-2026-10-17/gridics/isolated-source-first-candidate-v1/collectors/gridics/list_markers.py	1969-12-31 18:00:00
++++ /Users/oliverflint/My Drive/Claude/Projects/CompliSolv 2.00/outputs/collection-readiness-next-2026-10-17/gridics/isolated-source-first-list-candidate-v2/collectors/gridics/list_markers.py	2026-10-17 17:50:35
+@@ -0,0 +1,95 @@
++"""Source list metadata and conservative marker projection; never infer custom CSS."""
++import hashlib,json,re
++
++SUPPORTED={'decimal','decimal-leading-zero','upper-alpha','lower-alpha','upper-latin','lower-latin','upper-roman','lower-roman','none','disc','circle','square','unordered-default'}
++TYPE_STYLES={'1':'decimal','A':'upper-alpha','a':'lower-alpha','I':'upper-roman','i':'lower-roman'}
++
++
++def safe(value):
++    if isinstance(value,str) and re.search(r'data\s*:\s*image/',value,re.I):
++        return {'embedded_image_omitted':True,'source_sha256':hashlib.sha256(value.encode()).hexdigest()}
++    if isinstance(value,(str,int,float,bool)) or value is None:
++        return value
++    if isinstance(value,list):return [safe(v) for v in value]
++    if isinstance(value,dict):return {k:safe(v) for k,v in value.items()}
++    return {'source_type':type(value).__name__,'source_sha256':hashlib.sha256(str(value).encode()).hexdigest()}
++
++
++def declared_style(node):
++    style=node.get('style','')
++    found=re.search(r'(?:^|;)\s*list-style-type\s*:\s*([^;]+)',style,re.I)
++    if found:return found.group(1).strip().lower()
++    if re.search(r'(?:^|;)\s*list-style\s*:',style,re.I):return 'unqualified-shorthand'
++    if node.name=='ul':return {'disc':'disc','circle':'circle','square':'square'}.get(node.get('type'),'unqualified-html-type' if node.has_attr('type') else 'unordered-default')
++    return TYPE_STYLES.get(node.get('type','1'),'unqualified-html-type')
++
++
++def policy(node):
++    style=declared_style(node);classes=list(node.get('class') or [])
++    reasons=[]
++    if node.has_attr('data-list-marker-unqualified'):reasons.append('Unqualified source marker formatting retained explicitly')
++    if classes:reasons.append('Custom list class marker formatting has no retained, interpreted CSS proof')
++    if style not in SUPPORTED:reasons.append('Unsupported or unknown declared list marker style')
++    if re.search(r'(?:list-style-image|counter-reset|counter-increment)\s*:',node.get('style',''),re.I):
++        reasons.append('Custom counter or image-marker declaration is unqualified')
++    return {'style':style,'qualified':not reasons,'reasons':reasons,'classes':classes}
++
++
++def integer(value):
++    try:
++        if not re.fullmatch(r'[+-]?\d+',str(value).strip()):return None
++        return int(value)
++    except (ValueError,TypeError):return None
++
++
++def marker(value,style):
++    if style in {'none','unordered-default'}:return ''
++    if style in {'disc','circle','square'}:return {'disc':'• ','circle':'◦ ','square':'▪ '}[style]
++    if style not in SUPPORTED:return ''
++    if style in {'upper-alpha','lower-alpha','upper-latin','lower-latin'} and value>0:
++        label=''
++        while value:
++            value,remainder=divmod(value-1,26);label=chr(65+remainder)+label
++        label=label.lower() if style.startswith('lower') else label
++    elif style in {'upper-roman','lower-roman'} and 0<value<4000:
++        label=''
++        for amount,letters in [(1000,'M'),(900,'CM'),(500,'D'),(400,'CD'),(100,'C'),(90,'XC'),(50,'L'),(40,'XL'),(10,'X'),(9,'IX'),(5,'V'),(4,'IV'),(1,'I')]:
++            while value>=amount:label+=letters;value-=amount
++        label=label.lower() if style=='lower-roman' else label
++    elif style=='decimal-leading-zero':label=('-' if value<0 else '')+str(abs(value)).zfill(2)
++    else:label=str(value)
++    return label+'. '
++
++
++def list_metadata(soup):
++    rows=[]
++    for order,node in enumerate(soup.find_all(['ol','ul']),1):
++        selected=policy(node);children=node.find_all('li',recursive=False)
++        value=integer(node.get('start',len(children) if node.has_attr('reversed') else 1));step=-1 if node.has_attr('reversed') else 1
++        reasons=list(selected['reasons'])
++        if value is None:reasons.append('Malformed source list start value')
++        items=[]
++        for position,li in enumerate(children,1):
++            if li.has_attr('value'):value=integer(li['value'])
++            custom=bool(li.get('class')) or li.has_attr('type') or bool(re.search(r'(?:list-style|counter-)\s*[-a-z]*\s*:',li.get('style',''),re.I))
++            if custom:reasons.append('Per-item custom marker formatting is unqualified')
++            if value is None:reasons.append('Malformed source list-item value')
++            items.append({'position':position,'counter_value':value,'source_attributes':safe({k:li[k] for k in ['class','value','style','type'] if li.has_attr(k)})})
++            if value is not None:value+=step
++        rows.append({'order':order,'tag':node.name,'source_attributes':safe({k:node[k] for k in ['class','style','type','start','reversed'] if node.has_attr(k)}),'declared_style':safe(selected['style']),'marker_format_qualified':not reasons,'qualification_errors':sorted(set(reasons)),'items':items,'source_list_sha256':hashlib.sha256(str(node).encode()).hexdigest()})
++    return rows
++
++
++def insert_markers(soup):
++    # Projection is deliberately empty for unqualified custom formatting. The
++    # original class/style/counter metadata remains; no punctuation is guessed.
++    for node in soup.find_all(['ol','ul']):
++        selected=policy(node);children=node.find_all('li',recursive=False)
++        value=integer(node.get('start',len(children) if node.has_attr('reversed') else 1));step=-1 if node.has_attr('reversed') else 1
++        for li in children:
++            if li.has_attr('value'):value=integer(li['value'])
++            per_item=bool(li.get('class')) or li.has_attr('type') or bool(re.search(r'(?:list-style|counter-)\s*[-a-z]*\s*:',li.get('style',''),re.I))
++            if selected['qualified'] and not per_item and value is not None:
++                prefix=marker(value,selected['style'])
++                if prefix:li.insert(0,prefix)
++            if value is not None:value+=step
+diff -ruN /Users/oliverflint/My Drive/Claude/Projects/CompliSolv 2.00/outputs/collection-readiness-next-2026-10-17/gridics/isolated-source-first-candidate-v1/collectors/gridics/model.py /Users/oliverflint/My Drive/Claude/Projects/CompliSolv 2.00/outputs/collection-readiness-next-2026-10-17/gridics/isolated-source-first-list-candidate-v2/collectors/gridics/model.py
+--- /Users/oliverflint/My Drive/Claude/Projects/CompliSolv 2.00/outputs/collection-readiness-next-2026-10-17/gridics/isolated-source-first-candidate-v1/collectors/gridics/model.py	2026-10-17 17:32:22
++++ /Users/oliverflint/My Drive/Claude/Projects/CompliSolv 2.00/outputs/collection-readiness-next-2026-10-17/gridics/isolated-source-first-list-candidate-v2/collectors/gridics/model.py	2026-10-17 17:49:03
+@@ -7,6 +7,8 @@
+ from pathlib import Path
+ from urllib.parse import urljoin, urlsplit, parse_qs
+ from bs4 import BeautifulSoup, NavigableString, Tag, Comment
++from .list_markers import list_metadata, insert_markers
++from .image_content import is_image_content
+ from .publisher import RENDERER_SHA256, ROUTER_SHA256, script_role, body_for_rendering, fragment_path
+ 
+ 
+@@ -39,7 +41,7 @@
+         raise Invalid('Receipt bytes changed: ' + receipt['path'])
+     if receipt.get('status') != 200:
+         raise Invalid('Source response not HTTP 200')
+-    if str(receipt.get('content_type', '')).strip().lower().startswith('image/'):
++    if is_image_content(receipt.get('content_type',''),raw[:2048]):
+         raise Invalid('Separate image receipt is forbidden')
+     return raw
+ 
+@@ -47,31 +49,7 @@
+ def plain(markup):
+     # Inline tags never introduce arbitrary spaces inside words.
+     soup = BeautifulSoup(markup, 'html.parser')
+-    def number(value, style):
+-        if style in {'upper-alpha','lower-alpha','upper-latin','lower-latin'} and value > 0:
+-            label=''
+-            while value:
+-                value, remainder=divmod(value-1,26)
+-                label=chr(65+remainder)+label
+-            return label.lower() if style.startswith('lower') else label
+-        if style in {'upper-roman','lower-roman'} and 0 < value < 4000:
+-            label=''
+-            for amount,letters in [(1000,'M'),(900,'CM'),(500,'D'),(400,'CD'),(100,'C'),(90,'XC'),(50,'L'),(40,'XL'),(10,'X'),(9,'IX'),(5,'V'),(4,'IV'),(1,'I')]:
+-                while value>=amount:
+-                    label+=letters;value-=amount
+-            return label.lower() if style=='lower-roman' else label
+-        return str(value)
+-    for ordered in soup.find_all('ol'):
+-        children=ordered.find_all('li',recursive=False)
+-        value=int(ordered.get('start',len(children) if ordered.has_attr('reversed') else 1))
+-        step=-1 if ordered.has_attr('reversed') else 1
+-        match=re.search(r'list-style-type\s*:\s*([a-z-]+)',ordered.get('style',''),re.I)
+-        style=match.group(1) if match else {'A':'upper-alpha','a':'lower-alpha','I':'upper-roman','i':'lower-roman'}.get(ordered.get('type'),'decimal')
+-        for li in children:
+-            value=int(li.get('value',value))
+-            if style!='none':
+-                li.insert(0,number(value,style)+'. ')
+-            value+=step
++    insert_markers(soup)
+     for cell in soup.find_all(['td','th']):
+         cell.append('\t')
+     for br in soup.find_all('br'):
+@@ -87,6 +65,9 @@
+ 
+ def normalize(markup, base, collect_links=True):
+     images, links = [], []
++    source_soup=BeautifulSoup(markup,'html.parser')
++    source_lists=list_metadata(source_soup)
++    list_by_node={id(node):row for node,row in zip(source_soup.find_all(['ol','ul']),source_lists)}
+     allowed = {'p','div','span','section','article','table','caption','thead','tbody','tfoot','tr','td','th','ol','ul','li','dl','dt','dd','blockquote','br','hr','sup','sub','em','strong','b','i','u','s','a','h1','h2','h3','h4','h5','h6'}
+     def marker(node, kind):
+         locator=node.get('poster') if kind == 'video_poster' else node.get('src') or node.get('data') or node.get('background') or node.get('style')
+@@ -120,11 +101,15 @@
+         attrs = {}
+         if node.name in {'td','th'}:
+             attrs = {k: node[k] for k in ('rowspan','colspan','scope','headers') if node.has_attr(k)}
+-        if node.name in {'ol','li'}:
+-            attrs.update({k: node[k] for k in ('start','type','value','reversed') if node.has_attr(k)})
++        if node.name in {'ol','ul','li'}:
++            attrs.update({k: node[k] for k in ('start','type','value','reversed') if node.has_attr(k) and not re.search(r'data\s*:\s*image/',str(node[k]),re.I)})
++            classes=[v for v in node.get('class',[]) if re.fullmatch(r'[A-Za-z_][A-Za-z0-9_-]*',v)]
++            if classes:attrs['class']=classes
+             style = re.search(r'list-style-type\s*:\s*([a-z-]+)', node.get('style',''), re.I)
+             if style:
+                 attrs['style'] = 'list-style-type:' + style.group(1)
++            if node.name in {'ol','ul'} and not list_by_node[id(node)]['marker_format_qualified']:
++                attrs['data-list-marker-unqualified']='true'
+         if node.get('id'):
+             attrs['id'] = node['id']
+         if node.name == 'a' and node.get('href'):
+@@ -141,7 +126,7 @@
+                     links.append(link)
+         encoded = ''.join(' ' + k + '="' + html.escape(' '.join(v) if isinstance(v,list) else str(v), quote=True) + '"' for k,v in attrs.items())
+         return '<'+node.name+encoded+'>'+contents+('' if node.name in {'br','hr'} else '</'+node.name+'>')
+-    output = ''.join(render(x) for x in BeautifulSoup(markup,'html.parser').contents)
++    output = ''.join(render(x) for x in source_soup.contents)
+     soup = BeautifulSoup(output,'html.parser')
+     tables = []
+     for table in soup.find_all('table'):
+@@ -151,7 +136,7 @@
+                 continue
+             rows.append([{'tag': cell.name, 'text': plain(str(cell)), 'rowspan': str(cell.get('rowspan','1')), 'colspan': str(cell.get('colspan','1'))} for cell in tr.find_all(['td','th'],recursive=False)])
+         tables.append(rows)
+-    return {'html': output, 'text': plain(output), 'images': images, 'links': links, 'tables': tables}
++    return {'html': output, 'text': plain(output), 'images': images, 'links': links, 'tables': tables,'lists':source_lists}
+ 
+ 
+ def native_records(tree, config, root_path, project_renderer=False):
+@@ -218,6 +203,8 @@
+         if kind=='BodyImage' and parent is None:
+             own_markup='<img src="'+html.escape(source_text,quote=True)+'">'
+         normalized = normalize(own_markup+''.join(body_markup(c) for c in body), config['source_url'])
++        if any(not row['marker_format_qualified'] for row in normalized['lists']):
++            qualifications.append('Custom or unsupported list marker formatting is unqualified')
+         children = [c['id'] for c in node.get('children',[]) if data_tag(c) not in body_types]
+         heading = normalize(field_markup(source_text) if heading_type else '',config['source_url'])
+         if not heading['text']:
+@@ -284,10 +271,38 @@
+     return None
+ 
+ 
++def stylesheet_evidence(output, ledger, phases, config):
++    """Verify observed original CSS receipts; no CSS interpretation or URL fetching.
++
++    CSS originals may embed image references. They are never normalized legal
++    output, never imported, and do not qualify custom marker punctuation.
++    """
++    result=[]
++    source=urlsplit(config['source_url'])
++    phase_epochs={p['phase']:p['roots_response']['epoch'] for p in phases}
++    for receipt in ledger:
++        if receipt.get('response_role')!='stylesheet' and receipt.get('resource_type')!='stylesheet':
++            continue
++        url=urlsplit(receipt.get('url',''))
++        owner=urlsplit(receipt.get('source_document_url') or '')
++        if url.scheme!='https' or url.hostname!='codehub.gridics.com' or receipt.get('resource_type')!='stylesheet' or receipt.get('response_role')!='stylesheet':
++            raise Invalid('Stylesheet is not an observed first-party stylesheet response')
++        if receipt.get('phase') not in phase_epochs or receipt.get('epoch')!=phase_epochs[receipt['phase']] or not receipt.get('at'):
++            raise Invalid('Stylesheet lacks acquisition phase/epoch binding')
++        raw=checked(output,receipt)
++        if receipt.get('content_type','').split(';')[0].strip().lower()!='text/css':
++            raise Invalid('Observed stylesheet does not have qualified CSS MIME')
++        bound=(owner.scheme,owner.netloc,owner.path,owner.query)==(source.scheme,source.netloc,source.path,source.query)
++        result.append({k:receipt[k] for k in ('url','path','sha256','bytes','phase','epoch','at','source_document_url') if k in receipt})
++        result[-1].update(source_document_bound=bound,marker_rules_interpreted=False,qualification='original_source_only' if bound else 'original_source_owner_unqualified',image_assets_imported=0)
++    return result
++
++
+ def analyze(output, config):
+     output = Path(output)
+     phases = [read(output/(phase+'-checkpoint.json')) for phase in ('start','end')]
+     ledger=read(output/'responses.json')
++    stylesheets=stylesheet_evidence(output,ledger,phases,config)
+     ledger_by_path={r['path']:r for r in ledger if r.get('path')}
+     if len(ledger_by_path)!=len([r for r in ledger if r.get('path')]):
+         raise Invalid('Duplicate acquisition receipt paths')
+@@ -353,7 +368,7 @@
+                 projected = {r['source_id']: r for r in native_records(json.loads(checked(output,receipt)),config,row['root']['path'],project_renderer=True)[0]}
+             unqualified=[{'source_id':r['source_id'],'reasons':r['source_qualification_errors']} for r in native if r.get('source_qualification_errors')]
+             if unqualified:
+-                errors.append({'phase':phase['phase'],'root':row['root']['id'],'error':'Source headings/types are unqualified','source_nodes':unqualified})
++                errors.append({'phase':phase['phase'],'root':row['root']['id'],'error':'Source headings, types or list marker formatting are unqualified','source_nodes':unqualified})
+             render_status=row.get('render_status','captured')
+             if render_status!='captured':
+                 from .publisher import section_renderability
+@@ -435,4 +450,7 @@
+     coverage['raw_native_start_end_consistent'] = raw_stable
+     coverage['rendered_publication_qa_complete'] = not native_only and not errors
+     coverage['source_qualification_complete'] = not coverage['unqualified_source_ids']
++    coverage['list_marker_qualification_gaps'] = [{'owner_id':r['source_id'],'list_order':v['order'],'source_list_sha256':v['source_list_sha256'],'source_attributes':v['source_attributes'],'reasons':v['qualification_errors']} for r in all_records[0] for v in r['lists'] if not v['marker_format_qualified']]
++    coverage['observed_stylesheet_sources'] = stylesheets
++    coverage['stylesheet_scope_note'] = 'Only actually observed first-party CSS original responses retained; no CSS URLs fetched/imported, image assets imported zero. Custom marker interpretation remains unqualified.'
+     return all_records[0], refs, coverage
+diff -ruN /Users/oliverflint/My Drive/Claude/Projects/CompliSolv 2.00/outputs/collection-readiness-next-2026-10-17/gridics/isolated-source-first-candidate-v1/collectors/gridics/source_response.py /Users/oliverflint/My Drive/Claude/Projects/CompliSolv 2.00/outputs/collection-readiness-next-2026-10-17/gridics/isolated-source-first-list-candidate-v2/collectors/gridics/source_response.py
+--- /Users/oliverflint/My Drive/Claude/Projects/CompliSolv 2.00/outputs/collection-readiness-next-2026-10-17/gridics/isolated-source-first-candidate-v1/collectors/gridics/source_response.py	1969-12-31 18:00:00
++++ /Users/oliverflint/My Drive/Claude/Projects/CompliSolv 2.00/outputs/collection-readiness-next-2026-10-17/gridics/isolated-source-first-list-candidate-v2/collectors/gridics/source_response.py	2026-10-17 17:47:12
+@@ -0,0 +1,26 @@
++"""Observed original publisher response selection; no discovery or asset fetching."""
++from urllib.parse import urlsplit
++from .publisher import script_role
++from .image_content import is_image_content
++
++
++def response_role(url,resource_type):
++    parsed=urlsplit(url)
++    if parsed.scheme!='https' or parsed.hostname!='codehub.gridics.com':return None
++    if resource_type=='stylesheet':return 'stylesheet'
++    if resource_type in {'document','xhr','fetch'}:return 'native_response'
++    if resource_type=='script':return script_role(url)
++    return None
++
++
++def read_nonimage_response(response):
++    """Known image MIME never reads body; mislabeled image prefix never persists.
++
++    No image decoding or secondary resource traversal occurs. Original HTML,
++    JSON, CSS, PDF, JS or ZIP with embedded image references remains source.
++    """
++    mime=response.headers.get('content-type','')
++    if is_image_content(mime):return None,'Image MIME rejected before body read'
++    raw=response.body()
++    if is_image_content(mime,raw[:2048]):return None,'Separate image signature rejected; no body saved'
++    return raw,None
+diff -ruN /Users/oliverflint/My Drive/Claude/Projects/CompliSolv 2.00/outputs/collection-readiness-next-2026-10-17/gridics/isolated-source-first-candidate-v1/collectors/gridics/tests/test_lists_and_stylesheets.py /Users/oliverflint/My Drive/Claude/Projects/CompliSolv 2.00/outputs/collection-readiness-next-2026-10-17/gridics/isolated-source-first-list-candidate-v2/collectors/gridics/tests/test_lists_and_stylesheets.py
+--- /Users/oliverflint/My Drive/Claude/Projects/CompliSolv 2.00/outputs/collection-readiness-next-2026-10-17/gridics/isolated-source-first-candidate-v1/collectors/gridics/tests/test_lists_and_stylesheets.py	1969-12-31 18:00:00
++++ /Users/oliverflint/My Drive/Claude/Projects/CompliSolv 2.00/outputs/collection-readiness-next-2026-10-17/gridics/isolated-source-first-list-candidate-v2/collectors/gridics/tests/test_lists_and_stylesheets.py	2026-10-17 17:50:35
+@@ -0,0 +1,129 @@
++"""Offline marker fidelity and observed-response guards; no publisher requests."""
++import copy,json,tempfile,unittest,zipfile
++from pathlib import Path
++from unittest.mock import Mock,patch
++from bs4 import BeautifulSoup
++from collectors.gridics.model import normalize,native_records,stylesheet_evidence,digest,Invalid
++from collectors.gridics.source_response import response_role,read_nonimage_response
++
++BASE='https://codehub.gridics.com/us/fl/miami'
++
++class ListFidelityTests(unittest.TestCase):
++    def test_custom_marker_classes_are_preserved_and_never_guessed(self):
++        for cls in ['paren-value-paren','value-paren','style-square','default-style']:
++            value=normalize('<ol class="'+cls+'" start="3"><li>Source text</li></ol>',BASE)
++            self.assertIn('class="'+cls+'"',value['html'])
++            self.assertEqual(value['text'],'Source text')
++            self.assertFalse(value['lists'][0]['marker_format_qualified'])
++            self.assertEqual(value['lists'][0]['source_attributes']['class'],[cls])
++            self.assertEqual(value['lists'][0]['items'][0]['counter_value'],3)
++
++    def test_declared_nonnumeric_square_never_becomes_decimal(self):
++        value=normalize('<ol style="list-style-type:square"><li>First</li><li>Second</li></ol>',BASE)
++        self.assertEqual(value['text'],'▪ First\n▪ Second')
++        self.assertTrue(value['lists'][0]['marker_format_qualified'])
++        self.assertNotIn('1.',value['text'])
++        self.assertEqual(normalize('<ul type="circle"><li>Circle</li></ul>',BASE)['text'],'◦ Circle')
++        self.assertEqual(normalize('<ol style="list-style-type:none"><li>Unmarked</li></ol>',BASE)['text'],'Unmarked')
++
++    def test_standard_counter_semantics_and_nested_lists(self):
++        value=normalize('<ol reversed start="5" type="A"><li>Five<ol start="2"><li>Inner</li></ol></li><li value="2">Two</li></ol>',BASE)
++        self.assertEqual(value['text'],'E. Five\n2. Inner\nB. Two')
++        self.assertEqual([v['counter_value'] for v in value['lists'][0]['items']],[5,2])
++
++    def test_per_item_custom_format_and_invalid_counter_never_invent_marker(self):
++        for markup in ['<ol><li class="special">Text</li></ol>','<ol start="bogus"><li>Text</li></ol>','<ol><li value="no">Text</li></ol>','<ol style="list-style:custom"><li>Text</li></ol>','<ul type="invented"><li>Text</li></ul>','<ol><li type="A">Text</li></ol>']:
++            value=normalize(markup,BASE)
++            self.assertFalse(value['lists'][0]['marker_format_qualified'])
++            self.assertEqual(value['text'],'Text')
++
++    def test_image_styles_keep_placeholder_without_metadata_payload(self):
++        value=normalize('<ol style="list-style-image:url(data:image/png;base64,SECRET_PIXELS)"><li>Caption</li></ol>',BASE)
++        self.assertEqual(value['text'],'[IMAGE]\nCaption')
++        self.assertNotIn('SECRET_PIXELS',json.dumps(value))
++        self.assertNotIn('<img',value['html'])
++        self.assertFalse(value['lists'][0]['marker_format_qualified'])
++
++    def test_custom_marker_keeps_publication_unqualified(self):
++        node={'id':'r','path':'/r','docId':'94','text':'Heading','li_attr':{'dataTag':'section','tag':'h2'},'children':[{'id':'b','path':'/r/b','docId':'94','ref':{'parent':'r'},'li_attr':{'dataTag':'BodyM'},'text':'<ol class="value-paren"><li>Text</li></ol>'}]}
++        record=native_records([node],{'document_id':'94','source_url':BASE},'/r')[0][0]
++        self.assertEqual(record['disposition'],'source_unqualified')
++        self.assertIn('list marker',record['source_qualification_errors'][0])
++        self.assertEqual(record['body_block_ids'],['b'])
++
++    def test_actual_full_miami_root_retains_source_classes_and_item_order(self):
++        fixture=Path(__file__).resolve().parents[1]/'fixtures'
++        meta=json.loads((fixture/'miami-list-boundaries-provenance.json').read_text())
++        with zipfile.ZipFile(fixture/'miami-list-boundaries.zip') as archive:
++            raw=archive.read('native.json')
++        self.assertEqual(digest(raw),meta['files']['native.json']['sha256'])
++        tree=json.loads(raw);records,_=native_records(tree,meta['config'],meta['source_root']['root']['path'])
++        nodes={}
++        def walk(n):
++            nodes[n['id']]=n
++            for c in n.get('children',[]):walk(c)
++        walk(tree[0]);classed=0
++        for rec in records:
++            markup=''.join(nodes[b]['text'] for b in rec['body_block_ids'])
++            lists=BeautifulSoup(markup,'html.parser').find_all(['ol','ul'])
++            self.assertEqual(len(rec['lists']),len(lists))
++            sanitized=BeautifulSoup(rec['html'],'html.parser').find_all(['ol','ul'])
++            self.assertEqual(len(sanitized),len(lists))
++            for source,out,row in zip(lists,sanitized,rec['lists']):
++                self.assertEqual(source.get('class',[]),out.get('class',[]))
++                self.assertEqual([li.get_text() for li in source.find_all('li',recursive=False)],[li.get_text() for li in out.find_all('li',recursive=False)])
++                if source.get('class'):
++                    classed+=1;self.assertFalse(row['marker_format_qualified'])
++        self.assertGreater(classed,0)
++
++class ObservedStylesheetTests(unittest.TestCase):
++    def test_selection_is_only_observed_first_party_stylesheet(self):
++        self.assertEqual(response_role(BASE+'/build/css/gridics.css?tmudor','stylesheet'),'stylesheet')
++        for url,kind in [('https://external.invalid/gridics.css','stylesheet'),(BASE+'/image.png','image'),('http://codehub.gridics.com/gridics.css','stylesheet')]:
++            self.assertIsNone(response_role(url,kind))
++
++    def test_actual_observed_stylesheet_locators_without_fetching(self):
++        fixture=Path(__file__).resolve().parents[1]/'fixtures'
++        raw=(fixture/'miami-observed-stylesheet-document.html').read_bytes()
++        meta=json.loads((fixture/'miami-observed-stylesheet-document-provenance.json').read_text())
++        self.assertEqual(digest(raw),meta['sha256'])
++        soup=BeautifulSoup(raw,'html.parser')
++        hrefs=[link['href'] for link in soup.select('link[rel="stylesheet"][href]')]
++        self.assertIn('/build/css/gridics.css?tmudor',hrefs)
++        from urllib.parse import urljoin
++        with patch('socket.socket',side_effect=AssertionError('NETWORK')):
++            for href in hrefs:
++                url=urljoin('https://codehub.gridics.com/us/fl/miami-comp',href)
++                if url.startswith('https://codehub.gridics.com/'):
++                    self.assertEqual(response_role(url,'stylesheet'),'stylesheet')
++
++    def test_image_mime_is_rejected_without_reading_body(self):
++        response=Mock(headers={'content-type':'image/png'});response.body.side_effect=AssertionError('IMAGE BODY READ')
++        raw,reason=read_nonimage_response(response)
++        self.assertIsNone(raw);response.body.assert_not_called()
++
++    def test_mislabeled_image_has_no_persistable_body(self):
++        response=Mock(headers={'content-type':'text/css'});response.body.return_value=b'\x89PNG\r\n\x1a\nbytes'
++        self.assertIsNone(read_nonimage_response(response)[0])
++
++    def test_original_css_kept_without_resource_traversal(self):
++        raw=b'ol.square {list-style-type:square} .logo {background:url(image.png)}'
++        response=Mock(headers={'content-type':'text/css'});response.body.return_value=raw
++        with patch('socket.socket',side_effect=AssertionError('NETWORK')):
++            self.assertEqual(read_nonimage_response(response),(raw,None))
++        response.body.assert_called_once()
++
++    def test_css_receipt_phase_url_hash_and_owner_bound(self):
++        with tempfile.TemporaryDirectory() as temp:
++            path=Path(temp);raw=b'ol.custom{list-style-type:square}'
++            (path/'css.bin').write_bytes(raw)
++            receipt={'path':'css.bin','sha256':digest(raw),'bytes':len(raw),'status':200,'url':'https://codehub.gridics.com/build/css/gridics.css?tmudor','content_type':'text/css; charset=utf-8','phase':'start','epoch':'one','at':'2026-10-17T20:00:00+00:00','resource_type':'stylesheet','response_role':'stylesheet','source_document_url':BASE+'#/root'}
++            phases=[{'phase':'start','roots_response':{'epoch':'one'}},{'phase':'end','roots_response':{'epoch':'two'}}]
++            report=stylesheet_evidence(path,[receipt],phases,{'source_url':BASE})
++            self.assertTrue(report[0]['source_document_bound']);self.assertFalse(report[0]['marker_rules_interpreted'])
++            self.assertEqual(report[0]['image_assets_imported'],0)
++            for update in [{'epoch':'wrong'},{'url':'https://external.invalid/a.css'},{'sha256':'bad'},{'resource_type':'image'},{'content_type':'image/png'}]:
++                with self.assertRaises(Invalid):stylesheet_evidence(path,[dict(receipt,**update)],phases,{'source_url':BASE})
++            self.assertFalse(stylesheet_evidence(path,[dict(receipt,source_document_url=None)],phases,{'source_url':BASE})[0]['source_document_bound'])
++
++if __name__=='__main__':unittest.main()

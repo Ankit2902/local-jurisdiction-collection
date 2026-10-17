@@ -35,6 +35,13 @@ class AllFamilyImageMetadata(unittest.TestCase):
   body='<p>This operative legal requirement applies to every property and applicant.</p><!-- INTERNAL_COMMENT_NOT_LEGAL_TEXT -->'
   for family,(r,k) in self.rows(body).items():
    with self.subTest(family=family):self.assertNotIn('INTERNAL_COMMENT_NOT_LEGAL_TEXT',r['text'])
+ def test_multiline_inline_image_payload_absent_from_all_fields(self):
+  tail='UElYRUxTX0NPTlRJTlVBVElPTl9NVVNUX05PVF9TVVJWSVZF'
+  uri='DATA:IMAGE/PNG;base64,QUJD\n'+tail
+  body='<p data-image-metadata="'+uri+'">Rule applies.</p><img src="'+uri+'"><object type="IMAGE/PNG" data="'+uri+'"></object>'
+  for family,(r,k) in self.rows(body).items():
+   with self.subTest(family=family):
+    self.assertNotIn(tail,json.dumps(r),'Normalized attributes/metadata must not retain multiline base64 continuation');self.assertNotIn('QUJD',json.dumps(r));self.assertNotIn('data:image/',r[k].lower());self.assertGreaterEqual(r['text'].count('[IMAGE]'),2)
  def test_uppercase_image_mime_and_data_uri_never_become_required_documents(self):
   body='<p>Rule applies.</p><object type="IMAGE/PNG" data="https://example.invalid/opaque-image"></object><source src="DATA:IMAGE/PNG;base64,'+PIXELS+'">'
   for family,(r,k) in self.rows(body).items():

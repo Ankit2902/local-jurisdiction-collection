@@ -124,6 +124,8 @@ For optional table QA, `node collectors/municode/table_qa.cjs /absolute/run/publ
 
 Normalized image omission/reference metadata never duplicates a full inline `data:image` payload. It records MIME, source-string SHA-256, character count and source locator; only original raw source may retain the original URI. Regression tests inspect the complete normalized record/coverage JSON for inline picture/srcset/CSS payload leakage, and check that background-image placeholders remain inside their owning table cells, including nested cells. The transport regression executes the actual browser module with a synthetic transport and verifies zero known-image requests, HEAD-only extensionless-image detection, normal nonimage HEAD/GET, external-host stop separation and preserved security resources.
 
+Wrapped image data in Notes also follows the placeholder policy. Explicitly quoted or parenthesized image values become `[IMAGE]` while surrounding legal text remains. When an unquoted image payload and adjacent prose have an ambiguous boundary, the collector records a qualification error and source hash; that output cannot pass completeness. Run `python -B collectors/municode/test_note_image_boundaries.py` for the four focused regressions. These and all 27 existing fault tests passed after integration; exact source hashes and logs are in `proof-receipts/multiline-notes-v2/`. The independent differential checked 16 retained actual checkpoints and 49,888 document occurrences, all with absent or empty Notes, so this edge case has synthetic qualification and no observed effect on those actual sources. It does not establish new publisher access.
+
 Network-free auxiliary checks are also runnable directly:
 
 ```sh

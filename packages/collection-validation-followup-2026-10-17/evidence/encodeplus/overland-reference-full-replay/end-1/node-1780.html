@@ -1,0 +1,919 @@
+
+    <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+    <html>
+    <head>
+
+        <title>Title 10 - Parks and Recreation</title>
+        <link type="text/css" rel="Stylesheet" href="jqueryui/css/jqueryui.css" media="all" />
+        <link type="text/css" rel="Stylesheet" href="css/ui.css" media="all" />
+        <link type="text/css" rel="Stylesheet" href="css/customui.css" media="all" />
+        <link type="text/css" rel="Stylesheet" href="css/document.css" media="all" />
+        <link type="text/css" rel="Stylesheet" href="css/customdoc.css" media="all" />
+        <link type="text/css" rel="Stylesheet" href="tablestyles.aspx" media="all" />
+        <link rel="StyleSheet" type="text/css" href="/common/font-awesome/css/all.min.css">
+        <link type="text/css" rel="Stylesheet" href="css/docprint.css" media="print" />
+        <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+        <script type="text/javascript" src="jqueryui/js/jquery-ui-1.8.21.custom.min.js"></script>
+        <script type="text/javascript" src="js/doc-view.js?_t=290"></script>
+        <script type="text/javascript" src="js/tabletools.js"></script>
+        <script type="text/javascript" src="js/tabs.js"></script>
+        <script type="text/javascript">
+            var iframeReady = false;
+        </script>
+        
+    </head>
+    <body class='doc-view'>
+        <script type="text/javascript">
+            $(document).ready(function () {
+                ZP.DocView.InitDef();
+                ZP.DocView.OpenDefinitionPage = null;
+                ZP.DocView.OpenDefinitionMode = '_self';
+                ZP.DocView.OpenXRefPage = 'doc-viewer.aspx#$2-';
+                ZP.DocView.OpenXRefMode = '_blank';
+                $(window).bind('hashchange', ZP.DocView.HashChanged);
+        
+        if (typeof ZP.DocView.ZoomClasses == 'undefined') {
+            ZP.DocView.ZoomClasses = ["Unzoom1", "", "Zoom1", "Zoom2", "Zoom3", "Zoom4"];
+        }
+        ZP.DocView.InitializeZoom();
+        EC.SortedTable.Init(".ord-tbl, .stat-tbl", ".sortable");
+        EC.Tabs.PositionLeftTabs();
+    });
+
+
+        </script>
+
+
+    <div id="doc-viewer">
+        
+
+<div id="doc-view">
+    <div id="doc-view-content">
+        
+<div id="pageControls">
+<script type="text/javascript" >
+    function clearEffDate() {
+        jQuery.get("doc-view-helper.aspx?task=currentversion", function () {
+            window.location.reload();
+        });
+        return false;
+    }
+</script>
+     <div class="pageControls psuedoTable" role="navigation" aria-label="Document Navigation">  
+        <div class="psuedoTableBody" >     
+            <div class="psuedoTableRow">         
+                <div class="pageControls_outer" ></div>
+                <div class="pageControls_inner left">
+                    <a id='button1' onclick='ZP.DocView.PrintDoc("010",false);return false;' href="#" title="Print" role="button"> 
+                        <img alt="Print" src="resources/btn-print-white.png" /></a>
+                    <a id='Button2' onclick='ZP.DocView.OpenPDF("010",false);return false;' href="#" title="Export PDF" role="button">
+                        <img alt="Generate PDF" src="resources/btn-makepdf-white.png" /></a>
+                        <a class="popup" params="toobar=0,menubar=0,scrollbars=1,height=436,width=626" href="https://www.facebook.com/sharer/sharer.php?s=100&p[title]=Title+10+-+Parks+and+Recreation&p[summary]=Overland+Park%2c+Kansas+Municipal+Code&p[url]=https%3a%2f%2fcodes.opkansas.org%2fmunicipal-code%2fdoc-viewer.aspx%3fsecid%3d1780" title="Click to Share this page" style="text-decoration:none;border:none;" ><img src="resources/share-icon-white.png" alt="Click to Share this page on facebook" /></a>     
+                </div>
+                <div  class="pageControls_inner breadCrumbs" title="Navigation 'breadcrumbs'">
+                     <div class='breadCrumbs'><a href='/municipal-code/doc-viewer.aspx?tocid=010' >Title 10 - Parks and Recreation</a></div>
+                </div>
+                 <div  class="pageControls_inner right">       
+                     <ul >  
+                         <li>
+                            <a id='button3' class="nav" onclick="ZP.DocView.LoadPrevDoc('010');return false;" href="#"  title="Previous Section" accesskey="," role="button"><img alt="Go to Previous Section" src="resources/btn-back-white.png" /></a>
+                         </li>  
+                         <li>
+                             <a id='Button4'  class="nav" onclick="ZP.DocView.LoadNextDoc('010');return false;" href="#"  title="Next Section" accesskey="." role="button"> <img alt="Go to Next Section" src="resources/btn-forward-white.png" /></a>
+                         </li>   
+                         <li>
+                             <a id="pageControls-overflow" onclick="ZP.DocView.PgCntrlOverflowClick(event);return false;" href="#" title="Click for more options" role="button" >
+                            <img src="resources/overflow-btn-white.png" alt="Click for more options" /></a>
+                               
+  <ul class="submenu" role="dialog">
+            <li><a href="/municipal-code/doc-viewer.aspx?secid=1780" onclick="javascript:alert('Right click this icon and select \'add to favorites\' or \'Bookmark this Link\' to bookmark this page');return false;" title="Bookmark this page" >Bookmark</a></li>
+            <li>
+                                        
+                <a id="zoomMinus" onclick="ZP.DocView.DecreaseZoom();return false;" href="#" title="Decrease Zoom" class="zoomLink glyphicon" >&#x2212;</a>
+                <a onclick="ZP.DocView.DefaultZoom();return false;"  href="#" title="Default Zoom"  class="zoomLink" >100%</a>
+                <a id="zoomPlus" onclick="ZP.DocView.IncreaseZoom();return false;" href="#" title="Increase Zoom"  class="zoomLink glyphicon" > &#x2b; </a>
+            </li>
+           
+                           
+                
+                <li><a id="subscribe-btn" onclick="ZP.DocView.OpenSubscribeDlg();return false;" title="Subscribe to Notifications" href="subscribe.aspx" role="button">Subscribe</a></li>
+                <li><a id="unsubscribe-btn" onclick="ZP.DocView.OpenUnsubscribeDlg();return false;" title="Cancel Notifications Subscription" href="unsubscribe.aspx" role="button" >Unsubscribe</a></li>
+                
+</ul>
+                         </li>        
+                        
+                        </ul>   
+                </div>
+                <div class="pageControls_outer"></div>
+            </div>
+        </div>
+    </div> 
+    <div id="subscribe-dialog" title="" aria-live="polite" >
+        <div id="sub-message"></div>
+        <div id="sub-form-cntr"></div>
+    </div>
+</div>
+
+
+        <div id="thePage-outer" >
+            <div id="thePage-wrap" class="thePage-wrap ">
+                <div id="outer-doc-banner"></div>
+                <div id="thePage-border">
+                    <div id="thePage" class="textPage " tocid="010" secid="1780" role="main" aria-label="Document">
+                        <img id="sectionBanner" title="Document text banner" src="resources/docbanner.png" width="720" valign="Top" alt="Document text banner">
+                        
+                        <section id='secid-1780' class='secLvl1 _010' tabindex='-1' data-secid='1780'> 
+<h1>
+	<strong>Title 10 </strong><strong>-</strong><strong> </strong><strong>Parks and Recreation</strong></h1>
+<div class="mini-TOC" data-endlevel="2" data-id="mini-TOC" data-startlevel="2">
+	<div class="mini-TOC-label">
+		<strong>Contents:</strong></div>
+	<ul><li><a class="tocLink" href="doc-viewer.aspx#secid-1781">10.04 Municipal Swimming Pools</a></li>
+<li><a class="tocLink" href="doc-viewer.aspx#secid-1795">10.06 Golf Courses</a></li>
+<li><a class="tocLink" href="doc-viewer.aspx#secid-1804">10.08 Park Regulations</a></li>
+<li><a class="tocLink" href="doc-viewer.aspx#secid-1826">10.10 Community Centers</a></li>
+<li><a class="tocLink" href="doc-viewer.aspx#secid-1833">10.12 Arboretum</a></li>
+<li><a class="tocLink" href="doc-viewer.aspx#secid-7739">Repealed Sections of Title 10 - Parks and Recreation</a></li>
+</ul>
+</div>
+
+
+</section> 
+<section id='secid-1781' class='secLvl2 _010 _010-001' tabindex='-1' data-secid='1781'> 
+<h2>
+	<strong>10.04</strong><strong> Municipal Swimming Pools</strong></h2>
+<div class="mini-TOC" data-endlevel="3" data-id="mini-TOC" data-startlevel="3">
+	<div class="mini-TOC-label">
+		<strong>Contents:</strong></div>
+	<ul><li><a class="tocLink" href="doc-viewer.aspx#secid-1782">10.04.010  When Open - Rules and Regulations Generally.</a></li>
+<li><a class="tocLink" href="doc-viewer.aspx#secid-1783">10.04.020  Manager and Employees - Duties Generally.</a></li>
+<li><a class="tocLink" href="doc-viewer.aspx#secid-1784">10.04.030  Maintenance of Order and Peace.</a></li>
+<li><a class="tocLink" href="doc-viewer.aspx#secid-1785">10.04.040  Contagious Diseases.</a></li>
+<li><a class="tocLink" href="doc-viewer.aspx#secid-1786">10.04.050  When Admittance May Be Refused.</a></li>
+<li><a class="tocLink" href="doc-viewer.aspx#secid-1787">10.04.060  Pollution and Contamination Prohibited.</a></li>
+<li><a class="tocLink" href="doc-viewer.aspx#secid-1788">10.04.070  Animals Prohibited.</a></li>
+<li><a class="tocLink" href="doc-viewer.aspx#secid-1789">10.04.080  Pool Hours - Unlawful Entrance.</a></li>
+<li><a class="tocLink" href="doc-viewer.aspx#secid-1790">10.04.090  Charges to Be Fixed by City Manager.</a></li>
+<li><a class="tocLink" href="doc-viewer.aspx#secid-1791">10.04.100  Making and Enforcing Rules and Regulations - Posting.</a></li>
+<li><a class="tocLink" href="doc-viewer.aspx#secid-1792">10.04.130  Guests - Number Allowed.</a></li>
+<li><a class="tocLink" href="doc-viewer.aspx#secid-1793">10.04.140  Revocation of Swimming Privileges and Suspension of Membership.</a></li>
+<li><a class="tocLink" href="doc-viewer.aspx#secid-1794">10.04.150  Violation - Penalties.</a></li>
+</ul>
+</div>
+
+
+</section> 
+<section id='secid-1782' class='secLvl3 _010 _010-001 _010-001-001' tabindex='-1' data-secid='1782'> 
+<h3>
+	<strong>10.04.010 When Open - Rules and Regulations Generally.</strong></h3>
+<p>
+	The municipal swimming pools of the City shall be opened to the public as limited in this chapter at all proper and seasonable times subject to such rules and regulations contained in this chapter and as the Governing Body of the City may from time to time adopt or authorize and as provided by the rules and regulations of the Kansas State Board of Health.</p>
+<p>
+	(History: Ord. SP-518 &sect;3, 68)</p>
+
+<p class='archiveNotice nullValue '>Effective on:&nbsp;1/1/1901</p>
+</section> 
+<section id='secid-1783' class='secLvl3 _010 _010-001 _010-001-002' tabindex='-1' data-secid='1783'> 
+<h3>
+	<strong>10.04.020 Manager and Employees - Duties Generally.</strong></h3>
+<p>
+	The Director of Parks and Recreation, with the consent of the City Manager, shall appoint pool managers and other employees of the swimming pools. The pool managers shall have general supervision over the swimming pools and over all people attending the same and the park areas in which the same are located. It shall be the pool managers&#39; duty to preserve order, to enforce all provisions of this chapter and the rules and regulations of the City and the Kansas State Board of Health, and the managers may exclude any person or persons from the pools, and their grounds for the violations of this chapter, such rules and regulations as may be made by the City or the Kansas State Board of Health or when the pool manager deems such exclusion to be in the best interest of the orderly and peaceable operation and management of the pools.</p>
+<p>
+	(History: Ord. SP-829 &sect;1, 75; SP-518 &sect;4, 68)</p>
+
+<p class='archiveNotice nullValue '>Effective on:&nbsp;1/1/1901</p>
+</section> 
+<section id='secid-1784' class='secLvl3 _010 _010-001 _010-001-003' tabindex='-1' data-secid='1784'> 
+<h3>
+	<strong>10.04.030 Maintenance of Order and Peace.</strong></h3>
+<p>
+	It shall be the duty of the pool managers and/or the assistant pool managers of the City&#39;s swimming pools, or any police officer of this City to maintain order and keep the public peace within the City parks and swimming pools of the City.</p>
+<p>
+	(History: Ord. SP-518 &sect;5, 68)</p>
+
+<p class='archiveNotice nullValue '>Effective on:&nbsp;1/1/1901</p>
+</section> 
+<section id='secid-1785' class='secLvl3 _010 _010-001 _010-001-004' tabindex='-1' data-secid='1785'> 
+<h3>
+	<strong>10.04.040 Contagious Diseases.</strong></h3>
+<p>
+	It is unlawful and a violation of this chapter for any person or persons at any time to enter the waters of the swimming pools who are afflicted with any venereal, infectious or contagious disease. The manager of the pools appointed as provided in this chapter are authorized, directed and empowered within their discretion to require from any person requesting permission to enter the swimming pools, a certificate of health from a licensed doctor of medicine, with his general practice or his residence in the City, designated by the manager, dated within three days of the date admission is sought, stating that the person applying for admission to the pool is free from any infectious or contagious disease which might endanger the health of other occupants of the pool.</p>
+<p>
+	(History: Ord. SP-518 &sect;6, 68)</p>
+
+<p class='archiveNotice nullValue '>Effective on:&nbsp;1/1/1901</p>
+</section> 
+<section id='secid-1786' class='secLvl3 _010 _010-001 _010-001-005' tabindex='-1' data-secid='1786'> 
+<h3>
+	<strong>10.04.050 When Admittance May Be Refused.</strong></h3>
+<p>
+	The pool managers appointed as provided for in this chapter are authorized, directed and empowered to refuse admission to any person applying for admission to the pools who is known to be not of good moral character, intoxicated or under the influence of drugs or opiates, or any person having a skin disease, open sores or cuts. The pool manager may, when they deem the same to be in the best interest of orderly operation and management of the pools, refuse admission to any person or persons whatsoever.</p>
+<p>
+	(History: Ord. SP-518 &sect;7, 68)</p>
+
+<p class='archiveNotice nullValue '>Effective on:&nbsp;1/1/1901</p>
+</section> 
+<section id='secid-1787' class='secLvl3 _010 _010-001 _010-001-006' tabindex='-1' data-secid='1787'> 
+<h3>
+	<strong>10.04.060 Pollution and Contamination Prohibited.</strong></h3>
+<p>
+	It is unlawful for any person or persons to throw or place in the waters of the pools any stones, debris, refuse or discarded substances; it is further unlawful for any person in any manner willfully to pollute the waters of the pools.</p>
+<p>
+	(History: Ord. SP-518 &sect;8, 68)</p>
+
+<p class='archiveNotice nullValue '>Effective on:&nbsp;1/1/1901</p>
+</section> 
+<section id='secid-1788' class='secLvl3 _010 _010-001 _010-001-007' tabindex='-1' data-secid='1788'> 
+<h3>
+	<strong>10.04.070 Animals Prohibited.</strong></h3>
+<p>
+	Except for special events authorized by the Director of Parks and Recreation, it is unlawful at all times for any person or persons to place in the waters of the swimming pools, or cause or to suffer any dogs or any animals of any kind to enter or be therein.</p>
+<p>
+	(History: Ord. SP-2826 &sect;1, 2009; SP-518 &sect;9, 68)</p>
+
+<p class='archiveNotice nullValue '>Effective on:&nbsp;1/1/1901</p>
+</section> 
+<section id='secid-1789' class='secLvl3 _010 _010-001 _010-001-008' tabindex='-1' data-secid='1789'> 
+<h3>
+	<strong>10.04.080 Pool Hours - Unlawful Entrance.</strong></h3>
+<p>
+	The hours during which the swimming pools are open for use shall be determined by the Director of Parks and Recreation, and it is unlawful for any person or persons to enter the waters of the pools except when the managers or lifeguards are in charge of the same and on duty.</p>
+<p>
+	(History: Ord. SP-829 &sect;2, 75; SP-518 &sect;10, 68)</p>
+
+<p class='archiveNotice nullValue '>Effective on:&nbsp;1/1/1901</p>
+</section> 
+<section id='secid-1790' class='secLvl3 _010 _010-001 _010-001-009' tabindex='-1' data-secid='1790'> 
+<h3>10.04.090 Charges to Be Fixed by City Manager.</h3>
+
+<p>The charges for public use of the swimming pools shall be fixed by the City Manager pursuant to the Parks and Recreation Fee and Cost Recovery Policy as adopted by the Governing Body and the City Manager or their designee may establish any and all policies or waivers related to the same.&nbsp;</p>
+
+<p>(History: Ord. P-3399, &sect;1, 2023; Ord. SP-518 &sect;11, 68)</p>
+
+<p class='archiveNotice nullValue '>Effective on:&nbsp;1/1/1901</p>
+</section> 
+<section id='secid-1791' class='secLvl3 _010 _010-001 _010-001-010' tabindex='-1' data-secid='1791'> 
+<h3>
+	<strong>10.04.100 Making and Enforcing Rules and Regulations - Posting.</strong></h3>
+<p>
+	The Director of Parks and Recreation by and with the consent of the City Manager is authorized to make and enforce such additional rules and regulations as may be necessary for the management and operation of the swimming pools. Copies of all rules shall be posted in conspicuous places about the swimming pools as may be determined by the Director of Parks and Recreation.</p>
+<p>
+	(History: Ord. SP-829 &sect;3, 75; SP-518 &sect;12, 68)</p>
+
+<p class='archiveNotice nullValue '>Effective on:&nbsp;1/1/1901</p>
+</section> 
+<section id='secid-1792' class='secLvl3 _010 _010-001 _010-001-011' tabindex='-1' data-secid='1792'> 
+<h3>
+	<strong>10.04.130 Guests - Number Allowed.</strong></h3>
+<p>
+	The pool managers of the Overland Park swimming pools shall have the authority to limit admittance of guests into the swimming pools whenever, in their opinion, the pools are so crowded as to make it unsafe for the safety of the people to permit them. The managers shall, in addition, have authority to designate pool areas which guests and/or residents may use.</p>
+<p>
+	(History: Ord. SP-518 &sect;15, 68)</p>
+
+<p class='archiveNotice nullValue '>Effective on:&nbsp;1/1/1901</p>
+</section> 
+<section id='secid-1793' class='secLvl3 _010 _010-001 _010-001-012' tabindex='-1' data-secid='1793'> 
+<h3>
+	<strong>10.04.140 Revocation of Swimming Privileges and Suspension of Membership.</strong></h3>
+<p>
+	It is unlawful for any person or persons to violate the lawful orders of the Director of Parks &amp; Recreation and/or the designated supervisor within the swimming pool area of the City park, and any person or persons who violate such order or orders shall forfeit their right to swimming privileges at the pool or pools and the pool manager may suspend the use and membership for a period not to exceed seven days. A suspension of greater than seven days may be recommended to the Aquatic Supervisor or Assistant Aquatic Supervisor, the recommendation will be reviewed and investigated and then affirmed or overruled. Memberships that have been suspended for a period of greater than seven days may make application for their return through the City Clerk&#39;s office, and the City Manager of the City shall, after investigation, affirm or overrule the suspension of the person or person&#39;s swimming privileges. Any person aggrieved of the decision of the City Manager may appeal to the Council.</p>
+<p>
+	(History: Ord. SP-2709 &sect;1, 2008; SP-518 &sect;16, 68)</p>
+
+<p class='archiveNotice nullValue '>Effective on:&nbsp;1/1/1901</p>
+</section> 
+<section id='secid-1794' class='secLvl3 _010 _010-001 _010-001-013' tabindex='-1' data-secid='1794'> 
+<h3>
+	<strong>10.04.150 Violation - Penalties.</strong></h3>
+<p>
+	Any person or persons violating any of the provisions of this chapter declared to be unlawful, shall upon conviction thereof, be punished as provided in <a class="xref" target="_blank" href="doc-viewer.aspx#secid-47">1.12.010</a>; provided, that the penalties herein prescribed shall not affect the provisions of <a class="xref" target="_blank" href="doc-viewer.aspx#secid-1793">10.04.140</a>.</p>
+<p>
+	(History: Ord. SP-518 &sect;17, 68)</p>
+
+<p class='archiveNotice nullValue '>Effective on:&nbsp;1/1/1901</p>
+</section> 
+<section id='secid-1795' class='secLvl2 _010 _010-002' tabindex='-1' data-secid='1795'> 
+<h2>
+	<strong>10.06 Golf Courses</strong></h2>
+<div class="mini-TOC" data-endlevel="3" data-id="mini-TOC" data-startlevel="3">
+	<div class="mini-TOC-label">
+		<strong>Contents:</strong></div>
+	<ul><li><a class="tocLink" href="doc-viewer.aspx#secid-1796">10.06.010  When Open.</a></li>
+<li><a class="tocLink" href="doc-viewer.aspx#secid-1797">10.06.020  Golf Course Superintendent and Employees-Duties Generally.</a></li>
+<li><a class="tocLink" href="doc-viewer.aspx#secid-1798">10.06.030  Golf Professionals and Employees - Duties and Responsibilities Generally.</a></li>
+<li><a class="tocLink" href="doc-viewer.aspx#secid-1799">10.06.040  When Admittance May Be Refused.</a></li>
+<li><a class="tocLink" href="doc-viewer.aspx#secid-1800">10.06.050  Fees to be Fixed by City Manager.</a></li>
+<li><a class="tocLink" href="doc-viewer.aspx#secid-1801">10.06.060  Making and Enforcing Rules and Regulations, Definitions, and Procedures - Posting.</a></li>
+<li><a class="tocLink" href="doc-viewer.aspx#secid-1802">10.06.070  Revocation of Golf Privileges.</a></li>
+<li><a class="tocLink" href="doc-viewer.aspx#secid-1803">10.06.080  Violation - Penalties</a></li>
+</ul>
+</div>
+
+
+</section> 
+<section id='secid-1796' class='secLvl3 _010 _010-002 _010-002-001' tabindex='-1' data-secid='1796'> 
+<h3>
+	<strong>10.06.010 When Open.</strong></h3>
+<p>
+	The municipal golf courses of the City shall be opened to the public as limited to this chapter at all proper and reasonable times subject to such rules and regulations contained in this chapter and as the Governing Body of the City may from time to time adopt or authorize.</p>
+<p>
+	(History: Ord. GC-825 &sect;1, 75)</p>
+
+<p class='archiveNotice nullValue '>Effective on:&nbsp;1/1/1901</p>
+</section> 
+<section id='secid-1797' class='secLvl3 _010 _010-002 _010-002-002' tabindex='-1' data-secid='1797'> 
+<h3>
+	<strong>10.06.020 Golf Course Superintendent and Employees-Duties Generally.</strong></h3>
+<p>
+	The Director of Parks and Recreation with consent of the City Manager, shall appoint a Golf Course Superintendent and other employees of the golf courses. The Golf Course Superintendent shall have general supervision over the golf courses and over all people attending the same and the park areas in which the same are located. It shall be his duty to preserve order, to enforce all provisions of this chapter and the rules and regulations of the City.</p>
+<p>
+	(History: Ord. GC-825 &sect;2, 75)</p>
+
+<p class='archiveNotice nullValue '>Effective on:&nbsp;1/1/1901</p>
+</section> 
+<section id='secid-1798' class='secLvl3 _010 _010-002 _010-002-003' tabindex='-1' data-secid='1798'> 
+<h3>
+	<strong>10.06.030 Golf Professionals and Employees - Duties and Responsibilities Generally.</strong></h3>
+<p>
+	The Director of Parks and Recreation shall with consent of the City Manager, and with the approval of the Governing Body of the City, contract with a Golf Professional for operation of a municipal golf course, clubhouse concessions, and related facilities. The Director of Parks and Recreation shall have general contract supervision responsibilities over the Golf Professional and his employees.</p>
+<p>
+	(History: Ord. GC-825 &sect;3, 75)</p>
+
+<p class='archiveNotice nullValue '>Effective on:&nbsp;1/1/1901</p>
+</section> 
+<section id='secid-1799' class='secLvl3 _010 _010-002 _010-002-004' tabindex='-1' data-secid='1799'> 
+<h3>
+	<strong>10.06.040 When Admittance May Be Refused.</strong></h3>
+<p>
+	The Director of Parks and Recreation is authorized, directed and empowered to refuse admission to any person applying for admission to the golf course, who is known to be intoxicated, under the influence of drugs or opiates, or not participating in golf related activities; and he may, when deemed to be in the best interest of orderly operation and management of the golf courses, refuse admission to any person or persons whatsoever.</p>
+<p>
+	(History: Ord. GC-825 &sect;4, 75)</p>
+
+<p class='archiveNotice nullValue '>Effective on:&nbsp;1/1/1901</p>
+</section> 
+<section id='secid-1800' class='secLvl3 _010 _010-002 _010-002-005' tabindex='-1' data-secid='1800'> 
+<h3><strong>10.06.050 Fees to be Fixed by City Manager.</strong></h3>
+
+<p>The fees for public use of the municipal golf courses shall be fixed by the City Manager to the Parks and Recreation Fee and Cost Recovery Policy as adopted by the Governing Body and the City Manager or their designee may establish any and all policies or waivers related to the same.</p>
+
+<p>(History: Ord. P-3399 &sect;2, 2023; Ord. GC-2944 &sect;1, 2012; GC-825 &sect;5, 75)</p>
+
+<p class='archiveNotice nullValue '>Effective on:&nbsp;1/1/1901</p>
+</section> 
+<section id='secid-1801' class='secLvl3 _010 _010-002 _010-002-006' tabindex='-1' data-secid='1801'> 
+<h3>
+	<strong>10.06.060 Making and Enforcing Rules and Regulations, Definitions, and Procedures - Posting.</strong></h3>
+<p>
+	The Director of Parks and Recreation is authorized to make and enforce the following:</p>
+<ol start="1" style="list-style-type: decimal;" class="list-v2">
+	<li><div class='li-num'>1.</div><div class='li-cont'>
+		Golf Course Rules and Regulations</div></li>
+	<li><div class='li-num'>2.</div><div class='li-cont'>
+		Rules and Regulations for Riding Carts and Pullcarts</div></li>
+	<li><div class='li-num'>3.</div><div class='li-cont'>
+		Definitions</div></li>
+	<li><div class='li-num'>4.</div><div class='li-cont'>
+		Golf Course Operating Procedures</div></li>
+	<li><div class='li-num'>5.</div><div class='li-cont'>
+		Procedure for High School and College Golf Team Competition</div></li>
+	<li><div class='li-num'>6.</div><div class='li-cont'>
+		Procedure for Tournament and League Competition</div></li>
+	<li><div class='li-num'>7.</div><div class='li-cont'>
+		Procedure for Tournament and League Competition by the Overland Park and St. Andrews Golf Associations</div></li>
+</ol>
+<p>
+	The Director of Parks and Recreation is authorized to make and enforce any additions or changes to the above Rules and Regulations, Definitions, or Procedures as may be necessary for the management and operation of the golf courses. Copies of all the above Rules and Regulations, Definitions, and Procedures shall be posted in conspicuous places about the golf course clubhouse as may be determined by the Director of Parks and Recreation.</p>
+<p>
+	(History: Ord. GC-825 &sect;6, 75)</p>
+
+<p class='archiveNotice nullValue '>Effective on:&nbsp;1/1/1901</p>
+</section> 
+<section id='secid-1802' class='secLvl3 _010 _010-002 _010-002-007' tabindex='-1' data-secid='1802'> 
+<h3>
+	<strong>10.06.070 Revocation of Golf Privileges.</strong></h3>
+<p>
+	It is unlawful for any person or persons to violate the orders of the Director of Parks and Recreation and/or his designated supervisors within the golf course area of the City park, and any person or persons who violate such order or orders shall forfeit their right to golfing privileges at the municipal golf courses. Any person or persons denied golfing privileges under the provisions of this section may make application for reinstatement through the City Clerk&#39;s office, and the City Manager of the City, after investigation, affirm or overrule the suspension of the person or persons golfing privileges. Any person aggrieved of the decision of the City Manager may appeal such suspension to the Governing Body.</p>
+<p>
+	(History: Ord. GC-825 &sect;7, 75)</p>
+
+<p class='archiveNotice nullValue '>Effective on:&nbsp;1/1/1901</p>
+</section> 
+<section id='secid-1803' class='secLvl3 _010 _010-002 _010-002-008' tabindex='-1' data-secid='1803'> 
+<h3>
+	<strong>10.06.080 Violation - Penalties</strong></h3>
+<p>
+	Any person or persons violating any of the provisions of this chapter declared to be unlawful, shall upon conviction thereof, be punished as provided in <a class="xref" target="_blank" href="doc-viewer.aspx#secid-47">1.12.010</a> of the Overland Park Municipal Code; provided that the penalties herein prescribed shall not affect the provisions of <a class="xref" target="_blank" href="doc-viewer.aspx#secid-1802">10.06.070</a>.</p>
+<p>
+	(History: Ord. GC-825 &sect;8, 75)</p>
+
+<p class='archiveNotice nullValue '>Effective on:&nbsp;1/1/1901</p>
+</section> 
+<section id='secid-1804' class='secLvl2 _010 _010-003' tabindex='-1' data-secid='1804'> 
+<h2>
+	<strong>10.08 Park Regulations</strong></h2>
+<div class="mini-TOC" data-endlevel="3" data-id="mini-TOC" data-startlevel="3">
+	<div class="mini-TOC-label">
+		<strong>Contents:</strong></div>
+	<ul><li><a class="tocLink" href="doc-viewer.aspx#secid-1805">10.08.010  Hours.</a></li>
+<li><a class="tocLink" href="doc-viewer.aspx#secid-1806">10.08.020  Camping.</a></li>
+<li><a class="tocLink" href="doc-viewer.aspx#secid-1807">10.08.030  Camping Reservations.</a></li>
+<li><a class="tocLink" href="doc-viewer.aspx#secid-1808">10.08.040  Picnic Shelter Reservations.</a></li>
+<li><a class="tocLink" href="doc-viewer.aspx#secid-1809">10.08.045  Athletic Fields, Courts, and Areas Reservations.</a></li>
+<li><a class="tocLink" href="doc-viewer.aspx#secid-1810">10.08.050  Special Permit or Reservation Denial - Appeal.</a></li>
+<li><a class="tocLink" href="doc-viewer.aspx#secid-1812">10.08.070  Sanitation and Fires.</a></li>
+<li><a class="tocLink" href="doc-viewer.aspx#secid-1813">10.08.080  Swimming, Bathing and Wading</a></li>
+<li><a class="tocLink" href="doc-viewer.aspx#secid-1814">10.08.090  Hunting.</a></li>
+<li><a class="tocLink" href="doc-viewer.aspx#secid-1815">10.08.100  Fishing and Frogging.</a></li>
+<li><a class="tocLink" href="doc-viewer.aspx#secid-1816">10.08.110  Skating.</a></li>
+<li><a class="tocLink" href="doc-viewer.aspx#secid-1817">10.08.120  Firecrackers or Fireworks.</a></li>
+<li><a class="tocLink" href="doc-viewer.aspx#secid-1818">10.08.130  Steering and Sailing Rules.</a></li>
+<li><a class="tocLink" href="doc-viewer.aspx#secid-1819">10.08.140  Water Safety.</a></li>
+<li><a class="tocLink" href="doc-viewer.aspx#secid-1820">10.08.142  Domestic Animals.</a></li>
+<li><a class="tocLink" href="doc-viewer.aspx#secid-1821">10.08.144  Motor Vehicles - Cycles - Prohibited.</a></li>
+<li><a class="tocLink" href="doc-viewer.aspx#secid-1822">10.08.146  Vandalism.</a></li>
+<li><a class="tocLink" href="doc-viewer.aspx#secid-1823">10.08.150  Commercial Uses.</a></li>
+<li><a class="tocLink" href="doc-viewer.aspx#secid-1824">10.08.160  Penalty for Violations.</a></li>
+<li><a class="tocLink" href="doc-viewer.aspx#secid-1825">10.08.170 Rules and Regulations.</a></li>
+</ul>
+</div>
+
+
+</section> 
+<section id='secid-1805' class='secLvl3 _010 _010-003 _010-003-001' tabindex='-1' data-secid='1805'> 
+<h3>
+	<strong>10.08.010 Hours.</strong></h3>
+<p>
+	All parks owned and operated by the City shall be closed for use by the public between the hours of ten p.m. and five a.m.; provided, however, parks may be closed temporarily or opening hours extended temporarily in case of emergency, adverse weather conditions, or unusual circumstances as determined and ordered by the Director of Parks and Recreation.</p>
+<p>
+	(History: Ord. PR-830 &sect;1, 75;PR-763 &sect;1, 73)</p>
+
+<p class='archiveNotice nullValue '>Effective on:&nbsp;1/1/1901</p>
+</section> 
+<section id='secid-1806' class='secLvl3 _010 _010-003 _010-003-002' tabindex='-1' data-secid='1806'> 
+<h3>
+	<strong>10.08.020 Camping.</strong></h3>
+<p>
+	Overnight camping on park property shall be allowed only by special permit issued to organized sponsored groups by the Director of Parks and Recreation. Special permits for overnight camping shall be issued for Indian Creek Camping Area only.</p>
+<p>
+	A &quot;sponsored organized group&quot; means any group or organization having local or national recognition and affiliation with organizations such as the Boy Scouts of America, the Girl Scouts of America, Cub Scouts, YMCA, Indian Guides and church groups.</p>
+<p>
+	(History: Ord. PR-763 &sect;2, 73)</p>
+
+<p class='archiveNotice nullValue '>Effective on:&nbsp;1/1/1901</p>
+</section> 
+<section id='secid-1807' class='secLvl3 _010 _010-003 _010-003-003' tabindex='-1' data-secid='1807'> 
+<h3>
+	<strong>10.08.030 Camping Reservations.</strong></h3>
+<p>
+	All requests for special permits as provided for in <a class="xref" target="_blank" href="doc-viewer.aspx#secid-1806">10.08.020</a> shall be submitted to the Director of Parks and Recreation in letter form within 15 days of the desired date of reservation with the following information: Name of group, sponsoring agency, number in group, name and number of sponsors that will be present, designation of the park desired, designation of area to be utilized, and the inclusive dates of the reservation. No special permit shall be issued for more than three consecutive nights of camping. There shall be a minimum of one adult sponsor present for every ten members of the group. For purposes of this section &quot;adult sponsor&quot; is defined as a person 18 years of age or more.</p>
+<p>
+	(History: Ord. PR-763 &sect;3, 73)</p>
+
+<p class='archiveNotice nullValue '>Effective on:&nbsp;1/1/1901</p>
+</section> 
+<section id='secid-1808' class='secLvl3 _010 _010-003 _010-003-004' tabindex='-1' data-secid='1808'> 
+<h3>
+	<strong>10.08.040 Picnic Shelter Reservations.</strong></h3>
+<p>
+	All requests for reservations of picnic shelters shall be made by phone to the parks and recreation department at least seven days prior to the date requested. Notification of approval or denial of reservation shall be by mail. Groups of at least 20 persons and not more than 100 may reserve a picnic shelter.</p>
+<p>
+	(History: Ord. PR-763 &sect;4, 73)</p>
+
+<p class='archiveNotice nullValue '>Effective on:&nbsp;1/1/1901</p>
+</section> 
+<section id='secid-1809' class='secLvl3 _010 _010-003 _010-003-005' tabindex='-1' data-secid='1809'> 
+<h3><strong>10.08.045 Athletic Fields, Courts, and Areas Reservations.</strong></h3>
+
+<p>The Director of Parks and Recreation shall establish rules and regulations for use of the athletic fields, courts, and areas. Any fees for use of athletic fields, courts, and areas shall be fixed by the City Manager pursuant to the Parks and Recreation Fee and Cost Recovery Policy as adopted by the Governing Body and the City Manager or their designee may establish any and all policies or waivers related to the same.&nbsp;</p>
+
+<p>(History: Ord. P-3399 &sect;3, 2023; Ord. PR-830 &sect;2, 75)</p>
+
+<p class='archiveNotice nullValue '>Effective on:&nbsp;1/1/1901</p>
+</section> 
+<section id='secid-1810' class='secLvl3 _010 _010-003 _010-003-006' tabindex='-1' data-secid='1810'> 
+<h3>
+	<strong>10.08.050 Special Permit or Reservation Denial - Appeal.</strong></h3>
+<p>
+	Any person aggrieved by the denial of a special permit or reservation under the provisions of this chapter may appeal to the City Council for a review by filing a notice of appeal with the City Clerk within ten days after receipt of such denial.</p>
+<p>
+	(History: Ord. PR-763 &sect;5, 73)</p>
+
+<p class='archiveNotice nullValue '>Effective on:&nbsp;1/1/1901</p>
+</section> 
+<section id='secid-1812' class='secLvl3 _010 _010-003 _010-003-007' tabindex='-1' data-secid='1812'> 
+<h3>
+	<strong>10.08.070 Sanitation and Fires.</strong></h3>
+<p>
+	All waste material and refuse of any kind shall be deposited in disposal drums provided for such purpose and no such waste or contaminating material shall be discarded otherwise in or upon park land.</p>
+<p>
+	Fires may be built only in the ovens, stoves or ring pits provided by the City and must be extinguished before leaving the area. Fires may be prohibited entirely as a protective measure from time to time by the posting by the City of special warning signs and may be part of the conditions upon which special permits or reservations are given.</p>
+<p>
+	(History: Ord. PR-763 &sect;7, 73)</p>
+
+<p class='archiveNotice nullValue '>Effective on:&nbsp;1/1/1901</p>
+</section> 
+<section id='secid-1813' class='secLvl3 _010 _010-003 _010-003-008' tabindex='-1' data-secid='1813'> 
+<h3>
+	<strong>10.08.080 Swimming, Bathing and Wading</strong></h3>
+<p>
+	Swimming, bathing and wading are prohibited except at such times and in such locations as are approved by the City.</p>
+<p>
+	(History: Ord. PR-763 &sect;8, 73)</p>
+
+<p class='archiveNotice nullValue '>Effective on:&nbsp;1/1/1901</p>
+</section> 
+<section id='secid-1814' class='secLvl3 _010 _010-003 _010-003-009' tabindex='-1' data-secid='1814'> 
+<h3>
+	<strong>10.08.090 Hunting.</strong></h3>
+<p>
+	No person shall pursue, catch, kill or take any wildlife except as provided in <a class="xref" target="_blank" href="doc-viewer.aspx#secid-1815">10.08.100</a>.</p>
+<p>
+	(History: Ord. PR-763 &sect;9, 73)</p>
+
+<p class='archiveNotice nullValue '>Effective on:&nbsp;1/1/1901</p>
+</section> 
+<section id='secid-1815' class='secLvl3 _010 _010-003 _010-003-010' tabindex='-1' data-secid='1815'> 
+<h3>
+	<strong>10.08.100 Fishing and Frogging.</strong></h3>
+<p>
+	Fish and game laws of the state of Kansas must be strictly observed while fishing at parks with the exception that the daily limit on Bluegill is set at 30 per fisherman, and no trotline, jug, blockline, gigging, seining, snaring, or snagging will be permitted at any time. This includes the requirement for all Kansas residents between the ages of 16 and 65 to have a Kansas State Fishing License. All non-residents of Kansas must have a state fishing license at 16 years of age or older.</p>
+<p>
+	For the purpose of interpretation of these rules, the word &quot;fishing&quot; and the word &quot;frogging&quot; are synonymous, wherever used.</p>
+<p>
+	(History: Ord. PR-1775 &sect;1, 92; PR-763 &sect;10, 73)</p>
+
+<p class='archiveNotice nullValue '>Effective on:&nbsp;1/1/1901</p>
+</section> 
+<section id='secid-1816' class='secLvl3 _010 _010-003 _010-003-011' tabindex='-1' data-secid='1816'> 
+<h3>
+	<strong>10.08.110 Skating.</strong></h3>
+<p>
+	No person shall, at any time, skate except upon areas designated by the City and at such times and pursuant to such rules as the City has posted.</p>
+<p>
+	(History: Ord. PR-763 &sect;11, 73)</p>
+
+<p class='archiveNotice nullValue '>Effective on:&nbsp;1/1/1901</p>
+</section> 
+<section id='secid-1817' class='secLvl3 _010 _010-003 _010-003-012' tabindex='-1' data-secid='1817'> 
+<h3>
+	<strong>10.08.120 Firecrackers or Fireworks.</strong></h3>
+<p>
+	Firecrackers or fireworks are prohibited, except for fireworks displays on special events and then only as approved upon application to the City.</p>
+<p>
+	(History: Ord. PR-763 &sect;12, 73)</p>
+
+<p class='archiveNotice nullValue '>Effective on:&nbsp;1/1/1901</p>
+</section> 
+<section id='secid-1818' class='secLvl3 _010 _010-003 _010-003-013' tabindex='-1' data-secid='1818'> 
+<h3>
+	<strong>10.08.130 Steering and Sailing Rules.</strong></h3>
+<p>
+	Boats or crafts shall not be operated in a manner or at a speed greater than is safe and prudent under the circumstances, and the operator thereof shall observe all signs and directions placed on or near the lake and obey all orders and regulations of the City and its supervisory personnel. Boats with motors are prohibited.</p>
+<p>
+	(History: Ord. PR-763 &sect;13, 73)</p>
+
+<p class='archiveNotice nullValue '>Effective on:&nbsp;1/1/1901</p>
+</section> 
+<section id='secid-1819' class='secLvl3 _010 _010-003 _010-003-014' tabindex='-1' data-secid='1819'> 
+<h3>
+	<strong>10.08.140 Water Safety.</strong></h3>
+<p>
+	No boat or craft of any kind or character shall be operated on park waters unless it carries for each occupant a suitably designed life preserver in good condition and approved as adequate for that purpose, and every boat or craft of any kind or character shall have aboard oars of such size and number as required properly to operate the boat or craft. While a boat or craft is on the water each occupant shall properly wear a life jacket at all times.</p>
+<p>
+	No boat or craft may be used in racing or practicing therefor on park waters, except at such hours on such days as the City may from time to time specially designate therefor, and no boat shall be operated in such a manner as to endanger the lives or property of others.</p>
+<p>
+	(History: Ord. PR-763 &sect;14, 73)</p>
+
+<p class='archiveNotice nullValue '>Effective on:&nbsp;1/1/1901</p>
+</section> 
+<section id='secid-1820' class='secLvl3 _010 _010-003 _010-003-015' tabindex='-1' data-secid='1820'> 
+<h3>
+	<strong>10.08.142 Domestic Animals.</strong></h3>
+<p>
+	Domestic animals present within a park area shall be subject to the provisions of <a class="xref" target="_blank" href="doc-viewer.aspx#secid-1187">Title 6</a>. The Director of Parks and Recreation may establish rules and regulations in addition thereto to prohibit such domestic animals from certain park areas to prevent damage and provide safe use of park areas. The Director of Parks and Recreation may establish certain park areas for use by owners of domestic animals for recreational purposes as dog and cat shows, bridal paths, and neighborhood circuses.</p>
+<p>
+	(History: Ord. PR-830 &sect;3, 75)</p>
+
+<p class='archiveNotice nullValue '>Effective on:&nbsp;1/1/1901</p>
+</section> 
+<section id='secid-1821' class='secLvl3 _010 _010-003 _010-003-016' tabindex='-1' data-secid='1821'> 
+<h3><strong>10.08.144 Motor Vehicles - Cycles - Prohibited.</strong></h3>
+
+<ol class="list-v2">
+	<li>
+	<div class="li-num">A.</div>
+
+	<div class="li-cont">Motor vehicles are specifically prohibited from operation within any&nbsp;City parks or bike-hike trails,​​​​​​​&nbsp;​​​​​​​except for&nbsp;​​​​​​​parking lots, parking&nbsp;​​​​​​​access drives​​​​​​​, ​​​​​​​park streets, ​​​​​​​areas specifically established by the Director of Parks and Recreation for motor vehicle use, or as set forth in subsection B​​​​​​​. The presence of motor vehicles in parking lots, parking access drives, and park streets between the hours of 10 p.m. and 5 a.m. is prohibited.&nbsp;This prohibition includes, but is not limited to:
+	<ol class="list-v2" data-unlistid="33401864">
+		<li>
+		<div class="li-num">1.</div>
+
+		<div class="li-cont">Automobiles or trucks</div>
+		</li>
+		<li>
+		<div class="li-num">2.</div>
+
+		<div class="li-cont">Mopeds or motorized scooters (electric or otherwise)</div>
+		</li>
+		<li>
+		<div class="li-num">3.</div>
+
+		<div class="li-cont">Other motorized vehicles (electric or otherwise) such as golf carts, ATVs, motorcycles, autocycles, electric personal assistive mobility devices (e.g., segways), or other fuel-powered devices.&nbsp;​​​​​​​&nbsp;</div>
+		</li>
+	</ol>
+	</div>
+	</li>
+	<li>
+	<div class="li-num">B.</div>
+
+	<div class="li-cont">Subject to regulation by the Director of Parks and Recreation, the following motor vehicles are allowed&nbsp; to be used on park trails and bike-hike trails:
+	<ol class="list-v2" data-unlistid="50439348">
+		<li>
+		<div class="li-num">1.</div>
+
+		<div class="li-cont">Electric-assisted scooters as defined in Section 12.04.001 of the Code.</div>
+		</li>
+		<li>
+		<div class="li-num">2.</div>
+
+		<div class="li-cont">Electric-assisted bicycles as defined in Section 12.04.001 of the Code (including those commonly referred to as either Type 1 or Type 2 electric-assisted bicycles, which meet the definition of electric-assisted bicycle in Section 12.04.001 of the Code).&nbsp;</div>
+		</li>
+		<li>
+		<div class="li-num">3.</div>
+
+		<div class="li-cont">Devices commonly referred to as, Type 3 electric-assisted&nbsp;​​​​​bicycles, which is a bicycle with a throttle assisted motor that provides assistance only when rider is pedaling (pedal assist) and ceases when the bicycle reaches 28 miles per hour and is equipped with a speedometer.</div>
+		</li>
+		<li>
+		<div class="li-num">4.</div>
+
+		<div class="li-cont">Any other form of electric powered mobility device approved by the Director of Parks and Recreation which is consistent with the above exempted devices.&nbsp;</div>
+		</li>
+		<li>
+		<div class="li-num">5.</div>
+
+		<div class="li-cont">Motor vehicles used by the Overland Park Police Department in the course of an officer&#39;s official duties.&nbsp;</div>
+		</li>
+	</ol>
+	</div>
+	</li>
+</ol>
+
+<p data-unlistid="50439348">&nbsp;</p>
+
+<p data-unlistid="50439348">Provided, any allowed motor vehicle shall not exceed a maximum speed of 20 mph on any city trail.&nbsp;</p>
+
+<p data-unlistid="50439348">&nbsp;</p>
+
+<p>(History: Ord. PR-3441 &sect;1, 2023;&nbsp;​​​​​​​Ord. PR-830 &sect;4, 75)</p>
+
+<p class='archiveNotice nullValue '>Effective on:&nbsp;1/1/1901</p>
+</section> 
+<section id='secid-1822' class='secLvl3 _010 _010-003 _010-003-017' tabindex='-1' data-secid='1822'> 
+<h3>
+	<strong>10.08.146 Vandalism.</strong></h3>
+<p>
+	It is unlawful for any person to commit an act of vandalism in a park area by willfully injuring, damaging, mutilating, defacing, destroying, or substantially impairing any park area or improvement within a park area.</p>
+<p>
+	(History: Ord. PR-830 &sect;5, 75)</p>
+
+<p class='archiveNotice nullValue '>Effective on:&nbsp;1/1/1901</p>
+</section> 
+<section id='secid-1823' class='secLvl3 _010 _010-003 _010-003-018' tabindex='-1' data-secid='1823'> 
+<h3>
+	<strong>10.08.150 Commercial Uses.</strong></h3>
+<p>
+	No park area may be used for any commercial enterprise in any form except wherein the City is directly involved as a co-sponsor of an event or project.</p>
+<p>
+	(History: Ord. PR-763 &sect;15, 73)</p>
+
+<p class='archiveNotice nullValue '>Effective on:&nbsp;1/1/1901</p>
+</section> 
+<section id='secid-1824' class='secLvl3 _010 _010-003 _010-003-019' tabindex='-1' data-secid='1824'> 
+<h3>
+	<strong>10.08.160 Penalty for Violations.</strong></h3>
+<p>
+	Violation of any provision of this chapter is a public offense and any person, firm, association, partnership or corporation convicted thereof shall be punished as provided in <a class="xref" target="_blank" href="doc-viewer.aspx#secid-47">1.12.010</a>.</p>
+<p>
+	(History: Ord. PR-763 &sect;16, 73)</p>
+
+<p class='archiveNotice nullValue '>Effective on:&nbsp;1/1/1901</p>
+</section> 
+<section id='secid-1825' class='secLvl3 _010 _010-003 _010-003-020' tabindex='-1' data-secid='1825'> 
+<h3>
+	<strong>10.08.170 Rules and Regulations.</strong></h3>
+<p>
+	The Director of Parks and Recreation is hereby authorized to make and enforce such additional rules and regulations as may be necessary for the management and operation of any of the lands, buildings, structures or facilities that are placed under the supervision of the Director of Parks and Recreation by action of the Governing Body or the City Manager. This regulatory authority shall be supplementary to any specific such authority contained elsewhere in the Overland Park Municipal Code. Such rules and regulations shall have the force and effect of law and the violation of those rules shall constitute a public offense and shall be enforced in the same manner as other violations of the Municipal Code. Violation of any adopted rules and regulations shall be grounds for eviction from the park lands, buildings or facilities and the denial, revocation or suspension of any permit issued or privilege granted by the Parks and Recreation Department. These rules and regulations must be approved by the Director and either posted in a conspicuous place in or on the park lands, buildings structures or facilities or be maintained in written form and available to the public in the office of the Director of Parks and Recreation prior to their becoming effective.</p>
+<p>
+	(History: Ord. PR-2233 &sect;1, 2000)</p>
+
+<p class='archiveNotice nullValue '>Effective on:&nbsp;1/1/1901</p>
+</section> 
+<section id='secid-1826' class='secLvl2 _010 _010-004' tabindex='-1' data-secid='1826'> 
+<h2>
+	<strong>10.10</strong><strong> Community Centers</strong></h2>
+<div class="mini-TOC" data-endlevel="3" data-id="mini-TOC" data-startlevel="3">
+	<div class="mini-TOC-label">
+		<strong>Contents:</strong></div>
+	<ul><li><a class="tocLink" href="doc-viewer.aspx#secid-1827">10.10.010  When Open - Rules and Regulations Generally.</a></li>
+<li><a class="tocLink" href="doc-viewer.aspx#secid-1828">10.10.020  Center Directors and Employees - Duties Generally.</a></li>
+<li><a class="tocLink" href="doc-viewer.aspx#secid-1829">10.10.030  Requests for Use or Reservations - Fees.</a></li>
+<li><a class="tocLink" href="doc-viewer.aspx#secid-1830">10.10.040  Requests for Use or Reservation Denial - Appeal.</a></li>
+<li><a class="tocLink" href="doc-viewer.aspx#secid-1831">10.10.050  Commercial Uses.</a></li>
+<li><a class="tocLink" href="doc-viewer.aspx#secid-1832">10.10.060  Making and Enforcing Rules and Regulations - Posting.</a></li>
+</ul>
+</div>
+
+
+</section> 
+<section id='secid-1827' class='secLvl3 _010 _010-004 _010-004-001' tabindex='-1' data-secid='1827'> 
+<h3>
+	<strong>10.10.010 When Open - Rules and Regulations Generally.</strong></h3>
+<p>
+	The community centers of the City shall be open to the public, as limited in this chapter, year round subject to such rules and regulations contained in this chapter and as the Governing Body of the City may from time to time adopt or authorize.</p>
+<p>
+	(History: Ord. CC-1529 &nbsp;&sect;1, 88; CC-975 &sect;1, 75)</p>
+
+<p class='archiveNotice nullValue '>Effective on:&nbsp;1/1/1901</p>
+</section> 
+<section id='secid-1828' class='secLvl3 _010 _010-004 _010-004-002' tabindex='-1' data-secid='1828'> 
+<h3>
+	<strong>10.10.020 Center Directors and Employees - Duties Generally.</strong></h3>
+<p>
+	The Director of Parks and Recreation, with the consent of the City Manager, shall appoint center directors and other employees of the City&#39;s community centers. A center&#39;s director shall have general supervision over the community center and all people attending the same and the park areas in which the same are located. It shall be the center director&#39;s duty to preserve order, to enforce all provisions of this chapter, and the rules and regulations established by the City. The center director may exclude any person or persons from the center for violations of this chapter, such rules and regulations as may be made by the City, or when the center director deems such exclusion to be in the best interest of the orderly and peaceable operation and management of the community center.</p>
+<p>
+	(History: Ord. CC-1529 &sect;2, 88; CC-975 &sect;2, 78)</p>
+
+<p class='archiveNotice nullValue '>Effective on:&nbsp;1/1/1901</p>
+</section> 
+<section id='secid-1829' class='secLvl3 _010 _010-004 _010-004-003' tabindex='-1' data-secid='1829'> 
+<h3><strong>10.10.030 Requests for Use or Reservations - Fees.</strong></h3>
+
+<p>The Director of Parks and Recreation shall establish rules and regulations for use of community center rooms and/or facilities. Any fees for use of rooms and/or facilities shall be fixed by the City Manager pursuant&nbsp;to the Parks and Recreation Fee and Cost Recovery Policy as adopted by the Governing Body and the City Manager or their designee may establish any and all policies or waivers related to the same.</p>
+
+<p>(History: Ord. P-3399 &sect;4, 2023; Ord. CC-1529 &sect;3, 88; CC-975 &sect;3, 78)</p>
+
+<p class='archiveNotice nullValue '>Effective on:&nbsp;1/1/1901</p>
+</section> 
+<section id='secid-1830' class='secLvl3 _010 _010-004 _010-004-004' tabindex='-1' data-secid='1830'> 
+<h3>
+	<strong>10.10.040 Requests for Use or Reservation Denial - Appeal.</strong></h3>
+<p>
+	Any person aggrieved by the denial of a special permit or reservation under the provisions of this chapter may appeal to the City Council for a review by filing notice of appeal with the City Clerk within 10 days after receipt of such denial.</p>
+<p>
+	(History: Ord. CC-1529 &sect;4, 88; CC-975 &sect;4, 78)</p>
+
+<p class='archiveNotice nullValue '>Effective on:&nbsp;1/1/1901</p>
+</section> 
+<section id='secid-1831' class='secLvl3 _010 _010-004 _010-004-005' tabindex='-1' data-secid='1831'> 
+<h3>
+	<strong>10.10.050 Commercial Uses.</strong></h3>
+<p>
+	Repealed.</p>
+<p>
+	(History: Ord. CC-2022 &sect;1, 97; CC-1529 &sect;5, 88; CC-975 &sect;5, 78)</p>
+
+<p class='archiveNotice nullValue '>Effective on:&nbsp;1/1/1901</p>
+</section> 
+<section id='secid-1832' class='secLvl3 _010 _010-004 _010-004-006' tabindex='-1' data-secid='1832'> 
+<h3>
+	<strong>10.10.060 </strong><strong>Making and Enforcing Rules and Regulations </strong><strong>- Posting.</strong></h3>
+<p>
+	The Director of Parks and Recreation by and with the consent of the City Manager is authorized to make and enforce such additional rules and regulations as may be necessary for the management and operation of the City&#39;s community centers. Copies of all rules shall be posted in conspicuous places about the community center.</p>
+<p>
+	(History: Ord. CC-1529 &sect;6, 88; CC-975 &sect;6, 78)</p>
+
+<p class='archiveNotice nullValue '>Effective on:&nbsp;1/1/1901</p>
+</section> 
+<section id='secid-1833' class='secLvl2 _010 _010-005' tabindex='-1' data-secid='1833'> 
+<h2>
+	<strong>10.12</strong><strong> Arboretum</strong></h2>
+<div class="mini-TOC" data-endlevel="3" data-id="mini-TOC" data-startlevel="3">
+	<div class="mini-TOC-label">
+		<strong>Contents:</strong></div>
+	<ul><li><a class="tocLink" href="doc-viewer.aspx#secid-1834">10.12.010  When Open - Rules and Regulations Generally.</a></li>
+<li><a class="tocLink" href="doc-viewer.aspx#secid-1835">10.12.020  Supervisors and Employees - Duties Generally.</a></li>
+<li><a class="tocLink" href="doc-viewer.aspx#secid-1836">10.12.030 Fees.</a></li>
+<li><a class="tocLink" href="doc-viewer.aspx#secid-1837">10.12.040 Requests for Use or Reservation Denial - Appeal.</a></li>
+<li><a class="tocLink" href="doc-viewer.aspx#secid-1838">10.12.050 Commercial Uses.</a></li>
+<li><a class="tocLink" href="doc-viewer.aspx#secid-1839">10.12.060 Making and Enforcing Rules and Regulations - Posting.</a></li>
+</ul>
+</div>
+
+
+</section> 
+<section id='secid-1834' class='secLvl3 _010 _010-005 _010-005-001' tabindex='-1' data-secid='1834'> 
+<h3>
+	<strong>10.12.010 When Open - Rules and Regulations Generally.</strong></h3>
+<p>
+	The Overland Park Arboretum shall be open to the public, as limited in this chapter, year round subject to such rules and regulations contained in this chapter and as the Governing Body of the City may from time to time adopt or authorize.</p>
+<p>
+	(History: Ord. ABG-2205 &sect;1, 2000)</p>
+
+<p class='archiveNotice nullValue '>Effective on:&nbsp;1/1/1901</p>
+</section> 
+<section id='secid-1835' class='secLvl3 _010 _010-005 _010-005-002' tabindex='-1' data-secid='1835'> 
+<h3>
+	<strong>10.12.020 Supervisors and Employees - Duties Generally.</strong></h3>
+<p>
+	The Director of Parks and Recreation, with the consent of the City Manager, shall appoint supervisors and other employees of the Overland Park Arboretum. The Arboretum Supervisor shall have general supervision over the Arboretum and all people attending the same and the facilities located in the same. It shall be the supervisor&#39;s duty to preserve order, to enforce all provisions of this chapter, and the rules and regulations established by the City. The supervisor may exclude any person or persons from the Arboretum for violations of this chapter, such rules and regulations as may be made by the City, or when the supervisor deems such exclusion to be in the best interest of the orderly and peaceable operation and management of the Arboretum.</p>
+<p>
+	(History: Ord. ABG-2205 &sect;1, 2000)</p>
+
+<p class='archiveNotice nullValue '>Effective on:&nbsp;1/1/1901</p>
+</section> 
+<section id='secid-1836' class='secLvl3 _010 _010-005 _010-005-003' tabindex='-1' data-secid='1836'> 
+<h3>10.12.030 Fees.</h3>
+
+<p>The Director of Parks and Recreation shall establish rules and regulations for use of the Arboretum and/or facilities. Any fees shall be fixed by the City Manager (through the Director of Parks and Recreation) pursuant to the Parks and Recreation Fee and Cost Recovery Policy as adopted by the Governing Body and the City Manager or their designee may establish any and all policies or waivers related to the same.</p>
+
+<p>(History: Ord. P-3399 &sect;5, 2023; Ord. ABG-2205 &sect;1, 2000)</p>
+
+<p class='archiveNotice nullValue '>Effective on:&nbsp;1/1/1901</p>
+</section> 
+<section id='secid-1837' class='secLvl3 _010 _010-005 _010-005-004' tabindex='-1' data-secid='1837'> 
+<h3>
+	<strong>10.12.040 Requests for Use or Reservation Denial - Appeal.</strong></h3>
+<p>
+	Any person aggrieved by the denial of a special permit or reservation under the provisions of this chapter may appeal to the City Council for a review by filing notice of appeal with the City Clerk within 10 days after receipt of such denial.</p>
+<p>
+	(History: Ord. ABG-2205 &sect;1, 2000)</p>
+
+<p class='archiveNotice nullValue '>Effective on:&nbsp;1/1/1901</p>
+</section> 
+<section id='secid-1838' class='secLvl3 _010 _010-005 _010-005-005' tabindex='-1' data-secid='1838'> 
+<h3>
+	<strong>10.12.050 Commercial Uses.</strong></h3>
+<p>
+	The City&#39;s Arboretum may not be used for any commercial enterprise in any form except wherein the City is directly involved as a co-sponsor of an event or project, or the commercial use has been approved and the appropriate fees submitted.</p>
+<p>
+	(History: Ord. ABG-2205 &sect;1, 2000)</p>
+
+<p class='archiveNotice nullValue '>Effective on:&nbsp;1/1/1901</p>
+</section> 
+<section id='secid-1839' class='secLvl3 _010 _010-005 _010-005-006' tabindex='-1' data-secid='1839'> 
+<h3>
+	<strong>10.12.060 Making and Enforcing Rules and Regulations - Posting.</strong></h3>
+<p>
+	The Director of Parks and Recreation by and with the consent of the City Manager is authorized to make and enforce such additional rules and regulations as may be necessary for the management and operation of the Overland Park Arboretum. Copies of all rules shall be posted in conspicuous places about the Arboretum.</p>
+<p>
+	(History: Ord. ABG-2205 &sect;1, 2000)</p>
+
+<p class='archiveNotice nullValue '>Effective on:&nbsp;1/1/1901</p>
+</section> 
+<section id='secid-7739' class='secLvl2 _010 _010-006' tabindex='-1' data-secid='7739'> 
+<h2>Repealed Sections of Title 10 - Parks and Recreation</h2>
+
+<p>&nbsp;</p>
+
+
+</section> 
+<section id='secid-7740' class='secLvl3 _010 _010-006 _010-006-001' tabindex='-1' data-secid='7740'> 
+<h3>Repealed Sections of 10.08 Park Regulations</h3>
+
+<p>&nbsp;</p>
+
+
+</section> 
+<section id='secid-1811' class='secLvl4 _010 _010-006 _010-006-001 _010-006-001-001' tabindex='-1' data-secid='1811'> 
+<h3>10.08.060 Alcoholic Beverages. (Repealed)</h3>
+
+<p>Repealed.</p>
+
+<p>(History: Ord. POC-3367 &sect;9, 2022; Ord. PR-2538 &sect;1, 2005; PR-763 &sect;6, 73)</p>
+
+<p class='archiveNotice nullValue '>Effective on:&nbsp;1/1/1901</p>
+</section> 
+
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<button id="commentsCTA" title="Add a Comment" aria-label="Add a Comment" role="button" tabindex="2">
+    COMMENTS
+</button>
+
+<!-- hidden div below is for definition popup -->
+<div id="defFrame">
+    <img alt='loading progress' src="resources/progress.gif" /></div>
+<!-- hidden div below is for ajax loading progress-->
+<div id='progress-template' style='display: none;'>
+    <div class="progress" style='padding: 100px;'>
+        <div style='margin: auto; display: block; width: 200px; border: 1px solid #ccc; background-color: #eee; padding: 10px;'>
+            <img alt='loading progress' src='resources/progress.gif' style='margin: auto; display: block;' />
+            <br />
+            <span style='margin: auto; display: block; width: 75px; padding-left: 10px;'>Loading...</span>
+        </div>
+    </div>
+</div>
+<iframe style="width: 1px; height: 1px" src="" id="printiframe" name="printiframe" onload="ZP.DocView.IFrameReady();" title="Print frame" aria-hidden="true" role="presentation"></iframe>
+
+    </div>
+
+
+    </body>
+</html>

@@ -1,0 +1,82 @@
+{
+  "at": "2026-10-17T21:56:08.391390+00:00",
+  "old_parser_fingerprint": "d83f1c0dc3d7b311ab2ebdbfea91d9a34254672a8bc9c5a2e699732b38a3f9fe",
+  "current_runtime_fingerprint": "7d55ba9d90ebd7efefcdee989942342e06c27cab4330453f79042d9146c483ce",
+  "changed_runtime_files": [
+    "adapters.py",
+    "engine.py",
+    "operator.py"
+  ],
+  "top_level_function_ast_audit": {
+    "__init__.py": {
+      "changed_functions": [],
+      "all_other_functions_unchanged": true
+    },
+    "adapters.py": {
+      "changed_functions": [
+        "asset_refs"
+      ],
+      "all_other_functions_unchanged": true
+    },
+    "browser.py": {
+      "changed_functions": [],
+      "all_other_functions_unchanged": true
+    },
+    "cli.py": {
+      "changed_functions": [],
+      "all_other_functions_unchanged": true
+    },
+    "common.py": {
+      "changed_functions": [],
+      "all_other_functions_unchanged": true
+    },
+    "engine.py": {
+      "changed_functions": [
+        "adopt",
+        "collect",
+        "enforce_published_advisory",
+        "published_access_advisories"
+      ],
+      "all_other_functions_unchanged": true
+    },
+    "legacy_ecode.py": {
+      "changed_functions": [],
+      "all_other_functions_unchanged": true
+    },
+    "legacy_municipal.py": {
+      "changed_functions": [],
+      "all_other_functions_unchanged": true
+    },
+    "media.py": {
+      "changed_functions": [],
+      "all_other_functions_unchanged": true
+    },
+    "operator.py": {
+      "changed_functions": [
+        "doctor"
+      ],
+      "all_other_functions_unchanged": true
+    }
+  },
+  "scope": "Acquisition-only central-advisory preflight (collect/live-adopt/doctor), plus typed object/embed image MIME asset classification matching existing placeholders. Parsing/normalization/verification functions otherwise unchanged.",
+  "mime_delta": "asset_refs treats case-insensitive object/embed type=image/* as intentional nonrequired image metadata. No separate image fetch.",
+  "selected_raw_exposure": [
+    {
+      "target": "albany",
+      "artifacts_hash_verified": 401,
+      "object_or_embed_tag_candidates": [],
+      "classification_delta_exposure": false
+    },
+    {
+      "target": "phoenix",
+      "artifacts_hash_verified": 16,
+      "object_or_embed_tag_candidates": [],
+      "classification_delta_exposure": false
+    }
+  ],
+  "central_advisory_sha256": "d42b01194ab54885f8370c1ade6b86b7afe885796636cb4affefcf71fe0002b2",
+  "focused_cases": 5,
+  "focused_passed": true,
+  "focused_log": "advisory-mime-focused-tests.log",
+  "historical_policy": "Exact d83 raw parser proofs retained. Acquisition guard does not alter offline normalization; MIME branch has zero exposure in all401+16 hash-verified artifacts. No redundant full corpus replay or fresh final-code acquisition is asserted."
+}

@@ -1,0 +1,47 @@
+{
+  "schema_version": 1,
+  "status": "isolated candidate frozen; no production promotion",
+  "network_requests": 0,
+  "pixel_render_ocr_operations": 0,
+  "production_or_source_writes": 0,
+  "table_replay": {
+    "pages": 109,
+    "cells": 1433,
+    "source_proven_bounded_hyphen_aliases": 2,
+    "remaining_unqualified_inferred_boundary_cases": 44,
+    "Fire": "799/799",
+    "Infrastructure": "572/616",
+    "Cleveland": "18/18"
+  },
+  "spokane": {
+    "attachments": 4,
+    "owned_references": 5,
+    "pages": 101,
+    "native_label_pages": 2,
+    "native_label_runs": 724,
+    "native_nonspace_glyphs_with_geometry": 7619,
+    "source_proven_no_glyph_pages": 99,
+    "map2_independent_character_multiplicity_qualified": false,
+    "all_labels_exact_native_stream_projected": true,
+    "image_visual_semantics_deliberately_excluded": true,
+    "whole_publication_complete_claimed": false
+  },
+  "tests": {
+    "bounded_decoder": {
+      "passed": 5,
+      "seconds": 3.075
+    },
+    "spokane_native_labels": {
+      "passed": 6,
+      "seconds": 0.584
+    }
+  },
+  "runtime_sources": {
+    "bounded_decoder.py": "a579f2a79c15833e0c5a8c65bc4fa6024b2dbb6eafb408d1135f500c64c72770",
+    "pdf_structure.py": "1461822802c14ef38f8671a69f1ec46864ffff2a91f1735da307fee851724a2c",
+    "spokane-native-attachments/native_labels.py": "6af181180c4cbb8275c74e6ff410ef63b0009c2dfd5037c2ec258ec79c46f246",
+    "spokane-native-attachments/project_native_labels.py": "935ad53c75d122ea892001bbec3c3b5572d6a37b7895324b1f835321aef7bcaf"
+  },
+  "readonly_offline_command": "python -B verify_isolated.py",
+  "promotion_note": "Narrow helper integration must be rebased onto current official/EP safety code; copied historical pdf_structure.py is not a production replacement."
+}

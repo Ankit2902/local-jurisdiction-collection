@@ -1,0 +1,51 @@
+test_doctor_reports_shipped_stop_with_absent_home_gate (test_access_advisories.PublishedAdvisoryTests.test_doctor_reports_shipped_stop_with_absent_home_gate) ... ok
+test_missing_or_malformed_catalog_fails_closed (test_access_advisories.PublishedAdvisoryTests.test_missing_or_malformed_catalog_fails_closed) ... ok
+test_offline_replay_import_inspect_do_not_consult_advisory (test_access_advisories.PublishedAdvisoryTests.test_offline_replay_import_inspect_do_not_consult_advisory) ... ok
+test_raw_cli_fresh_home_absent_gate_never_starts_browser_or_network (test_access_advisories.PublishedAdvisoryTests.test_raw_cli_fresh_home_absent_gate_never_starts_browser_or_network) ... ok
+test_access_stop_readonly_replay (test_faults.FaultTests.test_access_stop_readonly_replay) ... ok
+test_background_and_standalone_source_images (test_faults.FaultTests.test_background_and_standalone_source_images) ... ok
+test_corrupt_raw (test_faults.FaultTests.test_corrupt_raw) ... ok
+test_duplicate_record (test_faults.FaultTests.test_duplicate_record) ... ok
+test_explicit_migration_only (test_faults.FaultTests.test_explicit_migration_only) ... ok
+test_full_and_tables (test_faults.FaultTests.test_full_and_tables) ... ok
+test_graphics_and_unknown_empty_types (test_faults.FaultTests.test_graphics_and_unknown_empty_types) ... ok
+test_hard_interruption_after_raw_before_inventory_commit (test_faults.FaultTests.test_hard_interruption_after_raw_before_inventory_commit) ... ok
+test_heading_only_and_unowned_visuals (test_faults.FaultTests.test_heading_only_and_unowned_visuals) ... ok
+test_http200_empty_pdf_never_completes_or_retries (test_faults.FaultTests.test_http200_empty_pdf_never_completes_or_retries) ... ok
+test_image_only_no_fetch_and_nonimage_failure (test_faults.FaultTests.test_image_only_no_fetch_and_nonimage_failure) ... ok
+test_interruption_and_resume (test_faults.FaultTests.test_interruption_and_resume) ... ok
+test_limit_never_complete (test_faults.FaultTests.test_limit_never_complete) ... ok
+test_missing_artifact (test_faults.FaultTests.test_missing_artifact) ... ok
+test_missing_checkpoint_artifact (test_faults.FaultTests.test_missing_checkpoint_artifact) ... ok
+test_nonimage_document_only_not_normalized_text_complete (test_faults.FaultTests.test_nonimage_document_only_not_normalized_text_complete) ... ok
+test_nonimage_head_and_image_head_no_get (test_faults.FaultTests.test_nonimage_head_and_image_head_no_get) ... ok
+test_required_document_format_qualification (test_faults.FaultTests.test_required_document_format_qualification) ... ok
+test_retry_after_and_visible_refusal_shared_stop (test_faults.FaultTests.test_retry_after_and_visible_refusal_shared_stop) ... ok
+test_typed_opaque_images_are_nonrequired_through_real_parser (test_faults.FaultTests.test_typed_opaque_images_are_nonrequired_through_real_parser) ... ok
+test_wrong_edition_even_with_rehashed_raw (test_faults.FaultTests.test_wrong_edition_even_with_rehashed_raw) ... ok
+test_wrong_requested_node (test_faults.FaultTests.test_wrong_requested_node) ... ok
+test_complete_crawl_and_missing_descendant (test_faults.MunicipalTests.test_complete_crawl_and_missing_descendant) ... ok
+test_actual_albany_pdf_matches_city_and_section (test_native_fixtures.NativeFixtureTests.test_actual_albany_pdf_matches_city_and_section) ... ok
+test_actual_eugene_html_all_eight_bodies_match_source (test_native_fixtures.NativeFixtureTests.test_actual_eugene_html_all_eight_bodies_match_source) ... ok
+test_native_scope_and_operative_text_mismatch_fail (test_native_fixtures.NativeFixtureTests.test_native_scope_and_operative_text_mismatch_fail) ... ok
+test_operator (unittest.loader._FailedTest.test_operator) ... ERROR
+
+======================================================================
+ERROR: test_operator (unittest.loader._FailedTest.test_operator)
+----------------------------------------------------------------------
+ImportError: Failed to import test module: test_operator
+Traceback (most recent call last):
+  File "/Users/oliverflint/.cache/codex-runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/unittest/loader.py", line 396, in _find_test_path
+    module = self._get_module_from_name(name)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/oliverflint/.cache/codex-runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/unittest/loader.py", line 339, in _get_module_from_name
+    __import__(name)
+  File "/Users/oliverflint/My Drive/Claude/Projects/CompliSolv 2.00/github/local-jurisdiction-collection/collectors/ecode/tests/test_operator.py", line 8, in <module>
+    from .test_faults import CFG,FakeBrowser,ROOT,TWO,ONE,SOURCES,MCBASE,MCROOT,MCTOC,MCONE,FakeMC
+ImportError: attempted relative import with no known parent package
+
+
+----------------------------------------------------------------------
+Ran 31 tests in 19.868s
+
+FAILED (errors=1)

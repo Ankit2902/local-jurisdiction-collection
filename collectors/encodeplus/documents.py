@@ -13,12 +13,34 @@ def qualify_document(data,url,content_type=''):
  from pypdf import PdfReader
  try:
   reader=PdfReader(io.BytesIO(data),strict=True)
-  if reader.is_encrypted:raise ValueError('Encrypted PDF is not qualified')
+  encrypted=bool(reader.is_encrypted)
+  encryption_descriptor={}
+  if encrypted:
+   descriptor=reader.trailer.get('/Encrypt');descriptor=descriptor.get_object() if descriptor is not None else None
+   if descriptor is not None:encryption_descriptor={str(k):str(descriptor[k]) for k in ['/Filter','/V','/R','/Length','/P','/EncryptMetadata'] if k in descriptor}
   count=len(reader.pages)
   if count<1:raise ValueError('PDF has no readable pages')
   for page in reader.pages:
    _=page.mediabox
    stream=page.get_contents()
    if stream is not None:stream.get_data()
+   if encrypted:page.extract_text()
+  if encrypted:
+   # Ordinary reader defaults only: public empty-user permission encryption may open.
+   # No supplied/guessed passwords, permission changes, or rewritten native bytes.
+   import pypdfium2 as pdfium
+   independent=pdfium.PdfDocument(data)
+   try:
+    if len(independent)!=count:raise ValueError('Independent public reader page count differs')
+    for i in range(count):
+     page=independent[i]
+     try:
+      textpage=page.get_textpage()
+      try:textpage.get_text_range()
+      finally:textpage.close()
+     finally:page.close()
+   finally:independent.close()
  except Exception as exc:raise ValueError('Required PDF structure is unqualified: '+str(exc)) from exc
- return {'format':'PDF','qualification':'strict parser, readable page tree/content streams; semantics not assessed','pages':count,'bytes':len(data)}
+ result={'format':'PDF','qualification':'strict parser, readable page tree/content streams; semantics not assessed','pages':count,'bytes':len(data)}
+ if encrypted:result['public_open_encryption']={'encrypted':True,'descriptor':encryption_descriptor,'credentials_supplied':False,'ordinary_strict_all_page_text_and_stream_access':True,'ordinary_pdfium_all_page_text_access':True,'independent_page_count':count,'protection_or_permissions_changed':False,'native_bytes_rewritten':False,'scope':'Byte/document integrity only; no text agreement, table, edition or semantic qualification'}
+ return result

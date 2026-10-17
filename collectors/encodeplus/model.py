@@ -3,6 +3,7 @@ import copy,csv,datetime,gzip,io,json,re
 from urllib.parse import urljoin,urlparse,parse_qs
 from bs4 import BeautifulSoup,Comment,NavigableString
 from .util import digest,hash_json
+from .reference_qualifications import authority_reference
 
 def decode(data,headers):
  coding=next((v for k,v in headers.items() if k.lower()=='content-encoding'),'').lower()
@@ -47,6 +48,23 @@ def inventory(html,cfg):
  return {'identity':cfg['identity'],'base':cfg['base'],'nodes':nodes,'sha256':hash_json(nodes),'hierarchy_source':'canonical body DOM ancestry and response breadcrumbs; TOC depth is advisory only'}
 IMAGE_SUFFIX=re.compile(r'\.(png|jpe?g|gif|svg|webp|tiff?|bmp|ico|avif)$',re.I)
 def image_url(value):return value.lower().startswith('data:image/') or bool(IMAGE_SUFFIX.search(urlparse(value).path))
+def redact_text_image_uris(value):
+ """Quoted image values or terminal URI tokens only; ambiguous bare prose fails closed.
+ No payload decoding, image reads or guessed whitespace/prose boundary is allowed.
+ """
+ value=str(value);chunks=[];position=0
+ for match in re.finditer(r'data:image/',value,re.I):
+  if match.start()<position:continue
+  start=match.start();chunks.append(value[position:start])
+  quote=value[start-1] if start and value[start-1] in ['"',"'"] else None
+  if quote:
+   end=value.find(quote,match.end())
+   if end<0:raise ValueError('Unsupported ambiguous image text boundary; source sha256='+digest(value.encode()))
+  else:
+   token=re.match(r'[^\s"\'<>]+',value[start:]);end=start+len(token.group()) if token else start
+   if value[end:].strip():raise ValueError('Unsupported ambiguous image text boundary; source sha256='+digest(value.encode()))
+  chunks.append('[IMAGE]');position=end
+ chunks.append(value[position:]);return ''.join(chunks)
 def replace_images(body,base,known_image_urls=()):
  """User policy: never fetch/extract graphics; retain refs and literal placeholders."""
  images=[]
@@ -82,13 +100,15 @@ def replace_images(body,base,known_image_urls=()):
   if values:
    for value in values:remember(el,'style',value)
    del el['style'];el.append('[IMAGE]')
+  for attr_name,attr_value in list(el.attrs.items()):
+   if 'data:image/' in str(attr_value).lower():remember(el,attr_name,str(attr_value));el[attr_name]='[IMAGE]'
  for node in list(body.find_all(string=True)):
   if 'data:image/' in str(node).lower():
    remember(node.parent,'text-node',str(node))
    if isinstance(node,Comment):node.extract()
-   else:node.replace_with(re.sub(r'data:image/[^\s\"\'<>]+','[IMAGE]',str(node),flags=re.I))
+   else:node.replace_with(redact_text_image_uris(str(node)))
  return images
-def refs(body,base):
+def refs(body,base,dispositions=None):
  found=[]
  for el in body.find_all(True):
   attr='src' if el.name in ['img','iframe','embed','source','audio','video'] else 'data' if el.name=='object' else None
@@ -102,7 +122,11 @@ def refs(body,base):
    h=el['href'];path=urlparse(h).path.lower()
    context=clean((el.find_parent(['p','li','td']) or el.parent).get_text(' ',strip=True));target=urljoin(base,h);target_parts=urlparse(target);local_doc=target_parts.netloc==urlparse(base).netloc and target_parts.path.startswith(urlparse(base).path) and bool(re.search(r'doc-view(?:er)?\.aspx$',target_parts.path))
    incorporated=bool(re.search(r'\b(incorporat(?:ed|ion)|adopt(?:ed|ion)|made a part|integral part)\b',context,re.I) and re.search(r'\b(map|plan|standard|manual|document|appendix|exhibit|schedule|code|ordinance|resolution)\b',context,re.I)) and not local_doc and not h.startswith('#')
-   if not image_url(h) and (re.search(r'\.(pdf|docx?|xlsx?|csv|zip)$',path) or any(x in path for x in ['doclibrary.aspx','download.aspx']) or incorporated):found.append((el,'href',h,True))
+   direct_document=bool(re.search(r'\.(pdf|docx?|xlsx?|csv|zip)$',path) or any(x in path for x in ['doclibrary.aspx','download.aspx']))
+   relation=authority_reference(el,base) if incorporated and not direct_document else None
+   if relation is not None:
+    if dispositions is not None:dispositions.append(relation)
+   elif not image_url(h) and (direct_document or incorporated):found.append((el,'href',h,True))
   for value in re.findall(r'url\([\'\"]?([^\)\'\"]+)',el.get('style','')):found.append((el,'style',value,True))
  result=[]
  for el,attr,value,required in found:
@@ -197,13 +221,14 @@ def parse_document(html,requested,cfg,known,known_image_urls=()):
   for mini in body.select('.mini-TOC'):mini.decompose()
   # Mini-TOCs are navigation, never a substantive container body.
   text=source_text(body)
-  assets=refs(body,cfg['base']);notes=[clean(source_text(x)) for x in body.select('.archiveNotice,.footnote,.note')]
+  reference_dispositions=[];assets=refs(body,cfg['base'],reference_dispositions);notes=[clean(source_text(x)) for x in body.select('.archiveNotice,.footnote,.note')]
   if text or assets:kind='operative_or_descriptive_body';disposition='Exclusive legal/descriptive body retained'
   elif known.get(ident,{}).get('has_children') or (key and any(k.startswith(key+'-') for k in keys)):kind='structural_container';disposition='Explicit container has_children/source body ancestry, no owned substantive text'
   elif re.search(r'\b(repealed|reserved|omitted)\b',h,re.I):kind='source_excluded_repealed_or_reserved';disposition='Explicit source heading disposition retained verbatim'
   else:kind='source_empty_unresolved';disposition='Unexplained empty operative leaf; source has no owned body or asset. Retained for inventory accounting but blocks publication text completeness'
 
   records.append({'id':ident,'heading':h,'heading_source':heading_source,'toc_heading':known.get(ident,{}).get('heading'),'toc_heading_matches':h==known[ident]['heading'] if ident in known else None,'path':canonical_path,'parent_id':canonical_path[-1]['id'] if canonical_path else None,'ownership':'exclusive section body; descendant sections removed','kind':kind,'disposition':disposition,'canonical_body_key':key,'hierarchy_method':'Observed body class ancestry plus DOM and response breadcrumbs; not TOC declared depth','page_ownership_ledger':{'unowned_legal_text':0,'unowned_assets':0,'excluded_controls':omitted_controls,'context_section_ids':context_ids,'context_disposition':'Ancestor heading stubs provide canonical hierarchy only; excluded from acquired body IDs'},'text':text,'html':str(owned),'body_html':str(body),'operative_heading_retained_as_body':operative_heading,'body_sha256':digest(str(owned).encode()),'tables':tables,'assets':assets,'image_refs':image_refs,'image_policy':'literal [IMAGE]; intentional skip, no image fetch','image_only':bool(image_refs) and not bool(text.replace('[IMAGE]','').strip()),'links':[{'text':clean(source_text(a)),'attributes':dict(a.attrs),'url':urljoin(cfg['base'],a.get('href',''))} for a in body.find_all('a')],'notes':notes,'omitted_null_metadata':omitted,'omitted_hidden_sort_keys':hidden_sort_keys,'mini_toc_disposition':'Removed from legal text; retained in owned source HTML as navigation','list_count':len(body.find_all(['ol','ul'])),'inventory_origin':'toc' if ident in known else 'embedded_source_section','source_url':cfg['base']+'doc-view.aspx?secid='+ident+'&ajax=0'})
+  if reference_dispositions:records[-1]['qualified_reference_dispositions']=reference_dispositions
  return records
 
 def outputs(records):

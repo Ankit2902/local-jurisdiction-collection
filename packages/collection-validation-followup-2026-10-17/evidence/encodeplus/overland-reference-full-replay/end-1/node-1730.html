@@ -1,0 +1,660 @@
+
+    <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+    <html>
+    <head>
+
+        <title>Title 8 - Human Rights</title>
+        <link type="text/css" rel="Stylesheet" href="jqueryui/css/jqueryui.css" media="all" />
+        <link type="text/css" rel="Stylesheet" href="css/ui.css" media="all" />
+        <link type="text/css" rel="Stylesheet" href="css/customui.css" media="all" />
+        <link type="text/css" rel="Stylesheet" href="css/document.css" media="all" />
+        <link type="text/css" rel="Stylesheet" href="css/customdoc.css" media="all" />
+        <link type="text/css" rel="Stylesheet" href="tablestyles.aspx" media="all" />
+        <link rel="StyleSheet" type="text/css" href="/common/font-awesome/css/all.min.css">
+        <link type="text/css" rel="Stylesheet" href="css/docprint.css" media="print" />
+        <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+        <script type="text/javascript" src="jqueryui/js/jquery-ui-1.8.21.custom.min.js"></script>
+        <script type="text/javascript" src="js/doc-view.js?_t=290"></script>
+        <script type="text/javascript" src="js/tabletools.js"></script>
+        <script type="text/javascript" src="js/tabs.js"></script>
+        <script type="text/javascript">
+            var iframeReady = false;
+        </script>
+        
+    </head>
+    <body class='doc-view'>
+        <script type="text/javascript">
+            $(document).ready(function () {
+                ZP.DocView.InitDef();
+                ZP.DocView.OpenDefinitionPage = null;
+                ZP.DocView.OpenDefinitionMode = '_self';
+                ZP.DocView.OpenXRefPage = 'doc-viewer.aspx#$2-';
+                ZP.DocView.OpenXRefMode = '_blank';
+                $(window).bind('hashchange', ZP.DocView.HashChanged);
+        
+        if (typeof ZP.DocView.ZoomClasses == 'undefined') {
+            ZP.DocView.ZoomClasses = ["Unzoom1", "", "Zoom1", "Zoom2", "Zoom3", "Zoom4"];
+        }
+        ZP.DocView.InitializeZoom();
+        EC.SortedTable.Init(".ord-tbl, .stat-tbl", ".sortable");
+        EC.Tabs.PositionLeftTabs();
+    });
+
+
+        </script>
+
+
+    <div id="doc-viewer">
+        
+
+<div id="doc-view">
+    <div id="doc-view-content">
+        
+<div id="pageControls">
+<script type="text/javascript" >
+    function clearEffDate() {
+        jQuery.get("doc-view-helper.aspx?task=currentversion", function () {
+            window.location.reload();
+        });
+        return false;
+    }
+</script>
+     <div class="pageControls psuedoTable" role="navigation" aria-label="Document Navigation">  
+        <div class="psuedoTableBody" >     
+            <div class="psuedoTableRow">         
+                <div class="pageControls_outer" ></div>
+                <div class="pageControls_inner left">
+                    <a id='button1' onclick='ZP.DocView.PrintDoc("008",false);return false;' href="#" title="Print" role="button"> 
+                        <img alt="Print" src="resources/btn-print-white.png" /></a>
+                    <a id='Button2' onclick='ZP.DocView.OpenPDF("008",false);return false;' href="#" title="Export PDF" role="button">
+                        <img alt="Generate PDF" src="resources/btn-makepdf-white.png" /></a>
+                        <a class="popup" params="toobar=0,menubar=0,scrollbars=1,height=436,width=626" href="https://www.facebook.com/sharer/sharer.php?s=100&p[title]=Title+8+-+Human+Rights&p[summary]=Overland+Park%2c+Kansas+Municipal+Code&p[url]=https%3a%2f%2fcodes.opkansas.org%2fmunicipal-code%2fdoc-viewer.aspx%3fsecid%3d1730" title="Click to Share this page" style="text-decoration:none;border:none;" ><img src="resources/share-icon-white.png" alt="Click to Share this page on facebook" /></a>     
+                </div>
+                <div  class="pageControls_inner breadCrumbs" title="Navigation 'breadcrumbs'">
+                     <div class='breadCrumbs'><a href='/municipal-code/doc-viewer.aspx?tocid=008' >Title 8 - Human Rights</a></div>
+                </div>
+                 <div  class="pageControls_inner right">       
+                     <ul >  
+                         <li>
+                            <a id='button3' class="nav" onclick="ZP.DocView.LoadPrevDoc('008');return false;" href="#"  title="Previous Section" accesskey="," role="button"><img alt="Go to Previous Section" src="resources/btn-back-white.png" /></a>
+                         </li>  
+                         <li>
+                             <a id='Button4'  class="nav" onclick="ZP.DocView.LoadNextDoc('008');return false;" href="#"  title="Next Section" accesskey="." role="button"> <img alt="Go to Next Section" src="resources/btn-forward-white.png" /></a>
+                         </li>   
+                         <li>
+                             <a id="pageControls-overflow" onclick="ZP.DocView.PgCntrlOverflowClick(event);return false;" href="#" title="Click for more options" role="button" >
+                            <img src="resources/overflow-btn-white.png" alt="Click for more options" /></a>
+                               
+  <ul class="submenu" role="dialog">
+            <li><a href="/municipal-code/doc-viewer.aspx?secid=1730" onclick="javascript:alert('Right click this icon and select \'add to favorites\' or \'Bookmark this Link\' to bookmark this page');return false;" title="Bookmark this page" >Bookmark</a></li>
+            <li>
+                                        
+                <a id="zoomMinus" onclick="ZP.DocView.DecreaseZoom();return false;" href="#" title="Decrease Zoom" class="zoomLink glyphicon" >&#x2212;</a>
+                <a onclick="ZP.DocView.DefaultZoom();return false;"  href="#" title="Default Zoom"  class="zoomLink" >100%</a>
+                <a id="zoomPlus" onclick="ZP.DocView.IncreaseZoom();return false;" href="#" title="Increase Zoom"  class="zoomLink glyphicon" > &#x2b; </a>
+            </li>
+           
+                           
+                
+                <li><a id="subscribe-btn" onclick="ZP.DocView.OpenSubscribeDlg();return false;" title="Subscribe to Notifications" href="subscribe.aspx" role="button">Subscribe</a></li>
+                <li><a id="unsubscribe-btn" onclick="ZP.DocView.OpenUnsubscribeDlg();return false;" title="Cancel Notifications Subscription" href="unsubscribe.aspx" role="button" >Unsubscribe</a></li>
+                
+</ul>
+                         </li>        
+                        
+                        </ul>   
+                </div>
+                <div class="pageControls_outer"></div>
+            </div>
+        </div>
+    </div> 
+    <div id="subscribe-dialog" title="" aria-live="polite" >
+        <div id="sub-message"></div>
+        <div id="sub-form-cntr"></div>
+    </div>
+</div>
+
+
+        <div id="thePage-outer" >
+            <div id="thePage-wrap" class="thePage-wrap ">
+                <div id="outer-doc-banner"></div>
+                <div id="thePage-border">
+                    <div id="thePage" class="textPage " tocid="008" secid="1730" role="main" aria-label="Document">
+                        <img id="sectionBanner" title="Document text banner" src="resources/docbanner.png" width="720" valign="Top" alt="Document text banner">
+                        
+                        <section id='secid-1730' class='secLvl1 _008' tabindex='-1' data-secid='1730'> 
+<h1><strong>Title 8 - Human Rights</strong></h1>
+
+<div class="mini-TOC" data-endlevel="2" data-id="mini-TOC" data-startlevel="2">
+<div class="mini-TOC-label"><strong>Contents:</strong></div>
+
+<ul><li><a class="tocLink" href="doc-viewer.aspx#secid-7354">8.10 Civil Rights</a></li>
+<li><a class="tocLink" href="doc-viewer.aspx#secid-7688"> Repealed Sections of Title 8</a></li>
+</ul>
+</div>
+
+
+</section> 
+<section id='secid-7354' class='secLvl2 _008 _008-001' tabindex='-1' data-secid='7354'> 
+<h2>8.10 Civil Rights</h2>
+
+<div class="mini-TOC" data-endlevel="3" data-id="mini-TOC" data-startlevel="3">
+<div class="mini-TOC-label"><strong>Contents:</strong></div>
+
+<ul><li><a class="tocLink" href="doc-viewer.aspx#secid-7355">8.10.010 Declaration of Policy</a></li>
+<li><a class="tocLink" href="doc-viewer.aspx#secid-7356">8.10.020 Definitions</a></li>
+<li><a class="tocLink" href="doc-viewer.aspx#secid-7357">8.10.030 Unlawful Discriminatory Practices</a></li>
+<li><a class="tocLink" href="doc-viewer.aspx#secid-7358">8.10.040 Interpretation</a></li>
+<li><a class="tocLink" href="doc-viewer.aspx#secid-7359">8.10.050 Enforcement</a></li>
+<li><a class="tocLink" href="doc-viewer.aspx#secid-7360">8.10.060 Severability</a></li>
+</ul>
+</div>
+
+
+</section> 
+<section id='secid-7355' class='secLvl3 _008 _008-001 _008-001-001' tabindex='-1' data-secid='7355'> 
+<h3>8.10.010 Declaration of Policy</h3>
+
+<ol style="list-style-type:upper-alpha" class="list-v2">
+	<li style="border:none; margin-right:-.2pt; text-align:justify"><div class='li-num'>A.</div><div class='li-cont'><span style="color:black"><span style="line-height:normal"><span style="font-size:12.0pt"><span style="font-family:&quot;Times New Roman&quot;,serif">Rights Recognized - The right of an individual to be free from discrimination because of that individual&rsquo;s race, color, religion, national origin, sex, Sexual Orientation, Gender Identity, age, disability, genetic information, marital status, familial status, or military status is hereby recognized. This right shall include, but not be limited to, any of the following:</span></span></span></span>
+
+	<ol>
+		<li style="border:none; margin-right:-.2pt; text-align:justify"><div class='li-num'>1.</div><div class='li-cont'><span style="color:black"><span style="line-height:normal"><span style="font-size:12.0pt"><span style="font-family:&quot;Times New Roman&quot;,serif">The right to pursue and hold employment and the benefits associated therewith without unlawful discrimination. </span></span></span></span></div></li>
+		<li style="border:none; margin-right:-.2pt; text-align:justify"><div class='li-num'>2.</div><div class='li-cont'><span style="color:black"><span style="line-height:normal"><span style="font-size:12.0pt"><span style="font-family:&quot;Times New Roman&quot;,serif">The right to the full enjoyment of any of the services, advantages or privileges of any Place of Public Accommodation without unlawful discrimination. </span></span></span></span></div></li>
+		<li style="border:none; margin-right:-.2pt; text-align:justify"><div class='li-num'>3.</div><div class='li-cont'><span style="color:black"><span style="line-height:normal"><span style="font-size:12.0pt"><span style="font-family:&quot;Times New Roman&quot;,serif">The right to engage in property transactions, including obtaining housing for Rent or purchase, without unlawful discrimination. </span></span></span></span></div></li>
+		<li style="border:none; margin-right:-.2pt; text-align:justify"><div class='li-num'>4.</div><div class='li-cont'><span style="color:black"><span style="line-height:normal"><span style="font-size:12.0pt"><span style="font-family:&quot;Times New Roman&quot;,serif">The right to exercise any right granted under this Chapter without retaliation.</span></span></span></span></div></li>
+	</ol>
+	</div></li>
+	<li style="border:none; margin-right:-.2pt; text-align:justify"><div class='li-num'>B.</div><div class='li-cont'><span style="color:black"><span style="line-height:normal"><span style="font-size:12.0pt"><span style="font-family:&quot;Times New Roman&quot;,serif">Protection - To protect these rights, it is hereby declared to be the purpose of this Chapter to prohibit discrimination and retaliation based upon Sexual Orientation and Gender Identity and to provide a local process for the acceptance, investigation and resolution of complaints of discrimination and retaliation relating to Sexual Orientation and Gender Identity arising hereunder. If discrimination and retaliation relating to Sexual Orientation and/or Gender Identity is prohibited by federal or state law(s), and such law(s) provide procedures for addressing complaints of such discrimination and retaliation, nothing shall prevent the City from referring an Aggrieved Individual to the appropriate federal or state procedure and/or federal or state agency.</span></span></span></span></div></li>
+</ol>
+
+<p style="border:none; margin-right:-.2pt; text-align:justify">(History:&nbsp; Ord. HRC-3266&nbsp;&sect;&nbsp;1, 2019)</p>
+
+<p class='archiveNotice nullValue '>Effective on:&nbsp;1/1/1901</p>
+</section> 
+<section id='secid-7356' class='secLvl3 _008 _008-001 _008-001-002' tabindex='-1' data-secid='7356'> 
+<h3>8.10.020 Definitions</h3>
+
+<p><span style="font-size:12.0pt"><span style="line-height:115%"><span style="font-family:&quot;Times New Roman&quot;,serif"><span style="color:black">The definitions contained within the Kansas Act Against Discrimination, K.S.A. 44-1001 <em>et seq.</em>, and amendments thereto, and Overland Park Municipal Code Section 1.04.010, and amendments thereto, shall apply to this Chapter unless a term is specifically defined herein. For purposes of this Chapter, certain terms shall be interpreted or defined as follows unless the context clearly indicates otherwise</span><span style="color:#17196b"><span style="background-color:#ffffff">:</span></span></span></span></span></p>
+
+<p>&nbsp;</p>
+
+
+</section> 
+<section id='secid-7361' class='secLvl4 _008 _008-001 _008-001-002 _008-001-002-001' tabindex='-1' data-secid='7361'> 
+<p><strong class="def">Aggrieved Individual&nbsp;</strong><span style="font-size:12.0pt"><span style="line-height:115%"><span style="font-family:&quot;Times New Roman&quot;,serif"><span style="color:black">means any individual who has a good faith belief that such individual has been injured by an Unlawful Discriminatory Practice as set forth herein. </span></span></span></span></p>
+
+<p class='archiveNotice nullValue '>Effective on:&nbsp;1/1/1901</p>
+</section> 
+<section id='secid-7362' class='secLvl4 _008 _008-001 _008-001-002 _008-001-002-002' tabindex='-1' data-secid='7362'> 
+<p>​​​​​​​<strong class="def">Days&nbsp;</strong><span style="font-size:12.0pt"><span style="line-height:115%"><span style="font-family:&quot;Times New Roman&quot;,serif"><span style="color:black">means calendar </span></span></span></span><span style="font-size:12.0pt"><span style="line-height:115%"><span style="font-family:&quot;Times New Roman&quot;,serif">d<span style="color:black">ays. If a deadline falls on a day </span>C<span style="color:black">ity </span>H<span style="color:black">all is not open (e.g. a weekend, a holiday recognized by the City, emergency closure) the deadline will be extended to the next day </span>C<span style="color:black">ity </span>H<span style="color:black">all is open. </span></span></span></span></p>
+
+<p class='archiveNotice nullValue '>Effective on:&nbsp;1/1/1901</p>
+</section> 
+<section id='secid-7363' class='secLvl4 _008 _008-001 _008-001-002 _008-001-002-003' tabindex='-1' data-secid='7363'> 
+<p>​​​​​​​<strong class="def">Employee&nbsp;</strong><span style="font-size:12.0pt"><span style="line-height:115%"><span style="font-family:&quot;Times New Roman&quot;,serif"><span style="color:black">means any individual who is employed by an Employer and receives a salary or wages from such Employer, but does not include any individual employed by such individual&#39;s parents, spouse or child or in the domestic service of any individual. The term </span></span></span></span><span style="font-size:12.0pt"><span style="line-height:115%"><span style="font-family:&quot;Times New Roman&quot;,serif">E<span style="color:black">mployee does not include an independent contractor. </span></span></span></span></p>
+
+<p class='archiveNotice nullValue '>Effective on:&nbsp;1/1/1901</p>
+</section> 
+<section id='secid-7364' class='secLvl4 _008 _008-001 _008-001-002 _008-001-002-004' tabindex='-1' data-secid='7364'> 
+<p>​​​​​​​<strong class="def">Employer&nbsp;</strong><span style="font-size:12.0pt"><span style="line-height:115%"><span style="font-family:&quot;Times New Roman&quot;,serif"><span style="color:black">means: (1) any individual or entity (e.g. corporation, partnership, limited liability company, association, labor organization, mutual company, joint-stock company, trust, unincorporated organization) doing business within the City of Overland Park who has one or more </span></span></span></span><span style="font-size:12.0pt"><span style="line-height:115%"><span style="font-family:&quot;Times New Roman&quot;,serif">E<span style="color:black">mployees for each working day in each of 20 or more calendar weeks in the current or preceding calendar year, (2) the City, and (3) any City contractor. For purposes of this Chapter, the term does not include:</span> (1) <span style="color:black">The United States or any department or agency thereof, a corporation wholly owned by the government of the United States, or an Indian tribe</span>; or (2) a<span style="color:black"> Nonprofit Fraternal or Social Association/Corporation. </span></span></span></span></p>
+
+<p class='archiveNotice nullValue '>Effective on:&nbsp;1/1/1901</p>
+</section> 
+<section id='secid-7365' class='secLvl4 _008 _008-001 _008-001-002 _008-001-002-005' tabindex='-1' data-secid='7365'> 
+<p>​​​​​​​<strong class="def">Gender Identity&nbsp;</strong><span style="line-height:normal"><span style="font-size:12.0pt"><span style="font-family:&quot;Times New Roman&quot;,serif">means an individual&rsquo;s actual or perceived (by the individual or another) gender-related identity, expression, appearance, or mannerisms, or other gender-related characteristics regardless of the individual&rsquo;s designated sex at birth. </span></span></span></p>
+
+<p class='archiveNotice nullValue '>Effective on:&nbsp;1/1/1901</p>
+</section> 
+<section id='secid-7366' class='secLvl4 _008 _008-001 _008-001-002 _008-001-002-006' tabindex='-1' data-secid='7366'> 
+<p>​​​​​​​<strong class="def">Hearing Officer&nbsp;</strong><span style="font-size:12.0pt"><span style="line-height:115%"><span style="font-family:&quot;Times New Roman&quot;,serif"><span style="color:black">means a </span></span></span></span><span style="font-size:12.0pt"><span style="line-height:115%"><span style="font-family:&quot;Times New Roman&quot;,serif">M<span style="color:black">unicipal </span>C<span style="color:black">ourt </span>J<span style="color:black">udge of the City.</span></span></span></span></p>
+
+<p class='archiveNotice nullValue '>Effective on:&nbsp;1/1/1901</p>
+</section> 
+<section id='secid-7375' class='secLvl4 _008 _008-001 _008-001-002 _008-001-002-007' tabindex='-1' data-secid='7375'> 
+<p><strong class="def">Investigator</strong> means one or more individual(s) designated by the City Manager.&nbsp;</p>
+
+<p class='archiveNotice nullValue '>Effective on:&nbsp;1/1/1901</p>
+</section> 
+<section id='secid-7367' class='secLvl4 _008 _008-001 _008-001-002 _008-001-002-008' tabindex='-1' data-secid='7367'> 
+<p><strong class="def">Nonprofit Fraternal or Social Association/Corporation</strong>&nbsp;<span style="font-size:12.0pt"><span style="line-height:115%"><span style="font-family:&quot;Times New Roman&quot;,serif"><span style="color:black">means an association or corporation that meets all of the following requirements: (1) it is organized in good faith for social or fraternal purposes; (2) membership entails the payment of bona fide initiation fees or regular dues; (3) there exists a regularly established means of self-government by the members thereof clearly set forth in a constitution or by-laws adopted by the membership; (4) membership is limited and there is a regularly established means of and criteria for admitting members and for expulsion of members by the existing membership or by their duly elected or appointed delegates; and (5) it is not operated, directly or indirectly for purposes of profit for any individual or groups of individuals other than the membership as a whole. To the extent not otherwise included, the term also includes any bona fide membership club that is exempt from taxation under Title 26, Section 501(c) of the United States Code. The term does not include a labor organization.</span></span></span></span></p>
+
+<p class='archiveNotice nullValue '>Effective on:&nbsp;1/1/1901</p>
+</section> 
+<section id='secid-7368' class='secLvl4 _008 _008-001 _008-001-002 _008-001-002-009' tabindex='-1' data-secid='7368'> 
+<p><strong class="def">Place of Public Accommodation</strong>&nbsp;<span style="font-size:12.0pt"><span style="line-height:115%"><span style="font-family:&quot;Times New Roman&quot;,serif"><span style="color:black">shall include every establishment within the city that is open to the general public and offers any product, service or facility. The term Place of Public Accommodation shall include, but not be limited to, all taverns, hotels, motels, apartment hotels, apartment houses with one or more tenant units, restaurants or any place where food or beverages are sold, retail and wholesale establishments, theaters, motion picture houses, museums, bowling alleys, golf courses and all public conveyances, as well as the stations or terminals thereof. The term Place of Public Accommodation shall not include any establishment operated by a Nonprofit Fraternal or Social Association/Corporation, or bona fide civic, political or </span></span></span></span><span style="font-size:12.0pt"><span style="line-height:115%"><span style="font-family:&quot;Times New Roman&quot;,serif">r<span style="color:black">eligious </span>o<span style="color:black">rganization, which restricts its products, facilities and services to the members of such association/corporation or organization, their guests, or individuals who promote the principles for which the association/corporation or organization is established or maintained. </span></span></span></span></p>
+
+<p class='archiveNotice nullValue '>Effective on:&nbsp;1/1/1901</p>
+</section> 
+<section id='secid-7369' class='secLvl4 _008 _008-001 _008-001-002 _008-001-002-010' tabindex='-1' data-secid='7369'> 
+<p><strong class="def">Religious Organization<span style="color:#111111"><span style="font-size:14.6667px">&nbsp;</span></span></strong><span style="font-size:12.0pt"><span style="line-height:115%"><span style="font-family:&quot;Times New Roman&quot;,serif"><span style="color:black">means a church, mosque, temple, synagogue, nondenominational ministry, interdenominational and ecumenical organization, mission organization, faith-based charity, faith-based social agency, faith-based educational institution, or other entity principally devoted to religious practice, teaching or education. </span></span></span></span></p>
+
+<p class='archiveNotice nullValue '>Effective on:&nbsp;1/1/1901</p>
+</section> 
+<section id='secid-7370' class='secLvl4 _008 _008-001 _008-001-002 _008-001-002-011' tabindex='-1' data-secid='7370'> 
+<p><strong class="def">Rent</strong>&nbsp;<span style="font-size:12.0pt"><span style="line-height:115%"><span style="font-family:&quot;Times New Roman&quot;,serif"><span style="color:black">means to lease, to sublease, to let or otherwise to grant the right to occupy premises not owned by the occupant in exchange for payment or other consideration.</span></span></span></span></p>
+
+<p class='archiveNotice nullValue '>Effective on:&nbsp;1/1/1901</p>
+</section> 
+<section id='secid-7371' class='secLvl4 _008 _008-001 _008-001-002 _008-001-002-012' tabindex='-1' data-secid='7371'> 
+<p><strong class="def">Rental Housing</strong>&nbsp;<span style="line-height:normal"><span style="font-size:12.0pt"><span style="font-family:&quot;Times New Roman&quot;,serif"><span style="color:black">means any real property, consisting of one or more dwelling units, which is required to obtain a license or permit or is otherwise addressed in Chapter 5.75 of this Code. </span></span></span></span></p>
+
+<p class='archiveNotice nullValue '>Effective on:&nbsp;1/1/1901</p>
+</section> 
+<section id='secid-7372' class='secLvl4 _008 _008-001 _008-001-002 _008-001-002-013' tabindex='-1' data-secid='7372'> 
+<p><strong class="def">Respondent</strong>&nbsp;<span style="font-size:12.0pt"><span style="line-height:115%"><span style="font-family:&quot;Times New Roman&quot;,serif"><span style="color:black">means the individual or entity against whom a complaint alleging discrimination or retaliation has been filed with the City. </span></span></span></span></p>
+
+<p class='archiveNotice nullValue '>Effective on:&nbsp;1/1/1901</p>
+</section> 
+<section id='secid-7373' class='secLvl4 _008 _008-001 _008-001-002 _008-001-002-014' tabindex='-1' data-secid='7373'> 
+<p><strong class="def">Sexual Orientation</strong>&nbsp;<span style="font-size:12.0pt"><span style="line-height:115%"><span style="font-family:&quot;Times New Roman&quot;,serif"><span style="color:black">means an individual&rsquo;s actual or perceived (by the individual or another) emotional, romantic, or sexual attraction to other people, such as heterosexual, homosexual, bisexual, pansexual or asexual. </span></span></span></span></p>
+
+<p class='archiveNotice nullValue '>Effective on:&nbsp;1/1/1901</p>
+</section> 
+<section id='secid-7374' class='secLvl4 _008 _008-001 _008-001-002 _008-001-002-015' tabindex='-1' data-secid='7374'> 
+<p><strong class="def">Unlawful Discriminatory Practices</strong>&nbsp;<span style="font-size:12.0pt"><span style="line-height:115%"><span style="font-family:&quot;Times New Roman&quot;,serif"><span style="color:black">means those practices prohibited by Section 8.10.030 of this Chapter.</span></span></span></span></p>
+
+<p>&nbsp;</p>
+
+<p><span style="font-size:12.0pt"><span style="line-height:115%"><span style="font-family:&quot;Times New Roman&quot;,serif"><span style="color:black">(History: Ord. HRC-3266 </span></span></span></span>&sect;&nbsp;<span style="font-size:12.0pt"><span style="line-height:115%"><span style="font-family:&quot;Times New Roman&quot;,serif"><span style="color:black">2, 2019)&nbsp;</span></span></span></span></p>
+
+<p class='archiveNotice nullValue '>Effective on:&nbsp;1/1/1901</p>
+</section> 
+<section id='secid-7357' class='secLvl3 _008 _008-001 _008-001-003' tabindex='-1' data-secid='7357'> 
+<h3>8.10.030 Unlawful Discriminatory Practices</h3>
+
+<p style="border:none"><span style="line-height:normal"><span style="font-size:12.0pt"><span style="background-color:white"><span style="font-family:&quot;Times New Roman&quot;,serif"><span style="color:black">In order to protect specific individuals within the city from discrimination on the basis of their Sexual Orientation or Gender Identity, it shall be a duty of each individual or entity doing business within the city to not commit the following Unlawful Discriminatory Practices:</span></span></span></span></span></p>
+
+<ol style="list-style-type:upper-alpha" class="list-v2">
+	<li style="border:none; margin-right:-.2pt"><div class='li-num'>A.</div><div class='li-cont'><span style="color:black"><span style="line-height:normal"><span style="font-size:12.0pt"><span style="font-family:&quot;Times New Roman&quot;,serif">Employment - It shall be an Unlawful Discriminatory Practice for an Employer to refuse to hire or employ, or to discharge from employment or to otherwise discriminate against an otherwise qualified </span></span><span style="font-size:12.0pt"><span style="font-family:&quot;Times New Roman&quot;,serif">E</span></span><span style="font-size:12.0pt"><span style="font-family:&quot;Times New Roman&quot;,serif">mployee in compensation or in terms, conditions or privileges of employment, because of the </span></span><span style="font-size:12.0pt"><span style="font-family:&quot;Times New Roman&quot;,serif">E</span></span><span style="font-size:12.0pt"><span style="font-family:&quot;Times New Roman&quot;,serif">mployee&rsquo;s Sexual Orientation or Gender Identity. This Chapter shall not apply to a Religious Organization with respect to the employment of individuals performing work connected with the carrying on of the organization&rsquo;s religious teaching, ministry, religious duties or practices, advancement of religion, or other religious activities. </span></span></span></span></div></li>
+	<li style="border:none; margin-right:-.2pt"><div class='li-num'>B.</div><div class='li-cont'><span style="color:black"><span style="line-height:normal"><span style="font-size:12.0pt"><span style="font-family:&quot;Times New Roman&quot;,serif">Housing - It shall be an Unlawful Discriminatory Practice for an individual or entity to discriminate against any individual in the terms, conditions, or privileges of the sale or Rent of real property within the city including Rental Housing, or in the provision of services or facilities in connection therewith, because of an individual&rsquo;s Sexual Orientation or Gender Identity, or to discriminate against any individual in such individual&#39;s use or occupancy of Rental Housing within the city because of the Sexual Orientation or Gender Identity of individuals with whom such individual associates. </span></span><span style="font-size:12.0pt"><span style="font-family:&quot;Times New Roman&quot;,serif">This provision shall not apply to the Rent of real property</span></span><span style="font-size:12.0pt"><span style="font-family:&quot;Times New Roman&quot;,serif"> containing </span></span><span style="font-size:12.0pt"><span style="font-family:&quot;Times New Roman&quot;,serif">dwelling units</span></span><span style="font-size:12.0pt"><span style="font-family:&quot;Times New Roman&quot;,serif"> occupied or intended to be occupied by no more than four pers</span></span><span style="font-size:12.0pt"><span style="font-family:&quot;Times New Roman&quot;,serif">ons or </span></span><span style="font-size:12.0pt"><span style="font-family:&quot;Times New Roman&quot;,serif">families living independently of each other, if the owner actually maintains and occupies one of such </span></span><span style="font-size:12.0pt"><span style="font-family:&quot;Times New Roman&quot;,serif">dwelling units </span></span><span style="font-size:12.0pt"><span style="font-family:&quot;Times New Roman&quot;,serif">as the owner&#39;s residence. </span></span><span style="font-size:12.0pt"><span style="font-family:&quot;Times New Roman&quot;,serif">Additionally, n</span></span><span style="font-size:12.0pt"><span style="font-family:&quot;Times New Roman&quot;,serif">othing in this Chapter shall prohibit: </span></span></span></span>
+	<ol>
+		<li style="border:none; margin-right:-.2pt"><div class='li-num'>1.</div><div class='li-cont'><span style="color:black"><span style="line-height:normal"><span style="font-size:12.0pt"><span style="font-family:&quot;Times New Roman&quot;,serif">A Religious Organization or any nonprofit institution or organization operated, supervised or controlled by or in conjunction with a Religious Organization, from limiting the sale, rental or occupancy of real property or Rental Housing which it owns or operates for other than a commercial purpose to individuals of the same religion or individuals who promote the religious principles for which it is established or maintained, or from giving preference to such individuals. </span></span></span></span></div></li>
+		<li style="border:none; margin-right:-.2pt"><div class='li-num'>2.</div><div class='li-cont'><span style="color:black"><span style="line-height:normal"><span style="font-size:12.0pt"><span style="font-family:&quot;Times New Roman&quot;,serif">A Nonprofit Fraternal or Social Association/Corporation, which as an incident to its primary purpose or purposes provides </span></span><span style="font-size:12.0pt"><span style="font-family:&quot;Times New Roman&quot;,serif">real property or Rental Housing </span></span><span style="font-size:12.0pt"><span style="font-family:&quot;Times New Roman&quot;,serif">which it owns or operates for other than a commercial purpose, from limiting the rental or occupancy of such </span></span><span style="font-size:12.0pt"><span style="font-family:&quot;Times New Roman&quot;,serif">real property or Rental Housing </span></span><span style="font-size:12.0pt"><span style="font-family:&quot;Times New Roman&quot;,serif">to individuals who are members or individuals who promote the principles for which it is established or maintained, or from giving preference to such individuals.</span></span></span></span></div></li>
+	</ol>
+	</div></li>
+	<li style="border:none; margin-right:-.2pt"><div class='li-num'>C.</div><div class='li-cont'><span style="color:black"><span style="line-height:normal"><span style="font-size:12.0pt"><span style="font-family:&quot;Times New Roman&quot;,serif">Public Accommodation - It shall be an Unlawful Discriminatory Practice for the owner, operator, lessee, manager, agent or </span></span><span style="font-size:12.0pt"><span style="font-family:&quot;Times New Roman&quot;,serif">E</span></span><span style="font-size:12.0pt"><span style="font-family:&quot;Times New Roman&quot;,serif">mployee of any Place of Public Accommodation to refuse, deny or make a distinction, directly or indirectly, in offering its goods, services, facilities, privileges, advantages or accommodations to any individual because of their Sexual Orientation or Gender Identity. Nothing in this Chapter shall be interpreted to apply to a Religious Organization&rsquo;s performance of a religious function, including but not limited to the: </span></span></span></span>
+	<ol>
+		<li style="border:none; margin-right:-.2pt"><div class='li-num'>1.</div><div class='li-cont'><span style="color:black"><span style="line-height:normal"><span style="font-size:12.0pt"><span style="font-family:&quot;Times New Roman&quot;,serif">provision of goods, services, facilities, privileges, advantages or accommodations related to the solemnization or celebration of a marriage, or </span></span></span></span></div></li>
+		<li style="border:none; margin-right:-.2pt"><div class='li-num'>2.</div><div class='li-cont'><span style="color:black"><span style="line-height:normal"><span style="font-size:12.0pt"><span style="font-family:&quot;Times New Roman&quot;,serif">performance of its religious teachings, ministry, religious duties or practices, advancement of religion, or other religious activities.</span></span></span></span></div></li>
+	</ol>
+	</div></li>
+</ol>
+
+<p style="border:none; margin-right:-.2pt">(History:&nbsp; Ord. HRC-3266&nbsp;&sect; 3, 2019)</p>
+
+<p class='archiveNotice nullValue '>Effective on:&nbsp;1/1/1901</p>
+</section> 
+<section id='secid-7358' class='secLvl3 _008 _008-001 _008-001-004' tabindex='-1' data-secid='7358'> 
+<h3>8.10.040 Interpretation</h3>
+
+<p style="border:none; margin-right:-.2pt"><span style="line-height:normal"><span style="font-size:12.0pt"><span style="font-family:&quot;Times New Roman&quot;,serif"><span style="color:black">Nothing in this Chapter shall be construed to: </span></span></span></span></p>
+
+<ol style="list-style-type:upper-alpha" class="list-v2">
+	<li style="border:none; margin-right:-.2pt"><div class='li-num'>A.</div><div class='li-cont'><span style="color:black"><span style="line-height:normal"><span style="font-size:12.0pt"><span style="font-family:&quot;Times New Roman&quot;,serif">Prohibit an Employer from requiring an </span></span><span style="font-size:12.0pt"><span style="font-family:&quot;Times New Roman&quot;,serif">E</span></span><span style="font-size:12.0pt"><span style="font-family:&quot;Times New Roman&quot;,serif">mployee, during the </span></span><span style="font-size:12.0pt"><span style="font-family:&quot;Times New Roman&quot;,serif">E</span></span><span style="font-size:12.0pt"><span style="font-family:&quot;Times New Roman&quot;,serif">mployee&#39;s hours at work, to adhere to reasonable dress or grooming standards not prohibited by other provisions of </span></span><span style="font-size:12.0pt"><span style="font-family:&quot;Times New Roman&quot;,serif">f</span></span><span style="font-size:12.0pt"><span style="font-family:&quot;Times New Roman&quot;,serif">ederal, </span></span><span style="font-size:12.0pt"><span style="font-family:&quot;Times New Roman&quot;,serif">s</span></span><span style="font-size:12.0pt"><span style="font-family:&quot;Times New Roman&quot;,serif">tate, or local law. </span></span></span></span></div></li>
+	<li style="border:none; margin-right:-.2pt"><div class='li-num'>B.</div><div class='li-cont'><span style="color:black"><span style="line-height:normal"><span style="font-size:12.0pt"><span style="font-family:&quot;Times New Roman&quot;,serif">Require an Employer to hire unqualified individuals or to retain </span></span><span style="font-size:12.0pt"><span style="font-family:&quot;Times New Roman&quot;,serif">E</span></span><span style="font-size:12.0pt"><span style="font-family:&quot;Times New Roman&quot;,serif">mployees when there is a legitimate non-discriminatory or non-retaliatory reason to hire another candidate or terminate employment, or prevent any adverse action against an </span></span><span style="font-size:12.0pt"><span style="font-family:&quot;Times New Roman&quot;,serif">Employee</span></span><span style="font-size:12.0pt"><span style="font-family:&quot;Times New Roman&quot;,serif"> that would have been taken regardless of the </span></span><span style="font-size:12.0pt"><span style="font-family:&quot;Times New Roman&quot;,serif">Employee</span></span><span style="font-size:12.0pt"><span style="font-family:&quot;Times New Roman&quot;,serif">&rsquo;s Sexual Orientation or Gender Identity. </span></span></span></span></div></li>
+	<li style="border:none; margin-right:-.2pt"><div class='li-num'>C.</div><div class='li-cont'><span style="color:black"><span style="line-height:normal"><span style="font-size:12.0pt"><span style="font-family:&quot;Times New Roman&quot;,serif">Prohibit an Employer from requiring all of its </span></span><span style="font-size:12.0pt"><span style="font-family:&quot;Times New Roman&quot;,serif">E</span></span><span style="font-size:12.0pt"><span style="font-family:&quot;Times New Roman&quot;,serif">mployees, as a condition of employment, to utilize the Employer&rsquo;s applicable established internal human resource procedure(s) to address any allegation of discrimination or retaliation in the workplace. The fact that an Employer requires an </span></span><span style="font-size:12.0pt"><span style="font-family:&quot;Times New Roman&quot;,serif">E</span></span><span style="font-size:12.0pt"><span style="font-family:&quot;Times New Roman&quot;,serif">mployee to utilize the Employer&rsquo;s applicable established internal human resource procedure(s) to address any allegation of discrimination or retaliation in the workplace shall not, in itself, be deemed a violation of this Chapter. However, an </span></span><span style="font-size:12.0pt"><span style="font-family:&quot;Times New Roman&quot;,serif">E</span></span><span style="font-size:12.0pt"><span style="font-family:&quot;Times New Roman&quot;,serif">mployee may simultaneously file a complaint with the City as provided in this Chapter</span></span><span style="font-size:12.0pt"><span style="font-family:&quot;Times New Roman&quot;,serif">, and</span></span><span style="font-size:12.0pt"><span style="font-family:&quot;Times New Roman&quot;,serif"> completion of the Employer&rsquo;s procedures is not a prerequisite to filing a complaint with the City. </span></span></span></span></div></li>
+	<li style="border:none; margin-right:-.2pt"><div class='li-num'>D.</div><div class='li-cont'><span style="color:black"><span style="line-height:normal"><span style="font-size:12.0pt"><span style="font-family:&quot;Times New Roman&quot;,serif">Require any person or entity subject to this Chapter to make changes requiring a building permit to any existing facility, except as otherwise required by law. </span></span></span></span></div></li>
+	<li style="border:none; margin-right:-.2pt"><div class='li-num'>E.</div><div class='li-cont'><span style="color:black"><span style="line-height:normal"><span style="font-size:12.0pt"><span style="font-family:&quot;Times New Roman&quot;,serif">Prohibit an Employer or Place of Public Accommodation </span></span><span style="font-size:12.0pt"><span style="font-family:&quot;Times New Roman&quot;,serif">from </span></span><span style="font-size:12.0pt"><span style="font-family:&quot;Times New Roman&quot;,serif">posting signs for restrooms and dressing rooms based on gender. </span></span></span></span></div></li>
+	<li style="border:none; margin-right:-.2pt"><div class='li-num'>F.</div><div class='li-cont'><span style="color:black"><span style="line-height:normal"><span style="font-size:12.0pt"><span style="font-family:&quot;Times New Roman&quot;,serif">Prohibit a Nonprofit Fraternal or Social Association/Corporation or Religious Organization from limiting membership as is calculated by the association/corporation or organization to promote the principles for which it is established or maintained.</span></span></span></span></div></li>
+	<li style="border:none; margin-right:-.2pt"><div class='li-num'>G.</div><div class='li-cont'><span style="color:black"><span style="line-height:normal"><span style="font-size:12.0pt"><span style="font-family:&quot;Times New Roman&quot;,serif">Be construed or applied in a manner that violates any law or unlawfully infringes upon any rights under the </span></span><span style="font-size:12.0pt"><span style="font-family:&quot;Times New Roman&quot;,serif">F</span></span><span style="font-size:12.0pt"><span style="font-family:&quot;Times New Roman&quot;,serif">irst </span></span><span style="font-size:12.0pt"><span style="font-family:&quot;Times New Roman&quot;,serif">A</span></span><span style="font-size:12.0pt"><span style="font-family:&quot;Times New Roman&quot;,serif">mendment of the </span></span><span style="font-size:12.0pt"><span style="font-family:&quot;Times New Roman&quot;,serif">United States </span></span><span style="font-size:12.0pt"><span style="font-family:&quot;Times New Roman&quot;,serif">Constitution, Section 7 of the Kansas Constitution Bill of Rights, the Adoption Protection Act (K.S.A. 60-5322, and amendments thereto), or the Kansas Preservation of Religious Freedom Act (K.S.A. 60-5301 <em>et seq.</em>, and amendments thereto). </span></span></span></span></div></li>
+	<li style="border:none; margin-right:-.2pt"><div class='li-num'>H.</div><div class='li-cont'><span style="color:black"><span style="line-height:normal"><span style="font-size:12.0pt"><span style="font-family:&quot;Times New Roman&quot;,serif">Make it lawful to discriminate or retaliate against individuals on the basis of race, color, religion, national origin, sex, age, disability, genetic information, marital status, familial status, or military status. Such discrimination and retaliation is not addressed in this Chapter because federal and state laws consistently address unlawful discriminatory and retaliatory practices related to those characteristics and provide appropriate procedures for addressing complaints for such discrimination and retaliation. </span></span></span></span></div></li>
+</ol>
+
+<p style="border:none; margin-right:-.2pt">(History:&nbsp; Ord. HRC-3266&nbsp;&sect; 4, 2019)</p>
+
+<p class='archiveNotice nullValue '>Effective on:&nbsp;1/1/1901</p>
+</section> 
+<section id='secid-7359' class='secLvl3 _008 _008-001 _008-001-005' tabindex='-1' data-secid='7359'> 
+<h3>8.10.050 Enforcement</h3>
+
+<ol style="list-style-type:upper-alpha" class="list-v2">
+	<li style="border:none; margin-right:-.2pt"><div class='li-num'>A.</div><div class='li-cont'><span style="color:black"><span style="line-height:normal"><span style="font-size:12.0pt"><span style="font-family:&quot;Times New Roman&quot;,serif">An Aggrieved Individual may file a written complaint with the </span></span><span style="font-size:12.0pt"><span style="font-family:&quot;Times New Roman&quot;,serif">C</span></span><span style="font-size:12.0pt"><span style="font-family:&quot;Times New Roman&quot;,serif">ity </span></span><span style="font-size:12.0pt"><span style="font-family:&quot;Times New Roman&quot;,serif">C</span></span><span style="font-size:12.0pt"><span style="font-family:&quot;Times New Roman&quot;,serif">lerk that the individual has been, or is being, subject to an alleged Unlawful Discriminatory Practice(s) as prohibited by this Chapter. The complaint may be filed personally or through an attorney (or if a minor, through the minor&rsquo;s parent, legal guardian or attorney) and shall be completed on a form provided by the City. The complaint form shall state the names and contact information of the Aggrieved Individual, the individual(s) and/or entity/entities alleged to have committed the Unlawful Discriminatory Practice(s), a description of the alleged unlawful conduct, and all other information as may be required by the form provided by the City. The complaint form shall only be considered complete if all information required by the City&rsquo;s form has been provided to the extent such information is reasonably available to the Aggrieved Individual.</span></span></span></span></div></li>
+	<li style="border:none; margin-right:-.2pt"><div class='li-num'>B.</div><div class='li-cont'><span style="color:black"><span style="line-height:normal"><span style="font-size:12.0pt"><span style="font-family:&quot;Times New Roman&quot;,serif">The complaint form must be filed within sixty (60) Days of the alleged Unlawful Discriminatory Practice, unless the act complained of constitutes a continuing pattern or practice of discrimination, in which event it must be filed within sixty (60) Days of the last act of discrimination. </span></span></span></span></div></li>
+	<li style="border:none; margin-right:-.2pt"><div class='li-num'>C.</div><div class='li-cont'><span style="color:black"><span style="line-height:normal"><span style="font-size:12.0pt"><span style="font-family:&quot;Times New Roman&quot;,serif">The complaint may be referred to an approved mediator for non-binding mediation at the request of the parties. The mediator shall either be a person agreed upon by the Aggrieved Individual and the Respondent or, if no such agreement can be reached within a reasonable time following the filing of the complaint, a person selected by the City Manager will serve as the mediator. Any fees charged by the mediator shall be split equally between the parties. If mediation is not successfully completed within sixty (60) Days of the referral, or a party chooses not to pursue mediation, the complaint shall be referred to the Investigator.</span></span></span></span></div></li>
+	<li style="border:none; margin-right:-.2pt"><div class='li-num'>D.</div><div class='li-cont'><span style="color:black"><span style="line-height:normal"><span style="font-size:12.0pt"><span style="font-family:&quot;Times New Roman&quot;,serif">Upon receipt of a complete complaint, the Investigator shall notify the Respondent(s) of the complaint, providing sufficient details related to the complaint so the Respondent(s) may respond. The Investigator shall give the Respondent(s) thirty (30) Days to file a written answer to the complaint, and to provide any documentation or evidence related to the complaint. The Investigator may, at the request of Respondent(s), extend the answer period an additional thirty (30) Days. If the Respondent accused of violating the provisions of this Chapter is the City, the City will engage an independent Investigator who shall not otherwise be an </span></span><span style="font-size:12.0pt"><span style="font-family:&quot;Times New Roman&quot;,serif">E</span></span><span style="font-size:12.0pt"><span style="font-family:&quot;Times New Roman&quot;,serif">mployee, agent, or contractor of the City. </span></span></span></span></div></li>
+	<li style="border:none; margin-right:-.2pt"><div class='li-num'>E.</div><div class='li-cont'><span style="color:black"><span style="line-height:normal"><span style="font-size:12.0pt"><span style="font-family:&quot;Times New Roman&quot;,serif">Following the conclusion of the answer period, the Investigator may initiate an investigation period, requesting that the Aggrieved Individual and/or Respondent(s) provide additional information, documentation, statements or testimony as needed to facilitate the investigation of the complaint. This investigation period shall be concluded within a reasonable period of time following the submission of additional information, documentation, or testimony.</span></span></span></span></div></li>
+	<li style="border:none; margin-right:-.2pt"><div class='li-num'>F.</div><div class='li-cont'><span style="color:black"><span style="line-height:normal"><span style="font-size:12.0pt"><span style="font-family:&quot;Times New Roman&quot;,serif">Upon conclusion of the investigation period, the Investigator shall forward all evidence and other information received during the investigation to the Law Department. The Law Depart<span style="background-color:white">ment will make a determination whether probable cause exists that: (i) the Respondent(s) committed an Unlawful Discriminatory Practice</span></span></span><span style="font-size:12.0pt"><span style="background-color:white"><span style="font-family:&quot;Times New Roman&quot;,serif">, and (ii) </span></span></span><span style="font-size:12.0pt"><span style="background-color:white"><span style="font-family:&quot;Times New Roman&quot;,serif">imposition of a penalty </span></span></span><span style="font-size:12.0pt"><span style="background-color:white"><span style="font-family:&quot;Times New Roman&quot;,serif">pursuant to </span></span></span><span style="font-size:12.0pt"><span style="background-color:white"><span style="font-family:&quot;Times New Roman&quot;,serif">this Chapter: </span></span></span></span></span>
+	<ol>
+		<li style="border:none; margin-right:-.2pt"><div class='li-num'>1.</div><div class='li-cont'><span style="color:black"><span style="line-height:normal"><span style="font-size:12.0pt"><span style="background-color:white"><span style="font-family:&quot;Times New Roman&quot;,serif">Would not constitute an unlawful </span></span></span><span style="font-size:12.0pt"><span style="background-color:white"><span style="font-family:&quot;Times New Roman&quot;,serif">burden of a person&#39;s right to exercise of religion </span></span></span><span style="font-size:12.0pt"><span style="background-color:white"><span style="font-family:&quot;Times New Roman&quot;,serif">pursuant to</span></span></span><span style="font-size:12.0pt"><span style="background-color:white"><span style="font-family:&quot;Times New Roman&quot;,serif"> Section 7 of the Kansas Constitution Bill of Rights or the Kansas Preservation of Religious Freedom Act (K.S.A. 60-5301 <em>et seq.</em>, and amendments thereto), or an </span></span></span><span style="font-size:12.0pt"><span style="background-color:white"><span style="font-family:&quot;Times New Roman&quot;,serif">unlawful </span></span></span><span style="font-size:12.0pt"><span style="background-color:white"><span style="font-family:&quot;Times New Roman&quot;,serif">burden of a person&rsquo;s freedom of speech, expression, or association (as protected by the </span></span></span><span style="font-size:12.0pt"><span style="background-color:white"><span style="font-family:&quot;Times New Roman&quot;,serif">F</span></span></span><span style="font-size:12.0pt"><span style="background-color:white"><span style="font-family:&quot;Times New Roman&quot;,serif">irst </span></span></span><span style="font-size:12.0pt"><span style="background-color:white"><span style="font-family:&quot;Times New Roman&quot;,serif">A</span></span></span><span style="font-size:12.0pt"><span style="background-color:white"><span style="font-family:&quot;Times New Roman&quot;,serif">mendment of the </span></span></span><span style="font-size:12.0pt"><span style="background-color:white"><span style="font-family:&quot;Times New Roman&quot;,serif">United States </span></span></span><span style="font-size:12.0pt"><span style="background-color:white"><span style="font-family:&quot;Times New Roman&quot;,serif">Constitution or the Kansas Constitution); or </span></span></span></span></span></div></li>
+		<li style="border:none; margin-right:-.2pt"><div class='li-num'>2.</div><div class='li-cont'><span style="color:black"><span style="line-height:normal"><span style="font-size:12.0pt"><span style="background-color:white"><span style="font-family:&quot;Times New Roman&quot;,serif">If imposition of a penalty would constitute a burden, a</span></span></span><span style="font-size:12.0pt"><span style="background-color:white"><span style="font-family:&quot;Times New Roman&quot;,serif">pplication of such burden to the person </span></span></span><span style="font-size:12.0pt"><span style="background-color:white"><span style="font-family:&quot;Times New Roman&quot;,serif">would be </span></span></span><span style="font-size:12.0pt"><span style="background-color:white"><span style="font-family:&quot;Times New Roman&quot;,serif">in furtherance of a compelling governmental interest and such application </span></span></span><span style="font-size:12.0pt"><span style="background-color:white"><span style="font-family:&quot;Times New Roman&quot;,serif">would be</span></span></span><span style="font-size:12.0pt"><span style="background-color:white"><span style="font-family:&quot;Times New Roman&quot;,serif"> the least restrictive means of furthering that compelling governmental interest.</span></span></span></span></span></div></li>
+	</ol>
+	</div></li>
+	<li style="border:none; margin-right:-.2pt"><div class='li-num'>G.</div><div class='li-cont'><span style="color:black"><span style="line-height:normal"><span style="font-size:12.0pt"><span style="font-family:&quot;Times New Roman&quot;,serif">If the Law Department finds that probable cause does not exist, then the Law Department shall notify the Aggrieved Individual and the Respondent(s) within a reasonable period of time, and this notification shall be considered a final order and no further action shall be taken by the City. </span></span></span></span></div></li>
+	<li style="border:none; margin-right:-.2pt"><div class='li-num'>H.</div><div class='li-cont'><span style="color:black"><span style="line-height:normal"><span style="font-size:12.0pt"><span style="font-family:&quot;Times New Roman&quot;,serif">If the Law Department finds probable cause </span></span><span style="font-size:12.0pt"><span style="font-family:&quot;Times New Roman&quot;,serif">does exist</span></span><span style="font-size:12.0pt"><span style="font-family:&quot;Times New Roman&quot;,serif">, the Law Department shall notify the Aggrieved Individual and Respondent(s) and request conciliation and settlement. If a party refuses to participate in conciliation and settlement, or if a settlement agreement is not executed within sixty (60) Days of the date of the finding of probable cause (unless such time is extended by the Law Department for good cause and with the agreement of all parties), the matter shall be referred to the Hearing Officer for review, who shall sit as an administrative judge for purposes of this Chapter. </span></span></span></span></div></li>
+	<li style="border:none; margin-right:-.2pt"><div class='li-num'>I.</div><div class='li-cont'><span style="color:black"><span style="line-height:normal"><span style="font-size:12.0pt"><span style="font-family:&quot;Times New Roman&quot;,serif">Upon referral to the Hearing Officer, the Hearing Officer shall schedule a hearing on the complaint. The parties shall be given ten (10) Days&rsquo; written notice via certified mail of the date, time, and place of the hearing. At such hearing, the parties and the Law Department shall be entitled to call witnesses and to present such other evidence as appropriate. <span style="background-color:white">The hearing shall be conducted in accordance with such procedures as may be established by the Hearing Officer, but the rules of evidence used in courts of law need not be strictly enforced. </span></span></span></span></span></div></li>
+	<li style="border:none; margin-right:-.2pt" value="10"><div class='li-num'>J.</div><div class='li-cont'><span style="color:black"><span style="line-height:normal"><span style="font-size:12.0pt"><span style="background-color:white"><span style="font-family:&quot;Times New Roman&quot;,serif">Any determination of the Hearing Officer that the Respondent(s) committed an Unlawful Discriminatory Practice shall be issued in writing within sixty (60) Days of the hearing, shall be based upon the preponderance of the evidence, and shall set forth the essential elements and facts of the determination. If the Hearing Officer finds that a civil violation of this Chapter has occurred, the Hearing Officer may </span></span></span><span style="font-size:12.0pt"><span style="background-color:white"><span style="font-family:&quot;Times New Roman&quot;,serif">impose</span></span></span><span style="font-size:12.0pt"><span style="background-color:white"><span style="font-family:&quot;Times New Roman&quot;,serif"> a civil penalty upon the Respondent</span></span></span><span style="font-size:12.0pt"><span style="background-color:white"><span style="font-family:&quot;Times New Roman&quot;,serif">(s) </span></span></span><span style="font-size:12.0pt"><span style="background-color:white"><span style="font-family:&quot;Times New Roman&quot;,serif">in the amount of up to $1,000.00 for each violation. Each party is to bear their own attorneys&rsquo; fees, if any.</span></span></span></span></span></div></li>
+	<li style="border:none; margin-right:-.2pt"><div class='li-num'>K.</div><div class='li-cont'><span style="color:black"><span style="line-height:normal"><span style="font-size:12.0pt"><span style="background-color:white"><span style="font-family:&quot;Times New Roman&quot;,serif">The filing of a complaint for the alleged violation of this Chapter or a response thereto shall in no way preclude any party from seeking other relief under state or federal law, </span></span></span><span style="font-size:12.0pt"><span style="background-color:white"><span style="font-family:&quot;Times New Roman&quot;,serif"><span style="color:black">including a private right of action arising from any breach of a duty owed to the class of persons protected by this Chapter. </span></span></span></span></span></span></div></li>
+</ol>
+
+<p>(History:&nbsp; Ord. HRC-3266&nbsp;&sect;&nbsp;5, 2019)<span style="color:#17196b"><span style="background-color:#e0e0e0">&nbsp;</span></span></p>
+
+<p class='archiveNotice nullValue '>Effective on:&nbsp;1/1/1901</p>
+</section> 
+<section id='secid-7360' class='secLvl3 _008 _008-001 _008-001-006' tabindex='-1' data-secid='7360'> 
+<h3>8.10.060 Severability</h3>
+
+<p><span style="line-height:normal"><span style="font-size:12.0pt"><span style="font-family:&quot;Times New Roman&quot;,serif"><span style="color:black">Should any section, subsection, sentence, clause or phrase of this Chapter, or the application thereof to any person or circumstance, be declared to be unconstitutional or invalid or unenforceable, such determination shall not affect the validity of the remaining portions of this Chapter. </span></span></span></span></p>
+
+<p>(History:&nbsp; Ord. HRC-3266&nbsp;&sect; 6, 2019)</p>
+
+<p class='archiveNotice nullValue '>Effective on:&nbsp;1/1/1901</p>
+</section> 
+<section id='secid-7688' class='secLvl2 _008 _008-002' tabindex='-1' data-secid='7688'> 
+<h1>Repealed Sections of Title 8</h1>
+
+<p>&nbsp;</p>
+
+
+</section> 
+<section id='secid-1731' class='secLvl3 _008 _008-002 _008-002-001' tabindex='-1' data-secid='1731'> 
+<h2><strong>8.04 Human Rights CommissioN&nbsp;</strong></h2>
+
+<div class="mini-TOC" data-endlevel="4" data-id="mini-TOC" data-startlevel="3">
+<div class="mini-TOC-label"><strong>Contents:</strong></div>
+
+<ul><li><a class="tocLink" href="doc-viewer.aspx#secid-1731">8.04 Human Rights Commission (Repealed)</a><ul><li><a class="tocLink" href="doc-viewer.aspx#secid-1732">8.04.010  Adopted (Repealed)</a></li>
+<li><a class="tocLink" href="doc-viewer.aspx#secid-1733">8.04.020  Agreement (Repealed)</a></li>
+</ul>
+</li>
+</ul>
+</div>
+
+
+<p>&nbsp;</p>
+
+
+</section> 
+<section id='secid-1732' class='secLvl4 _008 _008-002 _008-002-001 _008-002-001-001' tabindex='-1' data-secid='1732'> 
+<h3><strong>8.04.010 Adopted.</strong></h3>
+
+<p>Repealed;&nbsp; See Ordinance No. HRC-3266</p>
+
+<p>(History: Ord. HRC-3266&nbsp;&sect;&nbsp;1, 2019;Ord. HRC-793 &sect;1, 74)</p>
+
+<p class='archiveNotice nullValue '>Effective on:&nbsp;1/1/1901</p>
+</section> 
+<section id='secid-1733' class='secLvl4 _008 _008-002 _008-002-001 _008-002-001-002' tabindex='-1' data-secid='1733'> 
+<h3><strong>8.04.020 Agreement.</strong></h3>
+
+<p>Repealed; See Ordinance No. HRC-3266</p>
+
+<p>&nbsp;</p>
+
+<p>(History:&nbsp; Ord. HRC-3266&nbsp;&sect; 7, 2019)</p>
+
+<p class='archiveNotice nullValue '>Effective on:&nbsp;1/1/1901</p>
+</section> 
+<section id='secid-1745' class='secLvl3 _008 _008-002 _008-002-002' tabindex='-1' data-secid='1745'> 
+<h2>
+	<strong>8.08</strong><strong> Fair Housing</strong></h2>
+<div class="mini-TOC" data-endlevel="3" data-id="mini-TOC" data-startlevel="3">
+	<div class="mini-TOC-label">
+		<strong>Contents:</strong></div>
+	<ul><li><a class="tocLink" href="doc-viewer.aspx#secid-1745">8.08 Fair Housing (Repealed)</a></li>
+</ul>
+</div>
+
+
+</section> 
+<section id='secid-1746' class='secLvl4 _008 _008-002 _008-002-002 _008-002-002-001' tabindex='-1' data-secid='1746'> 
+<h3>8.08.010 Policy to Provide Fair Housing. (Repealed)</h3>
+
+<p>Repealed.</p>
+
+<p>(History: Ord. FH-3432&nbsp;&sect;1, 2023; Ord. FH-1681 &sect;1, 9I; FH-521 &sect;1, 68)</p>
+
+<p class='archiveNotice nullValue '>Effective on:&nbsp;1/1/1901</p>
+</section> 
+<section id='secid-1747' class='secLvl4 _008 _008-002 _008-002-002 _008-002-002-002' tabindex='-1' data-secid='1747'> 
+<h3>8.08.020 Definitions as Used in this Chapter. (Repealed)</h3>
+
+
+</section> 
+<section id='secid-1756' class='secLvl5 _008 _008-002 _008-002-002 _008-002-002-002 _008-002-002-002-001' tabindex='-1' data-secid='1756'> 
+<ol class="list-v2" start="9">
+	<li>
+	<div class="li-num">I.</div>
+
+	<div class="li-cont"><strong class="def">To rent</strong> includes to lease, to sublease, to let and otherwise to grant for a consideration the right to occupy premises not owned by the occupant.</div>
+	</li>
+</ol>
+
+<p>(History: Ord. FH-1745 &sect;1, 92; FH-1681 &sect;1, 9I; FH-521 &sect;2, 68)</p>
+
+<p class='archiveNotice nullValue '>Effective on:&nbsp;1/1/1901</p>
+</section> 
+<section id='secid-1757' class='secLvl4 _008 _008-002 _008-002-002 _008-002-002-003' tabindex='-1' data-secid='1757'> 
+<h3>8.08.030 Application of Prohibition Against Discrimination. (Repealed)</h3>
+
+<p>Repealed.</p>
+
+<p>(History: Ord. FH-3432 &sect;1, 2023; Ord. FH-1681 &sect;1, 9I; FH-521 &sect;3(a), 68)</p>
+
+<p class='archiveNotice nullValue '>Effective on:&nbsp;1/1/1901</p>
+</section> 
+<section id='secid-1758' class='secLvl4 _008 _008-002 _008-002-002 _008-002-002-004' tabindex='-1' data-secid='1758'> 
+<h3>8.08.040 Application of Section 8.08.060. (Repealed)</h3>
+
+<p>Repealed.&nbsp;</p>
+
+<p>(History: Ord. FH-3432 &sect;1, 2023; Ord. FH-1681 &sect;1, 9I; FH-521 &sect;3(b), 68)</p>
+
+<p class='archiveNotice nullValue '>Effective on:&nbsp;1/1/1901</p>
+</section> 
+<section id='secid-1759' class='secLvl4 _008 _008-002 _008-002-002 _008-002-002-005' tabindex='-1' data-secid='1759'> 
+<h3>8.08.050 Definition of Person in Business of Selling or Renting. (Repealed)</h3>
+
+<p>Repealed.&nbsp;</p>
+
+<p>(History: Ord. FH-3432 &sect;1, 2023; Ord. FH-1681 &sect;1, 9I; FH-521 &sect;3(c), 68)</p>
+
+<p class='archiveNotice nullValue '>Effective on:&nbsp;1/1/1901</p>
+</section> 
+<section id='secid-1760' class='secLvl4 _008 _008-002 _008-002-002 _008-002-002-006' tabindex='-1' data-secid='1760'> 
+<h3>8.08.060 Discrimination in Sale or Rental of Housing. (Repealed)</h3>
+
+<p>Repealed.&nbsp;</p>
+
+<p>(History: Ord. FH-3432 &sect;1, 2023; Ord. FH-1745 &sect;2, 92; FH-1681 &sect;1, 9I; FH-1110 &sect;1, 81; FH-521 &sect;4, 68)</p>
+
+<div id="cke_pastebin" style="height:1px; left:-1000px; overflow:hidden; position:absolute; top:873.75px; width:1px">&nbsp;</div>
+
+<p class='archiveNotice nullValue '>Effective on:&nbsp;1/1/1901</p>
+</section> 
+<section id='secid-1761' class='secLvl4 _008 _008-002 _008-002-002 _008-002-002-007' tabindex='-1' data-secid='1761'> 
+<h3>8.08.070 Discrimination in Residential Real Estate-related Transactions. (Repealed)</h3>
+
+<p>Repealed.&nbsp;</p>
+
+<p>(History: Ord. FH-3432 &sect;1, 2023; Ord. FH-1745 &sect;3, 92; FH-1681 &sect;1, 9I; FH-1110 &sect;2, 81; FH-521 &sect;5, 68)</p>
+
+<p class='archiveNotice nullValue '>Effective on:&nbsp;1/1/1901</p>
+</section> 
+<section id='secid-1762' class='secLvl4 _008 _008-002 _008-002-002 _008-002-002-008' tabindex='-1' data-secid='1762'> 
+<h3>8.08.080 Discrimination in Provision of Brokerage Services. (Repealed)</h3>
+
+<p>Repealed.&nbsp;</p>
+
+<p>(History: Ord. FH-3432 &sect;1, 2023; Ord. FH-1745 &sect;4, 92; FH-1681 &sect;1, 9I; FH-1110 &sect;3, 81; FH-521 &sect;6, 68)</p>
+
+<p class='archiveNotice nullValue '>Effective on:&nbsp;1/1/1901</p>
+</section> 
+<section id='secid-1763' class='secLvl4 _008 _008-002 _008-002-002 _008-002-002-009' tabindex='-1' data-secid='1763'> 
+<h3>8.08.090 Exemption. (Repealed)</h3>
+
+<p>Repealed.&nbsp;</p>
+
+<p>(History: Ord. FH-3432 &sect;1, 2023; Ord. FH-1681 &sect;1, 9I; FH-521 &sect;7, 68)</p>
+
+<p class='archiveNotice nullValue '>Effective on:&nbsp;1/1/1901</p>
+</section> 
+<section id='secid-1764' class='secLvl4 _008 _008-002 _008-002-002 _008-002-002-010' tabindex='-1' data-secid='1764'> 
+<h3>8.08.100 Prevention of Intimidation in Fair Housing Cases. (Repealed)</h3>
+
+<p>Repealed.&nbsp;</p>
+
+<p>(History: Ord. FH-3432 &sect;1, 2023; Ord. FH-1745 &sect;5, 92; FH-1681 &sect;1, 9I; FH-1110 &sect;4, 81; FH-521 &sect;8, 68)</p>
+
+<p class='archiveNotice nullValue '>Effective on:&nbsp;1/1/1901</p>
+</section> 
+<section id='secid-1765' class='secLvl4 _008 _008-002 _008-002-002 _008-002-002-011' tabindex='-1' data-secid='1765'> 
+<h3>8.08.110 Procedure for Discontinuance of Violations Generally. (Repealed)</h3>
+
+<p>Repealed.&nbsp;</p>
+
+<p>(History: Ord. FH-3432 &sect;1, 2023; Ord. FH-1681 &sect;1, 9I; FH-521-B &sect;1 (part), 71; FH-521 &sect;9 (part) 68)</p>
+
+<p class='archiveNotice nullValue '>Effective on:&nbsp;1/1/1901</p>
+</section> 
+<section id='secid-1766' class='secLvl4 _008 _008-002 _008-002-002 _008-002-002-012' tabindex='-1' data-secid='1766'> 
+<h3>8.08.120 Complaint - Filing and Contents. (Repealed)</h3>
+
+<p>Repealed.&nbsp;</p>
+
+<p>(History: Ord. FH-3432 &sect;1, 2023; Ord. FH-3024 &sect;1, 2013; FH-1681 &sect;1, 9I; FH-521-B &sect;1(part), 71; FH-521 &sect;9(a) 68)</p>
+
+<p class='archiveNotice nullValue '>Effective on:&nbsp;1/1/1901</p>
+</section> 
+<section id='secid-1767' class='secLvl4 _008 _008-002 _008-002-002 _008-002-002-013' tabindex='-1' data-secid='1767'> 
+<h3>8.08.130 Referral of Complaint to Fair Housing Committee -Investigation. (Repealed)</h3>
+
+<p>Repealed.&nbsp;</p>
+
+<p>(History: Ord. FH-3432 &sect;1, 2023; Ord. FH-1681 &sect;, 9I; FH-521-B &sect;1 (part), 71; FH-521 &sect;9(b), 68)</p>
+
+<p class='archiveNotice nullValue '>Effective on:&nbsp;1/1/1901</p>
+</section> 
+<section id='secid-1768' class='secLvl4 _008 _008-002 _008-002-002 _008-002-002-014' tabindex='-1' data-secid='1768'> 
+<h3>8.08.140 Findings of Investigation - Actions. (Repealed)</h3>
+
+<p>Repealed.&nbsp;</p>
+
+<p>(History: Ord. FH-3432 &sect;1, 2023; Ord. FH-1681 &sect;1, 9I; FH-521-B &sect;1 (part) 71; FH-521 &sect;9(c) 68)</p>
+
+<p class='archiveNotice nullValue '>Effective on:&nbsp;1/1/1901</p>
+</section> 
+<section id='secid-1769' class='secLvl4 _008 _008-002 _008-002-002 _008-002-002-015' tabindex='-1' data-secid='1769'> 
+<h3>8.08.150 Fair Housing Committee Established - Membership - Terms - Quorum. (Repealed)</h3>
+
+<p>Repealed.</p>
+
+<p>(History: Ord. FH-3432 &sect;1, 2023; Ord. FH-1681 &sect;1, 9I; FH-521-B &sect;1(part) 71; FH-521,A &sect;1, 69; FH-521 &sect;9(d) 68)</p>
+
+<p class='archiveNotice nullValue '>Effective on:&nbsp;1/1/1901</p>
+</section> 
+<section id='secid-1770' class='secLvl4 _008 _008-002 _008-002-002 _008-002-002-016' tabindex='-1' data-secid='1770'> 
+<h3>8.08.160 Hearing. (Repealed)</h3>
+
+<p>Repealed.&nbsp;</p>
+
+<p>(History: Ord. FH-3432 &sect;1, 2023; Ord. FH-1681 &sect;1, 9I; FH-521-B &sect;1(part) 71; FH-521 &sect;9(e) 68)</p>
+
+<p class='archiveNotice nullValue '>Effective on:&nbsp;1/1/1901</p>
+</section> 
+<section id='secid-1771' class='secLvl4 _008 _008-002 _008-002-002 _008-002-002-017' tabindex='-1' data-secid='1771'> 
+<h3>8.08.170 Action after Hearing When Complaint Is Considered Well Founded. (Repealed)</h3>
+
+<p>Repealed.&nbsp;</p>
+
+<p>(History: Ord. FH-3432 &sect;1, 2023; Ord. FH-1681 &sect;1, 9I; FH-521-B &sect;1(part) 71; FH-521 &sect;9(f), 68)</p>
+
+<p class='archiveNotice nullValue '>Effective on:&nbsp;1/1/1901</p>
+</section> 
+<section id='secid-1772' class='secLvl4 _008 _008-002 _008-002-002 _008-002-002-018' tabindex='-1' data-secid='1772'> 
+<h3>8.08.180 Hearing and Conciliation to be in Compliance with the Kansas Open Meetings Law. (Repealed)</h3>
+
+<p>Repealed.&nbsp;</p>
+
+<p>(History: Ord. FH-3432 &sect;1, 2023; Ord. FH-1681 &sect;1, 9I; FH-521-B &sect;1 (part), 71; FH-521 &sect;9(g) 68)</p>
+
+<p class='archiveNotice nullValue '>Effective on:&nbsp;1/1/1901</p>
+</section> 
+<section id='secid-1773' class='secLvl4 _008 _008-002 _008-002-002 _008-002-002-019' tabindex='-1' data-secid='1773'> 
+<h3>8.08.190 Recording Proceedings, When. (Repealed)</h3>
+
+<p>Repealed.&nbsp;</p>
+
+<p>(History: Ord. FH-3432 &sect;1, 2023; Ord. FH-1681 &sect;1, 9I; FH-521-B &sect;1(part) 71; FH-521 &sect;9(h), 68)</p>
+
+<p class='archiveNotice nullValue '>Effective on:&nbsp;1/1/1901</p>
+</section> 
+<section id='secid-1774' class='secLvl4 _008 _008-002 _008-002-002 _008-002-002-020' tabindex='-1' data-secid='1774'> 
+<h3>8.08.200 Failure to Secure Compliance - Certification of Matter to Legal Department. (Repealed)</h3>
+
+<p>Repealed.&nbsp;</p>
+
+<p>(History: Ord. FH-3432 &sect;1, 2023; Ord. FH-1681 &sect;1, 9I; FH-521 &sect;10, 68)</p>
+
+<p class='archiveNotice nullValue '>Effective on:&nbsp;1/1/1901</p>
+</section> 
+<section id='secid-1775' class='secLvl4 _008 _008-002 _008-002-002 _008-002-002-021' tabindex='-1' data-secid='1775'> 
+<h3>8.08.210 Prosecution of Violation. (Repealed)</h3>
+
+<p>Repealed.&nbsp;</p>
+
+<p>(History: Ord. FH-3432 &sect;1, 2023; Ord. FH-1681 &sect;1, 9I; FH-521 &sect;11, 68)</p>
+
+<p class='archiveNotice nullValue '>Effective on:&nbsp;1/1/1901</p>
+</section> 
+<section id='secid-1776' class='secLvl4 _008 _008-002 _008-002-002 _008-002-002-022' tabindex='-1' data-secid='1776'> 
+<h3>8.08.220 Punishment of Violators. (Repealed)</h3>
+
+<p>Repealed.&nbsp;</p>
+
+<p>(History: Ord. FH-3432 &sect;1, 2023; Ord. FH-1681 &sect;1, 9I; FH-521 &sect;12, 68)</p>
+
+<p class='archiveNotice nullValue '>Effective on:&nbsp;1/1/1901</p>
+</section> 
+<section id='secid-1777' class='secLvl4 _008 _008-002 _008-002-002 _008-002-002-023' tabindex='-1' data-secid='1777'> 
+<h3>8.08.230 Penalty for Disobeying or Interfering with Fair Housing Committee. (Repealed)</h3>
+
+<p>Repealed.&nbsp;</p>
+
+<p>(History: Ord. FH-3432 &sect;1, 2023; Ord. FH-1681 &sect;1, 9I; FH-521 &sect;13, 68)</p>
+
+<p class='archiveNotice nullValue '>Effective on:&nbsp;1/1/1901</p>
+</section> 
+<section id='secid-1778' class='secLvl4 _008 _008-002 _008-002-002 _008-002-002-024' tabindex='-1' data-secid='1778'> 
+<h3>8.08.240 False Statements Deemed Violation. (Repealed)</h3>
+
+<p>Repealed.&nbsp;</p>
+
+<p>(History: Ord. FH-3432 &sect;1, 2023; Ord. FH-1681 &sect;1, 9I; Amended during codification in accordance with KSA 12-3015; FH-521 &sect;14, 68)</p>
+
+<p class='archiveNotice nullValue '>Effective on:&nbsp;1/1/1901</p>
+</section> 
+
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<button id="commentsCTA" title="Add a Comment" aria-label="Add a Comment" role="button" tabindex="2">
+    COMMENTS
+</button>
+
+<!-- hidden div below is for definition popup -->
+<div id="defFrame">
+    <img alt='loading progress' src="resources/progress.gif" /></div>
+<!-- hidden div below is for ajax loading progress-->
+<div id='progress-template' style='display: none;'>
+    <div class="progress" style='padding: 100px;'>
+        <div style='margin: auto; display: block; width: 200px; border: 1px solid #ccc; background-color: #eee; padding: 10px;'>
+            <img alt='loading progress' src='resources/progress.gif' style='margin: auto; display: block;' />
+            <br />
+            <span style='margin: auto; display: block; width: 75px; padding-left: 10px;'>Loading...</span>
+        </div>
+    </div>
+</div>
+<iframe style="width: 1px; height: 1px" src="" id="printiframe" name="printiframe" onload="ZP.DocView.IFrameReady();" title="Print frame" aria-hidden="true" role="presentation"></iframe>
+
+    </div>
+
+
+    </body>
+</html>

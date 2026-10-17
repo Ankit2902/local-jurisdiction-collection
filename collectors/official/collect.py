@@ -47,11 +47,11 @@ def discover(run,c,resume=False):
   if not any(repo in a.get('href','') for a in soup.select('a[href]')):raise ValueError('Official hub does not expose configured repository')
   metadata,_,mr=fetch_raw(run,'github-repository','https://api.github.com/repos/'+repo,{'transport':'http'});metadata=json.loads(metadata);branch=metadata['default_branch']
   cb,_,cr=fetch_raw(run,'github-commit','https://api.github.com/repos/'+repo+'/commits/'+quote(branch,safe=''),{'transport':'http'});commit=json.loads(cb)['sha']
-  url=metadata['archive_url'].replace('{archive_format}','zipball').replace('{/ref}','/'+commit);extra={}
+  url=metadata['archive_url'].replace('{archive_format}','zipball').replace('{/ref}','/'+commit);extra={'source_tree_sha1':json.loads(cb)['commit']['tree']['sha'],'source_commit':commit}
   if c.get('archive_format')=='openlaw_xml':
    tree,_,tr=fetch_raw(run,'github-tree','https://api.github.com/repos/'+repo+'/git/trees/'+commit+'?recursive=1',{'transport':'http'});tree=json.loads(tree)
    if tree.get('truncated'):raise ValueError('Recursive Git tree truncated')
-   extra={'git_tree':tree,'git_tree_ref':tr,'source_commit':commit}
+   extra.update(git_tree=tree,git_tree_ref=tr,source_commit=commit)
   return [item(url,c['publication'],'zip',**extra)],{'source_ref':ref,'source_sha256':model.sha(start),'repo_ref':mr,'commit_ref':cr,'repository':repo,'branch':branch,'commit':commit,'identity':c['id'],'kind':'github_commit','edition':branch,'archive_url':url}
  soup=BeautifulSoup(start,'html.parser');selector=c.get('inventory_selector','main a[href]');links=soup.select(selector);items=[];excluded=[]
  if mode=='portland_titles':
@@ -139,7 +139,7 @@ def parse_item(data,i,c):
   if c.get('archive_format')=='openlaw_xml':
    import openlaw_xml
    rows,archive=openlaw_xml.parse(data,c,i);return rows,[{'archive':archive}]
-  rows,archive=model.archive_records(data,c,i['raw_ref']);return rows,[{'archive':archive}]
+  rows,archive=model.archive_records(data,c,i['raw_ref'],i.get('source_tree_sha1'));return rows,[{'archive':archive}]
  return model.html_records(data,i,c)
 
 def seed_cache(source,out,config):
@@ -169,7 +169,7 @@ def collect(config,out,resume=False,max_items=None,interrupt_after=None,from_cac
  c=load(config);out=pathlib.Path(out).resolve();binding=model.sha(model.encoded(c));cp=out/'checkpoint.json'
  if out.exists() and any(out.iterdir()) and not resume:raise ValueError('Output must be empty unless --resume')
  out.mkdir(parents=True,exist_ok=True);(out/'raw').mkdir(exist_ok=True);(out/'items').mkdir(exist_ok=True)
- scripts={name:model.sha((BASE/name).read_bytes()) for name in ['collect.py','model.py','transport.py','legacy_html.py','browser_fetch.cjs','post_transport.py','spokane_bulk.py','pdf_structure.py','openlaw_xml.py']};codebinding=model.sha(model.encoded(scripts))
+ scripts={name:model.sha((BASE/name).read_bytes()) for name in ['collect.py','model.py','transport.py','legacy_html.py','browser_fetch.cjs','post_transport.py','spokane_bulk.py','pdf_structure.py','openlaw_xml.py','git_archive_binding.py']};codebinding=model.sha(model.encoded(scripts))
  if cp.exists():
   state=load(cp)
   if state['config_sha256']!=binding or state['code_binding']!=codebinding:raise ValueError('Resume config/code identity mismatch')

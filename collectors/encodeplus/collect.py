@@ -6,12 +6,13 @@ from .util import atomic_bytes,atomic_json,digest,hash_json,read_json,validate_f
 from .model import inventory,decode,parse_document,outputs
 from .transport import fetch
 from .documents import qualify_document
+from .publication_references import reconcile,qualify_bound_document
 HERE=pathlib.Path(__file__).resolve().parent
 TARGETS=read_json(HERE/'targets.json')
 def code_hashes():return {p.name:digest(p.read_bytes()) for p in sorted(HERE.glob('*.py')) if p.name!='tests.py'}|{name:digest((HERE/name).read_bytes()) for name in ['targets.json','requirements.txt']}
 def runtime_info():
  packages={}
- for name in ['beautifulsoup4','brotli','pypdf','fonttools','pdfplumber','pypdfium2','pdfminer.six']:
+ for name in ['beautifulsoup4','brotli','pypdf','fonttools','pdfplumber','pypdfium2','pdfminer.six','cryptography']:
   try:packages[name]=importlib.metadata.version(name)
   except importlib.metadata.PackageNotFoundError:packages[name]=None
  return {'python':platform.python_version(),'os':platform.platform(),'packages':packages}
@@ -50,7 +51,7 @@ def assemble(out,state,inv):
     if records[r['id']]['body_sha256']!=r['body_sha256'] or records[r['id']]['path']!=r['path']:raise ValueError('Conflicting repeated source body '+r['id'])
     duplicates.append({'id':r['id'],'disposition':'identical source body suppressed','block':block['path']});continue
    records[r['id']]=r
- return records,duplicates
+ return reconcile(records,state['config']),duplicates
 
 def merge_parsed(records,duplicates,parsed,block):
  for r in parsed:
@@ -92,8 +93,9 @@ def native_export(out,state,start_html):
   final=url+'&'+urllib.parse.urlencode({'file':result['File']});pdf,pm=cached(out,final,prefix+'publication.pdf');path=pm.get('_retained_path',prefix+'publication.pdf')
  integrity=qualify_document(pdf,pm['url'],'application/pdf')
  return {'status':'downloaded','document_integrity':integrity,'path':path,'sha256':digest(pdf),'bytes':len(pdf),'url':pm['url'],'scope':'Entire observed TOCroot control '+m.group(1),'tocid':m.group(1),'content_completeness':'Unverified native file: transport alone does not establish text/asset completeness'}
-def collect(target,out,resume=False,max_items=None,skip_assets=False,want_native=False,interrupt_after=None,config=None,upgrade_code=False):
+def collect(target,out,resume=False,max_items=None,skip_assets=False,want_native=False,interrupt_after=None,config=None,upgrade_code=False,retry_native=False):
  from .verify import verify
+ assert not retry_native or (resume and want_native),'--retry-native-export requires --resume and --native-export'
  cfg=config if config is not None else TARGETS[target];assert set(['identity','base','jurisdiction','scope']).issubset(cfg),'Config requires explicit identity/base/jurisdiction/scope';assert cfg['base'].startswith('https://') and cfg['base'].endswith('/'),'Config base must be canonical HTTPS publication directory';out=pathlib.Path(out)
  if resume:
   state=read_json(out/'checkpoint.json');assert state['config']==cfg and state['config_sha256']==hash_json(cfg),'Wrong target/config checkpoint';assert state['options']=={'max_items':max_items,'skip_assets':skip_assets,'native_export':want_native},'Resume options must match checkpoint'
@@ -109,9 +111,13 @@ def collect(target,out,resume=False,max_items=None,skip_assets=False,want_native
    state.setdefault('code_upgrades',[]).append({'prior_checkpoint_sha256':old_hash,'prior_code_hashes':old_versions,'current_code_hashes':current,'command':sys.argv,'reason':'Explicit parser/collector upgrade; retained requests hashes verified; all source reparsed and closing checks refreshed'});state['code_hashes']=current;state.setdefault('runtime_history',[]).append(state.get('runtime'));state['runtime']=runtime_info();state['code_upgrades'][-1]['runtime']=state['runtime']
    # Reconstruct all records under the new parser; never keep a prior complete flag or end check.
    state['phase']='upgrade-revalidation';state['rebuild_block_ids']=True;checkpoint(out,state)
-  if state['phase']=='finished':
+  if state['phase']=='finished' and not retry_native:
    from .verify import verify
    return verify(out)
+  if retry_native:
+   prior=(out/'checkpoint.json').read_bytes();prior_hash=digest(prior);atomic_bytes(out/'native-retry-history'/(prior_hash+'.json'),prior)
+   state.setdefault('native_export_retries',[]).append({'prior_checkpoint_sha256':prior_hash,'prior_native_export':state.get('native_export'),'command':sys.argv,'reason':'Explicit native export retry; earlier attempt/result retained and all closing checks refreshed'})
+   state['phase']='native-retry-requested';checkpoint(out,state)
   state['generation']=state.get('generation',0)+1;state['end_blocks']=[];state.pop('end_inventory',None);state.pop('end_inventory_sha256',None);checkpoint(out,state)
  else:
   assert not upgrade_code,'--upgrade-code requires --resume'
@@ -137,6 +143,7 @@ def collect(target,out,resume=False,max_items=None,skip_assets=False,want_native
    path='raw/node-'+node['id']+'.html';url=cfg['base']+'doc-view.aspx?'+urllib.parse.urlencode({'secid':node['id'],'ajax':0});data,meta=cached(out,url,path);ensure_revision(state);parsed=parse_document(decode(data,meta['headers']),node['id'],cfg,known,state.get('image_skips',{}));assert parsed
    block=entry(path,meta)|{'requested':node['id'],'record_ids':[r['id'] for r in parsed]};state['blocks'].append(block);checkpoint(out,state);merge_parsed(records,dups,parsed,block)
    if interrupt_after and len(state['blocks'])>=interrupt_after:raise InterruptedError('Intentional durable checkpoint interruption')
+  records=reconcile(records,cfg)
   state['phase']='assets';checkpoint(out,state)
   required={a['url'] for r in records.values() for a in r['assets'] if a['required']}
   for url in sorted(required):
@@ -156,7 +163,7 @@ def collect(target,out,resume=False,max_items=None,skip_assets=False,want_native
      # A document-library landing page is a required unresolved document, never an acquired PDF.
      if 'html' in ctype or data.lstrip().lower().startswith((b'<!doctype html',b'<html')):raise ValueError('Required asset is HTML landing page; follow advertised file separately: '+url)
      asset=entry(path,meta)|{'content_type':ctype,'kind':'linked-binary'}
-    asset['document_integrity']=qualify_document(data,url,asset.get('content_type',''))
+    asset['document_integrity']=qualify_document(data,url,asset.get('content_type',''));qualify_bound_document(records,url,data)
     if url in state['assets']:assert state['assets'][url]==asset,'Changed cached asset'
     state['assets'][url]=asset;checkpoint(out,state)
     state['asset_failures'].pop(url,None);checkpoint(out,state)
@@ -199,4 +206,4 @@ def collect(target,out,resume=False,max_items=None,skip_assets=False,want_native
  atomic_json(out/'coverage.json',report);return report
 if __name__=='__main__':
  sys.modules['collectors.encodeplus.collect']=sys.modules[__name__]
- p=argparse.ArgumentParser();p.add_argument('target',help='Named target key, or custom name with --config');p.add_argument('--config',type=pathlib.Path,help='Explicit pinned publication config JSON; must contain base,identity,jurisdiction,scope');p.add_argument('--out',type=pathlib.Path,required=True);p.add_argument('--resume',action='store_true');p.add_argument('--upgrade-code',action='store_true',help='Explicitly revalidate unchanged retained bytes under a new collector, retaining old checkpoint and script lineage');p.add_argument('--max-items',type=int);p.add_argument('--skip-assets',action='store_true');p.add_argument('--native-export',action='store_true');p.add_argument('--interrupt-after',type=int,help='Explicit fault-test interruption; not a collection limit');a=p.parse_args();r=collect(a.target,a.out,a.resume,a.max_items,a.skip_assets,a.native_export,a.interrupt_after,read_json(a.config) if a.config else None,a.upgrade_code);print(json.dumps(r,indent=2));raise SystemExit(0 if r['publication_text_complete'] and r['attachments_complete'] else 2)
+ p=argparse.ArgumentParser();p.add_argument('target',help='Named target key, or custom name with --config');p.add_argument('--config',type=pathlib.Path,help='Explicit pinned publication config JSON; must contain base,identity,jurisdiction,scope');p.add_argument('--out',type=pathlib.Path,required=True);p.add_argument('--resume',action='store_true');p.add_argument('--upgrade-code',action='store_true',help='Explicitly revalidate unchanged retained bytes under a new collector, retaining old checkpoint and script lineage');p.add_argument('--max-items',type=int);p.add_argument('--skip-assets',action='store_true');p.add_argument('--native-export',action='store_true');p.add_argument('--retry-native-export',action='store_true',help='Explicit retry preserving prior native attempts; requires --resume --native-export and refreshes closing checks');p.add_argument('--interrupt-after',type=int,help='Explicit fault-test interruption; not a collection limit');a=p.parse_args();r=collect(a.target,a.out,a.resume,a.max_items,a.skip_assets,a.native_export,a.interrupt_after,read_json(a.config) if a.config else None,a.upgrade_code,a.retry_native_export);print(json.dumps(r,indent=2));raise SystemExit(0 if r['publication_text_complete'] and r['attachments_complete'] else 2)

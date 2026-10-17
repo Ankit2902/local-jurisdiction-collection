@@ -1,0 +1,61 @@
+{
+  "schema_version": 1,
+  "kind": "Source-only image metadata policy hardening; no new acquisition",
+  "at": "2026-10-17T23:11:49.228777+00:00",
+  "revision": "executed-v8",
+  "prior_freeze_manifest_sha256": "3a97dbc79d59962bfc894b4f35b37c64ec454c37fae8d52922f3603e205f6393",
+  "source_delta": {
+    "model.py": {
+      "before": "24a5e5f290d91dae231fc6ea7835620c22e3ef5350d7fb34e51e5d649fb03420",
+      "after": "91b1e17a609540bb559b0f0ec656bfe7cbf511041da201cb3e72afe7a871903e"
+    },
+    "pdf_tags.py": {
+      "before": "cca18bd511ea7db00faebf1ecd2fcaf06a5f5e6ecdb2c8cbc2cd7fccbf1652cc",
+      "after": "0b160c44e83c82eca05b9754e2bbbbc3e9fd9e026a137e979c79bcfe4f6570ff"
+    },
+    "audit_pdf_tags.py": {
+      "before": "984ca8576e759302d31a5e6d94bbd13da885be791d41c513e59e59b5f001dfb7",
+      "after": "097c93479b8014722f2cda53d2601079b92d524047cacfd377c284a4f78085ac"
+    },
+    "test_image_metadata.py": {
+      "before": null,
+      "after": "2b31334df849ee931d2f5ee9473de034d3c8a9ba32b4bc7b76ea7c3a6e4c1d69"
+    },
+    "README.md": {
+      "before": "7bca16ca12bcd5dc15da38c0626d7b4bb4d0a714a150d9858074c0416eb76c33",
+      "after": "d4bff7b24c805c1dd2ae9e546b942c2653b68d21f971ae044e011db67b4e8c06"
+    }
+  },
+  "tests": {
+    "passed": true,
+    "count": 112,
+    "receipts": {
+      "fault-tests.json": "094d247be6f331dbb9fc185ba6166386a0146fabc09da5b9d5e00f3c616dcd4f",
+      "pdf-tag-tests.json": "63e6e76e72d86d315f205a87f35716188da7043b38ea03ab0f5ecfa1852080b5",
+      "pdf-native-tests.json": "2a37790dc05f742beb8379313eae97d9a31ed89d5a884535e0346fa9651df81c",
+      "pdf-publication-tests.json": "70231bb91d2db4da6597411aa01bfe201707adaff7f2a48df0b49f7e667823a0",
+      "pdf-encoding-tests.json": "fa44c2dd13b745a1e580d1ab95c2c2584f83540184a13b6602fcdb0849af9e47",
+      "image-metadata-tests.json": "7bb1ac87ef0a6342509770a91395dd3b4c1e0261c76ed34da06a0c4f7cf02b57"
+    }
+  },
+  "source_differential": {
+    "HTML": {
+      "path": "research/pdf-metadata-redaction-v1/actual-source-delta-exposure.json",
+      "sha256": "006504440213528a36d203687725afd63d7c6073a777e660d85c1e0d901d3753"
+    },
+    "final_PDF": {
+      "path": "research/pdf-metadata-redaction-v1/actual-PDF-source-delta-final.json",
+      "sha256": "eed7b8f5d02b5e289006e5e874f649c76f6f8fe139cdd907cd4f74f5366548e5"
+    },
+    "zero_affected_actual_source_metadata": true,
+    "qualification": "Exact changed-function source inventory/DOM/reference inputs unchanged. Existing genuine outputs keep original executed revisions; this is not a fresh live run."
+  },
+  "independent_policy_receipt": {
+    "path": "../qa/american-candidate-two-actualtext-images-fixed.json",
+    "sha256": "49a1aa2c1f46ee3546634e84fb83e288a12f92805897b988a3d01dbcfc25faa9"
+  },
+  "network_requests": 0,
+  "terminal_proof_directories_modified": false,
+  "remaining_queue_source": "executed-v7 unchanged",
+  "mixed_actual_text": "Quoted syntactically bounded base64 URI retains exact surrounding prose. Ambiguous mixed unquoted ActualText retains safe prefix+source hash, redacts payload, and cannot qualify complete source interpretation."
+}

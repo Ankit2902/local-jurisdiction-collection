@@ -54,7 +54,7 @@ def _run(a):
   assert (folder/'run.json').exists(),'Resume requires owned run.json';old=json.loads((folder/'run.json').read_text());assert old['source_url']==a.url and old['expected_jurisdiction']==a.jurisdiction and old['expected_state']==a.state.upper() and old.get('publication_selector')==a.publication and old.get('identity_aliases',[])==a.identity_alias,'Resume identity parameters differ'
  else:
   assert not folder.exists(),'Fresh --out must not exist';folder.mkdir(parents=True)
- for name in ['collect.py','model.py','verify.py','transport.py','browser.cjs','gate.py','pdf_layout.py']:
+ for name in ['collect.py','model.py','verify.py','transport.py','browser.cjs','gate.py','pdf_layout.py','pdf_tags.py','pdf_native.py','pdf_grid.py']:
   p=BASE/name;atomic(folder/'scripts'/name,p.read_bytes());atomic(folder/'script-versions'/(digest(p.read_bytes())+p.suffix),p.read_bytes())
  a.assets=a.assets or (old['assets_policy'] if old else 'download');a.strategy=a.strategy or (old['strategy'] if old else 'traverse')
  if old:assert a.assets==old['assets_policy'] and a.strategy==old['strategy'] and old.get('image_policy')==IMAGE_POLICY,'Resume policy differs; choose fresh output after image-policy change'
@@ -92,7 +92,7 @@ def _run(a):
      asset=asset_fetch(pdf,cache,assets,'download','native-pdf');assert asset['status']=='retained','Native PDF format not verified';data,pe=cache.fetch(pdf,op='binary')
      if pe['sha256'] in pdf_owners:page_ids=[];alias=pdf_owners[pe['sha256']]
      else:
-      pp=pdf_pages(data,did,pdf);pages+=pp;page_ids=[x['document_id'] for x in pp];pdf_owners[pe['sha256']]=did;alias=None
+      pp=pdf_pages(data,did,pdf,folder/'pdf-tag-cache'/pe['sha256']);pages+=pp;page_ids=[x['document_id'] for x in pp];pdf_owners[pe['sha256']]=did;alias=None
      records.append({'document_id':did,'heading':item['heading'],'path':item['path'],'parent_id':item['parent_id'],'kind':'native-pdf','text':'','html':None,'body_block_ids':[],'tables':[],'links':[],'assets':[{'url':pdf,'kind':'native-publication-pdf','disposition':'required-asset'}],'source_url':url,'source_sha256':e['sha256'],'publication_identity':identity,'pdf_asset':asset,'pdf_page_ids':page_ids,'alias_of':alias});save(folder/'checkpoint.json',{'inventory_sha256':runmeta['inventory_sha256'],'acquired_ids':[r['document_id'] for r in records]});continue
    url=f"https://codelibrary.amlegal.com/api/render-section/{identity['client_slug']}/{identity['version_uuid']}/{identity['code_slug']}/{quote(item['orig_doc_id'],safe='')}/{item['orig_doc_idx']}/";data,e=cache.fetch(url);record=html_record(json.loads(data),item,identity,root,e['sha256']);records.append(record)
    for asset in record['assets']:

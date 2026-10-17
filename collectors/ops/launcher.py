@@ -335,6 +335,8 @@ def doctor(runtime, target=None, publication=None, browser=False, output=None):
 def code_binding(family):
     files = [ROOT / 'collectors/registry' / name for name in ('collect.py', 'dispatch.py', 'catalog.py') if (ROOT / 'collectors/registry' / name).is_file()]
     files += [HERE / 'launcher.py', HERE / 'browser_check.cjs', HERE / 'requirements.txt']
+    if (ROOT / 'collect.py').is_file():
+        files += [ROOT / 'collect.py']
     files += [p for p in (ROOT / 'collectors' / family).glob('*') if p.suffix in ('.py', '.cjs')]
     files += [p for folder in ('configs', 'policies') for p in (ROOT / 'collectors' / family / folder).rglob('*.json')]
     files += [p for p in (ROOT / 'collectors/registry').glob('*.json') if p.name not in ('source-evidence-manifest.json', 'original-source-evidence-manifest.json', 'readiness-source-evidence-manifest.json')]
@@ -480,11 +482,18 @@ def publication_acceptance(pub, output, dependencies=None):
             'jurisdiction_complete': False}
 
 
-def execute_job(runtime, target, publication, output, verify_only=False, dependency_proofs=None, _dependency_ancestry=None):
+def execute_job(runtime, target, publication, output, verify_only=False, dependency_proofs=None, _dependency_ancestry=None, upgrade_code=False, native_export=None, retry_native_export=False):
     import fcntl
     python, node, env = runtime_env(runtime)
     plan = registry_plan(target, publication, python)
     pub = catalog_publication(plan['publication_id'])
+    ep_html = pub['publisher'] == 'encodeplus' and pub.get('adapter_mode') != 'native_document'
+    if upgrade_code and (verify_only or pub['publisher'] != 'encodeplus'):
+        raise OperationError('Explicit code upgrade is supported only for an existing bound enCodePlus job')
+    if native_export and (verify_only or not ep_html):
+        raise OperationError('Native export is supported only for enCodePlus HTML publications')
+    if retry_native_export and (verify_only or not ep_html or native_export is not True):
+        raise OperationError('Explicit native retry requires an existing enCodePlus HTML job and --native-export')
     dependency_proofs = dependency_proofs or {}
     ancestry = _dependency_ancestry or [pub['id']]
     if not _dependency_ancestry:
@@ -501,6 +510,7 @@ def execute_job(runtime, target, publication, output, verify_only=False, depende
         log.parent.mkdir(parents=True, exist_ok=True)
         argv = [str(python), '-B', str(ROOT / 'collectors/registry/collect.py'), 'verify', '--target', str(target), '--publication', pub['id'], '--out', str(out), '--python', str(python)]
         sources_before = code_binding(pub['publisher'])
+        evidence_before = evidence_hashes(out)
         runtime_before = sha(Path(runtime) / 'runtime.json')
         with log.open('w') as stream:
             result = subprocess.run(argv, cwd=ROOT, env=env, stdout=stream, stderr=subprocess.STDOUT)
@@ -510,9 +520,12 @@ def execute_job(runtime, target, publication, output, verify_only=False, depende
         source_changed = sources_before != sources_after or runtime_changed
         acceptance = publication_acceptance(pub, out, dependencies)
         acceptance['native_capture_verified'] = acceptance['native_capture_verified'] and result.returncode == 0 and not source_changed
-        accepted = result.returncode == 0 and acceptance['publication_coverage_accepted'] and not source_changed
+        evidence_after = evidence_hashes(out)
+        evidence_unchanged = evidence_before == evidence_after
+        acceptance['native_capture_verified'] = acceptance['native_capture_verified'] and evidence_unchanged
+        accepted = result.returncode == 0 and acceptance['publication_coverage_accepted'] and not source_changed and evidence_unchanged
         acceptance['publication_accepted'] = accepted
-        receipt = {'status': 'source_changed_during_verification' if source_changed else ('verified_publication' if accepted else 'publication_acceptance_incomplete'), 'verification_exit': result.returncode, 'log': str(log), 'output': str(out), 'publication_id': pub['id'], 'publication': pub, 'selected_config': read(ROOT / plan['qualified_config_path']) if plan.get('qualified_config_path') else plan.get('staged_config'), 'runtime_receipt_sha256': runtime_before, 'runtime_changed_during_run': runtime_changed, 'publisher_requests': 0, 'evidence_read_only': True, 'collector_sources_before': sources_before, 'collector_sources_after': sources_after, 'source_changed_during_run': source_changed, 'family_verifier_passed': result.returncode == 0, 'acceptance': acceptance}
+        receipt = {'status': 'source_changed_during_verification' if source_changed else ('verified_publication' if accepted else 'publication_acceptance_incomplete'), 'verification_exit': result.returncode, 'log': str(log), 'output': str(out), 'publication_id': pub['id'], 'publication': pub, 'selected_config': read(ROOT / plan['qualified_config_path']) if plan.get('qualified_config_path') else plan.get('staged_config'), 'runtime_receipt_sha256': runtime_before, 'runtime_changed_during_run': runtime_changed, 'publisher_requests': 0, 'evidence_read_only': evidence_unchanged, 'evidence_sha256_before': evidence_before, 'evidence_sha256_after': evidence_after, 'verification_argv': [str(x) for x in argv], 'selected_plan': plan, 'runtime_receipt_path': str(Path(runtime) / 'runtime.json'), 'collector_sources_before': sources_before, 'collector_sources_after': sources_after, 'source_changed_during_run': source_changed, 'family_verifier_passed': result.returncode == 0, 'acceptance': acceptance}
         save(log.with_suffix('.json'), receipt)
         return (0 if accepted else (result.returncode or 2)), receipt
     if out == ROOT or ROOT in out.parents and out.relative_to(ROOT).parts[0] in ('collectors', 'packages', 'archives'):
@@ -526,9 +539,27 @@ def execute_job(runtime, target, publication, output, verify_only=False, depende
         job = read(metadata) if metadata.exists() else None
         runtime_receipt = read(Path(runtime) / 'runtime.json')
         runtime_identity = {key: runtime_receipt.get(key) for key in ('packages', 'requirements_sha256', 'browser_driver_sha256', 'shim_sha256')}
+        prior_native = bool(job and job['binding'].get('collection_options', {}).get('native_export'))
+        want_native = prior_native if native_export is None else native_export
         binding = {'target_id': str(target), 'publication_id': pub['id'], 'out': str(out), 'publication': pub, 'collector_sources': code_binding(pub['publisher']), 'runtime_identity': runtime_identity, 'selected_config': read(ROOT / plan['qualified_config_path']) if plan.get('qualified_config_path') else plan.get('staged_config')}
+        if want_native:
+            binding['collection_options'] = {'native_export': True}
+        if retry_native_export and (not job or not prior_native):
+            raise OperationError('Native retry requires an existing matching launcher job originally created with --native-export')
+        if upgrade_code and not job:
+            raise OperationError('Code upgrade requires an existing matching launcher job; unowned outputs cannot be adopted')
+        if (upgrade_code or retry_native_export) and not (out / 'checkpoint.json').is_file():
+            raise OperationError('Explicit revision/export action requires the existing family checkpoint')
         if job and job['binding'] != binding:
-            raise OperationError('Output job source/configuration changed. Use a fresh directory or the documented explicit family migration; automatic resume is refused.')
+            stable_keys = ('target_id', 'publication_id', 'out', 'publication', 'selected_config', 'collection_options')
+            if not upgrade_code or any(job['binding'].get(key) != binding.get(key) for key in stable_keys):
+                raise OperationError('Output job source/configuration changed. Use a fresh directory or the documented explicit family migration; automatic resume is refused.')
+            prior_sha = sha(metadata)
+            history = folder / 'job-history' / (prior_sha + '.json')
+            history.parent.mkdir(parents=True, exist_ok=True)
+            history.write_bytes(metadata.read_bytes())
+            job.setdefault('code_upgrades', []).append({'prior_job_sha256': prior_sha, 'prior_binding': job['binding'], 'new_binding': binding, 'at': now(), 'reason': 'Explicit enCodePlus code/runtime upgrade; exact publication/configuration/options retained, family revalidates cached sources and reparses all content with a fresh closing generation'})
+            job.update(binding=binding, complete=False, capture_verified=False, native_capture_verified=False)
         if not verify_only and not job and out.exists() and any(out.iterdir()):
             raise OperationError('Existing data has no matching launcher job. Use verify, or start a fresh directory; existing data is not overwritten.')
         if not job:
@@ -536,7 +567,9 @@ def execute_job(runtime, target, publication, output, verify_only=False, depende
         health = doctor(runtime, target, publication, browser=False, output=out)
         if not health.get('runtime_ready'):
             raise OperationError('Runtime verification failed: ' + '; '.join(health['issues']))
-        will_collect = not verify_only and not job.get('complete') and not job.get('capture_verified')
+        will_collect = not verify_only and not upgrade_code and not job.get('complete') and not job.get('capture_verified') and not job.get('native_capture_verified')
+        if upgrade_code or retry_native_export:
+            will_collect = True
         if will_collect and not health['ready']:
             job.update(status='blocked_preflight', preflight=health, updated_at=now())
             if health.get('access_stops'):
@@ -548,6 +581,10 @@ def execute_job(runtime, target, publication, output, verify_only=False, depende
             return 3, {'status': 'retained_access_stop', 'job': str(metadata), 'access_stops': job['retained_access_stops']}
         action = 'collect' if will_collect else 'verify'
         attempt = {'started_at': now(), 'action': action, 'runtime_receipt_sha256': sha(Path(runtime) / 'runtime.json'), 'collector_sources_before': binding['collector_sources']}
+        attempt['requested_actions'] = {'upgrade_code': upgrade_code, 'native_export': bool(want_native), 'retry_native_export': retry_native_export}
+        if (upgrade_code or retry_native_export) and (out / 'checkpoint.json').is_file():
+            attempt['prior_family_checkpoint_sha256'] = sha(out / 'checkpoint.json')
+            attempt['prior_native_export'] = read(out / 'checkpoint.json').get('native_export')
         index = len(job['attempts'])
         job['attempts'].append(attempt)
         job.update(status='running', updated_at=now())
@@ -555,6 +592,12 @@ def execute_job(runtime, target, publication, output, verify_only=False, depende
         argv = [str(python), '-B', str(ROOT / 'collectors/registry/collect.py'), action, '--target', str(target), '--publication', pub['id'], '--out', str(out), '--python', str(python)]
         if action == 'collect' and out.exists() and any(out.iterdir()):
             argv += ['--resume']
+            if upgrade_code:
+                argv += ['--upgrade-code']
+            if retry_native_export:
+                argv += ['--retry-native-export']
+        if action == 'collect' and want_native:
+            argv += ['--native-export']
         attempt['argv'] = argv
         save(metadata, job)
         print('Publication: ' + pub['id'] + '\nOutput: ' + str(out) + '\nProgress log: ' + str(folder / (str(index) + '-acquire.log')), flush=True)
@@ -583,7 +626,7 @@ def execute_job(runtime, target, publication, output, verify_only=False, depende
         acceptance['publication_accepted'] = complete
         status = 'source_changed_during_run' if source_changed else ('verified_publication' if complete else 'publication_acceptance_incomplete')
         capture = result.returncode == 0 and verification_exit == 0 and not stops and not source_changed and all(acceptance.get(k) is True for k in ('publication_text_complete', 'required_nonimage_documents_complete', 'legal_structure_qualified'))
-        job.update(status=status, complete=complete, capture_verified=capture, updated_at=now())
+        job.update(status=status, complete=complete, capture_verified=capture, native_capture_verified=acceptance['native_capture_verified'], updated_at=now())
         save(metadata, job)
         return (0 if complete else 2), {'status': job['status'], 'family_verifier_passed': verification_exit == 0, 'selected_scope_verifier_passed': verification_exit == 0 and not source_changed, 'publication_accepted': complete, 'acceptance': acceptance, 'jurisdiction_complete': False, 'job': str(metadata), 'output': str(out), 'acquisition_exit': result.returncode, 'verification_exit': verification_exit, 'access_stops': stops, 'coverage_report': str(out / 'coverage.json'), 'source_changed_during_run': source_changed, 'source_change_action': 'Retain captured evidence and executed snapshots; explicitly review or migrate into a fresh run before claiming current-code validation.' if source_changed else None}
 
@@ -607,6 +650,10 @@ def main(argv=None):
         if name in ('run', 'verify'):
             p.add_argument('--out', required=True)
             p.add_argument('--dependency', action='append', default=[], metavar='PUBLICATION_ID=PROOF_DIR', help='Read-only current verification of an exact required publication; repeat for transitive dependencies')
+        if name == 'run':
+            p.add_argument('--upgrade-code', action='store_true', help='Explicitly migrate an existing exact enCodePlus job; preserve prior lineage, revalidate cached bytes, reparse all content and acquire new closing witnesses')
+            p.add_argument('--native-export', action='store_true', default=None, help='Request the visible enCodePlus HTML publication export on initial collection; retained job options are reused on ordinary resume')
+            p.add_argument('--retry-native-export', action='store_true', help='Explicitly retry a previously requested native export on an existing exact enCodePlus HTML job; also requires --native-export')
     args = parser.parse_args(argv)
     try:
         if args.action == 'setup':
@@ -628,7 +675,7 @@ def main(argv=None):
         else:
             plan = registry_plan(args.target, args.publication, runtime_paths(args.runtime)[1])
             proofs = dependency_inputs(args.dependency, catalog_publication(plan['publication_id']))
-            code, result = execute_job(args.runtime, args.target, args.publication, args.out, args.action == 'verify', proofs)
+            code, result = execute_job(args.runtime, args.target, args.publication, args.out, args.action == 'verify', proofs, upgrade_code=getattr(args, 'upgrade_code', False), native_export=getattr(args, 'native_export', None), retry_native_export=getattr(args, 'retry_native_export', False))
         print(json.dumps(result, indent=2))
         return code
     except (OperationError, OSError, ValueError, KeyError, subprocess.SubprocessError) as error:

@@ -43,6 +43,10 @@ class ReadinessCatalog(unittest.TestCase):
   r=self.cli('plan','--target','60');plan=json.loads(r.stdout)['plans'][0];self.assertTrue(plan['observed_access_advisories']);self.assertIn('Malformed',plan['observed_access_advisories'][0]['reason'])
   with tempfile.TemporaryDirectory() as td:
    out=Path(td)/'unused';r=self.cli('collect','--target','60','--out',str(out));self.assertNotEqual(r.returncode,0);self.assertIn('operator review',r.stderr);self.assertFalse(out.exists())
+ def test_gridics_current_refusal_visible_and_collect_stops_before_adapter(self):
+  r=self.cli('plan','--target','29','--publication','29-2153491435c1');plan=json.loads(r.stdout)['plans'][0];advisory=plan['observed_access_advisories'][0];self.assertEqual(advisory['family'],'gridics');self.assertEqual(advisory['raw_refusal_witness']['http_status'],403);self.assertEqual(advisory['raw_refusal_witness']['body_bytes_saved'],0);self.assertIn('untested',advisory['reason'])
+  with tempfile.TemporaryDirectory() as td:
+   out=Path(td)/'unused';r=self.cli('collect','--target','29','--publication','29-2153491435c1','--out',str(out));self.assertNotEqual(r.returncode,0);self.assertIn('operator review',r.stderr);self.assertFalse(out.exists())
  def test_missing_shipped_advisory_catalog_is_not_ready(self):
   import shutil
   with tempfile.TemporaryDirectory() as td:
@@ -59,7 +63,7 @@ class ReadinessCatalog(unittest.TestCase):
   with tempfile.TemporaryDirectory() as td:
    out=Path(td)/'never-created'
    with self.assertRaisesRegex(AssertionError,'refusal boundary'):
-    self.cli('collect','--target','original-cupertino-ca','--out',str(out))
+    self.cli('collect','--target','67','--out',str(out))
    self.assertFalse(out.exists())
  def test_cli_protects_existing_unowned_output(self):
   with tempfile.TemporaryDirectory() as td:

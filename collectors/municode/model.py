@@ -145,6 +145,8 @@ def reconcile_publication(folder,cp,product_id):
   if not substantive.value() and '[IMAGE]' not in text and not node['children'] and not re.search(r'reserved|repealed|deleted|omitted',heading,re.I):errors.append('unexplained empty leaf: '+ident)
   if not heading:errors.append('missing heading '+ident)
   notes,note_images,note_html=sanitize_notes(doc.get('Notes'),base,known_images)
+  for omission in note_images:
+   if omission.get('qualification_error'):errors.append('unqualified note image boundary: '+ident+': '+omission['source_field'])
   source_records.extend({'node_id':ident,'html':h} for h in note_html)
   record={'node_id':ident,'product_id':int(pid),'job_id':job['Id'],'heading':heading,'toc_heading':node['heading'],'path':node['path'],'parent_id':node['parent_id'],'is_container':bool(node['children']),'text':text,'html':html,'body_sha256':sha(source_html.encode()),'normalized_html_sha256':sha(html.encode()),'image_policy':POLICY,'image_omissions':image_omissions+footnote_images+note_images,'tables':parser.tables,'links':parser.links,'list_count':parser.lists,'footnotes_html':footnotes_html,'notes':notes,'doc_type':doc.get('DocType'),'chunk_group_starting_node_id':doc.get('ChunkGroupStartingNodeId'),'source_unit':name,'source_url':cp['source_url'].split('?')[0]+'?nodeId='+ident}
   if doc.get('Notes'):record['notes_source_sha256']=digest(doc['Notes'])

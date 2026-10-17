@@ -1,0 +1,46 @@
+{
+  "command": [
+    "/Users/oliverflint/My Drive/Claude/Projects/CompliSolv 2.00/outputs/collection-readiness-2026-10-17/encodeplus/pause-at-gate-boundary-blocking.py"
+  ],
+  "script_sha256": "0a21582b841479f61e53f5ced04e73989eed1c05590dddfa31f424073c34b1d7",
+  "reason": "Controlled code/transport upgrade boundary; wait until no HTTP is in flight, preserve current source/checkpoints, SIGINT only owned runners",
+  "started_at": "2026-10-17T21:31:37.715248+00:00",
+  "runners": [
+    {
+      "pid": 54566,
+      "output": "fairfax-pfm",
+      "checkpoint_sha256": "81758a4b032f3ba29ccdb34c7690b34cd5ae5dbd38bda3669d75320c0a3ee409",
+      "signal": "SIGINT after HTTP gate drain"
+    },
+    {
+      "pid": 55740,
+      "output": "overland-primary",
+      "checkpoint_sha256": "a67c334656516002ccd5956a4f7cd934ec5ec9064ae069322d8b77aa89156e7d",
+      "signal": "Already exited; untouched"
+    },
+    {
+      "pid": 55748,
+      "output": "lincoln-primary",
+      "checkpoint_sha256": "31bc7579c138b5f5cc3d9b5084d843452898ae5de7ef077238f8eb16cfb1253a",
+      "signal": "SIGINT after HTTP gate drain"
+    },
+    {
+      "pid": 55756,
+      "output": "savannah-primary",
+      "checkpoint_sha256": "a08954dd14247e77579e317d4c233fb1d37c6977619a8d4b09904de93f306e29",
+      "signal": "SIGINT after HTTP gate drain"
+    }
+  ],
+  "gate_held_at": "2026-10-17T21:31:41.327973+00:00",
+  "last_completed_http": {
+    "url": "https://online.encodeplus.com/regs/fairfaxcounty-va-pfm/doclibrary.aspx?id=74426f9b-182b-4841-a7b6-dd0772262cff",
+    "started_at": "2026-10-17T21:31:40.892475+00:00",
+    "status": 200,
+    "pid": 54566,
+    "cooldown_until": null,
+    "stopped": false
+  },
+  "all_owned_runners_exited": true,
+  "gate_state_unmodified": true,
+  "finished_at": "2026-10-17T21:31:49.074569+00:00"
+}

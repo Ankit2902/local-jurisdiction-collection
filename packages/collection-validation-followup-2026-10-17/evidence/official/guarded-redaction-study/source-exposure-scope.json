@@ -1,0 +1,33 @@
+{
+  "schema": 1,
+  "offline": true,
+  "separate_image_operations": false,
+  "source_change_scope": {
+    "model.py": {
+      "old_sha256": "27143543eb0628fbf5a10fcdf3f70529e0f01ff05a6ecbe2b68c5e6466deec41",
+      "new_sha256": "14699e626d2d452c977e6b381cfae4a736f979e18d10936eba7a690fe37bf203",
+      "only_changed_functions": [
+        "redact_image_metadata",
+        "semantics"
+      ],
+      "all_other_ast_equal": true
+    },
+    "pdf_structure.py": {
+      "old_sha256": "9ebcb2ad330dc69518df76491cc18f2302887ac0161d73d6f8f90a22fccb3051",
+      "new_sha256": "2fcd3238e28461c51489cf8b03ec8decf010a2409b69c107d49db39b52f76802",
+      "only_changed_functions": [
+        "redact_metadata"
+      ],
+      "all_other_ast_equal": true
+    }
+  },
+  "required_external_legal_body_checks": [
+    {
+      "source_url": "https://mgaleg.maryland.gov/mgawebsite/laws/StatuteText?article=gtp&section=9-304",
+      "raw_sha256": "14e9548026692774d28f0b6a73ebbf64f7f7e10f9cb20c22d0da5574321bd07d",
+      "selector": "#StatuteText",
+      "selected_legal_node_data_image_prefixes": 0
+    }
+  ],
+  "scope": "Only source redactor guard and typed-href metadata preservation changed; all other module AST unchanged. Archive/native URI-bearing paths compared separately. No fresh guarded-code acquisition claimed."
+}

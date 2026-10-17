@@ -1,11 +1,29 @@
 """Pure American Legal inventory/content models. No network or output mutation."""
 import csv,hashlib,io,json,re
 from urllib.parse import urljoin,urlparse,unquote
-from bs4 import BeautifulSoup
+from bs4 import BeautifulSoup,NavigableString,Comment
 from pypdf import PdfReader
 
 def digest(b):return hashlib.sha256(b).hexdigest()
 def canonical(v):return json.dumps(v,sort_keys=True,separators=(',',':'),ensure_ascii=False).encode()
+def dom_text(element,separator='\n'):
+ """Preserve inline character adjacency; separate only rendered block boundaries.
+
+ get_text(separator, strip=True) inserts characters at every formatting tag,
+ corrupting punctuation, suffixes and even words split across inline spans.
+ Source whitespace is retained until normal HTML whitespace collapse. Table
+ cells / rows and explicit line breaks are boundaries, including nested tables.
+ """
+ blocks={'address','article','aside','blockquote','caption','dd','div','dl','dt','fieldset','figcaption','figure','footer','form','h1','h2','h3','h4','h5','h6','header','hr','li','main','nav','ol','p','pre','section','table','tbody','td','tfoot','th','thead','tr','ul'}
+ def visit(node):
+  if isinstance(node,Comment):return ''
+  if isinstance(node,NavigableString):return str(node)
+  if node.name in {'script','style','annotationdrawer','codeoptions'}:return ''
+  if node.name in {'br','hr'}:return '\n'
+  value=''.join(visit(c) for c in node.children)
+  return '\n'+value+'\n' if node.name in blocks else value
+ lines=[re.sub(r'[^\S\n]+',' ',line).strip() for line in visit(element).split('\n')]
+ return separator.join(line for line in lines if line)
 def label(v):return re.sub(r'[^a-z0-9]','',v.casefold())
 def redux(data):
  m=re.search(r'window\._redux_state\s*=\s*JSON\.parse\(("(?:[^"\\]|\\.)*")',data.decode('utf-8'))
@@ -65,7 +83,7 @@ def refs(html,base):
     if e.name in ['a','link'] and attr in ['href','to'] and kind is None:
      context=e.find_parent(['p','li','td','div']);context=context.get_text(' ',strip=True) if context else ''
      if re.search(r'(?:incorporat\w*|adopt\w*).{0,100}(?:reference|map|plan|manual|standard|document)',context,re.I):kind='attachment'
-    if raw.lower().startswith('data:image/') or e.get('type','').strip().lower().startswith('image/') or attr=='background' or (e.name=='input' and e.get('type','').strip().lower()=='image'):kind='image'
+    if 'data:image/' in raw.lower() or e.get('type','').strip().lower().startswith('image/') or attr=='background' or (e.name=='input' and e.get('type','').strip().lower()=='image'):kind='image'
     entry={'tag':e.name,'attribute':attr,'raw':raw,'source_attribute':raw_value,'url':urljoin(base,resolved),'label':e.get_text(' ',strip=True)}
     if raw.lower().startswith('data:'):entry['disposition']='inline-retained';entry['sha256']=digest(raw.encode())
     elif raw.lower().startswith(('javascript:','mailto:','tel:','#')):entry['disposition']='non-download-reference'
@@ -101,10 +119,10 @@ def html_record(payload,item,identity,source_url,source_sha,resolved_images=()):
   rows=[]
   for tr in table.find_all('tr'):
    if tr.find_parent('table') is not table:continue
-   rows.append([{'tag':c.name,'text':c.get_text(' ',strip=True),'rowspan':int(c.get('rowspan',1)),'colspan':int(c.get('colspan',1))} for c in tr.find_all(['td','th'],recursive=False)])
+   rows.append([{'tag':c.name,'text':dom_text(c,' '),'rowspan':int(c.get('rowspan',1)),'colspan':int(c.get('colspan',1))} for c in tr.find_all(['td','th'],recursive=False)])
   tables.append(rows)
- text=soup.get_text('\n',strip=True);assert text.strip(),'Empty packet'
- own_heading=root.get_text(' ',strip=True);body_text=text.replace(root.get_text('\n',strip=True),'',1).strip()
+ text=dom_text(soup);assert text.strip(),'Empty packet'
+ own_heading=dom_text(root,' ');body_text=text.replace(dom_text(root),'',1).strip()
  classification='operative-or-front-matter-body' if len(body_text)>10 else 'intentional-image-placeholder' if placeholders else 'structural-heading-only' if item['has_children'] else 'reserved-heading-only' if re.search(r'repealed|reserved|deleted|omitted|not used',item['heading'],re.I) else 'unqualified-heading-only'
  return {'document_id':item['document_id'],'heading':item['heading'],'path':item['path'],'parent_id':item['parent_id'],'kind':'html-renderer-owned-range','text':text,'html':str(soup),'image_placeholders':placeholders,'image_policy':IMAGE_POLICY,'body_block_ids':ids,'content_classification':classification,'tables':tables,'table_parent_indices':table_parents,'links':links,'assets':assets,'source_url':source_url,'source_sha256':source_sha,'publication_identity':identity,'notes':{'publisher_title':payload.get('title'),'code_lookup':payload.get('code_lookup')},'text_sha256':digest(text.encode())}
 
@@ -141,15 +159,52 @@ def passthrough_record(item,inventory,identity,source):
  text=item['heading'];url=f"https://codelibrary.amlegal.com/codes/{identity['client_slug']}/{identity['version_uuid']}/{identity['code_slug']}/{target}"
  return {'document_id':item['document_id'],'heading':text,'path':item['path'],'parent_id':item['parent_id'],'kind':'publisher-toc-passthrough-container','text':text,'html':None,'image_placeholders':[],'image_policy':IMAGE_POLICY,'body_block_ids':[],'content_classification':'structural-heading-only','tables':[],'table_parent_indices':[],'links':[{'url':url,'disposition':'internal-publication-reference','target_document_id':target,'label':byid[target]['heading'],'relation':'publisher-passthrough-navigation'}],'assets':[],'source_url':source['url'],'source_sha256':source['sha256'],'publication_identity':identity,'passthru_target_id':target,'notes':{'normalization_basis':'Independent publisher TOC grouping; landing child owns its legal body, never duplicated here'},'text_sha256':digest(text.encode())}
 
-def pdf_pages(data,owner,source_url):
+def pdf_pages(data,owner,source_url,cache_dir=None):
  assert data.startswith(b'%PDF-'),'Native source is not PDF'
+ from pdf_tags import parse as tagged_parse
+ tagged=tagged_parse(data,cache_dir)
+ if tagged is not None:
+  # Every source MCID has one owning page block. Full-book logical text and
+  # table text are explicitly derived views of those owned source references.
+  inv=tagged['source_inventory'];byref={(b['page'],b['mcid']):b for p in tagged['pages'] for b in p['blocks']};nodes={n['source_id']:n for n in inv['nodes']};ordered={p['page']:[] for p in tagged['pages']};image_pages={}
+  for entry in tagged['logical_sequence']:
+   if entry['kind']=='text':
+    block=byref.get((entry['page'],entry['mcid']))
+    if block:ordered[entry['page']].append(block['text'])
+   else:
+    sid=entry['source_id'];refs=[r['page'] for r in inv['references'] if r.get('image_owner_id')==sid and r['page']];page=nodes[sid]['page'] or (min(refs) if refs else 1);ordered[page].append('[IMAGE]');image_pages[sid]=page
+  result=[]
+  for page in tagged['pages']:
+   number=page['page'];text='\n'.join(ordered[number]);markers=sum(p==number for p in image_pages.values());row={'document_id':owner+':page:'+str(number),'owner_id':owner,'page':number,'text':text,'text_sha256':digest(text.encode()),'image_xobject_count':None,'image_placeholder_count':markers,'image_policy':IMAGE_POLICY,'source_url':source_url,'source_sha256':tagged['source_sha256'],'normalization_profile':'publisher-forward-tags-mcid-v1','source_qualification':tagged['qualification'],'tagged_page':page,'available_figure_text':[b for b in tagged['available_figure_text'] if b['page']==number],'available_figure_text_is_derived_view':True,'source_owned_block_ids':[owner+':'+b['block_id'] for b in page['blocks']],'image_binary_extraction_count':0}
+   if number==1:row['tagged_document']={k:v for k,v in tagged.items() if k!='pages'}
+   result.append(row)
+  return result
  from pdf_layout import layout_page
+ from pdf_native import page_evidence,image_placements
  import pymupdf
- reader=PdfReader(io.BytesIO(data));geometry=pymupdf.open(stream=data,filetype='pdf');assert len(geometry)==len(reader.pages);result=[]
+ reader=PdfReader(io.BytesIO(data));geometry=pymupdf.open(stream=data,filetype='pdf');assert len(geometry)==len(reader.pages);result=[];placements=image_placements(data)
  for i,page in enumerate(reader.pages):
   text=page.extract_text() or '';resources=page.get('/Resources') or {};resources=resources.get_object() if hasattr(resources,'get_object') else resources;objects=resources.get('/XObject',{})
   objects=objects.get_object() if hasattr(objects,'get_object') else objects
-  layout=layout_page(geometry[i],text);images=sum(v.get_object().get('/Subtype')=='/Image' for v in objects.values());text=text+('\n'+('[IMAGE]\n'*(images+int(layout['vector_graphics_present']))).rstrip() if images or layout['vector_graphics_present'] else '');result.append({'document_id':owner+':page:'+str(i+1),'owner_id':owner,'page':i+1,'text':text,'text_sha256':digest(text.encode()),'image_xobject_count':images,'image_placeholder_count':images+int(layout['vector_graphics_present']),'layout':layout,'image_policy':IMAGE_POLICY,'source_url':source_url})
+  layout=layout_page(geometry[i],text);native=page_evidence(geometry[i]);images=len(placements[i]);no_glyphs=native['glyph_count']==0 and not text.strip() and not layout['text_blocks'];markers=images+int(layout['vector_graphics_present']);qualification={'source_text_qualified':no_glyphs,'source_tables_qualified':no_glyphs,'source_reading_order_qualified':no_glyphs,'legal_provision_segmentation_qualified':False,'policy_not_applicable_to_text_glyph_fidelity':no_glyphs,'source_text_glyph_count':native['glyph_count'],'basis':'No source text glyphs in independent native device, pypdf or positioned text; image/vector objects intentionally [IMAGE], no transcription' if no_glyphs else 'Untagged text/grid geometry remains unqualified until complete source-glyph, cell/span and reading-order audit'}
+  # Table-cell placeholders are derived references to source draw operations,
+  # not extracted image content. Retain both coordinate systems explicitly.
+  for table in layout['table_candidates']:
+   table['text_is_derived_view']=True
+   for row in table['cells']:
+    for cell in row:
+     if cell is None:continue
+     ids=[]
+     for placement in placements[i]:
+      x0,y0,x1,y1=placement['bbox'];center=((x0+x1)/2,geometry[i].rect.height-(y0+y1)/2);box=cell['bbox']
+      if box[0]<=center[0]<box[2] and box[1]<=center[1]<box[3]:ids.append(placement['ordinal'])
+     if ids:cell['text']=(cell['text'] or '')+(' ' if cell['text'] else '')+' '.join('[IMAGE]' for _ in ids);cell['image_placement_ordinals']=ids
+  if not no_glyphs:
+   from pdf_grid import qualify,has_unprofiled_metadata
+   qualification=qualify(geometry[i],text,layout,native,placements[i],has_unprofiled_metadata(page))
+   if qualification['source_tables_qualified']:
+    markers=images;layout['vector_graphics_disposition']='Original closed table borders preserved as normalized grid, not image content'
+  text=text+('\n'+('[IMAGE]\n'*markers).rstrip() if markers else '');result.append({'document_id':owner+':page:'+str(i+1),'owner_id':owner,'page':i+1,'text':text,'text_sha256':digest(text.encode()),'image_xobject_count':images,'image_placeholder_count':markers,'layout':layout,'native_source_evidence':dict(native,image_placements=placements[i]),'source_qualification':qualification,'normalization_profile':'untagged-native-glyph-policy-v1','image_policy':IMAGE_POLICY,'source_url':source_url})
  assert len(result)==len(reader.pages);geometry.close()
  return result
 
@@ -166,7 +221,7 @@ def normalize_pdf_assets(assets,pages,read):
  return metadata
 
 def output_bytes(records,pages):
- data={'sections.jsonl':b''.join(json.dumps(r,ensure_ascii=False).encode()+b'\n' for r in records),'pdf-pages.jsonl':b''.join(json.dumps(r,ensure_ascii=False).encode()+b'\n' for r in pages)}
+ data={'sections.jsonl':b''.join(json.dumps(r,ensure_ascii=False,sort_keys=True).encode()+b'\n' for r in records),'pdf-pages.jsonl':b''.join(json.dumps(r,ensure_ascii=False,sort_keys=True).encode()+b'\n' for r in pages)}
  out=io.StringIO(newline='');fields=['document_id','kind','heading','parent_id','text','source_url','source_sha256'];w=csv.DictWriter(out,fieldnames=fields,extrasaction='ignore');w.writeheader();w.writerows(records);data['sections.csv']=out.getvalue().encode();return data
 
 def native_records(data,inventory,identity,url,sha,resolved_images=(),inventory_sources=None):
@@ -212,10 +267,10 @@ def validate_asset(url,data,content_type):
  return {'kind':'unqualified-binary','qualified':False,'reason':'Bytes retained; format/content validation not implemented'}
 
 IMAGE_POLICY='literal-[IMAGE]-no-image-fetch-v1'
-def image_url(url):return url.lstrip().lower().startswith('data:image/') or bool(re.search(r'\.(?:png|jpe?g|gif|webp|svg|avif|bmp|ico|tiff?)(?:$|[?#])',url,re.I))
+def image_url(url):return 'data:image/' in url.lower() or bool(re.search(r'\.(?:png|jpe?g|gif|webp|svg|avif|bmp|ico|tiff?)(?:$|[?#])',url,re.I))
 def image_reference(ref):
  raw=ref.get('raw','');source=ref.get('source_attribute',raw)
- if raw.lower().startswith('data:'):
+ if 'data:image/' in raw.lower() or raw.lower().startswith('data:'):
   ref=dict(ref,raw='[IMAGE]',source_attribute='[IMAGE]',url='inline-image:'+digest(raw.encode()),source_ref_sha256=digest(source.encode()))
  return dict(ref,kind='image',disposition='image-placeholder',placeholder='[IMAGE]',policy=IMAGE_POLICY)
 def normalize_images(soup,base,extra=()):
@@ -259,4 +314,13 @@ def normalize_images(soup,base,extra=()):
     for u in images:value=re.sub(r'url\([\s\'\"]*'+re.escape(u)+r'[\s\'\"]*\)', 'none',value,flags=re.I)
     e['style']=value;e.insert(0,NavigableString('[IMAGE]'*len(images)))
    replaced.extend({'tag':'css-image','source_markup_sha256':digest(u.encode())} for u in images)
+ # Arbitrary publisher metadata attributes can contain folded inline image URIs.
+ # Redact the whole affected value: URI whitespace boundaries are ambiguous and
+ # retaining a suffix can leak base64 continuation bytes. Preserve a source hash.
+ for e in soup.find_all(True):
+  for key,value in list(e.attrs.items()):
+   values=value if isinstance(value,list) else [value]
+   if any('data:image/' in str(v).lower() for v in values):
+    original=str(value);e[key]='[IMAGE]';e.insert(0,NavigableString('[IMAGE]'))
+    replaced.append({'tag':'image-metadata','attribute':key,'source_markup_sha256':digest(original.encode())})
  return replaced

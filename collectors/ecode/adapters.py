@@ -149,6 +149,13 @@ def normalized_images(html):
   if el.get('style') and re.search(r'url\(',el['style'],re.I):
    count=len(re.findall(r'url\(',el['style'],re.I));el['style']=re.sub(r'url\([^)]*\)','none',el['style'],flags=re.I);el.insert(0,NavigableString(' '.join(['[IMAGE]']*count)))
   if el.name=='style' and re.search(r'url\(',el.get_text(),re.I):el.replace_with(NavigableString(' '.join(['[IMAGE]']*len(re.findall(r'url\(',el.get_text(),re.I)))))
+ # Nonvisual attributes can also contain wrapped image data. Hash the complete
+ # bounded attribute instead of retaining continuation bytes after whitespace.
+ # Visible source text and unrelated attributes remain unchanged.
+ for el in s.find_all(True):
+  for name,value in list(el.attrs.items()):
+   if 'data:image/' in str(value).lower():
+    el.attrs[name]='[IMAGE] image-data-sha256:'+digest(str(value).encode())
  return s
 
 def image_occurrences(html,owner):

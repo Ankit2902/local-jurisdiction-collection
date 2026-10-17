@@ -1,0 +1,37 @@
+{
+  "schema_version": 1,
+  "kind": "isolated Notes image-boundary v2 candidate",
+  "production_modified": false,
+  "network_requests": 0,
+  "notes_sha256": "1cac5a479094d211100591772dd158a9019087dbb517e95358147d36159b7cc2",
+  "model_sha256": "9d73813c1fb42d41f7bfe01e46c0ba4d092994fb4b71debe9b8d2a0af47ac3f4",
+  "promotion_ready_test_sha256": "0b193fdf5804d34bb42a233e23e2a00840235565d38f6238fff2bf50807b0da0",
+  "tests": {
+    "focused": 4,
+    "whitespace_subcases": [
+      "LF",
+      "TAB",
+      "SPACE"
+    ],
+    "existing_full_faults": 27,
+    "promotion_ready_test": 4,
+    "result": "passed"
+  },
+  "actual_source_exposure": {
+    "checkpoints": 16,
+    "content_units": 16,
+    "documents": 49888,
+    "documents_with_nonempty_notes": 0,
+    "note_strings": 0,
+    "note_strings_with_data_image": 0,
+    "normalized_note_differences": 0,
+    "candidate_boundary_gaps": 0
+  },
+  "actual_source_files_unchanged": true,
+  "actual_source_normalization_differences": 0,
+  "actual_exposure_note": "All16actualretainedcheckpoints have empty/absent Notes; Doc occurrences include repeated editions. Therefore actual-source differential demonstrates nonregression/unexposed retained data, not live occurrence qualification.",
+  "boundary_policy": "Source-delimited quoted/parenthesized URI replaces wrapped image payload with [IMAGE] and preserves prefix/suffix. Unquoted whitespace ambiguity never passes as verified legal text: explicit qualification error, raw original Notes/hash/locator retained for review.",
+  "independent_review": "qa/municode-candidate-v2-note-whitespace-probe.json reviewed exact1cac5a47 revision:5casespassed",
+  "historical_candidate": "v1 inherited evidence contains the rejected bareSPACE/TAB gap; V1-CANDIDATE-LINEAGE.json preserves exact prior hashes.",
+  "scope": "notes.py redaction + model propagation only; image_policy unchanged; no image decoding/extraction/download; no edition/source-empty waivers"
+}

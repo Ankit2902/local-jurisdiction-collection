@@ -1,0 +1,24 @@
+test_actual_reconcile_and_verifier_scoped_completion (__main__.MultilineNotes.test_actual_reconcile_and_verifier_scoped_completion) ... 
+  test_actual_reconcile_and_verifier_scoped_completion (__main__.MultilineNotes.test_actual_reconcile_and_verifier_scoped_completion) (qualified=False) ... ERROR
+test_parentheses_and_multiple_images_keep_outside_text (__main__.MultilineNotes.test_parentheses_and_multiple_images_keep_outside_text) ... ok
+test_quoted_exact_qa_fixture_preserves_prefix_and_caption (__main__.MultilineNotes.test_quoted_exact_qa_fixture_preserves_prefix_and_caption) ... ok
+test_unquoted_ambiguous_wrapping_cannot_qualify_text (__main__.MultilineNotes.test_unquoted_ambiguous_wrapping_cannot_qualify_text) ... ok
+
+======================================================================
+ERROR: test_actual_reconcile_and_verifier_scoped_completion (__main__.MultilineNotes.test_actual_reconcile_and_verifier_scoped_completion) (qualified=False)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/oliverflint/My Drive/Claude/Projects/CompliSolv 2.00/outputs/collection-readiness-next-2026-10-17/municode/isolated-multiline-notes-candidate-v1/test_multiline_notes.py", line 37, in test_actual_reconcile_and_verifier_scoped_completion
+    self.assertEqual(verify(folder)['publication_complete'],qualified)
+                     ^^^^^^^^^^^^^^
+  File "/Users/oliverflint/My Drive/Claude/Projects/CompliSolv 2.00/outputs/collection-readiness-next-2026-10-17/municode/isolated-multiline-notes-candidate-v1/verify.py", line 27, in verify
+    check(not blocking_errors,'Publication parse/identity errors')
+  File "/Users/oliverflint/My Drive/Claude/Projects/CompliSolv 2.00/outputs/collection-readiness-next-2026-10-17/municode/isolated-multiline-notes-candidate-v1/verify.py", line 13, in check
+    if not ok:raise ValueError(message)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^
+ValueError: Publication parse/identity errors
+
+----------------------------------------------------------------------
+Ran 4 tests in 0.352s
+
+FAILED (errors=1)

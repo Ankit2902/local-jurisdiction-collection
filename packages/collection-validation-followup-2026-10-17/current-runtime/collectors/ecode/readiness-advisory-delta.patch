@@ -1,0 +1,80 @@
+--- d83/adapters.py
++++ current/adapters.py
+@@ -109,7 +109,7 @@
+  for el in s.find_all(True):
+   name=el.name.lower()
+   for attr in ['src','poster','background','data','xlink:href']:
+-   if el.get(attr) and (attr!='data' or name=='object'):add(el[attr],attr+'_asset' if attr in ['poster','background'] else name+'_asset')
++   if el.get(attr) and (attr!='data' or name=='object'):add(el[attr],'image_asset' if name in ['object','embed'] and el.get('type','').lower().startswith('image/') else (attr+'_asset' if attr in ['poster','background'] else name+'_asset'))
+   if name in ['image','use'] and el.get('href'):add(el['href'],'svg_asset')
+   if el.get('srcset'):
+    # A data URI srcset cannot be safely split on commas; retain an unresolved required ref.
+--- d83/engine.py
++++ current/engine.py
+@@ -235,6 +235,7 @@
+ 
+ def adopt(source,out,cfg,offline=False):
+  """Explicit new-folder source migration; ordinary --resume never upgrades code."""
++ if not offline:enforce_published_advisory(cfg['family'])
+  source=Path(source).resolve();out=Path(out).resolve();prior=read(source/'checkpoint.json')
+  if out.exists() and any(out.iterdir()):raise QualificationError('Migration requires a fresh output')
+  if not prior.get('identity'):raise QualificationError('Migration needs a pinned original identity')
+@@ -267,7 +268,22 @@
+  if offline:return write_outputs(out,state,rebuild(out,state))
+  return collect(cfg,out,True)
+ 
++def published_access_advisories(family):
++ """Shipped event-scoped stop history survives a fresh home or absent temporary gate."""
++ path=Path(__file__).resolve().parents[1]/'registry/access-advisories.json'
++ try:catalog=read(path)
++ except Exception as e:raise QualificationError('Published access advisory catalog missing/unreadable; use the complete collector package, not a fresh empty gate') from e
++ if catalog.get('schema_version')!=1 or not isinstance(catalog.get('advisories'),list):raise QualificationError('Unsupported published access advisory catalog')
++ return [a for a in catalog['advisories'] if a.get('family')==family and a.get('operator_review_required') is True]
++
++def enforce_published_advisory(family):
++ advisories=published_access_advisories(family)
++ if advisories:
++  reasons='; '.join(a.get('reason','Observed workflow stop') for a in advisories)
++  raise AccessStop('Shipped '+family+' access advisory requires operator review before browser/transport startup: '+reasons+' This preserves observed workflow scope, not a claim that every publisher URL is unavailable. Offline replay/verify/import/inspect remain allowed; no retry, route change or automatic clearing.')
++
+ def collect(cfg,out,resume=False):
++ enforce_published_advisory(cfg['family'])
+  from .browser import Browser
+  out=Path(out).resolve()
+  if out.exists() and any(out.iterdir()) and not resume:raise QualificationError('Output is nonempty; choose a fresh directory or --resume')
+--- d83/operator.py
++++ current/operator.py
+@@ -21,7 +21,9 @@
+  if state and clean_url(url) not in {clean_url(state['config']['url']),clean_url(state.get('publication_url') or state['config']['url'])}:raise QualificationError('Doctor URL does not match retained source configuration/publication')
+  gate=Path(gate_dir or (state or {}).get('config',{}).get('gate_dir') or os.environ.get('ICC_GATE_DIR','/tmp/complisolv-icc-full-gate'))/family
+  stop=read(gate/'STOP.json') if (gate/'STOP.json').exists() else None
+- result={'network_performed':False,'family':family,'source_url':url,'shared_gate_path':str(gate),'access_stop':stop,'network_ready':not bool(stop),'python':sys.version,'platform':platform.platform(),'chrome_required':'Installed Google Chrome for live collect only','dependencies':{}}
++ from .engine import published_access_advisories
++ advisories=published_access_advisories(family)
++ result={'network_performed':False,'family':family,'source_url':url,'shared_gate_path':str(gate),'access_stop':stop,'published_access_advisories':advisories,'network_ready':not bool(stop or advisories),'python':sys.version,'platform':platform.platform(),'chrome_required':'Installed Google Chrome for live collect only','dependencies':{}}
+  from importlib.metadata import version,PackageNotFoundError
+  for name in ['beautifulsoup4','playwright','requests','pypdf']:
+   try:result['dependencies'][name]=version(name)
+@@ -32,18 +34,18 @@
+  chrome=next((str(p) for p in candidates if p.is_file()),None) or shutil.which('google-chrome') or shutil.which('google-chrome-stable')
+  result['chrome_executable']=chrome;result['python_supported']=sys.version_info>=(3,12)
+  result['dependencies_ready']=all(result['dependencies'].values()) and result['python_supported']
+- result['actions']=['Do not clear STOP.json, change the gate, retry a refused route, or switch publisher host to evade the stop.','An authorised operator may supply genuine publisher downloads and source/edition/closing witnesses through export-plan and import-bundle. These commands never fetch URLs.','After publisher support confirms restored authorised access, an operator must review the persistent stop outside this collector; there is no automatic reset command.'] if stop else ['Use a fresh output, or exact-version --resume. Older versions require explicit --adopt-from into a fresh output.']
++ result['actions']=['Do not clear STOP.json, change the gate, retry a refused route, or switch publisher host to evade the stop.','An authorised operator may supply genuine publisher downloads and source/edition/closing witnesses through export-plan and import-bundle. These commands never fetch URLs.','After publisher support confirms restored authorised access, an operator must review the persistent stop outside this collector; there is no automatic reset command.'] if stop or advisories else ['Use a fresh output, or exact-version --resume. Older versions require explicit --adopt-from into a fresh output.']
+  if source:
+   from .engine import code_fingerprint,load_artifact
+   source=Path(source)
+   for a in state['artifacts']:load_artifact(source,a)
+   for name,h in state['code_fingerprint'].items():
+    if digest((source/'executed-source'/name).read_bytes())!=h:raise QualificationError('Executed source snapshot corruption')
+-  result.update({'source_identity':state.get('identity'),'cache_raw_hashes_valid':True,'exact_runtime_revision':state.get('code_fingerprint')==code_fingerprint(),'source_network_prohibited':state.get('network_prohibited',False),'source_errors':state.get('errors',[]),'can_resume':not stop and not state.get('network_prohibited') and state.get('code_fingerprint')==code_fingerprint() and not any(e.get('access_stop') for e in state.get('errors',[]))})
+- result['transport_gate_clear']=not bool(stop);result['readiness_scope']='source_resume' if source else 'fresh_collect'
++  result.update({'source_identity':state.get('identity'),'cache_raw_hashes_valid':True,'exact_runtime_revision':state.get('code_fingerprint')==code_fingerprint(),'source_network_prohibited':state.get('network_prohibited',False),'source_errors':state.get('errors',[]),'can_resume':not stop and not advisories and not state.get('network_prohibited') and state.get('code_fingerprint')==code_fingerprint() and not any(e.get('access_stop') for e in state.get('errors',[]))})
++ result['transport_gate_clear']=not bool(stop);result['published_advisory_clear']=not bool(advisories);result['readiness_scope']='source_resume' if source else 'fresh_collect'
+  if source:
+   prohibited=state.get('network_prohibited') or any(e.get('access_stop') for e in state.get('errors',[])+state.get('operator_import',{}).get('historical_errors',[]))
+-  result['network_ready']=not bool(stop) and not prohibited
++  result['network_ready']=not bool(stop or advisories) and not prohibited
+  result['offline_tools_ready']=result['dependencies_ready'];result['ready']=result['network_ready'] and result['dependencies_ready'] and bool(chrome) and (result.get('can_resume',True));return result
+ 
+ def export_plan(source,out):

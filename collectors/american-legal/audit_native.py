@@ -19,7 +19,11 @@ def cell_text(cell):
   if count:e.insert(0,NavigableString('[IMAGE]'*count))
   if e.name=='a' and (IMAGE.search(e.get('href') or e.get('to') or '') or (e.get('href') or e.get('to') or '').lower().startswith('data:image/')):e.replace_with(NavigableString('[IMAGE]'))
  for e in s.select('script,style,annotationdrawer,codeoptions,.clearfix'):e.decompose()
- return s.get_text(' ',strip=True)
+ # Inline nodes contribute adjacent source characters. Only block/row/cell
+ # boundaries contribute a separator; do not invent spaces around emphasis.
+ for e in s.find_all(['address','article','aside','blockquote','caption','dd','div','dl','dt','fieldset','figcaption','figure','footer','form','h1','h2','h3','h4','h5','h6','header','hr','li','main','nav','ol','p','pre','section','table','tbody','td','tfoot','th','thead','tr','ul','br']):
+  e.insert_before(NavigableString(' '));e.insert_after(NavigableString(' '))
+ return ' '.join(s.get_text().split())
 def audit(raw,records):
  source=BeautifulSoup(raw,'html.parser');owners={};byid={r['document_id']:r for r in records};fail=[]
  for r in records:

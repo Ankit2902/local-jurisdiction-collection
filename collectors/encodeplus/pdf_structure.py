@@ -76,10 +76,38 @@ def invalid_decoder_resolutions(text,textpage,page):
  resolved=''.join(next((r['pdfminer_unicode'] for r in resolutions if r['pdfium_character_index']==i),c) for i,c in enumerate(text))
  return resolved,resolutions
 
-def redact_metadata(value):
- if isinstance(value,str):return re.sub(r'data:image/[^\s\"\'<>]*','[IMAGE]',value,flags=re.I)
- if isinstance(value,list):return [redact_metadata(v) for v in value]
- if isinstance(value,dict):return {k:redact_metadata(v) for k,v in value.items()}
+def redact_image_text(value):
+ # A complete declared literal-SVG envelope is a whole image value. Do not
+ # interpret SVG markup, decode pixels, or consume following legal prose.
+ svg_prefix=re.match(r'\s*data:image/svg\+xml(?:;[^,\s]*)?,\s*',value,re.I)
+ if svg_prefix:
+  payload=value[svg_prefix.end():].strip()
+  # Generic extracted text has no typed-URI boundary: accept only a plain
+  # unambiguous root opening. Attributes/quoted delimiters remain unsupported.
+  if re.fullmatch(r'<svg\s*/>',payload,re.I):return '[IMAGE]'
+  if re.match(r'<svg\s*>',payload,re.I) and re.search(r'</svg\s*>$',payload,re.I) and len(re.findall(r'<svg\b',payload,re.I))==1 and len(re.findall(r'</svg\s*>',payload,re.I))==1:return '[IMAGE]'
+ chunks=[];position=0
+ def ambiguous():raise ValueError('Unsupported ambiguous inline-image text boundary; source sha256='+hashlib.sha256(value.encode()).hexdigest())
+ for match in re.finditer(r'data:image/',value,re.I):
+  if match.start()<position:continue
+  start=match.start();chunks.append(value[position:start]);quote=value[start-1] if start and value[start-1] in ['"',"'"] else None
+  if quote:
+   end=value.find(quote,match.end())
+   if end<0:ambiguous()
+   if '<' in value[start:end] or '>' in value[start:end]:ambiguous()
+  else:
+   token=re.match(r'[^\s"\'<>]+',value[start:]);end=start+len(token.group()) if token else start
+   if value[end:].strip():ambiguous()
+  chunks.append('[IMAGE]');position=end
+ chunks.append(value[position:]);return ''.join(chunks)
+
+def redact_metadata(value,_field=None):
+ if isinstance(value,str):
+  # URI is a typed PDF annotation address, not extracted legal text/captions.
+  if str(_field).lower()=='uri' and value.lstrip().lower().startswith('data:image/'):return '[IMAGE]'
+  return redact_image_text(value)
+ if isinstance(value,list):return [redact_metadata(v,_field) for v in value]
+ if isinstance(value,dict):return {k:redact_metadata(v,k) for k,v in value.items()}
  return value
 
 def pages(data,item,config):

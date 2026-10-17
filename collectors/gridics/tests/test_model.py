@@ -36,6 +36,18 @@ class ModelTests(unittest.TestCase):
         self.assertEqual(records[0]['text'],'[IMAGE]')
         self.assertEqual(records[0]['disposition'],'body')
 
+    def test_video_poster_keeps_position_caption_and_redacts_payload(self):
+        import json
+        value=normalize('<table><tr><td>Before<video poster="DATA:IMAGE/PNG;base64,SECRETPIXELS"><p>Caption text</p></video>After</td></tr></table>',CONFIG['source_url'])
+        self.assertEqual(value['text'].count('[IMAGE]'),1)
+        self.assertIn('Before[IMAGE]',value['tables'][0][0][0]['text'])
+        self.assertIn('Caption text',value['text'])
+        self.assertIn('After',value['text'])
+        self.assertEqual(value['images'][0]['kind'],'video_poster')
+        self.assertTrue(value['images'][0]['source_locator']['embedded_data_omitted'])
+        self.assertNotIn('SECRETPIXELS',json.dumps(value))
+        self.assertNotIn('poster=',value['html'])
+
     def test_empty_not_complete(self):
         records,_=native_records([node('a')],CONFIG,'/a')
         self.assertEqual(records[0]['disposition'],'source_empty_unresolved')

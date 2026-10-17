@@ -1,0 +1,32 @@
+{
+  "schema": 1,
+  "offline": true,
+  "separate_image_operations": false,
+  "source_change_scope": {
+    "model.py": {
+      "old_sha256": "745797b0ce90b0c2de9847899dbfd6cf88fc6487749a27b7601999569a812fab",
+      "new_sha256": "805e16e570c9aa677d65c39bcb37bde68707de6a16edd83c7c62567f2b09af04",
+      "only_changed_functions": [
+        "redact_image_metadata"
+      ],
+      "all_other_ast_equal": true
+    },
+    "pdf_structure.py": {
+      "old_sha256": "a6430f822ff468838b6e9f1fc3e28f9fdb22f4c69548729003ebc2d803e5da41",
+      "new_sha256": "b8ea53c254ca1911197e6fc3023923426d42dec2746da620235d64dd03a3f04b",
+      "only_changed_functions": [
+        "redact_metadata"
+      ],
+      "all_other_ast_equal": true
+    }
+  },
+  "required_external_legal_body_checks": [
+    {
+      "source_url": "https://mgaleg.maryland.gov/mgawebsite/laws/StatuteText?article=gtp&section=9-304",
+      "raw_sha256": "14e9548026692774d28f0b6a73ebbf64f7f7e10f9cb20c22d0da5574321bd07d",
+      "selector": "#StatuteText",
+      "selected_legal_node_data_image_prefixes": 0
+    }
+  ],
+  "scope": "Known HTML attribute and typed PDF URI boundaries; one exact complete plain literal SVG root; unknown markup/prose boundaries refuse. Source checks prove zero changed normalized outputs on exposed actual source. No new current-source acquisition or full corpus replay claimed."
+}

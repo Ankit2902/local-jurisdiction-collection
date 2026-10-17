@@ -9,16 +9,43 @@ def sha(b):return hashlib.sha256(b).hexdigest()
 def encoded(v):return json.dumps(v,sort_keys=True,separators=(',',':'),ensure_ascii=False).encode()
 def clean(t):return re.sub(r'\s+',' ',t).strip()
 def key(url):return legacy_html.doc_key(url)
-def redact_image_metadata(value):
- if isinstance(value,str):return re.sub(r'data:image/[^\s\"\'<>]*', '[IMAGE]', value, flags=re.I)
- if isinstance(value,list):return [redact_image_metadata(v) for v in value]
- if isinstance(value,dict):return {k:redact_image_metadata(v) for k,v in value.items()}
+def redact_image_metadata(value,attribute_boundary=False):
+ if isinstance(value,str):
+  if attribute_boundary and value.lstrip().lower().startswith('data:image/'):return '[IMAGE]'
+  # Only a complete literal SVG envelope has a source-proven end. Unknown
+  # mixed markup/prose boundaries explicitly refuse instead of deleting prose.
+  if re.fullmatch(r'\s*data:image/svg\+xml(?:;[^,<>]*)?,\s*(?:<svg\s*>(?:(?!</?svg\b).)*</svg>|<svg\s*/\s*>)\s*',value,flags=re.I|re.S):return '[IMAGE]'
+  def replace(match):
+   if match.end()<len(value) and value[match.end()] in '<>':
+    raise ValueError('Unqualified literal image-markup boundary; cannot qualify image-payload/prose boundary')
+   quoted=match.start()>0 and value[match.start()-1] in ['\"',"'"] and match.end()<len(value) and value[match.end()]==value[match.start()-1]
+   if not quoted and re.search(r'\s+\S',match.group(0)):
+    raise ValueError('Ambiguous unquoted image data URI followed by whitespace/text; cannot qualify image-payload/prose boundary')
+   return '[IMAGE]'
+  return re.sub(r'data:image/[^\"\'<>]*',replace,value,flags=re.I)
+ if isinstance(value,list):
+  if attribute_boundary and any(isinstance(v,str) and 'data:image/' in v.lower() for v in value):return [redact_image_metadata(' '.join(str(v)for v in value),attribute_boundary=True)]
+  return [redact_image_metadata(v,attribute_boundary=attribute_boundary) for v in value]
+ if isinstance(value,dict):return {k:redact_image_metadata(v,attribute_boundary=attribute_boundary) for k,v in value.items()}
  return value
+def dom_text(node):
+ # Inline element boundaries do not add spaces (1<sup>st</sup>, ft<sup>3</sup>).
+ # Source block/line/cell boundaries retain a whitespace separator.
+ from bs4 import Tag,NavigableString,Comment,Declaration,Doctype,ProcessingInstruction
+ blocks={'address','article','aside','blockquote','br','caption','dd','div','dl','dt','fieldset','figcaption','figure','footer','form','h1','h2','h3','h4','h5','h6','header','hr','li','main','nav','ol','p','pre','section','table','tbody','td','tfoot','th','thead','tr','ul'}
+ def walk(el):
+  if isinstance(el,(Comment,Declaration,Doctype,ProcessingInstruction)):return ''
+  if isinstance(el,NavigableString):return str(el)
+  if not isinstance(el,Tag) or el.name in {'script','style','template'}:return ''
+  inside=''.join(walk(x) for x in el.children)
+  return ' '+inside+' ' if el.name in blocks else inside
+ return clean(walk(node))
+
 def table_data(node):
  tables=node.find_all('table');output=[]
  for index,table in enumerate(tables):
   parent=table.find_parent('table');parent_index=next((i for i,t in enumerate(tables) if t is parent),None)
-  output.append({'html':str(table),'parent_table_index':parent_index,'rows':[[{'text':clean(c.get_text(' ',strip=True)),'rowspan':str(c.get('rowspan','1')),'colspan':str(c.get('colspan','1')),'tag':c.name} for c in row.find_all(['td','th'],recursive=False)] for row in table.find_all('tr') if row.find_parent('table') is table]})
+  output.append({'html':str(table),'parent_table_index':parent_index,'rows':[[{'text':dom_text(c),'rowspan':str(c.get('rowspan','1')),'colspan':str(c.get('colspan','1')),'tag':c.name} for c in row.find_all(['td','th'],recursive=False)] for row in table.find_all('tr') if row.find_parent('table') is table]})
  return output
 
 def classify_asset(asset,config):
@@ -110,7 +137,7 @@ def sanitize_images(node):
    if tag.name=='style':tag.insert_before(NavigableString(' '.join('[IMAGE]' for _ in range(count))));tag.decompose()
    else:tag['style']=re.sub(r'url\([^)]*\)','none',tag.get('style',''),flags=re.I)
  for el in clone.find_all(True):
-  el.attrs=redact_image_metadata(el.attrs)
+  el.attrs=redact_image_metadata(el.attrs,attribute_boundary=True)
  for text in list(clone.find_all(string=True)):
   if 'data:image/' in str(text).lower():text.replace_with(NavigableString(redact_image_metadata(str(text))))
  return clone
@@ -120,7 +147,7 @@ def semantics(node,url):
  for asset in refs:
   if image_asset(asset):asset.update(required=False,status='policy_omitted_image',classification='user_requested_image_omission',placeholder='[IMAGE]',reason='User explicitly requests no image acquisition and literal[IMAGE] replacement; reference/IDs retained, no pixels extracted')
  clean_node=sanitize_images(node)
- return {'html':str(clean_node),'text':clean(clean_node.get_text(' ',strip=True)),'tables':table_data(clean_node),'links':redact_image_metadata([{'text':clean(a.get_text(' ',strip=True)),'url':('inline-image-ref:sha256:'+sha(a['href'].encode()) if a['href'].startswith('data:image/') else urljoin(url,a['href'])),'attributes':{k:('[IMAGE]' if isinstance(v,str) and 'data:image/' in v else v) for k,v in a.attrs.items()}} for a in node.select('a[href]')]),'assets':refs,'image_placeholder_count':clean_node.get_text().count('[IMAGE]'),'notes':[str(sanitize_images(a)) for a in node.select('aside.annotations,[role="note"],.Footnote,.footnote')],'superscripts':[str(x) for x in clean_node.select('sup,sub')]}
+ return {'html':str(clean_node),'text':dom_text(clean_node),'tables':table_data(clean_node),'links':redact_image_metadata([{'text':clean(a.get_text(' ',strip=True)),'url':('inline-image-ref:sha256:'+sha(a['href'].encode()) if a['href'].lower().startswith('data:image/') else urljoin(url,a['href'])),'attributes':redact_image_metadata(a.attrs,attribute_boundary=True)} for a in node.select('a[href]')]),'assets':refs,'image_placeholder_count':clean_node.get_text().count('[IMAGE]'),'notes':[str(sanitize_images(a)) for a in node.select('aside.annotations,[role="note"],.Footnote,.footnote')],'superscripts':[str(x) for x in clean_node.select('sup,sub')]}
 
 def html_records(data,item,config):
  soup=BeautifulSoup(data,'html.parser');selector=config.get('content_selector','main');node=soup.select_one(selector)
@@ -275,8 +302,8 @@ def archive_inventory(data,config):
  if not canonical:raise ValueError('No canonical publication members in archive')
  return z,root,members,canonical
 
-def archive_records(data,config,raw_ref):
- z,root,members,canonical=archive_inventory(data,config);records=[];owners=[];paths={m['path']:m for m in members};scope='/'+config.get('archive_prefix','/us/md/cities/baltimore/code').strip('/');all_assets=[]
+def archive_records(data,config,raw_ref,expected_git_tree=None):
+ z,root,members,canonical=archive_inventory(data,config);records=[];owners=[];paths={m['path']:m for m in members};scope='/'+config.get('archive_prefix','/us/md/cities/baltimore/code').strip('/');all_assets=[];canonical_owners={'/'+m['path'][len(root):-len('/index.html')] for m in canonical}
  for m in canonical:
   urlpath='/'+m['path'][len(root):-len('/index.html')];source_url=config.get('public_origin','https://codes.baltimorecity.gov')+urlpath;soup=BeautifulSoup(z.read(m['path']),'html.parser');article=soup.select_one('article');owned=[]
   if not article:owners.append({'id':urlpath,'member':m['path'],'disposition':'unresolved','reason':'No article legal container'});continue
@@ -287,7 +314,7 @@ def archive_records(data,config,raw_ref):
   for nav in clone.select('nav,script,style'):nav.decompose()
   ownheading=next((h for h in clone.select('[id]') if h.get('id')==urlpath),None)
   # Descendant IDs are rendered by their own canonical files. Remove ranges owned by those IDs, not quoted empty-ID notes.
-  descendants=[h for h in clone.select('h1[id],h2[id],h3[id],h4[id],h5[id],h6[id]') if h.get('id') and h.get('id')!=urlpath]
+  descendants=[h for h in clone.select('h1[id],h2[id],h3[id],h4[id],h5[id],h6[id]') if h.get('id') and h.get('id')!=urlpath and h.get('id') in canonical_owners]
   for h in descendants:
    sib=h.next_sibling
    while sib:
@@ -296,12 +323,13 @@ def archive_records(data,config,raw_ref):
     sib.extract();sib=nxt
    h.decompose()
   if ownheading:ownheading.decompose()
+  embedded=[{'source_heading_id':h['id'],'heading':clean(h.get_text(' ',strip=True)),'ownership':'Retained in this canonical file because no separate canonical member exists.'} for h in clone.select('h1[id],h2[id],h3[id],h4[id],h5[id],h6[id]') if h.get('id') and h.get('id') not in canonical_owners]
   body=clone.find('article');semantic=semantics(body,source_url);is_legal=any(x in heading.get('class',[]) for x in ['h__section','h__table'])
   if semantic['text'] or is_legal:
    status=not semantic['text'] and re.search('reserved|repealed|deleted|omitted|vacant|transferred|not adopted',title,re.I)
    heading_only=not semantic['text'] and not status
    if heading_only:semantic['text']=title
-   r=dict(semantic,id=urlpath,heading=title,path=[scope]+urlpath[len(scope):].strip('/').split('/')[:-1],source_url=source_url,unit='legal_status' if status else ('source_heading_only' if heading_only else ('legal_section' if is_legal else 'container_owned_body')),document_id=urlpath,raw_ref=raw_ref+'!'+m['path'],raw_sha256=m['sha256'],jurisdiction=config['jurisdiction'],state=config['state'],publication=config['publication'],semantic_review_required=bool(heading_only));records.append(r);owners.append({'id':urlpath,'member':m['path'],'disposition':'included','record_id':urlpath,'member_sha256':m['sha256']})
+   r=dict(semantic,id=urlpath,heading=title,path=[scope]+urlpath[len(scope):].strip('/').split('/')[:-1],source_url=source_url,unit='legal_status' if status else ('source_heading_only' if heading_only else ('legal_section' if is_legal else 'container_owned_body')),document_id=urlpath,raw_ref=raw_ref+'!'+m['path'],raw_sha256=m['sha256'],jurisdiction=config['jurisdiction'],state=config['state'],publication=config['publication'],semantic_review_required=bool(heading_only),embedded_source_headings=embedded);records.append(r);owners.append({'id':urlpath,'member':m['path'],'disposition':'included','record_id':urlpath,'member_sha256':m['sha256']})
    for asset in r['assets']:
     asset=classify_asset(asset,config)
     if not asset.get('required',True):all_assets.append(dict(asset,owner=urlpath));continue
@@ -318,4 +346,7 @@ def archive_records(data,config,raw_ref):
   for a in s.select('article nav a[href]'):
    path=urlsplit(urljoin(config.get('public_origin','https://codes.baltimorecity.gov')+'/',a['href'])).path.rstrip('/')
    if path==scope or path.startswith(scope+'/'):linked.add(path)
- return records,{'members':members,'owners':owners,'assets':all_assets,'archive_root':root,'canonical_member_count':len(canonical),'missing_internal_nav_targets':sorted(linked-expectedids),'alternate_aggregate_members_excluded':len([m for m in members if m['path'].startswith(root+scope.lstrip('/')+'/') and m['path'].endswith('index.full.html')]),'archive_crc_verified':True}
+ from git_archive_binding import inspect_archive
+ binding=inspect_archive(io.BytesIO(data)) if expected_git_tree else {'git_root_tree_sha1':None,'file_count':len(members)}
+ if expected_git_tree and binding['git_root_tree_sha1']!=expected_git_tree:raise ValueError('ZIP Git-Merkle root differs from independent commit tree')
+ return records,{'git_commit_tree_binding':{'expected_tree_sha1':expected_git_tree,'reconstructed_tree_sha1':binding['git_root_tree_sha1'],'independently_commit_bound':bool(expected_git_tree),'file_count':binding['file_count']},'members':members,'owners':owners,'assets':all_assets,'archive_root':root,'canonical_member_count':len(canonical),'missing_internal_nav_targets':sorted(linked-expectedids),'alternate_aggregate_members_excluded':len([m for m in members if m['path'].startswith(root+scope.lstrip('/')+'/') and m['path'].endswith('index.full.html')]),'archive_crc_verified':True}

@@ -1,0 +1,884 @@
+
+    <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+    <html>
+    <head>
+
+        <title>City of Lincoln Access Management Policy</title>
+        <link type="text/css" rel="Stylesheet" href="jqueryui/css/jqueryui.css" media="all" />
+        <link type="text/css" rel="Stylesheet" href="css/ui.css" media="all" />
+        <link type="text/css" rel="Stylesheet" href="css/customui.css" media="all" />
+        <link type="text/css" rel="Stylesheet" href="css/document.css" media="all" />
+        <link type="text/css" rel="Stylesheet" href="css/customdoc.css" media="all" />
+        <link type="text/css" rel="Stylesheet" href="tablestyles.aspx" media="all" />
+        <link rel="StyleSheet" type="text/css" href="/common/font-awesome/css/all.min.css">
+        <link type="text/css" rel="Stylesheet" href="css/docprint.css" media="print" />
+        <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+        <script type="text/javascript" src="jqueryui/js/jquery-ui-1.8.21.custom.min.js"></script>
+        <script type="text/javascript" src="js/doc-view.js?_t=290"></script>
+        <script type="text/javascript" src="js/tabletools.js"></script>
+        <script type="text/javascript" src="js/tabs.js"></script>
+        <script type="text/javascript">
+            var iframeReady = false;
+        </script>
+        
+    </head>
+    <body class='doc-view'>
+        <script type="text/javascript">
+            $(document).ready(function () {
+                ZP.DocView.InitDef();
+                ZP.DocView.OpenDefinitionPage = null;
+                ZP.DocView.OpenDefinitionMode = '_self';
+                ZP.DocView.OpenXRefPage = 'doc-viewer.aspx#$2-';
+                ZP.DocView.OpenXRefMode = '_blank';
+                $(window).bind('hashchange', ZP.DocView.HashChanged);
+        
+        if (typeof ZP.DocView.ZoomClasses == 'undefined') {
+            ZP.DocView.ZoomClasses = ["Unzoom1", "", "Zoom1", "Zoom2", "Zoom3", "Zoom4"];
+        }
+        ZP.DocView.InitializeZoom();
+        EC.SortedTable.Init(".ord-tbl, .stat-tbl", ".sortable");
+        EC.Tabs.PositionLeftTabs();
+    });
+
+
+        </script>
+
+
+    <div id="doc-viewer">
+        
+
+<div id="doc-view">
+    <div id="doc-view-content">
+        
+<div id="pageControls">
+<script type="text/javascript" >
+    function clearEffDate() {
+        jQuery.get("doc-view-helper.aspx?task=currentversion", function () {
+            window.location.reload();
+        });
+        return false;
+    }
+</script>
+     <div class="pageControls psuedoTable" role="navigation" aria-label="Document Navigation">  
+        <div class="psuedoTableBody" >     
+            <div class="psuedoTableRow">         
+                <div class="pageControls_outer" ></div>
+                <div class="pageControls_inner left">
+                    <a id='button1' onclick='ZP.DocView.PrintDoc("001",false);return false;' href="#" title="Print" role="button"> 
+                        <img alt="Print" src="resources/btn-print-white.png" /></a>
+                    <a id='Button2' onclick='ZP.DocView.OpenPDF("001",false);return false;' href="#" title="Export PDF" role="button">
+                        <img alt="Generate PDF" src="resources/btn-makepdf-white.png" /></a>
+                        <a class="email-popup" href="mailto:?subject=City%20of%20Lincoln%20Access%20Management%20Policy&amp;body=Lincoln%20NE%20Access%20Management%20Policy https://online.encodeplus.com/regs/lincoln-ne-amm/doc-viewer.aspx?secid=5"><img src="resources/email-white.png" alt="Click to Share By Email" /></a>     
+                </div>
+                <div  class="pageControls_inner breadCrumbs" title="Navigation 'breadcrumbs'">
+                     <div class='breadCrumbs'><a href='/regs/lincoln-ne-amm/doc-viewer.aspx?tocid=001' >City of Lincoln Access Management Policy</a></div>
+                </div>
+                 <div  class="pageControls_inner right">       
+                     <ul >  
+                         <li>
+                            <a id='button3' class="nav" onclick="ZP.DocView.LoadPrevDoc('001');return false;" href="#"  title="Previous Section" accesskey="," role="button"><img alt="Go to Previous Section" src="resources/btn-back-white.png" /></a>
+                         </li>  
+                         <li>
+                             <a id='Button4'  class="nav" onclick="ZP.DocView.LoadNextDoc('001');return false;" href="#"  title="Next Section" accesskey="." role="button"> <img alt="Go to Next Section" src="resources/btn-forward-white.png" /></a>
+                         </li>   
+                         <li>
+                             <a id="pageControls-overflow" onclick="ZP.DocView.PgCntrlOverflowClick(event);return false;" href="#" title="Click for more options" role="button" >
+                            <img src="resources/overflow-btn-white.png" alt="Click for more options" /></a>
+                               
+  <ul class="submenu" role="dialog">
+            <li><a href="/regs/lincoln-ne-amm/doc-viewer.aspx?secid=5" onclick="javascript:alert('Right click this icon and select \'add to favorites\' or \'Bookmark this Link\' to bookmark this page');return false;" title="Bookmark this page" >Bookmark</a></li>
+            <li>
+                                        
+                <a id="zoomMinus" onclick="ZP.DocView.DecreaseZoom();return false;" href="#" title="Decrease Zoom" class="zoomLink glyphicon" >&#x2212;</a>
+                <a onclick="ZP.DocView.DefaultZoom();return false;"  href="#" title="Default Zoom"  class="zoomLink" >100%</a>
+                <a id="zoomPlus" onclick="ZP.DocView.IncreaseZoom();return false;" href="#" title="Increase Zoom"  class="zoomLink glyphicon" > &#x2b; </a>
+            </li>
+           
+                           
+                
+                <li><a id="subscribe-btn" onclick="ZP.DocView.OpenSubscribeDlg();return false;" title="Subscribe to Notifications" href="subscribe.aspx" role="button">Subscribe</a></li>
+                <li><a id="unsubscribe-btn" onclick="ZP.DocView.OpenUnsubscribeDlg();return false;" title="Cancel Notifications Subscription" href="unsubscribe.aspx" role="button" >Unsubscribe</a></li>
+                
+</ul>
+                         </li>        
+                        
+                        </ul>   
+                </div>
+                <div class="pageControls_outer"></div>
+            </div>
+        </div>
+    </div> 
+    <div id="subscribe-dialog" title="" aria-live="polite" >
+        <div id="sub-message"></div>
+        <div id="sub-form-cntr"></div>
+    </div>
+</div>
+
+
+        <div id="thePage-outer" >
+            <div id="thePage-wrap" class="thePage-wrap ">
+                <div id="outer-doc-banner"></div>
+                <div id="thePage-border">
+                    <div id="thePage" class="textPage " tocid="001" secid="5" role="main" aria-label="Document">
+                        <img id="sectionBanner" title="Document text banner" src="resources/docbanner.png" width="720" valign="Top" alt="Document text banner">
+                        
+                        <section id='secid-5' class='secLvl1 _001' tabindex='-1' data-secid='5'> 
+<h1>City of Lincoln Access Management Policy</h1>
+
+<div class="mini-TOC" data-endlevel="2" data-id="mini-TOC" data-startlevel="2">
+<div class="mini-TOC-label"><strong>Contents:</strong></div>
+
+<ul><li><a class="tocLink" href="doc-viewer.aspx#secid-6">I. Introduction</a></li>
+<li><a class="tocLink" href="doc-viewer.aspx#secid-7">II. Principles of Access Management</a></li>
+<li><a class="tocLink" href="doc-viewer.aspx#secid-8">III. City of Lincoln Access Management</a></li>
+<li><a class="tocLink" href="doc-viewer.aspx#secid-9">IV. Built Environment Access Management</a></li>
+<li><a class="tocLink" href="doc-viewer.aspx#secid-10">V. Access Management Categories</a></li>
+<li><a class="tocLink" href="doc-viewer.aspx#secid-11">VI. Access and Design</a></li>
+<li><a class="tocLink" href="doc-viewer.aspx#secid-12">VII. Design Standards</a></li>
+<li><a class="tocLink" href="doc-viewer.aspx#secid-13">VIII. Traffic Impact Study Requirements</a></li>
+<li><a class="tocLink" href="doc-viewer.aspx#secid-14">IX. Requirements for Driveway Approach Permit</a></li>
+<li><a class="tocLink" href="doc-viewer.aspx#secid-15">X. Deviation</a></li>
+<li><a class="tocLink" href="doc-viewer.aspx#secid-16">XI. General Instructions for City of Lincoln Driveway Approach Permit Applications</a></li>
+<li><a class="tocLink" href="doc-viewer.aspx#secid-17">XII. General Instructions for Driveway Approach Permit Applications on State or Federal Controlled Routes</a></li>
+<li><a class="tocLink" href="doc-viewer.aspx#secid-18">Access Management Categories</a></li>
+</ul>
+</div>
+
+
+</section> 
+<section id='secid-6' class='secLvl2 _001 _001-001' tabindex='-1' data-secid='6'> 
+<h2>I. Introduction</h2>
+
+<p>Access management balances the need to provide access to individual properties and developments while protecting the effective and safe flow of traffic on the surrounding road system.&nbsp; Property owners have the right to &ldquo;reasonable access&rdquo; to their property.&nbsp; The values of &ldquo;traffic flow&rdquo; and &ldquo;direct access&rdquo; naturally conflict.&nbsp; Turning into and out of property interrupts the flow of traffic and creates the risk of a crash.&nbsp; Reasonable access is relevant to a property&rsquo;s value and efficacy.&nbsp; Access to a property is appropriate when standards for traffic safety and flow are met in a satisfactory manner under the unique circumstances under consideration.&nbsp; The City is publishing these standards to the public in one, clear, easily accessible document.&nbsp; The goal is to provide our community, including neighborhoods, developers and property owners thorough, clear guidelines to be used in finding the correct balance between our competing values.</p>
+
+<p>There is no single standard that provides a city-wide definition for reasonable access.&nbsp; Existing uses and rights, street differences, site constraints, future land uses, and many other factors make it impractical to create a one-size-fits-all rule.&nbsp; Each permit is examined on its ability to apply the pertinent&nbsp;standards to that site.&nbsp; The standards of this policy constitute best practices.&nbsp; Conforming to the best practices will result in reliable, quick approval.&nbsp; If a site plan does not conform to these standards, approval may still be gained by engaging in discussions with the Public Works Department.&nbsp;</p>
+
+<p>We know there will be conflicts between best practices and existing property rights or site layout.&nbsp; This particularly is true in the built environments.&nbsp; We expect to apply the standards to fit the reality of the location and use under consideration.&nbsp; Requests to modify or deviate from these rules will take time for fact gathering and communication.&nbsp; Development in the built environment is encouraged under the Comprehensive Plan and Public Works understands the need to balance interests to foster economically viable development in our City.&nbsp;</p>
+
+<p class='archiveNotice nullValue '></p>
+</section> 
+<section id='secid-7' class='secLvl2 _001 _001-002' tabindex='-1' data-secid='7'> 
+<h2>II. Principles of Access Management</h2>
+
+<p><a href="http://online.encodeplus.com/regs/lincoln-ne/doc-viewer.aspx#secid-9740">Section 14.75.020</a> of the Lincoln Municipal Code (LMC) governs the City&rsquo;s policy on driveways: &ldquo;It is the policy of the City of Lincoln to promote the maximum safe and efficient travel of persons on the public right-of-way and to preserve the maximum capacity of the roadway to accommodate such travel.&rdquo;</p>
+
+<p>An effective access management program will accomplish the following:</p>
+
+<ol style="list-style-type:decimal">
+	<li><strong><em>Limit the number of conflict points at driveway locations.</em></strong> Conflict points are indicators of the potential for crashes. The more conflict points that exist at an intersection, the higher the potential for vehicular crashes.</li>
+	<li><strong><em>Separate conflict areas.</em></strong> Intersections that are created by streets and driveways represent basic conflict areas. Adequate spacing between connections allows drivers to react to one intersection at a time, and reduces the potential for conflicts.</li>
+	<li><strong><em>Reduce the interference of through traffic.</em></strong> Through traffic often needs to slow down for vehicles exiting, entering or turning across a roadway. Providing turn lanes, designing driveways with large turning radii and restricting turning movements in and out of driveways minimizes the impact of turning traffic on through traffic.</li>
+	<li><strong><em>Provide sufficient spacing for at-grade, signalized intersections.</em></strong> Good spacing of signalized intersections reduces conflict areas and increases the potential for smooth traffic progression.</li>
+	<li><strong><em>Provide adequate on-site circulation and storage.</em></strong> Designing good internal vehicle circulation in parking areas and through the use of local streets reduces the number of driveways that businesses need for access to a major roadway.</li>
+</ol>
+
+<p>Good access management will allow the flow of traffic to be smoother and average travel times to be lower!</p>
+
+<p class='archiveNotice nullValue '></p>
+</section> 
+<section id='secid-8' class='secLvl2 _001 _001-003' tabindex='-1' data-secid='8'> 
+<h2>III. City of Lincoln Access Management</h2>
+
+<p>Access management is the process that provides access to individual properties and land development while simultaneously preserving the effective flow of traffic on the surrounding road system in terms of safety, capacity and speed. Appropriate access management shall be considered at all stages of the planning process. Starting at the zoning and subdivision phases, requirements may need to be placed on land to ensure that property development will be in accordance with the access category of the adjacent street. The utilization of temporary driveways; joint or cross accesses; service and frontage roads; or directional median openings may also be considered if appropriate for the proposed development. There are many design features which play an important role in ensuring accesses are safe and efficient. In every case, sound engineering judgment and &ldquo;best practices&rdquo; must be exercised in effectively applying and administering the standards.</p>
+
+<p>More detailed requirements will typically come about when the land begins the development phase. As more is known about the elements making up the development, requirements for access to the property can be refined to ensure that it is appropriate, safe and efficient.</p>
+
+<p>The implementation of these access standards may be triggered by any of the following property actions: change of zone, preliminary plat, final plat, annexations, Planned Unit Development, Community Unit Plan, special permit, or use permit; or a building permit when the number of trips generated will be increasing by 50% or more. Any undeveloped properties seeking new access must meet these standards.</p>
+
+<p>Property seeking access to streets on the National Highway System will have to meet all requirements imposed by the Federal Highway Administration and the Nebraska Department of Roads, which may differ from these standards.</p>
+
+<p class='archiveNotice nullValue '></p>
+</section> 
+<section id='secid-9' class='secLvl2 _001 _001-004' tabindex='-1' data-secid='9'> 
+<h2>IV. Built Environment Access Management</h2>
+
+<p>Access management in the built environment is critical to maintaining safe and efficient traffic flow as areas redevelop. Since there is often no opportunity to widen streets in developed areas, maintaining the ability to carry the expected volumes of traffic is necessary.</p>
+
+<p>It is also recognized that getting access in the built environment to conform to all of these standards may be difficult and challenging. For that reason, it is necessary for the Director of Public Works and Utilities, or their designee, to take this into consideration when applying this policy and work with developers to design site access on an individual, case-by-case basis that will promote the goals of this policy while still providing reasonable access to the site.</p>
+
+<p class='archiveNotice nullValue '></p>
+</section> 
+<section id='secid-10' class='secLvl2 _001 _001-005' tabindex='-1' data-secid='10'> 
+<h2>V. Access Management Categories</h2>
+
+<p>Access and mobility are competing functions. This recognition is fundamental to the design of roadway systems that preserve public investments, contribute to public safety, reduce fuel consumption and vehicle emissions, and do not become functionally obsolete. Suitable functional design of the roadway system also preserves the private investment in residential and commercial development.</p>
+
+<p>Access Management categories attempt to take into consideration the future function of a street. As a result, streets in any particular category may have widely varying traffic volumes. For instance, a recently constructed major road on the edge of town may carry a low number of cars yet be categorized the same as a fully built-out street carrying many times the number of trips.</p>
+
+<p>Five levels of access management have been defined for streets within the City of Lincoln:</p>
+
+<ol>
+	<li><strong><u>Access Category A: Freeways and Expressways </u></strong>
+
+	<p><span style="font-size:inherit; text-indent:-0in">These roads serve high volumes of traffic traveling long distances. Their function is to provide mobility of through traffic. Access is limited and controlled to reduce interference and facilitate through movements. Access management for this road category is controlled by the Nebraska Department of Roads (</span>NDOR<span style="font-size:inherit; text-indent:-0in">).</span></p>
+	</li>
+	<li><strong><u>Access Category B: Major Arterials</u></strong>
+	<p><span style="font-size:inherit; text-indent:-0in">These streets are of regional importance and are intended to serve high volumes of traffic traveling relatively long distances. This category is intended primarily to serve through traffic and access is limited. Access to National Highway System roadways (Example: 84</span><sup style="text-indent:-0in">th</sup><span style="font-size:inherit; text-indent:-0in"> Street) must be obtained from the Nebraska Department of Roads in consultation with the Director of Public Works and Utilities or designee. Access to Major Arterials that are not on the National Highway System (Example: Salt Creek Roadway) must be obtained from the Director of Public Works and Utilities or designee.</span></p>
+	</li>
+	<li><strong><u>Access Category C: Minor Arterials</u></strong>
+	<p><span style="font-size:inherit; text-indent:-0in">This category is similar in function to Category B, but operates under lower traffic volumes and speeds, serves trips of shorter distances, and provides a higher degree of property access than Category B. (Example: &ldquo;A&rdquo; Street)</span></p>
+	</li>
+	<li><strong><u>Access Category D: Collectors</u></strong>
+	<p>Collectors provide for traffic movement between arterials and local streets and that carry moderate traffic volumes over moderate distances. (Example: Calvert Street) They provide a mix of the functions of mobility and access, and therefore do not function as well as Arterials or as Local Streets for those purposes, respectively. Category D streets may provide direct access to abutting commercial properties, but streets with higher traffic volumes may have restrictions on direct access for individual residences.</p>
+	</li>
+	<li><strong><u>Access Category E: Local</u></strong>
+	<p>Local streets are intended solely to provide access to abutting properties, carry low traffic volumes, serve short trips, and provide connections to higher category streets. (Example: &ldquo;B&rdquo; Street)</p>
+
+	<p>The access management category of streets within the corporate limits of the City of Lincoln is shown on the attached map titled <strong><u><a class="xref" target="_blank" href="doc-viewer.aspx#secid-18">Access Management Categories</a></u></strong>. Updates to this map shall be included in the Comprehensive Plan.</p>
+	</li>
+	<li><u>&quot;</u><strong><u>High Emphasis Access Management</u></strong><u>&quot;</u>
+	<p><em>High Emphasis Access Management</em> is defined as: &ldquo;The application of a higher set of access standards and criteria to a section of street classified as a Category B, C or D in order to provide that section more protection.&rdquo; <em>High Emphasis Access Management</em> status may be applied to those street sections that are in areas identified by the Public Works and Utilities Department as requiring evaluation, protection and access management based on existing or projected conditions, including: rapid growth or redevelopment, high levels of delay or areas with high crash rates. This status typically will be applied to existing streets with poor access management in an effort to more quickly bring them into closer compliance with this document. To create a <em>High Emphasis Access Management</em> area, the Director of Public Works and Utilities, or their designee, will recommend designation of the street(s) for inclusion in the City&rsquo;s Long Range Transportation Plan following the appropriate public process.</p>
+	</li>
+</ol>
+
+<p class='archiveNotice nullValue '></p>
+</section> 
+<section id='secid-11' class='secLvl2 _001 _001-006' tabindex='-1' data-secid='11'> 
+<h2>VI. Access and Design</h2>
+
+<ol>
+	<li><strong><u>Connection Points</u></strong>
+
+	<p><span style="font-size:inherit; text-indent:-0in">Connection points to the existing system must be located in order to minimize the impact they have on through traffic and other street connections. It is important to avoid locating connection points along acceleration or deceleration lanes, tapers at street intersections or interchanges to minimize the potential for vehicular weaving conflicts. When minimum separation distances are less than median opening spacing, connections typically will be limited to right-in, right-out movements. Connection points to Category A, B and C streets shall serve multiple properties, not small or single use trip generators.</span></p>
+
+	<p>Connections to Category A, B and C shall be limited to public or private streets only. No access connections shall be allowed within 1320 feet of on-ramps or off-ramps to Category A or B facilities. Any deviation from this standard must be approved by the Nebraska Department of Roads. In no case shall the distance be less than 660 feet.</p>
+
+	<p>New residential driveways shall not be allowed onto Category A, B and C roads. In the event there are existing residential driveways onto these types of roads, the driveways should be connected via frontage roads to the nearest street or median break. If that is not feasible, the drives shall be considered temporary, limited to right-in-right-out drives, and then combined or eliminated as soon as possible.</p>
+
+	<p>The Department would welcome the creation of shared access by multiple property owners that replace individual access points. Shared access between adjoining property owners would be considered a single access, thereby eliminating the need for meeting the spacing criteria between those two accesses.</p>
+
+	<p>Distances in the chart are based upon a synthesis of typical distances used by other jurisdictions. The Nebraska Department of Roads is in concurrence with these distances.</p>
+	</li>
+</ol>
+
+<table class="general">
+	<thead>
+		<tr class="heading">
+			<th colspan="6" style="width:100%;">Minimum Separation Distance (Feet) Between Adjacent Connections</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr class="sheading">
+			<td style="width:18.3%">Posted Speed</td>
+			<td style="width:16.3%">Category A<sup>1</sup></td>
+			<td style="width:16.3%">Category B</td>
+			<td style="width:16.3%">Category C<sup>4</sup></td>
+			<td style="width:17.3%">Category D<sup>2</sup><sup>,3</sup></td>
+			<td style="width:15.4%">Category E<sup>3</sup></td>
+		</tr>
+		<tr class="alt1">
+			<td style="text-align:center">25 mph</td>
+			<td style="text-align:center">NA</td>
+			<td style="text-align:center">660<sup>4</sup></td>
+			<td style="text-align:center">150</td>
+			<td style="text-align:center">100</td>
+			<td style="text-align:center">50</td>
+		</tr>
+		<tr class="alt2">
+			<td style="text-align:center">30 mph</td>
+			<td style="text-align:center">NA</td>
+			<td style="text-align:center">660<sup>4</sup></td>
+			<td style="text-align:center">330</td>
+			<td style="text-align:center">100</td>
+			<td style="text-align:center">50</td>
+		</tr>
+		<tr class="alt1">
+			<td style="text-align:center">35 mph</td>
+			<td style="text-align:center">NA</td>
+			<td style="text-align:center">660<sup>4</sup></td>
+			<td style="text-align:center">330</td>
+			<td style="text-align:center">125</td>
+			<td style="text-align:center">50</td>
+		</tr>
+		<tr class="alt2">
+			<td style="text-align:center">40 mph</td>
+			<td style="text-align:center">NA</td>
+			<td style="text-align:center">1320</td>
+			<td style="text-align:center">660</td>
+			<td style="text-align:center">150</td>
+			<td style="text-align:center">NA</td>
+		</tr>
+		<tr class="alt1">
+			<td style="text-align:center">45 mph</td>
+			<td style="text-align:center">2640</td>
+			<td style="text-align:center">1320</td>
+			<td style="text-align:center">660</td>
+			<td style="text-align:center">180</td>
+			<td style="text-align:center">NA</td>
+		</tr>
+		<tr class="alt2">
+			<td style="text-align:center">50 mph</td>
+			<td style="text-align:center">2640</td>
+			<td style="text-align:center">1320</td>
+			<td style="text-align:center">660</td>
+			<td style="text-align:center">NA</td>
+			<td style="text-align:center">NA</td>
+		</tr>
+		<tr class="alt1">
+			<td style="text-align:center">55 mph</td>
+			<td style="text-align:center">2640</td>
+			<td style="text-align:center">1320</td>
+			<td style="text-align:center">660</td>
+			<td style="text-align:center">NA</td>
+			<td style="text-align:center">NA</td>
+		</tr>
+		<tr class="tfooter">
+			<td colspan="6">
+			<p><sup>1</sup> Applies only to Expressways. No direct access allowed to Freeways.</p>
+
+			<p><sup>2</sup> Commercial/industrial driveways only. 25&#39; separation required on residential driveways.</p>
+
+			<p><sup>3</sup> Distance from an adjoining street. Access is allowed to each property.</p>
+
+			<p><sup>4</sup> May be limited to right-in, right-out.</p>
+			</td>
+		</tr>
+	</tbody>
+</table>
+
+<ol start="2">
+	<li><strong><u>Median Breaks</u></strong>
+
+	<p><span style="font-size:inherit; text-indent:-0in">The distance required between median breaks depends upon the category, adjacent land use and level of development of the roadway. If the location is not appropriate for a traffic signal, then plans for closing or restricting the median opening shall be made with the initial construction. Left turn movements shall not be permitted if a median is already established. If it can be shown that creating a median opening will provide significant operational and safety </span><u style="font-size:inherit; text-indent:-0in">benefits</u><span style="font-size:inherit; text-indent:-0in"> to the general public and the street would continue to function at the category assigned to it, the Public Works and Utilities Department may consider a break in the median.</span></p>
+
+	<ol>
+		<li><strong><u>Access Category A: Freeways and Expressways</u></strong>
+
+		<p><span style="font-size:inherit; text-indent:-0in">Freeways have no median breaks and accesses will be interchanges with spacing of no less than two miles. Expressways do provide median breaks, which should be limited to one-half mile spacing.</span></p>
+		</li>
+		<li><strong><u>Access Category B</u></strong><u>: </u><strong><u>Major Arterials</u></strong>
+		<p><span style="font-size:inherit; text-indent:-0in">Major Arterials allow median breaks every 1/4 mile.</span></p>
+		</li>
+		<li><strong><u>Access Category C:</u></strong><u> </u><strong><u>Minor Arterials</u></strong>
+		<p><span style="font-size:inherit; text-indent:-0in">Minor Arterials allow median breaks every 1/4 mile.</span></p>
+		</li>
+		<li><strong><u>Access Category D: Collectors</u></strong>
+		<p><span style="font-size:inherit; text-indent:-0in">Collector streets that have medians may allow median breaks every block, if appropriate turn lane lengths can be accommodated.</span></p>
+		</li>
+		<li><strong><u>Access Category E: Local</u></strong>
+		<p><span style="font-size:inherit; text-indent:-0in">Local streets typically do not have medians unless they are for aesthetic purposes. Median break spacing in these streets are unrestrained, unless safety issues are identified.</span></p>
+		</li>
+	</ol>
+	</li>
+</ol>
+
+<p class='archiveNotice nullValue '></p>
+</section> 
+<section id='secid-12' class='secLvl2 _001 _001-007' tabindex='-1' data-secid='12'> 
+<h2>VII. Design Standards</h2>
+
+<ol>
+	<li><strong><u>Driveway Construction</u></strong>
+
+	<p><span style="font-size:inherit; text-indent:-0in">Driveway approaches on paved streets shall be surfaced with minimum 3,500 psi compressive strength concrete from the street edge to the property line. The minimum thickness of driveway approaches for single or two-family dwellings is 5&rdquo; from the street edge back 20&rsquo; or to the property line, whichever is less. Any remaining portion </span>within<span style="font-size:inherit; text-indent:-0in"> the public right-of-way shall be a minimum of 4&rdquo; thick.</span></p>
+
+	<p>The minimum thickness of commercial driveway approaches shall be 6&rdquo; from the street edge to the property line, and a minimum 3,500psi compressive strength. The Public Works Official may require a greater thickness and/or strength for commercial driveways depending on the geometry of the approach, anticipated traffic volumes and number and type of trucks using the driveway.</p>
+
+	<p>Driveway approaches on unpaved streets may be surfaced with crushed rock from the street to the property line. At such time as the street is paved, the driveways shall be surfaced with concrete in accordance with these standards.</p>
+
+	<p>Along roads improved with rural-type cross-sections and a parallel ditch, a drainage culvert shall be installed under the driveway approach. The length, size, grade and location of the culvert shall be determined by the Public Works Official. The culvert is to be purchased by the property owner and installed by the City at the owner&rsquo;s cost.</p>
+
+	<p>Driveways shall be located where they will not create an offset intersection opposite an existing street, highway or major commercial driveway.</p>
+
+	<p>Driveway approaches shall be constructed in conformance with the <a href="https://lincoln.ne.gov/city/pworks/engine/dconst/standard/standard-specs/" target="_top"><strong><u>City of Lincoln Standard Specifications for Municipal Construction</u></strong></a><em>.</em></p>
+	</li>
+</ol>
+
+<ol start="2">
+	<li><strong><u>Driveway Width</u></strong>
+
+	<p><span style="font-size:inherit; text-indent:-0in">Driveways to single or two-family residences shall be a maximum of 20&#39; wide. Driveways to multi-family dwellings shall be a maximum of 25&#39; wide. Commercial accesses shall be a maximum of 30&#39; wide unless left turns are allowed out of the driveway, in which case they may be 36&#39; wide. Wider driveways may be allowed if needed to accommodate truck traffic or additional lanes are needed due to high volumes of traffic using the driveway, as approved by the Director of Public Works and Utilities, or designee. The maximum allowable width of a driveway shall be 40&rsquo;.</span></p>
+	</li>
+	<li><strong><u>Radii</u></strong>
+	<p>Single or two-family driveway returns shall have a straight taper of 5&#39;. Multi-family driveway returns shall have a radius of 15&#39;. Commercial driveway returns shall have a radius of 25&#39;. Higher speed or higher volume roads should cause the higher radii values to be used. Larger radii may be used for driveways with regular truck traffic or on high speed roadways if approved by Public Works. The combination of the driveway width and radii should eliminate encroachment of turning vehicles on adjacent lanes. The radius of a commercial driveway should not extend beyond the property line of the parcel being served. In the event this requirement cannot be met due to existing driveway spacing, a shared access may be required.</p>
+	</li>
+	<li><strong><u>Angle</u></strong>
+	<p>Driveways should normally be placed at 90 degree angles to the roadway. For one-way drives, a maximum angle of 45 degrees is suggested. All driveways should be tested with turning templates during design to ensure that the largest vehicles that will be using them can be accommodated. When angled driveways are used, it is important to ensure that vehicles exiting the site will have a good view of oncoming traffic with which they will need to merge.</p>
+	</li>
+	<li><strong><u>Grades</u></strong>
+	<p>The driveway approach surface shall meet the sidewalk at sidewalk grade. The cross-slope of the sidewalk shall not exceed 2%. In general, the change in grade between the street cross-slope and driveway grade should not exceed 8%. For accesses onto arterial or collector streets, the maximum grade change should not exceed 3% for a high volume driveway (multi-family or commercial) or 6% for a low volume driveway (single-family or duplex).</p>
+	</li>
+	<li><strong><u>Throat length</u></strong>
+	<p>Driveway throat length is important for safe and efficient traffic operations on the site and the abutting roadway. The driveway throat needs to be of sufficient length so that vehicles may enter, exit, or circulate on the site without interfering with each other or with through traffic on the abutting street. A sufficient throat length enables drivers entering a site to clear the street intersection before encountering the on-site circulation. Inadequate throat length produces a complex pattern of closely spaced conflicts, which results in high collision potential and low capacity. Where the on-site parking layout is such that the unparking maneuvers may block the driveway and prevent a vehicle from entering the site, additional throat length may be required.</p>
+	</li>
+</ol>
+
+<table class="general">
+	<thead>
+		<tr class="heading">
+			<th colspan="3" style="width:100%;">Throat Length Requirements</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr class="sheading">
+			<td style="width:34.6%">Typical Type of Establishment<br>
+			(Max. Peak Hour Trips)</td>
+			<td style="width:32.1%">Throat Length</td>
+			<td style="width:33.3%">Number of Cars Stored</td>
+		</tr>
+		<tr class="alt1">
+			<td>Small Commercial Building (60)</td>
+			<td style="text-align:center">20 feet</td>
+			<td style="text-align:center">1</td>
+		</tr>
+		<tr class="alt2">
+			<td>Small strip mall (61-300)</td>
+			<td style="text-align:center">40 feet<sup> </sup></td>
+			<td style="text-align:center">2</td>
+		</tr>
+		<tr class="alt1">
+			<td>Small shopping center or large supermarket (301-600)</td>
+			<td style="text-align:center">100 feet</td>
+			<td style="text-align:center">5</td>
+		</tr>
+		<tr class="alt2">
+			<td>Large regional mall (&lt; 600)</td>
+			<td style="text-align:center">200 feet<sup> </sup></td>
+			<td style="text-align:center">10</td>
+		</tr>
+	</tbody>
+</table>
+
+<ol>
+	<li style="list-style-type: none;">Providing the required throat length shall generally only be required when accessing a Category A, B or C street. Throat length requirements also may be addressed and modified as a result of a Traffic Impact Study. Throat length may be reduced if sufficient turn lanes exist or multiple exit lanes are available, depending upon site layout.</li>
+	<li style="list-style-type: none;">Vehicles entering the establishment shall have the right-of-way so as not to back traffic onto the adjacent roadway. The owner or owner&rsquo;s representative shall notify the Public Works and Utilities Department and request verification of the grade stakes for the driveway approach and inspection of the work two days before concrete is to be poured. Work completed without prior approval and inspection shall be promptly removed at the installer&rsquo;s expense if the completed construction is not in accordance with terms of the permit.</li>
+</ol>
+
+<ol start="7">
+	<li><strong><u>Sight distance</u></strong>
+
+	<p><span style="font-size:inherit; text-indent:-0in">Unobstructed sight distances as set forth in Figures SD-3 and SD-4 of Appendix A of the </span><strong style="font-size:inherit; text-indent:-0in"><u>City of Lincoln Design Standards</u></strong><span style="font-size:inherit; text-indent:-0in"> shall be provided at all connection points for vehicular and pedestrian safety. Fences, wall signs or other obstructions shall not be placed in the public street right-of-way or in the sight distance triangles, except that chain-link fences free from shrubbery and vines may be placed on private property within sight distance triangles.</span></p>
+
+	<p><span style="font-size:inherit; text-indent:-0in">When sight distance requirements to a driver&rsquo;s right cannot be met, the need can be eliminated by prohibiting left turns out of the driveway. When sight distance to the driver&rsquo;s left cannot be provided, acceleration lanes can be required to allow right turn movements out of the driveway.</span></p>
+	</li>
+	<li><strong><u>Turn lanes</u></strong>
+	<p><span style="font-size:inherit; text-indent:-0in">Turn lanes enhance the safety and efficiency of streets. Right and left turn lanes are required on all designated arterial streets whenever new access points are created. This requirement is for safety and capacity reasons where existing or future roadway speeds or traffic volumes are high, or if there are substantial turning volumes. The purpose of a separate turn lane is to expedite the movement of through traffic, increase the intersection capacity, permit the controlled movement of turning traffic and promote the safety of all traffic.</span></p>
+
+	<p>The turn lane shall be of sufficient length to allow the turning vehicle to leave the through lane within 10 MPH of the posted speed limit, decelerate, and negotiate the turn. Right turn lanes reduce vehicle speeds at the sidewalk crossing, which reduces conflicts and confusion for pedestrians.</p>
+	</li>
+</ol>
+
+<ol style="list-style-type:none">
+	<li>
+	<ol>
+		<li><strong><u>Left turn lanes:</u></strong><u> </u>
+
+		<ol>
+			<li><strong><u>Category A: Expressway</u></strong> Required for all connections.</li>
+			<li><strong><u>Category B: Major Arterial</u></strong> Required where left turns are allowed.</li>
+			<li><strong><u>Category C: Minor Arterial</u></strong> Required where left turns are allowed.</li>
+			<li><strong><u>Category D: Collector</u></strong> Determined based on turning volumes and traffic volumes. Traffic Study required to negate the need for a turn lane.</li>
+			<li><strong><u>Category E: Local</u></strong> Required only at major street or driveway intersections.</li>
+		</ol>
+		</li>
+		<li><strong><u>Right turn lanes: </u></strong>
+		<ol>
+			<li><strong><u>Category A: Expressway</u></strong> Required for all connections.</li>
+			<li><strong><u>Category B: Major Arterial</u></strong> Required for all connections.</li>
+			<li><strong><u>Category C: Minor Arterial</u></strong> Normally required for all connections. If a traffic study proves that the physical conditions or low turning movements negate the need for a right turn lane, a deviation may be requested.</li>
+			<li><strong><u>Category D: Collector</u></strong> Determined based on turning volumes and traffic volumes. Traffic Study required to negate the need for a turn lane.</li>
+			<li><strong><u>Category E: Local</u></strong> Required only at major street or driveway intersections.</li>
+		</ol>
+		</li>
+	</ol>
+	</li>
+</ol>
+
+<p>Turn lane length shall consist of the deceleration length plus the storage length plus the taper length. The Director of Public Works and Utilities, or their designee, will determine if physical or other constraints necessitate eliminating all or part of the storage length and providing only the deceleration and taper lengths. When a Traffic Impact Study is provided, lane lengths shall not be less than those recommended in the study and approved by the Director or designee. A turn lane length analysis may be required if a proposed access connection generates less than 100 vehicle trips in the peak hour.</p>
+
+<table class="general">
+	<thead>
+		<tr class="heading">
+			<th colspan="2" style="width:100%;">Turn Lane Deceleration Lengths</th>
+		</tr>
+		<tr class="sheading">
+			<th style="width:51.1%;">Posted Speed Limit (MPH)</th>
+			<th style="width:48.9%;">Standard Lane Length (Ft)</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr class="alt1">
+			<td style="text-align:center">25</td>
+			<td style="text-align:center">80</td>
+		</tr>
+		<tr class="alt2">
+			<td style="text-align:center">30</td>
+			<td style="text-align:center">115</td>
+		</tr>
+		<tr class="alt1">
+			<td style="text-align:center">35</td>
+			<td style="text-align:center">155</td>
+		</tr>
+		<tr class="alt2">
+			<td style="text-align:center">40</td>
+			<td style="text-align:center">200</td>
+		</tr>
+		<tr class="alt1">
+			<td style="text-align:center">45</td>
+			<td style="text-align:center">250</td>
+		</tr>
+		<tr class="alt2">
+			<td style="text-align:center">50</td>
+			<td style="text-align:center">305</td>
+		</tr>
+		<tr class="alt1">
+			<td style="text-align:center">55</td>
+			<td style="text-align:center">360</td>
+		</tr>
+	</tbody>
+</table>
+
+<table class="general">
+	<thead>
+		<tr class="heading">
+			<th colspan="3" style="width:100%;">Turn Lane Storage Lengths</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr class="sheading">
+			<td rowspan="2" style="width:45.1%">Turning Vehicles Per Hour</td>
+			<td colspan="2" style="width:54.9%">Required Storage Length (Ft)</td>
+		</tr>
+		<tr class="subsubheading">
+			<td style="text-align:center; width:27.4%">&lt;10% T</td>
+			<td style="text-align:center; width:27.4%">&ge;10% T</td>
+		</tr>
+		<tr class="alt1">
+			<td style="text-align:center">0-60</td>
+			<td style="text-align:center">50</td>
+			<td style="text-align:center">80</td>
+		</tr>
+		<tr class="alt2">
+			<td style="text-align:center">61-100</td>
+			<td style="text-align:center">80</td>
+			<td style="text-align:center">110</td>
+		</tr>
+		<tr class="alt1">
+			<td style="text-align:center">101-200</td>
+			<td style="text-align:center">150</td>
+			<td style="text-align:center">185</td>
+		</tr>
+		<tr class="alt2">
+			<td style="text-align:center">201-300</td>
+			<td style="text-align:center">220</td>
+			<td style="text-align:center">250</td>
+		</tr>
+		<tr class="alt1">
+			<td style="text-align:center">&gt; 301</td>
+			<td colspan="2" style="text-align:center; width:54.9%">Per Traffic Study</td>
+		</tr>
+	</tbody>
+</table>
+
+<ol>
+	<li style="list-style-type: none;">Deceleration lengths are based on AASHTO stopping distance for the speed assuming a 10 MPH reduction in speed prior to entering the turn lane. Storage length requirements may be reduced by one-half for right turn lanes, with the approval of the Director of Public Works &amp; Utilities, or their designee. Accesses with ten percent or more truck traffic will need to use the longer storage requirements. Taper lengths shall comply with AASHTO standards.</li>
+</ol>
+
+<ol start="9">
+	<li><strong><u>Internal Circulation</u></strong><br>
+	Driveway approach approval will not be granted if parking lots do not conform to the City&rsquo;s <strong><u>Parking Lot Design Standards</u></strong> or if they do not provide adequate circulation and waiting vehicle storage for drive-through facilities on the property. On-property waiting vehicle storage requirements for the various types of drive-through facilities are shown in Table VS-1.</li>
+</ol>
+
+<table class="general">
+	<thead>
+		<tr class="heading">
+			<th colspan="3" style="width:100%;">Table VS-1<br>
+			Waiting Vehicle Storage Requirements</th>
+		</tr>
+		<tr class="sheading">
+			<th style="width:54.7%;"><strong>Type of Use</strong></th>
+			<th colspan="2" style="width:45.3%;"><strong>Minimum Waiting Vehicle Storage</strong></th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<td>Financial Institution &ndash; Electronic Teller</td>
+			<td colspan="2">55&rsquo;</td>
+		</tr>
+		<tr class="alt2">
+			<td>Financial Institution &ndash; Personal Teller</td>
+			<td colspan="2">100&rsquo;</td>
+		</tr>
+		<tr>
+			<td rowspan="2">Car Wash &ndash; Self Service</td>
+			<td colspan="2">100&rsquo; at entrance</td>
+		</tr>
+		<tr>
+			<td colspan="2">20&rsquo; per bay at exit</td>
+		</tr>
+		<tr class="alt2">
+			<td rowspan="2">Car Wash &ndash; Automatic/Conveyor</td>
+			<td colspan="2">220&rsquo; per bay at entrance</td>
+		</tr>
+		<tr class="alt2">
+			<td colspan="2">22&rsquo; per bay at exit</td>
+		</tr>
+		<tr>
+			<td>Drive-Through Restaurant</td>
+			<td colspan="2">120&rsquo; from menu board</td>
+		</tr>
+		<tr class="alt2">
+			<td rowspan="2">Drive-Through Coffee Shop</td>
+			<td>Driver Side Service</td>
+			<td>100&rsquo; from menu board</td>
+		</tr>
+		<tr class="alt2">
+			<td>Passenger Side Service</td>
+			<td>55&rsquo; from menu board</td>
+		</tr>
+		<tr>
+			<td>Drive-Through Pharmacy</td>
+			<td colspan="2">55&rsquo; per lane</td>
+		</tr>
+		<tr class="alt2">
+			<td rowspan="4">Service Stations</td>
+			<td>Service Islands</td>
+			<td>55&rsquo; per pump lane</td>
+		</tr>
+		<tr class="alt2">
+			<td>Service Bays</td>
+			<td>20&rsquo; per bay</td>
+		</tr>
+		<tr class="alt2">
+			<td>Quick Lube/Oil Change</td>
+			<td>44&rsquo; per bay</td>
+		</tr>
+		<tr class="alt2">
+			<td>4 or more pump islands side by side 18&rsquo; apart</td>
+			<td>30&rsquo; per lane</td>
+		</tr>
+		<tr>
+			<td>Gated Parking Lot Entrance</td>
+			<td colspan="2">22&rsquo; from property line</td>
+		</tr>
+		<tr class="alt2">
+			<td>Garage Unit or Overhead Door (Category C and Above Only)</td>
+			<td colspan="2">22&rsquo; per door</td>
+		</tr>
+	</tbody>
+</table>
+
+<ol>
+	<li style="list-style-type: none;">Storage requirements are from the midpoint of the service window/order board/fuel pump. Storage for two vehicles must be provided past the pick-up window and before the nearest pedestrian or vehicle crossing point.</li>
+	<li style="list-style-type: none;">Required vehicle storage shall not block driveways or required parking stalls and shall not be located in side, front or rear yards where parking stalls are prohibited.</li>
+</ol>
+
+<ol start="10">
+	<li><strong><u>Tree Removal Permits</u></strong><br>
+	Prior to approval of any driveway approach permit which requires the removal, relocation or trimming of any tree located within the public street, the applicant shall obtain a permit for such tree work from the City Parks and Recreation Department pursuant to <a href="http://online.encodeplus.com/regs/lincoln-ne/doc-viewer.aspx#secid-9478">Section 12.20.040</a> of the Lincoln Municipal Code.</li>
+	<li><strong><u>Other Factors</u></strong>
+	<ol>
+		<li><strong><u>Gates:</u></strong> Any access with a gate shall be designed so that the longest vehicle can completely clear the traveled way when the gate is closed and as it is opened. A gate may not be constructed and/or located within the right-of-way of the street.</li>
+		<li><strong><u>Backing Maneuvers:</u></strong> An access for commercial or multi-family residential use shall not be approved for a parking area that requires backing maneuvers within the right-of-way. All off-street parking areas must include on-site maneuvering areas and aisles to permit user vehicles to enter and exit the site in a forward direction without hesitation.</li>
+		<li><strong><u>ADA Requirements:</u></strong> Access design shall provide for safe movement of all street right-of-way users, including, but not limited to, pedestrians, bicyclists and persons with disabilities. All sidewalks and bike path crossings of a driveway shall be accessible in accordance with the Americans with Disabilities Act (ADA).</li>
+		<li><strong><u>Manual on Uniform Traffic Control Devices:</u></strong> Installation of traffic control devices necessary for safe and proper operation and control of the access will be required and must be in compliance with the <strong><u>Manual on Uniform Traffic Control Devices</u></strong> (MUTCD). Where the access may warrant signalization in the future, phasing of the installation may be required. All traffic control devices shall conform to the MUTCD.</li>
+		<li><strong><u>Drainage:</u></strong> Each access shall be constructed in a manner that does not cause water to enter onto the street and shall not interfere with the drainage system within the right-of-way. Drainage shall conform to the City&rsquo;s <strong><u>Drainage Criteria Manual</u></strong>.</li>
+	</ol>
+	</li>
+</ol>
+
+<p class='archiveNotice nullValue '></p>
+</section> 
+<section id='secid-13' class='secLvl2 _001 _001-008' tabindex='-1' data-secid='13'> 
+<h2>VIII. Traffic Impact Study Requirements</h2>
+
+<p>Based on following the Institute of Transportation Engineers standards, a Traffic Impact Study (TIS) shall be required for any proposed access to development or land use which will generate or has the potential to generate traffic volumes exceeding 100 vehicle trips during the highest peak hour of the development. Traffic Impact Studies shall follow the requirements of the Institute of Transportation Engineer&rsquo;s <a href="http://www.syracuse.ny.us/pdfs/DPW/TIS_guidelines_ITE.pdf" target="_top"><strong><u>Transportation Impact Analyses for Site Development</u></strong></a> and the requirements set forth below:</p>
+
+<ol>
+	<li><strong><u>Category I TIS:</u></strong>
+
+	<p>This category includes developments which generate from 100 to 500 peak hour trips. The study horizon should be limited to the opening year of the development. The minimum study area should include site access drives and adjacent signalized intersections and/or major unsignalized street intersections.</p>
+	</li>
+	<li><strong><u>Category II TIS:</u></strong>
+	<p>This category includes developments that generate from 500 to 1,000 peak hour trips. The study horizon should include the opening year of the development and five years after opening. The minimum study area should include site access drives and adjacent signalized intersections and/or major unsignalized street intersections within one-half mile of the development.</p>
+	</li>
+	<li><strong><u>Category III TIS:</u></strong>
+	<p>This category includes developments that generate 1,000 or more peak hour trips. The study horizon should include the opening year of the development, five years after opening and ten years after opening. The minimum study area should include site access drives and adjacent signalized intersections and/or major unsignalized street intersections within one mile of the development.</p>
+	</li>
+	<li><strong><u>Category 0 TIS:</u></strong>
+	<p>A Traffic Impact Study may be required for any proposed access regardless of trips generated within a location identified by Public Works and Utilities as a safety problem area, high crash location, a high emphasis access management corridor or any site accessing a street or adjacent to an intersection operating at a Level of Service (LOS) E or F.</p>
+	</li>
+	<li><strong><u>Other:</u></strong>
+	<p><span style="font-size:inherit; text-indent:-0in">The minimum study area should be determined by project type and size in accordance with the criteria previously outlined. The extent of the study area may be either enlarged or decreased, depending upon special conditions as determined by the Director of Public Works and Utilities, or their designee.</span></p>
+
+	<p><span style="font-size:inherit; text-indent:-0in">The study horizon years should be determined by project type and size in accordance with criteria previously outlined.</span></p>
+
+	<p><span style="font-size:inherit; text-indent:-0in">Both morning and afternoon weekday peak hours should be analyzed unless the proposed project is expected to generate no trips, or a very low number of trips, during either the morning or evening peak periods. If this is the case, a deviation from the requirement to analyze one or both of these periods may be granted.</span></p>
+
+	<p><span style="font-size:inherit; text-indent:-0in">For developments that generate their peak hours predominantly on weekends, a weekend analysis may be required. All educational facilities should provide a Traffic Impact Study, as well as all requests for access to a Category A or B facility.</span></p>
+
+	<p><span style="font-size:inherit; text-indent:-0in">The study should recommend adoption of the access plan which provides the safest and most efficient level of service consistent with the purpose, requirements, and design standards of this policy. The recommended access scheme should not aggravate an existing safety problem nor degrade either the existing level of service of the highway or the level established for the Access Category of the adjacent streets according to the following table:</span></p>
+	</li>
+</ol>
+
+<table class="general">
+	<tbody>
+		<tr class="heading">
+			<td style="width:51.1%"><strong>Access Category</strong></td>
+			<td style="width:48.9%"><strong>Level of Service</strong></td>
+		</tr>
+		<tr class="alt1">
+			<td style="text-align:center"><strong>A</strong></td>
+			<td style="text-align:center"><strong>C</strong></td>
+		</tr>
+		<tr class="alt2">
+			<td style="text-align:center"><strong>B</strong></td>
+			<td style="text-align:center"><strong>C</strong></td>
+		</tr>
+		<tr class="alt1">
+			<td style="text-align:center"><strong>C</strong></td>
+			<td style="text-align:center"><strong>D</strong></td>
+		</tr>
+		<tr class="alt2">
+			<td style="text-align:center"><strong>D</strong></td>
+			<td style="text-align:center"><strong>D</strong></td>
+		</tr>
+		<tr class="alt1">
+			<td style="text-align:center"><strong>E</strong></td>
+			<td style="text-align:center"><strong>D</strong></td>
+		</tr>
+	</tbody>
+</table>
+
+<p>Issues to be discussed with Public Works and Utilities and included in the Traffic Impact Study:</p>
+
+<ol style="list-style-type:none">
+	<li>
+	<ol>
+		<li>Definition of the proposed development and study area limits</li>
+		<li>Horizon year(s) based on proposed build-out phases for multi-year developments</li>
+		<li>Analysis periods (AM/PM peak of the abutting street or generator, special event periods, Saturday, Sunday, etc.)</li>
+		<li>Type of study needed based on the type, intensity, and magnitude of the proposed land uses</li>
+		<li>Availability of existing data and acceptable data sources</li>
+		<li>Traffic data collection requirements</li>
+		<li>Sources of trip generation data and acceptable ranges for trip reduction factors (internal capture and pass-by rates)</li>
+		<li>Traffic flow standards and criteria</li>
+		<li>Any special study requirements associated with nearby transportation facilities or land uses</li>
+		<li>Existing and future land uses, intensities, and characteristics</li>
+		<li>Existing and future demographic data and anticipated growth rates</li>
+		<li>Transportation systems data for roadway, pedestrian/bicycle, and transit systems, such as functional classification, jurisdiction, traffic control devices, headways, etc.</li>
+		<li>Use of travel demand forecasting models</li>
+		<li>Background traffic projection methodology</li>
+		<li>Related transportation projects and programs under way or approved</li>
+		<li>Identification of any infrastructure improvements that must be made concurrent with the proposed development</li>
+		<li>Use of any software (traffic signal progression, highway capacity, etc.) and evaluation criteria</li>
+		<li>Location, design and justification of all access drives</li>
+		<li>Trip distribution and traffic assignment methodology</li>
+		<li>Mode split methodology</li>
+		<li>Access management classifications and requirements</li>
+		<li>Acceptable mitigation strategies and any special study requirements associated with potential mitigation requirements, such as interchange modifications or jurisdictions</li>
+		<li>Right-of-way and limited-access rights considerations</li>
+		<li>TIS report contents</li>
+		<li>Site plan requirements</li>
+	</ol>
+	</li>
+</ol>
+
+<p class='archiveNotice nullValue '></p>
+</section> 
+<section id='secid-14' class='secLvl2 _001 _001-009' tabindex='-1' data-secid='14'> 
+<h2>IX. Requirements for Driveway Approach Permit</h2>
+
+<p><a href="http://online.encodeplus.com/regs/lincoln-ne/doc-viewer.aspx#secid-9742">Section 14.75.040</a> of the LMC governs the use, construction, reconstruction, relocation, or alteration of a driveway approach within the City or within three miles of the corporate limits. A Driveway Approach Permit must be obtained from the City after the conditions and requirements of this Access Management Policy must be met prior to the issuance of a Driveway Approach Permit.</p>
+
+<p>Limited or interim driveways may be allowed when minimum driveway requirements cannot be achieved at the time of permit application. In this case, an <strong>access plan must be developed </strong>that indicates future removal of the temporary driveway and construction of the new driveway meeting the required spacing standards, along with the agreed upon trigger mechanism that stipulates the conditions and time-frame for completing the required improvements.</p>
+
+<p>Application for a Driveway Approach Permit is made with the Building and Safety Department. Driveways for single or two family residences are reviewed by the Building Official. All other permits are reviewed by the Director of Public Works and Utilities, or their designee. Access to State controlled routes must be obtained from the Nebraska Department of Roads and approvals are made in consultation with the Director of Public Works &amp; Utilities, or their designee.</p>
+
+<p>As noted in <a href="http://online.encodeplus.com/regs/lincoln-ne/doc-viewer.aspx#secid-9753">Section 14.75.110</a> of the LMC, &ldquo;All Driveway Approach Permits are temporary in nature, revocable, and modifiable by the City of Lincoln.&rdquo; The section specifies the conditions under which the Director of Public Works and Utilities can make changes to a driveway.</p>
+
+<p>The owner of a property served by a driveway approach shall pay all costs for constructing the driveway approach; required additional turn lanes; pavement widening; median construction or reconstruction; alteration of manholes; storm sewer inlets, water valves or fire hydrants; relocation of signal poles, power poles or light poles; and alteration of any other public utilities affected by the construction of the driveway approach.</p>
+
+<p>Applicants for a Driveway Approach Permit are charged a fee based on the number of daily trips using the site. Fees shall be set by Executive Order and do not include the cost of curb grinding.</p>
+
+<p>Fees cover the costs of City review of the Application for a Driveway Approach Permit and issuance of a Driveway Approach Permit and are nonrefundable even if an access request is not approved. Permit fees are assessed per site, not per access point, if multiple access points to a parcel are requested at a single time. Subsequent requests for access to a parcel will incur additional fees.</p>
+
+<p class='archiveNotice nullValue '></p>
+</section> 
+<section id='secid-15' class='secLvl2 _001 _001-010' tabindex='-1' data-secid='15'> 
+<h2>X. Deviation</h2>
+
+<p>Where the City finds that hardships or practical difficulties result from compliance with the <a href="http://online.encodeplus.com/regs/lincoln-ne-ds/doc-viewer.aspx">Design Standards </a>for Access Management or other requirements under the Access Management Policy, the City may approve a deviation to such standards and requirements, provided that public health, safety and welfare are not jeopardized and the public interest is served. However, deviations may not conflict with applicable State or Federal standards and requirements. If the applicant wants to continue with the current design and seek a deviation, a request for deviation shall be submitted by the permit applicant in writing to the Director of Building and Safety for single and two family residences. All other requests for deviation shall be submitted by the permit applicant in writing to the Director of Public Works and Utilities or designee. Requests for deviations shall be submitted on a Request for Deviation form prepared and approved by the appropriate Director. The Director, after reviewing the submitted request, may require more information from the permit applicant to complete the request. Deviations may be approved if:</p>
+
+<ol style="list-style-type:decimal">
+	<li>the applicant can demonstrate other reasonable access options exist which provide a positive cost/benefit for traffic flow; and</li>
+	<li>the deviation will not materially increase delay or congestion to traffic flow as determined by Public Works and Utilities and is not otherwise detrimental to the safety of the motoring public; or</li>
+	<li>the deviation generally will improve the traffic situation and contribute to the removal of impediments to traffic flow.</li>
+</ol>
+
+<p>The Director has five working days from the receipt of a complete request for deviation to issue a decision of approval or denial. If the Director of Building and Safety or the Director of Public Works and Utilities or their designee denies the requested deviation, the applicant may appeal the decision to City Council pursuant to <a href="http://online.encodeplus.com/regs/lincoln-ne/doc-viewer.aspx#secid-9731">Chapter 14.75</a> of the Lincoln Municipal Code and this policy. The City Council shall have a public hearing and make a determination regarding the deviation request and either approve, approve with modification or deny the deviation request. Since the City Council&rsquo;s decision regarding the deviation request will affect the decision on the Driveway Approach Permit, the City Council will, at the same hearing, make a determination on the Driveway Approach Permit and either deny the permit or approve the permit with the deviation request approved, with the deviation request approved as modified or with the deviation request denied. The decision by the City Council on the Driveway Approach Permit is the final decision and may be appealed in accordance with state law.</p>
+
+<p>For deviation requests relating to access on a state or federal controlled route, please refer to General Instructions for Driveway Approach Permit Applications on State or Federal controlled routes.</p>
+
+<p class='archiveNotice nullValue '></p>
+</section> 
+<section id='secid-16' class='secLvl2 _001 _001-011' tabindex='-1' data-secid='16'> 
+<h2>XI. General Instructions for City of Lincoln Driveway Approach Permit Applications</h2>
+
+<p>The applicant shall submit a City of Lincoln Application for Driveway Approach Permit and three (3) copies of the final site plan, along with the appropriate fees to Director of the City of Lincoln Building and Safety Department.</p>
+
+<p>Once the Application for a Driveway Approach Permit is submitted, the appropriate Director will review it and process deviation requests. Deviation requests may be appealed to City Council in accordance with this Policy and <a href="http://online.encodeplus.com/regs/lincoln-ne/doc-viewer.aspx#secid-9731">Chapter 14.75</a> of the LMC.</p>
+
+<p>If there is no need for the Applicant to request a deviation, then the Director of Building and Safety or the Director of Public Works, or their respective designee, will approve the permit and issue the Driveway Approach Permit.</p>
+
+<p>Prior to applying for a commercial or multi-family Driveway Approach Permit, it is recommended that applicant submit to Engineering Services a copy of a site plan showing the proposed site access for preliminary review. This informal pre-submittal discussion will determine if the requirements of the policy are being met and to ensure completeness of the application package.</p>
+
+<p class='archiveNotice nullValue '></p>
+</section> 
+<section id='secid-17' class='secLvl2 _001 _001-012' tabindex='-1' data-secid='17'> 
+<h2>XII. General Instructions for Driveway Approach Permit Applications on State or Federal Controlled Routes</h2>
+
+<p>Prior to submitting an Application for a Driveway Approach Permit, the applicant shall submit two (2) copies of a site plan to the City Engineering Services for review. One copy will be reviewed by Engineering Services; the other copy will be forwarded to Nebraska Department of Roads for their review.</p>
+
+<p>The Department of Roads will submit comments to the City and those comments will be incorporated with the City comments entered in to the PermitsPlus program. The comments will also contain information for the applicant on permit submittal requirements.</p>
+
+<p>Following the initial review, the applicant shall submit final documents to the City of Lincoln Building and Safety Department as follows:</p>
+
+<ul style="list-style-type:disc">
+	<li>a City of Lincoln Application for a Driveway Approach Permit and three (3) copies of the final site plan, along with the appropriate fees; and</li>
+	<li>a completed State Access Permit application, four (4) copies of the engineered drawings of the access and the State required surety check to the Nebraska Department of Roads for each proposed driveway.</li>
+</ul>
+
+<p>Requests for deviations on a state or federal controlled route must be processed and approved by the appropriate state or federal government agency pursuant to their process.</p>
+
+<p>Following City review, the Director will recommend approval or denial of the State Access Permit and stamp all copies of the plans before sending them to the Nebraska Department of Roads District 1 Office along with the State application, the applicant&rsquo;s check and the four (4) copies of the engineered drawings of the access. The State will then complete their review of the State Access Permit application. If the State or Federal government denies the State Access Permit application, the Director will deny the City of Lincoln Driveway Approach Permit. If the State approves the State Access Permit, the Director will either approve or deny the City of Lincoln Driveway Approach Permit. If approved, Engineering Services will return the permits to the Building and Safety Department for issuance of the Driveway Approach Permit. If denied, the permit applicant may appeal the Director&rsquo;s denial of the City of Lincoln Driveway Approach Permit to City Council pursuant to <a href="http://online.encodeplus.com/regs/lincoln-ne/doc-viewer.aspx#secid-9731">Chapter 14.75</a> of the Lincoln Municipal Code and this policy. The City Council shall have a public hearing and make such decision as ought to be made on the Driveway Approach Permit and either approve or deny the Driveway Approach Permit. The City Council&rsquo;s decision is the final decision and may be appealed in accordance with state law.</p>
+
+<p class='archiveNotice nullValue '></p>
+</section> 
+<section id='secid-18' class='secLvl2 _001 _001-013' tabindex='-1' data-secid='18'> 
+<h4>Access Management Categories Map</h4>
+
+<p><img alt="Access Management Categories Map" id="" src="media/images/AccessManagement122424.jpg" style="height: 922px;width: 712px;"></p>
+
+<p class='archiveNotice  '></p>
+</section> 
+
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- hidden div below is for definition popup -->
+<div id="defFrame">
+    <img alt='loading progress' src="resources/progress.gif" /></div>
+<!-- hidden div below is for ajax loading progress-->
+<div id='progress-template' style='display: none;'>
+    <div class="progress" style='padding: 100px;'>
+        <div style='margin: auto; display: block; width: 200px; border: 1px solid #ccc; background-color: #eee; padding: 10px;'>
+            <img alt='loading progress' src='resources/progress.gif' style='margin: auto; display: block;' />
+            <br />
+            <span style='margin: auto; display: block; width: 75px; padding-left: 10px;'>Loading...</span>
+        </div>
+    </div>
+</div>
+<iframe style="width: 1px; height: 1px" src="" id="printiframe" name="printiframe" onload="ZP.DocView.IFrameReady();" title="Print frame" aria-hidden="true" role="presentation"></iframe>
+
+    </div>
+
+
+    </body>
+</html>

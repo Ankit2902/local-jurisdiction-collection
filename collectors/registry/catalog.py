@@ -16,10 +16,11 @@ def load_catalog(cohort='all', here=None):
         prefix='' if name=='expansion' else 'original-'
         for filename,out,key in [(prefix+'targets.json',ts,'targets'),(prefix+'publications.json',ps,'publications')]:
             data=json.loads((here/filename).read_text());out.extend(data[key])
-    additional=here/'readiness-additional-publications.json'
-    if additional.exists():
-        selected={t['id'] for t in ts}
-        ps.extend(p for p in json.loads(additional.read_text())['publications'] if p['target_id'] in selected)
+    for filename in ('readiness-additional-publications.json','followup-additional-publications.json'):
+        additional=here/filename
+        if additional.exists():
+            selected={t['id'] for t in ts}
+            ps.extend(p for p in json.loads(additional.read_text())['publications'] if p['target_id'] in selected)
     for entries in (ts,ps):
         ids=[x['id'] for x in entries]
         if len(ids)!=len(set(ids)):raise ValueError('Duplicate catalog IDs')
@@ -30,6 +31,10 @@ def load_catalog(cohort='all', here=None):
         overrides=json.loads(override_path.read_text())['publications']
         for pub in ps:pub.update(overrides.get(pub['id'],{}))
     qualification_path=here/'readiness-qualified-configs.json'
+    if qualification_path.exists():
+        qualifications=json.loads(qualification_path.read_text())['publications']
+        for pub in ps:pub.update(qualifications.get(pub['id'],{}))
+    qualification_path=here/'followup-qualified-configs.json'
     if qualification_path.exists():
         qualifications=json.loads(qualification_path.read_text())['publications']
         for pub in ps:pub.update(qualifications.get(pub['id'],{}))

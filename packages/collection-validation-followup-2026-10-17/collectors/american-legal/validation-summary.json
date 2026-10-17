@@ -1,0 +1,224 @@
+{
+  "schema_version": 3,
+  "publisher": "american-legal",
+  "status": "frozen_current_revision_full_primary_HTML_and_full_tagged_PDF_method_qualified_remaining_targets_running",
+  "frozen": true,
+  "updated_at": "2026-10-17T22:52:43.305468+00:00",
+  "evidence_root": "outputs/collection-readiness-followup-2026-10-17/american-legal",
+  "image_policy": "literal-[IMAGE]-no-image-fetch-v1",
+  "scope_warning": "Two named genuine full-publication scopes and reusable methods are qualified; all15 primary configs, every secondary and entire jurisdictions are not thereby qualified.",
+  "source_revision": {
+    "original_Cleveland_acquisition": "executed-v3 in prior readiness package, unchanged",
+    "current_clean_Cleveland_normalization": "executed-v6",
+    "fresh_full_PDF_collection": "executed-v6",
+    "remaining_primary_queue": "executed-v7",
+    "current_collection_runtime_identical_to_v6_and_v7": [
+      "collect.py",
+      "model.py",
+      "verify.py",
+      "transport.py",
+      "browser.cjs",
+      "gate.py",
+      "pdf_layout.py",
+      "pdf_tags.py",
+      "pdf_native.py",
+      "pdf_grid.py"
+    ],
+    "independent_fullbook_auditor": "executed-v7/audit_pdf_tags.py",
+    "promotion_manifest": "freeze-manifest.json"
+  },
+  "runtime": {
+    "kind": "Current proof runtime and controlled source lineage",
+    "python": "3.12.14 (main, Aug 25 2026, 13:50:33) [Clang 22.1.3 ]",
+    "platform": "macOS-26.6.2-arm64-arm-64bit",
+    "packages": {
+      "beautifulsoup4": "4.15.0",
+      "pypdf": "6.21.1",
+      "pdfminer.six": "20251107",
+      "PyMuPDF": "1.26.5",
+      "fonttools": "4.67.0",
+      "Pillow": "11.3.0"
+    },
+    "browser_response_runtime": {
+      "browser": "155.0.8059.84",
+      "runtime": "v24.19.0"
+    },
+    "core_source_revision": "executed-v6",
+    "delivery_candidate": "executed-v7",
+    "source_manifest_sha256": {
+      "executed-v6": "0fa61f7c1cbbff370e9f27af249a5535604083a07a3efcd5e275ae626d66da6a",
+      "executed-v7": "71a2fc76ad5924f4d8eedb87fbfaca72a07672e07f151f86731f379292c4d4fc"
+    }
+  },
+  "cli_interface": {
+    "fresh": "python collect.py --url OBSERVED_URL --jurisdiction EXACT_NAME --state XX --publication OBSERVED_SLUG --strategy native|traverse --assets download --out FRESH_DIR",
+    "resume": "Same identity/strategy/output arguments plus --resume",
+    "verify": "python verify.py RUN_DIR --offline",
+    "native_HTML_replay": "python replay.py --from ORIGINAL_ACQUIRED_NATIVE_HTML_RUN --out FRESH_DIR",
+    "PDF_source_audit": "python audit_pdf_tags.py RUN_DIR [--owner OBSERVED_PDF_OWNER]",
+    "requirements": "Python3.12+, Node20+ (tested24.19.0), ordinary Chrome, requirements.txt/package.json; exact tested Python versions in runtime and requirements-lock.txt"
+  },
+  "proofs": [
+    {
+      "kind": "genuine_full_nested_primary_native_HTML_source_with_current_immutable_normalization_replay",
+      "target_id": "59",
+      "publication": "cleveland_oh",
+      "source_url": "https://codelibrary.amlegal.com/codes/cleveland/latest/cleveland_oh",
+      "path": "cleveland-final-v6",
+      "fresh_acquisition_with_current_revision": false,
+      "original_complete_live_source_acquisition": true,
+      "normalization_replay": "cleveland-final-v6/normalization-replay.json",
+      "source_inventory_nodes": 6140,
+      "independent_branches_per_start_and_closing_sweep": 459,
+      "owned_original_blocks": 43676,
+      "virtual_source_TOC_only_groupings": 5,
+      "tables": 322,
+      "cells": 7738,
+      "required_PDFs": 5,
+      "image_policy_NA_no_glyph_PDF_pages": 4,
+      "qualified_native_grid_PDF_pages": 1,
+      "native_grid_nonwhitespace_glyphs": 2201,
+      "native_grid_cells": 18,
+      "native_grid_original_border_edges": 188,
+      "native_grid_image_placeholders": 9,
+      "full_source_text_and_required_file_bytes_complete": true,
+      "required_PDF_source_text_tables_and_order_qualified": true,
+      "independent_inert_browser_DOM_QA": {
+        "path": "../qa/cleveland-final-v6-inert-dom-tables.json",
+        "sha256": "48025d8de57e7de63e4aaf8abc587e8998ab2bc09827c93676b2f75d03896a10",
+        "passed": true,
+        "mismatches": 0,
+        "network_requests": 0,
+        "resource_requests": 0
+      },
+      "independent_all_required_PDF_QA": {
+        "path": "../qa/cleveland-final-v6-independent-pdf-v2.json",
+        "sha256": "1ead5f590aa28b88ff878dc61f7391300199c3ff0532f9b0b965e8267f6bb1ba",
+        "passed": true,
+        "image_streams_decoded": 0
+      },
+      "coverage_sha256": "4560b39cde20b04913c931d6bbfd80fe35af6f38385cf12e8b814ac3f8b59fc2",
+      "sections_sha256": "8901a412094e0009e7a19c811e75cc8eaf9126619c952ea8ceb5df982dbac738",
+      "PDF_pages_sha256": "2bb228fb04c9996bbb6916a7c12815c974f1c0b2ff352f29d0e97d6af55a0dd2"
+    },
+    {
+      "kind": "fresh_live_genuine_full_independent_native_PDF_publication_with_source_wide_tagged_normalization_and_independent_QA",
+      "target_id": "59",
+      "publication": "cleveland_oh_fbc",
+      "source_url": "https://codelibrary.amlegal.com/codes/cleveland/latest/cleveland_oh_fbc",
+      "path": "form-based-current-v6",
+      "edition": "2026 S-28",
+      "native_document_creation": "March2024, not asserted rewritten for the2026 publisher bundle",
+      "native_bytes": 54780031,
+      "native_sha256": "1fea63dce02df86153747467e151e17b1a13171a6adea215047ea74898e8c836",
+      "inventory_nodes": 1,
+      "pages": 212,
+      "source_nodes": 25210,
+      "source_MCID_references": 11662,
+      "tables": 143,
+      "cells": 6658,
+      "nonimage_body_nonwhitespace_characters": 190391,
+      "Figure_IMAGE_markers": 236,
+      "available_Figure_label_blocks": 102,
+      "available_Figure_label_characters": 8629,
+      "separately_tagged_Figure_descendants_in_actual_book": 0,
+      "explicit_Caption_child_generic_regression": true,
+      "ActualText_variants": 2996,
+      "own_full_raw_source_verifier_passed": true,
+      "independent_QA": {
+        "path": "form-based-current-v6-independent-final.json",
+        "sha256": "f2bfee05e0308b9247d12fa50de244f0692503838ea3f7830319f4ac42d77f29",
+        "passed": true,
+        "native_pages_passed": 212,
+        "strict_native_Unicode_equal_pages": 211,
+        "source_encoding_resolved_variants": 1,
+        "variant_scope": "Page24 MCID952 fontobject467 Type1 EncodingDifferences CID31 /f_f, same reader/native font and glyph position, sourceff and nativeU+FB00 retained literally; no broad compatibility normalization"
+      },
+      "coverage_sha256": "5fa8183c7aa247e35b58cbe2897fb11f12dd40f815a12deb21d1fe28d354d49d",
+      "PDF_pages_sha256": "5f1f6712bc9e4faa02d3c7380cc0ac6f590493c894438f0945c65d3727477919",
+      "inferred_legal_provision_segmentation_qualified": false
+    }
+  ],
+  "fault_tests": {
+    "passed": true,
+    "total": 87,
+    "suites": [
+      {
+        "path": "fault-tests.json",
+        "count": 46,
+        "passed": true,
+        "sha256": "094d247be6f331dbb9fc185ba6166386a0146fabc09da5b9d5e00f3c616dcd4f"
+      },
+      {
+        "path": "pdf-tag-tests.json",
+        "count": 21,
+        "passed": true,
+        "sha256": "63e6e76e72d86d315f205a87f35716188da7043b38ea03ab0f5ecfa1852080b5"
+      },
+      {
+        "path": "pdf-native-tests.json",
+        "count": 9,
+        "passed": true,
+        "sha256": "2a37790dc05f742beb8379313eae97d9a31ed89d5a884535e0346fa9651df81c"
+      },
+      {
+        "path": "pdf-publication-tests.json",
+        "count": 7,
+        "passed": true,
+        "sha256": "70231bb91d2db4da6597411aa01bfe201707adaff7f2a48df0b49f7e667823a0"
+      },
+      {
+        "path": "pdf-encoding-tests.json",
+        "count": 4,
+        "passed": true,
+        "sha256": "fa44c2dd13b745a1e580d1ab95c2c2584f83540184a13b6602fcdb0849af9e47"
+      }
+    ],
+    "executed_logs": [
+      "frozen-v7-suite-1.log",
+      "frozen-v7-suite-2.log",
+      "frozen-v7-suite-3.log",
+      "frozen-v7-suite-4.log",
+      "frozen-v7-suite-5.log"
+    ]
+  },
+  "compact_offline_proofs": {
+    "nested_synthetic": "fixtures/nested-synthetic.zip",
+    "genuine_index_offline_compatibility": "fixtures/live-index.zip",
+    "raw_renderer_reference": "fixtures/renderer-reference-raw.zip",
+    "font_encoding_synthetic_derivative": "fixtures/derived-f-f-font.pdf",
+    "fixture_replays_are_not_new_live_acquisitions": true,
+    "verifier_and_renderer_comparison_logs": [
+      "nested-fixture-v7-offline.json",
+      "live-index-fixture-v7-offline.json",
+      "renderer-native-compatibility-v7.json"
+    ]
+  },
+  "offline_commands_from_evidence_directory": [
+    "python executed-v7/verify.py cleveland-final-v6 --offline",
+    "python executed-v7/verify.py form-based-current-v6 --offline",
+    "python executed-v7/audit_pdf_tags.py form-based-current-v6"
+  ],
+  "queue": {
+    "status": "running_serially",
+    "primary_configs_total": 15,
+    "remaining_primary_live_jobs": 14,
+    "plan": "remaining-primary-plan.json",
+    "live_state": "remaining-primary-queue.json",
+    "runner": "run-remaining-primary-v7.py",
+    "frozen_source": "executed-v7",
+    "shared_gate": "/tmp/compliSolv-american-legal-full-gate",
+    "stop_on_403_429_challenge": true,
+    "target_completion_requires_own_terminal_receipt": true
+  },
+  "limits": [
+    "No entire-jurisdiction completeness claim; independently published books require separate inventory and qualification.",
+    "Remaining14 primaries are in progress; route mapping and these named full-book proofs do not promote them.",
+    "1940 San Diego ordinance PDFs remain uncompleted secondary-document scope until actual acquisition and qualification.",
+    "Required DOCX/XLSX/ZIP byte/container validation does not qualify their legal text; common acceptance must remain false for unparsed required documents.",
+    "Tagged source order/roles/tables and available labels are qualified; inferred legal provision segmentation is not.",
+    "Untagged/nonlinear/ambiguous/annotated or otherwise unsupported PDF layouts remain unqualified, except explicitly proven no-glyph image-policy N/A and narrow source-wide closed-grid profile.",
+    "Original source images may remain embedded in retained publisher HTML/PDF; no separate image acquisition/extraction/render/OCR.",
+    "Original v3 and exploratory replay/tagged trials are retained with their own source versions and superseded scope; never relabeled as the final proof."
+  ]
+}

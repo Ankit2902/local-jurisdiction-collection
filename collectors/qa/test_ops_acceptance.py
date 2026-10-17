@@ -35,6 +35,8 @@ class OpsAcceptance(unittest.TestCase):
  def test_checkpoint_advisory_blocks_fresh_home_without_gate_files(self):
   pub=self.pub('municode','https://library.municode.com/zz/test/codes/code');pub['observed_access_advisories']=[{'operator_review_required':True,'reason':'Observed malformed source-relative route403; not a claim every legitimate URL is denied','observed_stop':{'operator_release_required':True}}]
   stops=ops.access_state(pub,{'MUNICODE_GATE_DIR':str(self.root/'missing-gate')});self.assertTrue(any(x.get('checkpoint_access_advisory') for x in stops));self.assertFalse((self.root/'missing-gate').exists())
+ def test_gridics_portable_advisory_survives_absent_family_gate(self):
+  pub=ops.catalog_publication('29-2153491435c1');gate=self.root/'missing-gridics';stops=ops.access_state(pub,{'GRIDICS_GATE_DIR':str(gate)});self.assertTrue(any(x.get('checkpoint_access_advisory') for x in stops));self.assertFalse(gate.exists());self.assertIn('awselb',str(stops))
  def test_unknown_target_and_no_all_execution(self):
   import subprocess,sys
   with self.assertRaisesRegex(ops.OperationError,'Unknown target ID'):ops.registry_plan('unknown',None,sys.executable)
@@ -57,9 +59,17 @@ class OpsAcceptance(unittest.TestCase):
   with stack:code,result=ops.execute_job(runtime,'synthetic',None,output)
   self.assertEqual(code,0);self.assertFalse(result['jurisdiction_complete']);self.assertFalse(result['source_changed_during_run'])
  def test_source_change_during_readonly_verification_is_reported(self):
-  output=self.root/'out';runtime,stack=self.job_context(output,[{'model.py':'before'},{'model.py':'after'}])
+  output=self.root/'out';self.save(output/'coverage.json',{'publication_complete':True,'publication_text_complete':True,'publication_attachments_complete':True,'jurisdiction_complete':False});runtime,stack=self.job_context(output,[{'model.py':'before'},{'model.py':'after'}])
   with stack:code,result=ops.execute_job(runtime,'synthetic',None,output,True)
   self.assertEqual(code,2);self.assertEqual(result['status'],'source_changed_during_verification');self.assertTrue(result['source_changed_during_run']);self.assertTrue(Path(result['log']).with_suffix('.json').is_file())
+ def test_readonly_verifier_evidence_mutation_blocks_acceptance(self):
+  output=self.root/'out';self.save(output/'coverage.json',{'before':'different'});runtime,stack=self.job_context(output,[{'model.py':'same'},{'model.py':'same'}])
+  with stack:code,result=ops.execute_job(runtime,'synthetic',None,output,True)
+  self.assertEqual(code,2);self.assertFalse(result['evidence_read_only']);self.assertFalse(result['acceptance']['publication_accepted']);self.assertNotEqual(result['evidence_sha256_before'],result['evidence_sha256_after'])
+ def test_readonly_native_capture_is_not_verified_when_evidence_changes(self):
+  output=self.root/'out';self.save(output/'coverage.json',{'before':'original'});coverage={'native_document_complete':True,'source_page_traversal_complete':True,'publication_text_complete':False,'attachments_complete':False};runtime,stack=self.job_context(output,[{'model.py':'same'},{'model.py':'same'}],coverage)
+  with stack:code,result=ops.execute_job(runtime,'synthetic',None,output,True)
+  self.assertEqual(code,2);self.assertFalse(result['evidence_read_only']);self.assertFalse(result['acceptance']['native_capture_verified'])
  def test_zero_exit_native_capture_cannot_claim_publication_accepted(self):
   output=self.root/'out';runtime,stack=self.job_context(output,[{'model.py':'same'},{'model.py':'same'}],{'native_document_complete':True,'source_page_traversal_complete':True,'publication_text_complete':False,'attachments_complete':False,'jurisdiction_complete':False})
   with stack:code,result=ops.execute_job(runtime,'synthetic',None,output)

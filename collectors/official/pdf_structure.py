@@ -76,11 +76,70 @@ def invalid_decoder_resolutions(text,textpage,page):
  resolved=''.join(next((r['pdfminer_unicode'] for r in resolutions if r['pdfium_character_index']==i),c) for i,c in enumerate(text))
  return resolved,resolutions
 
-def redact_metadata(value):
- if isinstance(value,str):return re.sub(r'data:image/[^\s\"\'<>]*','[IMAGE]',value,flags=re.I)
+def redact_metadata(value,uri_boundary=False):
+ if isinstance(value,str):
+  if uri_boundary and value.lstrip().lower().startswith('data:image/'):return '[IMAGE]'
+  # Only a complete literal SVG envelope has a source-proven end. Unknown
+  # mixed markup/prose boundaries explicitly refuse instead of deleting prose.
+  if re.fullmatch(r'\s*data:image/svg\+xml(?:;[^,<>]*)?,\s*(?:<svg\s*>(?:(?!</?svg\b).)*</svg>|<svg\s*/\s*>)\s*',value,flags=re.I|re.S):return '[IMAGE]'
+  def replace(match):
+   if match.end()<len(value) and value[match.end()] in '<>':
+    raise ValueError('Unqualified literal image-markup boundary; cannot qualify image-payload/prose boundary')
+   quoted=match.start()>0 and value[match.start()-1] in ['\"',"'"] and match.end()<len(value) and value[match.end()]==value[match.start()-1]
+   if not quoted and re.search(r'\s+\S',match.group(0)):
+    raise ValueError('Ambiguous unquoted image data URI followed by whitespace/text; cannot qualify image-payload/prose boundary')
+   return '[IMAGE]'
+  return re.sub(r'data:image/[^\"\'<>]*',replace,value,flags=re.I)
  if isinstance(value,list):return [redact_metadata(v) for v in value]
- if isinstance(value,dict):return {k:redact_metadata(v) for k,v in value.items()}
+ if isinstance(value,dict):return {k:redact_metadata(v,uri_boundary=(k=='uri')) for k,v in value.items()}
  return value
+
+def annotation_links(page):
+ # pdfplumber decodes annotation strings as UTF8/UTF16 only. PDF1.x also
+ # allows PDFDocEncoding without a BOM, including odd-length strings.
+ try:return [{k:a.get(k) for k in ['uri','title','contents','x0','top','x1','bottom'] if a.get(k) is not None} for a in page.annots or []],[]
+ except UnicodeDecodeError:
+  from pdfminer.pdftypes import resolve1
+  from pypdf.generic import decode_pdfdocencoding
+  links=[];details=[]
+  for i,reference in enumerate(resolve1(page.page_obj.annots) or []):
+   a=resolve1(reference);action=resolve1(a.get('A',{}));fields={};proof={}
+   for key,value in {'uri':action.get('URI'),'title':a.get('T'),'contents':a.get('Contents')}.items():
+    value=resolve1(value)
+    if value is None:continue
+    if not isinstance(value,bytes):fields[key]=str(value);proof[key]={'encoding':'native string'};continue
+    try:
+     if value.startswith((b'\xfe\xff',b'\xff\xfe')):decoded=value.decode('utf-16');encoding='UTF16 BOM'
+     elif value.startswith(b'\xef\xbb\xbf'):decoded=value.decode('utf-8-sig');encoding='UTF8 BOM'
+     else:decoded=decode_pdfdocencoding(value);encoding='PDFDocEncoding (PDF string without BOM)'
+     fields[key]=decoded;proof[key]={'encoding':encoding,'source_byte_count':len(value),'source_sha256':hashlib.sha256(value).hexdigest()}
+    except (UnicodeDecodeError,ValueError):
+     fields[key]='[UNDECODABLE PDF STRING]';proof[key]={'encoding':'unresolved','source_byte_count':len(value),'source_sha256':hashlib.sha256(value).hexdigest()}
+   fields['source_pdf_rect']=[float(x) for x in a.get('Rect',[])];fields['coordinate_space']='Unrotated native PDF annotation Rect; no page-text ordering inferred.';links.append(fields);details.append({'source_annotation_index':i,'fields':proof})
+  return links,details
+
+def cell_image_markers(tables,images,words=None):
+ # Associate already-detected native image bboxes with wholly enclosing cells.
+ # Only metadata is used; no image streams/pixels are decoded, saved or fetched.
+ for table in tables:
+  for cell in table['cells']:
+   b=cell['bbox'];matches=[im for im in images if b[0]-.5<=im['bbox'][0] and b[1]-.5<=im['bbox'][1] and im['bbox'][2]<=b[2]+.5 and im['bbox'][3]<=b[3]+.5]
+   if matches:
+    source=cell['text'];cell['source_extractable_text']=source;cell['image_placeholder_ids']=[im['id'] for im in matches];cell['independent_text_comparison_scope']='Original source-extractable text only; intentional literal [IMAGE] markers are excluded from glyph/cell-engine comparison.'
+    physical=lines([w for w in words or [] if inside(w,b)]);source_lines=source.splitlines();reason=None
+    if len(source_lines)!=len(physical) or any(''.join(a.split())!=''.join(p['text'].split()) for a,p in zip(source_lines,physical)):
+     reason='Source cell text lines do not match complete word geometry; no image/text order inferred.'
+    units=[{'kind':'text','text':s,'bbox':p['bbox'],'word_ids':p['word_ids']} for s,p in zip(source_lines,physical)] if reason is None else [{'kind':'source_extractable_text','text':source,'bbox':b}]
+    units += [{'kind':'image_placeholder','id':im['id'],'text':'[IMAGE]','bbox':im['bbox'],'pixel_extraction':False} for im in matches]
+    if reason is None and any(min(a['bbox'][3],z['bbox'][3])-max(a['bbox'][1],z['bbox'][1])>.5 for i,a in enumerate(units) for z in units[i+1:]):
+     reason='Image/text or image/image vertical ranges overlap; physical serial order is ambiguous.'
+    qualified=reason is None
+    if qualified:
+     units.sort(key=lambda u:(u['bbox'][1],u['bbox'][0]));cell['text']='\n'.join(u['text'] for u in units)
+    else:
+     # This fallback is explicitly unordered, not a claim that pictures follow captions.
+     cell['text']='\n'.join(([source] if source else [])+['[IMAGE]' for _ in matches])
+    cell['content_units']=units;cell['content_ordering']={'qualified':qualified,'method':'Disjoint physical vertical ranges and exact source-line/word-geometry agreement.' if qualified else 'Unordered source text and image-placeholder units; fallback text is not source reading order.','reason':reason}
 
 def pages(data,item,config):
  if not data.startswith(b'%PDF-') or b'%%EOF' not in data[-1024:]:raise ValueError('Native PDF envelope incomplete')
@@ -105,22 +164,33 @@ def pages(data,item,config):
       if b[0]<=center[0]<=b[2] and b[1]<=center[1]<=b[3]:qualified_bounded=qualified_bounded.replace(chr(recovery['pdfium_codepoint']),recovery['pdfminer_unicode'],1)
      agree=chars(text)==chars(qualified_bounded);x0,x1=xs.index(round(b[0],3)),xs.index(round(b[2],3));y0,y1=ys.index(round(b[1],3)),ys.index(round(b[3],3));cells.append({'id':tid+'::cell:'+str(ci+1),'bbox':[round(v,3) for v in b],'row':y0,'column':x0,'rowspan':y1-y0,'colspan':x1-x0,'text':text,'word_ids':ids,'independent_pdfium_text':bounded,'qualified_pdfium_text':qualified_bounded,'independent_character_agreement':agree})
     if any(not c['independent_character_agreement'] for c in cells):review.append(tid+':independent_cell_text_disagreement')
-    tabletext='\n'.join('\t'.join(c['text'] for c in cells if c['row']==r) for r in range(max((c['row'] for c in cells),default=-1)+1));tables.append({'id':tid,'bbox':[round(v,3) for v in table.bbox],'detection':method,'row_boundaries':ys,'column_boundaries':xs,'cells':cells});objects.append({'kind':'table','id':tid,'bbox':[round(v,3) for v in table.bbox],'text':tabletext,'word_ids':[i for c in cells for i in c['word_ids']]})
+    tabletext='\n'.join('\t'.join(c['text'] for c in cells if c['row']==r) for r in range(max((c['row'] for c in cells),default=-1)+1));tables.append({'id':tid,'bbox':[round(v,3) for v in table.bbox],'detection':method,'row_boundaries':ys,'column_boundaries':xs,'cells':cells});
+    new_ids=[i for c in cells for i in c['word_ids']]
+    if new_ids:
+     word_by_id={w['id']:w for w in words};canonical_text='\n'.join(' '.join(line['text'] for line in lines([word_by_id[w] for w in c['word_ids']])) for c in cells if c['word_ids']);tables[-1]['page_text_serialization']='Each whole source word is emitted once by its unique geometry owner. Original detector cell text, bboxes and independent disagreements remain unchanged; no cell-boundary/table semantic qualification inferred.';objects.append({'kind':'table','id':tid,'bbox':[round(v,3) for v in table.bbox],'text':canonical_text,'word_ids':new_ids})
+    elif tabletext.strip():tables[-1]['page_text_disposition']='Nested/overlapping detected region has no newly owned source words; cells retained as structure, its glyphs already appear in canonical parent/earlier table, not emitted twice.'
    images=[]
    for i,im in enumerate(page.images):
     b=box(im);image={'id':ident+'::image:'+str(i+1),'kind':'image_placeholder','bbox':b,'text':'[IMAGE]','word_ids':[],'source_name':str(im.get('name','')),'pixel_extraction':False};images.append(image);objects.append(image)
    vector_count=len(page.curves)+len(page.lines)+len(page.rects)
    if vector_count and (not words or re.search(r'\b(?:map|plan|street.?sections?)\b',item.get('heading',''),re.I) and len(page.curves)>20):
     figure={'id':ident+'::vector-illustration','kind':'image_placeholder','bbox':[0,0,float(page.width),float(page.height)],'text':'[IMAGE]','word_ids':[],'source_vector_object_count':vector_count,'pixel_extraction':False};images.append(figure);objects.append(figure)
+   cell_image_markers(tables,images,words)
+   for table in tables:
+    for cell in table['cells']:
+     if cell.get('content_ordering',{}).get('qualified') is False:review.append(cell['id']+':image_text_cell_ordering_ambiguous')
    non_table=[w for w in words if w['id'] not in owned];blocks,ordering=order(non_table,objects,float(page.width));assigned=[i for b in blocks for i in b['word_ids']];counts=collections.Counter(assigned);missing=[w['id'] for w in words if counts[w['id']]!=1];text='\n'.join(b['text'] for b in blocks);source_words=''.join(w['text'] for w in words);normalized=text.replace('[IMAGE]','');raw_char_agree=chars(native_text)==chars(''.join(c['text'] for c in original.chars));char_agree=chars(comparable_text)==chars(''.join(c['text'] for c in original.chars));owned_agree=chars(normalized)==chars(source_words)
+   source_glyph_agree=chars(source_words)==chars(''.join(c['text'] for c in page.chars))
+   if not source_glyph_agree:review.append('source_word_extractor_deduplicated_glyph_disagreement')
    if missing:review.append('missing_or_duplicate_source_word_ownership')
    if not char_agree:review.append('independent_pdfium_pdfminer_character_disagreement')
    if not owned_agree:review.append('normalized_text_source_word_character_disagreement')
    bad=sorted({ord(c) for c in source_words if c=='\ufffd' or 0xe000<=ord(c)<=0xf8ff or ord(c)<32 and not c.isspace()})
    if bad:review.append('unmapped_or_private_use_glyphs')
-   if not clean(source_words):review.append('image_only_or_no_extractable_legal_text')
-   if len(page.curves):review.append('vector_illustration_interpretation_not_established')
-   output.append({'id':ident,'document_id':item['id'],'unit':'pdf_page','heading':item['heading'],'path':[config['publication'],item['heading']],'source_url':item['url']+'#page='+str(n+1),'text':text,'pdfium_stream_text':native_text,'pdfium_qualified_comparison_text':comparable_text,'ordered_blocks':blocks,'ordering':ordering,'physical_page':n+1,'page_count':len(pdf.pages),'width':float(page.width),'height':float(page.height),'tables':tables,'links':[{k:a.get(k) for k in ['uri','title','contents','x0','top','x1','bottom'] if a.get(k) is not None} for a in page.annots or []],'assets':[],'image_placeholder_count':len(images),'image_policy':'Metadata-only raster bboxes and detected map/blank vector-page placeholders; no image pixels, rendering or OCR. General vector illustration classification and legal interpretation remain explicit review.','raw_ref':item['raw_ref'],'raw_sha256':digest,'jurisdiction':config['jurisdiction'],'state':config['state'],'publication':config['publication'],'semantic_review_required':True,'pdf_qualification':{'source_word_count':len(words),'deduplicated_overprint_character_count':len(original.chars)-len(page.chars),'source_word_ownership_complete':not missing,'word_ownership_failures':missing,'normalized_source_word_characters_agree':owned_agree,'independent_text_engine_characters_agree':char_agree,'raw_independent_text_engine_characters_agree':raw_char_agree,'invalid_decoder_glyph_resolutions':decoder_resolutions,'unmapped_or_private_use_codepoints':bad,'detected_table_count':len(tables),'detected_table_cells':sum(len(t['cells']) for t in tables),'independent_table_cells_agree':sum(c['independent_character_agreement'] for t in tables for c in t['cells']),'vector_curve_count':len(page.curves),'review_conditions':review,'table_scope':'Ruled grids and qualifying aligned numeric/use-code schedules; arbitrary borderless/non-numeric layouts and all legal semantics are not universally established.'}})
+   glyph_text=''.join(c['text'] for c in page.chars);text_applicability='applicable' if chars(glyph_text) else 'not_applicable_source_has_no_text_glyph_characters'
+   if chars(glyph_text) and not clean(source_words):review.append('source_text_glyphs_present_but_word_extraction_empty')
+   link_rows,annotation_proof=annotation_links(page)
+   output.append({'id':ident,'document_id':item['id'],'unit':'pdf_page','heading':item['heading'],'path':[config['publication'],item['heading']],'source_url':item['url']+'#page='+str(n+1),'text':text,'pdfium_stream_text':native_text,'pdfium_qualified_comparison_text':comparable_text,'ordered_blocks':blocks,'ordering':ordering,'physical_page':n+1,'page_count':len(pdf.pages),'width':float(page.width),'height':float(page.height),'tables':tables,'links':link_rows,'annotation_metadata_decoder_fallback':annotation_proof,'assets':[],'image_placeholder_count':len(images),'image_policy':'Metadata-only raster bboxes and detected map/blank vector-page placeholders; no image pixels, rendering or OCR. General vector illustration detection has stated limits; pixel interpretation is outside the requested extraction. Legal section/table/reading-order qualification remains separate.','raw_ref':item['raw_ref'],'raw_sha256':digest,'jurisdiction':config['jurisdiction'],'state':config['state'],'publication':config['publication'],'semantic_review_required':True,'pdf_qualification':{'source_word_count':len(words),'text_glyph_comparison_applicability':text_applicability,'image_content_interpretation':'Not requested; native images are intentionally represented by literal [IMAGE], never transcribed.','source_words_cover_deduplicated_glyph_characters':source_glyph_agree,'deduplicated_overprint_character_count':len(original.chars)-len(page.chars),'source_word_ownership_complete':not missing,'word_ownership_failures':missing,'normalized_source_word_characters_agree':owned_agree,'independent_text_engine_characters_agree':char_agree,'raw_independent_text_engine_characters_agree':raw_char_agree,'invalid_decoder_glyph_resolutions':decoder_resolutions,'unmapped_or_private_use_codepoints':bad,'detected_table_count':len(tables),'detected_table_cells':sum(len(t['cells']) for t in tables),'independent_table_cells_agree':sum(c['independent_character_agreement'] for t in tables for c in t['cells']),'vector_curve_count':len(page.curves),'review_conditions':review,'table_scope':'Ruled grids and qualifying aligned numeric/use-code schedules; arbitrary borderless/non-numeric layouts and all legal semantics are not universally established.'}})
    tp.close();native.close();page.close();original.close()
  finally:pdf.close();stream.close()
  return redact_metadata(output),[]

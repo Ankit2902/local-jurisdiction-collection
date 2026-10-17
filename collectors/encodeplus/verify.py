@@ -5,6 +5,7 @@ from urllib.parse import urlencode,urlsplit,parse_qs
 from .model import inventory,decode,parse_document,outputs
 from .util import digest,hash_json,read_json,validate_file
 from .documents import qualify_document
+from .publication_references import reconcile,qualify_bound_document
 
 def verify(out):
  out=pathlib.Path(out);s=read_json(out/'checkpoint.json');errors=[]
@@ -21,6 +22,9 @@ def verify(out):
   for upgrade in s.get('code_upgrades',[]):
    prior=validate_file(out,'checkpoint-history/'+upgrade['prior_checkpoint_sha256']+'.json',upgrade['prior_checkpoint_sha256']);old=read_json(prior);require(old['config_sha256']==s['config_sha256'] and old['code_hashes']==upgrade['prior_code_hashes'],'Upgrade lineage binding mismatch')
    for name,h in old['code_hashes'].items():validate_file(out,'script-versions/'+h+pathlib.Path(name).suffix,h)
+  for retry in s.get('native_export_retries',[]):
+   prior=validate_file(out,'native-retry-history/'+retry['prior_checkpoint_sha256']+'.json',retry['prior_checkpoint_sha256']);old=read_json(prior);require(old['config_sha256']==s['config_sha256'] and old['options']==s['options'] and old.get('native_export')==retry['prior_native_export'],'Native retry lineage binding mismatch')
+   for name,h in old['code_hashes'].items():validate_file(out,'script-versions/'+h+pathlib.Path(name).suffix,h)
   expected_inventory=s['config']['base']+'doc-view.aspx';require(s['inventory_raw']['url']==expected_inventory,'Wrong inventory URL binding')
   inv=inventory(raw(s['inventory_raw']),s['config']);require(inv['sha256']==s['inventory_sha256'],'Checkpoint inventory hash mismatch');known={n['id']:n for n in inv['nodes']};records={};duplicate_dispositions=[];requested=[]
   for block in s['blocks']:
@@ -32,6 +36,7 @@ def verify(out):
     if r['id'] in records:
      require(records[r['id']]['body_sha256']==r['body_sha256'] and records[r['id']]['path']==r['path'],'Conflicting repeated node '+r['id']);duplicate_dispositions.append({'id':r['id'],'disposition':'identical source body suppressed'});continue
     records[r['id']]=r
+  records=reconcile(records,s['config'])
   missing=sorted(set(known)-records.keys());embedded=sorted(records.keys()-set(known));require(not missing,'Missing TOC node IDs')
   for r in records.values():
    require(r['kind']!='source_empty_unresolved','Unexplained empty operative leaf '+r['id'])
@@ -49,7 +54,7 @@ def verify(out):
    p=validate_file(out,a['path'],a['sha256']);require(a['url']==url,'Asset URL binding mismatch')
    if a['kind']=='linked-binary':
     m=read_json(out/(a['path']+'.receipt.json'));require(m['url']==url and m['http_status']==200 and m['sha256']==a['sha256'],'Asset receipt mismatch')
-   asset_integrity[url]=qualify_document(p.read_bytes(),url,a.get('content_type',''))
+   asset_integrity[url]=qualify_document(p.read_bytes(),url,a.get('content_type',''));qualify_bound_document(records,url,p.read_bytes())
    if a.get('document_integrity') is not None:require(a['document_integrity']==asset_integrity[url],'Stored document qualification disagrees with independent parse')
   end_ok=False
   if s.get('end_inventory'):
