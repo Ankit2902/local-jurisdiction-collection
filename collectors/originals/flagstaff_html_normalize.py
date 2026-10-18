@@ -9,7 +9,7 @@ from king_normalize import blocks
 from flagstaff_html import inventory,currency,URL
 from flagstaff_root import root_inventory,ROOT_TOC_URL
 from flagstaff_normalize import labelkey
-from model import semantics,image_asset,redact_image_metadata,dom_text
+from model import semantics,image_asset,redact_image_metadata,dom_text,sanitize_images
 
 def independent_reference(a,rules):
  return [rule for rule in rules if a['kind']=='a' and a['source_attribute']=='href' and re.fullmatch(rule['url_regex'],a['url']) and re.search(rule['context_regex'],a.get('context',''),re.I)]
@@ -17,14 +17,36 @@ def independent_reference(a,rules):
 def parse(raw,url,expected):
  text,encoding=decode(raw);s=BeautifulSoup(text,'html.parser');root=s.select_one('#mainContent')
  if root is None:raise ValueError('Unprofiled legal HTML source container '+url)
- units=list(blocks(root));records=[];heads=[];current=None
+ units=list(blocks(root));records=[];heads=[];current=None;html_parts={}
  for i,b in enumerate(units):
   label=dom_text(b);classes=b.get('class',[]);is_division=b.name=='p' and 'Division' in classes;ishead=is_division or b.name in ['h1','h2','h3','h4','h5','h6']
   if ishead and not label and classes==['Caption'] and not b.find(['img','svg','picture','object','table']) and not b.get('id') and not b.find(attrs={'name':True}):ishead=False
   if ishead or current is None:
    current={'record_id':sha((url+'::block-'+str(i)).encode()),'jurisdiction':'Flagstaff, AZ','publication':'City Code including Charter','source_url':url,'source_sha256':sha(raw),'source_heading_classes':classes,'kind':'section' if ishead and b.name in ['h3','h4','h5','h6'] and 'Caption' not in classes else 'container' if ishead else 'source_introduction','heading':label if ishead else 'Source introduction','source_heading_level':b.name if ishead else None,'source_heading_ids':[x.get('id') or x.get('name') for x in [b]+b.select('[id],[name]') if x.get('id') or x.get('name')],'block_indices':[],'semantic_html':'','full_text':'','tables':[],'notes':[],'assets':[],'links':[],'image_placeholder_count':0};records.append(current)
    if ishead:heads.append(current)
-  m=semantics(b,url);current['block_indices'].append(i);current['semantic_html']+=m['html'];current['full_text']=clean(current['full_text']+' '+m['text']);current['tables'].extend(m['tables']);current['notes'].extend(m['notes']);current['assets'].extend(m['assets']);current['links'].extend(m['links']);current['image_placeholder_count']+=m['image_placeholder_count']
+  m=semantics(b,url);html_parts[i]=m['html'];current['block_indices'].append(i);current['semantic_html']+=m['html'];current['full_text']=clean(current['full_text']+' '+m['text']);current['tables'].extend(m['tables']);current['notes'].extend(m['notes']);current['assets'].extend(m['assets']);current['links'].extend(m['links']);current['image_placeholder_count']+=m['image_placeholder_count']
+ # Source explicitly groups bullet marker and legal text in these list containers.
+ # Keep every existing leaf ownership index and its text/table metadata, adding the
+ # original sanitized wrapper only to HTML rendering; never duplicate child HTML.
+ overrides={};suppressed=set();prior_groups=[]
+ for ordinal,group in enumerate(root.select('div.Bulleted_outer,div.P2_outer')):
+  indices=[i for i,unit in enumerate(units) if any(ancestor is group for ancestor in unit.parents)]
+  owners=[record for record in records if any(i in record['block_indices'] for i in indices)]
+  if not indices or indices!=list(range(indices[0],indices[-1]+1)) or len(owners)!=1:raise ValueError('Unqualified source list group ownership shape')
+  expected_group_text=clean(' '.join(dom_text(units[i]) for i in indices))
+  if dom_text(group)!=expected_group_text:raise ValueError('Source list group contains unowned legal content')
+  parent=None
+  for prior in prior_groups:
+   if set(indices).intersection(prior['indices']):
+    if not set(indices).issubset(prior['indices']) or not any(ancestor is prior['node'] for ancestor in group.parents) or owners[0] is not prior['owner']:raise ValueError('Unqualified crossing or ambiguous source list group ownership; preserve raw source and require review')
+    parent=prior
+  metadata={'source_group_id':sha((url+'::list-group-'+str(ordinal)).encode()),'source_tag':group.name,'source_classes':group.get('class',[]),'child_block_indices':indices,'source_group_sha256':sha(str(group).encode())}
+  if parent is not None:metadata['parent_source_group_id']=parent['metadata']['source_group_id']
+  else:
+   overrides[indices[0]]=str(sanitize_images(group));suppressed.update(indices[1:])
+  owners[0].setdefault('source_list_groups',[]).append(metadata)
+  prior_groups.append({'node':group,'indices':set(indices),'owner':owners[0],'metadata':metadata})
+ for record in records:record['semantic_html']=''.join(overrides.get(i,html_parts[i]) for i in record['block_indices'] if i not in suppressed)
  available=list(heads);mapping=[];missing=[]
  # DOM order disambiguates genuine repeated Charter IDs within separate articles.
  # Every edge retains its own composite root/order identity; bodies are acquired once/document.
@@ -113,6 +135,19 @@ def run(source,out):
      else:a.update(required=True,status='unresolved_nonimage_attachment')
     dependencies.append(a)
    if re.search(r'data:image/|<(?:img|svg|picture)\b|background\s*=',r['semantic_html'],re.I):errors.append('Active normalized image markup')
+ source_targets={}
+ for document in docs:
+  artifact=next(a for a in state['artifacts'] if a['role']=='content' and a['source_url']==document)
+  body=BeautifulSoup(decode((src/artifact['path']).read_bytes())[0],'html.parser')
+  source_targets[document]={str(node[field]) for node in body.find_all(True) for field in ['id','name'] if node.get(field)}
+ source_link_defects=[]
+ from urllib.parse import unquote
+ for record in records:
+  for link in record['links']:
+   destination=key(link['url']);fragment=unquote(urlsplit(link['url']).fragment)
+   if destination in source_targets and fragment and fragment not in source_targets[destination]:source_link_defects.append({'owner_record_id':record['record_id'],'url':link['url'],'source_issue':'publisher_missing_anchor','correction_applied':False})
+ if source_link_defects:errors.append('Publisher source contains absent primary cross-reference targets')
+ save(out/'source-link-defects.json',source_link_defects)
  unresolved=[a for a in dependencies if a.get('required') and a.get('status')=='unresolved_nonimage_attachment']
  if unresolved:errors.append('Unresolved required nonimage dependencies')
  verify_normalization_revision(code)
@@ -120,6 +155,6 @@ def run(source,out):
  with (out/'records.csv').open('w',newline='') as f:
   w=csv.DictWriter(f,fieldnames=['record_id','source_url','kind','heading','full_text']);w.writeheader();w.writerows({k:r[k] for k in w.fieldnames} for r in records)
  save(out/'document-audits.json',audits);save(out/'dependencies.json',dependencies);save(out/'source-inventory.json',opening)
- summary={'schema':'flagstaff-full-html-normalized-1','source':str(src),'complete':not errors and not state['errors'] and not state['blocked'],'whole_jurisdiction_complete':False,'publication':'City Code including Charter; Employee Handbook separate and excluded','source_graph_edges':len(opening),'source_documents':len(docs),'acquired_parsed_documents':len(audits),'records':len(records),'source_blocks':sum(a['source_blocks'] for a in audits),'owned_blocks':sum(a['owned_blocks'] for a in audits),'source_tables':sum(a['source_tables'] for a in audits),'owned_tables':sum(a['owned_tables'] for a in audits),'matched_toc_edges':sum(a['matched_toc_edges'] for a in audits),'missing_toc_edges':sum(len(a['missing_toc_edges']) for a in audits),'extra_body_headings':sum(len(a['extra_body_headings']) for a in audits),'heading_only_unresolved':sum(len(a['heading_only_unresolved']) for a in audits),'image_placeholders':sum(a['image_placeholders'] for a in audits),'images_downloaded':False,'opening_closing_inventory_equal':opening==closing,'opening_closing_roots_equal':root_sets==[expected_roots,expected_roots],'opening_currency':currencies[0],'closing_currency':currencies[1],'independent_legal_layer_references':sum(a.get('status')=='independent_legal_layer_reference' for a in dependencies),'source_body_only_containers':sum(len(a['source_body_only_containers']) for a in audits),'source_structural_parents':sum(a['source_structural_parents'] for a in audits),'unresolved_nonimage_dependencies':len(unresolved),'errors':sorted(set(errors)),'code_fingerprint':code};save(out/'summary.json',summary);return summary
+ summary={'schema':'flagstaff-full-html-normalized-1','source':str(src),'complete':not errors and not state['errors'] and not state['blocked'],'whole_jurisdiction_complete':False,'publication':'City Code including Charter; Employee Handbook separate and excluded','source_graph_edges':len(opening),'source_documents':len(docs),'acquired_parsed_documents':len(audits),'records':len(records),'source_blocks':sum(a['source_blocks'] for a in audits),'owned_blocks':sum(a['owned_blocks'] for a in audits),'source_tables':sum(a['source_tables'] for a in audits),'owned_tables':sum(a['owned_tables'] for a in audits),'matched_toc_edges':sum(a['matched_toc_edges'] for a in audits),'missing_toc_edges':sum(len(a['missing_toc_edges']) for a in audits),'extra_body_headings':sum(len(a['extra_body_headings']) for a in audits),'heading_only_unresolved':sum(len(a['heading_only_unresolved']) for a in audits),'image_placeholders':sum(a['image_placeholders'] for a in audits),'images_downloaded':False,'opening_closing_inventory_equal':opening==closing,'opening_closing_roots_equal':root_sets==[expected_roots,expected_roots],'opening_currency':currencies[0],'closing_currency':currencies[1],'independent_legal_layer_references':sum(a.get('status')=='independent_legal_layer_reference' for a in dependencies),'source_body_only_containers':sum(len(a['source_body_only_containers']) for a in audits),'source_structural_parents':sum(a['source_structural_parents'] for a in audits),'source_navigation_complete':not source_link_defects,'source_broken_link_occurrences':len(source_link_defects),'source_list_groups':sum(len(record.get('source_list_groups',[])) for record in records),'unresolved_nonimage_dependencies':len(unresolved),'errors':sorted(set(errors)),'code_fingerprint':code};save(out/'summary.json',summary);return summary
 if __name__=='__main__':
  p=argparse.ArgumentParser();p.add_argument('--source',required=True);p.add_argument('--out',required=True);a=p.parse_args();r=run(a.source,a.out);print(json.dumps(r,indent=2));sys.exit(0 if r['complete'] else 2)

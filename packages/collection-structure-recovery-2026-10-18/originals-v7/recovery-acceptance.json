@@ -1,0 +1,55 @@
+{
+  "schema": "originals-v7-recorded-source-process-recovery-acceptance-1",
+  "at": "2026-10-18T01:11:26.367111+00:00",
+  "passed": true,
+  "cases": [
+    {
+      "case": "before_currency",
+      "passed": true,
+      "initial_returncode": -2,
+      "resume_returncode": 2,
+      "source_artifacts": 421,
+      "unique_body_documents": 361,
+      "raw_hashes_verified": true,
+      "opening_closing_checks_equal": true,
+      "records_sha256": "1344484a99e9dce522f72d2254b713e9b725d552bb28d174c3fb66884a7fae5b",
+      "observed_before_sigint_sha256": "d76fa21956f478421b3d6eed2ad2cf9e3e5625131468cba7c3aa841ec4cd82df",
+      "interrupted_receipt_sha256": "ad88e5d484eebb13619fcb490ce58c8acf9efb628d30262b573e80a502e9e4e6",
+      "terminal_receipt_sha256": "d95136102fb6229291859010cb39b634b8dbacaaac575e80ef7d3fffa00ac155",
+      "context_and_browser_cleanup_logged": true,
+      "generation_recovery": null
+    },
+    {
+      "case": "during_normalization",
+      "passed": true,
+      "initial_returncode": -2,
+      "resume_returncode": 2,
+      "source_artifacts": 401,
+      "unique_body_documents": 361,
+      "raw_hashes_verified": true,
+      "opening_closing_checks_equal": true,
+      "records_sha256": "1344484a99e9dce522f72d2254b713e9b725d552bb28d174c3fb66884a7fae5b",
+      "observed_before_sigint_sha256": "c4458368853b5d7d6f381751e0965f35df2a05b520cc9fa07a6b3fd2f5e33477",
+      "interrupted_receipt_sha256": "3e3669733315a4edcb4bc4144c571eb5362b9d8e82bd61915e473a7ed226b848",
+      "terminal_receipt_sha256": "6047b785d50de468c45afd6a566939c2c750b850c46065ec0e1a032cd1ce0635",
+      "context_and_browser_cleanup_logged": true,
+      "generation_recovery": {
+        "interrupted_generation_0001_unchanged": true,
+        "interrupted_generation_files": 19,
+        "terminal_normalized_records_sha256": "1344484a99e9dce522f72d2254b713e9b725d552bb28d174c3fb66884a7fae5b",
+        "generation_0002_creation_observation": "Not separately sampled while running; exact current helper chooses next numbered attempt, unchanged incomplete0001 plus terminal atomic destination and successful CLI establish recovery; no claim of direct polling observation"
+      }
+    }
+  ],
+  "checkpoint_edits": false,
+  "publisher_requests": 0,
+  "real_browser_launched": false,
+  "actual_collect_cli_and_persistent_state_machine": true,
+  "live_publisher_transport_interruption_qualified": false,
+  "test_transport": "Actual retained raw responses only; socket network tripwire; fake browser backend explicitly labeled; no network fallback",
+  "production_gate_unchanged": true,
+  "raw_input_unchanged": true,
+  "candidate_runtime_unchanged": true,
+  "actual_controller_binding": "actual-process-tests/executed-controller.py; exact executed v7controller source copied at terminal",
+  "source_defects_not_waived": 3
+}

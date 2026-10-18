@@ -72,7 +72,7 @@ def image_reference_attributes(attributes):
 
 def normalized_links(node,url):
  links=[]
- for element in node.select('a[href]'):
+ for element in ([node] if node.name=='a' and node.get('href') else [])+list(node.select("a[href]")):
   target=element['href'];attributes=redact_image_metadata(element.attrs,attribute_boundary=True)
   for name in ['style','srcset','background','poster']:
    if name in element.attrs:attributes.update(image_reference_attributes({name:element[name]}))
@@ -174,10 +174,21 @@ def sanitize_images(node):
   if 'data:image/' in str(text).lower():text.replace_with(NavigableString(legal_image_text(str(text))))
  return clone
 
+def source_notes(node):
+ # Preserve each source note occurrence once; include a note that IS the owned block.
+ classes={'Footnote','footnote','HistoryNote','Note','TableFootnote','CellBodyNote','CellBodyFootnote'}
+ selector='aside.annotations,[role="note"],'+','.join('.'+x for x in sorted(classes))
+ root_note=bool(set(node.get('class',[]))&classes or node.get('role')=='note' or node.name=='aside' and 'annotations' in node.get('class',[]))
+ selected=([node] if root_note else [])+list(node.select(selector));seen=set();result=[]
+ for note in selected:
+  if id(note) in seen:continue
+  seen.add(id(note));result.append(str(sanitize_images(note)))
+ return result
+
 def semantics(node,url):
  refs=source_assets(node,url)
  for asset in refs:
   if image_asset(asset):asset.update(required=False,status='policy_omitted_image',classification='user_requested_image_omission',placeholder='[IMAGE]',reason='User explicitly requests no image acquisition and literal[IMAGE] replacement; reference/IDs retained, no pixels extracted')
  clean_node=sanitize_images(node)
- return {'html':str(clean_node),'text':dom_text(clean_node),'tables':table_data(clean_node),'links':normalized_links(node,url),'assets':refs,'image_placeholder_count':clean_node.get_text().count('[IMAGE]'),'notes':[str(sanitize_images(a)) for a in node.select('aside.annotations,[role="note"],.Footnote,.footnote')],'superscripts':[str(x) for x in clean_node.select('sup,sub')]}
+ return {'html':str(clean_node),'text':dom_text(clean_node),'tables':table_data(clean_node),'links':normalized_links(node,url),'assets':refs,'image_placeholder_count':clean_node.get_text().count('[IMAGE]'),'notes':source_notes(node),'superscripts':[str(x) for x in clean_node.select('sup,sub')]}
 

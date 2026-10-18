@@ -20,6 +20,12 @@ def blocks(root):
     wrap=BeautifulSoup('<p></p>','html.parser').p;wrap.string=str(n);yield wrap
   elif isinstance(n,Tag):
    if n.name in {'script','style','head'}:continue
+   if n.name=='a' and str(n.get('href','')).startswith('#wwfootnote_inline_'):
+    # Exact source footnote backlink unit: old traversal dropped the wrapping a/name/href.
+    # Preserve the anchor as the same single text unit; unsupported shapes remain unqualified.
+    children=[x for x in n.children if isinstance(x,Tag) or isinstance(x,NavigableString) and not isinstance(x,Comment) and str(x).strip()]
+    if not re.fullmatch(r'\d+',str(n.get('name',''))) or n['href']!='#wwfootnote_inline_'+n['name'] or len(children)!=1 or isinstance(children[0],Tag) or not re.fullmatch(r'\d+',str(children[0]).strip()):raise ValueError('Unqualified source footnote backlink wrapper shape; preserve raw source and require ownership review')
+    yield n;continue
    if n.name in BLOCKS:yield n
    else:yield from blocks(n)
 def datevalue(text):

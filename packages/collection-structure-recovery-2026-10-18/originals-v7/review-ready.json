@@ -1,0 +1,42 @@
+{
+  "schema": "originals-v7-isolated-review-ready-1",
+  "at": "2026-10-18T01:11:31.886817+00:00",
+  "status": "Frozen for independent review; production not promoted",
+  "changed_runtime_files": {
+    "collect.py": "db0dee81c575350c387ca6a1958a1df13edfbb910dca9e6684f8002b310bc1bf",
+    "flagstaff_html.py": "78cd86daab4e458f68dc47f8cfee5cf89687190fa26169338006d12075f286ca",
+    "flagstaff_html_normalize.py": "0a260a93e0331652b8b82057294eb10b2182c7eb3144d52ec391b40c2a61ecd7",
+    "king_normalize.py": "3bdddf99d719f258862b8d6ffeebc3ddc68b85d61bc2e55c60a25020cf379a55",
+    "model.py": "0b8b91dd4818a8ecc0ad41928814b156d9eeb56d1a2931212f3cb55cc7a850a4",
+    "workflow.py": "e63a1cc05cdfda18b8ddf556a532ee6ffa1bc7cc3ec74f623608e4297415d318"
+  },
+  "production_baseline_manifest": "../final-family-manifest.json",
+  "candidate_source_manifest_sha256": "c94cbdf7d07bd93982831db5497dc7301d7c18850757510a6d401b3b7bb409c8",
+  "minimal_diff_sha256": "2cfc0a00c48c65f234ccd091d93d7d4d32f3d1dbb9244e42358373db04f988bc",
+  "regressions": {
+    "existing": 99,
+    "new": 9,
+    "total": 108,
+    "passed": true
+  },
+  "actual_full_replay": {
+    "exit_code": 2,
+    "full_raw_replay_equal": true,
+    "complete": false,
+    "records": 2661,
+    "records_sha256": "1344484a99e9dce522f72d2254b713e9b725d552bb28d174c3fb66884a7fae5b",
+    "reason": "Three exact broken publisher source anchor occurrences; no silent repair"
+  },
+  "field_conservation": "actual-record-field-conservation.json",
+  "independent_source_structure": "../flagstaff-legal-structure-candidate-v6/result.json",
+  "process_recovery": "recovery-acceptance.json",
+  "image_policy_actual": "actual-normalized-image-audit.json",
+  "failed_v5_lesson": "failed-v5-lesson.md",
+  "limits": [
+    "Independent external reviewer pending",
+    "King actual v6 retained full replay/field differential bound by unchanged relevant runtime hashes; see sibling King applicability receipts",
+    "Actual interrupted collect process uses recorded retained-source transport only, not live publisher browser/network interruption",
+    "Three publisher absent local targets remain source consistency failures",
+    "Copied source/validation-summary.json is unchanged historic production metadata, not candidate acceptance"
+  ]
+}

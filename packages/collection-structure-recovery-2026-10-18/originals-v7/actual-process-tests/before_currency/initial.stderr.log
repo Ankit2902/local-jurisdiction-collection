@@ -1,0 +1,23 @@
+Traceback (most recent call last):
+  File "/tmp/originals-recorded-live-harness.py", line 61, in <module>
+    sys.exit(cli.main(sys.argv[1:]))
+             ^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/oliverflint/My Drive/Claude/Projects/CompliSolv 2.00/outputs/collection-readiness-next-2026-10-17/originals-integration/note-resume-candidate-v7/source/cli.py", line 61, in main
+    result=collect(cfg.id,args.out,args.resume,publication_config=cfg.binding())
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/oliverflint/My Drive/Claude/Projects/CompliSolv 2.00/outputs/collection-readiness-next-2026-10-17/originals-integration/note-resume-candidate-v7/source/collect.py", line 49, in main
+    a=run(out/'source',resume=resume and (out/'source/checkpoint.json').is_file())
+      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/oliverflint/My Drive/Claude/Projects/CompliSolv 2.00/outputs/collection-readiness-next-2026-10-17/originals-integration/note-resume-candidate-v7/source/flagstaff_html.py", line 126, in collect
+    initial_currency=currency(fetch('currency-start',CURRENCY_URL))
+                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/oliverflint/My Drive/Claude/Projects/CompliSolv 2.00/outputs/collection-readiness-next-2026-10-17/originals-integration/note-resume-candidate-v7/source/flagstaff_html.py", line 94, in fetch
+    forbid(url);started=stamp();r=page.evaluate(FETCH,url);raw=base64.b64decode(r.pop('data',''));entry={'role':role,'source_url':url,'final_url':r['url'],'status':r['status'],'headers':r['headers'],'started_at':started,'finished_at':stamp(),'sha256':sha(raw),'bytes':len(raw),'path':f'raw/{len(state["artifacts"]):04d}-{role}.bin'};transport.atomic(out/entry['path'],raw);state['artifacts'].append(entry);save(out/'checkpoint.json',state)
+                                  ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/tmp/originals-recorded-live-harness.py", line 43, in evaluate
+    r=self.request(url,'fetch');return {'url':url,'status':r.status,'headers':r.headers,'data':base64.b64encode(r.raw).decode()}
+      ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/tmp/originals-recorded-live-harness.py", line 39, in request
+    while True:time.sleep(.1)
+               ^^^^^^^^^^^^^^
+KeyboardInterrupt

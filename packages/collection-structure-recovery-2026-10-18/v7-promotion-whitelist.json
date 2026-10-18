@@ -1,0 +1,78 @@
+{
+  "schema": "originals-v7-root-promotion-whitelist-1",
+  "at": "2026-10-18T01:15:41.424447+00:00",
+  "files": [
+    {
+      "repository_path": "collectors/originals/collect.py",
+      "candidate_path": "outputs/collection-readiness-next-2026-10-17/originals-integration/note-resume-candidate-v7/source/collect.py",
+      "before_sha256": "b70a98ef84991321612805105c68e85fbc114f668a42b3cf07c8b98c14b2053a",
+      "after_sha256": "db0dee81c575350c387ca6a1958a1df13edfbb910dca9e6684f8002b310bc1bf",
+      "bytes": 4417
+    },
+    {
+      "repository_path": "collectors/originals/flagstaff_html.py",
+      "candidate_path": "outputs/collection-readiness-next-2026-10-17/originals-integration/note-resume-candidate-v7/source/flagstaff_html.py",
+      "before_sha256": "e7df1d039cba6a9aeb6b98c151dea9629d861faf30865112ff9dad7e23f3ab9f",
+      "after_sha256": "78cd86daab4e458f68dc47f8cfee5cf89687190fa26169338006d12075f286ca",
+      "bytes": 13588
+    },
+    {
+      "repository_path": "collectors/originals/flagstaff_html_normalize.py",
+      "candidate_path": "outputs/collection-readiness-next-2026-10-17/originals-integration/note-resume-candidate-v7/source/flagstaff_html_normalize.py",
+      "before_sha256": "56f640caebe71707e7ca1ea512871440fdc5c4769b64a71cd2e2703356f8b6aa",
+      "after_sha256": "0a260a93e0331652b8b82057294eb10b2182c7eb3144d52ec391b40c2a61ecd7",
+      "bytes": 16305
+    },
+    {
+      "repository_path": "collectors/originals/king_normalize.py",
+      "candidate_path": "outputs/collection-readiness-next-2026-10-17/originals-integration/note-resume-candidate-v7/source/king_normalize.py",
+      "before_sha256": "3be1ec2d9c9cc0baa98ed9c618df93685ea86ad589ccb7cafc207e86fbc8dccb",
+      "after_sha256": "3bdddf99d719f258862b8d6ffeebc3ddc68b85d61bc2e55c60a25020cf379a55",
+      "bytes": 16545
+    },
+    {
+      "repository_path": "collectors/originals/model.py",
+      "candidate_path": "outputs/collection-readiness-next-2026-10-17/originals-integration/note-resume-candidate-v7/source/model.py",
+      "before_sha256": "67cc4d9971f659e41b5cf24021cb1fd3ebecb5aa9536b4d357f7c156a42a6c6e",
+      "after_sha256": "0b8b91dd4818a8ecc0ad41928814b156d9eeb56d1a2931212f3cb55cc7a850a4",
+      "bytes": 14972
+    },
+    {
+      "repository_path": "collectors/originals/workflow.py",
+      "candidate_path": "outputs/collection-readiness-next-2026-10-17/originals-integration/note-resume-candidate-v7/source/workflow.py",
+      "before_sha256": "d2680334c1b2f81144eb6d34e947dc555e3d9a896ce8906300e1aeb28d0685b2",
+      "after_sha256": "e63a1cc05cdfda18b8ddf556a532ee6ffa1bc7cc3ec74f623608e4297415d318",
+      "bytes": 8571
+    }
+  ],
+  "preimage_policy": "Use immutable original baseline hashes, not concurrently observed production. Apply only if before hash matches, or verify already equal after hash for idempotent integration. Any other value requires root review.",
+  "qa_runner": "collectors/qa/run_originals_legal_structure.py",
+  "qa_runner_sha256": "f4634396a0285965ad7ac31492d108068fa80e64db1a2be8e943fcdcca080aba",
+  "qa_command": [
+    ".collection-runtime/venv/bin/python",
+    "-B",
+    "collectors/qa/run_originals_legal_structure.py",
+    "--source",
+    "collectors/originals",
+    "--receipt",
+    "<fresh external receipt.json>"
+  ],
+  "runtime_api": "CLI, configs, required formats, image policy and runtime dependencies unchanged. No test modules should be copied under collectors/originals.",
+  "do_not_copy": [
+    "Whole candidate source tree",
+    "Candidate source/validation-summary.json: frozen historical production summary",
+    "Candidate source/integration-contract.json wholesale: no CLI/config change required",
+    "Historical proof-receipts or original frozen output trees over current ones"
+  ],
+  "documentation_merge": [
+    "README: explain800typed source notes/5254links/11source list groups; source body/table/block conservation; nested sameowner/sourceDOM containment and topmost wrapper behavior; ambiguous shapes fail closed.",
+    "README: three actual publisher absent target occurrences are unresolved source defects. Source consistency and publication acceptance are false; no guessed anchor repair.",
+    "README: genuine SIGINT/--resume process recovery is proven using recorded retained-source backend, not live browser/publisher transport. Current live current-code interrupted-resume proof is pending until root frozen-ready signal.",
+    "README: King shared-helper applicability completed;16actual root footnote metadata additions across8HTMLowners, all other5844HTMLfields equal;57195Wordrecord bytes equal. Existing King gaps remain.",
+    "README: only macOS26.6.2 arm64/Python3.12.14 tested; no separate image fetch/member-read/decode/render/OCR; exact[IMAGE].",
+    "validation-summary.json: merge a new current-revision entry pointing to v7review-ready/bundle manifest, independentreview0212e559\u2026, Kingterminald9603506\u2026, portable9test receipt and actualrecovery acceptance. Preserve older source revisions/execution chronology; do not relabel old fresh Flag run as newv7 acquisition.",
+    "proof-receipts: add a new revision/delta receipt instead of overwriting prior exact-hash proofs. Final runtime/config/topJSON source bindings must be frozen before freshlive.",
+    "integration-contract.json: retain current typed configuration/checkpoint and aggregate schema; no functional CLI change requires overwriting it. If documentation metadata changes, bind its final bytes before commonjob creation."
+  ],
+  "production_changed_by_this_task": false
+}

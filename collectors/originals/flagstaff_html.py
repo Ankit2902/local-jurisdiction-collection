@@ -116,6 +116,15 @@ def collect(out,inventory_source=None,resume=False,import_inventory_capture=None
     edges=inventory(opening)
     if state.get('inventory') and state['inventory']!=edges:raise ValueError('Resume source inventory drift')
     state['inventory']=edges;save(out/'checkpoint.json',state)
+    retained_currency=[a for a in state['artifacts'] if a['role']=='currency-start']
+    if len(retained_currency)>1:raise ValueError('Duplicate opening currency source receipt')
+    if retained_currency:
+     initial_currency=currency((out/retained_currency[0]['path']).read_bytes())
+     if state.get('opening_currency') and state['opening_currency']!=initial_currency:raise ValueError('Opening currency marker differs from retained source')
+    else:
+     if state.get('opening_currency'):raise ValueError('Opening currency marker has no retained source receipt')
+     initial_currency=currency(fetch('currency-start',CURRENCY_URL))
+    state['opening_currency']=initial_currency;save(out/'checkpoint.json',state)
     if resume:
      if root_inventory(fetch('root-resume-validation',ROOT_TOC_URL))!=expected_roots:raise ValueError('Resumed primary root inventory drift')
      validation=[];role='toc-resume-validation-'+str(len(state['artifacts']))
@@ -123,8 +132,6 @@ def collect(out,inventory_source=None,resume=False,import_inventory_capture=None
      if inventory(validation)!=edges:raise ValueError('Resumed publication inventory drift')
      observed=currency(fetch('currency-resume-validation',CURRENCY_URL))
      if observed!=state['opening_currency']:raise ValueError('Resumed source edition drift')
-    else:
-     raw=fetch('currency-start',CURRENCY_URL);state['opening_currency']=currency(raw)
     docs=list(dict.fromkeys(key(e['source_url']) for e in edges));state['source_documents']=docs;save(out/'checkpoint.json',state)
     acquired={a['source_url'] for a in state['artifacts'] if a['role']=='content' and a['status']==200}
     for u in docs:

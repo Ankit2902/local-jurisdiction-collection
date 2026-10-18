@@ -1,9 +1,9 @@
 {
   "schema_version": 3,
   "publisher": "american-legal",
-  "status": "source_corroborated_PDF_alias_and_explicit_status_146tests_live_gaps_retained",
+  "status": "source_bound_Boston_note_keys_156tests_live_gaps_retained",
   "frozen": true,
-  "updated_at": "2026-10-18T01:03:33.514068+00:00",
+  "updated_at": "2026-10-18T01:19:02.516409+00:00",
   "evidence_root": "outputs/collection-readiness-followup-2026-10-17/american-legal",
   "image_policy": "literal-[IMAGE]-no-image-fetch-v1",
   "scope_warning": "Two named genuine full-publication scopes and reusable methods are qualified; all15 primary configs, every secondary and entire jurisdictions are not thereby qualified.",
@@ -24,7 +24,7 @@
     ],
     "independent_fullbook_auditor": "executed-v7/audit_pdf_tags.py",
     "promotion_manifest": "freeze-manifest.json",
-    "current_delivery": "v11 source alias plus source-explicit Fort Worth status correction; historical live runs retain executed revisions"
+    "current_delivery": "v11 source alias, explicit Fort Worth status, and reviewed Boston printed-label/source-key footnotes"
   },
   "runtime": {
     "kind": "Current proof runtime and controlled source lineage",
@@ -427,5 +427,27 @@
     "other_actual_unqualified_units": 7,
     "new_live_acquisition": false,
     "publication_completion_upgraded": false
+  },
+  "boston_native_note_revision": {
+    "model_sha256": "015dcba52e415f6e314bf4ed76c397447253221ae5697d20fa8b0a7f3b51c341",
+    "tests": 156,
+    "passed": true,
+    "independent_suite_receipt": "../../packages/collection-structure-recovery-2026-10-18/root-boston-156/report.json",
+    "independent_source_review": "../../packages/collection-structure-recovery-2026-10-18/independent-boston-review/review.json",
+    "full_source": {
+      "nodes": 2185,
+      "branches": 305,
+      "blocks": 16251,
+      "tables": 44,
+      "cells": 12250
+    },
+    "delta": "Only owner 0-0-0-475 receives original auxiliary footnotes; printed 6/7/8 bind to exact reciprocal anchor keys 1/2/3. Other 2184 records conserved.",
+    "unqualified_units": [
+      "0-0-0-10657",
+      "0-0-0-4799"
+    ],
+    "closing_refreshed": false,
+    "publication_complete": false,
+    "image_policy": "Exact [IMAGE]; no separate image download, decoder, rendering or OCR calls"
   }
 }

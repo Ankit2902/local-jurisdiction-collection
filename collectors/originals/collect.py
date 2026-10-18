@@ -24,7 +24,12 @@ def main(target,out,resume=False,publication_config=None):
   if destination.exists() and any(destination.iterdir()):
    from verify import verify
    return verify(family,source,destination)
-  return run(source,destination)
+  format='word' if family=='king-word' else 'html'
+  attempts=sorted(out.glob('.normalization-attempt-'+format+'-*'))
+  attempt=out/('.normalization-attempt-'+format+'-'+str(len(attempts)+1).zfill(4))
+  result=run(source,attempt)
+  attempt.rename(destination)
+  return result
  if target=='original-king-county-wa':
   from king_acquire import collect
   from king_native import run as native

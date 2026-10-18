@@ -4,7 +4,7 @@ The user reaffirmed the existing corpus convention on October 17, 2026: **do not
 
 The original [output contract](../packages/local-extraction-handoff-2026-10-15/OUTPUT-CONTRACT.md#content-fidelity) already specifies ordered `[IMAGE]` placeholders. The current instruction makes the acquisition exclusion explicit.
 
-- Do not request, download, extract, render, OCR, or save separate image binaries as collection output. Ordinary browser image resources are blocked where the browser workflow supports that without changing access/challenge controls.
+- Do not request, download, extract, decode, render, OCR, or save separate image binaries as collection output. Ordinary browser image resources are blocked where the browser workflow supports that without changing access/challenge controls.
 - Replace source images in normalized text and HTML with `[IMAGE]` in source order. Handle ordinary images, picture/source alternatives, inline SVG, image-only provisions and CSS image references. Preserve surrounding text, captions and labels already available as text.
 - Retain each provision's source ID, heading, hierarchy and provenance. An image-only body becomes `[IMAGE]`; it must not be discarded or treated as an unexplained empty section.
 - Keep image reference/omission metadata, including the source locator where available. Do not leave active image tags, image data URIs or CSS image fetches in normalized HTML. The same image-byte exclusion applies recursively to normalized JSON and metadata, including legal notes, captions and source attributes. If an attribute embeds image bytes, retain an omission marker and a hash of the original attribute instead of copying its payload.

@@ -322,3 +322,11 @@ cached source reuse. Required documents and the closing inventory remain pending
 ### Explicit short dispositions
 
 Two Fort Worth units have source-explicit dispositions that the generic minimum-text-length check missed: an own body exactly `[Repealed]` and a numbered native Section heading ending `RESERVED.`. The collector now retains their exact text, IDs and blocks and adds source-fragment evidence for the disposition. It does not infer a disposition for the other seven unresolved units. The rebased source passes 146 tests, including nine portable actual-source/fault cases; all original fields in those nine records match except the two classification/evidence additions. See [the evidence](../qa/followup-proof-receipts/american-legal-fortworth-status/). The two unavailable required exhibits and existing PDF semantic limitations still prevent complete Fort Worth acceptance. This is an offline normalization correction, not a new full acquisition.
+
+## Boston source footnote labels — reviewed October 18, 2026
+
+Boston prints footnote labels 6, 7 and 8 while using reciprocal source anchor keys 1, 2 and 3. The collector preserves both values and binds each original note to its source owner once. It requires unique numeric keys, matching reciprocal section-local references and printed label agreement; ambiguous source structures still fail.
+
+The exact model passed 156 independently rerun regressions. An independent source review reconciled all 305 TOC branches, 2,185 records and 16,251 rich blocks, plus all 44 original tables and 12,250 cells. Only owner `0-0-0-475` gains its source auxiliary note fragments; the other 2,184 record projections are unchanged. The two heading-only units `0-0-0-10657` and `0-0-0-4799` remain unqualified, and closing inventory has not been refreshed. This is a parser repair, not complete Boston collection acceptance.
+
+The original queue retains its captured runtime. These changes do not relabel its historical executions. No separate image requests, extraction, decoding, rendering or OCR are allowed; notes and table cells use exact `[IMAGE]` and retain surrounding legal text. See [frozen source evidence and independent reviews](../../packages/collection-structure-recovery-2026-10-18/BUNDLE-MANIFEST.json).

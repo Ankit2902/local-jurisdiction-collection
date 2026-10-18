@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
-  "kind": "American Legal source alias plus source-explicit status correction",
-  "frozen_at": "2026-10-18T01:09:52.180660+00:00",
+  "kind": "American Legal source aliases, explicit status and Boston source note keys",
+  "frozen_at": "2026-10-18T01:19:02.516409+00:00",
   "collector_root": "collectors/american-legal",
   "evidence_root": "collectors/qa/followup-proof-receipts/american-legal-v11",
   "files": {
@@ -10,8 +10,8 @@
       "bytes": 40
     },
     "README.md": {
-      "sha256": "f3d8bbd8fb0d13ebe377311b4250d4fc268462dac1f78d8af9fb99af0bd8a1c3",
-      "bytes": 37671
+      "sha256": "74c6d84f4ad2c848cc7e1342626bab8e5b5240c8794bfa70b846ede3d5e5dfd9",
+      "bytes": 38979
     },
     "audit_native.py": {
       "sha256": "07813e3e4f14a737873b34e075bd66a590cfdb17f9eec5c2594028388e8cdb52",
@@ -78,8 +78,8 @@
       "bytes": 3947
     },
     "model.py": {
-      "sha256": "c568aa07a68a8dc5ae50652fc4b1c164d536b1e90a729b3e49b0ee74df4a6ca4",
-      "bytes": 37579
+      "sha256": "015dcba52e415f6e314bf4ed76c397447253221ae5697d20fa8b0a7f3b51c341",
+      "bytes": 38151
     },
     "native-note-tests.json": {
       "sha256": "1e8b6f0f27ca99aeedde518f23014bf7bbcb1285a9e3d93cbed6a64ef35ed2db",
@@ -194,12 +194,20 @@
       "bytes": 4965
     },
     "validation-summary.json": {
-      "sha256": "bf9704e5bbbbe33421f7682585969bf3926602521822c79c4fc8e2b44323fe2d",
-      "bytes": 20660
+      "sha256": "b4653b1b2eef0e33b59cb94e1643c3cb8586331d3541b664299930b16d42cd8a",
+      "bytes": 21580
     },
     "verify.py": {
       "sha256": "402d884053809e13e1818e36fa6b0409e0367ca84ac102fc60789c713ea6e71c",
       "bytes": 18448
+    },
+    "fixtures/boston-footnote-source-v1.json": {
+      "sha256": "756e7f58489838c880641bbf03c1436686365387ff52824dbd4e8c0a2246b5db",
+      "bytes": 33959
+    },
+    "test_boston_notes.py": {
+      "sha256": "a6862955300327568362cccf61cf8f714f02f30c7c39c09389b5e44402b42ce5",
+      "bytes": 4959
     }
   },
   "source_snapshot": "executed-v10",
@@ -350,5 +358,7 @@
     ]
   },
   "image_policy": "literal-[IMAGE]-no-image-fetch-v1",
-  "no_prior_proofs_or_queue_relabelled": true
+  "no_prior_proofs_or_queue_relabelled": true,
+  "historical_validation_before_boston": null,
+  "boston_validation_receipt": "../../packages/collection-structure-recovery-2026-10-18/root-boston-156/report.json"
 }

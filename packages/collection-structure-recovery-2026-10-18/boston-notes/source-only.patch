@@ -1,0 +1,34 @@
+--- v12/model.py
++++ candidate/model.py
+@@ -259,19 +259,25 @@
+   owner=heads[0]['id'][4:];headings=[e for e in group.select('.toc-destination[id^="rid-"]') if e['id'][4:] in wanted];assert len(headings)==1,'Native note group spans multiple inventory owners'
+   heading=table.find_previous_sibling();assert heading is not None and heading.name=='p' and dom_text(heading,' ')=='Notes' and rich_parent(heading) is None,'Native footnote Notes heading absent'
+   assert not table.select('[id^="rid-"]') and not heading.select('[id^="rid-"]'),'Native auxiliary note duplicates a rich block'
+-  rows=table.find_all('tr');assert rows,'Empty unbound footnote table';markers=[]
++  rows=table.find_all('tr');assert rows,'Empty unbound footnote table';markers=[];anchor_keys=[]
+   for row in rows:
+    assert row.find_parent('table') is table,'Nested footnote table needs separate ownership profile'
+    cells=row.find_all(['td','th'],recursive=False);assert len(cells)==2 and 'marker' in cells[0].get('class',[]) and 'foot-text' in cells[1].get('class',[]),'Unknown publisher footnote row shape'
+    label=dom_text(cells[0],' ');assert re.fullmatch(r'[0-9]+',label),'Non-numeric publisher footnote marker'
+-   anchors=cells[0].find_all('a',attrs={'name':'foot--'+label});back=cells[0].find_all('a',href='#text--'+label)
+-   assert len(anchors)==1 and len(back)==1 and back[0].select_one('.cs-folk-footnote'),'Footnote marker/backlink binding absent'
+-   targets=[e for e in group.find_all('a',attrs={'name':'text--'+label}) if rich_parent(e) is not None];links=[e for e in group.find_all('a',href='#foot--'+label) if rich_parent(e) is not None]
+-   assert len(targets)==1 and links,'Footnote has no unique section-local inline target/reference';markers.append(label)
++   anchors=cells[0].find_all('a',attrs={'name':re.compile(r'^foot--[0-9]+$')});assert len(anchors)==1,'Footnote source anchor absent/ambiguous'
++   key=anchors[0]['name'][6:];back=cells[0].find_all('a',href='#text--'+key)
++   assert len(back)==1 and back[0].select_one('.cs-folk-footnote'),'Footnote marker/backlink binding absent'
++   targets=[e for e in group.find_all('a',attrs={'name':'text--'+key}) if rich_parent(e) is not None];links=[e for e in group.find_all('a',href='#foot--'+key) if rich_parent(e) is not None]
++   assert len(targets)==1 and links,'Footnote has no unique section-local inline target/reference'
++   if key!=label:assert all(dom_text(e,' ')==label for e in links),'Source anchor/printed inline footnote label disagreement'
++   markers.append(label);anchor_keys.append(key)
+   assert len(markers)==len(set(markers)),'Duplicate section-local footnote marker'
++  assert len(anchor_keys)==len(set(anchor_keys)),'Duplicate section-local footnote source anchor'
+   for element,kind in [(heading,'publisher-footnote-heading'),(table,'publisher-footnote-table')]:
+    assert id(element) not in result,'Duplicate native auxiliary fragment'
+-   raw=str(element);location=path(element);metadata={'kind':kind,'owner_document_id':owner,'source_dom_path':location,'source_fragment_sha256':digest(raw.encode()),'source_fragment_id':'native-aux:'+digest(canonical([owner,location,digest(raw.encode())])),'source_text_sha256':digest(dom_text(element).encode()),'marker_labels':markers,'binding':'Immediate source section heading plus reciprocal section-local footnote anchors; original non-rich fragment retained once.'};result[id(element)]={'element':element,'owner':owner,'metadata':metadata}
++   raw=str(element);location=path(element);metadata={'kind':kind,'owner_document_id':owner,'source_dom_path':location,'source_fragment_sha256':digest(raw.encode()),'source_fragment_id':'native-aux:'+digest(canonical([owner,location,digest(raw.encode())])),'source_text_sha256':digest(dom_text(element).encode()),'marker_labels':markers,'binding':'Immediate source section heading plus reciprocal section-local footnote anchors; original non-rich fragment retained once.'}
++   if any(a!=b for a,b in zip(markers,anchor_keys)):metadata['marker_anchor_bindings']=[{'printed_label':a,'source_anchor_key':b,'note_anchor':'foot--'+b,'inline_anchor':'text--'+b} for a,b in zip(markers,anchor_keys)]
++   result[id(element)]={'element':element,'owner':owner,'metadata':metadata}
+  return result
+ 
+ def native_records(data,inventory,identity,url,sha,resolved_images=(),inventory_sources=None):
