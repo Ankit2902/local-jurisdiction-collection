@@ -1,0 +1,17 @@
+"""Every source page's existing text/glyph and image-object geometry, never image content."""
+import sys
+sys.dont_write_bytecode=True
+import pathlib,json,hashlib,time,csv,io
+H=pathlib.Path(__file__).resolve().parent;sys.path.insert(0,str(H/'captured'))
+from collectors.encodeplus.retained_native import guards,validate_source
+import pypdfium2,pdfplumber
+id='82-6eedef9a53f0';path=H/'native-discovery'/(id+'.bin');cfg=json.loads((H/'configs'/('native-'+id+'.json')).read_text());data=path.read_bytes();receipt=json.loads(path.with_name(path.name+'.receipt.json').read_text());validate_source(data,receipt,cfg);start=time.monotonic();records=[];out=H/'oxford-all-page-metadata';assert not out.exists();before=hashlib.sha256(data).hexdigest()
+with guards()as calls:
+ doc=pypdfium2.PdfDocument(data)
+ with pdfplumber.open(path)as pdf:
+  assert len(pdf.pages)==len(doc)==cfg['expected_pages']
+  for i,p in enumerate(pdf.pages):
+   np=doc[i];tp=np.get_textpage();text=tp.get_text_range();images=[{'id':id+':page:'+str(i+1)+':image:'+str(j+1),'bbox':[im['x0'],im['top'],im['x1'],im['bottom']],'source_name':im.get('name'),'source_objid':getattr(im.get('stream'),'objid',None),'placeholder':'[IMAGE]','transcription_performed':False}for j,im in enumerate(p.images)];words=p.extract_words();records.append({'id':id+':page:'+str(i+1),'physical_page':i+1,'page_count':len(doc),'source_url':cfg['url'],'source_sha256':before,'source_text':text,'native_characters':tp.count_chars(),'pdfplumber_glyphs':len(p.chars),'pdfplumber_words':len(words),'image_objects':images,'text':text+''.join('\n[IMAGE]'for im in images),'image_geometry_order':'original source image-object sequence, geometry retained; no invented semantic reading order','legal_text_transcribed':False});tp.close();np.close()
+ doc.close()
+assert hashlib.sha256(path.read_bytes()).hexdigest()==before
+out.mkdir();raw=''.join(json.dumps(r,ensure_ascii=False,sort_keys=True)+'\n'for r in records).encode();(out/'records.jsonl').write_bytes(raw);buf=io.StringIO(newline='');writer=csv.DictWriter(buf,fieldnames=['id','physical_page','page_count','source_url','source_sha256','native_characters','pdfplumber_glyphs','pdfplumber_words','text']);writer.writeheader();writer.writerows({k:r[k]for k in writer.fieldnames}for r in records);(out/'records.csv').write_text(buf.getvalue());report={'id':id,'source_sha256':before,'pages':len(records),'all_pages_visited':True,'source_text_characters':sum(len(r['source_text'])for r in records),'native_characters':sum(r['native_characters']for r in records),'pdfplumber_glyphs':sum(r['pdfplumber_glyphs']for r in records),'pdfplumber_words':sum(r['pdfplumber_words']for r in records),'image_objects':sum(len(r['image_objects'])for r in records),'image_only_pages':[r['physical_page']for r in records if not r['source_text']and not r['pdfplumber_glyphs']and r['image_objects']],'native_document_acquisition_verified':True,'source_page_metadata_inventory_complete':True,'publication_text_complete':False,'publication_complete':False,'source_logical_structure_qualified':False,'edition_complete':False,'jurisdiction_complete':False,'closing_acquisition_performed':False,'image_policy':'[IMAGE]; object geometry only, no decoding/render/OCR','forbidden_operations':calls,'elapsed_seconds':time.monotonic()-start,'script_sha256':hashlib.sha256(pathlib.Path(__file__).read_bytes()).hexdigest(),'records_sha256':hashlib.sha256(raw).hexdigest()};(out/'coverage.json').write_text(json.dumps(report,indent=2)+'\n');print(json.dumps(report,indent=2))

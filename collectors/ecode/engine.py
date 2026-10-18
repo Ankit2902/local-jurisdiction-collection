@@ -9,13 +9,23 @@ from .media import qualify_asset
 
 VERSION='icc-full-1.0'
 _PARSE_CACHE={}
-def statutory_reference(url,publication_url,family):
+def statutory_reference(url,publication_url,family,link=None):
  """Source-backed CodePublishing statute-link namespaces, not arbitrary documents."""
  p=urlsplit(url);observed_namespaces={'NY':set('PBH BNK MHR ELN GCT SCC PBO GMU SLG GBS SOS ENV PBS VAT EXC WKC CVS LAB DOM PEN LFN LIE ISC AGM CPL NYCRR RPT PVH TRA TAX PAR'.split()),'AZ':{'ARS'}}
  parts=p.path.strip('/').split('/')
  if p.netloc=='municipal.codes' and not p.query:
   if len(parts)==3 and parts[1] in observed_namespaces.get(parts[0],set()) and parts[2]:return True
   if re.fullmatch(r'/US/(?:USC|CFR)/[0-9]+/[^/]+',p.path) or re.fullmatch(r'/US/Const/Amendment[0-9]+',p.path):return True
+ # Newly observed forms need the exact typed source anchor and law context.
+ evidence=(link or {}).get('source_statutory_evidence') or {}
+ if p.scheme=='https' and p.netloc=='municipal.codes' and not p.query and not p.fragment and evidence.get('schema')=='source-statref-context-1' and evidence.get('source_owner_id')==str((link or {}).get('owner_id')) and evidence.get('source_url')==url and evidence.get('source_label')==(link or {}).get('label') and 'statref' in evidence.get('source_classes',[]) and not evidence.get('anchor_has_download') and not evidence.get('anchor_has_nonempty_mime') and all(re.fullmatch(r'[0-9a-f]{64}',evidence.get(k,'')) for k in ['source_anchor_html_sha256','processed_owner_context_html_sha256']):
+  context=re.sub(r'\s+',' ',evidence.get('source_context_text','')).casefold();label=(link or {}).get('label','').strip();names={'ABC':'Alcoholic Beverage Control Law','COR':'Correction Law','MHY':'Mental Hygiene Law','STF':'State Finance Law','PBL':'Public Lands Law','NPC':'Not-for-Profit Corporation Law','RPP':'Real Property Law','HAY':'Highway Law'}
+  if len(parts)==3 and parts[0]=='NY' and parts[1] in names:
+   target=parts[2];article=target.startswith('A') and parts[1]=='RPP';wanted=target[1:] if article else target
+   if not re.fullmatch(r'(?:[0-9]+(?:\.[0-9]+)*(?:-[A-Za-z0-9]+)?|A[0-9]+-[A-Za-z])',target):return False
+   if label==wanted and names[parts[1]].casefold() in context and re.search(r'(?<![a-z0-9.-])'+re.escape(wanted.casefold())+r'(?![a-z0-9.-])',context) and (not article or re.search(r'\barticle\s+'+re.escape(wanted.casefold())+r'\b',context)):return True
+  if re.fullmatch(r'/US/USC/[0-9]+',p.path) and label==parts[2]:
+   title=re.escape(parts[2]);return bool(re.search(r'\btitle\s+'+title+r'\s+of\s+the\s+united\s+states\s+code\b',context) or re.search(r'\b'+title+r'\s+u\.s\.c\.',context))
  # This forwarding form is directly witnessed in the retained Phoenix Charter.
  return family=='municipal.codes' and p.netloc==urlsplit(publication_url).netloc and not p.query and bool(re.fullmatch(r'/AZ/ARS/[^/]+',p.path))
 def equivalent_body(a,b):
@@ -162,7 +172,7 @@ def rebuild(out,state):
    elif p.scheme in ['mailto','tel']:cl='contact_reference'
    elif p.netloc=='ecode360.com' and re.fullmatch(r'/(?:[0-9]+|[A-Z]{2}[0-9]{4})',p.path.rstrip('/')) and not p.query:cl='external_publisher_code_reference'
    elif family=='municipal.codes' and any(clean_url(u)==root or clean_url(u).startswith(root+'/') for root in external_pubroots) and not p.query:cl='observed_other_publication_reference'
-   elif statutory_reference(u,base,family):cl='external_statutory_reference'
+   elif statutory_reference(u,base,family,link):cl='external_statutory_reference'
    elif p.scheme in ['https','http'] and (p.path in ['', '/'] or p.path.endswith('/') or re.search(r'\.(?:html?|aspx?|jsp)$',p.path,re.I)):cl='external_html_reference'
    else:cl='unresolved_hyperlink'
    ledger.append({**link,'classification':cl})

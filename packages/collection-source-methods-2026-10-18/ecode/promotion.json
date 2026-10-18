@@ -1,0 +1,32 @@
+{
+  "status": "STOPPING_POINT: final V5 current-source proof terminal0; export/portablecorpus verification not started; no production promotion duringpause",
+  "runtime_whitelist": [
+    {
+      "destination": "collectors/ecode/adapters.py",
+      "before_sha256": "daeac010f79b210634459ee30a44f69dccd8503bee456f1e8f5710626af6933c",
+      "source": "candidate-v5/adapters.py",
+      "sha256": "c0038326f448d5f109ba266864a873ab51dfba7401204bf30a65ce75f192a9b8"
+    },
+    {
+      "destination": "collectors/ecode/engine.py",
+      "before_sha256": "2aa9dfcd020199b9b80e5e8274713dbf8ddf025db439ef6db6e3b3d031a91fd8",
+      "source": "candidate-v5/engine.py",
+      "sha256": "a148b91a6931746efa887d0daf949c3e7fbf9682b3e60f5872ac5d204ede7e9e"
+    }
+  ],
+  "test_whitelist": [
+    {
+      "source": "test_statutory_source_context.py",
+      "destination": "collectors/qa/test_ecode_statutory_source_context.py",
+      "sha256": "b40c0988598546254876a4d8c19f5fdf3cfd9436761b9394dbe53406234e5ee5",
+      "command": "$PY -B collectors/qa/test_ecode_statutory_source_context.py --collector-root collectors/ecode --ledger EVIDENCE/corrected-statref-source-census.json",
+      "expected_cases": 25,
+      "fixture_sha256": "65656d6a05958b387ba50fcc8accc561b2ba340cfe34f503be1d5df59efe1edf"
+    }
+  ],
+  "fixture": "corrected-statref-source-census.json",
+  "scope": "External statutory source-reference classification plus strict metadata image normalization; no document/source closure or publisher access changes",
+  "shared_writer_changes": [],
+  "fixture_sha256": "65656d6a05958b387ba50fcc8accc561b2ba340cfe34f503be1d5df59efe1edf",
+  "final_current_source_proof_sha256": "f79e7ee34ab420ff8f55e8748d7d53bd7d68e05855dc33da9c64d7158741f88c"
+}

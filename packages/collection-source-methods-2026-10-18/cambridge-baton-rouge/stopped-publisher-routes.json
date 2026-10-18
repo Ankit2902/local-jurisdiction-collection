@@ -1,0 +1,37 @@
+{
+  "registry_advisory_sha256": "97eb254ab8d0dbfbfff387ac78bf96ac5656e511d5d745212f640ff9fabf3841",
+  "municode_advisory": {
+    "family": "municode",
+    "operator_review_required": true,
+    "automatic_retry": false,
+    "reason": "Malformed publisher-owned source href www.jaxsheriff.org/fees was incorrectly resolved under library.municode.com; observed HEAD403/Cf-Mitigated challenge on that malformed path. Shared browser workflow stopped. This is not evidence that every legitimate public publisher route is unavailable.",
+    "observed_stop": {
+      "reason": "https://library.municode.com/www.jaxsheriff.org/fees HTTP access refusal",
+      "recorded_at": "2026-10-17T21:41:34.381324+00:00",
+      "operator_release_required": true
+    },
+    "original_gate_path": "/tmp/compliSolv-municode-rate-gate/browser-stop.json",
+    "source_sha256": "baa3b06c85e67ae21ee392de6769a32fd3d58b86d36d393138c8d1669740c68c",
+    "raw_refusal_witness": {
+      "source_path": "outputs/collection-readiness-2026-10-17/municode/batch-005/runs/6-primary/raw/bd96cbe9d3a3421fbfab39db5aac4127.json",
+      "sha256": "196ca151a450c474060d04357de28d00c7b6815aef47dabd018886f4c1abe0e5",
+      "request_method": "HEAD",
+      "http_status": 403,
+      "cf_mitigated": "challenge",
+      "response_body_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "source_doc_fixture": "collectors/municode/fixtures/jacksonville-bare-www.json"
+    }
+  },
+  "actual_existing_gate_sha256": "baa3b06c85e67ae21ee392de6769a32fd3d58b86d36d393138c8d1669740c68c",
+  "actual_existing_gate": {
+    "reason": "https://library.municode.com/www.jaxsheriff.org/fees HTTP access refusal",
+    "recorded_at": "2026-10-17T21:41:34.381324+00:00",
+    "operator_release_required": true
+  },
+  "routes_not_requested": [
+    "https://library.municode.com/ma/cambridge/codes/zoning_ordinance",
+    "https://library.municode.com/downloadarchive/15643",
+    "http://library.municode.com/index.aspx?clientId=10107"
+  ],
+  "scope_note": "Observed sharedMunicode workflowstop respected; not a claim everyindividualrouteunavailable. Officiallandingpages are separateclearhosts; no alternatepublishertransport or retry."
+}

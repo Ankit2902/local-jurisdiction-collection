@@ -1,0 +1,115 @@
+{
+  "cache_import_sha256": "5a8f9e78430dffdf97ee96bc05354de029b81c46e13852d6d6323bdfdc2e7b1d",
+  "schema": 1,
+  "config_sha256": "13ceb0f83aefa0d336dd9038174e4706c2bcb88a0c36c583674b597457cb57e1",
+  "code_binding": "46791dd29509e4f5d422675d4940ab8ac3e62b93080edbbc4809296dcdd4dab7",
+  "scripts": {
+    "collect.py": "21e043bafebd9cf1e8676a6b08fb55c01661bfa6c153caa8f26bc51c862c7f59",
+    "model.py": "4a335f8e822066f16863c13ca2296f27b8150f90b2b38bc81202ecada7b60686",
+    "transport.py": "aa776a422fb593bd04bc085befc30d0ac9ff20272daa3044735f7001aa24d6e3",
+    "legacy_html.py": "b3799648ab453ff71217d336f55d78501dcc4a8a92e6cf6d187632508b665048",
+    "browser_fetch.cjs": "9dbf7e1f5f1acbded4821a59021075c0859c705e7d4b7e87d30c0736f6955918",
+    "post_transport.py": "4b8f7d2cbe3f11da627c3ea485777b71440b3da995bc5754b5ba5dc002f9d83d",
+    "spokane_bulk.py": "f5bf3fb9dc69acc878e414d43935231f7f8049732229b1202e9780459ed8785b",
+    "pdf_structure.py": "6ed606080bec583ea5118a84b3a1f98f48a0cdccec084b126c1685a4044d4944",
+    "openlaw_xml.py": "172fc1cfd76f241fd891f4b2e0e07ee187b9821fa9020baa9843a6a7bd6fb547",
+    "git_archive_binding.py": "e74bf2b5e847099f6212266b0c1e747471e90320aff80f1a68247f64be467fbc",
+    "publication_refs.py": "46304b9958b05a172a6faa9b24151411898c3cbb7ee6b6588dc442baddfd3640",
+    "verify.py": "3205bf0aa89c2c40fcf1b63697607d893f457c7df3d76ba71a7fe9b87e371989",
+    "replay.py": "b2df04cdb494500a605c8e68d05b76f537ba224619769f83b1926534f521adaf",
+    "attachment_outputs.py": "38a2500220c206ca0ee6f33d1756cffe23df4fb70496589e4cf68c063d9c446f",
+    "bounded_decoder.py": "a579f2a79c15833e0c5a8c65bc4fa6024b2dbb6eafb408d1135f500c64c72770",
+    "native_labels.py": "dc2489d1d734f177bb1b15a9c73b1117cda37a51d0c57fe5c2f0fe45e96fb6de"
+  },
+  "started_at": "2026-10-18T04:37:43.966275+00:00",
+  "items": [
+    {
+      "id": "https://www.manchesternh.gov/Portals/2/Departments/pcd/Regulations/SubdivisionAndSitePlanReviewRegulations.pdf",
+      "url": "https://www.manchesternh.gov/Portals/2/Departments/pcd/Regulations/SubdivisionAndSitePlanReviewRegulations.pdf",
+      "heading": "Subdivision and Site Plan Review Regulations",
+      "kind": "pdf",
+      "raw_ref": "raw/ecb1195055466d018b24.bin"
+    },
+    {
+      "id": "https://www.manchesternh.gov/Portals/2/Departments/pcd/MANCHESTER_ZONING_ORDINANCE-IN_EFFECT_MARCH_1_2026.PDF?ver=2026-01-05-153946-000",
+      "url": "https://www.manchesternh.gov/Portals/2/Departments/pcd/MANCHESTER_ZONING_ORDINANCE-IN_EFFECT_MARCH_1_2026.PDF?ver=2026-01-05-153946-000",
+      "heading": "Zoning Ordinance",
+      "kind": "pdf",
+      "raw_ref": "raw/e45a6db09e0944aa7cd7.bin"
+    }
+  ],
+  "done": [
+    "https://www.manchesternh.gov/Portals/2/Departments/pcd/Regulations/SubdivisionAndSitePlanReviewRegulations.pdf",
+    "https://www.manchesternh.gov/Portals/2/Departments/pcd/MANCHESTER_ZONING_ORDINANCE-IN_EFFECT_MARCH_1_2026.PDF?ver=2026-01-05-153946-000"
+  ],
+  "completed": true,
+  "identity": {
+    "source_ref": "raw/fa44132b238e67958fb1.bin",
+    "source_sha256": "ce8e398888909c0abfd9a984139eac7dd87f755ae9b8248965dbb5995ccce82b",
+    "identity": "52-manchester-zoning-subdivision",
+    "kind": "html_inventory",
+    "inventory_selector": "#dnn_ctr8908_HtmlModule_lblContent a[href]",
+    "excluded_components": [
+      {
+        "url": "https://www.manchesternh.gov/Portals/2/Departments/pcd/Regulations/SupersededZoningOrdinance_2001.pdf?ver=2024-03-13-103701-000",
+        "reason": "Explicit configured historical/alternate publication label",
+        "required": false
+      }
+    ],
+    "aliases": [],
+    "edition": null
+  },
+  "consistency": {
+    "kind": "html_inventory",
+    "raw_ref": "raw/96fc7a13f8c676b1a089.bin",
+    "sha256": "3b1828bb29149d3a8d760c9b54ccfad4d7c1d04e270cd76acf778bc88f2f69dd",
+    "consistent": true,
+    "comparison": "Native bytes or selected full inventory link URL+label projection; no codewide effective-date assertion"
+  },
+  "limits_history": [],
+  "command": [
+    "run.py",
+    "collect",
+    "--job",
+    "full-two-pdf-v1"
+  ],
+  "runtime": {
+    "python": "3.12.14 (main, Aug 25 2026, 13:50:33) [Clang 22.1.3 ]",
+    "platform": "macOS-26.6.2-arm64-arm-64bit",
+    "node": "node"
+  },
+  "invocations": [
+    {
+      "command": [
+        "run.py",
+        "collect",
+        "--job",
+        "full-two-pdf-v1"
+      ],
+      "resume": false,
+      "max_items": null,
+      "interrupt_after": null,
+      "started_at": "2026-10-18T04:37:43.981304+00:00"
+    }
+  ],
+  "inventory_sha256": "638d10d1c5682c3b1516b02669e62706723c2f4e915a9ee6909bfb777a6bc11b",
+  "item_consistency": [
+    {
+      "kind": "item",
+      "id": "https://www.manchesternh.gov/Portals/2/Departments/pcd/Regulations/SubdivisionAndSitePlanReviewRegulations.pdf",
+      "url": "https://www.manchesternh.gov/Portals/2/Departments/pcd/Regulations/SubdivisionAndSitePlanReviewRegulations.pdf",
+      "raw_ref": "raw/4dae2cdd97271fee508d.bin",
+      "sha256": "b6d48e782ec50becd5846695e208e5ecd1d8a0bd5623c8e0249efad23701f8ab",
+      "matches_initial_content": true
+    },
+    {
+      "kind": "item",
+      "id": "https://www.manchesternh.gov/Portals/2/Departments/pcd/MANCHESTER_ZONING_ORDINANCE-IN_EFFECT_MARCH_1_2026.PDF?ver=2026-01-05-153946-000",
+      "url": "https://www.manchesternh.gov/Portals/2/Departments/pcd/MANCHESTER_ZONING_ORDINANCE-IN_EFFECT_MARCH_1_2026.PDF?ver=2026-01-05-153946-000",
+      "raw_ref": "raw/422cc7ed895c5c8a24d2.bin",
+      "sha256": "830db70eef13a8339687d01a7e313083f1f526e90c8b0aeba787d892f63041c2",
+      "matches_initial_content": true
+    }
+  ],
+  "finished_at": "2026-10-18T04:45:13.302666+00:00"
+}

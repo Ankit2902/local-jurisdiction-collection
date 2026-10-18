@@ -35,6 +35,9 @@ def audit(here,catalog):
                     from historical_upoc_qualification import audit as audit_historical_upoc
                     errors.extend(audit_historical_upoc(here,catalog))
                 except ImportError:check(False,'Historical UPOC qualification verifier missing')
+            elif kind=='exact-six-observed-native-receipts-full-retained-normalization':
+                from overland_historical_native_qualification import audit as audit_overland_historical
+                errors.extend(audit_overland_historical(here,catalog))
             else:check(False,'Unknown follow-up qualification proof kind: '+str(kind))
         for ident in native_ids:
             p=publications.get(ident,{});cfgbytes=z.read('native/'+ident+'/config.json');cfg=json.loads(cfgbytes);original=json.loads(z.read('native/'+ident+'/native-receipt.json'));actual=here.parents[1]/p.get('adapter_config_path','missing')

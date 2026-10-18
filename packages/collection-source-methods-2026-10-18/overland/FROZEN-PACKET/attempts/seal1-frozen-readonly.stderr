@@ -1,0 +1,8 @@
+Traceback (most recent call last):
+  File "/Users/oliverflint/My Drive/Claude/Projects/CompliSolv 2.00/outputs/collection-readiness-posta35cef8-2026-10-18/overland/FROZEN-PACKET/overland_historical_native_qualification.py", line 50, in <module>
+    p=argparse.ArgumentParser();p.add_argument('--packet',type=pathlib.Path,default=pathlib.Path(__file__).resolve().parent);p.add_argument('--no-manifest',action='store_true');a=p.parse_args();print(json.dumps(verify_packet(a.packet,not a.no_manifest),indent=2))
+  File "/Users/oliverflint/My Drive/Claude/Projects/CompliSolv 2.00/outputs/collection-readiness-posta35cef8-2026-10-18/overland/FROZEN-PACKET/overland_historical_native_qualification.py", line 29, in verify_packet
+    for name,r in expected.items():b=read(root,name);need(sha(b)==r['sha256']and len(b)==r['bytes'],'Packet file changed: '+name)
+  File "/Users/oliverflint/My Drive/Claude/Projects/CompliSolv 2.00/outputs/collection-readiness-posta35cef8-2026-10-18/overland/FROZEN-PACKET/overland_historical_native_qualification.py", line 12, in need
+    if not v:raise ValueError(s)
+ValueError: Packet file changed: freeze.stdout

@@ -212,8 +212,27 @@ def substantive(html):
   if re.search(r'\.(pdf|docx?|xlsx?|zip)(?:[?#]|$)',a['href'],re.I):a.decompose()
  return bool(s.get_text(' ',strip=True))
 
+def new_statutory_link_evidence(anchor,base,owner):
+ """Exact source provenance for newly observed forwarding forms; no acquisition."""
+ u=urljoin(base,anchor['href'])
+ if anchor.find_parent(['svg','picture']):return None
+ if 'statref' not in anchor.get('class',[]) or not re.fullmatch(r'https://municipal\.codes/(?:NY/(?:ABC|COR|MHY|STF|PBL|NPC|RPP|HAY)/[A-Za-z0-9.-]+|US/USC/[0-9]+)',u):return None
+ safe_anchor=normalized_images(str(anchor)).find('a')
+ safe_classes=safe_anchor.get('class',[]) if safe_anchor else []
+ if 'statref' not in safe_classes:return None
+ context=anchor.find_parent(['p','li','dd','td','div']) or anchor.parent
+ return {'schema':'source-statref-context-1','source_owner_id':str(owner),'source_classes':safe_classes,'source_anchor_html_sha256':digest(str(anchor).encode()),'processed_owner_context_html_sha256':digest(str(context).encode()),'context_hash_lineage':'Own-body clone after UI exclusions and local-fragment href absolutization; original raw retained in record witnesses','source_context_text':normalized_images(str(context)).get_text(' ',strip=True),'anchor_has_download':anchor.has_attr('download'),'anchor_has_nonempty_mime':bool(anchor.get('type','').strip()),'source_url':u,'source_label':normalized_images(str(anchor)).get_text(' ',strip=True),'scope':'External citation witness only; referenced law not acquired or certified'}
+
 def link_refs(html,base,owner):
- s=BeautifulSoup(html,'html.parser');return [{'url':('image-data-sha256:'+digest(a['href'].encode()) if 'data:image/' in a['href'].lower() or (image_anchor(a) and re.search(r'data\s*:',a['href'],re.I)) else urljoin(base,a['href'])),'label':a.get_text(' ',strip=True),'owner_id':owner} for a in s.select('a[href]') if a['href']]
+ s=BeautifulSoup(html,'html.parser');out=[]
+ for a in s.select('a[href]'):
+  if not a['href']:continue
+  link={'url':('image-data-sha256:'+digest(a['href'].encode()) if 'data:image/' in a['href'].lower() or (image_anchor(a) and re.search(r'data\s*:',a['href'],re.I)) else urljoin(base,a['href'])),'label':normalized_images(str(a)).get_text(' ',strip=True),'owner_id':owner}
+  if link['label']!=a.get_text(' ',strip=True):link.update({'processed_owner_anchor_html_sha256':digest(str(a).encode()),'label_policy':'Known image contexts normalized to literal [IMAGE]; source URL unchanged, original raw retained in record witnesses'})
+  evidence=new_statutory_link_evidence(a,base,owner)
+  if evidence:link['source_statutory_evidence']=evidence
+  out.append(link)
+ return out
 
 def _record(nid,label,kind,body,url,parent=None,independent_owners=None):
  # Own body only. Nested independently identified content is never counted twice.

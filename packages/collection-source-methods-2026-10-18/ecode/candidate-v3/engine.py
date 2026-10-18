@@ -1,0 +1,413 @@
+"""Durable collection and independent source replay; never treats a sample limit as complete."""
+from __future__ import annotations
+import base64,csv,io,json,shutil,re,copy
+from pathlib import Path
+from urllib.parse import urlsplit,urljoin
+from .common import *
+from .adapters import *
+from .media import qualify_asset
+
+VERSION='icc-full-1.0'
+_PARSE_CACHE={}
+def statutory_reference(url,publication_url,family,link=None):
+ """Source-backed CodePublishing statute-link namespaces, not arbitrary documents."""
+ p=urlsplit(url);observed_namespaces={'NY':set('PBH BNK MHR ELN GCT SCC PBO GMU SLG GBS SOS ENV PBS VAT EXC WKC CVS LAB DOM PEN LFN LIE ISC AGM CPL NYCRR RPT PVH TRA TAX PAR'.split()),'AZ':{'ARS'}}
+ parts=p.path.strip('/').split('/')
+ if p.netloc=='municipal.codes' and not p.query:
+  if len(parts)==3 and parts[1] in observed_namespaces.get(parts[0],set()) and parts[2]:return True
+  if re.fullmatch(r'/US/(?:USC|CFR)/[0-9]+/[^/]+',p.path) or re.fullmatch(r'/US/Const/Amendment[0-9]+',p.path):return True
+ # Newly observed forms need the exact typed source anchor and law context.
+ evidence=(link or {}).get('source_statutory_evidence') or {}
+ if p.scheme=='https' and p.netloc=='municipal.codes' and not p.query and not p.fragment and evidence.get('schema')=='source-statref-context-1' and evidence.get('source_owner_id')==str((link or {}).get('owner_id')) and evidence.get('source_url')==url and evidence.get('source_label')==(link or {}).get('label') and 'statref' in evidence.get('source_classes',[]) and not evidence.get('anchor_has_download') and not evidence.get('anchor_has_nonempty_mime') and all(re.fullmatch(r'[0-9a-f]{64}',evidence.get(k,'')) for k in ['source_anchor_html_sha256','source_context_html_sha256']):
+  context=re.sub(r'\s+',' ',evidence.get('source_context_text','')).casefold();label=(link or {}).get('label','').strip();names={'ABC':'Alcoholic Beverage Control Law','COR':'Correction Law','MHY':'Mental Hygiene Law','STF':'State Finance Law','PBL':'Public Lands Law','NPC':'Not-for-Profit Corporation Law','RPP':'Real Property Law','HAY':'Highway Law'}
+  if len(parts)==3 and parts[0]=='NY' and parts[1] in names:
+   target=parts[2];article=target.startswith('A') and parts[1]=='RPP';wanted=target[1:] if article else target
+   if not re.fullmatch(r'(?:[0-9]+(?:\.[0-9]+)*(?:-[A-Za-z0-9]+)?|A[0-9]+-[A-Za-z])',target):return False
+   if label==wanted and names[parts[1]].casefold() in context and re.search(r'(?<![a-z0-9.-])'+re.escape(wanted.casefold())+r'(?![a-z0-9.-])',context) and (not article or re.search(r'\barticle\s+'+re.escape(wanted.casefold())+r'\b',context)):return True
+  if re.fullmatch(r'/US/USC/[0-9]+',p.path) and label==parts[2]:
+   title=re.escape(parts[2]);return bool(re.search(r'\btitle\s+'+title+r'\s+of\s+the\s+united\s+states\s+code\b',context) or re.search(r'\b'+title+r'\s+u\.s\.c\.',context))
+ # This forwarding form is directly witnessed in the retained Phoenix Charter.
+ return family=='municipal.codes' and p.netloc==urlsplit(publication_url).netloc and not p.query and bool(re.fullmatch(r'/AZ/ARS/[^/]+',p.path))
+def equivalent_body(a,b):
+ """Ignore observed generated accessibility targets and exact history-click UI.
+
+ Legal element IDs, labels, links, tables/spans and all text remain compared.
+ Original normalized markup and every raw witness remain retained.
+ """
+ def canonical_markup(html):
+  from bs4 import BeautifulSoup
+  sp=BeautifulSoup(html,'html.parser');pattern=re.compile(r'.+__[0-9a-f]{32}__name$')
+  targets={el['id'] for el in sp.select('span.name[id]') if pattern.fullmatch(el['id'])}
+  for el in sp.select('[aria-labelledby]'):
+   refs=el['aria-labelledby'].split()
+   if refs and all(ref in targets for ref in refs):del el['aria-labelledby']
+  for el in sp.select('span.name[id]'):
+   if el['id'] in targets:del el['id']
+  for el in sp.select('.note.history.history--linked[data-action]'):
+   if el['data-action']=='click->levelnodes#openHistory':
+    del el['data-action'];el['class']=[c for c in el['class'] if c!='history--linked']
+  return str(sp)
+ return a['heading']==b['heading'] and canonical_markup(a['content_html'])==canonical_markup(b['content_html'])
+def cached_parse(family,raw,url,expected,base,known):
+ key=(family,digest(raw),url,digest(canon(edition(expected))),base,digest(canon(known)) if family=='municipal.codes' else ())
+ if key not in _PARSE_CACHE:_PARSE_CACHE[key]=parse_ecode(raw,url,expected) if family=='ecode360' else parse_municipal(raw,url,base,expected,known)
+ return copy.deepcopy(_PARSE_CACHE[key])
+
+def code_fingerprint():
+ return {p.name:digest(p.read_bytes()) for p in sorted(Path(__file__).parent.glob('*.py'))}
+
+def artifact(out,state,role,raw,meta):
+ index=len(state['artifacts']);name=f'raw/{index:05d}-{role}.bin';atomic(out/name,raw)
+ item={'path':name,'sha256':digest(raw),'bytes':len(raw),'role':role,**meta};state['artifacts'].append(item);save(out/'checkpoint.json',state);return item
+
+def load_artifact(out,a):
+ p=(out/a['path']).resolve()
+ if not p.is_relative_to(out.resolve()):raise QualificationError('Artifact path escape')
+ raw=p.read_bytes()
+ if len(raw)!=a['bytes'] or digest(raw)!=a['sha256']:raise QualificationError('Artifact corruption '+a['path'])
+ return raw
+
+def rebuild(out,state):
+ """Recompute graph, ownership and bodies only from hash-checked retained source."""
+ cfg=state['config'];family=cfg['family'];base=state.get('publication_url');expected=state.get('identity');nodes={};records={};dispositions={};witnesses={};conflicts=[];duplicates=[];assets={};asset_failures=[];start=None;end=None;toc_start=None;toc_end=None
+ if expected:
+  configured=urlsplit(cfg['url']).path.strip('/')
+  if family=='ecode360':
+   if re.fullmatch(r'[A-Z]{2}[0-9]{4}',configured) and expected['customer_id']!=configured:raise QualificationError('Configured customer alias differs from retained source identity')
+   desired=clean_url(cfg['url']) if cfg.get('subtree') else 'https://ecode360.com/'+expected['customer_id']
+  else:
+   selected=cfg.get('publication');desired=clean_url(selected if selected and selected.startswith('https://') else 'https://'+urlsplit(cfg['url']).netloc+'/'+selected.strip('/')) if selected else clean_url(cfg['url'])
+  if base!=desired:raise QualificationError('Configured publication scope differs from retained publication root')
+ def addnode(n):
+  nid=n['id']
+  if nid in nodes and nodes[nid]['url']!=n['url']:raise QualificationError('Inventory identity conflict '+nid)
+  nodes.setdefault(nid,n)
+ image_heads={a['requested_url']:a for a in state['artifacts'] if a['role']=='asset-head' and a.get('status')==200 and a.get('headers',{}).get('content-type','').lower().startswith('image/')}
+ municipal_known={}
+ if family=='municipal.codes':
+  for art in state['artifacts']:
+   if art['role']=='contents-start' and art.get('status')==200:
+    for n in municipal_inventory(load_artifact(out,art),art['url'],base):addnode(n);municipal_known[n['id']]=n
+ for a in state['artifacts']:
+  raw=load_artifact(out,a);role=a['role']
+  if role not in ['root-start','root-end','contents-start','contents-end','content','native','asset']:continue
+  if role=='asset':
+   try:qualification=qualify_asset(raw,a)
+   except QualificationError as e:
+    assets[a['requested_url']]=None;asset_failures.append({'url':a['requested_url'],'path':a['path'],'reason':str(e)});continue
+   assets[a['requested_url']]={**a,'qualification':qualification}
+   ctype=a.get('headers',{}).get('content-type','').lower();u=a['requested_url']
+   if 'svg' in ctype or u.split('?')[0].lower().endswith('.svg'):
+    for ref in asset_refs(raw.decode(errors='replace'),a['url'],u):assets.setdefault(ref['url'],None)
+   elif 'text/css' in ctype or u.split('?')[0].lower().endswith('.css'):
+    for ref in asset_refs('<style>'+raw.decode(errors='replace')+'</style>',a['url'],u):assets.setdefault(ref['url'],None)
+   continue
+  if a.get('status',200)!=200 and not (role=='native' and a.get('download_completed') and a.get('status') in [None,200]):continue
+  if role in ['root-start','root-end']:
+   got=identity(raw,a['url'],family,base)
+   if got!=expected:raise QualificationError('Start/end identity or edition drift')
+   jurisdiction_check(got,cfg.get('jurisdiction'),cfg.get('state'))
+   if family=='ecode360' and not cfg.get('subtree') and soup(raw).body.get('data-guid') not in [None,expected['customer_id']]:raise QualificationError('Whole Code opening/closing source is a chapter, not the customer root')
+   if role=='root-start':start=got
+   else:end=got
+  if role in ['contents-start','contents-end']:
+   sp=soup(raw);title=sp.title.get_text(' ',strip=True) if sp.title else ''
+   if title!='Contents of '+expected['name']:raise QualificationError('Contents publication title mismatch')
+   if not any(clean_url(urljoin(a['url'],x['href']))==base for x in sp.select('a.product.active[href],a.product-name[href]')):raise QualificationError('Contents publication binding missing')
+   ns=municipal_inventory(raw,a['url'],base)
+   fingerprint=digest(canon(sorted((n['id'],n['heading'],n.get('parent_id'),n.get('source_classes')) for n in ns)))
+   if role=='contents-start':toc_start=fingerprint
+   else:toc_end=fingerprint
+   for n in ns:addnode(n)
+   continue
+  if role=='root-end':
+   if family=='ecode360':
+    _,ns=ecode_inventory(raw,a['url']);toc_end=digest(canon(sorted((n['id'],n['heading'],n['kind'],n.get('parent_id')) for n in ns)))
+   continue
+  if family=='ecode360':
+   parsed=cached_parse(family,raw,a['url'],expected,base,{})
+   if role=='root-start':toc_start=digest(canon(sorted((n['id'],n['heading'],n['kind'],n.get('parent_id')) for n in parsed['nodes'])))
+  else:
+   if role=='root-start':
+    addnode({'id':base,'url':base,'heading':got['name'],'kind':'publication','observed_on':a['url']});dispositions[base]={'id':base,'classification':'structural_empty','evidence':'Publication navigation wrapper; typed articles separately own content'}
+   parsed=cached_parse(family,raw,base if role=='native' else a['url'],expected,base,municipal_known)
+  for n in parsed['nodes']:addnode(n)
+  for d in parsed['dispositions']:
+   nid=d['id'];prior=dispositions.get(nid)
+   if prior and prior['classification']=='owned_content' and d['classification']!='owned_content':continue
+   dispositions[nid]=d
+  for r in parsed['records']:
+   nid=r['id'];witnesses.setdefault(nid,[]).append(a['path'])
+   if nid in records:
+    if records[nid]['body_sha256']!=r['body_sha256'] and not equivalent_body(records[nid],r):conflicts.append({'id':nid,'sources':witnesses[nid]})
+    else:duplicates.append({'id':nid,'same_body':records[nid]['body_sha256']==r['body_sha256'],'equivalent_observed_ui_only':records[nid]['body_sha256']!=r['body_sha256'],'source':a['path']})
+   else:records[nid]=r
+ # Attach provenance and resolve logical ancestry from retained descriptors/source URLs.
+ for nid,r in records.items():
+  r['parent_id']=r.get('parent_id') or nodes.get(nid,{}).get('parent_id') or ((expected.get('customer_id') if family=='ecode360' else base) if nid!=(expected.get('customer_id') if family=='ecode360' else base) else None)
+  r['raw_witnesses']=witnesses[nid];r['jurisdiction']=cfg.get('jurisdiction');r['state']=cfg.get('state');r['edition']=edition(expected)
+  r['path']=[nodes[nid]['heading']] if nid in nodes else [r['heading']]
+  seen={nid};parent=r.get('parent_id')
+  while parent and parent not in seen:
+   seen.add(parent)
+   if parent in nodes:r['path'].insert(0,nodes[parent]['heading'])
+   parent=records.get(parent,{}).get('parent_id') or nodes.get(parent,{}).get('parent_id')
+  for ref in r['assets']:
+   if ref['url'] in image_heads:ref.update({'required':False,'image':True,'policy':'HEAD qualified image; literal [IMAGE] omission; no GET'})
+   if ref['required'] and clean_url(ref['url']) not in {clean_url(n['url']) for n in nodes.values()}:assets.setdefault(ref['url'],None)
+ external_pubroots=set()
+ if family=='municipal.codes':
+  for art in state['artifacts']:
+   if art['role']=='root-start':external_pubroots.update(p['url'] for p in municipal_publications(load_artifact(out,art),base) if p['url']!=base)
+ image_refs=[ref for r in records.values() for ref in r['assets'] if ref.get('image')]
+ known_urls={clean_url(n['url']) for n in nodes.values()};image_urls={r['url'] for r in image_refs};ledger=[]
+ owned_definition_refs={(r['id'],a['source_target']['resolved_href']):a for r in records.values() for a in r['assets'] if a.get('kind')=='owned_definition_self_anchor' and not a.get('required') and a.get('source_target',{}).get('owner_id')==r['id']}
+ for r in records.values():
+  for link in r.get('links',[]):
+   u=link['url'];p=urlsplit(u);cl=None
+   if (r['id'],u) in owned_definition_refs:cl='owned_inline_definition_reference'
+   elif u in image_urls:cl='intentional_image_omission'
+   elif u.split('#')[0] in assets:cl='required_nonimage_attachment'
+   elif clean_url(u) in known_urls:cl='inventoried_publication_reference'
+   elif p.scheme in ['mailto','tel']:cl='contact_reference'
+   elif p.netloc=='ecode360.com' and re.fullmatch(r'/(?:[0-9]+|[A-Z]{2}[0-9]{4})',p.path.rstrip('/')) and not p.query:cl='external_publisher_code_reference'
+   elif family=='municipal.codes' and any(clean_url(u)==root or clean_url(u).startswith(root+'/') for root in external_pubroots) and not p.query:cl='observed_other_publication_reference'
+   elif statutory_reference(u,base,family,link):cl='external_statutory_reference'
+   elif p.scheme in ['https','http'] and (p.path in ['', '/'] or p.path.endswith('/') or re.search(r'\.(?:html?|aspx?|jsp)$',p.path,re.I)):cl='external_html_reference'
+   else:cl='unresolved_hyperlink'
+   ledger.append({**link,'classification':cl})
+ # Re-extract operator PDF identity independently; stored metadata is not proof.
+ for a in state['artifacts']:
+  if a['role']=='asset' and a.get('operator_document_identity'):
+   from .operator import document_identity
+   from urllib.parse import unquote
+   u=a['requested_url'];owners=[r for r in records.values() if any(ref['url']==u for ref in r['assets'])]
+   witness=' '.join([expected.get('name',''),unquote(u)]+[r['heading'] for r in owners]+[l['label'] for r in owners for l in r['links'] if l['url']==u])
+   qualified=document_identity(load_artifact(out,a),a,a['operator_document_identity']['identity_terms'],witness)
+   if qualified!=a['operator_document_identity']:raise QualificationError('Operator document identity disagrees with retained source')
+ return {'nodes':nodes,'records':records,'dispositions':dispositions,'conflicts':conflicts,'duplicate_witnesses':duplicates,'assets':assets,'asset_qualification_failures':asset_failures,'image_refs':image_refs,'link_ledger':ledger,'start':start,'end':end,'toc_start':toc_start,'toc_end':toc_end}
+
+def coverage(state,data):
+ ids=set(data['nodes']);done=set(data['dispositions']);missing=sorted(ids-done);extra=sorted(done-ids);unknown=sorted(n for n,d in data['dispositions'].items() if d['classification'].startswith('unresolved'))
+ required=set(data['assets']);missing_assets=sorted(u for u in required if not data['assets'].get(u));edition_ok=bool(data['start'] and data['end'] and data['toc_start'] and data['toc_start']==data['toc_end']);limited=bool(state.get('limited') or state['config'].get('subtree'));failures=state.get('errors',[])
+ text_ok=bool(ids and data['records'] and not missing and not extra and not unknown and not data['conflicts'] and not failures and not limited and edition_ok)
+ unresolved_links=[r for r in data.get('link_ledger',[]) if r['classification']=='unresolved_hyperlink']
+ attachment_ok=not missing_assets and not data.get('asset_qualification_failures') and not failures and edition_ok and not limited and not unresolved_links
+ return {'schema_version':VERSION,'acquisition_mode':'operator_supplied_download_bundle' if state.get('operator_import') else ('retained_source_replay_only' if state.get('network_prohibited') else ('migrated_retained_source_plus_fresh_validation' if state.get('migration') else 'fresh_collection')),'operator_import':state.get('operator_import'),'recovery_action':('Access stop retained; no retries or gate reset. Run doctor/export-plan and supply genuine local publisher files, or obtain publisher access restoration and authorised operator review.' if any(e.get('access_stop') for e in failures) else None),'scope':'subtree' if state['config'].get('subtree') else 'whole_publication','publication_url':state.get('publication_url'),'identity':state.get('identity'),'identity_binding':{'jurisdiction_checked':bool(state['config'].get('jurisdiction')),'state_source_verified':bool((state.get('identity') or {}).get('state')),'requested_state':state['config'].get('state')},'inventory_nodes':len(ids),'owned_content_nodes':sum(d['classification']=='owned_content' for d in data['dispositions'].values()),'normalized_records':len(data['records']),'disposition_counts':{k:sum(d['classification']==k for d in data['dispositions'].values()) for k in sorted({d['classification'] for d in data['dispositions'].values()})},'inventory_sha256':digest(canon(sorted(data['nodes'].values(),key=lambda n:n['id']))),'missing_ids':missing,'extra_ids':extra,'unresolved_ids':unknown,'conflicting_duplicate_bodies':data['conflicts'],'identical_duplicate_witnesses':sum(d['same_body'] for d in data['duplicate_witnesses']),'equivalent_observed_ui_duplicate_witnesses':sum(not d['same_body'] for d in data['duplicate_witnesses']),'image_policy':'All images are literal [IMAGE]; no separate image downloads; original source/native files may contain images.','intentional_image_omissions':sum(r.get('image_placeholder_count',0) for r in data['records'].values()),'image_reference_urls':len(data.get('image_refs',[])),'hyperlink_policy':'Inventoried nodes are reconciled. Qualified statutory namespaces, publisher/explicit HTML and contact links are references; external incorporated texts are outside selected publication certification. Ambiguous extensionless links block attachment completeness.','unresolved_links':unresolved_links,'required_assets':len(required),'acquired_assets':len(required)-len(missing_assets),'missing_assets':missing_assets,'asset_qualification_failures':data.get('asset_qualification_failures',[]),'errors':failures,'limits_applied':limited,'start_end_inventory_consistent':edition_ok,'publication_text_complete':text_ok,'attachments_complete':attachment_ok,'edition_complete':edition_ok and text_ok and attachment_ok,'jurisdiction_complete':False,'jurisdiction_limitation':'One selected publication only; other publication tabs, unincorporated ordinances and external adopted codes are not certified.','complete':text_ok and attachment_ok,'resumable':not state.get('network_prohibited') and not any(e.get('access_stop') for e in failures)}
+
+def write_outputs(out,state,data):
+ rows=[data['records'][k] for k in sorted(data['records'])];atomic(out/'records.jsonl',b''.join(canon(r)+b'\n' for r in rows))
+ fields=['id','jurisdiction','state','heading','kind','parent_id','path','text','source_url','body_sha256'];stream=io.StringIO(newline='');w=csv.DictWriter(stream,fieldnames=fields);w.writeheader()
+ for r in rows:w.writerow({k:json.dumps(r[k],ensure_ascii=False) if isinstance(r.get(k),(list,dict)) else r.get(k) for k in fields})
+ atomic(out/'records.csv',stream.getvalue().encode());save(out/'inventory.json',sorted(data['nodes'].values(),key=lambda n:n['id']));save(out/'dispositions.json',sorted(data['dispositions'].values(),key=lambda n:n['id']));save(out/'link-ledger.json',data.get('link_ledger',[]));save(out/'image-omissions.json',{'placeholders':[im for r in rows for im in r.get('image_references',[])],'references':data.get('image_refs',[])});report=coverage(state,data);save(out/'coverage.json',report);return report
+
+def check_cache(out,state):
+ if state.get('schema_version')!=VERSION:raise QualificationError('Unsupported checkpoint version')
+ for a in state['artifacts']:load_artifact(out,a)
+ for name,h in state.get('code_fingerprint',{}).items():
+  p=out/'executed-source'/name
+  if not p.is_file() or digest(p.read_bytes())!=h:raise QualificationError('Executed source snapshot corruption '+name)
+ if state.get('code_fingerprint')!=code_fingerprint():raise QualificationError('Executed collector changed; resume requires the exact source version')
+ if state.get('migration'):
+  m=state['migration'];raw=(out/'migration-source-checkpoint.json').read_bytes()
+  if digest(raw)!=m['source_checkpoint_sha256']:raise QualificationError('Migration provenance corruption')
+  prior=json.loads(raw)
+  if prior['code_fingerprint']!=m['original_code_fingerprint']:raise QualificationError('Migration source revision mismatch')
+  for name,h in prior['code_fingerprint'].items():
+   if digest((out/'prior-executed-source'/name).read_bytes())!=h:raise QualificationError('Prior executed source corruption')
+  for a in prior['artifacts']:load_artifact(out,a)
+  for rel,h in m.get('ancestry_files',{}).items():
+   path=(out/rel).resolve()
+   if not path.is_relative_to(out.resolve()) or digest(path.read_bytes())!=h:raise QualificationError('Migration ancestry corruption')
+ if state.get('operator_import'):
+  op=state['operator_import'];raw=(out/'operator-bundle.json').read_bytes()
+  if digest(raw)!=op['manifest_sha256']:raise QualificationError('Operator manifest corruption')
+  manifest=json.loads(raw)
+  if manifest['identity']!=state['identity'] or manifest.get('genuine_publisher_downloads') is not True:raise QualificationError('Operator manifest identity/provenance mismatch')
+  original=read(out/'migration-source-checkpoint.json') if state.get('migration') else {'artifacts':[],'errors':[]}
+  if not state.get('migration'):
+   from .operator import operator_config
+   if op.get('origin')!='standalone_bundle' or operator_config(manifest.get('config'))!=state['config']:raise QualificationError('Standalone operator origin/config mismatch')
+  if op.get('input_manifest_sha256') and digest((out/'operator-input.json').read_bytes())!=op['input_manifest_sha256']:raise QualificationError('Original operator input manifest corruption')
+  history=original.get('errors',[])+original.get('operator_import',{}).get('historical_errors',[])
+  if op['historical_errors']!=history or op['source_access_stop_preserved']!=any(e.get('access_stop') for e in history):raise QualificationError('Operator historical failure provenance mismatch')
+  declared={(f['role'],f['source_url'],f['sha256'],f['retrieved_at'],f['media_type']) for f in manifest['files']}
+  declared.update((a['role'],a['requested_url'],a['sha256'],a['retrieved_at'],a['headers']['content-type']) for a in original['artifacts'] if a.get('operator_file_sha256'))
+  for a in state['artifacts']:
+   if a.get('operator_file_sha256') and (a['role'],a['requested_url'],a['sha256'],a['retrieved_at'],a['headers']['content-type']) not in declared:raise QualificationError('Operator artifact not bound to manifest')
+  from .operator import _timestamp
+  bodytimes=[_timestamp(a['retrieved_at']) for a in state['artifacts'] if a['role'] in ['content','native','asset'] and a.get('retrieved_at')]
+  if bodytimes and any(_timestamp(a['retrieved_at'])<max(bodytimes) for a in state['artifacts'] if a['role'] in ['root-end','contents-end']):raise QualificationError('Operator closing witness predates acquisition')
+  if bodytimes and any(_timestamp(a['retrieved_at'])>min(bodytimes) for a in state['artifacts'] if a['role'] in ['root-start','contents-start']):raise QualificationError('Operator opening source postdates substantive acquisition')
+ if state.get('inventory_sha256'):
+  bound=state.get('inventory_bound_artifacts',len(state['artifacts']))
+  if not isinstance(bound,int) or not 0<=bound<=len(state['artifacts']):raise QualificationError('Invalid checkpoint processed prefix')
+  data=rebuild(out,{**state,'artifacts':state['artifacts'][:bound]})
+  if digest(canon(sorted(data['nodes'].values(),key=lambda n:n['id'])))!=state['inventory_sha256']:raise QualificationError('Checkpoint inventory binding mismatch')
+
+def adopt(source,out,cfg,offline=False):
+ """Explicit new-folder source migration; ordinary --resume never upgrades code."""
+ if not offline:enforce_published_advisory(cfg['family'])
+ source=Path(source).resolve();out=Path(out).resolve();prior=read(source/'checkpoint.json')
+ if out.exists() and any(out.iterdir()):raise QualificationError('Migration requires a fresh output')
+ if not prior.get('identity'):raise QualificationError('Migration needs a pinned original identity')
+ if not offline and (prior.get('network_prohibited') or any(e.get('access_stop') for e in prior.get('errors',[]))):raise AccessStop('Cannot resume/migrate an access-stopped or read-only replay acquisition')
+ old={k:v for k,v in prior['config'].items() if k not in ['max_items','gate_dir']};new={k:v for k,v in cfg.items() if k not in ['max_items','gate_dir']}
+ if old!=new:raise QualificationError('Migration source configuration mismatch')
+ for name,h in prior['code_fingerprint'].items():
+  if digest((source/'executed-source'/name).read_bytes())!=h:raise QualificationError('Original executed source corruption')
+ for a in prior['artifacts']:
+  load_artifact(source,a)
+  if a['role']=='asset' and (a.get('headers',{}).get('content-type','').startswith('image/') or re.search(r'\.(png|jpe?g|gif|svg|webp|tiff?)(?:[?#]|$)',a.get('url',''),re.I)):raise QualificationError('Migration refuses separate historical image assets; use source-document-only evidence')
+ out.mkdir(parents=True,exist_ok=True);shutil.copytree(source/'executed-source',out/'prior-executed-source');shutil.copyfile(source/'checkpoint.json',out/'migration-source-checkpoint.json')
+ state={**prior,'created_at':now(),'config':cfg,'errors':prior.get('errors',[]) if offline else [],'limited':prior.get('limited',False) if offline else False,'network_prohibited':offline,'code_fingerprint':code_fingerprint(),'migration':{'source_folder_label':source.name,'source_checkpoint_sha256':digest((source/'checkpoint.json').read_bytes()),'original_code_fingerprint':prior['code_fingerprint'],'original_artifact_count':len(prior['artifacts']),'policy':'Hash-verified retained acquisition; new normalization plus fresh resume/closing validation. This is not wholly fresh acquisition by the new revision.'}}
+ (out/'executed-source').mkdir()
+ for p in Path(__file__).parent.glob('*.py'):shutil.copyfile(p,out/'executed-source'/p.name)
+ for a in state['artifacts']:atomic(out/a['path'],load_artifact(source,a))
+ ancestry={}
+ for name in ['operator-bundle.json','operator-input.json']:
+  if (source/name).is_file():shutil.copyfile(source/name,out/name)
+ for name in ['prior-executed-source','migration-source-checkpoint.json','operator-bundle.json','operator-input.json','provenance']:
+  src=source/name;dst=out/'provenance'/name
+  if src.is_dir():shutil.copytree(src,dst)
+  elif src.is_file():dst.parent.mkdir(parents=True,exist_ok=True);shutil.copyfile(src,dst)
+ for f in (out/'provenance').rglob('*') if (out/'provenance').exists() else []:
+  if f.is_file():ancestry[str(f.relative_to(out))]=digest(f.read_bytes())
+ state['migration']['ancestry_files']=ancestry
+ # Remove old closing receipts so completion always requires new current closing validation.
+ if not offline:state['artifacts']=[a for a in state['artifacts'] if a['role'] not in ['root-end','contents-end']]
+ state['inventory_bound_artifacts']=len(state['artifacts']);state['inventory_sha256']=digest(canon(sorted(rebuild(out,state)['nodes'].values(),key=lambda n:n['id'])));save(out/'checkpoint.json',state)
+ if offline:return write_outputs(out,state,rebuild(out,state))
+ return collect(cfg,out,True)
+
+def published_access_advisories(family):
+ """Shipped event-scoped stop history survives a fresh home or absent temporary gate."""
+ path=Path(__file__).resolve().parents[1]/'registry/access-advisories.json'
+ try:catalog=read(path)
+ except Exception as e:raise QualificationError('Published access advisory catalog missing/unreadable; use the complete collector package, not a fresh empty gate') from e
+ if catalog.get('schema_version')!=1 or not isinstance(catalog.get('advisories'),list):raise QualificationError('Unsupported published access advisory catalog')
+ return [a for a in catalog['advisories'] if a.get('family')==family and a.get('operator_review_required') is True]
+
+def enforce_published_advisory(family):
+ advisories=published_access_advisories(family)
+ if advisories:
+  reasons='; '.join(a.get('reason','Observed workflow stop') for a in advisories)
+  raise AccessStop('Shipped '+family+' access advisory requires operator review before browser/transport startup: '+reasons+' This preserves observed workflow scope, not a claim that every publisher URL is unavailable. Offline replay/verify/import/inspect remain allowed; no retry, route change or automatic clearing.')
+
+def collect(cfg,out,resume=False):
+ enforce_published_advisory(cfg['family'])
+ from .browser import Browser
+ out=Path(out).resolve()
+ if out.exists() and any(out.iterdir()) and not resume:raise QualificationError('Output is nonempty; choose a fresh directory or --resume')
+ out.mkdir(parents=True,exist_ok=True)
+ if resume:
+  state=read(out/'checkpoint.json');check_cache(out,state)
+  if state.get('network_prohibited'):raise AccessStop('This derivative is read-only; collection resume is prohibited')
+  old={k:v for k,v in state['config'].items() if k not in ['max_items','gate_dir']};new={k:v for k,v in cfg.items() if k not in ['max_items','gate_dir']}
+  if old!=new:raise QualificationError('Resume configuration/identity mismatch')
+  if any(e.get('access_stop') for e in state.get('errors',[])):raise AccessStop('Retained access stop requires operator review; no automatic resume')
+  state['errors']=[];state['limited']=False;state['config']=cfg
+ else:
+  state={'schema_version':VERSION,'created_at':now(),'config':cfg,'artifacts':[],'errors':[],'limited':False,'code_fingerprint':code_fingerprint()};save(out/'checkpoint.json',state)
+  snap=out/'executed-source';snap.mkdir()
+  for p in Path(__file__).parent.glob('*.py'):shutil.copyfile(p,snap/p.name)
+ data=None
+ try:
+  with Browser(cfg['family'],out,cfg.get('gate_dir')) as browser:
+   def get(role,url,bootstrap=False,method='GET'):
+    raw,meta=browser.bootstrap(url) if bootstrap else (browser.fetch(url,method=method) if method!='GET' else browser.fetch(url));a=artifact(out,state,role,raw,meta);browser.check(raw,meta);return raw,a
+   if not state.get('identity'):
+    raw,a=get('discovery',cfg['url'],True);base=clean_url(a['url'])
+    if family_of(base)!=cfg['family']:raise QualificationError('Publisher migration requires explicit source review')
+    if cfg['family']=='ecode360':
+     got=identity(raw,base,cfg['family']);alias='https://ecode360.com/'+str(got['customer_id'])
+     configured=urlsplit(cfg['url']).path.strip('/')
+     if re.fullmatch(r'[A-Z]{2}[0-9]{4}',configured) and (got['customer_id']!=configured or clean_url(base)!='https://ecode360.com/'+configured):raise QualificationError('Configured customer alias differs from returned source; explicit migration review required')
+     if not cfg.get('subtree') and base!=alias:raw,a=get('discovery',alias,True);base=alias;got=identity(raw,base,cfg['family'])
+    else:
+     pubs=municipal_publications(raw,base);save(out/'publications.json',pubs)
+     selected=cfg.get('publication')
+     requested=clean_url(cfg['url']);requested_path=urlsplit(requested).path.strip('/')
+     selected_root=clean_url(selected if selected and selected.startswith('https://') else 'https://'+urlsplit(requested).netloc+'/'+selected.strip('/')) if selected else None
+     if (not selected or selected_root==requested) and requested_path and '/' not in requested_path and base!=requested:raise QualificationError('Configured publication root redirected to another source; explicit migration review required')
+     if selected:
+      target=clean_url(selected if selected.startswith('https://') else 'https://'+urlsplit(base).netloc+'/'+selected.strip('/'))
+      if target not in {p['url'] for p in pubs} and target!=base:raise QualificationError('Publication selector not observed on publisher page')
+      if target!=base:raw,a=get('discovery',target,True);base=target
+     elif len(urlsplit(base).path.strip('/').split('/'))!=1 or base.endswith('/'):
+      raise QualificationError('Select an observed publication root with --publication')
+     else:base='https://'+urlsplit(base).netloc+'/'+urlsplit(base).path.strip('/').split('/')[0]
+     if clean_url(a['url'])!=base:raise QualificationError('Selected publication root did not match returned source; no redirect retry')
+     got=identity(raw,base,cfg['family'],base)
+    jurisdiction_check(got,cfg.get('jurisdiction'),cfg.get('state'));state['identity']=got;state['publication_url']=base;save(out/'checkpoint.json',state)
+    # Preserve exact independent start source even when bootstrap served as discovery.
+    artifact(out,state,'root-start',raw,{k:v for k,v in a.items() if k not in ['role','path','sha256','bytes']})
+   else:
+    # Browser needs an ordinary document origin; retained source is not network authority for a new session.
+    raw,a=get('resume-bootstrap',state['publication_url'],True)
+    if edition(identity(raw,a['url'],cfg['family'],state['publication_url']))!=edition(state['identity']):raise QualificationError('Resume edition drift')
+   base=state['publication_url']
+   if cfg['family']=='municipal.codes':
+    if not any(a['role']=='contents-start' for a in state['artifacts']):
+     # The contents route must be present in the retained root DOM.
+     root=next(a for a in state['artifacts'] if a['role']=='root-start');sp=soup(load_artifact(out,root));candidates=[urljoin(base,x.get('href') or x.get('data-source')) for x in sp.select('[href],[data-source]') if (x.get('href') or x.get('data-source') or '').split('?')[0].rstrip('/').endswith('/contents')]
+     contents=next((u.split('?')[0] for u in candidates if clean_url(u).startswith(base+'/contents')),None)
+     if not contents:raise QualificationError('Independent complete contents route not observed')
+     state['contents_url']=contents;save(out/'checkpoint.json',state);get('contents-start',contents)
+    if 'native_export' not in state:
+     root=next(a for a in state['artifacts'] if a['role']=='root-start');sp=soup(load_artifact(out,root));link=next((x for x in sp.select('.sitenavbar-share a') if x.get_text(' ',strip=True)=='This Page'),None)
+     enabled=bool(link and link.get('href') and 'disabled' not in link.get('class',[]));state['native_export']={'whole_publication_control_enabled':enabled,'observed_href':link.get('href') if link else None,'method':'Ordinary chapter bulk HTML traversal' if not enabled else 'Observed publisher root Share/Save HTML export'};save(out/'checkpoint.json',state)
+     if enabled:
+      try:
+       raw,meta=browser.native_html();artifact(out,state,'native',raw,{**meta,'status':meta.get('http_status'),'headers':{'content-type':'text/html'}});browser.check(raw,{**meta,'status':200,'headers':{'content-type':'text/html'}})
+      except AccessStop:raise
+      except Exception as e:
+       if browser.blocked:raise AccessStop('Native export access stop')
+       state['native_export']['optional_transport_error']=str(e);save(out/'checkpoint.json',state)
+   data=rebuild(out,state);count=0
+   if cfg['family'] in ['ecode360','municipal.codes']:
+    while True:
+     pending=[n for nid,n in data['nodes'].items() if nid not in data['dispositions']]
+     if not pending:break
+     if cfg.get('max_items') is not None and count>=cfg['max_items']:state['limited']=True;break
+     n=pending[0];get('content',n['url']);count+=1;data=rebuild(out,state);state['inventory_bound_artifacts']=len(state['artifacts']);state['inventory_sha256']=digest(canon(sorted(data['nodes'].values(),key=lambda n:n['id'])));save(out/'checkpoint.json',state);print(json.dumps({'event':'progress','pages':count,'inventory':len(data['nodes']),'owned':len(data['records']),'remaining':len(set(data['nodes'])-set(data['dispositions']))}),flush=True)
+   if not state['limited']:
+    # Required assets are individually hash-bound. Access stops terminate all subsequent traffic.
+    while True:
+     pending_assets=[u for u,a in data['assets'].items() if not a]
+     if not pending_assets:break
+     u=pending_assets[0]
+     if u.startswith('data:'):
+      head,payload=u.split(',',1);raw=base64.b64decode(payload,validate=True) if ';base64' in head else __import__('urllib.parse').parse.unquote_to_bytes(payload);artifact(out,state,'asset',raw,{'url':u,'requested_url':u,'status':200,'headers':{'content-type':head[5:].split(';')[0]},'retrieved_at':now(),'transport':'embedded data URI'})
+     elif urlsplit(u).scheme not in ['https','http']:raise QualificationError('Unsupported required asset '+u[:100])
+     else:
+      head=next((a for a in state['artifacts'] if a['role']=='asset-head' and a['requested_url']==u and a.get('status')==200),None)
+      if not head:_,head=get('asset-head',u,method='HEAD')
+      if not head['headers'].get('content-type','').lower().startswith('image/'):get('asset',u)
+     data=rebuild(out,state)
+     if data.get('asset_qualification_failures'):raise QualificationError('Required attachment failed format qualification: '+data['asset_qualification_failures'][-1]['reason'])
+    get('root-end',base)
+    if cfg['family']=='municipal.codes':get('contents-end',state['contents_url'])
+ except Exception as e:
+  state['errors'].append({'type':type(e).__name__,'message':str(e),'at':now(),'access_stop':isinstance(e,AccessStop) or ('browser' in locals() and getattr(browser,'blocked',False))});save(out/'checkpoint.json',state)
+ try:
+  data=rebuild(out,state) if state.get('identity') else {'nodes':{},'records':{},'dispositions':{},'conflicts':[],'duplicate_witnesses':[],'assets':{},'start':None,'end':None,'toc_start':None,'toc_end':None}
+  state['inventory_bound_artifacts']=len(state['artifacts']);state['inventory_sha256']=digest(canon(sorted(data['nodes'].values(),key=lambda n:n['id'])));save(out/'checkpoint.json',state);report=write_outputs(out,state,data)
+ except Exception as e:
+  state['errors'].append({'type':type(e).__name__,'message':str(e),'at':now(),'access_stop':False});save(out/'checkpoint.json',state);report={'complete':False,'publication_text_complete':False,'attachments_complete':False,'edition_complete':False,'jurisdiction_complete':False,'errors':state['errors']};save(out/'coverage.json',report)
+ return report
+
+def verify(out):
+ out=Path(out).resolve();state=read(out/'checkpoint.json');check_cache(out,state);data=rebuild(out,state);report=coverage(state,data)
+ expected=[data['records'][k] for k in sorted(data['records'])];actual=[json.loads(line) for line in (out/'records.jsonl').read_text().splitlines()]
+ if len({r['id'] for r in actual})!=len(actual):raise QualificationError('Duplicate normalized IDs')
+ if actual!=expected:raise QualificationError('Normalized records disagree with retained source')
+ if read(out/'inventory.json')!=sorted(data['nodes'].values(),key=lambda n:n['id']):raise QualificationError('Published inventory disagrees with source')
+ if read(out/'dispositions.json')!=sorted(data['dispositions'].values(),key=lambda n:n['id']):raise QualificationError('Published dispositions disagree with source')
+ if read(out/'link-ledger.json')!=data.get('link_ledger',[]):raise QualificationError('Link ledger disagrees with source')
+ if read(out/'image-omissions.json')!={'placeholders':[im for r in expected for im in r.get('image_references',[])],'references':data.get('image_refs',[])}:raise QualificationError('Image omission ledger disagrees with source')
+ if read(out/'coverage.json')!=report:raise QualificationError('Coverage claim disagrees with independent recomputation')
+ fields=['id','jurisdiction','state','heading','kind','parent_id','path','text','source_url','body_sha256'];stream=io.StringIO(newline='');w=csv.DictWriter(stream,fieldnames=fields);w.writeheader()
+ for r in expected:w.writerow({k:json.dumps(r[k],ensure_ascii=False) if isinstance(r.get(k),(list,dict)) else r.get(k) for k in fields})
+ if (out/'records.csv').read_bytes()!=stream.getvalue().encode():raise QualificationError('CSV disagrees with source')
+ return {'verified':True,**report}

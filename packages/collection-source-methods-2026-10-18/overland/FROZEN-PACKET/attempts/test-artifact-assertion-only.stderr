@@ -1,0 +1,20 @@
+.E....
+======================================================================
+ERROR: test_normalized_corruption (__main__.Artifacts.test_normalized_corruption)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/oliverflint/My Drive/Claude/Projects/CompliSolv 2.00/outputs/collection-readiness-posta35cef8-2026-10-18/overland/test_artifact_guards.py", line 16, in test_normalized_corruption
+    with self.assertRaises(AssertionError):n.verify(self.out)
+                                           ^^^^^^^^^^^^^^^^^^
+  File "/Users/oliverflint/My Drive/Claude/Projects/CompliSolv 2.00/outputs/collection-readiness-posta35cef8-2026-10-18/overland/captured/collectors/encodeplus/retained_native.py", line 84, in verify
+    for name,h in s['normalized_outputs'].items():validate_file(out,name,h)
+                                                  ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/oliverflint/My Drive/Claude/Projects/CompliSolv 2.00/outputs/collection-readiness-posta35cef8-2026-10-18/overland/captured/collectors/encodeplus/util.py", line 22, in validate_file
+    if not p.is_file() or digest(p.read_bytes())!=expected:raise ValueError('Missing/corrupt retained file: '+str(p))
+                                                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+ValueError: Missing/corrupt retained file: /private/var/folders/vx/krkxgc9x7k77rg6grgbvx1pm0000gv/T/tmp0f7j9llg/copy/records.csv
+
+----------------------------------------------------------------------
+Ran 6 tests in 0.806s
+
+FAILED (errors=1)

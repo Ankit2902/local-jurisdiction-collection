@@ -1,0 +1,8 @@
+Traceback (most recent call last):
+  File "/Users/oliverflint/My Drive/Claude/Projects/CompliSolv 2.00/outputs/collection-readiness-posta35cef8-2026-10-18/overland/discover_native.py", line 27, in <module>
+    results.append(item);(d/'inventory.json').write_text(json.dumps(results,indent=2)+'\n');print(json.dumps({k:v for k,v in item.items()if k in ['id','status','bytes','pages','native_pdf','error']},flush=True))
+                                                                                                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/oliverflint/.cache/codex-runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/json/__init__.py", line 234, in dumps
+    return cls(
+           ^^^^
+TypeError: JSONEncoder.__init__() got an unexpected keyword argument 'flush'

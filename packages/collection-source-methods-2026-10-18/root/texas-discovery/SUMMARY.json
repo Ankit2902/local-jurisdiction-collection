@@ -1,0 +1,37 @@
+{
+  "schema_version": 1,
+  "base_commit": "a35cef8b1995da666b371cf1a19e6a9651a48e58",
+  "image_policy": "Exact [IMAGE]; no image resources requested or decoded",
+  "production_changes": false,
+  "entries": [
+    {
+      "publication_id": "4-0b0195a762ff",
+      "jurisdiction": "Dallas",
+      "catalog_url": "https://dallascityhall.com/departments/city-attorney/Pages/default.aspx",
+      "catalog_response": 200,
+      "catalog_page_kind": "City Attorney organizational home page; no 51P/code publication anchors in returned HTML",
+      "retained_observed_source_page": "https://dallascityhall.com/Pages/codes.aspx",
+      "retained_observed_publication_anchor": "http://www.dallascityattorney.com/51P/COV.html",
+      "exact_anchor_result": 404,
+      "exact_anchor_body_bytes": 0,
+      "exact_anchor_response_header": {
+        "WAFRule": "5"
+      },
+      "interpretation": "Unusable source response; not proof publication is absent. No alternate route, scheme or transport attempted.",
+      "source_inventory_complete": false,
+      "full_live_verified": false
+    },
+    {
+      "publication_id": "5-684f5e2d3984",
+      "jurisdiction": "Fort Worth",
+      "catalog_url": "https://www.fortworthtexas.gov/departments/development-services/zoning/ordinance",
+      "status": 403,
+      "body_bytes": 441,
+      "persisted_access_stop": true,
+      "retried_after_refusal": false,
+      "source_inventory_complete": false,
+      "full_live_verified": false
+    }
+  ],
+  "tls_note": "First Dallas attempt failed certificate verification before HTTP response. Repeated same URL with installed certifi trusted root bundle; certificate verification remained enabled."
+}

@@ -1,0 +1,46 @@
+{
+  "V1": {
+    "source": "candidate",
+    "status": "superseded_not_final_validation",
+    "issues": [
+      "Filename-shaped new statutory URL needed explicit token grammar",
+      "New metadata context text could retain SVG image payload"
+    ]
+  },
+  "V2": {
+    "source": "candidate-v2",
+    "status": "superseded_not_final_validation",
+    "issues": [
+      "New metadata context text could retain SVG image payload; peer synthetic reproduction"
+    ]
+  },
+  "V3": {
+    "source": "candidate-v3",
+    "status": "superseded_not_final_validation",
+    "issues": [
+      "Generic links.label and source_label could retain graphic text; processed context hash named ambiguously"
+    ]
+  },
+  "review_ledger_errata": {
+    "source": "corrected-statref-source-census.json",
+    "count": 3,
+    "impact": "Source-review context pins corrected per occurrence; runtime extraction did not consume old ledger"
+  },
+  "V4": {
+    "source": "candidate-v4",
+    "status": "superseded_not_final_validation",
+    "issues": [
+      "Raw source_classes could copy image payload attribute despite normalized body redaction"
+    ]
+  },
+  "V5": {
+    "source": "candidate-v5",
+    "status": "Final source frozen at requested stoppingpoint; producer proof still running; corpus export not started",
+    "fixes": [
+      "Both label fields and context text use normalized_images",
+      "Source classes read from normalized anchor; redacted marker refuses new qualification",
+      "Processed context hash explicitly named with existing2href normalization lineage"
+    ],
+    "focused_tests": 25
+  }
+}

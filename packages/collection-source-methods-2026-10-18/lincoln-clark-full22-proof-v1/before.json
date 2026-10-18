@@ -1,0 +1,128 @@
+{
+  "catalog_entries": [
+    {
+      "id": "67-b8a8412beb82",
+      "target_id": "67",
+      "title": "Lincoln-Lancaster County Comprehensive Plan",
+      "source_url": "https://www.lincoln.ne.gov/City/Departments/Planning-Department/Long-Range-Planning/Comprehensive-Plan",
+      "publisher": "official",
+      "source_family": "official",
+      "scope_kind": "publication_candidate",
+      "role": "secondary",
+      "required_for_jurisdiction": false,
+      "expected_identity": {
+        "client_names": [
+          "Lincoln"
+        ],
+        "state": "NE"
+      },
+      "selector": {},
+      "runnable": false,
+      "unsupported_reason": "Known government route lacks a qualified publication inventory/content selector; it is not assumed to be a complete publication",
+      "validation_level": "mapped_only",
+      "full_live_verified": false,
+      "evidence_paths": [
+        "packages/wave3-validation-2026-10-17/encodeplus/publication-inventory.json"
+      ],
+      "jurisdiction_scope": "external county/township reference; not automatically Lincoln or Overland Park law",
+      "image_policy": {
+        "mode": "literal_placeholder",
+        "placeholder": "[IMAGE]",
+        "download_images": false,
+        "source_id_heading_retained": true,
+        "native_originals_may_contain_images": true,
+        "scope_note": "Image-only units are retained. Intentional image omission is not an unresolved required nonimage attachment."
+      },
+      "observed_access_advisories": []
+    },
+    {
+      "id": "96-55b5a35f127a",
+      "target_id": "96",
+      "title": "clark-county",
+      "source_url": "https://www.clarkcountynv.gov/government/elected_officials/county_clerk/county-code",
+      "publisher": "official",
+      "source_family": "official",
+      "scope_kind": "publication_candidate",
+      "role": "secondary",
+      "required_for_jurisdiction": true,
+      "expected_identity": {
+        "client_names": [
+          "Clark County"
+        ],
+        "state": "NV",
+        "publisher_client_id": 11836,
+        "publisher_product_name": "Code of Ordinances",
+        "publisher_product_id": 16214,
+        "publisher_publication_id": 3294,
+        "evidence_path": "packages/wave3-validation-2026-10-17/municode-counties/browser/clark-county/receipt.json"
+      },
+      "selector": {},
+      "runnable": false,
+      "unsupported_reason": "Known government route lacks a qualified publication inventory/content selector; it is not assumed to be a complete publication",
+      "validation_level": "mapped_only",
+      "full_live_verified": false,
+      "evidence_paths": [
+        "packages/wave3-validation-2026-10-17/municode-counties/source-scope-inventory.json"
+      ],
+      "image_policy": {
+        "mode": "literal_placeholder",
+        "placeholder": "[IMAGE]",
+        "download_images": false,
+        "source_id_heading_retained": true,
+        "native_originals_may_contain_images": true,
+        "scope_note": "Image-only units are retained. Intentional image omission is not an unresolved required nonimage attachment."
+      },
+      "observed_access_advisories": []
+    }
+  ],
+  "transport_sha256": "aa776a422fb593bd04bc085befc30d0ac9ff20272daa3044735f7001aa24d6e3",
+  "gates_before": {
+    "www.lincoln.ne.gov": {
+      "path": "/tmp/compliSolv-official-publication-gate/fc2c01e520a7631585f0/state.json",
+      "before": null
+    },
+    "lincoln.ne.gov": {
+      "path": "/tmp/compliSolv-official-publication-gate/4af4f6401f7e7b907c70/state.json",
+      "before": null
+    },
+    "www.clarkcountynv.gov": {
+      "path": "/tmp/compliSolv-official-publication-gate/0e8c9145cf1683a68254/state.json",
+      "before": {
+        "last_start": 1792295421.134631
+      }
+    },
+    "clarkcountynv.gov": {
+      "path": "/tmp/compliSolv-official-publication-gate/1a5041137e12660bcedc/state.json",
+      "before": null
+    }
+  },
+  "home_stops_before": {
+    "schema_version": 1,
+    "stops": {
+      "municode:publisher": {
+        "family": "municode",
+        "subfamily": "municode",
+        "host": null,
+        "expires_at": null,
+        "source": {
+          "path": "/Users/oliverflint/My Drive/Claude/Projects/CompliSolv 2.00/github/local-jurisdiction-collection/collectors/registry/access-advisories.json",
+          "state": {
+            "stop": true,
+            "operator_release_required": true,
+            "reason": "Malformed publisher-owned source href www.jaxsheriff.org/fees was incorrectly resolved under library.municode.com; observed HEAD403/Cf-Mitigated challenge on that malformed path. Shared browser workflow stopped. This is not evidence that every legitimate public publisher route is unavailable.",
+            "observed_stop": {
+              "reason": "https://library.municode.com/www.jaxsheriff.org/fees HTTP access refusal",
+              "recorded_at": "2026-10-17T21:41:34.381324+00:00",
+              "operator_release_required": true
+            }
+          },
+          "checkpoint_access_advisory": true
+        },
+        "first_observed_at": "2026-10-17T21:46:50.519158+00:00"
+      }
+    }
+  },
+  "python": "3.12.14 (main, Aug 25 2026, 13:50:33) [Clang 22.1.3 ]",
+  "started_at": "2026-10-18T04:29:03.658977+00:00",
+  "policy": "No image resources/native image bytes/render/OCR; originalsourceHTML retained without execution. No publisher route follow/retry."
+}
