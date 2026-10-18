@@ -1,0 +1,65 @@
+{
+  "schema": 1,
+  "status": "Implementation tested; actual complete retained-source operational replays running",
+  "timestamp_utc": "2026-10-17T23:48:51.244377+00:00",
+  "prior_published_revision": "91f6c59",
+  "runtime_scripts": {
+    "collect.py": "a72708a9a06ca211dc6254d3eb40000aeea5a2a2605dab632baf8380beef5bc1",
+    "model.py": "4b97d38e09062814783770f76a660bf97297ecb4631d5c1c63654c58ec7ed9bc",
+    "transport.py": "856f00a0de7d561839ba8842af7ae49483fd5efd31fb0352dbe7cbccc011a148",
+    "legacy_html.py": "b3799648ab453ff71217d336f55d78501dcc4a8a92e6cf6d187632508b665048",
+    "browser_fetch.cjs": "9dbf7e1f5f1acbded4821a59021075c0859c705e7d4b7e87d30c0736f6955918",
+    "post_transport.py": "ad9d0b3662f49ffe54420f7b3b4cb1d62acfce19be4e4a394243bc92c2b06c33",
+    "spokane_bulk.py": "f5bf3fb9dc69acc878e414d43935231f7f8049732229b1202e9780459ed8785b",
+    "pdf_structure.py": "f68f116969b89170b84d10d34c377fe31699e8ada306fd7b54b8f7308c50e42e",
+    "openlaw_xml.py": "172fc1cfd76f241fd891f4b2e0e07ee187b9821fa9020baa9843a6a7bd6fb547",
+    "git_archive_binding.py": "e74bf2b5e847099f6212266b0c1e747471e90320aff80f1a68247f64be467fbc",
+    "publication_refs.py": "46304b9958b05a172a6faa9b24151411898c3cbb7ee6b6588dc442baddfd3640",
+    "verify.py": "3205bf0aa89c2c40fcf1b63697607d893f457c7df3d76ba71a7fe9b87e371989",
+    "replay.py": "b2df04cdb494500a605c8e68d05b76f537ba224619769f83b1926534f521adaf",
+    "attachment_outputs.py": "38a2500220c206ca0ee6f33d1756cffe23df4fb70496589e4cf68c063d9c446f",
+    "bounded_decoder.py": "a579f2a79c15833e0c5a8c65bc4fa6024b2dbb6eafb408d1135f500c64c72770",
+    "native_labels.py": "dc2489d1d734f177bb1b15a9c73b1117cda37a51d0c57fe5c2f0fe45e96fb6de"
+  },
+  "tests": {
+    "passed": 72,
+    "failed": 0,
+    "network": false,
+    "command": "python -B -m unittest discover -s collectors/official -p test_*.py -v",
+    "receipt": "checks/operational-72-tests.txt",
+    "receipt_sha256": "c8639a80b147364cdda67fc27cc54d71bf858a1179286dc510038f85a64564e6"
+  },
+  "source_policy": "No separate image requests, image decoding/rendering/OCR; source originals preserved; exact[IMAGE]. Published legal-prose ambiguity guards unchanged.",
+  "features": {
+    "rockland": "Exact config-bound hidden accessibility span removed from inventory link label only. Other text, attributes and URL changes remain significant.",
+    "burlington": "Same-publication router documents and exclusive retained legal-body anchors resolved. Missing/nonunique anchors remain required gaps; no router-shell attachment download.",
+    "replay": "Full terminal retained source/closing receipts copied and hash-bound into fresh output; all bodies reparsed current runtime, offline resume and current verifier. No fresh acquisition/currentness assertion.",
+    "native_attachments": "Explicit URL/SHA/source-kind rules; source-owned native label/page outputs and glyph geometry. Separate native page versus text-engine qualification. Map2 independent comparison gap not waived; source-proven no-glyph images policyN/A."
+  },
+  "actual_runs": [
+    {
+      "id": "burlington",
+      "path": "outputs/collection-readiness-operational-2026-10-17/official/burlington-current-replay-v1",
+      "status": "running",
+      "scope": "157source documents; two absent source anchors intentionally remain unresolved"
+    },
+    {
+      "id": "rockland",
+      "path": "outputs/collection-readiness-operational-2026-10-17/official/rockland-current-replay-v1",
+      "status": "running",
+      "scope": "21nativePDFs/636pages; all current coordinate parser outputs, label consistency correction"
+    },
+    {
+      "id": "spokane",
+      "path": "outputs/collection-readiness-operational-2026-10-17/official/spokane-current-replay-v1",
+      "status": "running",
+      "scope": "68native bodybatches plus4source-owned native PDFs/101pages"
+    }
+  ],
+  "limitations": [
+    "Historical source packages remain immutable.",
+    "Retained replays are not fresh network acquisitions or new publication currency observations.",
+    "PDF page/label extraction, text-engine comparison, table-cell checks, reading order and legal semantics remain separate dimensions.",
+    "Explicit no-image omissions alone are not failures."
+  ]
+}

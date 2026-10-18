@@ -1,0 +1,38 @@
+{
+  "schema": 1,
+  "scope": "Isolated candidate source delta before production promotion",
+  "changed_functions": {
+    "model.py": [
+      "image_reference_attributes",
+      "normalized_links",
+      "sanitize_images",
+      "semantics",
+      "source_assets"
+    ],
+    "collect.py": [
+      "brief",
+      "reconcile"
+    ]
+  },
+  "checks": {
+    "official_free_legal_text_and_known_attribute_redactor_exact_unchanged": true,
+    "pdf_structure_exact_unchanged": true,
+    "all_transport_helpers_exact_unchanged": true,
+    "no_base64_module_import_or_decode_in_model": true,
+    "strict_verify_exact_unchanged": true
+  },
+  "baseline_runtime": {
+    "model.py": "4b97d38e09062814783770f76a660bf97297ecb4631d5c1c63654c58ec7ed9bc",
+    "collect.py": "a72708a9a06ca211dc6254d3eb40000aeea5a2a2605dab632baf8380beef5bc1",
+    "pdf_structure.py": "f68f116969b89170b84d10d34c377fe31699e8ada306fd7b54b8f7308c50e42e",
+    "verify.py": "3205bf0aa89c2c40fcf1b63697607d893f457c7df3d76ba71a7fe9b87e371989"
+  },
+  "candidate_runtime": {
+    "model.py": "4a335f8e822066f16863c13ca2296f27b8150f90b2b38bc81202ecada7b60686",
+    "collect.py": "21e043bafebd9cf1e8676a6b08fb55c01661bfa6c153caa8f26bc51c862c7f59",
+    "pdf_structure.py": "f68f116969b89170b84d10d34c377fe31699e8ada306fd7b54b8f7308c50e42e",
+    "verify.py": "3205bf0aa89c2c40fcf1b63697607d893f457c7df3d76ba71a7fe9b87e371989"
+  },
+  "originals_port_source_sha256": "67cc4d9971f659e41b5cf24021cb1fd3ebecb5aa9536b4d357f7c156a42a6c6e",
+  "pass": true
+}

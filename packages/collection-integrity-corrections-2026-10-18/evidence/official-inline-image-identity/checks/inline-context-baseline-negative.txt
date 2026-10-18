@@ -1,0 +1,131 @@
+test_image_attributes_hash_only_with_legal_caption (__main__.InlineContext.test_image_attributes_hash_only_with_legal_caption) ... FAIL
+test_known_image_context_before_any_claimed_mime_or_decoder (__main__.InlineContext.test_known_image_context_before_any_claimed_mime_or_decoder) ... 
+  test_known_image_context_before_any_claimed_mime_or_decoder (__main__.InlineContext.test_known_image_context_before_any_claimed_mime_or_decoder) (markup='<p><img src="DATA:application/octet-stream;base64,QUJD\nUElYRUxT"></p>') ... FAIL
+  test_known_image_context_before_any_claimed_mime_or_decoder (__main__.InlineContext.test_known_image_context_before_any_claimed_mime_or_decoder) (markup='<picture><source src="DATA:application/octet-stream;base64,QUJD\nUElYRUxT"></picture>') ... FAIL
+  test_known_image_context_before_any_claimed_mime_or_decoder (__main__.InlineContext.test_known_image_context_before_any_claimed_mime_or_decoder) (markup='<svg><image href="DATA:application/octet-stream;base64,QUJD\nUElYRUxT"></image><use xlink:href="DATA:application/octet-stream;base64,QUJD\nUElYRUxT"></use></svg>') ... FAIL
+  test_known_image_context_before_any_claimed_mime_or_decoder (__main__.InlineContext.test_known_image_context_before_any_claimed_mime_or_decoder) (markup='<video poster="DATA:application/octet-stream;base64,QUJD\nUElYRUxT">Caption</video>') ... FAIL
+  test_known_image_context_before_any_claimed_mime_or_decoder (__main__.InlineContext.test_known_image_context_before_any_claimed_mime_or_decoder) (markup='<p background="DATA:application/octet-stream;base64,QUJD\nUElYRUxT">Caption</p>') ... FAIL
+  test_known_image_context_before_any_claimed_mime_or_decoder (__main__.InlineContext.test_known_image_context_before_any_claimed_mime_or_decoder) (markup='<p style="background:url(DATA:application/octet-stream;base64,QUJD\nUElYRUxT)">Caption</p>') ... FAIL
+  test_known_image_context_before_any_claimed_mime_or_decoder (__main__.InlineContext.test_known_image_context_before_any_claimed_mime_or_decoder) (markup='<object type="IMAGE/PNG" data="DATA:application/octet-stream;base64,QUJD\nUElYRUxT"></object>') ... FAIL
+  test_known_image_context_before_any_claimed_mime_or_decoder (__main__.InlineContext.test_known_image_context_before_any_claimed_mime_or_decoder) (markup='<a type="IMAGE/PNG" href="DATA:application/octet-stream;base64,QUJD\nUElYRUxT">Image label</a>') ... FAIL
+test_nonimage_inline_is_inert_unqualified_even_valid_pdf (__main__.InlineContext.test_nonimage_inline_is_inert_unqualified_even_valid_pdf) ... FAIL
+test_ordinary_legal_link_with_image_style_hashes_metadata (__main__.InlineContext.test_ordinary_legal_link_with_image_style_hashes_metadata) ... FAIL
+
+======================================================================
+FAIL: test_image_attributes_hash_only_with_legal_caption (__main__.InlineContext.test_image_attributes_hash_only_with_legal_caption)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/oliverflint/My Drive/Claude/Projects/CompliSolv 2.00/outputs/collection-readiness-operational-2026-10-17/official/final-context-scope-candidate/test_inline_context.py", line 20, in test_image_attributes_hash_only_with_legal_caption
+    uri='data:application/octet-stream;base64,QUJD\nUElYRUxT';r=self.parse('<p>Mandatory legal caption<img src="'+uri+'" alt="'+uri+'" title="Published map label"></p>');self.assertEqual(r['text'],'Mandatory legal caption[IMAGE]');self.assertEqual(r['assets'][0]['source_descriptive_attributes']['title'],'Published map label');self.assertNotIn('UElYRUxT',json.dumps(r));self.assertIn(model.sha(uri.encode()),json.dumps(r))
+                                                                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/oliverflint/My Drive/Claude/Projects/CompliSolv 2.00/outputs/collection-readiness-operational-2026-10-17/official/final-context-scope-candidate/test_inline_context.py", line 11, in parse
+    decoder.assert_not_called()
+  File "/Users/oliverflint/.cache/codex-runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/unittest/mock.py", line 910, in assert_not_called
+    raise AssertionError(msg)
+AssertionError: Expected 'b64decode' to not have been called. Called 1 times.
+Calls: [call('QUJD\nUElYRUxT', validate=True)].
+
+======================================================================
+FAIL: test_known_image_context_before_any_claimed_mime_or_decoder (__main__.InlineContext.test_known_image_context_before_any_claimed_mime_or_decoder) (markup='<p><img src="DATA:application/octet-stream;base64,QUJD\nUElYRUxT"></p>')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/oliverflint/My Drive/Claude/Projects/CompliSolv 2.00/outputs/collection-readiness-operational-2026-10-17/official/final-context-scope-candidate/test_inline_context.py", line 18, in test_known_image_context_before_any_claimed_mime_or_decoder
+    r=self.parse(markup);dumped=json.dumps(r);self.assertNotIn('QUJD',dumped);self.assertNotIn('UElYRUxT',dumped);self.assertIn('[IMAGE]',r['text']);self.assertTrue(r['assets']);self.assertTrue(all(not a['required'] and a['status']=='policy_omitted_image'for a in r['assets']))
+                                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 'QUJD' unexpectedly found in '{"html": "<p><span>[IMAGE]</span></p>", "text": "[IMAGE]", "tables": [], "links": [], "assets": [{"url": "DATA:application/octet-stream;base64,QUJD\\nUElYRUxT", "kind": "img", "source_id": null, "source_attribute": "src", "required": false, "context": "", "status": "policy_omitted_image", "classification": "user_requested_image_omission", "placeholder": "[IMAGE]", "reason": "User explicitly requests no image acquisition and literal[IMAGE] replacement; reference/IDs retained, no pixels extracted"}], "image_placeholder_count": 1, "notes": [], "superscripts": []}'
+
+======================================================================
+FAIL: test_known_image_context_before_any_claimed_mime_or_decoder (__main__.InlineContext.test_known_image_context_before_any_claimed_mime_or_decoder) (markup='<picture><source src="DATA:application/octet-stream;base64,QUJD\nUElYRUxT"></picture>')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/oliverflint/My Drive/Claude/Projects/CompliSolv 2.00/outputs/collection-readiness-operational-2026-10-17/official/final-context-scope-candidate/test_inline_context.py", line 18, in test_known_image_context_before_any_claimed_mime_or_decoder
+    r=self.parse(markup);dumped=json.dumps(r);self.assertNotIn('QUJD',dumped);self.assertNotIn('UElYRUxT',dumped);self.assertIn('[IMAGE]',r['text']);self.assertTrue(r['assets']);self.assertTrue(all(not a['required'] and a['status']=='policy_omitted_image'for a in r['assets']))
+                                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 'QUJD' unexpectedly found in '{"html": "<span>[IMAGE]</span>", "text": "[IMAGE]", "tables": [], "links": [], "assets": [{"url": "DATA:application/octet-stream;base64,QUJD\\nUElYRUxT", "kind": "source", "source_id": null, "source_attribute": "src", "required": true, "context": ""}], "image_placeholder_count": 1, "notes": [], "superscripts": []}'
+
+======================================================================
+FAIL: test_known_image_context_before_any_claimed_mime_or_decoder (__main__.InlineContext.test_known_image_context_before_any_claimed_mime_or_decoder) (markup='<svg><image href="DATA:application/octet-stream;base64,QUJD\nUElYRUxT"></image><use xlink:href="DATA:application/octet-stream;base64,QUJD\nUElYRUxT"></use></svg>')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/oliverflint/My Drive/Claude/Projects/CompliSolv 2.00/outputs/collection-readiness-operational-2026-10-17/official/final-context-scope-candidate/test_inline_context.py", line 18, in test_known_image_context_before_any_claimed_mime_or_decoder
+    r=self.parse(markup);dumped=json.dumps(r);self.assertNotIn('QUJD',dumped);self.assertNotIn('UElYRUxT',dumped);self.assertIn('[IMAGE]',r['text']);self.assertTrue(r['assets']);self.assertTrue(all(not a['required'] and a['status']=='policy_omitted_image'for a in r['assets']))
+                                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 'QUJD' unexpectedly found in '{"html": "<span>[IMAGE]</span>", "text": "[IMAGE]", "tables": [], "links": [], "assets": [{"url": "inline-svg-ref:sha256:0eed93edf34c9b6d87744383512e4300defe8a9caa4483363798aaa78c635545", "kind": "svg", "required": false, "status": "policy_omitted_image", "source_id": null, "descendant_source_ids": [], "source_reference_sha256": "0eed93edf34c9b6d87744383512e4300defe8a9caa4483363798aaa78c635545", "reason": "User explicitly requests no image acquisition and literal[IMAGE] replacement; reference/IDs retained, no pixels extracted", "classification": "user_requested_image_omission", "placeholder": "[IMAGE]"}, {"url": "DATA:application/octet-stream;base64,QUJD\\nUElYRUxT", "kind": "image", "source_id": null, "source_attribute": "href", "required": false, "context": "", "status": "policy_omitted_image", "classification": "user_requested_image_omission", "placeholder": "[IMAGE]", "reason": "User explicitly requests no image acquisition and literal[IMAGE] replacement; reference/IDs retained, no pixels extracted"}, {"url": "DATA:application/octet-stream;base64,QUJD\\nUElYRUxT", "kind": "use", "source_id": null, "source_attribute": "xlink:href", "required": false, "context": "", "status": "policy_omitted_image", "classification": "user_requested_image_omission", "placeholder": "[IMAGE]", "reason": "User explicitly requests no image acquisition and literal[IMAGE] replacement; reference/IDs retained, no pixels extracted"}], "image_placeholder_count": 1, "notes": [], "superscripts": []}'
+
+======================================================================
+FAIL: test_known_image_context_before_any_claimed_mime_or_decoder (__main__.InlineContext.test_known_image_context_before_any_claimed_mime_or_decoder) (markup='<video poster="DATA:application/octet-stream;base64,QUJD\nUElYRUxT">Caption</video>')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/oliverflint/My Drive/Claude/Projects/CompliSolv 2.00/outputs/collection-readiness-operational-2026-10-17/official/final-context-scope-candidate/test_inline_context.py", line 18, in test_known_image_context_before_any_claimed_mime_or_decoder
+    r=self.parse(markup);dumped=json.dumps(r);self.assertNotIn('QUJD',dumped);self.assertNotIn('UElYRUxT',dumped);self.assertIn('[IMAGE]',r['text']);self.assertTrue(r['assets']);self.assertTrue(all(not a['required'] and a['status']=='policy_omitted_image'for a in r['assets']))
+                                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 'QUJD' unexpectedly found in '{"html": "<video>[IMAGE]Caption</video>", "text": "[IMAGE]Caption", "tables": [], "links": [], "assets": [{"url": "DATA:application/octet-stream;base64,QUJD\\nUElYRUxT", "kind": "video", "source_id": null, "source_attribute": "poster", "required": false, "context": "Caption", "status": "policy_omitted_image", "classification": "user_requested_image_omission", "placeholder": "[IMAGE]", "reason": "User explicitly requests no image acquisition and literal[IMAGE] replacement; reference/IDs retained, no pixels extracted"}], "image_placeholder_count": 1, "notes": [], "superscripts": []}'
+
+======================================================================
+FAIL: test_known_image_context_before_any_claimed_mime_or_decoder (__main__.InlineContext.test_known_image_context_before_any_claimed_mime_or_decoder) (markup='<p background="DATA:application/octet-stream;base64,QUJD\nUElYRUxT">Caption</p>')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/oliverflint/My Drive/Claude/Projects/CompliSolv 2.00/outputs/collection-readiness-operational-2026-10-17/official/final-context-scope-candidate/test_inline_context.py", line 18, in test_known_image_context_before_any_claimed_mime_or_decoder
+    r=self.parse(markup);dumped=json.dumps(r);self.assertNotIn('QUJD',dumped);self.assertNotIn('UElYRUxT',dumped);self.assertIn('[IMAGE]',r['text']);self.assertTrue(r['assets']);self.assertTrue(all(not a['required'] and a['status']=='policy_omitted_image'for a in r['assets']))
+                                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 'QUJD' unexpectedly found in '{"html": "<p>[IMAGE]Caption</p>", "text": "[IMAGE]Caption", "tables": [], "links": [], "assets": [{"url": "DATA:application/octet-stream;base64,QUJD\\nUElYRUxT", "kind": "p", "source_id": null, "source_attribute": "background", "required": false, "context": "Caption", "status": "policy_omitted_image", "classification": "user_requested_image_omission", "placeholder": "[IMAGE]", "reason": "User explicitly requests no image acquisition and literal[IMAGE] replacement; reference/IDs retained, no pixels extracted"}], "image_placeholder_count": 1, "notes": [], "superscripts": []}'
+
+======================================================================
+FAIL: test_known_image_context_before_any_claimed_mime_or_decoder (__main__.InlineContext.test_known_image_context_before_any_claimed_mime_or_decoder) (markup='<p style="background:url(DATA:application/octet-stream;base64,QUJD\nUElYRUxT)">Caption</p>')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/oliverflint/My Drive/Claude/Projects/CompliSolv 2.00/outputs/collection-readiness-operational-2026-10-17/official/final-context-scope-candidate/test_inline_context.py", line 18, in test_known_image_context_before_any_claimed_mime_or_decoder
+    r=self.parse(markup);dumped=json.dumps(r);self.assertNotIn('QUJD',dumped);self.assertNotIn('UElYRUxT',dumped);self.assertIn('[IMAGE]',r['text']);self.assertTrue(r['assets']);self.assertTrue(all(not a['required'] and a['status']=='policy_omitted_image'for a in r['assets']))
+                                                                                                                                                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: [] is not true
+
+======================================================================
+FAIL: test_known_image_context_before_any_claimed_mime_or_decoder (__main__.InlineContext.test_known_image_context_before_any_claimed_mime_or_decoder) (markup='<object type="IMAGE/PNG" data="DATA:application/octet-stream;base64,QUJD\nUElYRUxT"></object>')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/oliverflint/My Drive/Claude/Projects/CompliSolv 2.00/outputs/collection-readiness-operational-2026-10-17/official/final-context-scope-candidate/test_inline_context.py", line 18, in test_known_image_context_before_any_claimed_mime_or_decoder
+    r=self.parse(markup);dumped=json.dumps(r);self.assertNotIn('QUJD',dumped);self.assertNotIn('UElYRUxT',dumped);self.assertIn('[IMAGE]',r['text']);self.assertTrue(r['assets']);self.assertTrue(all(not a['required'] and a['status']=='policy_omitted_image'for a in r['assets']))
+                                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 'QUJD' unexpectedly found in '{"html": "[IMAGE]", "text": "[IMAGE]", "tables": [], "links": [], "assets": [{"url": "DATA:application/octet-stream;base64,QUJD\\nUElYRUxT", "kind": "object", "source_id": null, "source_attribute": "data", "required": false, "context": "", "media_type": "image/png", "requires_nested_asset_review": true, "status": "policy_omitted_image", "classification": "user_requested_image_omission", "placeholder": "[IMAGE]", "reason": "User explicitly requests no image acquisition and literal[IMAGE] replacement; reference/IDs retained, no pixels extracted"}], "image_placeholder_count": 1, "notes": [], "superscripts": []}'
+
+======================================================================
+FAIL: test_known_image_context_before_any_claimed_mime_or_decoder (__main__.InlineContext.test_known_image_context_before_any_claimed_mime_or_decoder) (markup='<a type="IMAGE/PNG" href="DATA:application/octet-stream;base64,QUJD\nUElYRUxT">Image label</a>')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/oliverflint/My Drive/Claude/Projects/CompliSolv 2.00/outputs/collection-readiness-operational-2026-10-17/official/final-context-scope-candidate/test_inline_context.py", line 18, in test_known_image_context_before_any_claimed_mime_or_decoder
+    r=self.parse(markup);dumped=json.dumps(r);self.assertNotIn('QUJD',dumped);self.assertNotIn('UElYRUxT',dumped);self.assertIn('[IMAGE]',r['text']);self.assertTrue(r['assets']);self.assertTrue(all(not a['required'] and a['status']=='policy_omitted_image'for a in r['assets']))
+                                                                                                                                                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: [] is not true
+
+======================================================================
+FAIL: test_nonimage_inline_is_inert_unqualified_even_valid_pdf (__main__.InlineContext.test_nonimage_inline_is_inert_unqualified_even_valid_pdf)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/oliverflint/My Drive/Claude/Projects/CompliSolv 2.00/outputs/collection-readiness-operational-2026-10-17/official/final-context-scope-candidate/test_inline_context.py", line 26, in test_nonimage_inline_is_inert_unqualified_even_valid_pdf
+    uri='data:application/pdf;base64,'+base64.b64encode(payload).decode();r=self.parse('<div><iframe src="'+uri+'"></iframe><object data="'+uri+'">Mandatory label</object><a href="'+uri+'">PDF</a></div>');self.assertEqual(len(r['assets']),3);self.assertTrue(all(a['required'] and not a['format_qualified']and a['status']=='unqualified_inline_nonimage_document' for a in r['assets']));self.assertNotIn(uri,json.dumps(r));self.assertIn('Mandatory label',r['text']);self.assertIn('unqualified-inline-document-ref:sha256:',r['html'])
+                                                                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/oliverflint/My Drive/Claude/Projects/CompliSolv 2.00/outputs/collection-readiness-operational-2026-10-17/official/final-context-scope-candidate/test_inline_context.py", line 11, in parse
+    decoder.assert_not_called()
+  File "/Users/oliverflint/.cache/codex-runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/unittest/mock.py", line 910, in assert_not_called
+    raise AssertionError(msg)
+AssertionError: Expected 'b64decode' to not have been called. Called 2 times.
+Calls: [call('', validate=True), call('', validate=True)].
+
+======================================================================
+FAIL: test_ordinary_legal_link_with_image_style_hashes_metadata (__main__.InlineContext.test_ordinary_legal_link_with_image_style_hashes_metadata)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/oliverflint/My Drive/Claude/Projects/CompliSolv 2.00/outputs/collection-readiness-operational-2026-10-17/official/final-context-scope-candidate/test_inline_context.py", line 22, in test_ordinary_legal_link_with_image_style_hashes_metadata
+    uri='data:application/octet-stream;base64,UNIQUE_PIXEL_SENTINEL';r=self.parse('<p><a href="/law" style="background:url('+uri+')">Mandatory caption</a></p>');self.assertNotIn('UNIQUE_PIXEL_SENTINEL',json.dumps(r));self.assertEqual(r['links'][0]['url'],'https://fixture.invalid/law');self.assertEqual(r['links'][0]['attributes']['style'],'[IMAGE]');self.assertIn('Mandatory caption',r['text'])
+                                                                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/oliverflint/My Drive/Claude/Projects/CompliSolv 2.00/outputs/collection-readiness-operational-2026-10-17/official/final-context-scope-candidate/test_inline_context.py", line 11, in parse
+    decoder.assert_not_called()
+  File "/Users/oliverflint/.cache/codex-runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/unittest/mock.py", line 910, in assert_not_called
+    raise AssertionError(msg)
+AssertionError: Expected 'b64decode' to not have been called. Called 1 times.
+Calls: [call('UNIQUE_PIXEL_SENTINEL', validate=True)].
+
+----------------------------------------------------------------------
+Ran 4 tests in 0.122s
+
+FAILED (failures=11)

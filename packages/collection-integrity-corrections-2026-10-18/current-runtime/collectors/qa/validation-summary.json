@@ -1,0 +1,66 @@
+{
+  "schema_version": 1,
+  "frozen_runtime": true,
+  "data_proofs_pending": [],
+  "implementation_status": "cross_family_registry_and_independent_QA_complete",
+  "commands_passed": 14,
+  "test_cases_passed": 126,
+  "network_requests_sent": 0,
+  "runtime": {
+    "python": "3.12.14",
+    "os": "macOS-26.6.2-arm64-arm-64bit",
+    "dependencies": {
+      "beautifulsoup4": "4.15.0",
+      "requests": "2.34.2",
+      "brotli": "1.2.0",
+      "pypdf": "6.21.1",
+      "pypdfium2": "5.14.0",
+      "fonttools": "4.67.0",
+      "Pillow": "12.3.0"
+    }
+  },
+  "replay_command": [
+    "python3",
+    "-B",
+    "collectors/qa/run_offline.py"
+  ],
+  "registry_counts": {
+    "schema_version": 1,
+    "network_requests_sent": 0,
+    "read_only": true,
+    "passed": true,
+    "errors": [],
+    "target_count": 100,
+    "primary_runnable": 100,
+    "primary_unsupported": 0,
+    "primary_adapter_counts": {
+      "american-legal": 15,
+      "ecode": 11,
+      "encodeplus": 3,
+      "municode": 63,
+      "official": 8
+    },
+    "publication_candidates": 187,
+    "secondary_runnable": 45,
+    "secondary_unsupported": 42,
+    "base_full_live_verified": 0,
+    "jurisdiction_complete": 0,
+    "scope_note": "Runnable means a qualified dispatch configuration. Publication candidates, historical alternatives and external references are not a count of independently current municipal publications. Prior bounded passes remain historical.",
+    "registry_sha256": {
+      "targets.json": "2bb1c30141305620410cb2f77825bc7bf59e40fa865a501289b7cf214f24882d",
+      "publications.json": "a6d60b68e0674bc84613f79e3e078545fd7d607957b18368cb48828bb31e8a65"
+    }
+  },
+  "findings": "collectors/qa/findings.json",
+  "image_audit": "collectors/qa/image-audit.json",
+  "scope": "Runnable mapping, full live selected-publication proof and family implementation tests remain separate. No jurisdiction complete.",
+  "selected_terminal_runs_audited": 17,
+  "separate_image_binary_count": 0,
+  "primary_full_live_text_assets_verified": [
+    "60"
+  ],
+  "frozen": true,
+  "authoring_only_post_suite_delta": "build_validation_matrix.py conservative official document/attachment dimension; independently regenerated and inspected. No adapter runtime changed.",
+  "targeted_post_suite_test_refresh": "eCode valid zero-page PDF negative added inside existing21-test method set; independent targeted21 replay passed. Nested fixture snapshots regenerated; active runtime unchanged.",
+  "data_only_seal_correction": "CZO current qualified config snapshot synchronized after final source wrapper refinement; counts and runtime unchanged."
+}

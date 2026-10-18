@@ -1,8 +1,8 @@
 {
   "schema": 1,
-  "status": "Frozen tested78-source implementation; actual same-code full proof and metadata application checks explicitly pending",
-  "timestamp_utc": "2026-10-18T00:19:26.503017+00:00",
-  "prior_published_revision": "91f6c59",
+  "status": "Frozen tested80-source implementation; whole61-file Arlington guarded replay running, no currentfullsuccess claimed",
+  "timestamp_utc": "2026-10-18T00:53:43.622624+00:00",
+  "prior_published_revision": "1997ee1",
   "runtime_scripts": {
     "collect.py": "21e043bafebd9cf1e8676a6b08fb55c01661bfa6c153caa8f26bc51c862c7f59",
     "model.py": "4a335f8e822066f16863c13ca2296f27b8150f90b2b38bc81202ecada7b60686",
@@ -11,7 +11,7 @@
     "browser_fetch.cjs": "9dbf7e1f5f1acbded4821a59021075c0859c705e7d4b7e87d30c0736f6955918",
     "post_transport.py": "ad9d0b3662f49ffe54420f7b3b4cb1d62acfce19be4e4a394243bc92c2b06c33",
     "spokane_bulk.py": "f5bf3fb9dc69acc878e414d43935231f7f8049732229b1202e9780459ed8785b",
-    "pdf_structure.py": "f68f116969b89170b84d10d34c377fe31699e8ada306fd7b54b8f7308c50e42e",
+    "pdf_structure.py": "6ed606080bec583ea5118a84b3a1f98f48a0cdccec084b126c1685a4044d4944",
     "openlaw_xml.py": "172fc1cfd76f241fd891f4b2e0e07ee187b9821fa9020baa9843a6a7bd6fb547",
     "git_archive_binding.py": "e74bf2b5e847099f6212266b0c1e747471e90320aff80f1a68247f64be467fbc",
     "publication_refs.py": "46304b9958b05a172a6faa9b24151411898c3cbb7ee6b6588dc442baddfd3640",
@@ -22,12 +22,12 @@
     "native_labels.py": "dc2489d1d734f177bb1b15a9c73b1117cda37a51d0c57fe5c2f0fe45e96fb6de"
   },
   "tests": {
-    "passed": 78,
+    "passed": 80,
     "failed": 0,
     "network": false,
     "command": "python -B -m unittest discover -s collectors/official -p 'test_*.py' -v",
-    "receipt": "checks/operational-78-tests.txt",
-    "receipt_sha256": "fb7b42c57f65c8c9896f62f36e0f52c4da56787bc5f3aae19a2927137391d19e"
+    "receipt": "checks/operational-80-tests.txt",
+    "receipt_sha256": "0cfc39b02dc7926c5c6ab6290e98be65b1477006559ff43a752201eff1ec1afe"
   },
   "source_policy": "No separate image requests or inline payload decoding/extraction/rendering/OCR; exact[IMAGE]. Native originals retained. Known image source context precedes declaredMIME. Unsupported nonimage inline documents are inert hashrefs and required/unqualified. Published legal-prose ambiguity redactor unchanged.",
   "features": {
@@ -35,36 +35,51 @@
     "burlington": "Same-publication router documents and exclusive retained legal-body anchors resolved. Missing/nonunique anchors remain required gaps; no router-shell attachment download.",
     "replay": "Full terminal retained source/closing receipts copied and hash-bound into fresh output; all bodies reparsed current runtime, offline resume and current verifier. No fresh acquisition/currentness assertion.",
     "native_attachments": "Explicit URL/SHA/source-kind rules; source-owned native label/page outputs and glyph geometry. Separate native page versus text-engine qualification. Map2 independent comparison gap not waived; source-proven no-glyph images policyN/A.",
-    "aggregation": "Unresolved required refs/components and false attachment text qualification require top-level manual review; false native text qualification also prevents semantic completion. Source-proven no-glyph policyN/A alone remains successful."
+    "aggregation": "Unresolved required refs/components and false attachment text qualification require top-level manual review; false native text qualification also prevents semantic completion. Source-proven no-glyph policyN/A alone remains successful.",
+    "deterministic_inline_image_names": "PDFMiner-generated inline stream memory addresses are not source resource names. Missing real PDF object ID yields null source_name; stable page/ordinal IDs, bboxes and exact[IMAGE] positions remain. Named indirect PDF resources remain unchanged, including numeric names."
   },
   "actual_runs": [
     {
-      "id": "burlington-historical72",
-      "path": "outputs/collection-readiness-operational-2026-10-17/official/burlington-current-replay-v1",
-      "status": "terminal expectedexit3",
-      "runtime": "72testproducer",
-      "scope": "157/157documents;1711records;24tables;19/23requiredreferenceoccurrencesresolved;two unique absent anchors remain required gaps. Historical manualflagfalse corrected by exact current AST projection, not edited."
+      "id": "arlington-current80",
+      "path": "outputs/collection-readiness-post1997ee1-2026-10-17/official/arlington-tx-current80-guarded-v1",
+      "status": "running",
+      "runtime": "current80 captured16sources + guardeddriver",
+      "scope": "Whole61file retained-source replay under fail-closed image/network tripwires. Separate strict captured-source verification required after terminal. No original overwrite or network."
+    },
+    {
+      "id": "arlington-original8341",
+      "path": "outputs/collection-readiness-2026-10-17/official/arlington-tx-full-v3",
+      "status": "terminalfailedexit3",
+      "runtime": "historical8341",
+      "scope": "All61files andclosingchecks retained, finalcachemismatch. Exactreadonly reproduces7generatedimage names onCharterp52/57/63; no finalcoverage claimed."
     },
     {
       "id": "rockland-historical72",
       "path": "outputs/collection-readiness-operational-2026-10-17/official/rockland-current-replay-v1",
-      "status": "running",
-      "runtime": "72testproducer",
-      "scope": "21PDF/636page retained capture; current f68normalizer, exact labelconsistency correction; terminal coverage not yet claimed."
+      "status": "terminalexit0; separateexactreadonlyverificationrunning",
+      "runtime": "historical72/f68",
+      "scope": "21PDF/636physicalpages/93tables, file/page/sourceconsistency pass. All4sourceword/engine checks true;189/5191detectedcells disagree,7PUApages remainreview."
+    },
+    {
+      "id": "milwaukee-original8341",
+      "path": "outputs/collection-readiness-2026-10-17/official/milwaukee-coordinate-v1",
+      "status": "runningfinalstrictreconciliation",
+      "runtime": "historical8341",
+      "scope": "6/6files parsed and6successfulclosingreceipts; no terminalcoverage yet."
+    },
+    {
+      "id": "burlington-historical78",
+      "path": "outputs/collection-readiness-operational-2026-10-17/official/burlington-current-replay-v2",
+      "status": "terminalexpectedexit3; separatecapturedreadonlyJSONmatches/1126treefilesunchanged",
+      "runtime": "historical78",
+      "scope": "157docs/1711records/24tables,19referencesresolved;two absentanchors remain4requiredoccurrences. Manualtrue/semanticfalse. Numericreadonlychildstatusnotseparatelycaptured; exactCLIexpected3."
     },
     {
       "id": "spokane-historical72",
       "path": "outputs/collection-readiness-operational-2026-10-17/official/spokane-current-replay-v1",
-      "status": "running finalstrictsource/nativechecks",
-      "runtime": "72testproducer",
-      "scope": "68/68bodybatches parsed;4selected nativeattachments written(101pages); terminalcoverage notyet claimed. Map2independenttext gap remains."
-    },
-    {
-      "id": "burlington-current78",
-      "path": "outputs/collection-readiness-operational-2026-10-17/official/burlington-current-replay-v2",
-      "status": "running",
-      "runtime": "current78testproducer",
-      "scope": "Fresh complete retained-source reparse under exact final runtime, no network. Expected two absent anchors remain incomplete."
+      "status": "terminalexpectedexit3",
+      "runtime": "historical72",
+      "scope": "68bodybatches/7492records/198tables/4nativePDFs101pages. Requiredrefs,8versions andMap2text comparison remainexplicit."
     }
   ],
   "limitations": [
@@ -91,5 +106,15 @@
     "misleading_nonimage_mime_occurrences_in_selected_sources": 0,
     "pdf_source_assets_path": "not applicable; PDF module exact unchanged",
     "full_html_current_model_output_comparison": "running externally on all225initial legal body documents; pending, not promoted to pass"
+  },
+  "previous_78_runtime_receipt": "checks/operational-78-runtime-historical.json",
+  "inline_image_proof": {
+    "receipt": "checks/inline-image-actual-repeatability.json",
+    "native_source_pages": 71,
+    "separate_processes": 4,
+    "baseline_generated_name_differences": 7,
+    "candidate_bytes_identical": true,
+    "all_other_output_fields_unchanged": true,
+    "forbidden_image_network_calls": 0
   }
 }

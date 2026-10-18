@@ -1,0 +1,129 @@
+test_actual_overland_scope_mutation_changes_all_bindings_with_stale_plan (__main__.NamedEncodePlusBinding.test_actual_overland_scope_mutation_changes_all_bindings_with_stale_plan) ... FAIL
+test_ambiguous_or_unexpected_named_source_refused (__main__.NamedEncodePlusBinding.test_ambiguous_or_unexpected_named_source_refused) ... 
+  test_ambiguous_or_unexpected_named_source_refused (__main__.NamedEncodePlusBinding.test_ambiguous_or_unexpected_named_source_refused) (change={'named_config_path': '../targets.json'}) ... ERROR
+  test_ambiguous_or_unexpected_named_source_refused (__main__.NamedEncodePlusBinding.test_ambiguous_or_unexpected_named_source_refused) (change={'qualified_config_path': 'collectors/encodeplus/targets.json'}) ... ERROR
+test_missing_named_file_fails_before_any_collection (__main__.NamedEncodePlusBinding.test_missing_named_file_fails_before_any_collection) ... 
+  test_missing_named_file_fails_before_any_collection (__main__.NamedEncodePlusBinding.test_missing_named_file_fails_before_any_collection) (call=<function NamedEncodePlusBinding.test_missing_named_file_fails_before_any_collection.<locals>.<lambda> at 0x10a514040>) ... FAIL
+  test_missing_named_file_fails_before_any_collection (__main__.NamedEncodePlusBinding.test_missing_named_file_fails_before_any_collection) (call=<function NamedEncodePlusBinding.test_missing_named_file_fails_before_any_collection.<locals>.<lambda> at 0x10a514720>) ... FAIL
+  test_missing_named_file_fails_before_any_collection (__main__.NamedEncodePlusBinding.test_missing_named_file_fails_before_any_collection) (call=<function NamedEncodePlusBinding.test_missing_named_file_fails_before_any_collection.<locals>.<lambda> at 0x10a5147c0>) ... ERROR
+  test_missing_named_file_fails_before_any_collection (__main__.NamedEncodePlusBinding.test_missing_named_file_fails_before_any_collection) (call=<function NamedEncodePlusBinding.test_missing_named_file_fails_before_any_collection.<locals>.<lambda> at 0x10a514400>) ... FAIL
+test_missing_wrong_or_nonobject_key_refused (__main__.NamedEncodePlusBinding.test_missing_wrong_or_nonobject_key_refused) ... 
+  test_missing_wrong_or_nonobject_key_refused (__main__.NamedEncodePlusBinding.test_missing_wrong_or_nonobject_key_refused) (key=None) ... ERROR
+  test_missing_wrong_or_nonobject_key_refused (__main__.NamedEncodePlusBinding.test_missing_wrong_or_nonobject_key_refused) (key='absent-key') ... ERROR
+  test_missing_wrong_or_nonobject_key_refused (__main__.NamedEncodePlusBinding.test_missing_wrong_or_nonobject_key_refused) (key='overland') ... ERROR
+test_named_dispatch_binds_exact_current_entry_and_file (__main__.NamedEncodePlusBinding.test_named_dispatch_binds_exact_current_entry_and_file) ... ERROR
+test_other_family_component_scope_does_not_include_ep_named_configs (__main__.NamedEncodePlusBinding.test_other_family_component_scope_does_not_include_ep_named_configs) ... ok
+test_whole_file_change_is_bound_even_when_selected_entry_unchanged (__main__.NamedEncodePlusBinding.test_whole_file_change_is_bound_even_when_selected_entry_unchanged) ... FAIL
+
+======================================================================
+ERROR: test_ambiguous_or_unexpected_named_source_refused (__main__.NamedEncodePlusBinding.test_ambiguous_or_unexpected_named_source_refused) (change={'named_config_path': '../targets.json'})
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/oliverflint/My Drive/Claude/Projects/CompliSolv 2.00/outputs/collection-readiness-post-91f6c59-2026-10-17/ep-named-config-binding-regression-v1/test_named_encodeplus_binding.py", line 128, in test_ambiguous_or_unexpected_named_source_refused
+    self.ops.selected_runtime_config(plan)
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: module 'named_config_ops' has no attribute 'selected_runtime_config'
+
+======================================================================
+ERROR: test_ambiguous_or_unexpected_named_source_refused (__main__.NamedEncodePlusBinding.test_ambiguous_or_unexpected_named_source_refused) (change={'qualified_config_path': 'collectors/encodeplus/targets.json'})
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/oliverflint/My Drive/Claude/Projects/CompliSolv 2.00/outputs/collection-readiness-post-91f6c59-2026-10-17/ep-named-config-binding-regression-v1/test_named_encodeplus_binding.py", line 128, in test_ambiguous_or_unexpected_named_source_refused
+    self.ops.selected_runtime_config(plan)
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: module 'named_config_ops' has no attribute 'selected_runtime_config'
+
+======================================================================
+ERROR: test_missing_named_file_fails_before_any_collection (__main__.NamedEncodePlusBinding.test_missing_named_file_fails_before_any_collection) (call=<function NamedEncodePlusBinding.test_missing_named_file_fails_before_any_collection.<locals>.<lambda> at 0x10a5147c0>)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/oliverflint/My Drive/Claude/Projects/CompliSolv 2.00/outputs/collection-readiness-post-91f6c59-2026-10-17/ep-named-config-binding-regression-v1/test_named_encodeplus_binding.py", line 106, in test_missing_named_file_fails_before_any_collection
+    call()
+  File "/Users/oliverflint/My Drive/Claude/Projects/CompliSolv 2.00/outputs/collection-readiness-post-91f6c59-2026-10-17/ep-named-config-binding-regression-v1/test_named_encodeplus_binding.py", line 102, in <lambda>
+    lambda: self.ops.selected_runtime_config(plan),
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: module 'named_config_ops' has no attribute 'selected_runtime_config'
+
+======================================================================
+ERROR: test_missing_wrong_or_nonobject_key_refused (__main__.NamedEncodePlusBinding.test_missing_wrong_or_nonobject_key_refused) (key=None)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/oliverflint/My Drive/Claude/Projects/CompliSolv 2.00/outputs/collection-readiness-post-91f6c59-2026-10-17/ep-named-config-binding-regression-v1/test_named_encodeplus_binding.py", line 117, in test_missing_wrong_or_nonobject_key_refused
+    self.ops.selected_runtime_config(plan)
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: module 'named_config_ops' has no attribute 'selected_runtime_config'
+
+======================================================================
+ERROR: test_missing_wrong_or_nonobject_key_refused (__main__.NamedEncodePlusBinding.test_missing_wrong_or_nonobject_key_refused) (key='absent-key')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/oliverflint/My Drive/Claude/Projects/CompliSolv 2.00/outputs/collection-readiness-post-91f6c59-2026-10-17/ep-named-config-binding-regression-v1/test_named_encodeplus_binding.py", line 117, in test_missing_wrong_or_nonobject_key_refused
+    self.ops.selected_runtime_config(plan)
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: module 'named_config_ops' has no attribute 'selected_runtime_config'
+
+======================================================================
+ERROR: test_missing_wrong_or_nonobject_key_refused (__main__.NamedEncodePlusBinding.test_missing_wrong_or_nonobject_key_refused) (key='overland')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/oliverflint/My Drive/Claude/Projects/CompliSolv 2.00/outputs/collection-readiness-post-91f6c59-2026-10-17/ep-named-config-binding-regression-v1/test_named_encodeplus_binding.py", line 117, in test_missing_wrong_or_nonobject_key_refused
+    self.ops.selected_runtime_config(plan)
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: module 'named_config_ops' has no attribute 'selected_runtime_config'
+
+======================================================================
+ERROR: test_named_dispatch_binds_exact_current_entry_and_file (__main__.NamedEncodePlusBinding.test_named_dispatch_binds_exact_current_entry_and_file)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/oliverflint/My Drive/Claude/Projects/CompliSolv 2.00/outputs/collection-readiness-post-91f6c59-2026-10-17/ep-named-config-binding-regression-v1/test_named_encodeplus_binding.py", line 66, in test_named_dispatch_binds_exact_current_entry_and_file
+    self.assertEqual(plan['named_config_path'], 'collectors/encodeplus/targets.json')
+                     ~~~~^^^^^^^^^^^^^^^^^^^^^
+KeyError: 'named_config_path'
+
+======================================================================
+FAIL: test_actual_overland_scope_mutation_changes_all_bindings_with_stale_plan (__main__.NamedEncodePlusBinding.test_actual_overland_scope_mutation_changes_all_bindings_with_stale_plan)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/oliverflint/My Drive/Claude/Projects/CompliSolv 2.00/outputs/collection-readiness-post-91f6c59-2026-10-17/ep-named-config-binding-regression-v1/test_named_encodeplus_binding.py", line 82, in test_actual_overland_scope_mutation_changes_all_bindings_with_stale_plan
+    self.assertNotEqual(selected['sha256'], self.selection(plan)['sha256'])
+AssertionError: 'f728521f4e6505a3a84b0e311f74817713404481f414e73e9efa7c0ca79c7b45' == 'f728521f4e6505a3a84b0e311f74817713404481f414e73e9efa7c0ca79c7b45'
+
+======================================================================
+FAIL: test_missing_named_file_fails_before_any_collection (__main__.NamedEncodePlusBinding.test_missing_named_file_fails_before_any_collection) (call=<function NamedEncodePlusBinding.test_missing_named_file_fails_before_any_collection.<locals>.<lambda> at 0x10a514040>)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/oliverflint/My Drive/Claude/Projects/CompliSolv 2.00/outputs/collection-readiness-post-91f6c59-2026-10-17/ep-named-config-binding-regression-v1/test_named_encodeplus_binding.py", line 105, in test_missing_named_file_fails_before_any_collection
+    with self.assertRaises((ValueError, OSError)):
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: (<class 'ValueError'>, <class 'OSError'>) not raised
+
+======================================================================
+FAIL: test_missing_named_file_fails_before_any_collection (__main__.NamedEncodePlusBinding.test_missing_named_file_fails_before_any_collection) (call=<function NamedEncodePlusBinding.test_missing_named_file_fails_before_any_collection.<locals>.<lambda> at 0x10a514720>)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/oliverflint/My Drive/Claude/Projects/CompliSolv 2.00/outputs/collection-readiness-post-91f6c59-2026-10-17/ep-named-config-binding-regression-v1/test_named_encodeplus_binding.py", line 105, in test_missing_named_file_fails_before_any_collection
+    with self.assertRaises((ValueError, OSError)):
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: (<class 'ValueError'>, <class 'OSError'>) not raised
+
+======================================================================
+FAIL: test_missing_named_file_fails_before_any_collection (__main__.NamedEncodePlusBinding.test_missing_named_file_fails_before_any_collection) (call=<function NamedEncodePlusBinding.test_missing_named_file_fails_before_any_collection.<locals>.<lambda> at 0x10a514400>)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/oliverflint/My Drive/Claude/Projects/CompliSolv 2.00/outputs/collection-readiness-post-91f6c59-2026-10-17/ep-named-config-binding-regression-v1/test_named_encodeplus_binding.py", line 105, in test_missing_named_file_fails_before_any_collection
+    with self.assertRaises((ValueError, OSError)):
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: (<class 'ValueError'>, <class 'OSError'>) not raised
+
+======================================================================
+FAIL: test_whole_file_change_is_bound_even_when_selected_entry_unchanged (__main__.NamedEncodePlusBinding.test_whole_file_change_is_bound_even_when_selected_entry_unchanged)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/oliverflint/My Drive/Claude/Projects/CompliSolv 2.00/outputs/collection-readiness-post-91f6c59-2026-10-17/ep-named-config-binding-regression-v1/test_named_encodeplus_binding.py", line 95, in test_whole_file_change_is_bound_even_when_selected_entry_unchanged
+    self.assertNotEqual(before['sha256'], after['sha256'])
+AssertionError: 'f728521f4e6505a3a84b0e311f74817713404481f414e73e9efa7c0ca79c7b45' == 'f728521f4e6505a3a84b0e311f74817713404481f414e73e9efa7c0ca79c7b45'
+
+----------------------------------------------------------------------
+Ran 7 tests in 0.544s
+
+FAILED (failures=5, errors=7)

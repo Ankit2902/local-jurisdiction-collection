@@ -1,0 +1,56 @@
+{
+  "schema_version": 1,
+  "status": "isolated_candidate_passed_not_promoted",
+  "network_requests": 0,
+  "production_files_modified": false,
+  "runtime": {
+    "executable": "/Users/oliverflint/My Drive/Claude/Projects/CompliSolv 2.00/github/local-jurisdiction-collection/.collection-runtime/venv/bin/python",
+    "python": "3.12.14",
+    "platform": "macOS-26.6.2-arm64-arm-64bit"
+  },
+  "input_fixture": {
+    "publication_id": "82-primary",
+    "target_id": "82",
+    "selected_key": "overland",
+    "targets_json_sha256": "a49ef8ea245588ceb30a2e654295566ae3b4d6b6d0afd1a8900abd72bd094163"
+  },
+  "validation": {
+    "focused_tests": 11,
+    "existing_readiness_tests": 16,
+    "all_passed": true,
+    "baseline_omission_reproduced": true,
+    "actual_overland_scope_mutation_detected": true,
+    "command_argv_unchanged": true,
+    "stale_plan_rereads_current_named_config": true,
+    "no_network_socket_tripwire": true,
+    "production_baseline_verified_unchanged": {
+      "collectors/ops/launcher.py": "65593369f9c80bf5c28be5c5a64bb54896bd0dbb78b798120dc84f87ae2619ae",
+      "collectors/qa/readiness_binding.py": "640d94245c6dd225a9b541245d4b9ff22eb14ec6c8aaca9e6dbf0f54dca64725",
+      "collectors/registry/dispatch.py": "410f91e36615cf4de0f179c707ef135038c3f96ae95f1f326e526faa396a1078",
+      "collectors/encodeplus/targets.json": "a49ef8ea245588ceb30a2e654295566ae3b4d6b6d0afd1a8900abd72bd094163"
+    }
+  },
+  "source_changes": [
+    {
+      "path": "collectors/ops/launcher.py",
+      "before_sha256": "65593369f9c80bf5c28be5c5a64bb54896bd0dbb78b798120dc84f87ae2619ae",
+      "candidate_sha256": "32f97985956f44aa7fe0b29996d2c8772ea3a988af9ad4303adad83a66beb8a9"
+    },
+    {
+      "path": "collectors/qa/readiness_binding.py",
+      "before_sha256": "640d94245c6dd225a9b541245d4b9ff22eb14ec6c8aaca9e6dbf0f54dca64725",
+      "candidate_sha256": "f0088966bcd4194cdf261d6c45f35dcdcc5e79999393684907518c9cd4ec56ea"
+    },
+    {
+      "path": "collectors/registry/dispatch.py",
+      "before_sha256": "410f91e36615cf4de0f179c707ef135038c3f96ae95f1f326e526faa396a1078",
+      "candidate_sha256": "9eabc0c206ea46fa674a19ec73f095a8e16a31af0b1fdbed8bcdb307c615650a"
+    }
+  ],
+  "scope_notes": [
+    "Only named enCodePlus dispatch adds config source path/key. Exact selected entry and whole file SHA are bound; all enCodePlus component hashes include targets.json.",
+    "Other-family selection/dispatch behavior and family-specific input inclusion remain unchanged. Actual promotion of common source modules changes their source fingerprints for every family; historical active proofs will require current source qualification.",
+    "No collection, publisher transport, image normalization or readiness status policy changes. No live qualification claimed.",
+    "Candidate is deliberately not promoted while the fresh Flagstaff common job is active."
+  ]
+}

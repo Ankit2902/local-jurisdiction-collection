@@ -1,0 +1,32 @@
+{
+  "schema": 1,
+  "id": "new-orleans-czo-native-html",
+  "jurisdiction": "New Orleans",
+  "state": "LA",
+  "publication": "Entire official Comprehensive Zoning Ordinance publisher-native print-all HTML",
+  "source_url": "https://czo.nola.gov/print-all/",
+  "mode": "czo_sections",
+  "transport": "browser",
+  "content_selector": "div.col-xs-12",
+  "legal_marker_regex": "New Orleans Comprehensive Zoning Ordinance",
+  "coverage_level": "publication_text",
+  "wait_ms": 5000,
+  "scope_warning": "Entire native printHTML segmented by actual Article/section headings and source IDs; retained distinct normative State-law dependencies and omitted image/maps require separate review.",
+  "content_exclusions": [
+    {
+      "selector": ".jumbotron",
+      "reason": "Observed print banner repeats publication title and generated Printed timestamp; heading identity retained in configured record and original raw source."
+    },
+    {
+      "selector": ".utilities",
+      "reason": "Observed section print/copy-link UI controls; legal source section headings and bodies remain."
+    }
+  ],
+  "reference_rules": [
+    {
+      "url_regex": "^http://ldh[.]la[.]gov/assets/oph/Center-PHCH/Center-PH/tuber/LouisianaAdministrativeCodeTitle51PublicHealthSanitaryCodeJan2010[.]pdf$",
+      "context_regex": "shall comply with all applicable state and federal regulations.*Title 51.*where applicable",
+      "reason": "Exact source paragraphs direct compliance with independently applicable State/federal regulations, including Title51 where applicable; they do not supply or adopt an attached local document. State-law text/applicability remains a separately inventoried unresolved legal layer. The retained403 is not the reason for this classification."
+    }
+  ]
+}

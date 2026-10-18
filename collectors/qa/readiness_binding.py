@@ -18,16 +18,24 @@ def current_components(repo,publisher):
  files += [ops/name for name in ('launcher.py','browser_check.cjs','requirements.txt') if (ops/name).is_file()]
  files += [p for p in family.glob('*') if p.suffix in ('.py','.cjs')]
  files += [p for folder in ('configs','policies') for p in (family/folder).rglob('*.json')]
+ if publisher=='encodeplus':files.append(family/'targets.json')
  if publisher=='originals':
   files += list(family.glob('*.json'))+list((family/'profiles').rglob('*.json'))
  files += [p for p in registry.glob('*.json') if p.name not in ('source-evidence-manifest.json','original-source-evidence-manifest.json','readiness-source-evidence-manifest.json')]
  return {str(p.relative_to(repo)):sha(p) for p in sorted(set(files))}
 def selected_configuration(repo,pub,target,plan):
- config_path=plan.get('qualified_config_path');config=None;file_sha=None
+ config_path=plan.get('qualified_config_path');named_path=plan.get('named_config_path');config=None;file_sha=None
+ if named_path:
+  if config_path or (Path(repo)/named_path).resolve()!=(Path(repo)/'collectors/encodeplus/targets.json').resolve():raise ValueError('Unexpected or ambiguous named enCodePlus configuration source')
+  config_path=named_path
  if config_path:
   path=(Path(repo)/config_path).resolve()
   if not path.is_relative_to(Path(repo).resolve()) or not path.is_file():raise ValueError('Selected configuration file missing/outside repo')
   config=json.loads(path.read_text());file_sha=sha(path)
+  if named_path:
+   key=plan.get('named_config_key')
+   if not isinstance(config,dict) or key not in config or not isinstance(config[key],dict):raise ValueError('Selected named enCodePlus configuration is missing')
+   config=config[key]
  else:config=plan.get('staged_config')
  value={'publication':pub,'target_expected_identity':target.get('expected_identity'),'command_plan':plan,'qualified_config':config,'qualified_config_file_sha256':file_sha}
  return {'sha256':canonical(value),'descriptor':value}

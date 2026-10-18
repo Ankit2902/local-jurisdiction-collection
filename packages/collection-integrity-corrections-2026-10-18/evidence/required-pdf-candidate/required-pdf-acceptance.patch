@@ -1,0 +1,26 @@
+--- a/collectors/ops/launcher.py
++++ b/collectors/ops/launcher.py
+@@ -469,7 +469,10 @@
+     # Several adapters deliberately distinguish retained PDF/page bytes from
+     # qualified legal text/table structure. Their explicit false dimensions
+     # cannot disappear when an HTML parent and its required assets return zero.
+-    pdf_present = any(isinstance(coverage.get(key), (int, float)) and coverage.get(key) > 0 for key in
++    asset_integrity = coverage.get('asset_document_integrity', {})
++    required_pdf_assets = {url: detail for url, detail in asset_integrity.items()
++                           if isinstance(detail, dict) and str(detail.get('format', '')).upper() == 'PDF'} if isinstance(asset_integrity, dict) else {}
++    pdf_present = bool(required_pdf_assets) or any(isinstance(coverage.get(key), (int, float)) and coverage.get(key) > 0 for key in
+                       ('pdf_text_layer_pages_parsed', 'pdf_retained_asset_document_count',
+                        'pdf_normalized_distinct_document_count'))
+     pdf_dimensions = {}
+@@ -477,6 +480,11 @@
+         for key in ('pdf_semantic_text_completeness_qualified', 'pdf_table_completeness_qualified'):
+             if key in coverage:
+                 pdf_dimensions[key] = coverage[key]
++        # Retained required PDFs are independently qualified documents, not
++        # semantic credit supplied by their parent HTML or file integrity alone.
++        for url, detail in required_pdf_assets.items():
++            for key in ('pdf_semantic_text_completeness_qualified', 'pdf_table_completeness_qualified'):
++                pdf_dimensions['asset_document_integrity[' + url + '].' + key] = detail.get(key)
+         semantic = all(value is True for value in pdf_dimensions.values()) if pdf_dimensions else False
+     details = coverage.get('pdf_details', {})
+     if details.get('pages', 0) and 'pdf_table_semantics_complete' in details:

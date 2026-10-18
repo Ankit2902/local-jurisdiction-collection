@@ -1,0 +1,52 @@
+{
+  "schema_version": 1,
+  "network_requests_sent": 0,
+  "action": "plan",
+  "cohort": "all",
+  "targets": 1,
+  "runnable_config_count": 1,
+  "plans": [
+    {
+      "argv": [
+        "/tmp/local-collection-clean-runtime-20261017-001/venv/bin/python",
+        "-m",
+        "collectors.encodeplus.native_document",
+        "--config",
+        "collectors/encodeplus/configs/native-82-4b983dc51ab6.json",
+        "--out",
+        "{OUT}/82-4b983dc51ab6"
+      ],
+      "staged_config": null,
+      "qualified_config_path": "collectors/encodeplus/configs/native-82-4b983dc51ab6.json",
+      "publication_id": "82-4b983dc51ab6",
+      "publication_title": "Administrative Regulations - Collection & Storage of Solid Waste & Recyclables",
+      "publication_expected_identity": {
+        "client_names": [
+          "Overland Park"
+        ],
+        "state": "KS"
+      },
+      "required_for_jurisdiction": true,
+      "jurisdiction_scope": null,
+      "edition_scope": null,
+      "required_publication_dependencies": [],
+      "configuration_alias_of": null,
+      "scope": "publication_candidate",
+      "image_policy": {
+        "mode": "literal_placeholder",
+        "placeholder": "[IMAGE]",
+        "download_images": false,
+        "source_id_heading_retained": true,
+        "native_originals_may_contain_images": true,
+        "scope_note": "Image-only units are retained. Intentional image omission is not an unresolved required nonimage attachment."
+      },
+      "jurisdiction_complete": false,
+      "target_id": "82",
+      "jurisdiction": "Overland Park",
+      "state": "KS",
+      "runnable": true,
+      "observed_access_advisories": []
+    }
+  ],
+  "validation_note": "Mapped/runnable configuration is not a full live publication pass. Primary scope is not jurisdiction scope."
+}

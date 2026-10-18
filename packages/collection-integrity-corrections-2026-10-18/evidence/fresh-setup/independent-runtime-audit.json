@@ -1,0 +1,75 @@
+{
+  "passed": true,
+  "scope": "fresh_shared_macos_setup_and_local_headed_browser_only",
+  "publisher_requests": 0,
+  "image_fetch_decode_render_ocr": false,
+  "direct_pins_matched": 11,
+  "installed_distribution_count": 23,
+  "local_alias_check": {
+    "same_api": true,
+    "chromium_launch": "function",
+    "core_version": "1.64.0-beta-1791568591000",
+    "node": "v24.21.0"
+  },
+  "runtime_browser": {
+    "passed": true,
+    "headed": true,
+    "publisher_requests": 0,
+    "chrome": "155.0.8059.84",
+    "node": "v24.21.0"
+  },
+  "doctor_browser": {
+    "passed": true,
+    "headed": true,
+    "publisher_requests": 0,
+    "chrome": "155.0.8059.84",
+    "node": "v24.21.0"
+  },
+  "standalone_profile_comparison": {
+    "american_legal_standalone_package_json_sha256": "bf71374ddec3815139ecc38630ae9fcfc49b25b33d5e0b1273464ecf26b4cc61",
+    "standalone_node_playwright_pin": "1.62.1",
+    "fresh_python_playwright_distribution": "1.64.0",
+    "fresh_official_bundled_api_core": "1.64.0-beta-1791568591000",
+    "fresh_node": "v24.21.0",
+    "python_lock_differences": {
+      "soupsieve": {
+        "standalone_lock": "2.8.4",
+        "fresh_shared": "3.0.3"
+      }
+    },
+    "profiles_equivalent_claimed": false,
+    "live_american_legal_transport_qualified": false
+  },
+  "runbook_observations": [
+    {
+      "kind": "host_prerequisite",
+      "detail": "python3.12 is not on this host PATH. Used documented absolute path to installed Python3.12.14; Chrome installed. Not a setup implementation failure."
+    },
+    {
+      "kind": "dependency_scope",
+      "detail": "Shared requirements pin exact direct dependencies; transitive versions are resolved by pip and captured in runtime receipt/freeze. They are not claimed identical to standalone family locks."
+    }
+  ],
+  "setup_or_doctor_defects_observed": [],
+  "source_integrity": {
+    "before": {
+      "collect.py": "5bcc1e86ec8f82288079501b6cbbad17f4e1d43b34d1a994997f9023c5893e3e",
+      "collectors/ops/launcher.py": "32f97985956f44aa7fe0b29996d2c8772ea3a988af9ad4303adad83a66beb8a9",
+      "collectors/ops/browser_check.cjs": "d30aacf255198ac83812934f0ba18d35b39dac337de6bf3ae764b7ce15a5623b",
+      "collectors/ops/requirements.txt": "ade259bf5a5cfb51909036b5eaf316b3bdea9fba30122ae65e1019fbe98a9d33",
+      "collectors/ops/README.md": "db06d282c8948e4f04eaad4cca9b5fe2270d08540a7dbe9cfcb11f5616a51b79",
+      "collectors/american-legal/requirements.txt": "27d1da5a3a0079156a25887c9866098979524aa4a20d84708141689eed7e051a",
+      "collectors/american-legal/package.json": "bf71374ddec3815139ecc38630ae9fcfc49b25b33d5e0b1273464ecf26b4cc61"
+    },
+    "after": {
+      "collect.py": "5bcc1e86ec8f82288079501b6cbbad17f4e1d43b34d1a994997f9023c5893e3e",
+      "collectors/ops/launcher.py": "32f97985956f44aa7fe0b29996d2c8772ea3a988af9ad4303adad83a66beb8a9",
+      "collectors/ops/browser_check.cjs": "d30aacf255198ac83812934f0ba18d35b39dac337de6bf3ae764b7ce15a5623b",
+      "collectors/ops/requirements.txt": "ade259bf5a5cfb51909036b5eaf316b3bdea9fba30122ae65e1019fbe98a9d33",
+      "collectors/ops/README.md": "db06d282c8948e4f04eaad4cca9b5fe2270d08540a7dbe9cfcb11f5616a51b79",
+      "collectors/american-legal/requirements.txt": "27d1da5a3a0079156a25887c9866098979524aa4a20d84708141689eed7e051a",
+      "collectors/american-legal/package.json": "bf71374ddec3815139ecc38630ae9fcfc49b25b33d5e0b1273464ecf26b4cc61"
+    },
+    "unchanged": true
+  }
+}

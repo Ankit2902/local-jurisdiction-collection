@@ -1,0 +1,7 @@
+ def test_body_offsets_count_only_lf_with_publisher_control_characters(self):
+  from inert_browser_source import body_markup
+  for control in ('\x1c','\x1d','\x1e','\x1f','\x85','\u2028','\u2029'):
+   with self.subTest(control=hex(ord(control))):
+    body='<section><p>Earlier'+control+'legal text.</p>\n<p>ATTEST: mandatory final legal caption.</p></section>\n'
+    raw='<html>\n<head><title>nonlegal metadata</title></head>\n<body>'+body+'</body>\n</html>'
+    self.assertEqual(body_markup(raw),body)

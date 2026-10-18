@@ -1,0 +1,48 @@
+{
+  "passed": true,
+  "production_modified": false,
+  "no_live_collection": true,
+  "python": "3.12.14 (main, Aug 25 2026, 13:50:33) [Clang 22.1.3 ]",
+  "source_before": {
+    "collectors/ops/launcher.py": "32f97985956f44aa7fe0b29996d2c8772ea3a988af9ad4303adad83a66beb8a9",
+    "collectors/qa/readiness_binding.py": "f0088966bcd4194cdf261d6c45f35dcdcc5e79999393684907518c9cd4ec56ea",
+    "collectors/registry/dispatch.py": "9eabc0c206ea46fa674a19ec73f095a8e16a31af0b1fdbed8bcdb307c615650a"
+  },
+  "source_after": {
+    "collectors/ops/launcher.py": "32f97985956f44aa7fe0b29996d2c8772ea3a988af9ad4303adad83a66beb8a9",
+    "collectors/qa/readiness_binding.py": "f0088966bcd4194cdf261d6c45f35dcdcc5e79999393684907518c9cd4ec56ea",
+    "collectors/registry/dispatch.py": "9eabc0c206ea46fa674a19ec73f095a8e16a31af0b1fdbed8bcdb307c615650a"
+  },
+  "commands": [
+    {
+      "name": "production-focused",
+      "argv": [
+        "/Users/oliverflint/My Drive/Claude/Projects/CompliSolv 2.00/github/local-jurisdiction-collection/.collection-runtime/venv/bin/python",
+        "-B",
+        "/Users/oliverflint/My Drive/Claude/Projects/CompliSolv 2.00/outputs/collection-readiness-post-91f6c59-2026-10-17/ep-named-config-binding-regression-v1/test_named_encodeplus_binding.py"
+      ],
+      "exit": 0,
+      "stdout": "production-focused.stdout",
+      "stderr": "production-focused.stderr"
+    },
+    {
+      "name": "production-existing",
+      "argv": [
+        "/Users/oliverflint/My Drive/Claude/Projects/CompliSolv 2.00/github/local-jurisdiction-collection/.collection-runtime/venv/bin/python",
+        "-B",
+        "-m",
+        "unittest",
+        "collectors.qa.test_ops_acceptance",
+        "collectors.qa.test_ops_dependencies",
+        "collectors.qa.test_readiness_binding",
+        "collectors.qa.test_native_dispatch_upgrade",
+        "collectors.qa.test_originals_dispatch",
+        "collectors.qa.test_readiness_catalog",
+        "-v"
+      ],
+      "exit": 0,
+      "stdout": "production-existing.stdout",
+      "stderr": "production-existing.stderr"
+    }
+  ]
+}

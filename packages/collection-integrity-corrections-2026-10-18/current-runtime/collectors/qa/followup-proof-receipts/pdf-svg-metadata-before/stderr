@@ -1,0 +1,79 @@
+test_quoted_svg_preserves_prose_or_explicitly_refuses (__main__.PDFSVGMetadata.test_quoted_svg_preserves_prose_or_explicitly_refuses) ... 
+  test_quoted_svg_preserves_prose_or_explicitly_refuses (__main__.PDFSVGMetadata.test_quoted_svg_preserves_prose_or_explicitly_refuses) (family='official') ... FAIL
+  test_quoted_svg_preserves_prose_or_explicitly_refuses (__main__.PDFSVGMetadata.test_quoted_svg_preserves_prose_or_explicitly_refuses) (family='encodeplus') ... FAIL
+test_standalone_known_field_is_literal_placeholder (__main__.PDFSVGMetadata.test_standalone_known_field_is_literal_placeholder) ... 
+  test_standalone_known_field_is_literal_placeholder (__main__.PDFSVGMetadata.test_standalone_known_field_is_literal_placeholder) (family='official', value='data:image/svg+xml,<svg><text>VECTOR_SENTINEL</text></svg>') ... FAIL
+  test_standalone_known_field_is_literal_placeholder (__main__.PDFSVGMetadata.test_standalone_known_field_is_literal_placeholder) (family='official', value='  DATA:IMAGE/SVG+XML,<SVG><TEXT>VECTOR_SENTINEL</TEXT></SVG>') ... FAIL
+  test_standalone_known_field_is_literal_placeholder (__main__.PDFSVGMetadata.test_standalone_known_field_is_literal_placeholder) (family='encodeplus', value='data:image/svg+xml,<svg><text>VECTOR_SENTINEL</text></svg>') ... FAIL
+  test_standalone_known_field_is_literal_placeholder (__main__.PDFSVGMetadata.test_standalone_known_field_is_literal_placeholder) (family='encodeplus', value='  DATA:IMAGE/SVG+XML,<SVG><TEXT>VECTOR_SENTINEL</TEXT></SVG>') ... FAIL
+
+======================================================================
+FAIL: test_quoted_svg_preserves_prose_or_explicitly_refuses (__main__.PDFSVGMetadata.test_quoted_svg_preserves_prose_or_explicitly_refuses) (family='official')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/oliverflint/My Drive/Claude/Projects/CompliSolv 2.00/github/local-jurisdiction-collection/collectors/qa/test_pdf_svg_metadata.py", line 22, in test_quoted_svg_preserves_prose_or_explicitly_refuses
+    self.assertIn('Before legal text',out);self.assertIn('after legal caption remains mandatory.',out);self.assertNotIn('VECTOR_SENTINEL',out);self.assertNotIn('<svg',out);self.assertNotIn('data:image/',out.lower());self.assertIn('[IMAGE]',out)
+                                                                                                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 'VECTOR_SENTINEL' unexpectedly found in 'Before legal text "[IMAGE]<svg><text>VECTOR_SENTINEL</text></svg>" after legal caption remains mandatory.'
+
+======================================================================
+FAIL: test_quoted_svg_preserves_prose_or_explicitly_refuses (__main__.PDFSVGMetadata.test_quoted_svg_preserves_prose_or_explicitly_refuses) (family='encodeplus')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/oliverflint/My Drive/Claude/Projects/CompliSolv 2.00/github/local-jurisdiction-collection/collectors/qa/test_pdf_svg_metadata.py", line 22, in test_quoted_svg_preserves_prose_or_explicitly_refuses
+    self.assertIn('Before legal text',out);self.assertIn('after legal caption remains mandatory.',out);self.assertNotIn('VECTOR_SENTINEL',out);self.assertNotIn('<svg',out);self.assertNotIn('data:image/',out.lower());self.assertIn('[IMAGE]',out)
+                                                                                                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 'VECTOR_SENTINEL' unexpectedly found in 'Before legal text "[IMAGE]<svg><text>VECTOR_SENTINEL</text></svg>" after legal caption remains mandatory.'
+
+======================================================================
+FAIL: test_standalone_known_field_is_literal_placeholder (__main__.PDFSVGMetadata.test_standalone_known_field_is_literal_placeholder) (family='official', value='data:image/svg+xml,<svg><text>VECTOR_SENTINEL</text></svg>')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/oliverflint/My Drive/Claude/Projects/CompliSolv 2.00/github/local-jurisdiction-collection/collectors/qa/test_pdf_svg_metadata.py", line 16, in test_standalone_known_field_is_literal_placeholder
+    out=m.redact_metadata({'uri':value,'caption':'Separate legal caption stays.'});self.assertEqual(out['uri'],'[IMAGE]');self.assertEqual(out['caption'],'Separate legal caption stays.');self.assertNotIn('VECTOR_SENTINEL',json.dumps(out))
+                                                                                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: '[IMAGE]<svg><text>VECTOR_SENTINEL</text></svg>' != '[IMAGE]'
+- [IMAGE]<svg><text>VECTOR_SENTINEL</text></svg>
++ [IMAGE]
+
+
+======================================================================
+FAIL: test_standalone_known_field_is_literal_placeholder (__main__.PDFSVGMetadata.test_standalone_known_field_is_literal_placeholder) (family='official', value='  DATA:IMAGE/SVG+XML,<SVG><TEXT>VECTOR_SENTINEL</TEXT></SVG>')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/oliverflint/My Drive/Claude/Projects/CompliSolv 2.00/github/local-jurisdiction-collection/collectors/qa/test_pdf_svg_metadata.py", line 16, in test_standalone_known_field_is_literal_placeholder
+    out=m.redact_metadata({'uri':value,'caption':'Separate legal caption stays.'});self.assertEqual(out['uri'],'[IMAGE]');self.assertEqual(out['caption'],'Separate legal caption stays.');self.assertNotIn('VECTOR_SENTINEL',json.dumps(out))
+                                                                                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: '  [IMAGE]<SVG><TEXT>VECTOR_SENTINEL</TEXT></SVG>' != '[IMAGE]'
+-   [IMAGE]<SVG><TEXT>VECTOR_SENTINEL</TEXT></SVG>
++ [IMAGE]
+
+
+======================================================================
+FAIL: test_standalone_known_field_is_literal_placeholder (__main__.PDFSVGMetadata.test_standalone_known_field_is_literal_placeholder) (family='encodeplus', value='data:image/svg+xml,<svg><text>VECTOR_SENTINEL</text></svg>')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/oliverflint/My Drive/Claude/Projects/CompliSolv 2.00/github/local-jurisdiction-collection/collectors/qa/test_pdf_svg_metadata.py", line 16, in test_standalone_known_field_is_literal_placeholder
+    out=m.redact_metadata({'uri':value,'caption':'Separate legal caption stays.'});self.assertEqual(out['uri'],'[IMAGE]');self.assertEqual(out['caption'],'Separate legal caption stays.');self.assertNotIn('VECTOR_SENTINEL',json.dumps(out))
+                                                                                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: '[IMAGE]<svg><text>VECTOR_SENTINEL</text></svg>' != '[IMAGE]'
+- [IMAGE]<svg><text>VECTOR_SENTINEL</text></svg>
++ [IMAGE]
+
+
+======================================================================
+FAIL: test_standalone_known_field_is_literal_placeholder (__main__.PDFSVGMetadata.test_standalone_known_field_is_literal_placeholder) (family='encodeplus', value='  DATA:IMAGE/SVG+XML,<SVG><TEXT>VECTOR_SENTINEL</TEXT></SVG>')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/oliverflint/My Drive/Claude/Projects/CompliSolv 2.00/github/local-jurisdiction-collection/collectors/qa/test_pdf_svg_metadata.py", line 16, in test_standalone_known_field_is_literal_placeholder
+    out=m.redact_metadata({'uri':value,'caption':'Separate legal caption stays.'});self.assertEqual(out['uri'],'[IMAGE]');self.assertEqual(out['caption'],'Separate legal caption stays.');self.assertNotIn('VECTOR_SENTINEL',json.dumps(out))
+                                                                                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: '  [IMAGE]<SVG><TEXT>VECTOR_SENTINEL</TEXT></SVG>' != '[IMAGE]'
+-   [IMAGE]<SVG><TEXT>VECTOR_SENTINEL</TEXT></SVG>
++ [IMAGE]
+
+
+----------------------------------------------------------------------
+Ran 2 tests in 0.469s
+
+FAILED (failures=6)

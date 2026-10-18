@@ -1,0 +1,173 @@
+{
+  "schema": 1,
+  "source_sha256": "b2cf3f57150581560328494e4a59b2bf6bac1ceb05ba87e7940f0f27f4f14360",
+  "actual_failing_pages": [
+    52,
+    57,
+    63
+  ],
+  "observed_metadata": [
+    {
+      "physical_page": 52,
+      "source_image_ordinal": 1,
+      "object_id": 152,
+      "actual_named_resource": "Im0",
+      "engine_name_is_memory_address": false,
+      "bbox": [
+        0.0,
+        -9.999999997489795e-05,
+        614.8801,
+        794.52
+      ],
+      "inline_imagemask_metadata": null,
+      "pixel_stream_accessed": false
+    },
+    {
+      "physical_page": 52,
+      "source_image_ordinal": 2,
+      "object_id": null,
+      "actual_named_resource": null,
+      "engine_name_is_memory_address": true,
+      "bbox": [
+        72.72,
+        437.7599,
+        307.0801,
+        501.12
+      ],
+      "inline_imagemask_metadata": true,
+      "pixel_stream_accessed": false
+    },
+    {
+      "physical_page": 52,
+      "source_image_ordinal": 3,
+      "object_id": null,
+      "actual_named_resource": null,
+      "engine_name_is_memory_address": true,
+      "bbox": [
+        335.52,
+        564.4698999999999,
+        497.15999999999997,
+        586.43
+      ],
+      "inline_imagemask_metadata": true,
+      "pixel_stream_accessed": false
+    },
+    {
+      "physical_page": 57,
+      "source_image_ordinal": 1,
+      "object_id": 179,
+      "actual_named_resource": "Im0",
+      "engine_name_is_memory_address": false,
+      "bbox": [
+        0.0,
+        0.0,
+        613.6801,
+        792.96
+      ],
+      "inline_imagemask_metadata": null,
+      "pixel_stream_accessed": false
+    },
+    {
+      "physical_page": 57,
+      "source_image_ordinal": 2,
+      "object_id": null,
+      "actual_named_resource": null,
+      "engine_name_is_memory_address": true,
+      "bbox": [
+        342.73,
+        370.5599,
+        527.05,
+        437.76000000000005
+      ],
+      "inline_imagemask_metadata": true,
+      "pixel_stream_accessed": false
+    },
+    {
+      "physical_page": 57,
+      "source_image_ordinal": 3,
+      "object_id": null,
+      "actual_named_resource": null,
+      "engine_name_is_memory_address": true,
+      "bbox": [
+        95.04,
+        472.31,
+        153.60000000000002,
+        495.35
+      ],
+      "inline_imagemask_metadata": true,
+      "pixel_stream_accessed": false
+    },
+    {
+      "physical_page": 57,
+      "source_image_ordinal": 4,
+      "object_id": null,
+      "actual_named_resource": null,
+      "engine_name_is_memory_address": true,
+      "bbox": [
+        343.68,
+        553.9100000000001,
+        459.84000000000003,
+        588.47
+      ],
+      "inline_imagemask_metadata": true,
+      "pixel_stream_accessed": false
+    },
+    {
+      "physical_page": 63,
+      "source_image_ordinal": 1,
+      "object_id": 1967,
+      "actual_named_resource": "Im0",
+      "engine_name_is_memory_address": false,
+      "bbox": [
+        0.0,
+        -9.999999997489795e-05,
+        612.0,
+        792.0
+      ],
+      "inline_imagemask_metadata": null,
+      "pixel_stream_accessed": false
+    },
+    {
+      "physical_page": 63,
+      "source_image_ordinal": 2,
+      "object_id": null,
+      "actual_named_resource": null,
+      "engine_name_is_memory_address": true,
+      "bbox": [
+        342.0,
+        230.74990000000003,
+        525.6001,
+        296.99
+      ],
+      "inline_imagemask_metadata": true,
+      "pixel_stream_accessed": false
+    },
+    {
+      "physical_page": 63,
+      "source_image_ordinal": 3,
+      "object_id": null,
+      "actual_named_resource": null,
+      "engine_name_is_memory_address": true,
+      "bbox": [
+        102.61,
+        330.1099,
+        233.6501,
+        359.63
+      ],
+      "inline_imagemask_metadata": true,
+      "pixel_stream_accessed": false
+    }
+  ],
+  "cause": "PDFMiner PDFPageInterpreter.do_EI constructs inlineimage name via str(id(obj)); that allocated Python objectaddress is not a source name and changes on reparse. NativePDFimage metadata shows objidNone for affected7inline masks; namedIm0resources have realPDFobjectids.",
+  "installed_function_source_sha256": "c235767524375e5cc8ed3a1e311d19b04b61d9c136487af0825dbe4bf219c2d3",
+  "installed_library_versions": {
+    "pdfminer.six": "20251107",
+    "pdfplumber": "0.11.8",
+    "pypdfium2": "5.14.0",
+    "pypdf": "6.21.1"
+  },
+  "network_requests": 0,
+  "pixel_operations": 0,
+  "image_payload_reads": 0,
+  "scope": "Metadata-only actual source inspection; image streams not decoded, extracted, rendered or OCRed. Raw nativePDF is preserved."
+}

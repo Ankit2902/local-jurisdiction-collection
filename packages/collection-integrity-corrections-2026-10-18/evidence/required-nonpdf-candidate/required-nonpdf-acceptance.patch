@@ -1,0 +1,30 @@
+--- a/collectors/ops/launcher.py
++++ b/collectors/ops/launcher.py
+@@ -501,6 +501,19 @@
+         assets = coverage.get('attachments_complete') is True
+         semantic = (coverage.get('legal_structure_qualified') is True
+                     and coverage.get('source_consistency_complete') is True)
++    # The integrity map contains required nonimage documents only. Unknown or
++    # non-PDF formats need their own explicit text/structure qualification;
++    # nonempty bytes, archive integrity or parent HTML are not that proof.
++    nonpdf_dimensions = {}
++    if isinstance(asset_integrity, dict):
++        for url, detail in asset_integrity.items():
++            if url in required_pdf_assets:
++                continue
++            detail = detail if isinstance(detail, dict) else {}
++            for key in ('document_text_completeness_qualified', 'document_structure_completeness_qualified'):
++                nonpdf_dimensions['asset_document_integrity[' + url + '].' + key] = detail.get(key)
++    if nonpdf_dimensions:
++        semantic = semantic and all(value is True for value in nonpdf_dimensions.values())
+     native = any(coverage.get(key) is True for key in
+                  ('native_document_complete', 'native_publication_files_complete',
+                   'pdf_page_extraction_complete', 'publication_file_coverage_complete'))
+@@ -520,6 +533,7 @@
+             'required_nonimage_documents_complete': assets,
+             'legal_structure_qualified': semantic,
+             'pdf_structure_dimensions': pdf_dimensions,
++            'nonpdf_document_structure_dimensions': nonpdf_dimensions,
+             'native_capture_verified': native,
+             'edition_complete': coverage.get('edition_complete'),
+             'unresolved_required_publication_dependencies': dependencies,

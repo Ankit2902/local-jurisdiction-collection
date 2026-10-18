@@ -35,6 +35,10 @@ python3.12 collect.py verify --target 67 --publication 67-052d9663670b --out /ab
 
 Use a fresh output path. The job record and progress logs live in a sibling `.collection-jobs` directory; the command prints their exact locations. Repeat the same `run` command after a recoverable interruption to resume the bound job. The launcher refuses an existing nonempty output without a matching job, a changed publication/configuration, or a changed collector/runtime. Follow the adapter's explicit migration procedure or start a fresh output when changing code. It does not silently re-label old evidence as a current live run.
 
+Required PDF attachments must have explicit text and table qualifications for each document before the launcher accepts a full publication. The primary HTML and required binary acquisition may pass while this semantic gate remains incomplete. A successful PDF file-integrity check, page count, or parent-level aggregate flag cannot qualify an unassessed attachment. Read `acceptance.pdf_structure_dimensions` for the exact document URL and missing or failed dimension. Required non-PDF documents likewise need explicit document text and structure qualifications; inspect `acceptance.nonpdf_document_structure_dimensions`. A nonempty DOCX or archive is binary capture, not qualified legal content.
+
+Named enCodePlus targets bind the exact selected entry and the full `collectors/encodeplus/targets.json` file. A configuration edit invalidates the prior job/proof binding even when the command line is unchanged. After a collector or configuration upgrade, use an explicit offline `verify` of retained evidence before accepting it under the new version; historical receipts are not automatically upgraded.
+
 `verify` is offline and leaves source evidence unchanged. Its logs and attempt records live under the owned runtime's `verifications` directory. A previously successful job's repeated `run` performs verification only. Every attempt records source hashes before and after execution; changes during execution prevent a verified result.
 
 ## Interpret the result

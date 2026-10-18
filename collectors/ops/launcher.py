@@ -341,6 +341,8 @@ def code_binding(family):
         files += [ROOT / 'collect.py']
     files += [p for p in (ROOT / 'collectors' / family).glob('*') if p.suffix in ('.py', '.cjs')]
     files += [p for folder in ('configs', 'policies') for p in (ROOT / 'collectors' / family / folder).rglob('*.json')]
+    if family == 'encodeplus':
+        files.append(ROOT / 'collectors/encodeplus/targets.json')
     if family == 'originals':
         # Source character/ownership profiles are parser inputs, not optional
         # reports. Bind them alongside the original-source adapter modules.
@@ -348,6 +350,23 @@ def code_binding(family):
         files += list((ROOT / 'collectors' / family / 'profiles').rglob('*.json'))
     files += [p for p in (ROOT / 'collectors/registry').glob('*.json') if p.name not in ('source-evidence-manifest.json', 'original-source-evidence-manifest.json', 'readiness-source-evidence-manifest.json')]
     return {str(p.relative_to(ROOT)): sha(p) for p in sorted(set(files))}
+
+
+def selected_runtime_config(plan):
+    if plan.get('qualified_config_path'):
+        if plan.get('named_config_path'):
+            raise OperationError('Ambiguous selected configuration source')
+        return read(ROOT / plan['qualified_config_path'])
+    if plan.get('named_config_path'):
+        path = (ROOT / plan['named_config_path']).resolve()
+        if path != (ROOT / 'collectors/encodeplus/targets.json').resolve():
+            raise OperationError('Unexpected named enCodePlus configuration file')
+        configurations = read(path)
+        key = plan.get('named_config_key')
+        if not isinstance(configurations, dict) or key not in configurations or not isinstance(configurations[key], dict):
+            raise OperationError('Selected named enCodePlus configuration is missing')
+        return configurations[key]
+    return plan.get('staged_config')
 
 
 def implementation_family(pub):
@@ -450,7 +469,10 @@ def publication_acceptance(pub, output, dependencies=None):
     # Several adapters deliberately distinguish retained PDF/page bytes from
     # qualified legal text/table structure. Their explicit false dimensions
     # cannot disappear when an HTML parent and its required assets return zero.
-    pdf_present = any(isinstance(coverage.get(key), (int, float)) and coverage.get(key) > 0 for key in
+    asset_integrity = coverage.get('asset_document_integrity', {})
+    required_pdf_assets = {url: detail for url, detail in asset_integrity.items()
+                           if isinstance(detail, dict) and str(detail.get('format', '')).upper() == 'PDF'} if isinstance(asset_integrity, dict) else {}
+    pdf_present = bool(required_pdf_assets) or any(isinstance(coverage.get(key), (int, float)) and coverage.get(key) > 0 for key in
                       ('pdf_text_layer_pages_parsed', 'pdf_retained_asset_document_count',
                        'pdf_normalized_distinct_document_count'))
     pdf_dimensions = {}
@@ -458,6 +480,11 @@ def publication_acceptance(pub, output, dependencies=None):
         for key in ('pdf_semantic_text_completeness_qualified', 'pdf_table_completeness_qualified'):
             if key in coverage:
                 pdf_dimensions[key] = coverage[key]
+        # Retained required PDFs are independently qualified documents, not
+        # semantic credit supplied by their parent HTML or file integrity alone.
+        for url, detail in required_pdf_assets.items():
+            for key in ('pdf_semantic_text_completeness_qualified', 'pdf_table_completeness_qualified'):
+                pdf_dimensions['asset_document_integrity[' + url + '].' + key] = detail.get(key)
         semantic = all(value is True for value in pdf_dimensions.values()) if pdf_dimensions else False
     details = coverage.get('pdf_details', {})
     if details.get('pages', 0) and 'pdf_table_semantics_complete' in details:
@@ -474,6 +501,19 @@ def publication_acceptance(pub, output, dependencies=None):
         assets = coverage.get('attachments_complete') is True
         semantic = (coverage.get('legal_structure_qualified') is True
                     and coverage.get('source_consistency_complete') is True)
+    # The integrity map contains required nonimage documents only. Unknown or
+    # non-PDF formats need their own explicit text/structure qualification;
+    # nonempty bytes, archive integrity or parent HTML are not that proof.
+    nonpdf_dimensions = {}
+    if isinstance(asset_integrity, dict):
+        for url, detail in asset_integrity.items():
+            if url in required_pdf_assets:
+                continue
+            detail = detail if isinstance(detail, dict) else {}
+            for key in ('document_text_completeness_qualified', 'document_structure_completeness_qualified'):
+                nonpdf_dimensions['asset_document_integrity[' + url + '].' + key] = detail.get(key)
+    if nonpdf_dimensions:
+        semantic = semantic and all(value is True for value in nonpdf_dimensions.values())
     native = any(coverage.get(key) is True for key in
                  ('native_document_complete', 'native_publication_files_complete',
                   'pdf_page_extraction_complete', 'publication_file_coverage_complete'))
@@ -493,6 +533,7 @@ def publication_acceptance(pub, output, dependencies=None):
             'required_nonimage_documents_complete': assets,
             'legal_structure_qualified': semantic,
             'pdf_structure_dimensions': pdf_dimensions,
+            'nonpdf_document_structure_dimensions': nonpdf_dimensions,
             'native_capture_verified': native,
             'edition_complete': coverage.get('edition_complete'),
             'unresolved_required_publication_dependencies': dependencies,
@@ -544,7 +585,7 @@ def execute_job(runtime, target, publication, output, verify_only=False, depende
         acceptance['native_capture_verified'] = acceptance['native_capture_verified'] and evidence_unchanged
         accepted = result.returncode == 0 and acceptance['publication_coverage_accepted'] and not source_changed and evidence_unchanged
         acceptance['publication_accepted'] = accepted
-        receipt = {'status': 'source_changed_during_verification' if source_changed else ('verified_publication' if accepted else 'publication_acceptance_incomplete'), 'verification_exit': result.returncode, 'log': str(log), 'output': str(out), 'publication_id': pub['id'], 'publication': pub, 'selected_config': read(ROOT / plan['qualified_config_path']) if plan.get('qualified_config_path') else plan.get('staged_config'), 'runtime_receipt_sha256': runtime_before, 'runtime_changed_during_run': runtime_changed, 'publisher_requests': 0, 'evidence_read_only': evidence_unchanged, 'evidence_sha256_before': evidence_before, 'evidence_sha256_after': evidence_after, 'verification_argv': [str(x) for x in argv], 'selected_plan': plan, 'runtime_receipt_path': str(Path(runtime) / 'runtime.json'), 'collector_sources_before': sources_before, 'collector_sources_after': sources_after, 'source_changed_during_run': source_changed, 'family_verifier_passed': result.returncode == 0, 'acceptance': acceptance}
+        receipt = {'status': 'source_changed_during_verification' if source_changed else ('verified_publication' if accepted else 'publication_acceptance_incomplete'), 'verification_exit': result.returncode, 'log': str(log), 'output': str(out), 'publication_id': pub['id'], 'publication': pub, 'selected_config': selected_runtime_config(plan), 'runtime_receipt_sha256': runtime_before, 'runtime_changed_during_run': runtime_changed, 'publisher_requests': 0, 'evidence_read_only': evidence_unchanged, 'evidence_sha256_before': evidence_before, 'evidence_sha256_after': evidence_after, 'verification_argv': [str(x) for x in argv], 'selected_plan': plan, 'runtime_receipt_path': str(Path(runtime) / 'runtime.json'), 'collector_sources_before': sources_before, 'collector_sources_after': sources_after, 'source_changed_during_run': source_changed, 'family_verifier_passed': result.returncode == 0, 'acceptance': acceptance}
         save(log.with_suffix('.json'), receipt)
         return (0 if accepted else (result.returncode or 2)), receipt
     if out == ROOT or ROOT in out.parents and out.relative_to(ROOT).parts[0] in ('collectors', 'packages', 'archives'):
@@ -560,7 +601,7 @@ def execute_job(runtime, target, publication, output, verify_only=False, depende
         runtime_identity = {key: runtime_receipt.get(key) for key in ('packages', 'requirements_sha256', 'browser_driver_sha256', 'shim_sha256')}
         prior_native = bool(job and job['binding'].get('collection_options', {}).get('native_export'))
         want_native = prior_native if native_export is None else native_export
-        binding = {'target_id': str(target), 'publication_id': pub['id'], 'out': str(out), 'publication': pub, 'collector_sources': code_binding(implementation_family(pub)), 'runtime_identity': runtime_identity, 'selected_config': read(ROOT / plan['qualified_config_path']) if plan.get('qualified_config_path') else plan.get('staged_config')}
+        binding = {'target_id': str(target), 'publication_id': pub['id'], 'out': str(out), 'publication': pub, 'collector_sources': code_binding(implementation_family(pub)), 'runtime_identity': runtime_identity, 'selected_config': selected_runtime_config(plan)}
         if want_native:
             binding['collection_options'] = {'native_export': True}
         if retry_native_export and (not job or not prior_native):

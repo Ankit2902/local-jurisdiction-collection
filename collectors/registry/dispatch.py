@@ -49,7 +49,7 @@ def qualified(pub,target):
    detail.update(config=native,config_path=str(native_path.relative_to(ROOT)),native_document=True)
    return detail
   p=ROOT/'collectors/encodeplus/targets.json';known=read(p) if p.exists() else {};matches=[(k,v) for k,v in known.items() if normalized(v['base'])==normalized(url)]
-  if len(matches)==1:detail.update(target_key=matches[0][0],config=matches[0][1])
+  if len(matches)==1:detail.update(target_key=matches[0][0],config=matches[0][1],named_config_path=str(p.relative_to(ROOT)),named_config_key=matches[0][0])
   elif len([p for p in (ROOT/'collectors/encodeplus/configs').glob('*.json') if normalized(read(p).get('base',''))==normalized(url)])==1:
    p=next(p for p in (ROOT/'collectors/encodeplus/configs').glob('*.json') if normalized(read(p).get('base',''))==normalized(url));detail.update(target_key=pub['id'],config=read(p),custom_config=True,config_path=str(p.relative_to(ROOT)))
   elif pub.get('adapter_config',{}).get('identity'):detail.update(target_key=pub['id'],config=pub['adapter_config'],custom_config=True)
@@ -111,7 +111,9 @@ def command(pub,target,out,python='python3',resume=False,max_items=None,verify=F
   if native_export:argv+=['--native-export']
   if retry_native_export:argv+=['--retry-native-export']
   if max_items is not None:argv+=['--max-items',str(max_items)]
- return {'argv':argv,'staged_config':config if '{CONFIG}' in argv else None,'qualified_config_path':q.get('config_path'),'publication_id':pub['id'],'publication_title':pub['title'],'publication_expected_identity':identity,'required_for_jurisdiction':pub['required_for_jurisdiction'],'jurisdiction_scope':pub.get('jurisdiction_scope'),'edition_scope':pub.get('edition_scope'),'required_publication_dependencies':pub.get('required_publication_dependencies',[]),'configuration_alias_of':pub.get('configuration_alias_of'),'scope':pub['scope_kind'],'image_policy':pub.get('image_policy'),'jurisdiction_complete':False}
+ plan={'argv':argv,'staged_config':config if '{CONFIG}' in argv else None,'qualified_config_path':q.get('config_path'),'publication_id':pub['id'],'publication_title':pub['title'],'publication_expected_identity':identity,'required_for_jurisdiction':pub['required_for_jurisdiction'],'jurisdiction_scope':pub.get('jurisdiction_scope'),'edition_scope':pub.get('edition_scope'),'required_publication_dependencies':pub.get('required_publication_dependencies',[]),'configuration_alias_of':pub.get('configuration_alias_of'),'scope':pub['scope_kind'],'image_policy':pub.get('image_policy'),'jurisdiction_complete':False}
+ if q.get('named_config_path'):plan.update(named_config_path=q['named_config_path'],named_config_key=q['named_config_key'])
+ return plan
 
 def bind_run(pub,target,out):
  """Fail before dispatch if retained run belongs to another selected publication.

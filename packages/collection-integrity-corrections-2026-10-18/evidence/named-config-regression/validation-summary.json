@@ -1,0 +1,30 @@
+{
+  "status": "repository_ready_regression_prepared_not_promoted",
+  "production_modified": false,
+  "publisher_requests": 0,
+  "regression_file": "test_named_encodeplus_binding.py",
+  "regression_sha256": "26e597d3e33be9ed4486bba1a6e9cb2068a99acf1ec1f3d9300a03951b3cc7b2",
+  "prepromotion_production_test_exit": 1,
+  "postpromotion_normal_layout_test_exit": 0,
+  "focused_tests": 7,
+  "existing_tests": 16,
+  "existing_exit": 0,
+  "source_modules": {
+    "collectors/ops/launcher.py": "32f97985956f44aa7fe0b29996d2c8772ea3a988af9ad4303adad83a66beb8a9",
+    "collectors/qa/readiness_binding.py": "f0088966bcd4194cdf261d6c45f35dcdcc5e79999393684907518c9cd4ec56ea",
+    "collectors/registry/dispatch.py": "9eabc0c206ea46fa674a19ec73f095a8e16a31af0b1fdbed8bcdb307c615650a"
+  },
+  "current_inputs": {
+    "collectors/encodeplus/targets.json": "a49ef8ea245588ceb30a2e654295566ae3b4d6b6d0afd1a8900abd72bd094163",
+    "collectors/registry/publications.json": "a6d60b68e0674bc84613f79e3e078545fd7d607957b18368cb48828bb31e8a65",
+    "collectors/registry/targets.json": "2bb1c30141305620410cb2f77825bc7bf59e40fa865a501289b7cf214f24882d"
+  },
+  "production_baselines_unchanged": {
+    "collectors/ops/launcher.py": "65593369f9c80bf5c28be5c5a64bb54896bd0dbb78b798120dc84f87ae2619ae",
+    "collectors/qa/readiness_binding.py": "640d94245c6dd225a9b541245d4b9ff22eb14ec6c8aaca9e6dbf0f54dca64725",
+    "collectors/registry/dispatch.py": "410f91e36615cf4de0f179c707ef135038c3f96ae95f1f326e526faa396a1078",
+    "collectors/encodeplus/targets.json": "a49ef8ea245588ceb30a2e654295566ae3b4d6b6d0afd1a8900abd72bd094163"
+  },
+  "exact_postpromotion_command": ".collection-runtime/venv/bin/python -B -m unittest discover -s collectors/qa -p 'test_named_encodeplus_binding.py' -v",
+  "exact_existing_test_command": ".collection-runtime/venv/bin/python -B -m unittest discover -s collectors/qa -p 'test_readiness_binding.py' -v"
+}

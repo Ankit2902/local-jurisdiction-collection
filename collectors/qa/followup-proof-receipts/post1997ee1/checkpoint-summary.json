@@ -1,0 +1,34 @@
+{
+  "integrated_suite": {
+    "programs": 31,
+    "unittest_methods": 140,
+    "passed": true,
+    "report_sha256": "f0f8b7c2cfb003c3924842c207154359f320825d1b7974a5a1062b7f4938f128"
+  },
+  "post_suite_changes": {
+    "collectors/official/OPERATIONAL-REVISION.json": {
+      "before": "8f7bce12141b77049d442540707914204789a65318f962d7b2a0620d98297f24",
+      "after": "05cc6b3d4b4443496a97d0e62c5bcd81d17530032b4ac92ddab02a30f083fd1c"
+    },
+    "collectors/official/validation-summary.json": {
+      "before": "a48867745431914a9230d073cb76b78f842301874354eeb3f72cada226685215",
+      "after": "b555e65d1da94b1cc8f8acbbfd5fd3edf0ef71c027e94c6fbbce2baf8a0161c2"
+    },
+    "collectors/qa/build_followup_ledger.py": {
+      "before": "f94a2c4bf3854b75bc77ea8e987c95fb0e6c15ab20257e31251c4da61f886764",
+      "after": "0b4109ad104ce2d33447db935532b4e9bdaa0b87f8e2bff07f0e855679542979"
+    },
+    "collectors/qa/followup-requirements.json": {
+      "before": "1ef59cc2bc7681d3349dd77261fc31811bcf2e7da3051c9427d04d504bce4fd4",
+      "after": "e5396a33625e2b3f6a37295f1863d86ba37290b7da8f892750d6ee177a17a540"
+    }
+  },
+  "post_suite_validation": {
+    "current_catalog_entries": 225,
+    "named_configurations_without_old_gap": 5,
+    "strict_readiness_verified": 0,
+    "actual_fresh_runtime_publication_accepted": false,
+    "actual_fresh_runtime_family_verifier_passed": true
+  },
+  "scope": "Runtime collector/launcher code unchanged since the integrated suite. Later readiness generator and operational metadata changes are validated by a full current225-entry ledger rebuild; source proofs remain scope-specific. No all-jurisdiction completion claim."
+}

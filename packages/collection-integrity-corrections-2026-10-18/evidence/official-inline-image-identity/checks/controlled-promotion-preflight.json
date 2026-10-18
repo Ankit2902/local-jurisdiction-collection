@@ -1,0 +1,367 @@
+{
+  "schema": 1,
+  "timestamp_utc": "2026-10-18T00:15:58.611743+00:00",
+  "kind": "controlled_narrow_promotion_preflight",
+  "candidate_changed_files": [
+    "model.py",
+    "collect.py"
+  ],
+  "runs": [
+    {
+      "path": "burlington-current-replay-v1",
+      "pid": null,
+      "process_observation": "Terminal exit3 retained separately",
+      "checkpoint_started_at": "2026-10-17T23:47:24.653833+00:00",
+      "checkpoint_script_hashes": {
+        "collect.py": "a72708a9a06ca211dc6254d3eb40000aeea5a2a2605dab632baf8380beef5bc1",
+        "model.py": "4b97d38e09062814783770f76a660bf97297ecb4631d5c1c63654c58ec7ed9bc",
+        "transport.py": "856f00a0de7d561839ba8842af7ae49483fd5efd31fb0352dbe7cbccc011a148",
+        "legacy_html.py": "b3799648ab453ff71217d336f55d78501dcc4a8a92e6cf6d187632508b665048",
+        "browser_fetch.cjs": "9dbf7e1f5f1acbded4821a59021075c0859c705e7d4b7e87d30c0736f6955918",
+        "post_transport.py": "ad9d0b3662f49ffe54420f7b3b4cb1d62acfce19be4e4a394243bc92c2b06c33",
+        "spokane_bulk.py": "f5bf3fb9dc69acc878e414d43935231f7f8049732229b1202e9780459ed8785b",
+        "pdf_structure.py": "f68f116969b89170b84d10d34c377fe31699e8ada306fd7b54b8f7308c50e42e",
+        "openlaw_xml.py": "172fc1cfd76f241fd891f4b2e0e07ee187b9821fa9020baa9843a6a7bd6fb547",
+        "git_archive_binding.py": "e74bf2b5e847099f6212266b0c1e747471e90320aff80f1a68247f64be467fbc",
+        "publication_refs.py": "46304b9958b05a172a6faa9b24151411898c3cbb7ee6b6588dc442baddfd3640",
+        "verify.py": "3205bf0aa89c2c40fcf1b63697607d893f457c7df3d76ba71a7fe9b87e371989",
+        "replay.py": "b2df04cdb494500a605c8e68d05b76f537ba224619769f83b1926534f521adaf",
+        "attachment_outputs.py": "38a2500220c206ca0ee6f33d1756cffe23df4fb70496589e4cf68c063d9c446f",
+        "bounded_decoder.py": "a579f2a79c15833e0c5a8c65bc4fa6024b2dbb6eafb408d1135f500c64c72770",
+        "native_labels.py": "dc2489d1d734f177bb1b15a9c73b1117cda37a51d0c57fe5c2f0fe45e96fb6de"
+      },
+      "executed_snapshots_exact": true,
+      "late_imports_and_helper_reads_unchanged": {
+        "transport.py": {
+          "captured_sha256": "856f00a0de7d561839ba8842af7ae49483fd5efd31fb0352dbe7cbccc011a148",
+          "production_sha256": "856f00a0de7d561839ba8842af7ae49483fd5efd31fb0352dbe7cbccc011a148",
+          "candidate_sha256": "856f00a0de7d561839ba8842af7ae49483fd5efd31fb0352dbe7cbccc011a148"
+        },
+        "legacy_html.py": {
+          "captured_sha256": "b3799648ab453ff71217d336f55d78501dcc4a8a92e6cf6d187632508b665048",
+          "production_sha256": "b3799648ab453ff71217d336f55d78501dcc4a8a92e6cf6d187632508b665048",
+          "candidate_sha256": "b3799648ab453ff71217d336f55d78501dcc4a8a92e6cf6d187632508b665048"
+        },
+        "browser_fetch.cjs": {
+          "captured_sha256": "9dbf7e1f5f1acbded4821a59021075c0859c705e7d4b7e87d30c0736f6955918",
+          "production_sha256": "9dbf7e1f5f1acbded4821a59021075c0859c705e7d4b7e87d30c0736f6955918",
+          "candidate_sha256": "9dbf7e1f5f1acbded4821a59021075c0859c705e7d4b7e87d30c0736f6955918"
+        },
+        "post_transport.py": {
+          "captured_sha256": "ad9d0b3662f49ffe54420f7b3b4cb1d62acfce19be4e4a394243bc92c2b06c33",
+          "production_sha256": "ad9d0b3662f49ffe54420f7b3b4cb1d62acfce19be4e4a394243bc92c2b06c33",
+          "candidate_sha256": "ad9d0b3662f49ffe54420f7b3b4cb1d62acfce19be4e4a394243bc92c2b06c33"
+        },
+        "spokane_bulk.py": {
+          "captured_sha256": "f5bf3fb9dc69acc878e414d43935231f7f8049732229b1202e9780459ed8785b",
+          "production_sha256": "f5bf3fb9dc69acc878e414d43935231f7f8049732229b1202e9780459ed8785b",
+          "candidate_sha256": "f5bf3fb9dc69acc878e414d43935231f7f8049732229b1202e9780459ed8785b"
+        },
+        "pdf_structure.py": {
+          "captured_sha256": "f68f116969b89170b84d10d34c377fe31699e8ada306fd7b54b8f7308c50e42e",
+          "production_sha256": "f68f116969b89170b84d10d34c377fe31699e8ada306fd7b54b8f7308c50e42e",
+          "candidate_sha256": "f68f116969b89170b84d10d34c377fe31699e8ada306fd7b54b8f7308c50e42e"
+        },
+        "openlaw_xml.py": {
+          "captured_sha256": "172fc1cfd76f241fd891f4b2e0e07ee187b9821fa9020baa9843a6a7bd6fb547",
+          "production_sha256": "172fc1cfd76f241fd891f4b2e0e07ee187b9821fa9020baa9843a6a7bd6fb547",
+          "candidate_sha256": "172fc1cfd76f241fd891f4b2e0e07ee187b9821fa9020baa9843a6a7bd6fb547"
+        },
+        "git_archive_binding.py": {
+          "captured_sha256": "e74bf2b5e847099f6212266b0c1e747471e90320aff80f1a68247f64be467fbc",
+          "production_sha256": "e74bf2b5e847099f6212266b0c1e747471e90320aff80f1a68247f64be467fbc",
+          "candidate_sha256": "e74bf2b5e847099f6212266b0c1e747471e90320aff80f1a68247f64be467fbc"
+        },
+        "publication_refs.py": {
+          "captured_sha256": "46304b9958b05a172a6faa9b24151411898c3cbb7ee6b6588dc442baddfd3640",
+          "production_sha256": "46304b9958b05a172a6faa9b24151411898c3cbb7ee6b6588dc442baddfd3640",
+          "candidate_sha256": "46304b9958b05a172a6faa9b24151411898c3cbb7ee6b6588dc442baddfd3640"
+        },
+        "verify.py": {
+          "captured_sha256": "3205bf0aa89c2c40fcf1b63697607d893f457c7df3d76ba71a7fe9b87e371989",
+          "production_sha256": "3205bf0aa89c2c40fcf1b63697607d893f457c7df3d76ba71a7fe9b87e371989",
+          "candidate_sha256": "3205bf0aa89c2c40fcf1b63697607d893f457c7df3d76ba71a7fe9b87e371989"
+        },
+        "replay.py": {
+          "captured_sha256": "b2df04cdb494500a605c8e68d05b76f537ba224619769f83b1926534f521adaf",
+          "production_sha256": "b2df04cdb494500a605c8e68d05b76f537ba224619769f83b1926534f521adaf",
+          "candidate_sha256": "b2df04cdb494500a605c8e68d05b76f537ba224619769f83b1926534f521adaf"
+        },
+        "attachment_outputs.py": {
+          "captured_sha256": "38a2500220c206ca0ee6f33d1756cffe23df4fb70496589e4cf68c063d9c446f",
+          "production_sha256": "38a2500220c206ca0ee6f33d1756cffe23df4fb70496589e4cf68c063d9c446f",
+          "candidate_sha256": "38a2500220c206ca0ee6f33d1756cffe23df4fb70496589e4cf68c063d9c446f"
+        },
+        "bounded_decoder.py": {
+          "captured_sha256": "a579f2a79c15833e0c5a8c65bc4fa6024b2dbb6eafb408d1135f500c64c72770",
+          "production_sha256": "a579f2a79c15833e0c5a8c65bc4fa6024b2dbb6eafb408d1135f500c64c72770",
+          "candidate_sha256": "a579f2a79c15833e0c5a8c65bc4fa6024b2dbb6eafb408d1135f500c64c72770"
+        },
+        "native_labels.py": {
+          "captured_sha256": "dc2489d1d734f177bb1b15a9c73b1117cda37a51d0c57fe5c2f0fe45e96fb6de",
+          "production_sha256": "dc2489d1d734f177bb1b15a9c73b1117cda37a51d0c57fe5c2f0fe45e96fb6de",
+          "candidate_sha256": "dc2489d1d734f177bb1b15a9c73b1117cda37a51d0c57fe5c2f0fe45e96fb6de"
+        }
+      },
+      "runtime_scripts_calls": [
+        {
+          "function": "initialize",
+          "line": 65
+        },
+        {
+          "function": "run",
+          "line": 95
+        }
+      ],
+      "runtime_scripts_phase_analysis": "initialize() completed before processing; run() call guarded resume-only. Both active runs are fresh --replay-from, not resume; no production source fingerprint reads in finalreconcile.",
+      "module_immutability_basis": "Normal Python imports cache compiled collect/model modules in sys.modules. Exact captured startup bytes and process invocation retained. Static all-local-source scan finds no reload/runpy/exec path. from model import in spokane_bulk resolves cached module; changed files are never reread as code after startup. No process injection or debugger used.",
+      "verifier_command": "python -B burlington-current-replay-v1/executed/verify.py burlington-current-replay-v1",
+      "verifier_binding": "Script-directory import uses captured executed collect/model; validate_cached checks checkpoint against executed source hashes, not current production fingerprints. Default strict verifier unchanged.",
+      "status_at_boundary": {
+        "done": 157,
+        "expected": 157,
+        "checkpoint_completed": true,
+        "coverage_exists": true
+      },
+      "proof_label": "historical72 producer; never relabel as78 execution"
+    },
+    {
+      "path": "rockland-current-replay-v1",
+      "pid": 90012,
+      "process_observation": "90012 Sat Oct 17 18:47:17 2026     28:41 /Users/oliverflint/My Drive/Claude/Projects/CompliSolv 2.00/outputs/collection-readiness-2026-10-17/official/.venv/bin/python -B collectors/official/collect.py --config collectors/official/configs/original-rockland-me.json --replay-from /Users/oliverflint/My Drive/Claude/Projects/CompliSolv 2.00/outputs/collection-readiness-2026-10-17/official/rockland-maine-full-v1 --out /Users/oliverflint/My Drive/Claude/Projects/CompliSolv 2.00/outputs/collection-readiness-operational-2026-10-17/official/rockland-current-replay-v1",
+      "checkpoint_started_at": "2026-10-17T23:47:18.417147+00:00",
+      "checkpoint_script_hashes": {
+        "collect.py": "a72708a9a06ca211dc6254d3eb40000aeea5a2a2605dab632baf8380beef5bc1",
+        "model.py": "4b97d38e09062814783770f76a660bf97297ecb4631d5c1c63654c58ec7ed9bc",
+        "transport.py": "856f00a0de7d561839ba8842af7ae49483fd5efd31fb0352dbe7cbccc011a148",
+        "legacy_html.py": "b3799648ab453ff71217d336f55d78501dcc4a8a92e6cf6d187632508b665048",
+        "browser_fetch.cjs": "9dbf7e1f5f1acbded4821a59021075c0859c705e7d4b7e87d30c0736f6955918",
+        "post_transport.py": "ad9d0b3662f49ffe54420f7b3b4cb1d62acfce19be4e4a394243bc92c2b06c33",
+        "spokane_bulk.py": "f5bf3fb9dc69acc878e414d43935231f7f8049732229b1202e9780459ed8785b",
+        "pdf_structure.py": "f68f116969b89170b84d10d34c377fe31699e8ada306fd7b54b8f7308c50e42e",
+        "openlaw_xml.py": "172fc1cfd76f241fd891f4b2e0e07ee187b9821fa9020baa9843a6a7bd6fb547",
+        "git_archive_binding.py": "e74bf2b5e847099f6212266b0c1e747471e90320aff80f1a68247f64be467fbc",
+        "publication_refs.py": "46304b9958b05a172a6faa9b24151411898c3cbb7ee6b6588dc442baddfd3640",
+        "verify.py": "3205bf0aa89c2c40fcf1b63697607d893f457c7df3d76ba71a7fe9b87e371989",
+        "replay.py": "b2df04cdb494500a605c8e68d05b76f537ba224619769f83b1926534f521adaf",
+        "attachment_outputs.py": "38a2500220c206ca0ee6f33d1756cffe23df4fb70496589e4cf68c063d9c446f",
+        "bounded_decoder.py": "a579f2a79c15833e0c5a8c65bc4fa6024b2dbb6eafb408d1135f500c64c72770",
+        "native_labels.py": "dc2489d1d734f177bb1b15a9c73b1117cda37a51d0c57fe5c2f0fe45e96fb6de"
+      },
+      "executed_snapshots_exact": true,
+      "late_imports_and_helper_reads_unchanged": {
+        "transport.py": {
+          "captured_sha256": "856f00a0de7d561839ba8842af7ae49483fd5efd31fb0352dbe7cbccc011a148",
+          "production_sha256": "856f00a0de7d561839ba8842af7ae49483fd5efd31fb0352dbe7cbccc011a148",
+          "candidate_sha256": "856f00a0de7d561839ba8842af7ae49483fd5efd31fb0352dbe7cbccc011a148"
+        },
+        "legacy_html.py": {
+          "captured_sha256": "b3799648ab453ff71217d336f55d78501dcc4a8a92e6cf6d187632508b665048",
+          "production_sha256": "b3799648ab453ff71217d336f55d78501dcc4a8a92e6cf6d187632508b665048",
+          "candidate_sha256": "b3799648ab453ff71217d336f55d78501dcc4a8a92e6cf6d187632508b665048"
+        },
+        "browser_fetch.cjs": {
+          "captured_sha256": "9dbf7e1f5f1acbded4821a59021075c0859c705e7d4b7e87d30c0736f6955918",
+          "production_sha256": "9dbf7e1f5f1acbded4821a59021075c0859c705e7d4b7e87d30c0736f6955918",
+          "candidate_sha256": "9dbf7e1f5f1acbded4821a59021075c0859c705e7d4b7e87d30c0736f6955918"
+        },
+        "post_transport.py": {
+          "captured_sha256": "ad9d0b3662f49ffe54420f7b3b4cb1d62acfce19be4e4a394243bc92c2b06c33",
+          "production_sha256": "ad9d0b3662f49ffe54420f7b3b4cb1d62acfce19be4e4a394243bc92c2b06c33",
+          "candidate_sha256": "ad9d0b3662f49ffe54420f7b3b4cb1d62acfce19be4e4a394243bc92c2b06c33"
+        },
+        "spokane_bulk.py": {
+          "captured_sha256": "f5bf3fb9dc69acc878e414d43935231f7f8049732229b1202e9780459ed8785b",
+          "production_sha256": "f5bf3fb9dc69acc878e414d43935231f7f8049732229b1202e9780459ed8785b",
+          "candidate_sha256": "f5bf3fb9dc69acc878e414d43935231f7f8049732229b1202e9780459ed8785b"
+        },
+        "pdf_structure.py": {
+          "captured_sha256": "f68f116969b89170b84d10d34c377fe31699e8ada306fd7b54b8f7308c50e42e",
+          "production_sha256": "f68f116969b89170b84d10d34c377fe31699e8ada306fd7b54b8f7308c50e42e",
+          "candidate_sha256": "f68f116969b89170b84d10d34c377fe31699e8ada306fd7b54b8f7308c50e42e"
+        },
+        "openlaw_xml.py": {
+          "captured_sha256": "172fc1cfd76f241fd891f4b2e0e07ee187b9821fa9020baa9843a6a7bd6fb547",
+          "production_sha256": "172fc1cfd76f241fd891f4b2e0e07ee187b9821fa9020baa9843a6a7bd6fb547",
+          "candidate_sha256": "172fc1cfd76f241fd891f4b2e0e07ee187b9821fa9020baa9843a6a7bd6fb547"
+        },
+        "git_archive_binding.py": {
+          "captured_sha256": "e74bf2b5e847099f6212266b0c1e747471e90320aff80f1a68247f64be467fbc",
+          "production_sha256": "e74bf2b5e847099f6212266b0c1e747471e90320aff80f1a68247f64be467fbc",
+          "candidate_sha256": "e74bf2b5e847099f6212266b0c1e747471e90320aff80f1a68247f64be467fbc"
+        },
+        "publication_refs.py": {
+          "captured_sha256": "46304b9958b05a172a6faa9b24151411898c3cbb7ee6b6588dc442baddfd3640",
+          "production_sha256": "46304b9958b05a172a6faa9b24151411898c3cbb7ee6b6588dc442baddfd3640",
+          "candidate_sha256": "46304b9958b05a172a6faa9b24151411898c3cbb7ee6b6588dc442baddfd3640"
+        },
+        "verify.py": {
+          "captured_sha256": "3205bf0aa89c2c40fcf1b63697607d893f457c7df3d76ba71a7fe9b87e371989",
+          "production_sha256": "3205bf0aa89c2c40fcf1b63697607d893f457c7df3d76ba71a7fe9b87e371989",
+          "candidate_sha256": "3205bf0aa89c2c40fcf1b63697607d893f457c7df3d76ba71a7fe9b87e371989"
+        },
+        "replay.py": {
+          "captured_sha256": "b2df04cdb494500a605c8e68d05b76f537ba224619769f83b1926534f521adaf",
+          "production_sha256": "b2df04cdb494500a605c8e68d05b76f537ba224619769f83b1926534f521adaf",
+          "candidate_sha256": "b2df04cdb494500a605c8e68d05b76f537ba224619769f83b1926534f521adaf"
+        },
+        "attachment_outputs.py": {
+          "captured_sha256": "38a2500220c206ca0ee6f33d1756cffe23df4fb70496589e4cf68c063d9c446f",
+          "production_sha256": "38a2500220c206ca0ee6f33d1756cffe23df4fb70496589e4cf68c063d9c446f",
+          "candidate_sha256": "38a2500220c206ca0ee6f33d1756cffe23df4fb70496589e4cf68c063d9c446f"
+        },
+        "bounded_decoder.py": {
+          "captured_sha256": "a579f2a79c15833e0c5a8c65bc4fa6024b2dbb6eafb408d1135f500c64c72770",
+          "production_sha256": "a579f2a79c15833e0c5a8c65bc4fa6024b2dbb6eafb408d1135f500c64c72770",
+          "candidate_sha256": "a579f2a79c15833e0c5a8c65bc4fa6024b2dbb6eafb408d1135f500c64c72770"
+        },
+        "native_labels.py": {
+          "captured_sha256": "dc2489d1d734f177bb1b15a9c73b1117cda37a51d0c57fe5c2f0fe45e96fb6de",
+          "production_sha256": "dc2489d1d734f177bb1b15a9c73b1117cda37a51d0c57fe5c2f0fe45e96fb6de",
+          "candidate_sha256": "dc2489d1d734f177bb1b15a9c73b1117cda37a51d0c57fe5c2f0fe45e96fb6de"
+        }
+      },
+      "runtime_scripts_calls": [
+        {
+          "function": "initialize",
+          "line": 65
+        },
+        {
+          "function": "run",
+          "line": 95
+        }
+      ],
+      "runtime_scripts_phase_analysis": "initialize() completed before processing; run() call guarded resume-only. Both active runs are fresh --replay-from, not resume; no production source fingerprint reads in finalreconcile.",
+      "module_immutability_basis": "Normal Python imports cache compiled collect/model modules in sys.modules. Exact captured startup bytes and process invocation retained. Static all-local-source scan finds no reload/runpy/exec path. from model import in spokane_bulk resolves cached module; changed files are never reread as code after startup. No process injection or debugger used.",
+      "verifier_command": "python -B rockland-current-replay-v1/executed/verify.py rockland-current-replay-v1",
+      "verifier_binding": "Script-directory import uses captured executed collect/model; validate_cached checks checkpoint against executed source hashes, not current production fingerprints. Default strict verifier unchanged.",
+      "status_at_boundary": {
+        "done": 18,
+        "expected": 21,
+        "checkpoint_completed": false,
+        "coverage_exists": false
+      },
+      "proof_label": "historical72 producer; never relabel as78 execution"
+    },
+    {
+      "path": "spokane-current-replay-v1",
+      "pid": 90019,
+      "process_observation": "90019 Sat Oct 17 18:47:24 2026     28:34 /Users/oliverflint/My Drive/Claude/Projects/CompliSolv 2.00/outputs/collection-readiness-2026-10-17/official/.venv/bin/python -B collectors/official/collect.py --config collectors/official/configs/spokane-code.json --replay-from /Users/oliverflint/My Drive/Claude/Projects/CompliSolv 2.00/outputs/collection-readiness-2026-10-17/official/spokane-full-bulk-v10 --out /Users/oliverflint/My Drive/Claude/Projects/CompliSolv 2.00/outputs/collection-readiness-operational-2026-10-17/official/spokane-current-replay-v1",
+      "checkpoint_started_at": "2026-10-17T23:47:31.728093+00:00",
+      "checkpoint_script_hashes": {
+        "collect.py": "a72708a9a06ca211dc6254d3eb40000aeea5a2a2605dab632baf8380beef5bc1",
+        "model.py": "4b97d38e09062814783770f76a660bf97297ecb4631d5c1c63654c58ec7ed9bc",
+        "transport.py": "856f00a0de7d561839ba8842af7ae49483fd5efd31fb0352dbe7cbccc011a148",
+        "legacy_html.py": "b3799648ab453ff71217d336f55d78501dcc4a8a92e6cf6d187632508b665048",
+        "browser_fetch.cjs": "9dbf7e1f5f1acbded4821a59021075c0859c705e7d4b7e87d30c0736f6955918",
+        "post_transport.py": "ad9d0b3662f49ffe54420f7b3b4cb1d62acfce19be4e4a394243bc92c2b06c33",
+        "spokane_bulk.py": "f5bf3fb9dc69acc878e414d43935231f7f8049732229b1202e9780459ed8785b",
+        "pdf_structure.py": "f68f116969b89170b84d10d34c377fe31699e8ada306fd7b54b8f7308c50e42e",
+        "openlaw_xml.py": "172fc1cfd76f241fd891f4b2e0e07ee187b9821fa9020baa9843a6a7bd6fb547",
+        "git_archive_binding.py": "e74bf2b5e847099f6212266b0c1e747471e90320aff80f1a68247f64be467fbc",
+        "publication_refs.py": "46304b9958b05a172a6faa9b24151411898c3cbb7ee6b6588dc442baddfd3640",
+        "verify.py": "3205bf0aa89c2c40fcf1b63697607d893f457c7df3d76ba71a7fe9b87e371989",
+        "replay.py": "b2df04cdb494500a605c8e68d05b76f537ba224619769f83b1926534f521adaf",
+        "attachment_outputs.py": "38a2500220c206ca0ee6f33d1756cffe23df4fb70496589e4cf68c063d9c446f",
+        "bounded_decoder.py": "a579f2a79c15833e0c5a8c65bc4fa6024b2dbb6eafb408d1135f500c64c72770",
+        "native_labels.py": "dc2489d1d734f177bb1b15a9c73b1117cda37a51d0c57fe5c2f0fe45e96fb6de"
+      },
+      "executed_snapshots_exact": true,
+      "late_imports_and_helper_reads_unchanged": {
+        "transport.py": {
+          "captured_sha256": "856f00a0de7d561839ba8842af7ae49483fd5efd31fb0352dbe7cbccc011a148",
+          "production_sha256": "856f00a0de7d561839ba8842af7ae49483fd5efd31fb0352dbe7cbccc011a148",
+          "candidate_sha256": "856f00a0de7d561839ba8842af7ae49483fd5efd31fb0352dbe7cbccc011a148"
+        },
+        "legacy_html.py": {
+          "captured_sha256": "b3799648ab453ff71217d336f55d78501dcc4a8a92e6cf6d187632508b665048",
+          "production_sha256": "b3799648ab453ff71217d336f55d78501dcc4a8a92e6cf6d187632508b665048",
+          "candidate_sha256": "b3799648ab453ff71217d336f55d78501dcc4a8a92e6cf6d187632508b665048"
+        },
+        "browser_fetch.cjs": {
+          "captured_sha256": "9dbf7e1f5f1acbded4821a59021075c0859c705e7d4b7e87d30c0736f6955918",
+          "production_sha256": "9dbf7e1f5f1acbded4821a59021075c0859c705e7d4b7e87d30c0736f6955918",
+          "candidate_sha256": "9dbf7e1f5f1acbded4821a59021075c0859c705e7d4b7e87d30c0736f6955918"
+        },
+        "post_transport.py": {
+          "captured_sha256": "ad9d0b3662f49ffe54420f7b3b4cb1d62acfce19be4e4a394243bc92c2b06c33",
+          "production_sha256": "ad9d0b3662f49ffe54420f7b3b4cb1d62acfce19be4e4a394243bc92c2b06c33",
+          "candidate_sha256": "ad9d0b3662f49ffe54420f7b3b4cb1d62acfce19be4e4a394243bc92c2b06c33"
+        },
+        "spokane_bulk.py": {
+          "captured_sha256": "f5bf3fb9dc69acc878e414d43935231f7f8049732229b1202e9780459ed8785b",
+          "production_sha256": "f5bf3fb9dc69acc878e414d43935231f7f8049732229b1202e9780459ed8785b",
+          "candidate_sha256": "f5bf3fb9dc69acc878e414d43935231f7f8049732229b1202e9780459ed8785b"
+        },
+        "pdf_structure.py": {
+          "captured_sha256": "f68f116969b89170b84d10d34c377fe31699e8ada306fd7b54b8f7308c50e42e",
+          "production_sha256": "f68f116969b89170b84d10d34c377fe31699e8ada306fd7b54b8f7308c50e42e",
+          "candidate_sha256": "f68f116969b89170b84d10d34c377fe31699e8ada306fd7b54b8f7308c50e42e"
+        },
+        "openlaw_xml.py": {
+          "captured_sha256": "172fc1cfd76f241fd891f4b2e0e07ee187b9821fa9020baa9843a6a7bd6fb547",
+          "production_sha256": "172fc1cfd76f241fd891f4b2e0e07ee187b9821fa9020baa9843a6a7bd6fb547",
+          "candidate_sha256": "172fc1cfd76f241fd891f4b2e0e07ee187b9821fa9020baa9843a6a7bd6fb547"
+        },
+        "git_archive_binding.py": {
+          "captured_sha256": "e74bf2b5e847099f6212266b0c1e747471e90320aff80f1a68247f64be467fbc",
+          "production_sha256": "e74bf2b5e847099f6212266b0c1e747471e90320aff80f1a68247f64be467fbc",
+          "candidate_sha256": "e74bf2b5e847099f6212266b0c1e747471e90320aff80f1a68247f64be467fbc"
+        },
+        "publication_refs.py": {
+          "captured_sha256": "46304b9958b05a172a6faa9b24151411898c3cbb7ee6b6588dc442baddfd3640",
+          "production_sha256": "46304b9958b05a172a6faa9b24151411898c3cbb7ee6b6588dc442baddfd3640",
+          "candidate_sha256": "46304b9958b05a172a6faa9b24151411898c3cbb7ee6b6588dc442baddfd3640"
+        },
+        "verify.py": {
+          "captured_sha256": "3205bf0aa89c2c40fcf1b63697607d893f457c7df3d76ba71a7fe9b87e371989",
+          "production_sha256": "3205bf0aa89c2c40fcf1b63697607d893f457c7df3d76ba71a7fe9b87e371989",
+          "candidate_sha256": "3205bf0aa89c2c40fcf1b63697607d893f457c7df3d76ba71a7fe9b87e371989"
+        },
+        "replay.py": {
+          "captured_sha256": "b2df04cdb494500a605c8e68d05b76f537ba224619769f83b1926534f521adaf",
+          "production_sha256": "b2df04cdb494500a605c8e68d05b76f537ba224619769f83b1926534f521adaf",
+          "candidate_sha256": "b2df04cdb494500a605c8e68d05b76f537ba224619769f83b1926534f521adaf"
+        },
+        "attachment_outputs.py": {
+          "captured_sha256": "38a2500220c206ca0ee6f33d1756cffe23df4fb70496589e4cf68c063d9c446f",
+          "production_sha256": "38a2500220c206ca0ee6f33d1756cffe23df4fb70496589e4cf68c063d9c446f",
+          "candidate_sha256": "38a2500220c206ca0ee6f33d1756cffe23df4fb70496589e4cf68c063d9c446f"
+        },
+        "bounded_decoder.py": {
+          "captured_sha256": "a579f2a79c15833e0c5a8c65bc4fa6024b2dbb6eafb408d1135f500c64c72770",
+          "production_sha256": "a579f2a79c15833e0c5a8c65bc4fa6024b2dbb6eafb408d1135f500c64c72770",
+          "candidate_sha256": "a579f2a79c15833e0c5a8c65bc4fa6024b2dbb6eafb408d1135f500c64c72770"
+        },
+        "native_labels.py": {
+          "captured_sha256": "dc2489d1d734f177bb1b15a9c73b1117cda37a51d0c57fe5c2f0fe45e96fb6de",
+          "production_sha256": "dc2489d1d734f177bb1b15a9c73b1117cda37a51d0c57fe5c2f0fe45e96fb6de",
+          "candidate_sha256": "dc2489d1d734f177bb1b15a9c73b1117cda37a51d0c57fe5c2f0fe45e96fb6de"
+        }
+      },
+      "runtime_scripts_calls": [
+        {
+          "function": "initialize",
+          "line": 65
+        },
+        {
+          "function": "run",
+          "line": 95
+        }
+      ],
+      "runtime_scripts_phase_analysis": "initialize() completed before processing; run() call guarded resume-only. Both active runs are fresh --replay-from, not resume; no production source fingerprint reads in finalreconcile.",
+      "module_immutability_basis": "Normal Python imports cache compiled collect/model modules in sys.modules. Exact captured startup bytes and process invocation retained. Static all-local-source scan finds no reload/runpy/exec path. from model import in spokane_bulk resolves cached module; changed files are never reread as code after startup. No process injection or debugger used.",
+      "verifier_command": "python -B spokane-current-replay-v1/executed/verify.py spokane-current-replay-v1",
+      "verifier_binding": "Script-directory import uses captured executed collect/model; validate_cached checks checkpoint against executed source hashes, not current production fingerprints. Default strict verifier unchanged.",
+      "status_at_boundary": {
+        "done": 68,
+        "expected": 68,
+        "checkpoint_completed": true,
+        "coverage_exists": false
+      },
+      "proof_label": "historical72 producer; never relabel as78 execution"
+    }
+  ],
+  "pass": true,
+  "scope": "Preserves running72-code semantics/snapshots through current78source promotion. All late local helper/module bytes unchanged; old proof verification explicitly executes old snapshots."
+}

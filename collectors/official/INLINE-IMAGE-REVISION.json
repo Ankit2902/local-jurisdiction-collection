@@ -1,0 +1,48 @@
+{
+  "schema": 1,
+  "timestamp_utc": "2026-10-18T00:55:10.244297+00:00",
+  "status": "current80 source/docs frozen; whole61 guarded proof pending",
+  "prior_published_revision": "1997ee1",
+  "runtime_scripts": {
+    "collect.py": "21e043bafebd9cf1e8676a6b08fb55c01661bfa6c153caa8f26bc51c862c7f59",
+    "model.py": "4a335f8e822066f16863c13ca2296f27b8150f90b2b38bc81202ecada7b60686",
+    "transport.py": "856f00a0de7d561839ba8842af7ae49483fd5efd31fb0352dbe7cbccc011a148",
+    "legacy_html.py": "b3799648ab453ff71217d336f55d78501dcc4a8a92e6cf6d187632508b665048",
+    "browser_fetch.cjs": "9dbf7e1f5f1acbded4821a59021075c0859c705e7d4b7e87d30c0736f6955918",
+    "post_transport.py": "ad9d0b3662f49ffe54420f7b3b4cb1d62acfce19be4e4a394243bc92c2b06c33",
+    "spokane_bulk.py": "f5bf3fb9dc69acc878e414d43935231f7f8049732229b1202e9780459ed8785b",
+    "pdf_structure.py": "6ed606080bec583ea5118a84b3a1f98f48a0cdccec084b126c1685a4044d4944",
+    "openlaw_xml.py": "172fc1cfd76f241fd891f4b2e0e07ee187b9821fa9020baa9843a6a7bd6fb547",
+    "git_archive_binding.py": "e74bf2b5e847099f6212266b0c1e747471e90320aff80f1a68247f64be467fbc",
+    "publication_refs.py": "46304b9958b05a172a6faa9b24151411898c3cbb7ee6b6588dc442baddfd3640",
+    "verify.py": "3205bf0aa89c2c40fcf1b63697607d893f457c7df3d76ba71a7fe9b87e371989",
+    "replay.py": "b2df04cdb494500a605c8e68d05b76f537ba224619769f83b1926534f521adaf",
+    "attachment_outputs.py": "38a2500220c206ca0ee6f33d1756cffe23df4fb70496589e4cf68c063d9c446f",
+    "bounded_decoder.py": "a579f2a79c15833e0c5a8c65bc4fa6024b2dbb6eafb408d1135f500c64c72770",
+    "native_labels.py": "dc2489d1d734f177bb1b15a9c73b1117cda37a51d0c57fe5c2f0fe45e96fb6de"
+  },
+  "metadata_only_correction": {
+    "baseline_pdf_sha256": "f68f116969b89170b84d10d34c377fe31699e8ada306fd7b54b8f7308c50e42e",
+    "current_pdf_sha256": "6ed606080bec583ea5118a84b3a1f98f48a0cdccec084b126c1685a4044d4944",
+    "test_sha256": "29c4af3785801522aa0fbddd929687b9fd5cd54b23e91764e3fd48d095becc61",
+    "proof": "checks/inline-image-actual-repeatability.json",
+    "images_unchanged": "Literal[IMAGE] positions/counts, IDs, geometry, captions andalllegaltext/tables unchanged oncomplete71pageactualsource; generatedmemorynamesonly discarded."
+  },
+  "tests": {
+    "passed": 80,
+    "failed": 0,
+    "network": false,
+    "command": "python -B -m unittest discover -s collectors/official -p 'test_*.py' -v",
+    "receipt": "checks/operational-80-tests.txt",
+    "receipt_sha256": "0cfc39b02dc7926c5c6ab6290e98be65b1477006559ff43a752201eff1ec1afe"
+  },
+  "whole_publication_proof": {
+    "run": "outputs/collection-readiness-post1997ee1-2026-10-17/official/arlington-tx-current80-guarded-v1",
+    "status": "running",
+    "producer_runtime": "16frozen current80modules +supplementalguarddriver capturedbeforefirstbodyparse",
+    "guard_driver_sha256": "11d61851c340cf8c1cb7d3fe18f0efa3673b01003390197eda065e1594545f5d",
+    "claim_current_full_success": false,
+    "required_next_step": "Terminal replay then separate captured-source strictreadonly verification undertripwires."
+  },
+  "no_other_family_parser_copied": true
+}

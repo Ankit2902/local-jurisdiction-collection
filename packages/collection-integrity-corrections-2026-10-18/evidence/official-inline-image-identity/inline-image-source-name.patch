@@ -1,0 +1,26 @@
+--- pdf_structure.py.before
++++ pdf_structure.py.after
+@@ -141,6 +141,14 @@
+      # This fallback is explicitly unordered, not a claim that pictures follow captions.
+      cell['text']='\n'.join(([source] if source else [])+['[IMAGE]' for _ in matches])
+     cell['content_units']=units;cell['content_ordering']={'qualified':qualified,'method':'Disjoint physical vertical ranges and exact source-line/word-geometry agreement.' if qualified else 'Unordered source text and image-placeholder units; fallback text is not source reading order.','reason':reason}
++
++def image_source_name(image):
++ # PDFMiner do_EI names an inline image with str(id(stream)), a process-local
++ # address rather than a source resource name. Existing page/ordinal image IDs,
++ # geometry and raw-document SHA bind these unnamed source occurrences. Never
++ # read/decode image stream bytes to derive an identity.
++ if getattr(image.get('stream'),'objid',None) is None:return None
++ return str(image.get('name',''))
+ 
+ def pages(data,item,config):
+  if not data.startswith(b'%PDF-') or b'%%EOF' not in data[-1024:]:raise ValueError('Native PDF envelope incomplete')
+@@ -173,7 +181,7 @@
+     elif tabletext.strip():tables[-1]['page_text_disposition']='Nested/overlapping detected region has no newly owned source words; cells retained as structure, its glyphs already appear in canonical parent/earlier table, not emitted twice.'
+    images=[]
+    for i,im in enumerate(page.images):
+-    b=box(im);image={'id':ident+'::image:'+str(i+1),'kind':'image_placeholder','bbox':b,'text':'[IMAGE]','word_ids':[],'source_name':str(im.get('name','')),'pixel_extraction':False};images.append(image);objects.append(image)
++    b=box(im);image={'id':ident+'::image:'+str(i+1),'kind':'image_placeholder','bbox':b,'text':'[IMAGE]','word_ids':[],'source_name':image_source_name(im),'pixel_extraction':False};images.append(image);objects.append(image)
+    vector_count=len(page.curves)+len(page.lines)+len(page.rects)
+    if vector_count and (not words or re.search(r'\b(?:map|plan|street.?sections?)\b',item.get('heading',''),re.I) and len(page.curves)>20):
+     figure={'id':ident+'::vector-illustration','kind':'image_placeholder','bbox':[0,0,float(page.width),float(page.height)],'text':'[IMAGE]','word_ids':[],'source_vector_object_count':vector_count,'pixel_extraction':False};images.append(figure);objects.append(figure)

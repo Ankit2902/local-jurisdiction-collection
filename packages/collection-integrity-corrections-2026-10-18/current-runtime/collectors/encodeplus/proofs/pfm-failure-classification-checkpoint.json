@@ -1,0 +1,1558 @@
+{
+  "schema_version": 1,
+  "recorded_at": "2026-10-17T22:29:03.209381+00:00",
+  "scope": "Read-only exact source-owner/error classification at one activePFM checkpoint, not final completeness; no network requests",
+  "source_checkpoint_sha256": "61c0a1b2f459834b59b2d8c21733e106598a395114c9996c0a6419a8f069ae7a",
+  "checkpoint_phase": "assets",
+  "checkpoint_snapshot": "checkpoint-at-analysis.json",
+  "body_nodes": 624,
+  "failures_in_retained_ledger": 97,
+  "active_missing_required_failures": 97,
+  "intentional_image_omissions_in_failure_ledger": 0,
+  "active_image_failures": 0,
+  "by_category": {
+    "downloaded_nonimage_document_failed_format_or_parse_qualification": 14,
+    "transport_dns_timeout_or_unrecorded_failure": 23,
+    "required_reference_returns_html_landing_page_not_binary": 28,
+    "source_missing_http_404": 11,
+    "observed_access_refusal_or_challenge": 5,
+    "source_redirect_cycle_or_limit": 4,
+    "blocked_by_persistent_prior_access_stop_no_request": 12
+  },
+  "by_host": {
+    "civilwares.free.fr": 1,
+    "newsletters.wetlandstudies.com": 1,
+    "www.areforum.org": 1,
+    "www.asprs.org": 1,
+    "www.ctb.virginia.gov": 1,
+    "www.dcr.virginia.gov": 2,
+    "www.publications.usace.army.mil": 1,
+    "www.vdh.virginia.gov": 1,
+    "www.virginiadot.org": 8,
+    "law.lis.virginia.gov": 2,
+    "library.municode.com": 11,
+    "online.encodeplus.com": 15,
+    "swbmpvwrrc.wp.prod.es.cloud.vt.edu": 15,
+    "wcm.fairfaxcounty.gov": 1,
+    "www.dhcd.virginia.gov": 1,
+    "www.fairfaxcounty.gov": 20,
+    "www.fcrevite.org": 1,
+    "www.fema.gov": 3,
+    "www.fhwa.dot.gov": 2,
+    "www.ies.org": 1,
+    "www.lime.org": 1,
+    "www.ngs.noaa.gov": 1,
+    "www.nrcs.usda.gov": 3,
+    "www.swbmp.vwrrc.vt.edu": 1,
+    "www.usgs.gov": 1,
+    "www.wcc.nrcs.usda.gov": 1
+  },
+  "failure_owner_contexts": 153,
+  "missing_owner_context_urls": [],
+  "request_stop_cooldown_audit": {
+    "corrected_requests_checked": 122,
+    "request_log_sha256": "188d16ada962110a0f8ff9b0fbcfa8abee97334760407cec4b07cb6a67da6d5d",
+    "violations": [],
+    "passed": true
+  },
+  "full_evidence": "outputs/collection-readiness-next-2026-10-17/encodeplus/pfm-failure-classification/report.json",
+  "full_evidence_sha256": "da102bfcfd45f7c176a58a27d24785af19bd7328ec07768a7e5111755888e1f9",
+  "example_rows": [
+    {
+      "url": "http://civilwares.free.fr/ACI/MCP04/2113r_02.PDF",
+      "host": "civilwares.free.fr",
+      "canonical_without_fragment": "http://civilwares.free.fr/ACI/MCP04/2113r_02.PDF",
+      "active_missing_required_reference": true,
+      "in_current_required_set": true,
+      "intentional_image_omission": false,
+      "category": "downloaded_nonimage_document_failed_format_or_parse_qualification",
+      "recorded_failure_reason": "Required PDF structure is unqualified: Encrypted PDF is not qualified",
+      "raw_path": "fairfax-pfm/assets/5103898e197a9653a4abedb55f6705b14c94d1e3c1e53f7d1d21561f33b79748.bin",
+      "receipt_path": "fairfax-pfm/assets/5103898e197a9653a4abedb55f6705b14c94d1e3c1e53f7d1d21561f33b79748.bin.receipt.json",
+      "raw_sha256": "f3475ea96c4008cb337719b559c35218a28ea8654335ce1df194e270df57c956",
+      "observed_http_status_this_attempt": 200,
+      "final_url": "http://civilwares.free.fr/ACI/MCP04/2113r_02.PDF",
+      "request_attempted": null,
+      "blocked_by_stop": false,
+      "prior_stop": null,
+      "blocked_by_cooldown": null,
+      "redirects": [],
+      "content_type": "application/pdf",
+      "html_title": null,
+      "advertised_document_links_for_future_identity_check": [],
+      "owners": [
+        {
+          "id": "229",
+          "heading": "6-1304 Permeable Pavement",
+          "canonical_body_key": "_001-008-015-004",
+          "path": [
+            {
+              "id": "5",
+              "heading": "Fairfax County\u2019s Public Facilities Manual"
+            },
+            {
+              "id": "152",
+              "heading": "6-0000 STORM DRAINAGE"
+            },
+            {
+              "id": "225",
+              "heading": "6-1300 RETENTION, DETENTION, AND BEST MANAGEMENT PRACTICES FACILITIES"
+            }
+          ],
+          "raw_path": "raw/node-5.html",
+          "raw_sha256": "185128e4c386d243433dc9150fbe6542d2c057f40b1f466cc4e08723cf7605b0",
+          "asset_rule": {
+            "url": "http://civilwares.free.fr/ACI/MCP04/2113r_02.PDF",
+            "attribute": "href",
+            "tag": "a",
+            "alt": null,
+            "required": true,
+            "supported_scheme": true
+          },
+          "source_contexts": [
+            {
+              "source_element": "<a href=\"http://civilwares.free.fr/ACI/MCP04/2113r_02.PDF\">Guide for Selecting Proportions for No-Slump Concrete</a>",
+              "link_text": "Guide for Selecting Proportions for No-Slump Concrete",
+              "context": "1. Coarse aggregate must be VDOT #67, #8, or #8P. Air entrainment must be used to improve resistance to freeze/thaw cycles. However, air entrainment cannot be verified or quantified by standard test methods and an alternative test method is not currently available. A preliminary mix design must be included in the plan. A plan revision with the final mix design, if different than the preliminary design, must be submitted to LDS for approval before construction. Appendix 6 of ACI 211.3R-02 ( Guide for Selecting Proportions for No-Slump Concrete ) provides a procedure for determining mix proportions for pervious concrete.",
+              "normative_context_indicator": true
+            }
+          ]
+        }
+      ],
+      "required_scope": "Exact current linked nonimage reference required by conservative asset rule; context below distinguishes explicit normative language from other linked documents. HTMLseparatepublications remain separate scope, no alias/edition substitution."
+    },
+    {
+      "url": "https://online.encodeplus.com/regs/fairfaxcounty-va-pfm/doclibrary.aspx?id=100baf03-d3e3-490c-a8d2-b830570b4658",
+      "host": "online.encodeplus.com",
+      "canonical_without_fragment": "https://online.encodeplus.com/regs/fairfaxcounty-va-pfm/doclibrary.aspx?id=100baf03-d3e3-490c-a8d2-b830570b4658",
+      "active_missing_required_reference": true,
+      "in_current_required_set": true,
+      "intentional_image_omission": false,
+      "category": "downloaded_nonimage_document_failed_format_or_parse_qualification",
+      "recorded_failure_reason": "Required PDF structure is unqualified: Encrypted PDF is not qualified",
+      "raw_path": "fairfax-pfm/assets/f1186b67da17d44ffcf1cdade12032c2b522ec4a8acf80e6aa61701327ef8006.bin",
+      "receipt_path": "fairfax-pfm/assets/f1186b67da17d44ffcf1cdade12032c2b522ec4a8acf80e6aa61701327ef8006.bin.receipt.json",
+      "raw_sha256": "8d10690d1d0b8c0fe2a1191278c6423f1321083a8ba3f3ff048fb202cfa520ab",
+      "observed_http_status_this_attempt": 200,
+      "final_url": "https://online.encodeplus.com/regs/fairfaxcounty-va-pfm/doclibrary.aspx?id=100baf03-d3e3-490c-a8d2-b830570b4658",
+      "request_attempted": null,
+      "blocked_by_stop": false,
+      "prior_stop": null,
+      "blocked_by_cooldown": null,
+      "redirects": [],
+      "content_type": "application/pdf",
+      "html_title": null,
+      "advertised_document_links_for_future_identity_check": [],
+      "owners": [
+        {
+          "id": "415",
+          "heading": "Plate 30-7 Colonial Style Fixture for Subdivision Roadways with Curb and Gutter",
+          "canonical_body_key": "_001-009-012-034",
+          "path": [
+            {
+              "id": "5",
+              "heading": "Fairfax County\u2019s Public Facilities Manual"
+            },
+            {
+              "id": "337",
+              "heading": "7-0000 STREETS, STREET LIGHTS, PARKING AND DRIVEWAYS"
+            },
+            {
+              "id": "381",
+              "heading": "Chapter 7 Plates"
+            }
+          ],
+          "raw_path": "raw/node-5.html",
+          "raw_sha256": "185128e4c386d243433dc9150fbe6542d2c057f40b1f466cc4e08723cf7605b0",
+          "asset_rule": {
+            "url": "https://online.encodeplus.com/regs/fairfaxcounty-va-pfm/doclibrary.aspx?id=100baf03-d3e3-490c-a8d2-b830570b4658",
+            "attribute": "href",
+            "tag": "a",
+            "alt": null,
+            "required": true,
+            "supported_scheme": true
+          },
+          "source_contexts": [
+            {
+              "source_element": "<a href=\"doclibrary.aspx?id=100baf03-d3e3-490c-a8d2-b830570b4658\" target=\"_blank\">[IMAGE]</a>",
+              "link_text": "[IMAGE]",
+              "context": "[IMAGE]",
+              "normative_context_indicator": false
+            }
+          ]
+        }
+      ],
+      "required_scope": "Exact current linked nonimage reference required by conservative asset rule; context below distinguishes explicit normative language from other linked documents. HTMLseparatepublications remain separate scope, no alias/edition substitution."
+    },
+    {
+      "url": "http://newsletters.wetlandstudies.com/docUpload/VACoordinateSystemMap1983.pdf",
+      "host": "newsletters.wetlandstudies.com",
+      "canonical_without_fragment": "http://newsletters.wetlandstudies.com/docUpload/VACoordinateSystemMap1983.pdf",
+      "active_missing_required_reference": true,
+      "in_current_required_set": true,
+      "intentional_image_omission": false,
+      "category": "transport_dns_timeout_or_unrecorded_failure",
+      "recorded_failure_reason": "Network failure: <urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: certificate has expired (_ssl.c:1010)> https://newsletters.wetlandstudies.com/docUpload/VACoordinateSystemMap1983.pdf",
+      "raw_path": "fairfax-pfm/assets/5f312244f5b6b8af08c9e7628ea37274476787731bc112cc2df464f2d959735f.attempt-2.bin",
+      "receipt_path": "fairfax-pfm/assets/5f312244f5b6b8af08c9e7628ea37274476787731bc112cc2df464f2d959735f.attempt-2.bin.receipt.json",
+      "raw_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "observed_http_status_this_attempt": null,
+      "final_url": "https://newsletters.wetlandstudies.com/docUpload/VACoordinateSystemMap1983.pdf",
+      "request_attempted": true,
+      "blocked_by_stop": false,
+      "prior_stop": null,
+      "blocked_by_cooldown": null,
+      "redirects": [
+        {
+          "bytes": 201,
+          "headers": {
+            "Connection": "close",
+            "Content-Length": "201",
+            "Content-Type": "text/html; charset=UTF-8",
+            "Date": "Sat, 17 Oct 2026 22:11:05 GMT",
+            "Location": "https://newsletters.wetlandstudies.com/docUpload/VACoordinateSystemMap1983.pdf",
+            "Server": "Microsoft-IIS/10.0",
+            "X-Powered-By": "ASP.NET",
+            "X-Powered-By-Plesk": "PleskWin"
+          },
+          "location": "https://newsletters.wetlandstudies.com/docUpload/VACoordinateSystemMap1983.pdf",
+          "sha256": "1b7a7a865eefa79e5547d3dd9da0666268cac5b2c132992780238ba72bfc09d5",
+          "started_at": "2026-10-17T22:11:05.630447+00:00",
+          "status": 301,
+          "url": "http://newsletters.wetlandstudies.com/docUpload/VACoordinateSystemMap1983.pdf"
+        }
+      ],
+      "content_type": null,
+      "html_title": null,
+      "advertised_document_links_for_future_identity_check": [],
+      "owners": [
+        {
+          "id": "506",
+          "heading": "10-0104 Preparation of Plans",
+          "canonical_body_key": "_001-012-003-004",
+          "path": [
+            {
+              "id": "5",
+              "heading": "Fairfax County\u2019s Public Facilities Manual"
+            },
+            {
+              "id": "501",
+              "heading": "10-0000 SEWAGE AND SOLID WASTE DISPOSAL"
+            },
+            {
+              "id": "502",
+              "heading": "10-0100 SANITARY SEWER DESIGN CRITERIA"
+            }
+          ],
+          "raw_path": "raw/node-5.html",
+          "raw_sha256": "185128e4c386d243433dc9150fbe6542d2c057f40b1f466cc4e08723cf7605b0",
+          "asset_rule": {
+            "url": "http://newsletters.wetlandstudies.com/docUpload/VACoordinateSystemMap1983.pdf",
+            "attribute": "href",
+            "tag": "a",
+            "alt": null,
+            "required": true,
+            "supported_scheme": true
+          },
+          "source_contexts": [
+            {
+              "source_element": "<a href=\"http://newsletters.wetlandstudies.com/docUpload/VACoordinateSystemMap1983.pdf\">Virginia coordinate system</a>",
+              "link_text": "Virginia coordinate system",
+              "context": "4. Prepared showing, in addition to the information required on the construction drawings, deflection angles or bearing and distance between manholes. For all subdivisions on the Virginia coordinate system , coordinates of all manholes along the subtrunk and trunk facilities must also be provided. When the as-built information differs from the approved construction plans, a design analysis for the existing conditions may be required.",
+              "normative_context_indicator": true
+            }
+          ]
+        }
+      ],
+      "required_scope": "Exact current linked nonimage reference required by conservative asset rule; context below distinguishes explicit normative language from other linked documents. HTMLseparatepublications remain separate scope, no alias/edition substitution."
+    },
+    {
+      "url": "https://swbmpvwrrc.wp.prod.es.cloud.vt.edu/wp-content/uploads/2018/07/BMP_Spec_No_10_DRY_SWALE.pdf",
+      "host": "swbmpvwrrc.wp.prod.es.cloud.vt.edu",
+      "canonical_without_fragment": "https://swbmpvwrrc.wp.prod.es.cloud.vt.edu/wp-content/uploads/2018/07/BMP_Spec_No_10_DRY_SWALE.pdf",
+      "active_missing_required_reference": true,
+      "in_current_required_set": true,
+      "intentional_image_omission": false,
+      "category": "transport_dns_timeout_or_unrecorded_failure",
+      "recorded_failure_reason": "Network failure: <urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: certificate has expired (_ssl.c:1010)> https://swbmpvwrrc.wp.prod.es.cloud.vt.edu/wp-content/uploads/2018/07/BMP_Spec_No_10_DRY_SWALE.pdf",
+      "raw_path": "fairfax-pfm/assets/19646a103b3a9b18133345cd850f27e0865260fe734489861e48f071eb48850d.attempt-1.bin",
+      "receipt_path": "fairfax-pfm/assets/19646a103b3a9b18133345cd850f27e0865260fe734489861e48f071eb48850d.attempt-1.bin.receipt.json",
+      "raw_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "observed_http_status_this_attempt": null,
+      "final_url": "https://swbmpvwrrc.wp.prod.es.cloud.vt.edu/wp-content/uploads/2018/07/BMP_Spec_No_10_DRY_SWALE.pdf",
+      "request_attempted": true,
+      "blocked_by_stop": false,
+      "prior_stop": null,
+      "blocked_by_cooldown": null,
+      "redirects": [],
+      "content_type": null,
+      "html_title": null,
+      "advertised_document_links_for_future_identity_check": [],
+      "owners": [
+        {
+          "id": "233",
+          "heading": "6-1308 Vegetated Swales",
+          "canonical_body_key": "_001-008-015-008",
+          "path": [
+            {
+              "id": "5",
+              "heading": "Fairfax County\u2019s Public Facilities Manual"
+            },
+            {
+              "id": "152",
+              "heading": "6-0000 STORM DRAINAGE"
+            },
+            {
+              "id": "225",
+              "heading": "6-1300 RETENTION, DETENTION, AND BEST MANAGEMENT PRACTICES FACILITIES"
+            }
+          ],
+          "raw_path": "raw/node-5.html",
+          "raw_sha256": "185128e4c386d243433dc9150fbe6542d2c057f40b1f466cc4e08723cf7605b0",
+          "asset_rule": {
+            "url": "https://swbmpvwrrc.wp.prod.es.cloud.vt.edu/wp-content/uploads/2018/07/BMP_Spec_No_10_DRY_SWALE.pdf",
+            "attribute": "href",
+            "tag": "a",
+            "alt": null,
+            "required": true,
+            "supported_scheme": true
+          },
+          "source_contexts": [
+            {
+              "source_element": "<a href=\"https://swbmpvwrrc.wp.prod.es.cloud.vt.edu/wp-content/uploads/2018/07/BMP_Spec_No_10_DRY_SWALE.pdf\">Design Specification P-CNV-02 (formerly No. 10) Dry Swale</a>",
+              "link_text": "Design Specification P-CNV-02 (formerly No. 10) Dry Swale",
+              "context": "D. Grass channels must conform to Design Specification P-CNV-01 (formerly No. 3) Grass Channel in the Virginia Stormwater Management Handbook , except as modified herein. Dry swales must conform to Design Specification P-CNV-02 (formerly No. 10) Dry Swale in the Virginia Stormwater Management Handbook , except as modified herein.",
+              "normative_context_indicator": true
+            },
+            {
+              "source_element": "<a href=\"https://swbmpvwrrc.wp.prod.es.cloud.vt.edu/wp-content/uploads/2018/07/BMP_Spec_No_10_DRY_SWALE.pdf\">Design Specification P-CNV-02 (formerly No. 10) Dry Swale</a>",
+              "link_text": "Design Specification P-CNV-02 (formerly No. 10) Dry Swale",
+              "context": "A. Treatment Volume. The required treatment volume must be determined in accordance with Design Specification P-CNV-02 (formerly No. 10) Dry Swale in the Virginia Stormwater Management Handbook .",
+              "normative_context_indicator": true
+            },
+            {
+              "source_element": "<a href=\"https://swbmpvwrrc.wp.prod.es.cloud.vt.edu/wp-content/uploads/2018/07/BMP_Spec_No_10_DRY_SWALE.pdf\">Design Specification P-CNV-02 (formerly No. 10) Dry Swales</a>",
+              "link_text": "Design Specification P-CNV-02 (formerly No. 10) Dry Swales",
+              "context": "G. Variations of the dry swale designs in the typical details and schematics dry swales in Design Specification P-CNV-02 (formerly No. 10) Dry Swales in the Virginia Stormwater Management Handbook may be approved by the Director, if the facility meets all of the requirements in \u00a7 6-1308 (Vegetated Swales).",
+              "normative_context_indicator": false
+            },
+            {
+              "source_element": "<a href=\"https://swbmpvwrrc.wp.prod.es.cloud.vt.edu/wp-content/uploads/2018/07/BMP_Spec_No_10_DRY_SWALE.pdf\">Design Specification P-CNV-02 (formerly No. 10) Dry Swales</a>",
+              "link_text": "Design Specification P-CNV-02 (formerly No. 10) Dry Swales",
+              "context": "6-1308.6 Underdrains. Underdrains must consist of pipe \u2265 6 inches in diameter placed in a layer of washed VDOT #57 stone. There must be a minimum of 2 inches of gravel above and below the pipe. The underdrain must begin within 10 feet of the upstream boundary of the swale. Underdrains must be separated from the soil media in accordance with Design Specification P-CNV-02 (formerly No. 10) Dry Swales in the Virginia Stormwater Management Handbook . Underdrain pipe must be perforated. All stone must be washed with less than 1 percent passing a #200 sieve.",
+              "normative_context_indicator": true
+            },
+            {
+              "source_element": "<a href=\"https://swbmpvwrrc.wp.prod.es.cloud.vt.edu/wp-content/uploads/2018/07/BMP_Spec_No_10_DRY_SWALE.pdf\">Design Specification P-CNV-02 (formerly\u00a0No. 10) Dry Swale</a>",
+              "link_text": "Design Specification P-CNV-02 (formerly\u00a0No. 10) Dry Swale",
+              "context": "G. Computations and other information demonstrating that the design meets level 1 or level 2 design criteria in Design Specification P-CNV-02 (formerly No. 10) Dry Swale .",
+              "normative_context_indicator": false
+            }
+          ]
+        }
+      ],
+      "required_scope": "Exact current linked nonimage reference required by conservative asset rule; context below distinguishes explicit normative language from other linked documents. HTMLseparatepublications remain separate scope, no alias/edition substitution."
+    },
+    {
+      "url": "http://www.areforum.org/up/GeneralStructures/USCS.pdf",
+      "host": "www.areforum.org",
+      "canonical_without_fragment": "http://www.areforum.org/up/GeneralStructures/USCS.pdf",
+      "active_missing_required_reference": true,
+      "in_current_required_set": true,
+      "intentional_image_omission": false,
+      "category": "required_reference_returns_html_landing_page_not_binary",
+      "recorded_failure_reason": "Required asset is HTML landing page; follow advertised file separately: http://www.areforum.org/up/GeneralStructures/USCS.pdf",
+      "raw_path": "fairfax-pfm/assets/f1a6c1c1221294efdbe402cf6511ade83e78b65af9ebd5e92e39c93d90705c14.bin",
+      "receipt_path": "fairfax-pfm/assets/f1a6c1c1221294efdbe402cf6511ade83e78b65af9ebd5e92e39c93d90705c14.bin.receipt.json",
+      "raw_sha256": "4758f53d6dd67147f43ce1fbdd8b3d4912db4b229dab60c470767011f99b8d30",
+      "observed_http_status_this_attempt": 200,
+      "final_url": "https://www.areforum.org/",
+      "request_attempted": null,
+      "blocked_by_stop": false,
+      "prior_stop": null,
+      "blocked_by_cooldown": null,
+      "redirects": [
+        {
+          "location": "https://www.areforum.org/up/GeneralStructures/USCS.pdf",
+          "status": 301,
+          "url": "http://www.areforum.org/up/GeneralStructures/USCS.pdf"
+        },
+        {
+          "location": "https://www.areforum.org/up/generalstructures/uscs.pdf",
+          "status": 301,
+          "url": "https://www.areforum.org/up/GeneralStructures/USCS.pdf"
+        },
+        {
+          "location": "https://www.areforum.org/",
+          "status": 301,
+          "url": "https://www.areforum.org/up/generalstructures/uscs.pdf"
+        }
+      ],
+      "content_type": "text/html; charset=utf-8",
+      "html_title": "Investing in Property - Areforum.org",
+      "advertised_document_links_for_future_identity_check": [],
+      "owners": [
+        {
+          "id": "31",
+          "heading": "1-1000 SYMBOLS, ACRONYMS/ABBREVIATIONS & DEFINITIONS",
+          "canonical_body_key": "_001-003-011",
+          "path": [
+            {
+              "id": "5",
+              "heading": "Fairfax County\u2019s Public Facilities Manual"
+            },
+            {
+              "id": "8",
+              "heading": "1-0000 GENERAL INFORMATION"
+            }
+          ],
+          "raw_path": "raw/node-5.html",
+          "raw_sha256": "185128e4c386d243433dc9150fbe6542d2c057f40b1f466cc4e08723cf7605b0",
+          "asset_rule": {
+            "url": "http://www.areforum.org/up/GeneralStructures/USCS.pdf",
+            "attribute": "href",
+            "tag": "a",
+            "alt": null,
+            "required": true,
+            "supported_scheme": true
+          },
+          "source_contexts": [
+            {
+              "source_element": "<a href=\"http://www.areforum.org/up/GeneralStructures/USCS.pdf\">Unified Soil Classification System</a>",
+              "link_text": "Unified Soil Classification System",
+              "context": "Unified Soil Classification System",
+              "normative_context_indicator": false
+            }
+          ]
+        },
+        {
+          "id": "114",
+          "heading": "4-0201 County Soil Units, Map and Classes",
+          "canonical_body_key": "_001-006-003-001",
+          "path": [
+            {
+              "id": "5",
+              "heading": "Fairfax County\u2019s Public Facilities Manual"
+            },
+            {
+              "id": "109",
+              "heading": "4-0000 GEOTECHNICAL GUIDELINES"
+            },
+            {
+              "id": "113",
+              "heading": "4-0200 SOILS"
+            }
+          ],
+          "raw_path": "raw/node-5.html",
+          "raw_sha256": "185128e4c386d243433dc9150fbe6542d2c057f40b1f466cc4e08723cf7605b0",
+          "asset_rule": {
+            "url": "http://www.areforum.org/up/GeneralStructures/USCS.pdf",
+            "attribute": "href",
+            "tag": "a",
+            "alt": null,
+            "required": true,
+            "supported_scheme": true
+          },
+          "source_contexts": [
+            {
+              "source_element": "<a href=\"http://www.areforum.org/up/GeneralStructures/USCS.pdf\">Unified Soil Classification System</a>",
+              "link_text": "Unified Soil Classification System",
+              "context": "4-0201.4 \u201cMarine clay\u201d is a term used locally for clay-rich sediments of the Cretaceous-Age Potomac Formation of the Atlantic Coastal Plain. The Potomac Formation, identified as unit Kp on USGS geologic maps, thickens from a few feet along the boundary with the Piedmont Province in the west to over 100 feet along the eastern boundary of Fairfax County. As a result of removal of younger deposits that have since eroded away, the sediments are commonly over-consolidated. The \u201cmarine clay\u201d sediments consist mostly of montmorillonite minerals (which results in a high potential for shrink and swell with variations in moisture) that are commonly classified as elastic SILT (MH) and fat CLAY (CH) by the Unified Soil Classification System . Due to physical and chemical weathering, \u201cmarine clay\u201d in the uppermost 20 feet of the Potomac Formation are preferentially weakened along fractures, joints and parting planes, and can cause landslides many years after the slopes are created. Sand layers, often water-bearing, are frequently mixed with the \u201cmarine clay\u201d layers. The clays and silt are subject to large changes in volume with soil moisture changes.",
+              "normative_context_indicator": false
+            }
+          ]
+        },
+        {
+          "id": "123",
+          "heading": "4-0303 General Guidelines for Geotechnical Investigation and Engineering Recommendations.",
+          "canonical_body_key": "_001-006-004-003",
+          "path": [
+            {
+              "id": "5",
+              "heading": "Fairfax County\u2019s Public Facilities Manual"
+            },
+            {
+              "id": "109",
+              "heading": "4-0000 GEOTECHNICAL GUIDELINES"
+            },
+            {
+              "id": "120",
+              "heading": "4-0300 GEOTECHNICAL REPORT"
+            }
+          ],
+          "raw_path": "raw/node-5.html",
+          "raw_sha256": "185128e4c386d243433dc9150fbe6542d2c057f40b1f466cc4e08723cf7605b0",
+          "asset_rule": {
+            "url": "http://www.areforum.org/up/GeneralStructures/USCS.pdf",
+            "attribute": "href",
+            "tag": "a",
+            "alt": null,
+            "required": true,
+            "supported_scheme": true
+          },
+          "source_contexts": [
+            {
+              "source_element": "<a href=\"http://www.areforum.org/up/GeneralStructures/USCS.pdf\">USCS</a>",
+              "link_text": "USCS",
+              "context": "4-0303.6 Classification and Description. Direct observation of soil samples from various depths and locations is required for correlation with the known geology of the area. Classification and description of soils must be done by the USCS ( ASTM Specification D2487 ), and by the Visual Manual Identification Procedure ( ASTM D2488 ). All terms and nomenclatures used for textural description of the soils must be clearly defined. Complete soil descriptions must also include in-place conditions, geologic names, local names and any other information that is pertinent to the interpretation of the subsoil characteristics.",
+              "normative_context_indicator": true
+            }
+          ]
+        },
+        {
+          "id": "138",
+          "heading": "4-0702 Geotechnical Investigation",
+          "canonical_body_key": "_001-006-008-002",
+          "path": [
+            {
+              "id": "5",
+              "heading": "Fairfax County\u2019s Public Facilities Manual"
+            },
+            {
+              "id": "109",
+              "heading": "4-0000 GEOTECHNICAL GUIDELINES"
+            },
+            {
+              "id": "136",
+              "heading": "4-0700 TESTING FOR INFILTRATION FACILITIES"
+            }
+          ],
+          "raw_path": "raw/node-5.html",
+          "raw_sha256": "185128e4c386d243433dc9150fbe6542d2c057f40b1f466cc4e08723cf7605b0",
+          "asset_rule": {
+            "url": "http://www.areforum.org/up/GeneralStructures/USCS.pdf",
+            "attribute": "href",
+            "tag": "a",
+            "alt": null,
+            "required": true,
+            "supported_scheme": true
+          },
+          "source_contexts": [
+            {
+              "source_element": "<a href=\"http://www.areforum.org/up/GeneralStructures/USCS.pdf\">Unified Soil Classification System (USCS)</a>",
+              "link_text": "Unified Soil Classification System (USCS)",
+              "context": "D. Soil textures should be identified according to the Unified Soil Classification System (USCS) per ASTM D-2488 (Description and Identification of Soils Visual-Manual Procedure) and the USDA Textural Classification .",
+              "normative_context_indicator": false
+            }
+          ]
+        },
+        {
+          "id": "140",
+          "heading": "4-0704 Laboratory Testing",
+          "canonical_body_key": "_001-006-008-004",
+          "path": [
+            {
+              "id": "5",
+              "heading": "Fairfax County\u2019s Public Facilities Manual"
+            },
+            {
+              "id": "109",
+              "heading": "4-0000 GEOTECHNICAL GUIDELINES"
+            },
+            {
+              "id": "136",
+              "heading": "4-0700 TESTING FOR INFILTRATION FACILITIES"
+            }
+          ],
+          "raw_path": "raw/node-5.html",
+          "raw_sha256": "185128e4c386d243433dc9150fbe6542d2c057f40b1f466cc4e08723cf7605b0",
+          "asset_rule": {
+            "url": "http://www.areforum.org/up/GeneralStructures/USCS.pdf",
+            "attribute": "href",
+            "tag": "a",
+            "alt": null,
+            "required": true,
+            "supported_scheme": true
+          },
+          "source_contexts": [
+            {
+              "source_element": "<a href=\"http://www.areforum.org/up/GeneralStructures/USCS.pdf\">USCS</a>",
+              "link_text": "USCS",
+              "context": "4-0704.1 Grain-size sieve analyses and hydrometer tests must be performed to determine the USDA textural and USCS classifications at the proposed or anticipated invert of the facility.",
+              "normative_context_indicator": true
+            }
+          ]
+        },
+        {
+          "id": "141",
+          "heading": "4-0705 Report Presentation and Submission",
+          "canonical_body_key": "_001-006-008-005",
+          "path": [
+            {
+              "id": "5",
+              "heading": "Fairfax County\u2019s Public Facilities Manual"
+            },
+            {
+              "id": "109",
+              "heading": "4-0000 GEOTECHNICAL GUIDELINES"
+            },
+            {
+              "id": "136",
+              "heading": "4-0700 TESTING FOR INFILTRATION FACILITIES"
+            }
+          ],
+          "raw_path": "raw/node-5.html",
+          "raw_sha256": "185128e4c386d243433dc9150fbe6542d2c057f40b1f466cc4e08723cf7605b0",
+          "asset_rule": {
+            "url": "http://www.areforum.org/up/GeneralStructures/USCS.pdf",
+            "attribute": "href",
+            "tag": "a",
+            "alt": null,
+            "required": true,
+            "supported_scheme": true
+          },
+          "source_contexts": [
+            {
+              "source_element": "<a href=\"http://www.areforum.org/up/GeneralStructures/USCS.pdf\">USCS</a>",
+              "link_text": "USCS",
+              "context": "A. USDA textural classification and USCS soil description must be provided in the report as well as on the boring logs.",
+              "normative_context_indicator": true
+            }
+          ]
+        },
+        {
+          "id": "261",
+          "heading": "6-1605 Geotechnical Design Guidelines for Stormwater Management Reservoirs with Earthdams",
+          "canonical_body_key": "_001-008-018-005",
+          "path": [
+            {
+              "id": "5",
+              "heading": "Fairfax County\u2019s Public Facilities Manual"
+            },
+            {
+              "id": "152",
+              "heading": "6-0000 STORM DRAINAGE"
+            },
+            {
+              "id": "256",
+              "heading": "6-1600 DESIGN AND CONSTRUCTION OF DAMS AND IMPOUNDMENTS"
+            }
+          ],
+          "raw_path": "raw/node-5.html",
+          "raw_sha256": "185128e4c386d243433dc9150fbe6542d2c057f40b1f466cc4e08723cf7605b0",
+          "asset_rule": {
+            "url": "http://www.areforum.org/up/GeneralStructures/USCS.pdf",
+            "attribute": "href",
+            "tag": "a",
+            "alt": null,
+            "required": true,
+            "supported_scheme": true
+          },
+          "source_contexts": [
+            {
+              "source_element": "<a href=\"http://www.areforum.org/up/GeneralStructures/USCS.pdf\">Unified Soil Classification System</a>",
+              "link_text": "Unified Soil Classification System",
+              "context": "2. Laboratory Testing. Laboratory tests to characterize the various borrow materials and foundation soils are required. At a minimum, an index property test must be performed to properly classify soils in accordance with the Unified Soil Classification System . Shear strength, compressibility, and permeability testing may be required depending upon the size and complexity of the dam and the nature of the site subsurface conditions.",
+              "normative_context_indicator": true
+            },
+            {
+              "source_element": "<a href=\"http://www.areforum.org/up/GeneralStructures/USCS.pdf\">Unified Soil Classification System</a>",
+              "link_text": "Unified Soil Classification System",
+              "context": "1. Soil Type. The soil type must be specified by use of the Unified Soil Classification System . Rock fill types must be specified by maximum or minimum percent passing various sieve sizes and durability to resist deterioration from slaking or weathering.",
+              "normative_context_indicator": true
+            }
+          ]
+        },
+        {
+          "id": "263",
+          "heading": "6-1607 Minimum Required Construction Standards, Specifications and Inspection Requirements",
+          "canonical_body_key": "_001-008-018-007",
+          "path": [
+            {
+              "id": "5",
+              "heading": "Fairfax County\u2019s Public Facilities Manual"
+            },
+            {
+              "id": "152",
+              "heading": "6-0000 STORM DRAINAGE"
+            },
+            {
+              "id": "256",
+              "heading": "6-1600 DESIGN AND CONSTRUCTION OF DAMS AND IMPOUNDMENTS"
+            }
+          ],
+          "raw_path": "raw/node-5.html",
+          "raw_sha256": "185128e4c386d243433dc9150fbe6542d2c057f40b1f466cc4e08723cf7605b0",
+          "asset_rule": {
+            "url": "http://www.areforum.org/up/GeneralStructures/USCS.pdf",
+            "attribute": "href",
+            "tag": "a",
+            "alt": null,
+            "required": true,
+            "supported_scheme": true
+          },
+          "source_contexts": [
+            {
+              "source_element": "<a href=\"http://www.areforum.org/up/GeneralStructures/USCS.pdf\">Unified Soil Classification System</a>",
+              "link_text": "Unified Soil Classification System",
+              "context": "1. Compacted Fill. Compacted fill may not be placed before performing the required foundation and abutment preparation, or on any frozen surface. Compacted fill must extend to the fill limit lines and grades indicated by the approved construction plan. Compacted fill material must be of the type classification symbol specified by the designer, or of a better quality material as defined by the Unified Soil Classification System . Also, restrictions on the liquid limits and plasticity index of the material may be included where applicable. Compacted fill must consist of material free of organic matter, rubbish, frozen soil, snow, ice, particles with sizes larger than 3 inches or other deleterious material.",
+              "normative_context_indicator": true
+            }
+          ]
+        }
+      ],
+      "required_scope": "Exact current linked nonimage reference required by conservative asset rule; context below distinguishes explicit normative language from other linked documents. HTMLseparatepublications remain separate scope, no alias/edition substitution."
+    },
+    {
+      "url": "http://www.ctb.virginia.gov/",
+      "host": "www.ctb.virginia.gov",
+      "canonical_without_fragment": "http://www.ctb.virginia.gov/",
+      "active_missing_required_reference": true,
+      "in_current_required_set": true,
+      "intentional_image_omission": false,
+      "category": "required_reference_returns_html_landing_page_not_binary",
+      "recorded_failure_reason": "Required asset is HTML landing page; follow advertised file separately: http://www.ctb.virginia.gov/",
+      "raw_path": "fairfax-pfm/assets/d5f91feab9c6d4d869b748c4d5022ed4c9aedcae1700f24cf636ec438a2f6bce.bin",
+      "receipt_path": "fairfax-pfm/assets/d5f91feab9c6d4d869b748c4d5022ed4c9aedcae1700f24cf636ec438a2f6bce.bin.receipt.json",
+      "raw_sha256": "673cdc7856e887b5e8e3f94da01bb1923f91760f0781bc04d0ce4f9eb95ec0a1",
+      "observed_http_status_this_attempt": 200,
+      "final_url": "https://ctb.virginia.gov/",
+      "request_attempted": null,
+      "blocked_by_stop": false,
+      "prior_stop": null,
+      "blocked_by_cooldown": null,
+      "redirects": [
+        {
+          "location": "https://www.ctb.virginia.gov:443/",
+          "status": 301,
+          "url": "http://www.ctb.virginia.gov/"
+        },
+        {
+          "location": "https://ctb.virginia.gov/",
+          "status": 301,
+          "url": "https://www.ctb.virginia.gov:443/"
+        }
+      ],
+      "content_type": "text/html; charset=UTF-8",
+      "html_title": "CTB Home | Commonwealth Transportation Board",
+      "advertised_document_links_for_future_identity_check": [],
+      "owners": [
+        {
+          "id": "342",
+          "heading": "7-0104 Service Drive",
+          "canonical_body_key": "_001-009-003-004",
+          "path": [
+            {
+              "id": "5",
+              "heading": "Fairfax County\u2019s Public Facilities Manual"
+            },
+            {
+              "id": "337",
+              "heading": "7-0000 STREETS, STREET LIGHTS, PARKING AND DRIVEWAYS"
+            },
+            {
+              "id": "338",
+              "heading": "7-0100 GENERAL STREET POLICIES"
+            }
+          ],
+          "raw_path": "raw/node-5.html",
+          "raw_sha256": "185128e4c386d243433dc9150fbe6542d2c057f40b1f466cc4e08723cf7605b0",
+          "asset_rule": {
+            "url": "http://www.ctb.virginia.gov/",
+            "attribute": "href",
+            "tag": "a",
+            "alt": null,
+            "required": true,
+            "supported_scheme": true
+          },
+          "source_contexts": [
+            {
+              "source_element": "<a href=\"http://www.ctb.virginia.gov/\">Commonwealth of Virginia Transportation Board</a>",
+              "link_text": "Commonwealth of Virginia Transportation Board",
+              "context": "7-0104.3 Service drives are not required along adopted Virginia byways or the Dulles Toll Road (Route 267), or interstate highways. The plan must clearly label the interstate highway, the Dulles Toll Road (Route 267), or the street designated as a Virginia byway by the Commonwealth of Virginia Transportation Board . The Board of Supervisors or the Director may waive service drive requirements if the service drive provisions of subsection 8100.7 of the Zoning Ordinance are met. However, service drive waivers will not be required in areas where design guidelines (i.e., Tysons, Comprehensive Plan , revitalization district standards) do not require them.",
+              "normative_context_indicator": true
+            }
+          ]
+        }
+      ],
+      "required_scope": "Exact current linked nonimage reference required by conservative asset rule; context below distinguishes explicit normative language from other linked documents. HTMLseparatepublications remain separate scope, no alias/edition substitution."
+    },
+    {
+      "url": "http://www.asprs.org/a/society/committees/standards/Positional_Accuracy_Standards.pdf",
+      "host": "www.asprs.org",
+      "canonical_without_fragment": "http://www.asprs.org/a/society/committees/standards/Positional_Accuracy_Standards.pdf",
+      "active_missing_required_reference": true,
+      "in_current_required_set": true,
+      "intentional_image_omission": false,
+      "category": "source_missing_http_404",
+      "recorded_failure_reason": "Mismatched/failed cached request; retained refusal or nontransient HTTP failure",
+      "raw_path": "fairfax-pfm/assets/999b678890f74d8cfbd31438099291733992f19fe76c9144ffeb7438d00a1e18.bin",
+      "receipt_path": "fairfax-pfm/assets/999b678890f74d8cfbd31438099291733992f19fe76c9144ffeb7438d00a1e18.bin.receipt.json",
+      "raw_sha256": "9d288791e2f8429290e1262b4afbb57c6a1cdee1961000b0cceca8272858504b",
+      "observed_http_status_this_attempt": 404,
+      "final_url": "https://www.asprs.org/a/society/committees/standards/Positional_Accuracy_Standards.pdf",
+      "request_attempted": null,
+      "blocked_by_stop": false,
+      "prior_stop": null,
+      "blocked_by_cooldown": null,
+      "redirects": [
+        {
+          "location": "https://www.asprs.org/a/society/committees/standards/Positional_Accuracy_Standards.pdf",
+          "status": 301,
+          "url": "http://www.asprs.org/a/society/committees/standards/Positional_Accuracy_Standards.pdf"
+        }
+      ],
+      "content_type": "text/html; charset=utf-8",
+      "html_title": null,
+      "advertised_document_links_for_future_identity_check": [],
+      "owners": [
+        {
+          "id": "249",
+          "heading": "6-1403 Methods and Guidelines for Calculations",
+          "canonical_body_key": "_001-008-016-003",
+          "path": [
+            {
+              "id": "5",
+              "heading": "Fairfax County\u2019s Public Facilities Manual"
+            },
+            {
+              "id": "152",
+              "heading": "6-0000 STORM DRAINAGE"
+            },
+            {
+              "id": "246",
+              "heading": "6-1400 FLOODPLAIN"
+            }
+          ],
+          "raw_path": "raw/node-5.html",
+          "raw_sha256": "185128e4c386d243433dc9150fbe6542d2c057f40b1f466cc4e08723cf7605b0",
+          "asset_rule": {
+            "url": "http://www.asprs.org/a/society/committees/standards/Positional_Accuracy_Standards.pdf",
+            "attribute": "href",
+            "tag": "a",
+            "alt": null,
+            "required": true,
+            "supported_scheme": true
+          },
+          "source_contexts": [
+            {
+              "source_element": "<a href=\"http://www.asprs.org/a/society/committees/standards/Positional_Accuracy_Standards.pdf\">ASPRS Positional Accuracy Standards for Digital Geospatial Data</a>",
+              "link_text": "ASPRS Positional Accuracy Standards for Digital Geospatial Data",
+              "context": "1. These sections must be selected based on the topography and any existing and/or proposed hydraulic control sections. Floodplain cross-sections must be developed from field run data or aerial spot elevations in accordance with methods described in the current edition of the \u201c Flood Insurance Study Guidelines and Specifications for Study Contractors \u201d ( Federal Emergency Management Agency ). Elevation data for all hydraulic structures and buildings in or adjoining the floodplain must be collected by field survey. Areas of the channel which are underwater must be field surveyed unless permission is granted in advance by the Director to use the water surface as the assumed channel bottom. Upon written request, permission to use the water surface as the assumed channel bottom may be granted by the Director where the assumption will not affect the Director\u2019s ability to administer the floodplain regulations. Topography between the cross-sections must be at a maximum contour interval of 2-feet and may be developed by field or aerial methods. Aerial survey methods must meet the American Society of Photogrammetry and Remote Sensing \u2019s ( ASPRS ) current edition of \u201c ASPRS Positional Accuracy Standards for Digital Geospatial Data .\u201d",
+              "normative_context_indicator": true
+            }
+          ]
+        }
+      ],
+      "required_scope": "Exact current linked nonimage reference required by conservative asset rule; context below distinguishes explicit normative language from other linked documents. HTMLseparatepublications remain separate scope, no alias/edition substitution."
+    },
+    {
+      "url": "http://www.vdh.virginia.gov/content/uploads/sites/14/2018/03/Waterworks-Regulations-2Nov2016.pdf",
+      "host": "www.vdh.virginia.gov",
+      "canonical_without_fragment": "http://www.vdh.virginia.gov/content/uploads/sites/14/2018/03/Waterworks-Regulations-2Nov2016.pdf",
+      "active_missing_required_reference": true,
+      "in_current_required_set": true,
+      "intentional_image_omission": false,
+      "category": "source_missing_http_404",
+      "recorded_failure_reason": "Mismatched/failed cached request; retained refusal or nontransient HTTP failure",
+      "raw_path": "fairfax-pfm/assets/f08cc404de492cbb3a59135576b7b15260039fcc50d62d5205da63ca026b7312.bin",
+      "receipt_path": "fairfax-pfm/assets/f08cc404de492cbb3a59135576b7b15260039fcc50d62d5205da63ca026b7312.bin.receipt.json",
+      "raw_sha256": "b90406a2cc1e28c83f67008feb75b3a44fc838570fc8e35e2c97ff359701e3cc",
+      "observed_http_status_this_attempt": 404,
+      "final_url": "https://www.vdh.virginia.gov/content/uploads/sites/14/2018/03/Waterworks-Regulations-2Nov2016.pdf",
+      "request_attempted": null,
+      "blocked_by_stop": false,
+      "prior_stop": null,
+      "blocked_by_cooldown": null,
+      "redirects": [
+        {
+          "location": "https://www.vdh.virginia.gov/content/uploads/sites/14/2018/03/Waterworks-Regulations-2Nov2016.pdf",
+          "status": 301,
+          "url": "http://www.vdh.virginia.gov/content/uploads/sites/14/2018/03/Waterworks-Regulations-2Nov2016.pdf"
+        }
+      ],
+      "content_type": "text/html; charset=UTF-8",
+      "html_title": null,
+      "advertised_document_links_for_future_identity_check": [],
+      "owners": [
+        {
+          "id": "484",
+          "heading": "9-0102 Public Water Supply Agency Data",
+          "canonical_body_key": "_001-011-003-002",
+          "path": [
+            {
+              "id": "5",
+              "heading": "Fairfax County\u2019s Public Facilities Manual"
+            },
+            {
+              "id": "481",
+              "heading": "9-0000 WATER AND FIRE REGULATIONS"
+            },
+            {
+              "id": "482",
+              "heading": "9-0100 PUBLIC WATER SUPPLY"
+            }
+          ],
+          "raw_path": "raw/node-5.html",
+          "raw_sha256": "185128e4c386d243433dc9150fbe6542d2c057f40b1f466cc4e08723cf7605b0",
+          "asset_rule": {
+            "url": "http://www.vdh.virginia.gov/content/uploads/sites/14/2018/03/Waterworks-Regulations-2Nov2016.pdf",
+            "attribute": "href",
+            "tag": "a",
+            "alt": null,
+            "required": true,
+            "supported_scheme": true
+          },
+          "source_contexts": [
+            {
+              "source_element": "<a href=\"http://www.vdh.virginia.gov/content/uploads/sites/14/2018/03/Waterworks-Regulations-2Nov2016.pdf\">Virginia Department of Health\u2019s Waterworks Regulations</a>",
+              "link_text": "Virginia Department of Health\u2019s Waterworks Regulations",
+              "context": "T. Horizontal and vertical separation between sanitary sewer mains and laterals and water mains must be in accordance with the Virginia Department of Health\u2019s Waterworks Regulations .",
+              "normative_context_indicator": true
+            }
+          ]
+        }
+      ],
+      "required_scope": "Exact current linked nonimage reference required by conservative asset rule; context below distinguishes explicit normative language from other linked documents. HTMLseparatepublications remain separate scope, no alias/edition substitution."
+    },
+    {
+      "url": "http://www.publications.usace.army.mil/Portals/76/Publications/EngineerManuals/EM_1110-2-1906.pdf",
+      "host": "www.publications.usace.army.mil",
+      "canonical_without_fragment": "http://www.publications.usace.army.mil/Portals/76/Publications/EngineerManuals/EM_1110-2-1906.pdf",
+      "active_missing_required_reference": true,
+      "in_current_required_set": true,
+      "intentional_image_omission": false,
+      "category": "observed_access_refusal_or_challenge",
+      "recorded_failure_reason": "Mismatched/failed cached request; retained refusal or nontransient HTTP failure",
+      "raw_path": "fairfax-pfm/assets/4757e8a68d6199537f2a280a1dfed91e95cc60b94be4ad19275d57358aad6da6.bin",
+      "receipt_path": "fairfax-pfm/assets/4757e8a68d6199537f2a280a1dfed91e95cc60b94be4ad19275d57358aad6da6.bin.receipt.json",
+      "raw_sha256": "6df079d8d7037724cbbbb6312ac14dba281b65e5b12e64607368762ebf85ceb7",
+      "observed_http_status_this_attempt": 403,
+      "final_url": "http://www.publications.usace.army.mil/Portals/76/Publications/EngineerManuals/EM_1110-2-1906.pdf",
+      "request_attempted": null,
+      "blocked_by_stop": false,
+      "prior_stop": null,
+      "blocked_by_cooldown": null,
+      "redirects": [],
+      "content_type": "text/html",
+      "html_title": null,
+      "advertised_document_links_for_future_identity_check": [],
+      "owners": [
+        {
+          "id": "123",
+          "heading": "4-0303 General Guidelines for Geotechnical Investigation and Engineering Recommendations.",
+          "canonical_body_key": "_001-006-004-003",
+          "path": [
+            {
+              "id": "5",
+              "heading": "Fairfax County\u2019s Public Facilities Manual"
+            },
+            {
+              "id": "109",
+              "heading": "4-0000 GEOTECHNICAL GUIDELINES"
+            },
+            {
+              "id": "120",
+              "heading": "4-0300 GEOTECHNICAL REPORT"
+            }
+          ],
+          "raw_path": "raw/node-5.html",
+          "raw_sha256": "185128e4c386d243433dc9150fbe6542d2c057f40b1f466cc4e08723cf7605b0",
+          "asset_rule": {
+            "url": "http://www.publications.usace.army.mil/Portals/76/Publications/EngineerManuals/EM_1110-2-1906.pdf",
+            "attribute": "href",
+            "tag": "a",
+            "alt": null,
+            "required": true,
+            "supported_scheme": true
+          },
+          "source_contexts": [
+            {
+              "source_element": "<a href=\"http://www.publications.usace.army.mil/Portals/76/Publications/EngineerManuals/EM_1110-2-1906.pdf\">EM 1110\u20112\u20111906</a>",
+              "link_text": "EM 1110\u20112\u20111906",
+              "context": "E. For the stiff fissured clays and deltaic clays that have undergone relatively large strains in the past, the important properties for predicting long-term slope behavior are the residual effective friction angle and the residual cohesion intercept (the absolute minimum strength of clay material). Any cohesion of the fissured and deltaic clays should be ignored in the evaluation of the long-term stability of a slope. The shear strength parameters should be determined by appropriate laboratory tests (drained direct shear tests using sufficient stress reversals to obtain large strains as discussed in the USACE laboratory testing procedure EM 1110\u20112\u20111906 ). 1. Many reversals are required to reach residual strengths, but must never be less than three reversals at any particular normal stress. The strain rate(s) selected to shear the samples must be based on either the consolidation data at the first normal stress or experience with similar soils. The strain rate used during each reversal may be varied (i.e., a slightly higher rate than specified in EM 1110\u20112\u20111906 ), but the rate during the last reversal at each normal stress may not exceed 1.44 inches per day. The geotechnical engineer must be aware of unintended buildup of pore water pressure during testing and must lower the strain rates accordingly. To obtain the strength envelope for the sample, the direct shear test must be repeated at two other normal stresses. 2. Some references suggest using a pre-split sample (Ref. Engineering Properties of Clay Shales Report No. 1, by W. Haley and B. N. MacIver ). Shearing an intact, stiff to hard in-situ specimen may overestimate the results (see U.S. Geological Survey Professional Paper 1344: Relationship Between Geology and Engineering Characteristics of Soils and Weathered R",
+              "normative_context_indicator": true
+            },
+            {
+              "source_element": "<a href=\"http://www.publications.usace.army.mil/Portals/76/Publications/EngineerManuals/EM_1110-2-1906.pdf\">EM 1110\u20112\u20111906</a>",
+              "link_text": "EM 1110\u20112\u20111906",
+              "context": "1. Many reversals are required to reach residual strengths, but must never be less than three reversals at any particular normal stress. The strain rate(s) selected to shear the samples must be based on either the consolidation data at the first normal stress or experience with similar soils. The strain rate used during each reversal may be varied (i.e., a slightly higher rate than specified in EM 1110\u20112\u20111906 ), but the rate during the last reversal at each normal stress may not exceed 1.44 inches per day. The geotechnical engineer must be aware of unintended buildup of pore water pressure during testing and must lower the strain rates accordingly. To obtain the strength envelope for the sample, the direct shear test must be repeated at two other normal stresses.",
+              "normative_context_indicator": true
+            },
+            {
+              "source_element": "<a href=\"http://www.publications.usace.army.mil/Portals/76/Publications/EngineerManuals/EM_1110-2-1906.pdf\">EM 1110\u20112\u20111906</a>",
+              "link_text": "EM 1110\u20112\u20111906",
+              "context": "2. Some references suggest using a pre-split sample (Ref. Engineering Properties of Clay Shales Report No. 1, by W. Haley and B. N. MacIver ). Shearing an intact, stiff to hard in-situ specimen may overestimate the results (see U.S. Geological Survey Professional Paper 1344: Relationship Between Geology and Engineering Characteristics of Soils and Weathered Rocks of Fairfax County and Vicinity, Virginia [1986] ). Shearing such a specimen could also pose practical difficulties with some lab equipment (see EM 1110\u20112\u20111906 ); the test results from such samples should only be used with extreme caution. Only an intact or a reconstituted sample or a pre-split in-situ sample must be selected for the testing. The geotechnical report must identify the type of sample and the strain rates used in the testing.",
+              "normative_context_indicator": true
+            }
+          ]
+        }
+      ],
+      "required_scope": "Exact current linked nonimage reference required by conservative asset rule; context below distinguishes explicit normative language from other linked documents. HTMLseparatepublications remain separate scope, no alias/edition substitution."
+    },
+    {
+      "url": "https://library.municode.com/va/fairfax_county/codes/code_of_ordinances?nodeId=FACOCO_CH2PRUNCOCO",
+      "host": "library.municode.com",
+      "canonical_without_fragment": "https://library.municode.com/va/fairfax_county/codes/code_of_ordinances?nodeId=FACOCO_CH2PRUNCOCO",
+      "active_missing_required_reference": true,
+      "in_current_required_set": true,
+      "intentional_image_omission": false,
+      "category": "observed_access_refusal_or_challenge",
+      "recorded_failure_reason": "Mismatched/failed cached request; retained refusal or nontransient HTTP failure",
+      "raw_path": "fairfax-pfm/assets/74047f46d1524b0e602159f0ed56d0320417552224b3cac40637bc1433c7f35e.bin",
+      "receipt_path": "fairfax-pfm/assets/74047f46d1524b0e602159f0ed56d0320417552224b3cac40637bc1433c7f35e.bin.receipt.json",
+      "raw_sha256": "5e3a9c387f0de79a009f0ecac2253e6e1299110704abfba879af467b74d192fa",
+      "observed_http_status_this_attempt": 403,
+      "final_url": "https://library.municode.com/va/fairfax_county/codes/code_of_ordinances?nodeId=FACOCO_CH2PRUNCOCO",
+      "request_attempted": null,
+      "blocked_by_stop": false,
+      "prior_stop": null,
+      "blocked_by_cooldown": null,
+      "redirects": [],
+      "content_type": "text/html; charset=UTF-8",
+      "html_title": null,
+      "advertised_document_links_for_future_identity_check": [],
+      "owners": [
+        {
+          "id": "82",
+          "heading": "2-0703 County Permits",
+          "canonical_body_key": "_001-004-008-003",
+          "path": [
+            {
+              "id": "5",
+              "heading": "Fairfax County\u2019s Public Facilities Manual"
+            },
+            {
+              "id": "40",
+              "heading": "2-0000 GENERAL SUBDIVISION AND SITE PLAN INFORMATION"
+            },
+            {
+              "id": "79",
+              "heading": "2-0700 PERMITS"
+            }
+          ],
+          "raw_path": "raw/node-5.html",
+          "raw_sha256": "185128e4c386d243433dc9150fbe6542d2c057f40b1f466cc4e08723cf7605b0",
+          "asset_rule": {
+            "url": "https://library.municode.com/va/fairfax_county/codes/code_of_ordinances?nodeId=FACOCO_CH2PRUNCOCO",
+            "attribute": "href",
+            "tag": "a",
+            "alt": null,
+            "required": true,
+            "supported_scheme": true
+          },
+          "source_contexts": [
+            {
+              "source_element": "<a href=\"https://library.municode.com/va/fairfax_county/codes/code_of_ordinances?nodeId=FACOCO_CH2PRUNCOCO\">Chapter 2</a>",
+              "link_text": "Chapter 2",
+              "context": "2-0703.1 For rights-of-way or streets which have not been accepted into the VDOT system for maintenance, permits must be obtained from the Director before the construction of any road, sidewalk, curb and gutter, drainage system, sanitary sewer system or any public utility within the boundaries of an easement, dedication, or a proposed dedication for public use. The Director may impose conditions to any permit to ensure proper construction and safe use of the rights-of-way or land. In accordance with Chapter 2 ( Property Under County Control ) of the Code, all work and construction must comply with adopted standards and specifications. However, the construction of driveways and similar improvements, serving no more than three properties abutting the right-of-way or street, may be permitted. Such construction may be approved when it will not interfere with the ultimate construction in accordance with adopted standards. The applicant must acknowledge in writing, in appropriate form for recordation, that the less than standard improvements are temporary and that neither the County nor the State will be responsible for these improvements.",
+              "normative_context_indicator": true
+            },
+            {
+              "source_element": "<a href=\"https://library.municode.com/va/fairfax_county/codes/code_of_ordinances?nodeId=FACOCO_CH2PRUNCOCO\">Property Under County Control</a>",
+              "link_text": "Property Under County Control",
+              "context": "2-0703.1 For rights-of-way or streets which have not been accepted into the VDOT system for maintenance, permits must be obtained from the Director before the construction of any road, sidewalk, curb and gutter, drainage system, sanitary sewer system or any public utility within the boundaries of an easement, dedication, or a proposed dedication for public use. The Director may impose conditions to any permit to ensure proper construction and safe use of the rights-of-way or land. In accordance with Chapter 2 ( Property Under County Control ) of the Code, all work and construction must comply with adopted standards and specifications. However, the construction of driveways and similar improvements, serving no more than three properties abutting the right-of-way or street, may be permitted. Such construction may be approved when it will not interfere with the ultimate construction in accordance with adopted standards. The applicant must acknowledge in writing, in appropriate form for recordation, that the less than standard improvements are temporary and that neither the County nor the State will be responsible for these improvements.",
+              "normative_context_indicator": true
+            }
+          ]
+        }
+      ],
+      "required_scope": "Exact current linked nonimage reference required by conservative asset rule; context below distinguishes explicit normative language from other linked documents. HTMLseparatepublications remain separate scope, no alias/edition substitution."
+    },
+    {
+      "url": "http://www.virginiadot.org/business/const/spec-default.asp",
+      "host": "www.virginiadot.org",
+      "canonical_without_fragment": "http://www.virginiadot.org/business/const/spec-default.asp",
+      "active_missing_required_reference": true,
+      "in_current_required_set": true,
+      "intentional_image_omission": false,
+      "category": "source_redirect_cycle_or_limit",
+      "recorded_failure_reason": "Mismatched/failed cached request; retained refusal or nontransient HTTP failure",
+      "raw_path": "fairfax-pfm/assets/801deec25bf5e77d0357dbf327d4ea155fedcde5d739c00f84b6829ccbdc00b6.bin",
+      "receipt_path": "fairfax-pfm/assets/801deec25bf5e77d0357dbf327d4ea155fedcde5d739c00f84b6829ccbdc00b6.bin.receipt.json",
+      "raw_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "observed_http_status_this_attempt": null,
+      "final_url": "https://www.vdot.virginia.gov/doing-business/technical-guidance-and-support/technical-guidance-documents/road-and-bridge-specifications/",
+      "request_attempted": false,
+      "blocked_by_stop": false,
+      "prior_stop": null,
+      "blocked_by_cooldown": null,
+      "redirects": [
+        {
+          "bytes": 134,
+          "headers": {
+            "Connection": "close",
+            "Content-Length": "134",
+            "Content-Type": "text/html",
+            "Date": "Sat, 17 Oct 2026 21:39:47 GMT",
+            "Location": "https://www.virginiadot.org:443/business/const/spec-default.asp",
+            "Server": "awselb/2.0"
+          },
+          "location": "https://www.virginiadot.org:443/business/const/spec-default.asp",
+          "sha256": "34ccdc351dc93dbf30a8630521968421091e3ed19c31a16e32c2eabb55c6a73a",
+          "started_at": "2026-10-17T21:39:47.584323+00:00",
+          "status": 301,
+          "url": "http://www.virginiadot.org/business/const/spec-default.asp"
+        },
+        {
+          "bytes": 265,
+          "headers": {
+            "Cache-Control": "max-age=86400",
+            "Connection": "close",
+            "Content-Length": "265",
+            "Content-Type": "text/html; charset=iso-8859-1",
+            "Date": "Sat, 17 Oct 2026 21:39:51 GMT",
+            "Expires": "Sun, 18 Oct 2026 21:39:51 GMT",
+            "Location": "https://vdot.virginia.gov/business/const/spec-default.asp",
+            "Server": "Apache",
+            "Set-Cookie": "AWSALB=BLyjKcMzNLvC5M8iPTXf++zwWgbTRF5GLucUvU45631bJK2DraFDk+d9XBX3Bp9EbJBuUh0iEAmS/+DFlR4gfpChdTOEFRFhSL6N4Tb6oZ9KujKeicN3Tb+QdmNp; Expires=Sat, 24 Oct 2026 21:39:51 GMT; Path=/",
+            "Strict-Transport-Security": "max-age=31536000; includeSubDomains; preload",
+            "X-Frame-Options": "SAMEORIGIN"
+          },
+          "location": "https://vdot.virginia.gov/business/const/spec-default.asp",
+          "sha256": "545520ffe191ecc61beb314dfb996188cf012524778e7c1366dfdbd74e0af30a",
+          "started_at": "2026-10-17T21:39:51.097614+00:00",
+          "status": 301,
+          "url": "https://www.virginiadot.org:443/business/const/spec-default.asp"
+        },
+        {
+          "bytes": 269,
+          "headers": {
+            "Cache-Control": "max-age=86400",
+            "Connection": "close",
+            "Content-Length": "269",
+            "Content-Security-Policy": "frame-ancestors 'self'  https://covgov.sharepoint.com https://covgov.sharepoint.com/sites/VDOT-EBB",
+            "Content-Type": "text/html; charset=iso-8859-1",
+            "Date": "Sat, 17 Oct 2026 21:39:54 GMT",
+            "Expires": "Sun, 18 Oct 2026 21:39:54 GMT",
+            "Location": "https://www.vdot.virginia.gov/business/const/spec-default.asp",
+            "Server": "Apache",
+            "Set-Cookie": "AWSALB=5f7ZCkCbQxyztiaRvQsvQzSt41R745XiqwwW+qLufvgyvQoGIs50bkfwvpEQtbpQcCez/kVZCC1TlgXEjjDw6k8RBqZslFV+ibH6hQGmc0r1y7jP0WEr1ZagvRh6; Expires=Sat, 24 Oct 2026 21:39:54 GMT; Path=/",
+            "Strict-Transport-Security": "max-age=31536000; includeSubDomains; preload",
+            "X-Content-Type-Options": "nosniff"
+          },
+          "location": "https://www.vdot.virginia.gov/business/const/spec-default.asp",
+          "sha256": "5a0f69af7b6a8b62cde96967f631e13a7b8b148096adf9961e4c97e55369cbdb",
+          "started_at": "2026-10-17T21:39:54.597759+00:00",
+          "status": 301,
+          "url": "https://vdot.virginia.gov/business/const/spec-default.asp"
+        },
+        {
+          "bytes": 40817,
+          "headers": {
+            "Cache-Control": "no-store, no-cache, must-revalidate",
+            "Connection": "close",
+            "Content-Security-Policy": "frame-ancestors 'self'  https://covgov.sharepoint.com https://covgov.sharepoint.com/sites/VDOT-EBB",
+            "Content-Type": "text/html; charset=UTF-8",
+            "Date": "Sat, 17 Oct 2026 21:39:58 GMT",
+            "Expires": "Thu, 19 Nov 1981 08:52:00 GMT",
+            "Location": "http://www.vdot.virginia.gov/doing-business/technical-guidance-and-support/technical-guidance-documents/road-and-bridge-specifications",
+            "Pragma": "no-cache",
+            "Server": "Apache",
+            "Set-Cookie": "AWSALB=GGq0YinswygMJBHnNGoL8mxsnqxgqLusEWpoM9ikOKoPMeE+9Fu4pX2jYRCHU03/4thkSbjRQHqlleGqgikRtsypqvlDAz4J6PnSneahAD5Ycop5m3NrZtCd4p+x; Expires=Sat, 24 Oct 2026 21:39:58 GMT; Path=/",
+            "Strict-Transport-Security": "max-age=31536000; includeSubDomains; preload",
+            "Transfer-Encoding": "chunked",
+            "Vary": "User-Agent",
+            "X-Content-Type-Options": "nosniff"
+          },
+          "location": "http://www.vdot.virginia.gov/doing-business/technical-guidance-and-support/technical-guidance-documents/road-and-bridge-specifications",
+          "sha256": "b9285ec608fda187e0f4ad3ca14e0056c1b04ae894100cbf62cb481e347d7216",
+          "started_at": "2026-10-17T21:39:58.124597+00:00",
+          "status": 301,
+          "url": "https://www.vdot.virginia.gov/business/const/spec-default.asp"
+        },
+        {
+          "bytes": 134,
+          "headers": {
+            "Connection": "close",
+            "Content-Length": "134",
+            "Content-Type": "text/html",
+            "Date": "Sat, 17 Oct 2026 21:40:01 GMT",
+            "Location": "https://www.vdot.virginia.gov:443/doing-business/technical-guidance-and-support/technical-guidance-documents/road-and-bridge-specifications",
+            "Server": "awselb/2.0"
+          },
+          "location": "https://www.vdot.virginia.gov:443/doing-business/technical-guidance-and-support/technical-guidance-documents/road-and-bridge-specifications",
+          "sha256": "34ccdc351dc93dbf30a8630521968421091e3ed19c31a16e32c2eabb55c6a73a",
+          "started_at": "2026-10-17T21:40:01.610908+00:00",
+          "status": 301,
+          "url": "http://www.vdot.virginia.gov/doing-business/technical-guidance-and-support/technical-guidance-documents/road-and-bridge-specifications"
+        },
+        {
+          "bytes": 344,
+          "headers": {
+            "Cache-Control": "max-age=86400",
+            "Connection": "close",
+            "Content-Length": "344",
+            "Content-Security-Policy": "frame-ancestors 'self'  https://covgov.sharepoint.com https://covgov.sharepoint.com/sites/VDOT-EBB",
+            "Content-Type": "text/html; charset=iso-8859-1",
+            "Date": "Sat, 17 Oct 2026 21:40:05 GMT",
+            "Expires": "Sun, 18 Oct 2026 21:40:05 GMT",
+            "Location": "https://www.vdot.virginia.gov/doing-business/technical-guidance-and-support/technical-guidance-documents/road-and-bridge-specifications/",
+            "Server": "Apache",
+            "Set-Cookie": "AWSALB=yknyMrcJrtoqfr2QdYJTlxsc/T3PRGlizJ2JD4542m05YlKp8LUwP+pTrhcr/+BZR9PdBt/mY+Ml07MflmQlF4aENye73xruaqizncZJt9x0jtW6h+LJYk6FCz+l; Expires=Sat, 24 Oct 2026 21:40:05 GMT; Path=/",
+            "Strict-Transport-Security": "max-age=31536000; includeSubDomains; preload",
+            "X-Content-Type-Options": "nosniff"
+          },
+          "location": "https://www.vdot.virginia.gov/doing-business/technical-guidance-and-support/technical-guidance-documents/road-and-bridge-specifications/",
+          "sha256": "bb6ac92beb03e342e3918405aa3b6fb832bedc7bd37e46c24fd85de243e07e58",
+          "started_at": "2026-10-17T21:40:05.124957+00:00",
+          "status": 301,
+          "url": "https://www.vdot.virginia.gov:443/doing-business/technical-guidance-and-support/technical-guidance-documents/road-and-bridge-specifications"
+        }
+      ],
+      "content_type": null,
+      "html_title": null,
+      "advertised_document_links_for_future_identity_check": [],
+      "owners": [
+        {
+          "id": "19",
+          "heading": "1-0502 VDOT Standards.",
+          "canonical_body_key": "_001-003-006-002",
+          "path": [
+            {
+              "id": "5",
+              "heading": "Fairfax County\u2019s Public Facilities Manual"
+            },
+            {
+              "id": "8",
+              "heading": "1-0000 GENERAL INFORMATION"
+            },
+            {
+              "id": "17",
+              "heading": "1-0500 PLATES"
+            }
+          ],
+          "raw_path": "raw/node-5.html",
+          "raw_sha256": "185128e4c386d243433dc9150fbe6542d2c057f40b1f466cc4e08723cf7605b0",
+          "asset_rule": {
+            "url": "http://www.virginiadot.org/business/const/spec-default.asp",
+            "attribute": "href",
+            "tag": "a",
+            "alt": null,
+            "required": true,
+            "supported_scheme": true
+          },
+          "source_contexts": [
+            {
+              "source_element": "<a href=\"http://www.virginiadot.org/business/const/spec-default.asp\">VDOT Road and Bridge Specifications</a>",
+              "link_text": "VDOT Road and Bridge Specifications",
+              "context": "The VDOT standards should be adopted where possible to eliminate duplication and to facilitate construction methods for contractors doing both State and County improvements. State Standards have been reproduced directly from these primary documents: VDOT Road Design Manual , VDOT Road and Bridge Standards , VDOT Road and Bridge Specifications , VDOT Drainage Manual , and VDOT Location and Design Instructional and Informational Memoranda . Nomenclature and permitted construction methods shown on the State Standards might differ from that allowed by the County. Under such circumstances, the County design criteria must be met where County standards exceed the VDOT standards. Listed below are some changes to be made on the State standards:",
+              "normative_context_indicator": true
+            }
+          ]
+        }
+      ],
+      "required_scope": "Exact current linked nonimage reference required by conservative asset rule; context below distinguishes explicit normative language from other linked documents. HTMLseparatepublications remain separate scope, no alias/edition substitution."
+    },
+    {
+      "url": "http://www.virginiadot.org/business/locdes/hydra-drainage-manual.asp",
+      "host": "www.virginiadot.org",
+      "canonical_without_fragment": "http://www.virginiadot.org/business/locdes/hydra-drainage-manual.asp",
+      "active_missing_required_reference": true,
+      "in_current_required_set": true,
+      "intentional_image_omission": false,
+      "category": "source_redirect_cycle_or_limit",
+      "recorded_failure_reason": "Mismatched/failed cached request; retained refusal or nontransient HTTP failure",
+      "raw_path": "fairfax-pfm/assets/1b627a35058a70e24d0db2f42975fda20192dbb6f50ddd69912263d4a8bf7f96.bin",
+      "receipt_path": "fairfax-pfm/assets/1b627a35058a70e24d0db2f42975fda20192dbb6f50ddd69912263d4a8bf7f96.bin.receipt.json",
+      "raw_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "observed_http_status_this_attempt": null,
+      "final_url": "https://www.vdot.virginia.gov/doing-business/technical-guidance-and-support/technical-guidance-documents/drainage-manual/",
+      "request_attempted": false,
+      "blocked_by_stop": false,
+      "prior_stop": null,
+      "blocked_by_cooldown": null,
+      "redirects": [
+        {
+          "bytes": 134,
+          "headers": {
+            "Connection": "close",
+            "Content-Length": "134",
+            "Content-Type": "text/html",
+            "Date": "Sat, 17 Oct 2026 21:40:08 GMT",
+            "Location": "https://www.virginiadot.org:443/business/locdes/hydra-drainage-manual.asp",
+            "Server": "awselb/2.0"
+          },
+          "location": "https://www.virginiadot.org:443/business/locdes/hydra-drainage-manual.asp",
+          "sha256": "34ccdc351dc93dbf30a8630521968421091e3ed19c31a16e32c2eabb55c6a73a",
+          "started_at": "2026-10-17T21:40:08.618948+00:00",
+          "status": 301,
+          "url": "http://www.virginiadot.org/business/locdes/hydra-drainage-manual.asp"
+        },
+        {
+          "bytes": 275,
+          "headers": {
+            "Cache-Control": "max-age=86400",
+            "Connection": "close",
+            "Content-Length": "275",
+            "Content-Type": "text/html; charset=iso-8859-1",
+            "Date": "Sat, 17 Oct 2026 21:40:12 GMT",
+            "Expires": "Sun, 18 Oct 2026 21:40:12 GMT",
+            "Location": "https://vdot.virginia.gov/business/locdes/hydra-drainage-manual.asp",
+            "Server": "Apache",
+            "Set-Cookie": "AWSALB=ZALfy4fdWx/ybuqR1gXpZZ3Po1A1Yg/3UjcTMpz9U5hzKmIu/qEWy9xNlLX2F7GkOpshh+vQ6d2AwfPPNz9IHrlL54q0dEGzNjr6GDMyo/8kTDUBI8wdJICImQb7; Expires=Sat, 24 Oct 2026 21:40:12 GMT; Path=/",
+            "Strict-Transport-Security": "max-age=31536000; includeSubDomains; preload",
+            "X-Frame-Options": "SAMEORIGIN"
+          },
+          "location": "https://vdot.virginia.gov/business/locdes/hydra-drainage-manual.asp",
+          "sha256": "b7168dc792a7d169057742908a0acd57bc41984bfb4c64b725889b85fbc1394a",
+          "started_at": "2026-10-17T21:40:12.204169+00:00",
+          "status": 301,
+          "url": "https://www.virginiadot.org:443/business/locdes/hydra-drainage-manual.asp"
+        },
+        {
+          "bytes": 279,
+          "headers": {
+            "Cache-Control": "max-age=86400",
+            "Connection": "close",
+            "Content-Length": "279",
+            "Content-Security-Policy": "frame-ancestors 'self'  https://covgov.sharepoint.com https://covgov.sharepoint.com/sites/VDOT-EBB",
+            "Content-Type": "text/html; charset=iso-8859-1",
+            "Date": "Sat, 17 Oct 2026 21:40:15 GMT",
+            "Expires": "Sun, 18 Oct 2026 21:40:15 GMT",
+            "Location": "https://www.vdot.virginia.gov/business/locdes/hydra-drainage-manual.asp",
+            "Server": "Apache",
+            "Set-Cookie": "AWSALB=NkyQEtX/WUn5BmmLS3e/x/JDRZacX8QGLukiFVEKseuYrf7b/IdBgcjwsugui5aqWSzTRsyZO7E9A2sqC3w4EU+SMOv6UljvTuqmrdWetJXofmzPedlTy2Ueivpt; Expires=Sat, 24 Oct 2026 21:40:15 GMT; Path=/",
+            "Strict-Transport-Security": "max-age=31536000; includeSubDomains; preload",
+            "X-Content-Type-Options": "nosniff"
+          },
+          "location": "https://www.vdot.virginia.gov/business/locdes/hydra-drainage-manual.asp",
+          "sha256": "11061dfaff4f4caab0fe72fa52a10ad065f0e315e6bd260b98bd9615eec697a9",
+          "started_at": "2026-10-17T21:40:15.635367+00:00",
+          "status": 301,
+          "url": "https://vdot.virginia.gov/business/locdes/hydra-drainage-manual.asp"
+        },
+        {
+          "bytes": 40817,
+          "headers": {
+            "Cache-Control": "no-store, no-cache, must-revalidate",
+            "Connection": "close",
+            "Content-Security-Policy": "frame-ancestors 'self'  https://covgov.sharepoint.com https://covgov.sharepoint.com/sites/VDOT-EBB",
+            "Content-Type": "text/html; charset=UTF-8",
+            "Date": "Sat, 17 Oct 2026 21:40:19 GMT",
+            "Expires": "Thu, 19 Nov 1981 08:52:00 GMT",
+            "Location": "http://www.vdot.virginia.gov/doing-business/technical-guidance-and-support/technical-guidance-documents/drainage-manual",
+            "Pragma": "no-cache",
+            "Server": "Apache",
+            "Set-Cookie": "AWSALB=PTRWKseSLDY17nXg690+Uq68Q+kaPMiRc34axXI1avNdnTPYjD/dFgI5K4tonIb3kzL3t4KBGei+54EONWq822V01yHcFvNDlH2TFcV1F1xF5BMnz0XOq/vs67GD; Expires=Sat, 24 Oct 2026 21:40:19 GMT; Path=/",
+            "Strict-Transport-Security": "max-age=31536000; includeSubDomains; preload",
+            "Transfer-Encoding": "chunked",
+            "Vary": "User-Agent",
+            "X-Content-Type-Options": "nosniff"
+          },
+          "location": "http://www.vdot.virginia.gov/doing-business/technical-guidance-and-support/technical-guidance-documents/drainage-manual",
+          "sha256": "b9285ec608fda187e0f4ad3ca14e0056c1b04ae894100cbf62cb481e347d7216",
+          "started_at": "2026-10-17T21:40:19.130517+00:00",
+          "status": 301,
+          "url": "https://www.vdot.virginia.gov/business/locdes/hydra-drainage-manual.asp"
+        },
+        {
+          "bytes": 134,
+          "headers": {
+            "Connection": "close",
+            "Content-Length": "134",
+            "Content-Type": "text/html",
+            "Date": "Sat, 17 Oct 2026 21:40:22 GMT",
+            "Location": "https://www.vdot.virginia.gov:443/doing-business/technical-guidance-and-support/technical-guidance-documents/drainage-manual",
+            "Server": "awselb/2.0"
+          },
+          "location": "https://www.vdot.virginia.gov:443/doing-business/technical-guidance-and-support/technical-guidance-documents/drainage-manual",
+          "sha256": "34ccdc351dc93dbf30a8630521968421091e3ed19c31a16e32c2eabb55c6a73a",
+          "started_at": "2026-10-17T21:40:22.631537+00:00",
+          "status": 301,
+          "url": "http://www.vdot.virginia.gov/doing-business/technical-guidance-and-support/technical-guidance-documents/drainage-manual"
+        },
+        {
+          "bytes": 329,
+          "headers": {
+            "Cache-Control": "max-age=86400",
+            "Connection": "close",
+            "Content-Length": "329",
+            "Content-Security-Policy": "frame-ancestors 'self'  https://covgov.sharepoint.com https://covgov.sharepoint.com/sites/VDOT-EBB",
+            "Content-Type": "text/html; charset=iso-8859-1",
+            "Date": "Sat, 17 Oct 2026 21:40:26 GMT",
+            "Expires": "Sun, 18 Oct 2026 21:40:26 GMT",
+            "Location": "https://www.vdot.virginia.gov/doing-business/technical-guidance-and-support/technical-guidance-documents/drainage-manual/",
+            "Server": "Apache",
+            "Set-Cookie": "AWSALB=TBsDhqW1XwLQdlc/LH30cCA3Z2Ql4Z64m2DFpa1eCQzruei464sjwZ++bnxogLUphZg3JX01fk2uzpn8WBku0o3gFyK4T+tpkdizaOKycrryxjYvQIYxPXT4jyER; Expires=Sat, 24 Oct 2026 21:40:26 GMT; Path=/",
+            "Strict-Transport-Security": "max-age=31536000; includeSubDomains; preload",
+            "X-Content-Type-Options": "nosniff"
+          },
+          "location": "https://www.vdot.virginia.gov/doing-business/technical-guidance-and-support/technical-guidance-documents/drainage-manual/",
+          "sha256": "0b6ae823d4f33b0f3823a5f4bee1db69474226b541776ce9de243f27f5f8e811",
+          "started_at": "2026-10-17T21:40:26.169725+00:00",
+          "status": 301,
+          "url": "https://www.vdot.virginia.gov:443/doing-business/technical-guidance-and-support/technical-guidance-documents/drainage-manual"
+        }
+      ],
+      "content_type": null,
+      "html_title": null,
+      "advertised_document_links_for_future_identity_check": [],
+      "owners": [
+        {
+          "id": "19",
+          "heading": "1-0502 VDOT Standards.",
+          "canonical_body_key": "_001-003-006-002",
+          "path": [
+            {
+              "id": "5",
+              "heading": "Fairfax County\u2019s Public Facilities Manual"
+            },
+            {
+              "id": "8",
+              "heading": "1-0000 GENERAL INFORMATION"
+            },
+            {
+              "id": "17",
+              "heading": "1-0500 PLATES"
+            }
+          ],
+          "raw_path": "raw/node-5.html",
+          "raw_sha256": "185128e4c386d243433dc9150fbe6542d2c057f40b1f466cc4e08723cf7605b0",
+          "asset_rule": {
+            "url": "http://www.virginiadot.org/business/locdes/hydra-drainage-manual.asp",
+            "attribute": "href",
+            "tag": "a",
+            "alt": null,
+            "required": true,
+            "supported_scheme": true
+          },
+          "source_contexts": [
+            {
+              "source_element": "<a href=\"http://www.virginiadot.org/business/locdes/hydra-drainage-manual.asp\">VDOT Drainage Manual</a>",
+              "link_text": "VDOT Drainage Manual",
+              "context": "The VDOT standards should be adopted where possible to eliminate duplication and to facilitate construction methods for contractors doing both State and County improvements. State Standards have been reproduced directly from these primary documents: VDOT Road Design Manual , VDOT Road and Bridge Standards , VDOT Road and Bridge Specifications , VDOT Drainage Manual , and VDOT Location and Design Instructional and Informational Memoranda . Nomenclature and permitted construction methods shown on the State Standards might differ from that allowed by the County. Under such circumstances, the County design criteria must be met where County standards exceed the VDOT standards. Listed below are some changes to be made on the State standards:",
+              "normative_context_indicator": true
+            }
+          ]
+        }
+      ],
+      "required_scope": "Exact current linked nonimage reference required by conservative asset rule; context below distinguishes explicit normative language from other linked documents. HTMLseparatepublications remain separate scope, no alias/edition substitution."
+    },
+    {
+      "url": "https://library.municode.com/va/fairfax_county/codes/code_of_ordinances?nodeId=FACOCO_CH62FIPR_ART2FIMA_S62-2-7FACOFIPRCO",
+      "host": "library.municode.com",
+      "canonical_without_fragment": "https://library.municode.com/va/fairfax_county/codes/code_of_ordinances?nodeId=FACOCO_CH62FIPR_ART2FIMA_S62-2-7FACOFIPRCO",
+      "active_missing_required_reference": true,
+      "in_current_required_set": true,
+      "intentional_image_omission": false,
+      "category": "blocked_by_persistent_prior_access_stop_no_request",
+      "recorded_failure_reason": "Mismatched/failed cached request; retained refusal or nontransient HTTP failure",
+      "raw_path": "fairfax-pfm/assets/baa08c881f514daf22183ccf69b37c26844dd552097abddc71f1188c8ca15f46.bin",
+      "receipt_path": "fairfax-pfm/assets/baa08c881f514daf22183ccf69b37c26844dd552097abddc71f1188c8ca15f46.bin.receipt.json",
+      "raw_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "observed_http_status_this_attempt": null,
+      "final_url": "https://library.municode.com/va/fairfax_county/codes/code_of_ordinances?nodeId=FACOCO_CH62FIPR_ART2FIMA_S62-2-7FACOFIPRCO",
+      "request_attempted": false,
+      "blocked_by_stop": true,
+      "prior_stop": {
+        "at": "2026-10-17T21:14:24.279912+00:00",
+        "status": 403,
+        "url": "https://library.municode.com/va/fairfax_county/codes/code_of_ordinances?nodeId=FACOCO_CH2PRUNCOCO"
+      },
+      "blocked_by_cooldown": null,
+      "redirects": [],
+      "content_type": null,
+      "html_title": null,
+      "advertised_document_links_for_future_identity_check": [],
+      "owners": [
+        {
+          "id": "487",
+          "heading": "9-0201 General Data.",
+          "canonical_body_key": "_001-011-004-001",
+          "path": [
+            {
+              "id": "5",
+              "heading": "Fairfax County\u2019s Public Facilities Manual"
+            },
+            {
+              "id": "481",
+              "heading": "9-0000 WATER AND FIRE REGULATIONS"
+            },
+            {
+              "id": "486",
+              "heading": "9-0200 FIRE MARSHAL REQUIREMENTS"
+            }
+          ],
+          "raw_path": "raw/node-5.html",
+          "raw_sha256": "185128e4c386d243433dc9150fbe6542d2c057f40b1f466cc4e08723cf7605b0",
+          "asset_rule": {
+            "url": "https://library.municode.com/va/fairfax_county/codes/code_of_ordinances?nodeId=FACOCO_CH62FIPR_ART2FIMA_S62-2-7FACOFIPRCO",
+            "attribute": "href",
+            "tag": "a",
+            "alt": null,
+            "required": true,
+            "supported_scheme": true
+          },
+          "source_contexts": [
+            {
+              "source_element": "<a href=\"https://library.municode.com/va/fairfax_county/codes/code_of_ordinances?nodeId=FACOCO_CH62FIPR_ART2FIMA_S62-2-7FACOFIPRCO\">\u00a7 62\u20112\u20117</a>",
+              "link_text": "\u00a7 62\u20112\u20117",
+              "context": "In accordance with \u00a7 901.8 of the Fire Prevention Code of the County of Fairfax , as adopted by the County pursuant to \u00a7 62\u20112\u20117 et seq., of the Code:",
+              "normative_context_indicator": true
+            }
+          ]
+        }
+      ],
+      "required_scope": "Exact current linked nonimage reference required by conservative asset rule; context below distinguishes explicit normative language from other linked documents. HTMLseparatepublications remain separate scope, no alias/edition substitution."
+    },
+    {
+      "url": "https://library.municode.com/va/fairfax_county/codes/code_of_ordinances?nodeId=FACOCO_CH62FIPR_ART2FIMA_S62-2-8AMADDEVISTFIPRCO",
+      "host": "library.municode.com",
+      "canonical_without_fragment": "https://library.municode.com/va/fairfax_county/codes/code_of_ordinances?nodeId=FACOCO_CH62FIPR_ART2FIMA_S62-2-8AMADDEVISTFIPRCO",
+      "active_missing_required_reference": true,
+      "in_current_required_set": true,
+      "intentional_image_omission": false,
+      "category": "blocked_by_persistent_prior_access_stop_no_request",
+      "recorded_failure_reason": "Mismatched/failed cached request; retained refusal or nontransient HTTP failure",
+      "raw_path": "fairfax-pfm/assets/6d391a6d083b57b2748056bb34848f90433f93cdbeb708b39005ce9b71f9cd12.bin",
+      "receipt_path": "fairfax-pfm/assets/6d391a6d083b57b2748056bb34848f90433f93cdbeb708b39005ce9b71f9cd12.bin.receipt.json",
+      "raw_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "observed_http_status_this_attempt": null,
+      "final_url": "https://library.municode.com/va/fairfax_county/codes/code_of_ordinances?nodeId=FACOCO_CH62FIPR_ART2FIMA_S62-2-8AMADDEVISTFIPRCO",
+      "request_attempted": false,
+      "blocked_by_stop": true,
+      "prior_stop": {
+        "at": "2026-10-17T21:14:24.279912+00:00",
+        "status": 403,
+        "url": "https://library.municode.com/va/fairfax_county/codes/code_of_ordinances?nodeId=FACOCO_CH2PRUNCOCO"
+      },
+      "blocked_by_cooldown": null,
+      "redirects": [],
+      "content_type": null,
+      "html_title": null,
+      "advertised_document_links_for_future_identity_check": [],
+      "owners": [
+        {
+          "id": "487",
+          "heading": "9-0201 General Data.",
+          "canonical_body_key": "_001-011-004-001",
+          "path": [
+            {
+              "id": "5",
+              "heading": "Fairfax County\u2019s Public Facilities Manual"
+            },
+            {
+              "id": "481",
+              "heading": "9-0000 WATER AND FIRE REGULATIONS"
+            },
+            {
+              "id": "486",
+              "heading": "9-0200 FIRE MARSHAL REQUIREMENTS"
+            }
+          ],
+          "raw_path": "raw/node-5.html",
+          "raw_sha256": "185128e4c386d243433dc9150fbe6542d2c057f40b1f466cc4e08723cf7605b0",
+          "asset_rule": {
+            "url": "https://library.municode.com/va/fairfax_county/codes/code_of_ordinances?nodeId=FACOCO_CH62FIPR_ART2FIMA_S62-2-8AMADDEVISTFIPRCO",
+            "attribute": "href",
+            "tag": "a",
+            "alt": null,
+            "required": true,
+            "supported_scheme": true
+          },
+          "source_contexts": [
+            {
+              "source_element": "<a href=\"https://library.municode.com/va/fairfax_county/codes/code_of_ordinances?nodeId=FACOCO_CH62FIPR_ART2FIMA_S62-2-8AMADDEVISTFIPRCO\">\u00a7 901.8 of the Fire Prevention Code of the County of Fairfax</a>",
+              "link_text": "\u00a7 901.8 of the Fire Prevention Code of the County of Fairfax",
+              "context": "In accordance with \u00a7 901.8 of the Fire Prevention Code of the County of Fairfax , as adopted by the County pursuant to \u00a7 62\u20112\u20117 et seq., of the Code:",
+              "normative_context_indicator": true
+            }
+          ]
+        }
+      ],
+      "required_scope": "Exact current linked nonimage reference required by conservative asset rule; context below distinguishes explicit normative language from other linked documents. HTMLseparatepublications remain separate scope, no alias/edition substitution."
+    }
+  ],
+  "scope_limit": "Required-reference rule is conservative: linked document/download-library references and source-explicit incorporated/adopted context. Exact original anchor and paragraph context retained per owner; no claim that all153contexts constitute normative incorporation. HTML landing pages and external cross-code references remain unresolved rather than silently counted as qualified documents."
+}

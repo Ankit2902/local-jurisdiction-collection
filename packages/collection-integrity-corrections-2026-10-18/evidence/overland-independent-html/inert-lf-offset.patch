@@ -1,0 +1,11 @@
+--- a/collectors/qa/inert_browser_source.py
++++ b/collectors/qa/inert_browser_source.py
+@@ -46,7 +46,7 @@
+         def __init__(self):
+             super().__init__(convert_charrefs=False);self.start=None;self.end=None
+         def source_offset(self):
+-            line,col=self.getpos();return sum(len(x) for x in raw.splitlines(keepends=True)[:line-1])+col
++            line,col=self.getpos();return sum(len(x)+1 for x in raw.split('\n')[:line-1])+col
+         def handle_starttag(self,tag,attrs):
+             if tag=='body' and self.start is None:self.start=self.source_offset()+len(self.get_starttag_text())
+         def handle_endtag(self,tag):

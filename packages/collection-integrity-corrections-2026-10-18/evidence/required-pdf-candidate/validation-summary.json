@@ -1,0 +1,35 @@
+{
+  "status": "isolated_candidate_passed_not_promoted",
+  "scope": "Required PDF semantic acceptance; binary capture and parent HTML remain separate",
+  "source_binding": {
+    "production_launcher_sha256": "32f97985956f44aa7fe0b29996d2c8772ea3a988af9ad4303adad83a66beb8a9",
+    "candidate_launcher_sha256": "20055ae2ba65157b2acbe9ab04cfbfd8dbae147fbc1886d62cc657b26c0366e6",
+    "actual_coverage_source": "outputs/collection-readiness-next-2026-10-17/encodeplus/post-91f6c59/overland-primary-unified-v1/coverage.json",
+    "actual_coverage_sha256": "dd938b413c9753de5767c5af62d1f636c1ee46ae2489a1079799df4b6dd707dd"
+  },
+  "production_launcher_unchanged": true,
+  "unrelated_launcher_ast_unchanged": true,
+  "actual_required_pdf_count": 5,
+  "actual_required_pdf_pages": 636,
+  "baseline_false_acceptance_reproduced": true,
+  "candidate_publication_accepted": false,
+  "candidate_legal_structure_qualified": false,
+  "candidate_html_text_complete": true,
+  "candidate_required_nonimage_documents_complete": true,
+  "new_per_document_dimension_count": 10,
+  "tests": {
+    "focused": 7,
+    "focused_seconds": 0.716,
+    "existing": 30,
+    "existing_seconds": 0.764,
+    "passed": true
+  },
+  "publisher_requests": 0,
+  "production_writes": 0,
+  "notes": [
+    "Existing integrity-only asset map entries lack semantic qualification; explicit per-PDF text/table dimensions are null and prevent acceptance.",
+    "Parent aggregate fields cannot override missing/false per-required-PDF dimensions. Character conservation alone does not satisfy either semantic dimension.",
+    "Synthetic all-explicit-true control tests the acceptance schema only, not qualification of the actual five PDFs.",
+    "Existing retained coverage and historical receipts remain unchanged; no PDF parsing or acquisition was repeated."
+  ]
+}

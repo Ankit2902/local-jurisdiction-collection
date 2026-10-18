@@ -1,0 +1,66 @@
+{
+  "schema_version": 1,
+  "passed": true,
+  "old_sha256": "6eb0e6d82dabd01fb415ad93dc58ebe0869ede4a9ea8b8f07b9e0fbd784ecdf9",
+  "corrected_sha256": "4238a639ca912ed2f3f346b169a0b9ae29866e5d2945faa0ec612c7711404d1f",
+  "scope": "QA inert source slicer only; no collector change. HTMLParser.getpos counts LF, str.splitlines additionally splits U+001C-001F/U+0085/U+2028/U+2029. Corrected source_offset counts only LF.",
+  "cases": [
+    {
+      "kind": "bounded_control",
+      "control": "0x1c",
+      "old_equal": false,
+      "corrected_equal": true
+    },
+    {
+      "kind": "bounded_control",
+      "control": "0x1d",
+      "old_equal": false,
+      "corrected_equal": true
+    },
+    {
+      "kind": "bounded_control",
+      "control": "0x1e",
+      "old_equal": false,
+      "corrected_equal": true
+    },
+    {
+      "kind": "bounded_control",
+      "control": "0x1f",
+      "old_equal": true,
+      "corrected_equal": true
+    },
+    {
+      "kind": "bounded_control",
+      "control": "0x85",
+      "old_equal": false,
+      "corrected_equal": true
+    },
+    {
+      "kind": "bounded_control",
+      "control": "0x2028",
+      "old_equal": false,
+      "corrected_equal": true
+    },
+    {
+      "kind": "bounded_control",
+      "control": "0x2029",
+      "old_equal": false,
+      "corrected_equal": true
+    },
+    {
+      "kind": "actual_source",
+      "raw_path": "/Users/oliverflint/My Drive/Claude/Projects/CompliSolv 2.00/outputs/collection-readiness-next-2026-10-17/encodeplus/post-91f6c59/overland-primary-unified-v1/raw/node-6388.html",
+      "raw_sha256": "bc28cc80e7a36693553cb33cdc0951e29607cae514b5d478769fc62a756d8372",
+      "control_U001E_occurrences": 23,
+      "old_characters": 608988,
+      "corrected_characters": 610044,
+      "expected_characters": 610044,
+      "old_equal": false,
+      "corrected_equal": true,
+      "old_includes_final_Charter104_attestation": true,
+      "corrected_includes_final_Charter104_attestation": true
+    }
+  ],
+  "network_requests_sent": 0,
+  "image_decode_render_extract_OCR": false
+}
