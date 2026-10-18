@@ -1,0 +1,3 @@
+# Final Flagstaff proof and five-reader package
+
+Actual common read-only verification accepts the selected primary publication with all 558 input files and 61 current collector/configuration files unchanged. Thirteen guarded Python processes recorded no forbidden image/network calls. The final eleven writer modules produce 2,661 rows with 882 literal [IMAGE] placeholders. The package verifies and selected_publication_ready is true; strict complete, downstream_ready and jurisdiction completeness remain false. Exit 2 is the expected strict incomplete outcome. The independent peer binds the proof/guard subpaths; root separately validates packaging and relocated verification.

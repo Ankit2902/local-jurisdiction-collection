@@ -89,6 +89,38 @@
         "source_owner_id": "aebba8c2-a10f-4a8a-9540-901753e16367",
         "source_label": "WATER-EFFICIENT LANDSCAPE CHECKLIST"
       }
+    },
+    {
+      "family": "american-legal",
+      "operator_review_required": true,
+      "automatic_retry": false,
+      "reason": "Sacramento required external California Legislative Information PROB reference HEAD returned HTTP403 with Cf-Mitigated challenge. The shared American Legal collection workflow stopped and its primary queue halted after five of fourteen queued publications. This preserves that observed workflow stop; it is not evidence that every American Legal page or legitimate route is unavailable. Offline verification remains allowed. No automatic retry or reset.",
+      "observed_stop": {
+        "url": "https://leginfo.legislature.ca.gov/faces/codesTOCSelected.xhtml?tocCode=PROB",
+        "reason": "Access block/challenge",
+        "retry_after": null,
+        "stopped_at": "2026-10-18T02:56:17.786707+00:00",
+        "retry_not_before": 1792292477.787155,
+        "operator_review_required": true
+      },
+      "original_gate_path": "/tmp/compliSolv-american-legal-full-gate/browser-stop.json",
+      "source_sha256": "cc41433c18b63efb119a07e3e1ce27c8309921471f2e2d0b4f8cc564adbcb66d",
+      "raw_refusal_witness": {
+        "source_path": "outputs/collection-readiness-followup-2026-10-17/american-legal/primary-23-sacramento_ca-v7/failure-response.json",
+        "sha256": "7367c1b4392e05049918bfa7e074881e425e1c9424e8e4a786337e8adaecdf8e",
+        "request_method": "HEAD",
+        "http_status": 403,
+        "cf_mitigated": "challenge",
+        "body_snippet_bytes": 0,
+        "url": "https://leginfo.legislature.ca.gov/faces/codesTOCSelected.xhtml?tocCode=PROB"
+      },
+      "queue_stop_witness": {
+        "source_path": "outputs/collection-readiness-followup-2026-10-17/american-legal/remaining-primary-queue.json",
+        "sha256": "f4545a44e992562c7f454c2d757cd07ce1da2023d098964c649982da0a9f9f9d",
+        "terminal_publications": 5,
+        "queued_publications": 14,
+        "scope": "Queue stopped after observed access refusal; remaining route availability untested."
+      }
     }
   ]
 }

@@ -24,8 +24,12 @@ def main():
  if a.suite=='release-followup':commands += [('ep-infrastructure-source-and-route',['-m','unittest','collectors.encodeplus.test_infrastructure_contents','collectors.encodeplus.test_infrastructure_native_route','-v']),('ep-solid-waste-logical-workflow',['-m','unittest','collectors.encodeplus.test_solid_waste_logical','-v']),('originals-source-navigation',['collectors/qa/run_originals_source_navigation.py','--source','collectors/originals','--receipt',str(out/'originals-navigation-thirteen.json')]),('originals-operational-regressions',['-m','unittest','discover','-s','collectors/originals/tests','-v'])]
  if a.suite=='release-followup':commands += [('originals-initialization-recovery',['collectors/qa/run_originals_initialization.py','--source','collectors/originals','--receipt',str(out/'originals-initialization-eighteen.json')])]
  if a.suite=='release-followup':commands += [('corpus-package-image-and-fidelity',['-m','unittest','discover','-s','collectors/corpus_package','-p','test_package.py','-v'])]
- if a.suite=='release-followup':commands += [('ep-infrastructure-printed-units',['-m','unittest','collectors.encodeplus.test_infrastructure_logical','-v'])]
+ if a.suite=='release-followup':commands += [('ep-infrastructure-printed-units',['-m','unittest','collectors.encodeplus.test_infrastructure_logical','collectors.encodeplus.test_infrastructure_nested_list','-v'])]
  if a.suite=='release-followup':commands += [('corpus-portable-proof-interface',['-m','unittest','discover','-s','collectors/corpus_package','-p','test_verify_input_interface.py','-v'])]
+ if a.suite=='release-followup':commands += [('flagstaff-portable-common-proof',['-m','unittest','discover','-s','collectors/corpus_package','-p','test_verify_flagstaff_input.py','-v'])]
+ if a.suite=='release-followup':commands += [('corpus-selected-publication-readiness',['-m','unittest','discover','-s','collectors/corpus_package','-p','test_readiness.py','-v'])]
+ if a.suite=='release-followup':commands += [('american-legal-corpus-ownership',['-m','unittest','discover','-s','collectors/corpus_package','-p','test_american_legal_html.py','-v'])]
+ if a.suite=='release-followup':commands += [('american-legal-portable-access-stop',['collectors/american-legal/test_access_advisory.py'])]
  with tempfile.TemporaryDirectory(prefix='followup-network-denied-') as td:
   (Path(td)/'sitecustomize.py').write_text("import socket\ndef deny(*a,**k):raise RuntimeError('QA_NETWORK_FORBIDDEN')\nsocket.socket.connect=deny\nsocket.socket.connect_ex=deny\nsocket.create_connection=deny\n")
   env=dict(os.environ,PYTHONDONTWRITEBYTECODE='1',PYTHONPATH=td+os.pathsep+str(snapshot))

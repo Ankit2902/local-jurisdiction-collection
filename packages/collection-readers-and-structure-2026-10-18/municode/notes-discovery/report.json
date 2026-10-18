@@ -1,0 +1,79 @@
+{
+  "status": "actual_source_evidence_gap_no_support_extension",
+  "production_changed": false,
+  "candidate_implemented": false,
+  "reason": "No actual populated separate Notes or Footnotes field exists in the inspected retained source. Do not qualify generic serialization/append behavior using synthetic examples or empty schema.",
+  "committed_content_census": {
+    "run_roots": 18,
+    "unique_raw_bodies": 16,
+    "doc_occurrences_including_repeated_runs": 54150,
+    "populated_separate_fields": 0
+  },
+  "broader_json_response_census": {
+    "response_receipts": 170,
+    "unique_json_responses": 52,
+    "doc_occurrences_in_deduplicated_responses": 28978,
+    "populated_separate_fields": 0,
+    "non_json_bodies_not_opened": 9
+  },
+  "actual_separate_field_schema": {
+    "Notes": "Empty list [] in every observed Doc",
+    "Footnotes": "JSON null in every observed Doc",
+    "element_schema_of_nonempty_Notes": "Unestablished",
+    "nonempty_Footnotes_HTML_presentation_order": "Unestablished"
+  },
+  "current_collector_behavior": {
+    "source": "reviewed-source/model.py",
+    "footnotes": "Footnotes is sanitized into separate record.footnotes_html; not appended to record.html/text",
+    "notes": "Notes JSON is recursively retained/sanitized, with source hash when populated; source string markup contributes reference inventory. No display-field role/order schema is asserted by sanitize_notes.",
+    "main_body": "Content is sanitized into record.html. Actual footnote containers/editor note paragraphs already occur inside Content."
+  },
+  "actual_existing_inline_note_support": {
+    "publication_id": "60-primary",
+    "product_id": "14896",
+    "job_id": 475955,
+    "full_docs_checked": 2122,
+    "matched_source_canonical_export_note_element_occurrences": 240,
+    "distinct_owner_docs": 172,
+    "parent_docs_with_owned_notes": 65,
+    "note_count_caveat": "Nested note containers and paragraphs are separate element occurrences, not distinct note count",
+    "source_and_canonical_and_export_markup_text_equal": true,
+    "source_field": "Content",
+    "extra_append_performed": false,
+    "whole_publication_verification": "Reuses existing hash-bound actual standard historical family verification already retained in final corpus packet; no duplicate family normalizer run"
+  },
+  "failclosed_policy_retained": "Current corpus reader refuses populated raw OR normalized separate Notes/Footnotes, including structural landing exclusions. Existing in-Content notes remain part of owned canonical HTML. No publication/edition/jurisdiction/native readiness gates changed.",
+  "evidence_needed_before_extension": [
+    "Actual retained nonempty raw Doc Notes/Footnotes with product/client/job/Doc identity, raw receipts/hash and complete source inventory",
+    "Public-source presentation/ownership and ordering witness distinguishing body duplication, pre/post-body position, legal note content vs metadata fields",
+    "Exact raw-to-canonical note mapping and available markers/anchor targets/labels/table/list/[IMAGE] fidelity with no double inclusion",
+    "Actual whole-publication standard readonly raw verification and all-row corpus consumer proof under exact source/code/version",
+    "Retain explicit refusal for unknown field schemas or unresolved ownership/order; no inferred legal display order"
+  ],
+  "code_sources": {
+    "collectors/municode/model.py": {
+      "sha256": "69e82069c4dabd1fb9f7348e61e10868a5dcc6d0bddf3cbdae2532b11e34444e",
+      "copied_as": "reviewed-source/model.py"
+    },
+    "collectors/municode/notes.py": {
+      "sha256": "1cac5a479094d211100591772dd158a9019087dbb517e95358147d36159b7cc2",
+      "copied_as": "reviewed-source/notes.py"
+    },
+    "collectors/municode/image_policy.py": {
+      "sha256": "c615bb35a456dc0765b557d51462152695a92027a5eb8b590f432db99f374dcb",
+      "copied_as": "reviewed-source/image_policy.py"
+    },
+    "collectors/corpus_package/municode_html.py": {
+      "sha256": "88ac7625c6cdeaf2d7217c4f955ca15879d64989fd8ce5de7887118e310ffb6b",
+      "copied_as": "reviewed-source/municode_html.py"
+    }
+  },
+  "operations": {
+    "publisher_requests": 0,
+    "image_download_decode_extract_render_ocr": 0,
+    "HTML_mounts": 0,
+    "source_binaries_parsed": 0,
+    "source_files_unchanged": true
+  },
+  "scope_limit": "This is an exhaustive census only of the 18 enumerated retained runs and their JSON-MIME raw responses, not a platform-wide claim that Municode never uses these fields. Access stops remain unchanged."
+}

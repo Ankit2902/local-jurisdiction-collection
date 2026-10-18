@@ -1,0 +1,27 @@
+def verify(cfg,out=None,source=None,normalized=None,format='html'):
+ from verify import verify as replay
+ if out:
+  if source or normalized:raise ValueError('Use --out OR explicit --source and --normalized')
+  root=Path(out).resolve();marker=load(root/'collection-start.json')
+  from workflow import runtime_binding,coverage
+  state=load(root/'checkpoint.json')
+  mode=state.get('acquisition_mode')
+  if mode not in ['live','retained_source_replay'] or marker.get('acquisition_mode','live')!=mode or (mode=='retained_source_replay')!=bool(state.get('origin')):raise ValueError('Acquisition provenance mode differs from executed start marker; retained-source replay cannot be relabelled freshlive')
+  if state.get('config')!=cfg.binding() or state.get('source_identity')!={k:cfg.binding()[k] for k in ['target_id','jurisdiction','state','source_url','profile','publication','required_formats']} or state.get('code_fingerprint')!=runtime_binding():raise ValueError('Collection checkpoint source/configuration/revision binding differs')
+  if marker.get('target')!=cfg.id or marker.get('publication_config')!=cfg.binding():raise ValueError('Collection target/config binding differs; foreign or unbound output cannot be promoted')
+  if cfg.profile.value=='flagstaff_html':
+   html=replay('flagstaff-html',root/'source',root/'normalized');word=None
+  else:
+   html=replay('king',root/'html-source',root/'normalized');word=replay('king-word',root/'native-source',root/'native-normalized')
+  result=coverage(cfg.binding(),root,html,word,write=False);stored=load(root/'coverage.json')
+  for field in ['config','required_formats','publication_text_complete','publication_bodies_acquired_and_owned','attachments_complete','legal_structure_qualified','source_consistency_complete','publication_accepted','complete','whole_jurisdiction_complete','external_adopted_legal_dependency_closure_complete','errors']:
+   if stored.get(field)!=result.get(field):raise ValueError('Stored coverage differs from independently recomputed source: '+field)
+  result.update(full_raw_replay_equal=True,input_files_modified=False,source_route_ledger_verified=html['source_route_ledger_verified'],opening_body_closing_chronology_verified=html['opening_body_closing_chronology_verified'],native_full_raw_replay_equal=word['full_raw_replay_equal'] if word else None,acquisition_mode=state['acquisition_mode'])
+  return result
+ if not source or not normalized:raise ValueError('Explicit verification requires both --source and --normalized')
+ result=replay(cfg.family(format),source,normalized)
+ marker=Path(normalized)/'originals-config.json'
+ if marker.exists():
+  binding=load(marker)
+  if binding.get('config')!=cfg.binding() or binding.get('format')!=format or binding.get('config_sha256')!=cfg.digest:raise ValueError('Normalized publication config/format binding mismatch')
+ return result

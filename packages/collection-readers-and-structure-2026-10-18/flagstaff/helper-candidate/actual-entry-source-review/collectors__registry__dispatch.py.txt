@@ -1,0 +1,45 @@
+def command(pub,target,out,python='python3',resume=False,max_items=None,verify=False,upgrade_code=False,native_export=False,retry_native_export=False):
+ q=qualified(pub,target);family=q['publisher'];url=pub['source_url'];identity=pub.get('expected_identity') or target['expected_identity'];config=q.get('config')
+ if upgrade_code and (verify or not resume or family!='encodeplus'):raise Unsupported('Explicit --upgrade-code is qualified only with --resume for an exact enCodePlus configuration')
+ if native_export and (verify or family!='encodeplus' or q.get('native_document')):raise Unsupported('--native-export requires an enCodePlus HTML publication configuration')
+ if retry_native_export and (not resume or not native_export):raise Unsupported('--retry-native-export requires --resume and --native-export')
+ if family=='municode':
+  if verify:argv=[python,'collectors/municode/verify.py',out,'--offline']
+  else:
+   argv=[python,'collectors/municode/collect.py','--url',url,'--state',target['state'],'--product-id',str(q['product_id']),'--out',out]
+   for name in identity['client_names']:argv+=['--client-name',name]
+   if identity.get('publisher_client_id'):argv+=['--client-id',str(identity['publisher_client_id'])]
+ elif family=='official' and q.get('adapter_family')=='originals':
+  if max_items is not None:raise Unsupported('Original-source adapters require a complete declared publication, not a bounded sample')
+  argv=[python,'collectors/originals/cli.py','verify' if verify else 'collect','--config',q['config_path'],'--out',out]
+ elif family=='official':argv=[python,'collectors/official/verify.py',out] if verify else [python,'collectors/official/collect.py','--config',q['config_path'] or '{CONFIG}','--out',out]
+ elif family=='encodeplus':
+  if q.get('native_document'):
+   if max_items is not None:raise Unsupported('Exact native documents do not support partial-page --max-items')
+   argv=[python,'-m','collectors.encodeplus.native_document','--verify',out] if verify else [python,'-m','collectors.encodeplus.native_document','--config',q['config_path'],'--out',out]
+  else:
+   argv=[python,'-m','collectors.encodeplus.verify',out] if verify else [python,'-m','collectors.encodeplus.collect',q['target_key'],'--out',out]
+   if not verify and q.get('custom_config'):argv+=['--config','{CONFIG}']
+ elif family=='ecode':
+  argv=[python,'-m','collectors.ecode.cli','verify','--out',out] if verify else [python,'-m','collectors.ecode.cli','collect','--url',url,'--out',out,'--family',pub['source_family'],'--jurisdiction',target['jurisdiction'],'--state',target['state']]
+  if not verify and pub['source_family']=='municipal.codes':argv+=['--publication',urlparse(url).path.strip('/')]
+ elif family=='american-legal':
+  argv=[python,'collectors/american-legal/verify.py',out,'--offline'] if verify else [python,'collectors/american-legal/collect.py','--url',url,'--out',out,'--jurisdiction',target['jurisdiction'],'--state',target['state']]
+  if not verify and pub.get('selector',{}).get('publication'):argv+=['--publication',pub['selector']['publication']]
+  if not verify:
+   for alias in identity.get('identity_aliases',[]):argv+=['--identity-alias',alias]
+   if pub.get('acquisition_strategy'):
+    if pub['acquisition_strategy'] not in ('native','traverse'):raise Unsupported('Unknown explicit American Legal acquisition strategy')
+    argv+=['--strategy',pub['acquisition_strategy']]
+ elif family=='gridics':
+  if max_items is not None:raise Unsupported('Gridics has no qualified bounded mode; full inventory/traversal is required')
+  argv=[python,'-m','collectors.gridics.collect','verify' if verify else 'collect','--config',q['config_path'],'--out',out]
+ if not verify:
+  if resume:argv+=['--resume']
+  if upgrade_code:argv+=['--upgrade-code']
+  if native_export:argv+=['--native-export']
+  if retry_native_export:argv+=['--retry-native-export']
+  if max_items is not None:argv+=['--max-items',str(max_items)]
+ plan={'argv':argv,'staged_config':config if '{CONFIG}' in argv else None,'qualified_config_path':q.get('config_path'),'publication_id':pub['id'],'publication_title':pub['title'],'publication_expected_identity':identity,'required_for_jurisdiction':pub['required_for_jurisdiction'],'jurisdiction_scope':pub.get('jurisdiction_scope'),'edition_scope':pub.get('edition_scope'),'required_publication_dependencies':pub.get('required_publication_dependencies',[]),'configuration_alias_of':pub.get('configuration_alias_of'),'scope':pub['scope_kind'],'image_policy':pub.get('image_policy'),'jurisdiction_complete':False}
+ if q.get('named_config_path'):plan.update(named_config_path=q['named_config_path'],named_config_key=q['named_config_key'])
+ return plan

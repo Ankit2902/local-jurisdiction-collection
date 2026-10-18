@@ -5,6 +5,7 @@ from dataclasses import dataclass
 from html.parser import HTMLParser
 from pathlib import Path, PurePosixPath
 from urllib.parse import unquote,urlsplit
+from readiness import evaluate as evaluate_selected_readiness
 
 VERSION='corpus-package-1'
 FIELDS='jurisdiction code_name division title subtitle chapter subchapter article part subpart section_number section_name citation full_text source_url scrape_date'.split()
@@ -112,6 +113,7 @@ class Projection:
     exceptions:list
     metadata:dict
     inherited_coverage:dict
+    readiness_evidence:dict=None
 
 def validate_projection(p):
     require(p.rows and len(p.provenance)==len(p.rows),'Empty or unbound corpus rows')
@@ -134,7 +136,7 @@ def validate_projection(p):
 
 def artifacts(p):
     validate_projection(p)
-    for value in [p.metadata,p.publications,p.nodes,p.dispositions,p.provenance,p.exceptions,p.inherited_coverage]:check_metadata(value)
+    for value in [p.metadata,p.publications,p.nodes,p.dispositions,p.provenance,p.exceptions,p.inherited_coverage,p.readiness_evidence]:check_metadata(value)
     meta=dict(p.metadata,packager_version=VERSION,publication_id=p.publication_id,record_count=len(p.rows),full_text_representation='Canonical image-free semantic HTML from verified source IR; diagnostics never concatenated')
     toc=[dict(r,full_text='') for r in p.rows];out={}
     for folder,stem,rows in [('', 'aggregate-fulltext',p.rows),('', 'aggregate-toc',toc),('publications/'+p.publication_id+'/', 'fulltext',p.rows),('publications/'+p.publication_id+'/', 'toc',toc)]:
@@ -145,5 +147,6 @@ def artifacts(p):
     # Serialization passes neither acquisition nor independent legal qualification.
     gates=['publication_accepted','complete','whole_jurisdiction_complete','external_adopted_legal_dependency_closure_complete','independent_final_review_complete']
     ready=all(p.inherited_coverage.get(g) is True for g in gates) and not any(d['disposition']=='unresolved' for d in p.dispositions)
-    out['validation-report.json']=encoded({'schema_version':1,'serialization_complete':True,'source_verification_mode':'Hash-bound preexisting read-only raw-replay proof; source parser not rerun by packager','source_coverage_unchanged':True,'inherited_gate_values':{g:p.inherited_coverage.get(g) for g in gates},'downstream_ready':ready,'complete':ready,'status':'complete' if ready else 'incomplete','source_node_count':len(p.nodes),'record_count':len(p.rows),'exception_count':len(p.exceptions),'independent_source_inventory_is_not_derived_toc':True,'image_policy':'No image acquisition/decoding/extraction/render/OCR; exact [IMAGE] preserved','automated_checks':['input proof/source/code hash bindings','all16field values and JSON/CSV/TOC equality','one disposition per source node','canonical source row/record provenance','image-free normalized HTML'],'human_source_comparisons_performed_by_packager':0})
+    selected=evaluate_selected_readiness(p.readiness_evidence,p.publication_id,p.metadata['source_config'],p.metadata['source_version'],p.inherited_coverage,p.dispositions)
+    out['validation-report.json']=encoded({'schema_version':1,'serialization_complete':True,'selected_publication_ready':selected['ready'],'selected_publication_readiness':selected,'source_verification_mode':'Hash-bound preexisting read-only raw-replay proof; source parser not rerun by packager','source_coverage_unchanged':True,'inherited_gate_values':{g:p.inherited_coverage.get(g) for g in gates},'downstream_ready':ready,'complete':ready,'status':'complete' if ready else 'incomplete','source_node_count':len(p.nodes),'record_count':len(p.rows),'exception_count':len(p.exceptions),'independent_source_inventory_is_not_derived_toc':True,'image_policy':'No image acquisition/decoding/extraction/render/OCR; exact [IMAGE] preserved','automated_checks':['input proof/source/code hash bindings','all16field values and JSON/CSV/TOC equality','one disposition per source node','canonical source row/record provenance','image-free normalized HTML'],'human_source_comparisons_performed_by_packager':0})
     return out

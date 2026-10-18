@@ -1,0 +1,100 @@
+======================================================================
+ERROR: test_each_missing_false_or_string_gate_fails_closed (test_readiness.SelectedReadiness)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/oliverflint/My Drive/Claude/Projects/CompliSolv 2.00/outputs/collection-readiness-next-2026-10-17/encodeplus/post-91f6c59/corpus-selected-readiness-candidate-v1/candidate/test_readiness.py", line 32, in test_each_missing_false_or_string_gate_fails_closed
+    p=self.qualify()
+  File "/Users/oliverflint/My Drive/Claude/Projects/CompliSolv 2.00/outputs/collection-readiness-next-2026-10-17/encodeplus/post-91f6c59/corpus-selected-readiness-candidate-v1/candidate/test_readiness.py", line 22, in qualify
+    return package.reader('originals-flagstaff-html-v1')(self.root,p,f)
+  File "/Users/oliverflint/My Drive/Claude/Projects/CompliSolv 2.00/outputs/collection-readiness-next-2026-10-17/encodeplus/post-91f6c59/corpus-selected-readiness-candidate-v1/candidate/flagstaff.py", line 21, in read_projection
+    require(verified['formats']['html']['summary']['source_checkpoint_sha256']==file_hash(root/'source/checkpoint.json'),'Verification source checkpoint mismatch')
+KeyError: 'source_checkpoint_sha256'
+
+======================================================================
+ERROR: test_empty_link_ledger_cannot_replace_legal_structure_proof (test_readiness.SelectedReadiness)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/oliverflint/My Drive/Claude/Projects/CompliSolv 2.00/outputs/collection-readiness-next-2026-10-17/encodeplus/post-91f6c59/corpus-selected-readiness-candidate-v1/candidate/test_readiness.py", line 63, in test_empty_link_ledger_cannot_replace_legal_structure_proof
+    p=self.qualify();p.readiness_evidence['gates']['legal_structure_qualified']=False;p.inherited_coverage['unresolved_dependencies']=[]
+  File "/Users/oliverflint/My Drive/Claude/Projects/CompliSolv 2.00/outputs/collection-readiness-next-2026-10-17/encodeplus/post-91f6c59/corpus-selected-readiness-candidate-v1/candidate/test_readiness.py", line 22, in qualify
+    return package.reader('originals-flagstaff-html-v1')(self.root,p,f)
+  File "/Users/oliverflint/My Drive/Claude/Projects/CompliSolv 2.00/outputs/collection-readiness-next-2026-10-17/encodeplus/post-91f6c59/corpus-selected-readiness-candidate-v1/candidate/flagstaff.py", line 21, in read_projection
+    require(verified['formats']['html']['summary']['source_checkpoint_sha256']==file_hash(root/'source/checkpoint.json'),'Verification source checkpoint mismatch')
+KeyError: 'source_checkpoint_sha256'
+
+======================================================================
+ERROR: test_images_and_metadata_payloads_still_refused (test_readiness.SelectedReadiness)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/oliverflint/My Drive/Claude/Projects/CompliSolv 2.00/outputs/collection-readiness-next-2026-10-17/encodeplus/post-91f6c59/corpus-selected-readiness-candidate-v1/candidate/test_readiness.py", line 60, in test_images_and_metadata_payloads_still_refused
+    p=self.qualify();p.readiness_evidence['fault']={'images':[{'url':'DATA:application/octet-stream;base64,PIXELS'}]}
+  File "/Users/oliverflint/My Drive/Claude/Projects/CompliSolv 2.00/outputs/collection-readiness-next-2026-10-17/encodeplus/post-91f6c59/corpus-selected-readiness-candidate-v1/candidate/test_readiness.py", line 22, in qualify
+    return package.reader('originals-flagstaff-html-v1')(self.root,p,f)
+  File "/Users/oliverflint/My Drive/Claude/Projects/CompliSolv 2.00/outputs/collection-readiness-next-2026-10-17/encodeplus/post-91f6c59/corpus-selected-readiness-candidate-v1/candidate/flagstaff.py", line 21, in read_projection
+    require(verified['formats']['html']['summary']['source_checkpoint_sha256']==file_hash(root/'source/checkpoint.json'),'Verification source checkpoint mismatch')
+KeyError: 'source_checkpoint_sha256'
+
+======================================================================
+ERROR: test_named_structure_and_required_dependency_evidence_not_inferred (test_readiness.SelectedReadiness)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/oliverflint/My Drive/Claude/Projects/CompliSolv 2.00/outputs/collection-readiness-next-2026-10-17/encodeplus/post-91f6c59/corpus-selected-readiness-candidate-v1/candidate/test_readiness.py", line 38, in test_named_structure_and_required_dependency_evidence_not_inferred
+    self.qualify();proof=load(self.proof);family=load(self.family);cov=load(self.root/'coverage.json');version={'snapshot':'fixture'}
+  File "/Users/oliverflint/My Drive/Claude/Projects/CompliSolv 2.00/outputs/collection-readiness-next-2026-10-17/encodeplus/post-91f6c59/corpus-selected-readiness-candidate-v1/candidate/test_readiness.py", line 22, in qualify
+    return package.reader('originals-flagstaff-html-v1')(self.root,p,f)
+  File "/Users/oliverflint/My Drive/Claude/Projects/CompliSolv 2.00/outputs/collection-readiness-next-2026-10-17/encodeplus/post-91f6c59/corpus-selected-readiness-candidate-v1/candidate/flagstaff.py", line 21, in read_projection
+    require(verified['formats']['html']['summary']['source_checkpoint_sha256']==file_hash(root/'source/checkpoint.json'),'Verification source checkpoint mismatch')
+KeyError: 'source_checkpoint_sha256'
+
+======================================================================
+ERROR: test_other_publishers_and_other_flagstaff_publication_unqualified (test_readiness.SelectedReadiness)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/oliverflint/My Drive/Claude/Projects/CompliSolv 2.00/outputs/collection-readiness-next-2026-10-17/encodeplus/post-91f6c59/corpus-selected-readiness-candidate-v1/candidate/test_readiness.py", line 49, in test_other_publishers_and_other_flagstaff_publication_unqualified
+    p=self.qualify()
+  File "/Users/oliverflint/My Drive/Claude/Projects/CompliSolv 2.00/outputs/collection-readiness-next-2026-10-17/encodeplus/post-91f6c59/corpus-selected-readiness-candidate-v1/candidate/test_readiness.py", line 22, in qualify
+    return package.reader('originals-flagstaff-html-v1')(self.root,p,f)
+  File "/Users/oliverflint/My Drive/Claude/Projects/CompliSolv 2.00/outputs/collection-readiness-next-2026-10-17/encodeplus/post-91f6c59/corpus-selected-readiness-candidate-v1/candidate/flagstaff.py", line 21, in read_projection
+    require(verified['formats']['html']['summary']['source_checkpoint_sha256']==file_hash(root/'source/checkpoint.json'),'Verification source checkpoint mismatch')
+KeyError: 'source_checkpoint_sha256'
+
+======================================================================
+ERROR: test_qualified_selected_true_strict_gates_exit_unchanged (test_readiness.SelectedReadiness)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/oliverflint/My Drive/Claude/Projects/CompliSolv 2.00/outputs/collection-readiness-next-2026-10-17/encodeplus/post-91f6c59/corpus-selected-readiness-candidate-v1/candidate/test_readiness.py", line 25, in test_qualified_selected_true_strict_gates_exit_unchanged
+    p=self.qualify();r=self.report(p);self.assertTrue(r['selected_publication_ready']);self.assertFalse(r['complete']);self.assertFalse(r['downstream_ready']);self.assertEqual(r['status'],'incomplete');self.assertFalse(r['selected_publication_readiness']['independent_legal_review_inferred']);self.assertFalse(r['selected_publication_readiness']['jurisdiction_readiness_inferred'])
+  File "/Users/oliverflint/My Drive/Claude/Projects/CompliSolv 2.00/outputs/collection-readiness-next-2026-10-17/encodeplus/post-91f6c59/corpus-selected-readiness-candidate-v1/candidate/test_readiness.py", line 22, in qualify
+    return package.reader('originals-flagstaff-html-v1')(self.root,p,f)
+  File "/Users/oliverflint/My Drive/Claude/Projects/CompliSolv 2.00/outputs/collection-readiness-next-2026-10-17/encodeplus/post-91f6c59/corpus-selected-readiness-candidate-v1/candidate/flagstaff.py", line 21, in read_projection
+    require(verified['formats']['html']['summary']['source_checkpoint_sha256']==file_hash(root/'source/checkpoint.json'),'Verification source checkpoint mismatch')
+KeyError: 'source_checkpoint_sha256'
+
+======================================================================
+ERROR: test_unresolved_disposition_and_inferred_legal_review_block (test_readiness.SelectedReadiness)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/oliverflint/My Drive/Claude/Projects/CompliSolv 2.00/outputs/collection-readiness-next-2026-10-17/encodeplus/post-91f6c59/corpus-selected-readiness-candidate-v1/candidate/test_readiness.py", line 57, in test_unresolved_disposition_and_inferred_legal_review_block
+    p=self.qualify();p.dispositions[0]['disposition']='unresolved';self.assertFalse(self.report(p)['selected_publication_ready'])
+  File "/Users/oliverflint/My Drive/Claude/Projects/CompliSolv 2.00/outputs/collection-readiness-next-2026-10-17/encodeplus/post-91f6c59/corpus-selected-readiness-candidate-v1/candidate/test_readiness.py", line 22, in qualify
+    return package.reader('originals-flagstaff-html-v1')(self.root,p,f)
+  File "/Users/oliverflint/My Drive/Claude/Projects/CompliSolv 2.00/outputs/collection-readiness-next-2026-10-17/encodeplus/post-91f6c59/corpus-selected-readiness-candidate-v1/candidate/flagstaff.py", line 21, in read_projection
+    require(verified['formats']['html']['summary']['source_checkpoint_sha256']==file_hash(root/'source/checkpoint.json'),'Verification source checkpoint mismatch')
+KeyError: 'source_checkpoint_sha256'
+
+======================================================================
+ERROR: test_wrong_configuration_version_coverage_or_receipt_binding_refused (test_readiness.SelectedReadiness)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/oliverflint/My Drive/Claude/Projects/CompliSolv 2.00/outputs/collection-readiness-next-2026-10-17/encodeplus/post-91f6c59/corpus-selected-readiness-candidate-v1/candidate/test_readiness.py", line 44, in test_wrong_configuration_version_coverage_or_receipt_binding_refused
+    p=self.qualify()
+  File "/Users/oliverflint/My Drive/Claude/Projects/CompliSolv 2.00/outputs/collection-readiness-next-2026-10-17/encodeplus/post-91f6c59/corpus-selected-readiness-candidate-v1/candidate/test_readiness.py", line 22, in qualify
+    return package.reader('originals-flagstaff-html-v1')(self.root,p,f)
+  File "/Users/oliverflint/My Drive/Claude/Projects/CompliSolv 2.00/outputs/collection-readiness-next-2026-10-17/encodeplus/post-91f6c59/corpus-selected-readiness-candidate-v1/candidate/flagstaff.py", line 21, in read_projection
+    require(verified['formats']['html']['summary']['source_checkpoint_sha256']==file_hash(root/'source/checkpoint.json'),'Verification source checkpoint mismatch')
+KeyError: 'source_checkpoint_sha256'
+
+----------------------------------------------------------------------
+Ran 36 tests in 2.826s
+
+FAILED (errors=8)

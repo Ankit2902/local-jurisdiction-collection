@@ -1,0 +1,20 @@
+# Independent portable American Legal workflow-stop peer review
+
+**PASS; no material blocker to the four-file scoped promotion.** This checks the exact frozen candidate `outputs/collection-readiness-poste026685-2026-10-17/qa/american-legal-portable-stop-candidate-v1`, MANIFEST `b3ce7e076d2e5fc66e16e1cd9b55c929247d41a58ea0bfa3afb8a55adcb07984`. All 23 packet files and all production sources checked by the common/offline harness remain unchanged. The original `/tmp/compliSolv-american-legal-full-gate/browser-stop.json` remains byte-identical.
+
+The source evidence is exactly Sacramento's external California Legislative Information PROB reference **HEAD HTTP403 / Cf-Mitigated: challenge**, with zero response-body snippet bytes. The advisory conservatively preserves the American Legal **workflow stop**, including the paused primary queue. It does not assert that all American Legal routes are unavailable; their post-stop availability is untested. No new network request, browser work, actual native/source replay, image acquisition/decoding/extraction/rendering or OCR was performed.
+
+Independent results:
+
+- Original stop and raw refusal hashes/URL/status/method match the retained evidence and bundled advisory exactly.
+- All 10 frozen packet tests and all 6 proposed shipped portable tests pass.
+- Twelve extra guarded trials cover valid, missing, malformed, wrong-source, empty advisory and default gate, each in ordinary/optimized Python. New custom/default reservations always refuse before gate mkdir, lock/state/request file access, sleep or socket/process calls. Only advisory reads are permitted. Existing custom stop/state/request bytes and the original temporary stop stay unchanged.
+- The actual current catalog loaded with a disjoint candidate registry overlay attaches the exact advisory to all **23 American Legal** entries. The **202 non-American-Legal** entries and every earlier registry advisory remain exact. Actual common access_state refuses with a fresh absent physical gate, and does not create it.
+- Existing read-only standard verification remains available: the preexisting compact HTML fixture verifies its five-node inventory, retains one `[IMAGE]`, acquires zero image binaries and remains byte-identical under socket/image-open guards. This is a synthetic operational control, not a new actual-source completeness proof.
+- No reset/bypass flag is added. The known refusal is source-anchored as well as bundled; removing or changing temporary/advisory state cannot release it.
+
+One nonblocking diagnostic qualification: under `python -O`, an **empty advisory list** returns nonzero via IndexError because assert-based validation is disabled. It still reaches no gate state/request and cannot release the stop. The normal documented commands return the descriptive portable workflow-stop message. This is not an acquisition safety bypass or a reason to waive the source stop.
+
+The four proposed files remain only gate.py, bundled access-advisory.json, portable six-test file, and central access-advisories.json. Root owns promotion, before-hash checks and a new current common/registry proof tuple afterward. Older proofs must keep their historical registry bindings.
+
+`peer.py` copies the frozen candidate to a fresh temporary directory before running its tests/common harness, so it never writes reports into the source packet. It depends on the existing pinned common runtime and original stop/source locations for this local peer assessment. To replay, first copy this review directory to a fresh location, then execute the pinned common Python with `-B peer.py`. No source restoration or external availability promise is made. Initial peer harness expectation failures are retained under attempts: the first incorrectly expected a caught tripwire's exception text in the stop message; the second incorrectly required a descriptive message for the extra optimized/empty-list case. Candidate safety behavior was unchanged; the terminal report records the actual fail-closed result without hiding this distinction.

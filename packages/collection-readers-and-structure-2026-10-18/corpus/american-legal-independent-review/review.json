@@ -1,0 +1,206 @@
+{
+  "schema": "cleveland-reader-independent-peer-1",
+  "at": "2026-10-18T03:14:38.233242+00:00",
+  "status": "scoped_pass_revision2",
+  "reviewer": "icc_publishers57",
+  "candidate_packets": [
+    {
+      "path": "outputs/collection-readiness-post-e026685-2026-10-17/american-legal/cleveland-html-corpus-candidate-v1",
+      "manifest_sha256": "c1b0c2b4354248e55ee95780f8b97e13c5dc284fe0491c4afc51d5ee574ea5f8",
+      "bound_files_verified_unchanged": 1088
+    },
+    {
+      "path": "outputs/collection-readiness-post-e026685-2026-10-17/american-legal/cleveland-html-corpus-candidate-v2",
+      "manifest_sha256": "d77610617041a67a952f9007a9a693dee52ce8168007166a21f054d1a0a4cf3d",
+      "bound_files_verified_unchanged": 1084
+    }
+  ],
+  "reviewed_reader": {
+    "path": "outputs/collection-readiness-post-e026685-2026-10-17/american-legal/cleveland-html-corpus-candidate-v2/candidate/american_legal_html.py",
+    "sha256": "6ef34cdd8318674d945928774d103d911fd9107e9b55c38eb26fc6804ca4bbd0"
+  },
+  "material_findings": [
+    {
+      "id": "zeroGlyphMissingPages",
+      "v1": "Reproduced exemption with declared2pages but only1zeroGlyph relatedrow. Required allnativepages/IDs/sourceowner before policyN/A.",
+      "v2_disposition": "Fixed. Requires retained qualifiedPDF, strictpositive nativepagecount, matching normalizedcount, exactcontinuouspageIDs/pageordinals/order/imagepolicy and owner attachment:verified-source-SHA; all9owncontrols pass."
+    },
+    {
+      "id": "unownedRequiredAsset",
+      "v1": "Reproduced accepted requiredasset with empty sourceowners.",
+      "v2_disposition": "Fixed with mandatory nonempty independently ownedHTMLrefs; owncontrol refuses. Actual20assets already have sourceowners."
+    }
+  ],
+  "independently_executed": {
+    "author_v1_tests": 23,
+    "author_v2_tests": 32,
+    "own_page_owner_controls": 9,
+    "own_allrow_stdlib_audit": {
+      "passed": true,
+      "candidate_manifest_sha256": "d77610617041a67a952f9007a9a693dee52ce8168007166a21f054d1a0a4cf3d",
+      "bound_files_verified": 1084,
+      "source_inputs_verified": 988,
+      "rows_all16fields_verified": 6140,
+      "source_nodes": 6160,
+      "opening_closing_raw_branch_counts": [
+        459,
+        459
+      ],
+      "native_block_ID_ownership": 43676,
+      "counts": {
+        "HTML": 6135,
+        "IMAGE": 15,
+        "tables": 322,
+        "cells": 7738,
+        "section_numbers": 5666,
+        "passthrough": 5
+      },
+      "scalar_conflicts": {
+        "part": 1439
+      },
+      "actual_asset_checks": [
+        {
+          "url": "https://export.amlegal.com/media/32eb4da1492d2ce5e4435e569daed30a1af89a42/DATAOBJECTS/0-0-0-11524.pdf",
+          "pages": 1,
+          "owners": 1,
+          "disposition": "excluded_by_scope"
+        },
+        {
+          "url": "https://export.amlegal.com/media/32eb4da1492d2ce5e4435e569daed30a1af89a42/DATAOBJECTS/0-0-0-11520.pdf",
+          "pages": 1,
+          "owners": 1,
+          "disposition": "excluded_by_scope"
+        },
+        {
+          "url": "https://export.amlegal.com/media/32eb4da1492d2ce5e4435e569daed30a1af89a42/DATAOBJECTS/0-0-0-11515.pdf",
+          "pages": 1,
+          "owners": 1,
+          "disposition": "excluded_by_scope"
+        },
+        {
+          "url": "https://export.amlegal.com/media/32eb4da1492d2ce5e4435e569daed30a1af89a42/DATAOBJECTS/0-0-0-13518.pdf",
+          "pages": 1,
+          "owners": 1,
+          "disposition": "excluded_by_scope"
+        },
+        {
+          "url": "https://export.amlegal.com/media/32eb4da1492d2ce5e4435e569daed30a1af89a42/DATAOBJECTS/0-0-0-13294.pdf",
+          "pages": 1,
+          "owners": 1,
+          "disposition": "unresolved"
+        }
+      ],
+      "original_inherited_coverage_unchanged": true,
+      "strict_complete": false,
+      "publisher_requests": 0,
+      "source_normalizations": 0,
+      "PDF_parsing_or_image_operations": 0,
+      "candidate_files_unchanged": true,
+      "scope": "Actual allrow/rawTOC/nativeID/canonicalIR projection. Consumer noGlyph/owner fault guards reviewed separately; no new source acquisition, legal PDF segmentation or jurisdiction qualification."
+    },
+    "shipped_stdlib_verifier": {
+      "command": "AbsolutePython -S candidate-v2/package/packager-source/package.py verify --out candidate-v2/package",
+      "workdir": "/tmp",
+      "ordinary_no_B": true,
+      "exit": 2,
+      "package_verified": true,
+      "complete": false,
+      "source_reparsed": false,
+      "network_requests": 0
+    }
+  },
+  "unchanged_actual_projection": {
+    "generated_artifacts": [
+      {
+        "path": "aggregate-fulltext.json",
+        "sha256": "7651c08b0d1cfbdcbbf51ad75f07b046867c4e2b6df281731390c013d0afd338"
+      },
+      {
+        "path": "aggregate-fulltext.csv",
+        "sha256": "acd27ed28dbb1c12f8295269ae7fba9407b6e4ff450de33f4a86f9701e06f8ff"
+      },
+      {
+        "path": "aggregate-toc.json",
+        "sha256": "12fce9bccf8aa119512ec1ddf0840a947406431ca4110dce1b2b4ec294e18126"
+      },
+      {
+        "path": "aggregate-toc.csv",
+        "sha256": "e68c8408605ea20672f749842f5e4b580d78ffeda91343abb07a78dcaeed1073"
+      },
+      {
+        "path": "publications/59-primary/fulltext.json",
+        "sha256": "7651c08b0d1cfbdcbbf51ad75f07b046867c4e2b6df281731390c013d0afd338"
+      },
+      {
+        "path": "publications/59-primary/fulltext.csv",
+        "sha256": "acd27ed28dbb1c12f8295269ae7fba9407b6e4ff450de33f4a86f9701e06f8ff"
+      },
+      {
+        "path": "publications/59-primary/toc.json",
+        "sha256": "12fce9bccf8aa119512ec1ddf0840a947406431ca4110dce1b2b4ec294e18126"
+      },
+      {
+        "path": "publications/59-primary/toc.csv",
+        "sha256": "e68c8408605ea20672f749842f5e4b580d78ffeda91343abb07a78dcaeed1073"
+      },
+      {
+        "path": "source-nodes.jsonl",
+        "sha256": "5793279f00e61b43edfba452414f542a63a143ddde80ebcb560cba4e49fc5bad"
+      },
+      {
+        "path": "node-dispositions.jsonl",
+        "sha256": "8a66decf2ca249e4c4554bb12b41ded0a15b4c3a320a598d11c5c199c45c5f4b"
+      },
+      {
+        "path": "record-provenance.jsonl",
+        "sha256": "2127b573d447f682b602b0099114c9dacd610d4a0bae1a74c46b5626642ab958"
+      },
+      {
+        "path": "exceptions.jsonl",
+        "sha256": "95eb9c8a0ae6741624964153224b75cf097cfa8d41b66e94d592ae08da171d5a"
+      },
+      {
+        "path": "publications.json",
+        "sha256": "d5c43ffea84d7645b894dad1660cc6af02f0273ce0aff16a584ed2e33f47fa68"
+      },
+      {
+        "path": "inherited-coverage.json",
+        "sha256": "4560b39cde20b04913c931d6bbfd80fe35af6f38385cf12e8b814ac3f8b59fc2"
+      },
+      {
+        "path": "validation-report.json",
+        "sha256": "f328653ad48dbae1c3bc04d9efd98a4175d0ac31f07bb29a9a40ac7e41e87868"
+      }
+    ],
+    "input_files": 988,
+    "both_fullsource_proof_files_byteequal": true,
+    "all_canonical_rows_fields_unchanged": true
+  },
+  "scope_limits": [
+    "This is the exact retained Cleveland nativeHTML corpus, not a fresh acquisition or edition check.",
+    "6135canonical ownHTML plus5source-explicit structural passthrough ownheadings; no descendant legaltext synthesized.",
+    "Twentyreferenced assets remain explicit:15intentionalimageomissions,4fullyboundzeroGlyphPDF policyN/A,1requiredtext/tablePDF unresolvedcanonicallegalunitgrouping.",
+    "Original producercoverage copied unchanged. Package strictcompletefalse and jurisdiction/dependency/finalreview qualification not strengthened.",
+    "Original author sourceverification runtime/rawproof reviewed and hashbound, not rerun by peer; no source normalization/PDFparsing/nativeglyph/image operations.",
+    "Only scoped reader/helper/QA deltas should merge into currentroot writer. Old copiedsharedbaseline is not a promotionwhitelist."
+  ],
+  "image_policy": "Exact[IMAGE], no separateimage/body/member fetch/decode/render/OCR.15HTMLpositions preserved; originalPDFdiagnostics18markers preserved as evidence, never inventedlegalprovisions.",
+  "source_order": "Independently walked both459branch raw trees; sourcepreorder and all43676nativeIDs agree with output and exact sourceownership. OriginalIRBFSordinal retained independently.",
+  "field_policy": "All16field values checked. Only literalprinted hierarchy/sectioncaption roles.1439nestedPartscalarconflicts blank with entire sourceancestry retained.",
+  "candidate_files_modified": false,
+  "production_modified": false,
+  "publisher_requests": 0,
+  "own_review_scripts": {
+    "audit_current.py": "952d4773185d8b9d09df4988bb961952459ebc87cd16c4e3690a0212ae6687f7"
+  },
+  "receipts": {
+    "asset-page-qualification-findings.json": "4cad3c469755a1fbf226e1bdd21a03f82cb7650fe213de9cfeb9470f2d1cba49",
+    "actual-independent-consumer-v1.json": "a25286d44533aa24beea49485b50252875440e9d9e152de852324d015902e2ac",
+    "actual-independent-consumer-v2.json": "aa960ead00670491836fa37745a5bc1a1d256991151a370b66d302837068cff3",
+    "independent9-page-owner-guards-v2.json": "19113a38c60ee1c6c376677125fe3c0060e57374e5d09f7b746cb08591d7cc58",
+    "author23-tests-rerun.log": "8012f7b1727ae880b6425ea0f8076a458b5041bba96e4c292dd1d2ce4efa90ac",
+    "author32-tests-rerun-v2.log": "f711e953089abef4e4825284f7db376030f995233b80a50b93fda937e69cbc5e",
+    "actual-shipped-stdlib-verifier-v2.log": "86a6637706d39b150fddb8168ca33a7c92d5b8f005276ecb3e7a8fb7cbd9c5c8"
+  },
+  "operator_launch_correction": "One peer audit launch used relative interpreter from/tmp and exited127 beforePython. Empty launch log retained; corrected absolutepython command executed actualV2auditexit0. No candidate/sourcework occurred in failedlaunch."
+}

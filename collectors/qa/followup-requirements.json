@@ -37,7 +37,7 @@
       }
     }
   },
-  "active_catalog_sha256": "51694ec493a24290941a267de664597593df81710dc8674caa378b9fa3bab6d5",
+  "active_catalog_sha256": "abebe9ced0c6e3c30e29e1e24edc6b80361d8bef2cdc5fc2a1240eaeb37b8511",
   "summary": {
     "targets": 130,
     "publication_entries": 225,
@@ -45,7 +45,7 @@
     "secondary": 95,
     "dispatchable": 195,
     "unqualified": 30,
-    "access_prohibited": 131,
+    "access_prohibited": 154,
     "readiness_verified": 0,
     "requirements_candidate_passed": {
       "identity": 0,
@@ -2018,6 +2018,19 @@
       "readiness_verified": false,
       "gaps": [
         {
+          "kind": "access_stop",
+          "reason": "Sacramento required external California Legislative Information PROB reference HEAD returned HTTP403 with Cf-Mitigated challenge. The shared American Legal collection workflow stopped and its primary queue halted after five of fourteen queued publications. This preserves that observed workflow stop; it is not evidence that every American Legal page or legitimate route is unavailable. Offline verification remains allowed. No automatic retry or reset.",
+          "evidence": {
+            "source_path": "outputs/collection-readiness-followup-2026-10-17/american-legal/primary-23-sacramento_ca-v7/failure-response.json",
+            "sha256": "7367c1b4392e05049918bfa7e074881e425e1c9424e8e4a786337e8adaecdf8e",
+            "request_method": "HEAD",
+            "http_status": 403,
+            "cf_mitigated": "challenge",
+            "body_snippet_bytes": 0,
+            "url": "https://leginfo.legislature.ca.gov/faces/codesTOCSelected.xhtml?tocCode=PROB"
+          }
+        },
+        {
           "kind": "identity",
           "status": "not_established",
           "reason": "Exact government/state/publication/source identity independently bound to raw acquisition"
@@ -2070,6 +2083,7 @@
         {
           "kind": "active_revision_coherence",
           "reason": [
+            "observed_access_stop",
             "requirement_not_active_pass:identity",
             "requirement_not_active_pass:full_inventory",
             "requirement_not_active_pass:owned_text",
@@ -2088,7 +2102,40 @@
       "adapter_family": "american-legal",
       "configuration_qualified": true,
       "unsupported_reason": null,
-      "observed_access_advisories": [],
+      "observed_access_advisories": [
+        {
+          "family": "american-legal",
+          "operator_review_required": true,
+          "automatic_retry": false,
+          "reason": "Sacramento required external California Legislative Information PROB reference HEAD returned HTTP403 with Cf-Mitigated challenge. The shared American Legal collection workflow stopped and its primary queue halted after five of fourteen queued publications. This preserves that observed workflow stop; it is not evidence that every American Legal page or legitimate route is unavailable. Offline verification remains allowed. No automatic retry or reset.",
+          "observed_stop": {
+            "url": "https://leginfo.legislature.ca.gov/faces/codesTOCSelected.xhtml?tocCode=PROB",
+            "reason": "Access block/challenge",
+            "retry_after": null,
+            "stopped_at": "2026-10-18T02:56:17.786707+00:00",
+            "retry_not_before": 1792292477.787155,
+            "operator_review_required": true
+          },
+          "original_gate_path": "/tmp/compliSolv-american-legal-full-gate/browser-stop.json",
+          "source_sha256": "cc41433c18b63efb119a07e3e1ce27c8309921471f2e2d0b4f8cc564adbcb66d",
+          "raw_refusal_witness": {
+            "source_path": "outputs/collection-readiness-followup-2026-10-17/american-legal/primary-23-sacramento_ca-v7/failure-response.json",
+            "sha256": "7367c1b4392e05049918bfa7e074881e425e1c9424e8e4a786337e8adaecdf8e",
+            "request_method": "HEAD",
+            "http_status": 403,
+            "cf_mitigated": "challenge",
+            "body_snippet_bytes": 0,
+            "url": "https://leginfo.legislature.ca.gov/faces/codesTOCSelected.xhtml?tocCode=PROB"
+          },
+          "queue_stop_witness": {
+            "source_path": "outputs/collection-readiness-followup-2026-10-17/american-legal/remaining-primary-queue.json",
+            "sha256": "f4545a44e992562c7f454c2d757cd07ce1da2023d098964c649982da0a9f9f9d",
+            "terminal_publications": 5,
+            "queued_publications": 14,
+            "scope": "Queue stopped after observed access refusal; remaining route availability untested."
+          }
+        }
+      ],
       "followup_qualification": null,
       "image_policy": {
         "mode": "literal_placeholder",
@@ -2099,10 +2146,11 @@
         "scope_note": "Image-only units are retained. Intentional image omission is not an unresolved required nonimage attachment."
       },
       "scope_narrowed_for_pass": false,
-      "selected_configuration_sha256": "50024b81db96a36a51d03acc90604ed5fb4e0186b2129594b44bc489576980c5",
+      "selected_configuration_sha256": "af92ac6e0ea1896393761c1cfdcf5842d6d9610f67f2a0bd1a151bca91997ad1",
       "active_readiness_binding": {
         "accepted": false,
         "errors": [
+          "observed_access_stop",
           "requirement_not_active_pass:identity",
           "requirement_not_active_pass:full_inventory",
           "requirement_not_active_pass:owned_text",
@@ -2465,6 +2513,19 @@
       "readiness_verified": false,
       "gaps": [
         {
+          "kind": "access_stop",
+          "reason": "Sacramento required external California Legislative Information PROB reference HEAD returned HTTP403 with Cf-Mitigated challenge. The shared American Legal collection workflow stopped and its primary queue halted after five of fourteen queued publications. This preserves that observed workflow stop; it is not evidence that every American Legal page or legitimate route is unavailable. Offline verification remains allowed. No automatic retry or reset.",
+          "evidence": {
+            "source_path": "outputs/collection-readiness-followup-2026-10-17/american-legal/primary-23-sacramento_ca-v7/failure-response.json",
+            "sha256": "7367c1b4392e05049918bfa7e074881e425e1c9424e8e4a786337e8adaecdf8e",
+            "request_method": "HEAD",
+            "http_status": 403,
+            "cf_mitigated": "challenge",
+            "body_snippet_bytes": 0,
+            "url": "https://leginfo.legislature.ca.gov/faces/codesTOCSelected.xhtml?tocCode=PROB"
+          }
+        },
+        {
           "kind": "identity",
           "status": "not_established",
           "reason": "Exact government/state/publication/source identity independently bound to raw acquisition"
@@ -2517,6 +2578,7 @@
         {
           "kind": "active_revision_coherence",
           "reason": [
+            "observed_access_stop",
             "requirement_not_active_pass:identity",
             "requirement_not_active_pass:full_inventory",
             "requirement_not_active_pass:owned_text",
@@ -2535,7 +2597,40 @@
       "adapter_family": "american-legal",
       "configuration_qualified": true,
       "unsupported_reason": null,
-      "observed_access_advisories": [],
+      "observed_access_advisories": [
+        {
+          "family": "american-legal",
+          "operator_review_required": true,
+          "automatic_retry": false,
+          "reason": "Sacramento required external California Legislative Information PROB reference HEAD returned HTTP403 with Cf-Mitigated challenge. The shared American Legal collection workflow stopped and its primary queue halted after five of fourteen queued publications. This preserves that observed workflow stop; it is not evidence that every American Legal page or legitimate route is unavailable. Offline verification remains allowed. No automatic retry or reset.",
+          "observed_stop": {
+            "url": "https://leginfo.legislature.ca.gov/faces/codesTOCSelected.xhtml?tocCode=PROB",
+            "reason": "Access block/challenge",
+            "retry_after": null,
+            "stopped_at": "2026-10-18T02:56:17.786707+00:00",
+            "retry_not_before": 1792292477.787155,
+            "operator_review_required": true
+          },
+          "original_gate_path": "/tmp/compliSolv-american-legal-full-gate/browser-stop.json",
+          "source_sha256": "cc41433c18b63efb119a07e3e1ce27c8309921471f2e2d0b4f8cc564adbcb66d",
+          "raw_refusal_witness": {
+            "source_path": "outputs/collection-readiness-followup-2026-10-17/american-legal/primary-23-sacramento_ca-v7/failure-response.json",
+            "sha256": "7367c1b4392e05049918bfa7e074881e425e1c9424e8e4a786337e8adaecdf8e",
+            "request_method": "HEAD",
+            "http_status": 403,
+            "cf_mitigated": "challenge",
+            "body_snippet_bytes": 0,
+            "url": "https://leginfo.legislature.ca.gov/faces/codesTOCSelected.xhtml?tocCode=PROB"
+          },
+          "queue_stop_witness": {
+            "source_path": "outputs/collection-readiness-followup-2026-10-17/american-legal/remaining-primary-queue.json",
+            "sha256": "f4545a44e992562c7f454c2d757cd07ce1da2023d098964c649982da0a9f9f9d",
+            "terminal_publications": 5,
+            "queued_publications": 14,
+            "scope": "Queue stopped after observed access refusal; remaining route availability untested."
+          }
+        }
+      ],
       "followup_qualification": null,
       "image_policy": {
         "mode": "literal_placeholder",
@@ -2546,10 +2641,11 @@
         "scope_note": "Image-only units are retained. Intentional image omission is not an unresolved required nonimage attachment."
       },
       "scope_narrowed_for_pass": false,
-      "selected_configuration_sha256": "78de7aaf29e62559a4d6ca9e99a197b2a2813d8bd45b9a4af8db5dccd2d13cd8",
+      "selected_configuration_sha256": "a1207ddfddb868b790277fcdd425e58cd90fa0b12f5b8f11571287cd99a7f9fa",
       "active_readiness_binding": {
         "accepted": false,
         "errors": [
+          "observed_access_stop",
           "requirement_not_active_pass:identity",
           "requirement_not_active_pass:full_inventory",
           "requirement_not_active_pass:owned_text",
@@ -9345,6 +9441,19 @@
       "readiness_verified": false,
       "gaps": [
         {
+          "kind": "access_stop",
+          "reason": "Sacramento required external California Legislative Information PROB reference HEAD returned HTTP403 with Cf-Mitigated challenge. The shared American Legal collection workflow stopped and its primary queue halted after five of fourteen queued publications. This preserves that observed workflow stop; it is not evidence that every American Legal page or legitimate route is unavailable. Offline verification remains allowed. No automatic retry or reset.",
+          "evidence": {
+            "source_path": "outputs/collection-readiness-followup-2026-10-17/american-legal/primary-23-sacramento_ca-v7/failure-response.json",
+            "sha256": "7367c1b4392e05049918bfa7e074881e425e1c9424e8e4a786337e8adaecdf8e",
+            "request_method": "HEAD",
+            "http_status": 403,
+            "cf_mitigated": "challenge",
+            "body_snippet_bytes": 0,
+            "url": "https://leginfo.legislature.ca.gov/faces/codesTOCSelected.xhtml?tocCode=PROB"
+          }
+        },
+        {
           "kind": "identity",
           "status": "not_established",
           "reason": "Exact government/state/publication/source identity independently bound to raw acquisition"
@@ -9397,6 +9506,7 @@
         {
           "kind": "active_revision_coherence",
           "reason": [
+            "observed_access_stop",
             "requirement_not_active_pass:identity",
             "requirement_not_active_pass:full_inventory",
             "requirement_not_active_pass:owned_text",
@@ -9415,7 +9525,40 @@
       "adapter_family": "american-legal",
       "configuration_qualified": true,
       "unsupported_reason": null,
-      "observed_access_advisories": [],
+      "observed_access_advisories": [
+        {
+          "family": "american-legal",
+          "operator_review_required": true,
+          "automatic_retry": false,
+          "reason": "Sacramento required external California Legislative Information PROB reference HEAD returned HTTP403 with Cf-Mitigated challenge. The shared American Legal collection workflow stopped and its primary queue halted after five of fourteen queued publications. This preserves that observed workflow stop; it is not evidence that every American Legal page or legitimate route is unavailable. Offline verification remains allowed. No automatic retry or reset.",
+          "observed_stop": {
+            "url": "https://leginfo.legislature.ca.gov/faces/codesTOCSelected.xhtml?tocCode=PROB",
+            "reason": "Access block/challenge",
+            "retry_after": null,
+            "stopped_at": "2026-10-18T02:56:17.786707+00:00",
+            "retry_not_before": 1792292477.787155,
+            "operator_review_required": true
+          },
+          "original_gate_path": "/tmp/compliSolv-american-legal-full-gate/browser-stop.json",
+          "source_sha256": "cc41433c18b63efb119a07e3e1ce27c8309921471f2e2d0b4f8cc564adbcb66d",
+          "raw_refusal_witness": {
+            "source_path": "outputs/collection-readiness-followup-2026-10-17/american-legal/primary-23-sacramento_ca-v7/failure-response.json",
+            "sha256": "7367c1b4392e05049918bfa7e074881e425e1c9424e8e4a786337e8adaecdf8e",
+            "request_method": "HEAD",
+            "http_status": 403,
+            "cf_mitigated": "challenge",
+            "body_snippet_bytes": 0,
+            "url": "https://leginfo.legislature.ca.gov/faces/codesTOCSelected.xhtml?tocCode=PROB"
+          },
+          "queue_stop_witness": {
+            "source_path": "outputs/collection-readiness-followup-2026-10-17/american-legal/remaining-primary-queue.json",
+            "sha256": "f4545a44e992562c7f454c2d757cd07ce1da2023d098964c649982da0a9f9f9d",
+            "terminal_publications": 5,
+            "queued_publications": 14,
+            "scope": "Queue stopped after observed access refusal; remaining route availability untested."
+          }
+        }
+      ],
       "followup_qualification": null,
       "image_policy": {
         "mode": "literal_placeholder",
@@ -9426,10 +9569,11 @@
         "scope_note": "Image-only units are retained. Intentional image omission is not an unresolved required nonimage attachment."
       },
       "scope_narrowed_for_pass": false,
-      "selected_configuration_sha256": "b6eb098d8b45a8ed92fcd7c939d89033afe1e5530dbeb854989f6d4c6e453b92",
+      "selected_configuration_sha256": "42394f9e56efe17e2755af87d450b7ecd61bbbf8c5c9721a5652fd1dc2408fe1",
       "active_readiness_binding": {
         "accepted": false,
         "errors": [
+          "observed_access_stop",
           "requirement_not_active_pass:identity",
           "requirement_not_active_pass:full_inventory",
           "requirement_not_active_pass:owned_text",
@@ -10085,6 +10229,19 @@
       "readiness_verified": false,
       "gaps": [
         {
+          "kind": "access_stop",
+          "reason": "Sacramento required external California Legislative Information PROB reference HEAD returned HTTP403 with Cf-Mitigated challenge. The shared American Legal collection workflow stopped and its primary queue halted after five of fourteen queued publications. This preserves that observed workflow stop; it is not evidence that every American Legal page or legitimate route is unavailable. Offline verification remains allowed. No automatic retry or reset.",
+          "evidence": {
+            "source_path": "outputs/collection-readiness-followup-2026-10-17/american-legal/primary-23-sacramento_ca-v7/failure-response.json",
+            "sha256": "7367c1b4392e05049918bfa7e074881e425e1c9424e8e4a786337e8adaecdf8e",
+            "request_method": "HEAD",
+            "http_status": 403,
+            "cf_mitigated": "challenge",
+            "body_snippet_bytes": 0,
+            "url": "https://leginfo.legislature.ca.gov/faces/codesTOCSelected.xhtml?tocCode=PROB"
+          }
+        },
+        {
           "kind": "identity",
           "status": "not_established",
           "reason": "Exact government/state/publication/source identity independently bound to raw acquisition"
@@ -10137,6 +10294,7 @@
         {
           "kind": "active_revision_coherence",
           "reason": [
+            "observed_access_stop",
             "requirement_not_active_pass:identity",
             "requirement_not_active_pass:full_inventory",
             "requirement_not_active_pass:owned_text",
@@ -10155,7 +10313,40 @@
       "adapter_family": "american-legal",
       "configuration_qualified": true,
       "unsupported_reason": null,
-      "observed_access_advisories": [],
+      "observed_access_advisories": [
+        {
+          "family": "american-legal",
+          "operator_review_required": true,
+          "automatic_retry": false,
+          "reason": "Sacramento required external California Legislative Information PROB reference HEAD returned HTTP403 with Cf-Mitigated challenge. The shared American Legal collection workflow stopped and its primary queue halted after five of fourteen queued publications. This preserves that observed workflow stop; it is not evidence that every American Legal page or legitimate route is unavailable. Offline verification remains allowed. No automatic retry or reset.",
+          "observed_stop": {
+            "url": "https://leginfo.legislature.ca.gov/faces/codesTOCSelected.xhtml?tocCode=PROB",
+            "reason": "Access block/challenge",
+            "retry_after": null,
+            "stopped_at": "2026-10-18T02:56:17.786707+00:00",
+            "retry_not_before": 1792292477.787155,
+            "operator_review_required": true
+          },
+          "original_gate_path": "/tmp/compliSolv-american-legal-full-gate/browser-stop.json",
+          "source_sha256": "cc41433c18b63efb119a07e3e1ce27c8309921471f2e2d0b4f8cc564adbcb66d",
+          "raw_refusal_witness": {
+            "source_path": "outputs/collection-readiness-followup-2026-10-17/american-legal/primary-23-sacramento_ca-v7/failure-response.json",
+            "sha256": "7367c1b4392e05049918bfa7e074881e425e1c9424e8e4a786337e8adaecdf8e",
+            "request_method": "HEAD",
+            "http_status": 403,
+            "cf_mitigated": "challenge",
+            "body_snippet_bytes": 0,
+            "url": "https://leginfo.legislature.ca.gov/faces/codesTOCSelected.xhtml?tocCode=PROB"
+          },
+          "queue_stop_witness": {
+            "source_path": "outputs/collection-readiness-followup-2026-10-17/american-legal/remaining-primary-queue.json",
+            "sha256": "f4545a44e992562c7f454c2d757cd07ce1da2023d098964c649982da0a9f9f9d",
+            "terminal_publications": 5,
+            "queued_publications": 14,
+            "scope": "Queue stopped after observed access refusal; remaining route availability untested."
+          }
+        }
+      ],
       "followup_qualification": null,
       "image_policy": {
         "mode": "literal_placeholder",
@@ -10166,10 +10357,11 @@
         "scope_note": "Image-only units are retained. Intentional image omission is not an unresolved required nonimage attachment."
       },
       "scope_narrowed_for_pass": false,
-      "selected_configuration_sha256": "a073243302fea1fc1e24664489b2bd695a6abb3287719aac29246fff680c34aa",
+      "selected_configuration_sha256": "70e48ea621a4dfa92b580fa086ae4b2442de35c3245987bcdaec1428687651d9",
       "active_readiness_binding": {
         "accepted": false,
         "errors": [
+          "observed_access_stop",
           "requirement_not_active_pass:identity",
           "requirement_not_active_pass:full_inventory",
           "requirement_not_active_pass:owned_text",
@@ -10331,6 +10523,19 @@
       "readiness_verified": false,
       "gaps": [
         {
+          "kind": "access_stop",
+          "reason": "Sacramento required external California Legislative Information PROB reference HEAD returned HTTP403 with Cf-Mitigated challenge. The shared American Legal collection workflow stopped and its primary queue halted after five of fourteen queued publications. This preserves that observed workflow stop; it is not evidence that every American Legal page or legitimate route is unavailable. Offline verification remains allowed. No automatic retry or reset.",
+          "evidence": {
+            "source_path": "outputs/collection-readiness-followup-2026-10-17/american-legal/primary-23-sacramento_ca-v7/failure-response.json",
+            "sha256": "7367c1b4392e05049918bfa7e074881e425e1c9424e8e4a786337e8adaecdf8e",
+            "request_method": "HEAD",
+            "http_status": 403,
+            "cf_mitigated": "challenge",
+            "body_snippet_bytes": 0,
+            "url": "https://leginfo.legislature.ca.gov/faces/codesTOCSelected.xhtml?tocCode=PROB"
+          }
+        },
+        {
           "kind": "identity",
           "status": "not_established",
           "reason": "Exact government/state/publication/source identity independently bound to raw acquisition"
@@ -10383,6 +10588,7 @@
         {
           "kind": "active_revision_coherence",
           "reason": [
+            "observed_access_stop",
             "requirement_not_active_pass:identity",
             "requirement_not_active_pass:full_inventory",
             "requirement_not_active_pass:owned_text",
@@ -10401,7 +10607,40 @@
       "adapter_family": "american-legal",
       "configuration_qualified": true,
       "unsupported_reason": null,
-      "observed_access_advisories": [],
+      "observed_access_advisories": [
+        {
+          "family": "american-legal",
+          "operator_review_required": true,
+          "automatic_retry": false,
+          "reason": "Sacramento required external California Legislative Information PROB reference HEAD returned HTTP403 with Cf-Mitigated challenge. The shared American Legal collection workflow stopped and its primary queue halted after five of fourteen queued publications. This preserves that observed workflow stop; it is not evidence that every American Legal page or legitimate route is unavailable. Offline verification remains allowed. No automatic retry or reset.",
+          "observed_stop": {
+            "url": "https://leginfo.legislature.ca.gov/faces/codesTOCSelected.xhtml?tocCode=PROB",
+            "reason": "Access block/challenge",
+            "retry_after": null,
+            "stopped_at": "2026-10-18T02:56:17.786707+00:00",
+            "retry_not_before": 1792292477.787155,
+            "operator_review_required": true
+          },
+          "original_gate_path": "/tmp/compliSolv-american-legal-full-gate/browser-stop.json",
+          "source_sha256": "cc41433c18b63efb119a07e3e1ce27c8309921471f2e2d0b4f8cc564adbcb66d",
+          "raw_refusal_witness": {
+            "source_path": "outputs/collection-readiness-followup-2026-10-17/american-legal/primary-23-sacramento_ca-v7/failure-response.json",
+            "sha256": "7367c1b4392e05049918bfa7e074881e425e1c9424e8e4a786337e8adaecdf8e",
+            "request_method": "HEAD",
+            "http_status": 403,
+            "cf_mitigated": "challenge",
+            "body_snippet_bytes": 0,
+            "url": "https://leginfo.legislature.ca.gov/faces/codesTOCSelected.xhtml?tocCode=PROB"
+          },
+          "queue_stop_witness": {
+            "source_path": "outputs/collection-readiness-followup-2026-10-17/american-legal/remaining-primary-queue.json",
+            "sha256": "f4545a44e992562c7f454c2d757cd07ce1da2023d098964c649982da0a9f9f9d",
+            "terminal_publications": 5,
+            "queued_publications": 14,
+            "scope": "Queue stopped after observed access refusal; remaining route availability untested."
+          }
+        }
+      ],
       "followup_qualification": null,
       "image_policy": {
         "mode": "literal_placeholder",
@@ -10412,10 +10651,11 @@
         "scope_note": "Image-only units are retained. Intentional image omission is not an unresolved required nonimage attachment."
       },
       "scope_narrowed_for_pass": false,
-      "selected_configuration_sha256": "939005468e31209d59938b3f3b826c9f14e0580dfa90dcca2bcdb4c8426e2c56",
+      "selected_configuration_sha256": "dbf363f7156e6e8b479f1b0be1083c8f0a7c2b22aa27ef582df9ed377c638900",
       "active_readiness_binding": {
         "accepted": false,
         "errors": [
+          "observed_access_stop",
           "requirement_not_active_pass:identity",
           "requirement_not_active_pass:full_inventory",
           "requirement_not_active_pass:owned_text",
@@ -13001,6 +13241,19 @@
       "readiness_verified": false,
       "gaps": [
         {
+          "kind": "access_stop",
+          "reason": "Sacramento required external California Legislative Information PROB reference HEAD returned HTTP403 with Cf-Mitigated challenge. The shared American Legal collection workflow stopped and its primary queue halted after five of fourteen queued publications. This preserves that observed workflow stop; it is not evidence that every American Legal page or legitimate route is unavailable. Offline verification remains allowed. No automatic retry or reset.",
+          "evidence": {
+            "source_path": "outputs/collection-readiness-followup-2026-10-17/american-legal/primary-23-sacramento_ca-v7/failure-response.json",
+            "sha256": "7367c1b4392e05049918bfa7e074881e425e1c9424e8e4a786337e8adaecdf8e",
+            "request_method": "HEAD",
+            "http_status": 403,
+            "cf_mitigated": "challenge",
+            "body_snippet_bytes": 0,
+            "url": "https://leginfo.legislature.ca.gov/faces/codesTOCSelected.xhtml?tocCode=PROB"
+          }
+        },
+        {
           "kind": "identity",
           "status": "not_established",
           "reason": "Exact government/state/publication/source identity independently bound to raw acquisition"
@@ -13053,6 +13306,7 @@
         {
           "kind": "active_revision_coherence",
           "reason": [
+            "observed_access_stop",
             "requirement_not_active_pass:identity",
             "requirement_not_active_pass:full_inventory",
             "requirement_not_active_pass:owned_text",
@@ -13071,7 +13325,40 @@
       "adapter_family": "american-legal",
       "configuration_qualified": true,
       "unsupported_reason": null,
-      "observed_access_advisories": [],
+      "observed_access_advisories": [
+        {
+          "family": "american-legal",
+          "operator_review_required": true,
+          "automatic_retry": false,
+          "reason": "Sacramento required external California Legislative Information PROB reference HEAD returned HTTP403 with Cf-Mitigated challenge. The shared American Legal collection workflow stopped and its primary queue halted after five of fourteen queued publications. This preserves that observed workflow stop; it is not evidence that every American Legal page or legitimate route is unavailable. Offline verification remains allowed. No automatic retry or reset.",
+          "observed_stop": {
+            "url": "https://leginfo.legislature.ca.gov/faces/codesTOCSelected.xhtml?tocCode=PROB",
+            "reason": "Access block/challenge",
+            "retry_after": null,
+            "stopped_at": "2026-10-18T02:56:17.786707+00:00",
+            "retry_not_before": 1792292477.787155,
+            "operator_review_required": true
+          },
+          "original_gate_path": "/tmp/compliSolv-american-legal-full-gate/browser-stop.json",
+          "source_sha256": "cc41433c18b63efb119a07e3e1ce27c8309921471f2e2d0b4f8cc564adbcb66d",
+          "raw_refusal_witness": {
+            "source_path": "outputs/collection-readiness-followup-2026-10-17/american-legal/primary-23-sacramento_ca-v7/failure-response.json",
+            "sha256": "7367c1b4392e05049918bfa7e074881e425e1c9424e8e4a786337e8adaecdf8e",
+            "request_method": "HEAD",
+            "http_status": 403,
+            "cf_mitigated": "challenge",
+            "body_snippet_bytes": 0,
+            "url": "https://leginfo.legislature.ca.gov/faces/codesTOCSelected.xhtml?tocCode=PROB"
+          },
+          "queue_stop_witness": {
+            "source_path": "outputs/collection-readiness-followup-2026-10-17/american-legal/remaining-primary-queue.json",
+            "sha256": "f4545a44e992562c7f454c2d757cd07ce1da2023d098964c649982da0a9f9f9d",
+            "terminal_publications": 5,
+            "queued_publications": 14,
+            "scope": "Queue stopped after observed access refusal; remaining route availability untested."
+          }
+        }
+      ],
       "followup_qualification": null,
       "image_policy": {
         "mode": "literal_placeholder",
@@ -13082,10 +13369,11 @@
         "scope_note": "Image-only units are retained. Intentional image omission is not an unresolved required nonimage attachment."
       },
       "scope_narrowed_for_pass": false,
-      "selected_configuration_sha256": "e5a1fb335e8d45c3a7687c536e6469ec3f0f9bba2cd83be21f6edbde05dcdde9",
+      "selected_configuration_sha256": "aac78e61289b09d8ac00eb95f9aa9726118eeea7b731a96d0b7d6fe422dff84e",
       "active_readiness_binding": {
         "accepted": false,
         "errors": [
+          "observed_access_stop",
           "requirement_not_active_pass:identity",
           "requirement_not_active_pass:full_inventory",
           "requirement_not_active_pass:owned_text",
@@ -13246,6 +13534,19 @@
       "readiness_verified": false,
       "gaps": [
         {
+          "kind": "access_stop",
+          "reason": "Sacramento required external California Legislative Information PROB reference HEAD returned HTTP403 with Cf-Mitigated challenge. The shared American Legal collection workflow stopped and its primary queue halted after five of fourteen queued publications. This preserves that observed workflow stop; it is not evidence that every American Legal page or legitimate route is unavailable. Offline verification remains allowed. No automatic retry or reset.",
+          "evidence": {
+            "source_path": "outputs/collection-readiness-followup-2026-10-17/american-legal/primary-23-sacramento_ca-v7/failure-response.json",
+            "sha256": "7367c1b4392e05049918bfa7e074881e425e1c9424e8e4a786337e8adaecdf8e",
+            "request_method": "HEAD",
+            "http_status": 403,
+            "cf_mitigated": "challenge",
+            "body_snippet_bytes": 0,
+            "url": "https://leginfo.legislature.ca.gov/faces/codesTOCSelected.xhtml?tocCode=PROB"
+          }
+        },
+        {
           "kind": "identity",
           "status": "not_established",
           "reason": "Exact government/state/publication/source identity independently bound to raw acquisition"
@@ -13298,6 +13599,7 @@
         {
           "kind": "active_revision_coherence",
           "reason": [
+            "observed_access_stop",
             "requirement_not_active_pass:identity",
             "requirement_not_active_pass:full_inventory",
             "requirement_not_active_pass:owned_text",
@@ -13316,7 +13618,40 @@
       "adapter_family": "american-legal",
       "configuration_qualified": true,
       "unsupported_reason": null,
-      "observed_access_advisories": [],
+      "observed_access_advisories": [
+        {
+          "family": "american-legal",
+          "operator_review_required": true,
+          "automatic_retry": false,
+          "reason": "Sacramento required external California Legislative Information PROB reference HEAD returned HTTP403 with Cf-Mitigated challenge. The shared American Legal collection workflow stopped and its primary queue halted after five of fourteen queued publications. This preserves that observed workflow stop; it is not evidence that every American Legal page or legitimate route is unavailable. Offline verification remains allowed. No automatic retry or reset.",
+          "observed_stop": {
+            "url": "https://leginfo.legislature.ca.gov/faces/codesTOCSelected.xhtml?tocCode=PROB",
+            "reason": "Access block/challenge",
+            "retry_after": null,
+            "stopped_at": "2026-10-18T02:56:17.786707+00:00",
+            "retry_not_before": 1792292477.787155,
+            "operator_review_required": true
+          },
+          "original_gate_path": "/tmp/compliSolv-american-legal-full-gate/browser-stop.json",
+          "source_sha256": "cc41433c18b63efb119a07e3e1ce27c8309921471f2e2d0b4f8cc564adbcb66d",
+          "raw_refusal_witness": {
+            "source_path": "outputs/collection-readiness-followup-2026-10-17/american-legal/primary-23-sacramento_ca-v7/failure-response.json",
+            "sha256": "7367c1b4392e05049918bfa7e074881e425e1c9424e8e4a786337e8adaecdf8e",
+            "request_method": "HEAD",
+            "http_status": 403,
+            "cf_mitigated": "challenge",
+            "body_snippet_bytes": 0,
+            "url": "https://leginfo.legislature.ca.gov/faces/codesTOCSelected.xhtml?tocCode=PROB"
+          },
+          "queue_stop_witness": {
+            "source_path": "outputs/collection-readiness-followup-2026-10-17/american-legal/remaining-primary-queue.json",
+            "sha256": "f4545a44e992562c7f454c2d757cd07ce1da2023d098964c649982da0a9f9f9d",
+            "terminal_publications": 5,
+            "queued_publications": 14,
+            "scope": "Queue stopped after observed access refusal; remaining route availability untested."
+          }
+        }
+      ],
       "followup_qualification": null,
       "image_policy": {
         "mode": "literal_placeholder",
@@ -13327,10 +13662,11 @@
         "scope_note": "Image-only units are retained. Intentional image omission is not an unresolved required nonimage attachment."
       },
       "scope_narrowed_for_pass": false,
-      "selected_configuration_sha256": "843a29bf2d8cf854bc3bdd1c1f4d43c952256e8c8a204595e2a789cfb34396cf",
+      "selected_configuration_sha256": "242151288f24dcad8f455fc6431424222b6dd99a86d3b418060ded8e65d68ca3",
       "active_readiness_binding": {
         "accepted": false,
         "errors": [
+          "observed_access_stop",
           "requirement_not_active_pass:identity",
           "requirement_not_active_pass:full_inventory",
           "requirement_not_active_pass:owned_text",
@@ -13491,6 +13827,19 @@
       "readiness_verified": false,
       "gaps": [
         {
+          "kind": "access_stop",
+          "reason": "Sacramento required external California Legislative Information PROB reference HEAD returned HTTP403 with Cf-Mitigated challenge. The shared American Legal collection workflow stopped and its primary queue halted after five of fourteen queued publications. This preserves that observed workflow stop; it is not evidence that every American Legal page or legitimate route is unavailable. Offline verification remains allowed. No automatic retry or reset.",
+          "evidence": {
+            "source_path": "outputs/collection-readiness-followup-2026-10-17/american-legal/primary-23-sacramento_ca-v7/failure-response.json",
+            "sha256": "7367c1b4392e05049918bfa7e074881e425e1c9424e8e4a786337e8adaecdf8e",
+            "request_method": "HEAD",
+            "http_status": 403,
+            "cf_mitigated": "challenge",
+            "body_snippet_bytes": 0,
+            "url": "https://leginfo.legislature.ca.gov/faces/codesTOCSelected.xhtml?tocCode=PROB"
+          }
+        },
+        {
           "kind": "identity",
           "status": "not_established",
           "reason": "Exact government/state/publication/source identity independently bound to raw acquisition"
@@ -13543,6 +13892,7 @@
         {
           "kind": "active_revision_coherence",
           "reason": [
+            "observed_access_stop",
             "requirement_not_active_pass:identity",
             "requirement_not_active_pass:full_inventory",
             "requirement_not_active_pass:owned_text",
@@ -13561,7 +13911,40 @@
       "adapter_family": "american-legal",
       "configuration_qualified": true,
       "unsupported_reason": null,
-      "observed_access_advisories": [],
+      "observed_access_advisories": [
+        {
+          "family": "american-legal",
+          "operator_review_required": true,
+          "automatic_retry": false,
+          "reason": "Sacramento required external California Legislative Information PROB reference HEAD returned HTTP403 with Cf-Mitigated challenge. The shared American Legal collection workflow stopped and its primary queue halted after five of fourteen queued publications. This preserves that observed workflow stop; it is not evidence that every American Legal page or legitimate route is unavailable. Offline verification remains allowed. No automatic retry or reset.",
+          "observed_stop": {
+            "url": "https://leginfo.legislature.ca.gov/faces/codesTOCSelected.xhtml?tocCode=PROB",
+            "reason": "Access block/challenge",
+            "retry_after": null,
+            "stopped_at": "2026-10-18T02:56:17.786707+00:00",
+            "retry_not_before": 1792292477.787155,
+            "operator_review_required": true
+          },
+          "original_gate_path": "/tmp/compliSolv-american-legal-full-gate/browser-stop.json",
+          "source_sha256": "cc41433c18b63efb119a07e3e1ce27c8309921471f2e2d0b4f8cc564adbcb66d",
+          "raw_refusal_witness": {
+            "source_path": "outputs/collection-readiness-followup-2026-10-17/american-legal/primary-23-sacramento_ca-v7/failure-response.json",
+            "sha256": "7367c1b4392e05049918bfa7e074881e425e1c9424e8e4a786337e8adaecdf8e",
+            "request_method": "HEAD",
+            "http_status": 403,
+            "cf_mitigated": "challenge",
+            "body_snippet_bytes": 0,
+            "url": "https://leginfo.legislature.ca.gov/faces/codesTOCSelected.xhtml?tocCode=PROB"
+          },
+          "queue_stop_witness": {
+            "source_path": "outputs/collection-readiness-followup-2026-10-17/american-legal/remaining-primary-queue.json",
+            "sha256": "f4545a44e992562c7f454c2d757cd07ce1da2023d098964c649982da0a9f9f9d",
+            "terminal_publications": 5,
+            "queued_publications": 14,
+            "scope": "Queue stopped after observed access refusal; remaining route availability untested."
+          }
+        }
+      ],
       "followup_qualification": null,
       "image_policy": {
         "mode": "literal_placeholder",
@@ -13572,10 +13955,11 @@
         "scope_note": "Image-only units are retained. Intentional image omission is not an unresolved required nonimage attachment."
       },
       "scope_narrowed_for_pass": false,
-      "selected_configuration_sha256": "0fdffe7cd760ddeeec7264a497b07fbc13a16b303297f15d9ce44ff5c6b2d23b",
+      "selected_configuration_sha256": "f5927802c5b79bea7099bfd1b8093a503c9a7b122e9a1662e95b6a20a94f5818",
       "active_readiness_binding": {
         "accepted": false,
         "errors": [
+          "observed_access_stop",
           "requirement_not_active_pass:identity",
           "requirement_not_active_pass:full_inventory",
           "requirement_not_active_pass:owned_text",
@@ -15202,6 +15586,19 @@
       "readiness_verified": false,
       "gaps": [
         {
+          "kind": "access_stop",
+          "reason": "Sacramento required external California Legislative Information PROB reference HEAD returned HTTP403 with Cf-Mitigated challenge. The shared American Legal collection workflow stopped and its primary queue halted after five of fourteen queued publications. This preserves that observed workflow stop; it is not evidence that every American Legal page or legitimate route is unavailable. Offline verification remains allowed. No automatic retry or reset.",
+          "evidence": {
+            "source_path": "outputs/collection-readiness-followup-2026-10-17/american-legal/primary-23-sacramento_ca-v7/failure-response.json",
+            "sha256": "7367c1b4392e05049918bfa7e074881e425e1c9424e8e4a786337e8adaecdf8e",
+            "request_method": "HEAD",
+            "http_status": 403,
+            "cf_mitigated": "challenge",
+            "body_snippet_bytes": 0,
+            "url": "https://leginfo.legislature.ca.gov/faces/codesTOCSelected.xhtml?tocCode=PROB"
+          }
+        },
+        {
           "kind": "identity",
           "status": "not_established",
           "reason": "Exact government/state/publication/source identity independently bound to raw acquisition"
@@ -15254,6 +15651,7 @@
         {
           "kind": "active_revision_coherence",
           "reason": [
+            "observed_access_stop",
             "requirement_not_active_pass:identity",
             "requirement_not_active_pass:full_inventory",
             "requirement_not_active_pass:owned_text",
@@ -15272,7 +15670,40 @@
       "adapter_family": "american-legal",
       "configuration_qualified": true,
       "unsupported_reason": null,
-      "observed_access_advisories": [],
+      "observed_access_advisories": [
+        {
+          "family": "american-legal",
+          "operator_review_required": true,
+          "automatic_retry": false,
+          "reason": "Sacramento required external California Legislative Information PROB reference HEAD returned HTTP403 with Cf-Mitigated challenge. The shared American Legal collection workflow stopped and its primary queue halted after five of fourteen queued publications. This preserves that observed workflow stop; it is not evidence that every American Legal page or legitimate route is unavailable. Offline verification remains allowed. No automatic retry or reset.",
+          "observed_stop": {
+            "url": "https://leginfo.legislature.ca.gov/faces/codesTOCSelected.xhtml?tocCode=PROB",
+            "reason": "Access block/challenge",
+            "retry_after": null,
+            "stopped_at": "2026-10-18T02:56:17.786707+00:00",
+            "retry_not_before": 1792292477.787155,
+            "operator_review_required": true
+          },
+          "original_gate_path": "/tmp/compliSolv-american-legal-full-gate/browser-stop.json",
+          "source_sha256": "cc41433c18b63efb119a07e3e1ce27c8309921471f2e2d0b4f8cc564adbcb66d",
+          "raw_refusal_witness": {
+            "source_path": "outputs/collection-readiness-followup-2026-10-17/american-legal/primary-23-sacramento_ca-v7/failure-response.json",
+            "sha256": "7367c1b4392e05049918bfa7e074881e425e1c9424e8e4a786337e8adaecdf8e",
+            "request_method": "HEAD",
+            "http_status": 403,
+            "cf_mitigated": "challenge",
+            "body_snippet_bytes": 0,
+            "url": "https://leginfo.legislature.ca.gov/faces/codesTOCSelected.xhtml?tocCode=PROB"
+          },
+          "queue_stop_witness": {
+            "source_path": "outputs/collection-readiness-followup-2026-10-17/american-legal/remaining-primary-queue.json",
+            "sha256": "f4545a44e992562c7f454c2d757cd07ce1da2023d098964c649982da0a9f9f9d",
+            "terminal_publications": 5,
+            "queued_publications": 14,
+            "scope": "Queue stopped after observed access refusal; remaining route availability untested."
+          }
+        }
+      ],
       "followup_qualification": null,
       "image_policy": {
         "mode": "literal_placeholder",
@@ -15283,10 +15714,11 @@
         "scope_note": "Image-only units are retained. Intentional image omission is not an unresolved required nonimage attachment."
       },
       "scope_narrowed_for_pass": false,
-      "selected_configuration_sha256": "9d5a971c66b7d6d11f7f8fd152180ffddcc29df0dae4d938282041869529fe4a",
+      "selected_configuration_sha256": "aee1480c7dde5ae612127df0f75bfa103b449e7a5042f5241b1537550f1c2bca",
       "active_readiness_binding": {
         "accepted": false,
         "errors": [
+          "observed_access_stop",
           "requirement_not_active_pass:identity",
           "requirement_not_active_pass:full_inventory",
           "requirement_not_active_pass:owned_text",
@@ -20580,6 +21012,19 @@
       "readiness_verified": false,
       "gaps": [
         {
+          "kind": "access_stop",
+          "reason": "Sacramento required external California Legislative Information PROB reference HEAD returned HTTP403 with Cf-Mitigated challenge. The shared American Legal collection workflow stopped and its primary queue halted after five of fourteen queued publications. This preserves that observed workflow stop; it is not evidence that every American Legal page or legitimate route is unavailable. Offline verification remains allowed. No automatic retry or reset.",
+          "evidence": {
+            "source_path": "outputs/collection-readiness-followup-2026-10-17/american-legal/primary-23-sacramento_ca-v7/failure-response.json",
+            "sha256": "7367c1b4392e05049918bfa7e074881e425e1c9424e8e4a786337e8adaecdf8e",
+            "request_method": "HEAD",
+            "http_status": 403,
+            "cf_mitigated": "challenge",
+            "body_snippet_bytes": 0,
+            "url": "https://leginfo.legislature.ca.gov/faces/codesTOCSelected.xhtml?tocCode=PROB"
+          }
+        },
+        {
           "kind": "identity",
           "status": "not_established",
           "reason": "Exact government/state/publication/source identity independently bound to raw acquisition"
@@ -20632,6 +21077,7 @@
         {
           "kind": "active_revision_coherence",
           "reason": [
+            "observed_access_stop",
             "requirement_not_active_pass:identity",
             "requirement_not_active_pass:full_inventory",
             "requirement_not_active_pass:owned_text",
@@ -20650,7 +21096,40 @@
       "adapter_family": "american-legal",
       "configuration_qualified": true,
       "unsupported_reason": null,
-      "observed_access_advisories": [],
+      "observed_access_advisories": [
+        {
+          "family": "american-legal",
+          "operator_review_required": true,
+          "automatic_retry": false,
+          "reason": "Sacramento required external California Legislative Information PROB reference HEAD returned HTTP403 with Cf-Mitigated challenge. The shared American Legal collection workflow stopped and its primary queue halted after five of fourteen queued publications. This preserves that observed workflow stop; it is not evidence that every American Legal page or legitimate route is unavailable. Offline verification remains allowed. No automatic retry or reset.",
+          "observed_stop": {
+            "url": "https://leginfo.legislature.ca.gov/faces/codesTOCSelected.xhtml?tocCode=PROB",
+            "reason": "Access block/challenge",
+            "retry_after": null,
+            "stopped_at": "2026-10-18T02:56:17.786707+00:00",
+            "retry_not_before": 1792292477.787155,
+            "operator_review_required": true
+          },
+          "original_gate_path": "/tmp/compliSolv-american-legal-full-gate/browser-stop.json",
+          "source_sha256": "cc41433c18b63efb119a07e3e1ce27c8309921471f2e2d0b4f8cc564adbcb66d",
+          "raw_refusal_witness": {
+            "source_path": "outputs/collection-readiness-followup-2026-10-17/american-legal/primary-23-sacramento_ca-v7/failure-response.json",
+            "sha256": "7367c1b4392e05049918bfa7e074881e425e1c9424e8e4a786337e8adaecdf8e",
+            "request_method": "HEAD",
+            "http_status": 403,
+            "cf_mitigated": "challenge",
+            "body_snippet_bytes": 0,
+            "url": "https://leginfo.legislature.ca.gov/faces/codesTOCSelected.xhtml?tocCode=PROB"
+          },
+          "queue_stop_witness": {
+            "source_path": "outputs/collection-readiness-followup-2026-10-17/american-legal/remaining-primary-queue.json",
+            "sha256": "f4545a44e992562c7f454c2d757cd07ce1da2023d098964c649982da0a9f9f9d",
+            "terminal_publications": 5,
+            "queued_publications": 14,
+            "scope": "Queue stopped after observed access refusal; remaining route availability untested."
+          }
+        }
+      ],
       "followup_qualification": null,
       "image_policy": {
         "mode": "literal_placeholder",
@@ -20661,10 +21140,11 @@
         "scope_note": "Image-only units are retained. Intentional image omission is not an unresolved required nonimage attachment."
       },
       "scope_narrowed_for_pass": false,
-      "selected_configuration_sha256": "a984d0aa4163512c7aa8bd89f19223344bdf9b8d8340e4decb02e5dd008cd21e",
+      "selected_configuration_sha256": "7970bb613e43073d2b4a13aeccc6910d29e9bf121989d348ef02ee007a3e35aa",
       "active_readiness_binding": {
         "accepted": false,
         "errors": [
+          "observed_access_stop",
           "requirement_not_active_pass:identity",
           "requirement_not_active_pass:full_inventory",
           "requirement_not_active_pass:owned_text",
@@ -21120,6 +21600,19 @@
       "readiness_verified": false,
       "gaps": [
         {
+          "kind": "access_stop",
+          "reason": "Sacramento required external California Legislative Information PROB reference HEAD returned HTTP403 with Cf-Mitigated challenge. The shared American Legal collection workflow stopped and its primary queue halted after five of fourteen queued publications. This preserves that observed workflow stop; it is not evidence that every American Legal page or legitimate route is unavailable. Offline verification remains allowed. No automatic retry or reset.",
+          "evidence": {
+            "source_path": "outputs/collection-readiness-followup-2026-10-17/american-legal/primary-23-sacramento_ca-v7/failure-response.json",
+            "sha256": "7367c1b4392e05049918bfa7e074881e425e1c9424e8e4a786337e8adaecdf8e",
+            "request_method": "HEAD",
+            "http_status": 403,
+            "cf_mitigated": "challenge",
+            "body_snippet_bytes": 0,
+            "url": "https://leginfo.legislature.ca.gov/faces/codesTOCSelected.xhtml?tocCode=PROB"
+          }
+        },
+        {
           "kind": "identity",
           "status": "not_established",
           "reason": "Exact government/state/publication/source identity independently bound to raw acquisition"
@@ -21172,6 +21665,7 @@
         {
           "kind": "active_revision_coherence",
           "reason": [
+            "observed_access_stop",
             "requirement_not_active_pass:identity",
             "requirement_not_active_pass:full_inventory",
             "requirement_not_active_pass:owned_text",
@@ -21190,7 +21684,40 @@
       "adapter_family": "american-legal",
       "configuration_qualified": true,
       "unsupported_reason": null,
-      "observed_access_advisories": [],
+      "observed_access_advisories": [
+        {
+          "family": "american-legal",
+          "operator_review_required": true,
+          "automatic_retry": false,
+          "reason": "Sacramento required external California Legislative Information PROB reference HEAD returned HTTP403 with Cf-Mitigated challenge. The shared American Legal collection workflow stopped and its primary queue halted after five of fourteen queued publications. This preserves that observed workflow stop; it is not evidence that every American Legal page or legitimate route is unavailable. Offline verification remains allowed. No automatic retry or reset.",
+          "observed_stop": {
+            "url": "https://leginfo.legislature.ca.gov/faces/codesTOCSelected.xhtml?tocCode=PROB",
+            "reason": "Access block/challenge",
+            "retry_after": null,
+            "stopped_at": "2026-10-18T02:56:17.786707+00:00",
+            "retry_not_before": 1792292477.787155,
+            "operator_review_required": true
+          },
+          "original_gate_path": "/tmp/compliSolv-american-legal-full-gate/browser-stop.json",
+          "source_sha256": "cc41433c18b63efb119a07e3e1ce27c8309921471f2e2d0b4f8cc564adbcb66d",
+          "raw_refusal_witness": {
+            "source_path": "outputs/collection-readiness-followup-2026-10-17/american-legal/primary-23-sacramento_ca-v7/failure-response.json",
+            "sha256": "7367c1b4392e05049918bfa7e074881e425e1c9424e8e4a786337e8adaecdf8e",
+            "request_method": "HEAD",
+            "http_status": 403,
+            "cf_mitigated": "challenge",
+            "body_snippet_bytes": 0,
+            "url": "https://leginfo.legislature.ca.gov/faces/codesTOCSelected.xhtml?tocCode=PROB"
+          },
+          "queue_stop_witness": {
+            "source_path": "outputs/collection-readiness-followup-2026-10-17/american-legal/remaining-primary-queue.json",
+            "sha256": "f4545a44e992562c7f454c2d757cd07ce1da2023d098964c649982da0a9f9f9d",
+            "terminal_publications": 5,
+            "queued_publications": 14,
+            "scope": "Queue stopped after observed access refusal; remaining route availability untested."
+          }
+        }
+      ],
       "followup_qualification": null,
       "image_policy": {
         "mode": "literal_placeholder",
@@ -21201,10 +21728,11 @@
         "scope_note": "Image-only units are retained. Intentional image omission is not an unresolved required nonimage attachment."
       },
       "scope_narrowed_for_pass": false,
-      "selected_configuration_sha256": "3fbc2b2426d6da42db21fe80c3f12502d09b39f52faf7eb410797b393b74e2cc",
+      "selected_configuration_sha256": "36c8c1ecb51d3e8e5afc2daa9679fa0f7ef392d5fb62ecd4b42ac2b4eee52c44",
       "active_readiness_binding": {
         "accepted": false,
         "errors": [
+          "observed_access_stop",
           "requirement_not_active_pass:identity",
           "requirement_not_active_pass:full_inventory",
           "requirement_not_active_pass:owned_text",
@@ -21567,6 +22095,19 @@
       "readiness_verified": false,
       "gaps": [
         {
+          "kind": "access_stop",
+          "reason": "Sacramento required external California Legislative Information PROB reference HEAD returned HTTP403 with Cf-Mitigated challenge. The shared American Legal collection workflow stopped and its primary queue halted after five of fourteen queued publications. This preserves that observed workflow stop; it is not evidence that every American Legal page or legitimate route is unavailable. Offline verification remains allowed. No automatic retry or reset.",
+          "evidence": {
+            "source_path": "outputs/collection-readiness-followup-2026-10-17/american-legal/primary-23-sacramento_ca-v7/failure-response.json",
+            "sha256": "7367c1b4392e05049918bfa7e074881e425e1c9424e8e4a786337e8adaecdf8e",
+            "request_method": "HEAD",
+            "http_status": 403,
+            "cf_mitigated": "challenge",
+            "body_snippet_bytes": 0,
+            "url": "https://leginfo.legislature.ca.gov/faces/codesTOCSelected.xhtml?tocCode=PROB"
+          }
+        },
+        {
           "kind": "identity",
           "status": "not_established",
           "reason": "Exact government/state/publication/source identity independently bound to raw acquisition"
@@ -21619,6 +22160,7 @@
         {
           "kind": "active_revision_coherence",
           "reason": [
+            "observed_access_stop",
             "requirement_not_active_pass:identity",
             "requirement_not_active_pass:full_inventory",
             "requirement_not_active_pass:owned_text",
@@ -21637,7 +22179,40 @@
       "adapter_family": "american-legal",
       "configuration_qualified": true,
       "unsupported_reason": null,
-      "observed_access_advisories": [],
+      "observed_access_advisories": [
+        {
+          "family": "american-legal",
+          "operator_review_required": true,
+          "automatic_retry": false,
+          "reason": "Sacramento required external California Legislative Information PROB reference HEAD returned HTTP403 with Cf-Mitigated challenge. The shared American Legal collection workflow stopped and its primary queue halted after five of fourteen queued publications. This preserves that observed workflow stop; it is not evidence that every American Legal page or legitimate route is unavailable. Offline verification remains allowed. No automatic retry or reset.",
+          "observed_stop": {
+            "url": "https://leginfo.legislature.ca.gov/faces/codesTOCSelected.xhtml?tocCode=PROB",
+            "reason": "Access block/challenge",
+            "retry_after": null,
+            "stopped_at": "2026-10-18T02:56:17.786707+00:00",
+            "retry_not_before": 1792292477.787155,
+            "operator_review_required": true
+          },
+          "original_gate_path": "/tmp/compliSolv-american-legal-full-gate/browser-stop.json",
+          "source_sha256": "cc41433c18b63efb119a07e3e1ce27c8309921471f2e2d0b4f8cc564adbcb66d",
+          "raw_refusal_witness": {
+            "source_path": "outputs/collection-readiness-followup-2026-10-17/american-legal/primary-23-sacramento_ca-v7/failure-response.json",
+            "sha256": "7367c1b4392e05049918bfa7e074881e425e1c9424e8e4a786337e8adaecdf8e",
+            "request_method": "HEAD",
+            "http_status": 403,
+            "cf_mitigated": "challenge",
+            "body_snippet_bytes": 0,
+            "url": "https://leginfo.legislature.ca.gov/faces/codesTOCSelected.xhtml?tocCode=PROB"
+          },
+          "queue_stop_witness": {
+            "source_path": "outputs/collection-readiness-followup-2026-10-17/american-legal/remaining-primary-queue.json",
+            "sha256": "f4545a44e992562c7f454c2d757cd07ce1da2023d098964c649982da0a9f9f9d",
+            "terminal_publications": 5,
+            "queued_publications": 14,
+            "scope": "Queue stopped after observed access refusal; remaining route availability untested."
+          }
+        }
+      ],
       "followup_qualification": null,
       "image_policy": {
         "mode": "literal_placeholder",
@@ -21648,10 +22223,11 @@
         "scope_note": "Image-only units are retained. Intentional image omission is not an unresolved required nonimage attachment."
       },
       "scope_narrowed_for_pass": false,
-      "selected_configuration_sha256": "2af4e91c43d4f816f5f728fd6669f8c78a11c166f43633fa0b21adf1e633e615",
+      "selected_configuration_sha256": "f7bc49f4bc44024a0517479fa758bb22fa15ee87558490dcfa82d0a7dd55dcce",
       "active_readiness_binding": {
         "accepted": false,
         "errors": [
+          "observed_access_stop",
           "requirement_not_active_pass:identity",
           "requirement_not_active_pass:full_inventory",
           "requirement_not_active_pass:owned_text",
@@ -24450,6 +25026,19 @@
       "readiness_verified": false,
       "gaps": [
         {
+          "kind": "access_stop",
+          "reason": "Sacramento required external California Legislative Information PROB reference HEAD returned HTTP403 with Cf-Mitigated challenge. The shared American Legal collection workflow stopped and its primary queue halted after five of fourteen queued publications. This preserves that observed workflow stop; it is not evidence that every American Legal page or legitimate route is unavailable. Offline verification remains allowed. No automatic retry or reset.",
+          "evidence": {
+            "source_path": "outputs/collection-readiness-followup-2026-10-17/american-legal/primary-23-sacramento_ca-v7/failure-response.json",
+            "sha256": "7367c1b4392e05049918bfa7e074881e425e1c9424e8e4a786337e8adaecdf8e",
+            "request_method": "HEAD",
+            "http_status": 403,
+            "cf_mitigated": "challenge",
+            "body_snippet_bytes": 0,
+            "url": "https://leginfo.legislature.ca.gov/faces/codesTOCSelected.xhtml?tocCode=PROB"
+          }
+        },
+        {
           "kind": "identity",
           "status": "not_established",
           "reason": "Exact government/state/publication/source identity independently bound to raw acquisition"
@@ -24502,6 +25091,7 @@
         {
           "kind": "active_revision_coherence",
           "reason": [
+            "observed_access_stop",
             "requirement_not_active_pass:identity",
             "requirement_not_active_pass:full_inventory",
             "requirement_not_active_pass:owned_text",
@@ -24520,7 +25110,40 @@
       "adapter_family": "american-legal",
       "configuration_qualified": true,
       "unsupported_reason": null,
-      "observed_access_advisories": [],
+      "observed_access_advisories": [
+        {
+          "family": "american-legal",
+          "operator_review_required": true,
+          "automatic_retry": false,
+          "reason": "Sacramento required external California Legislative Information PROB reference HEAD returned HTTP403 with Cf-Mitigated challenge. The shared American Legal collection workflow stopped and its primary queue halted after five of fourteen queued publications. This preserves that observed workflow stop; it is not evidence that every American Legal page or legitimate route is unavailable. Offline verification remains allowed. No automatic retry or reset.",
+          "observed_stop": {
+            "url": "https://leginfo.legislature.ca.gov/faces/codesTOCSelected.xhtml?tocCode=PROB",
+            "reason": "Access block/challenge",
+            "retry_after": null,
+            "stopped_at": "2026-10-18T02:56:17.786707+00:00",
+            "retry_not_before": 1792292477.787155,
+            "operator_review_required": true
+          },
+          "original_gate_path": "/tmp/compliSolv-american-legal-full-gate/browser-stop.json",
+          "source_sha256": "cc41433c18b63efb119a07e3e1ce27c8309921471f2e2d0b4f8cc564adbcb66d",
+          "raw_refusal_witness": {
+            "source_path": "outputs/collection-readiness-followup-2026-10-17/american-legal/primary-23-sacramento_ca-v7/failure-response.json",
+            "sha256": "7367c1b4392e05049918bfa7e074881e425e1c9424e8e4a786337e8adaecdf8e",
+            "request_method": "HEAD",
+            "http_status": 403,
+            "cf_mitigated": "challenge",
+            "body_snippet_bytes": 0,
+            "url": "https://leginfo.legislature.ca.gov/faces/codesTOCSelected.xhtml?tocCode=PROB"
+          },
+          "queue_stop_witness": {
+            "source_path": "outputs/collection-readiness-followup-2026-10-17/american-legal/remaining-primary-queue.json",
+            "sha256": "f4545a44e992562c7f454c2d757cd07ce1da2023d098964c649982da0a9f9f9d",
+            "terminal_publications": 5,
+            "queued_publications": 14,
+            "scope": "Queue stopped after observed access refusal; remaining route availability untested."
+          }
+        }
+      ],
       "followup_qualification": null,
       "image_policy": {
         "mode": "literal_placeholder",
@@ -24531,10 +25154,11 @@
         "scope_note": "Image-only units are retained. Intentional image omission is not an unresolved required nonimage attachment."
       },
       "scope_narrowed_for_pass": false,
-      "selected_configuration_sha256": "490f7c1e5302d2729976f0ee681d708eaa2af06f05abf1f426dfc87694cb28b8",
+      "selected_configuration_sha256": "2f5f44682f5e65f0325cd6fa699a40f5ea727f3c319e6fa2325e59a0ac9e9f57",
       "active_readiness_binding": {
         "accepted": false,
         "errors": [
+          "observed_access_stop",
           "requirement_not_active_pass:identity",
           "requirement_not_active_pass:full_inventory",
           "requirement_not_active_pass:owned_text",
@@ -26056,6 +26680,19 @@
       "readiness_verified": false,
       "gaps": [
         {
+          "kind": "access_stop",
+          "reason": "Sacramento required external California Legislative Information PROB reference HEAD returned HTTP403 with Cf-Mitigated challenge. The shared American Legal collection workflow stopped and its primary queue halted after five of fourteen queued publications. This preserves that observed workflow stop; it is not evidence that every American Legal page or legitimate route is unavailable. Offline verification remains allowed. No automatic retry or reset.",
+          "evidence": {
+            "source_path": "outputs/collection-readiness-followup-2026-10-17/american-legal/primary-23-sacramento_ca-v7/failure-response.json",
+            "sha256": "7367c1b4392e05049918bfa7e074881e425e1c9424e8e4a786337e8adaecdf8e",
+            "request_method": "HEAD",
+            "http_status": 403,
+            "cf_mitigated": "challenge",
+            "body_snippet_bytes": 0,
+            "url": "https://leginfo.legislature.ca.gov/faces/codesTOCSelected.xhtml?tocCode=PROB"
+          }
+        },
+        {
           "kind": "identity",
           "status": "not_established",
           "reason": "Exact government/state/publication/source identity independently bound to raw acquisition"
@@ -26108,6 +26745,7 @@
         {
           "kind": "active_revision_coherence",
           "reason": [
+            "observed_access_stop",
             "requirement_not_active_pass:identity",
             "requirement_not_active_pass:full_inventory",
             "requirement_not_active_pass:owned_text",
@@ -26126,7 +26764,40 @@
       "adapter_family": "american-legal",
       "configuration_qualified": true,
       "unsupported_reason": null,
-      "observed_access_advisories": [],
+      "observed_access_advisories": [
+        {
+          "family": "american-legal",
+          "operator_review_required": true,
+          "automatic_retry": false,
+          "reason": "Sacramento required external California Legislative Information PROB reference HEAD returned HTTP403 with Cf-Mitigated challenge. The shared American Legal collection workflow stopped and its primary queue halted after five of fourteen queued publications. This preserves that observed workflow stop; it is not evidence that every American Legal page or legitimate route is unavailable. Offline verification remains allowed. No automatic retry or reset.",
+          "observed_stop": {
+            "url": "https://leginfo.legislature.ca.gov/faces/codesTOCSelected.xhtml?tocCode=PROB",
+            "reason": "Access block/challenge",
+            "retry_after": null,
+            "stopped_at": "2026-10-18T02:56:17.786707+00:00",
+            "retry_not_before": 1792292477.787155,
+            "operator_review_required": true
+          },
+          "original_gate_path": "/tmp/compliSolv-american-legal-full-gate/browser-stop.json",
+          "source_sha256": "cc41433c18b63efb119a07e3e1ce27c8309921471f2e2d0b4f8cc564adbcb66d",
+          "raw_refusal_witness": {
+            "source_path": "outputs/collection-readiness-followup-2026-10-17/american-legal/primary-23-sacramento_ca-v7/failure-response.json",
+            "sha256": "7367c1b4392e05049918bfa7e074881e425e1c9424e8e4a786337e8adaecdf8e",
+            "request_method": "HEAD",
+            "http_status": 403,
+            "cf_mitigated": "challenge",
+            "body_snippet_bytes": 0,
+            "url": "https://leginfo.legislature.ca.gov/faces/codesTOCSelected.xhtml?tocCode=PROB"
+          },
+          "queue_stop_witness": {
+            "source_path": "outputs/collection-readiness-followup-2026-10-17/american-legal/remaining-primary-queue.json",
+            "sha256": "f4545a44e992562c7f454c2d757cd07ce1da2023d098964c649982da0a9f9f9d",
+            "terminal_publications": 5,
+            "queued_publications": 14,
+            "scope": "Queue stopped after observed access refusal; remaining route availability untested."
+          }
+        }
+      ],
       "followup_qualification": null,
       "image_policy": {
         "mode": "literal_placeholder",
@@ -26137,10 +26808,11 @@
         "scope_note": "Image-only units are retained. Intentional image omission is not an unresolved required nonimage attachment."
       },
       "scope_narrowed_for_pass": false,
-      "selected_configuration_sha256": "8612df5a14b6ab123dbe4f522f9b196f606d685117a17893f2ce3e4ac6ded750",
+      "selected_configuration_sha256": "d9cddb9fb9eafe80c44e8a9ae388e35a1a3d64e759039c0fe8054a38ef07a9de",
       "active_readiness_binding": {
         "accepted": false,
         "errors": [
+          "observed_access_stop",
           "requirement_not_active_pass:identity",
           "requirement_not_active_pass:full_inventory",
           "requirement_not_active_pass:owned_text",
@@ -26868,6 +27540,19 @@
       "readiness_verified": false,
       "gaps": [
         {
+          "kind": "access_stop",
+          "reason": "Sacramento required external California Legislative Information PROB reference HEAD returned HTTP403 with Cf-Mitigated challenge. The shared American Legal collection workflow stopped and its primary queue halted after five of fourteen queued publications. This preserves that observed workflow stop; it is not evidence that every American Legal page or legitimate route is unavailable. Offline verification remains allowed. No automatic retry or reset.",
+          "evidence": {
+            "source_path": "outputs/collection-readiness-followup-2026-10-17/american-legal/primary-23-sacramento_ca-v7/failure-response.json",
+            "sha256": "7367c1b4392e05049918bfa7e074881e425e1c9424e8e4a786337e8adaecdf8e",
+            "request_method": "HEAD",
+            "http_status": 403,
+            "cf_mitigated": "challenge",
+            "body_snippet_bytes": 0,
+            "url": "https://leginfo.legislature.ca.gov/faces/codesTOCSelected.xhtml?tocCode=PROB"
+          }
+        },
+        {
           "kind": "identity",
           "status": "not_established",
           "reason": "Exact government/state/publication/source identity independently bound to raw acquisition"
@@ -26910,6 +27595,7 @@
         {
           "kind": "active_revision_coherence",
           "reason": [
+            "observed_access_stop",
             "requirement_not_active_pass:identity",
             "requirement_not_active_pass:owned_text",
             "requirement_not_active_pass:required_nonimage_documents",
@@ -26926,7 +27612,40 @@
       "adapter_family": "american-legal",
       "configuration_qualified": true,
       "unsupported_reason": null,
-      "observed_access_advisories": [],
+      "observed_access_advisories": [
+        {
+          "family": "american-legal",
+          "operator_review_required": true,
+          "automatic_retry": false,
+          "reason": "Sacramento required external California Legislative Information PROB reference HEAD returned HTTP403 with Cf-Mitigated challenge. The shared American Legal collection workflow stopped and its primary queue halted after five of fourteen queued publications. This preserves that observed workflow stop; it is not evidence that every American Legal page or legitimate route is unavailable. Offline verification remains allowed. No automatic retry or reset.",
+          "observed_stop": {
+            "url": "https://leginfo.legislature.ca.gov/faces/codesTOCSelected.xhtml?tocCode=PROB",
+            "reason": "Access block/challenge",
+            "retry_after": null,
+            "stopped_at": "2026-10-18T02:56:17.786707+00:00",
+            "retry_not_before": 1792292477.787155,
+            "operator_review_required": true
+          },
+          "original_gate_path": "/tmp/compliSolv-american-legal-full-gate/browser-stop.json",
+          "source_sha256": "cc41433c18b63efb119a07e3e1ce27c8309921471f2e2d0b4f8cc564adbcb66d",
+          "raw_refusal_witness": {
+            "source_path": "outputs/collection-readiness-followup-2026-10-17/american-legal/primary-23-sacramento_ca-v7/failure-response.json",
+            "sha256": "7367c1b4392e05049918bfa7e074881e425e1c9424e8e4a786337e8adaecdf8e",
+            "request_method": "HEAD",
+            "http_status": 403,
+            "cf_mitigated": "challenge",
+            "body_snippet_bytes": 0,
+            "url": "https://leginfo.legislature.ca.gov/faces/codesTOCSelected.xhtml?tocCode=PROB"
+          },
+          "queue_stop_witness": {
+            "source_path": "outputs/collection-readiness-followup-2026-10-17/american-legal/remaining-primary-queue.json",
+            "sha256": "f4545a44e992562c7f454c2d757cd07ce1da2023d098964c649982da0a9f9f9d",
+            "terminal_publications": 5,
+            "queued_publications": 14,
+            "scope": "Queue stopped after observed access refusal; remaining route availability untested."
+          }
+        }
+      ],
       "followup_qualification": null,
       "image_policy": {
         "mode": "literal_placeholder",
@@ -26963,10 +27682,11 @@
         }
       ],
       "followup_status_note": "Terminal full live v3 HTML/native graph proof; not a full legal-semantic publication pass. Original v3 remains failed on31inlinecell differences. Final immutable v6 candidate tables/nativePDF dimensions pass independent checks; active-runtime binding and wholepublication acceptance remain separate.",
-      "selected_configuration_sha256": "6cf5a4216f46f794a948c9563f167e0fc96d5cb662b46eb80ecae707f2e2c243",
+      "selected_configuration_sha256": "297423d3e9c8df463bde480ee2dda61c617aeb7b24d1a33f77f531260595e476",
       "active_readiness_binding": {
         "accepted": false,
         "errors": [
+          "observed_access_stop",
           "requirement_not_active_pass:identity",
           "requirement_not_active_pass:owned_text",
           "requirement_not_active_pass:required_nonimage_documents",
@@ -27182,6 +27902,19 @@
       "readiness_verified": false,
       "gaps": [
         {
+          "kind": "access_stop",
+          "reason": "Sacramento required external California Legislative Information PROB reference HEAD returned HTTP403 with Cf-Mitigated challenge. The shared American Legal collection workflow stopped and its primary queue halted after five of fourteen queued publications. This preserves that observed workflow stop; it is not evidence that every American Legal page or legitimate route is unavailable. Offline verification remains allowed. No automatic retry or reset.",
+          "evidence": {
+            "source_path": "outputs/collection-readiness-followup-2026-10-17/american-legal/primary-23-sacramento_ca-v7/failure-response.json",
+            "sha256": "7367c1b4392e05049918bfa7e074881e425e1c9424e8e4a786337e8adaecdf8e",
+            "request_method": "HEAD",
+            "http_status": 403,
+            "cf_mitigated": "challenge",
+            "body_snippet_bytes": 0,
+            "url": "https://leginfo.legislature.ca.gov/faces/codesTOCSelected.xhtml?tocCode=PROB"
+          }
+        },
+        {
           "kind": "identity",
           "status": "prior_evidence",
           "reason": "Exact government/state/publication/source identity independently bound to raw acquisition"
@@ -27234,6 +27967,7 @@
         {
           "kind": "active_revision_coherence",
           "reason": [
+            "observed_access_stop",
             "requirement_not_active_pass:identity",
             "requirement_not_active_pass:full_inventory",
             "requirement_not_active_pass:owned_text",
@@ -27252,7 +27986,40 @@
       "adapter_family": "american-legal",
       "configuration_qualified": true,
       "unsupported_reason": null,
-      "observed_access_advisories": [],
+      "observed_access_advisories": [
+        {
+          "family": "american-legal",
+          "operator_review_required": true,
+          "automatic_retry": false,
+          "reason": "Sacramento required external California Legislative Information PROB reference HEAD returned HTTP403 with Cf-Mitigated challenge. The shared American Legal collection workflow stopped and its primary queue halted after five of fourteen queued publications. This preserves that observed workflow stop; it is not evidence that every American Legal page or legitimate route is unavailable. Offline verification remains allowed. No automatic retry or reset.",
+          "observed_stop": {
+            "url": "https://leginfo.legislature.ca.gov/faces/codesTOCSelected.xhtml?tocCode=PROB",
+            "reason": "Access block/challenge",
+            "retry_after": null,
+            "stopped_at": "2026-10-18T02:56:17.786707+00:00",
+            "retry_not_before": 1792292477.787155,
+            "operator_review_required": true
+          },
+          "original_gate_path": "/tmp/compliSolv-american-legal-full-gate/browser-stop.json",
+          "source_sha256": "cc41433c18b63efb119a07e3e1ce27c8309921471f2e2d0b4f8cc564adbcb66d",
+          "raw_refusal_witness": {
+            "source_path": "outputs/collection-readiness-followup-2026-10-17/american-legal/primary-23-sacramento_ca-v7/failure-response.json",
+            "sha256": "7367c1b4392e05049918bfa7e074881e425e1c9424e8e4a786337e8adaecdf8e",
+            "request_method": "HEAD",
+            "http_status": 403,
+            "cf_mitigated": "challenge",
+            "body_snippet_bytes": 0,
+            "url": "https://leginfo.legislature.ca.gov/faces/codesTOCSelected.xhtml?tocCode=PROB"
+          },
+          "queue_stop_witness": {
+            "source_path": "outputs/collection-readiness-followup-2026-10-17/american-legal/remaining-primary-queue.json",
+            "sha256": "f4545a44e992562c7f454c2d757cd07ce1da2023d098964c649982da0a9f9f9d",
+            "terminal_publications": 5,
+            "queued_publications": 14,
+            "scope": "Queue stopped after observed access refusal; remaining route availability untested."
+          }
+        }
+      ],
       "followup_qualification": null,
       "image_policy": {
         "mode": "literal_placeholder",
@@ -27263,10 +28030,11 @@
         "scope_note": "Image-only units are retained. Intentional image omission is not an unresolved required nonimage attachment."
       },
       "scope_narrowed_for_pass": false,
-      "selected_configuration_sha256": "db9d7d79580bd1fe784d215634cbe00e406cf5c72bf1be344e7d1681d0680e0a",
+      "selected_configuration_sha256": "094bf2342d3dee74e5553688ac7d3eea2c55f48b9bf837611b026bdf8355aa0e",
       "active_readiness_binding": {
         "accepted": false,
         "errors": [
+          "observed_access_stop",
           "requirement_not_active_pass:identity",
           "requirement_not_active_pass:full_inventory",
           "requirement_not_active_pass:owned_text",
@@ -33184,6 +33952,19 @@
       "readiness_verified": false,
       "gaps": [
         {
+          "kind": "access_stop",
+          "reason": "Sacramento required external California Legislative Information PROB reference HEAD returned HTTP403 with Cf-Mitigated challenge. The shared American Legal collection workflow stopped and its primary queue halted after five of fourteen queued publications. This preserves that observed workflow stop; it is not evidence that every American Legal page or legitimate route is unavailable. Offline verification remains allowed. No automatic retry or reset.",
+          "evidence": {
+            "source_path": "outputs/collection-readiness-followup-2026-10-17/american-legal/primary-23-sacramento_ca-v7/failure-response.json",
+            "sha256": "7367c1b4392e05049918bfa7e074881e425e1c9424e8e4a786337e8adaecdf8e",
+            "request_method": "HEAD",
+            "http_status": 403,
+            "cf_mitigated": "challenge",
+            "body_snippet_bytes": 0,
+            "url": "https://leginfo.legislature.ca.gov/faces/codesTOCSelected.xhtml?tocCode=PROB"
+          }
+        },
+        {
           "kind": "identity",
           "status": "not_established",
           "reason": "Exact government/state/publication/source identity independently bound to raw acquisition"
@@ -33236,6 +34017,7 @@
         {
           "kind": "active_revision_coherence",
           "reason": [
+            "observed_access_stop",
             "requirement_not_active_pass:identity",
             "requirement_not_active_pass:full_inventory",
             "requirement_not_active_pass:owned_text",
@@ -33254,7 +34036,40 @@
       "adapter_family": "american-legal",
       "configuration_qualified": true,
       "unsupported_reason": null,
-      "observed_access_advisories": [],
+      "observed_access_advisories": [
+        {
+          "family": "american-legal",
+          "operator_review_required": true,
+          "automatic_retry": false,
+          "reason": "Sacramento required external California Legislative Information PROB reference HEAD returned HTTP403 with Cf-Mitigated challenge. The shared American Legal collection workflow stopped and its primary queue halted after five of fourteen queued publications. This preserves that observed workflow stop; it is not evidence that every American Legal page or legitimate route is unavailable. Offline verification remains allowed. No automatic retry or reset.",
+          "observed_stop": {
+            "url": "https://leginfo.legislature.ca.gov/faces/codesTOCSelected.xhtml?tocCode=PROB",
+            "reason": "Access block/challenge",
+            "retry_after": null,
+            "stopped_at": "2026-10-18T02:56:17.786707+00:00",
+            "retry_not_before": 1792292477.787155,
+            "operator_review_required": true
+          },
+          "original_gate_path": "/tmp/compliSolv-american-legal-full-gate/browser-stop.json",
+          "source_sha256": "cc41433c18b63efb119a07e3e1ce27c8309921471f2e2d0b4f8cc564adbcb66d",
+          "raw_refusal_witness": {
+            "source_path": "outputs/collection-readiness-followup-2026-10-17/american-legal/primary-23-sacramento_ca-v7/failure-response.json",
+            "sha256": "7367c1b4392e05049918bfa7e074881e425e1c9424e8e4a786337e8adaecdf8e",
+            "request_method": "HEAD",
+            "http_status": 403,
+            "cf_mitigated": "challenge",
+            "body_snippet_bytes": 0,
+            "url": "https://leginfo.legislature.ca.gov/faces/codesTOCSelected.xhtml?tocCode=PROB"
+          },
+          "queue_stop_witness": {
+            "source_path": "outputs/collection-readiness-followup-2026-10-17/american-legal/remaining-primary-queue.json",
+            "sha256": "f4545a44e992562c7f454c2d757cd07ce1da2023d098964c649982da0a9f9f9d",
+            "terminal_publications": 5,
+            "queued_publications": 14,
+            "scope": "Queue stopped after observed access refusal; remaining route availability untested."
+          }
+        }
+      ],
       "followup_qualification": null,
       "image_policy": {
         "mode": "literal_placeholder",
@@ -33265,10 +34080,11 @@
         "scope_note": "Image-only units are retained. Intentional image omission is not an unresolved required nonimage attachment."
       },
       "scope_narrowed_for_pass": false,
-      "selected_configuration_sha256": "c26a427db8169562822a3951665db0b8a1afefcc4806a856c8a5eb27382bb5a1",
+      "selected_configuration_sha256": "514f12a3a67122f8e67c282071f67572a6fe14a8034dcd47debb44035111d82a",
       "active_readiness_binding": {
         "accepted": false,
         "errors": [
+          "observed_access_stop",
           "requirement_not_active_pass:identity",
           "requirement_not_active_pass:full_inventory",
           "requirement_not_active_pass:owned_text",
@@ -33999,6 +34815,19 @@
       "readiness_verified": false,
       "gaps": [
         {
+          "kind": "access_stop",
+          "reason": "Sacramento required external California Legislative Information PROB reference HEAD returned HTTP403 with Cf-Mitigated challenge. The shared American Legal collection workflow stopped and its primary queue halted after five of fourteen queued publications. This preserves that observed workflow stop; it is not evidence that every American Legal page or legitimate route is unavailable. Offline verification remains allowed. No automatic retry or reset.",
+          "evidence": {
+            "source_path": "outputs/collection-readiness-followup-2026-10-17/american-legal/primary-23-sacramento_ca-v7/failure-response.json",
+            "sha256": "7367c1b4392e05049918bfa7e074881e425e1c9424e8e4a786337e8adaecdf8e",
+            "request_method": "HEAD",
+            "http_status": 403,
+            "cf_mitigated": "challenge",
+            "body_snippet_bytes": 0,
+            "url": "https://leginfo.legislature.ca.gov/faces/codesTOCSelected.xhtml?tocCode=PROB"
+          }
+        },
+        {
           "kind": "identity",
           "status": "not_established",
           "reason": "Exact government/state/publication/source identity independently bound to raw acquisition"
@@ -34051,6 +34880,7 @@
         {
           "kind": "active_revision_coherence",
           "reason": [
+            "observed_access_stop",
             "requirement_not_active_pass:identity",
             "requirement_not_active_pass:full_inventory",
             "requirement_not_active_pass:owned_text",
@@ -34069,7 +34899,40 @@
       "adapter_family": "american-legal",
       "configuration_qualified": true,
       "unsupported_reason": null,
-      "observed_access_advisories": [],
+      "observed_access_advisories": [
+        {
+          "family": "american-legal",
+          "operator_review_required": true,
+          "automatic_retry": false,
+          "reason": "Sacramento required external California Legislative Information PROB reference HEAD returned HTTP403 with Cf-Mitigated challenge. The shared American Legal collection workflow stopped and its primary queue halted after five of fourteen queued publications. This preserves that observed workflow stop; it is not evidence that every American Legal page or legitimate route is unavailable. Offline verification remains allowed. No automatic retry or reset.",
+          "observed_stop": {
+            "url": "https://leginfo.legislature.ca.gov/faces/codesTOCSelected.xhtml?tocCode=PROB",
+            "reason": "Access block/challenge",
+            "retry_after": null,
+            "stopped_at": "2026-10-18T02:56:17.786707+00:00",
+            "retry_not_before": 1792292477.787155,
+            "operator_review_required": true
+          },
+          "original_gate_path": "/tmp/compliSolv-american-legal-full-gate/browser-stop.json",
+          "source_sha256": "cc41433c18b63efb119a07e3e1ce27c8309921471f2e2d0b4f8cc564adbcb66d",
+          "raw_refusal_witness": {
+            "source_path": "outputs/collection-readiness-followup-2026-10-17/american-legal/primary-23-sacramento_ca-v7/failure-response.json",
+            "sha256": "7367c1b4392e05049918bfa7e074881e425e1c9424e8e4a786337e8adaecdf8e",
+            "request_method": "HEAD",
+            "http_status": 403,
+            "cf_mitigated": "challenge",
+            "body_snippet_bytes": 0,
+            "url": "https://leginfo.legislature.ca.gov/faces/codesTOCSelected.xhtml?tocCode=PROB"
+          },
+          "queue_stop_witness": {
+            "source_path": "outputs/collection-readiness-followup-2026-10-17/american-legal/remaining-primary-queue.json",
+            "sha256": "f4545a44e992562c7f454c2d757cd07ce1da2023d098964c649982da0a9f9f9d",
+            "terminal_publications": 5,
+            "queued_publications": 14,
+            "scope": "Queue stopped after observed access refusal; remaining route availability untested."
+          }
+        }
+      ],
       "followup_qualification": null,
       "image_policy": {
         "mode": "literal_placeholder",
@@ -34080,10 +34943,11 @@
         "scope_note": "Image-only units are retained. Intentional image omission is not an unresolved required nonimage attachment."
       },
       "scope_narrowed_for_pass": false,
-      "selected_configuration_sha256": "867be2d3d392c512d00063491afdf31e6be4205dda6a80857a4d8c67b17ec08b",
+      "selected_configuration_sha256": "37916017ccb854bce8887ceb5a66da7cd9102952860910800693aabfaf6d0fa0",
       "active_readiness_binding": {
         "accepted": false,
         "errors": [
+          "observed_access_stop",
           "requirement_not_active_pass:identity",
           "requirement_not_active_pass:full_inventory",
           "requirement_not_active_pass:owned_text",
@@ -36207,22 +37071,7 @@
             "requirement_not_active_pass:resume_integrity",
             "requirement_not_active_pass:fresh_setup_cli",
             "requirement_not_active_pass:legal_structure",
-            "active_component_revision_mismatch",
-            "verification_not_accepted_readonly",
-            "verification_source_drift",
-            "unbound_requirement:identity",
-            "unbound_requirement:full_inventory",
-            "unbound_requirement:owned_text",
-            "unbound_requirement:required_nonimage_documents",
-            "unbound_requirement:table_fidelity",
-            "unbound_requirement:image_policy",
-            "unbound_requirement:closing_consistency",
-            "unbound_requirement:resume_integrity",
-            "unbound_requirement:fresh_setup_cli",
-            "unbound_requirement:legal_structure",
-            "image_transport_regression:'path'",
-            "normalized_image_audit:'path'",
-            "acquired_bytes_image_audit:'path'"
+            "missing_active_runtime_proof"
           ]
         }
       ],
@@ -36241,180 +37090,6 @@
         "scope_note": "Image-only units are retained. Intentional image omission is not an unresolved required nonimage attachment."
       },
       "scope_narrowed_for_pass": false,
-      "active_runtime_proof": {
-        "publication_id": "82-primary",
-        "source_url": "https://codes.opkansas.org/municipal-code",
-        "config_sha256": "ede33e4d4a86a3dc798a5635f8d09cddd1c707d4076313668e26d5e79023ecd1",
-        "component_sources": {
-          "collect.py": "5bcc1e86ec8f82288079501b6cbbad17f4e1d43b34d1a994997f9023c5893e3e",
-          "collectors/encodeplus/__init__.py": "b694a5d9aaec3d14d60b33a1633fcc183ac03862b6226f4fd0d2fe62ff4354e3",
-          "collectors/encodeplus/bounded_decoder.py": "a579f2a79c15833e0c5a8c65bc4fa6024b2dbb6eafb408d1135f500c64c72770",
-          "collectors/encodeplus/collect.py": "adb0ec2b363732e2a360dd0549df3760df5901bc1d7576438200365cd6b6af02",
-          "collectors/encodeplus/configs/fairfax-public-facilities-manual.json": "f442a109d7021e8c70abe3b9f7949706530441947ce7c266cc65de091ecf8faf",
-          "collectors/encodeplus/configs/lancaster-county-subdivision.json": "31f900f79d7a271c55a1f716a21abffe56598cc635c83928144f1af23cdd7145",
-          "collectors/encodeplus/configs/lancaster-county-zoning.json": "636e8285b18e05d6b9d57ddd7432e68143a25fe657f1d927e4380fca32af9478",
-          "collectors/encodeplus/configs/lincoln-charter.json": "2b5dd8aa0f8c1e8c0e920db7bb8071313df7713188621ab4977662c54a723c83",
-          "collectors/encodeplus/configs/lincoln-design-standards.json": "47e41fc0904e896ff377b4af438b11461f2db4602db060e617530503e5a32c51",
-          "collectors/encodeplus/configs/native-82-04514ddf4ea3.json": "75a0c196757b41e6370b54802e18ca8a6d3c0d98618737b17ec279b9ded5cac9",
-          "collectors/encodeplus/configs/native-82-0c6b3dc40877.json": "299f5fd1be8ef2f951c24917a730764a5ef77cce12a9ba1a6d934fa90bdda847",
-          "collectors/encodeplus/configs/native-82-2a6b248067e3.json": "946ac2ed246842f8f0113aa30c7c7d3aef12303ec8fcd0a6da12029fc8ff95fb",
-          "collectors/encodeplus/configs/native-82-34e4a220bc89.json": "03242c32e08c2abb756dbc6c5b770f0c22bee6ef52f96fb587083c3869f9fa31",
-          "collectors/encodeplus/configs/native-82-4b983dc51ab6.json": "7b1c3bd6e8720897f373b1718895cda8b0cb7da81d9c66d8e86f2cf5d3142d39",
-          "collectors/encodeplus/configs/native-82-86f6be279e26.json": "69d939f8577ae23b63c6ccde77b4add20bc250d8dc25c55430a6a7693bc63b12",
-          "collectors/encodeplus/configs/overland-comprehensive-plan.json": "164ed6e3c03affd96ef9bc72715b317e1c0eac0905eb12fc4c5aa7a00a49a9f6",
-          "collectors/encodeplus/configs/overland-governing-body-policies.json": "61e3f7de9001a822e4ed43aa35fb5497afb3b6957c53cc397133742e097b669d",
-          "collectors/encodeplus/documents.py": "ad9a481cd7deca2e7ac262d42e39f2dcd6ab492f2905ac8c79976f7dc7601490",
-          "collectors/encodeplus/model.py": "69f8fe1516cd388599b432eba67ab66e646bd1d6bb5c11e85601a35fdafca4e0",
-          "collectors/encodeplus/native_document.py": "4fd4a565b684c0fdd84e9e4610440d314f4c3a2479488c87f08d1296aff182da",
-          "collectors/encodeplus/pdf_structure.py": "5d0141e7712aae0637ec9a4b226cab00ff3326fbe54aa992dd511bb590cb8f02",
-          "collectors/encodeplus/publication_references.py": "add74802f947df9ae9a51a3a26615c279b211d11d264ba89f803ff013452445c",
-          "collectors/encodeplus/reference_qualifications.py": "621d790168c4a6fc49e28950a0235efdc174fd844f87884ed878a190cc0ac799",
-          "collectors/encodeplus/replay.py": "edd3c2f7a18881771e7ef8a27d08f5e5275d80c7bb72f8659c1170af0131b0fb",
-          "collectors/encodeplus/savannah_empty_qualification.py": "fa50f4798a8b38284461af6999a2c7c235ea0be2984aeb7de190e8d21590d09c",
-          "collectors/encodeplus/savannah_reference.py": "97425c3277807f5d25c959989a7a7923a86a39d8468fef87d5e6e213685b7d74",
-          "collectors/encodeplus/source_empty_qualifications.py": "d40e47d316bcebc6a2629999353a57c2754e00a0d05a350962c5cd4a9bf63f9c",
-          "collectors/encodeplus/targets.json": "a49ef8ea245588ceb30a2e654295566ae3b4d6b6d0afd1a8900abd72bd094163",
-          "collectors/encodeplus/test_bounded_decoder.py": "ee34d64ccced51a2ee6e9aaab03b03bebf62db51353987875e230f333e4c211e",
-          "collectors/encodeplus/test_image_context_scheme.py": "d7a262d68050f669cdac12aedfb2d2e932bc3dedc2d0b476e244203e048c9179",
-          "collectors/encodeplus/test_savannah_empty.py": "f3064b957ac68d924795ed2761fce8c979154d17cba8818978a0a0cbdd589b7f",
-          "collectors/encodeplus/test_savannah_reference.py": "8c06ab5d86590347bbba082b576acd365639536e51204084bd71e586a42365ee",
-          "collectors/encodeplus/tests.py": "df6b6c4c4e2e489205ac754abfe3fa90a463e0c38eebf1b69353b67da2c80fac",
-          "collectors/encodeplus/transport.py": "16b8db775d37f4017b1dc4168add01dc47b44b971b4a3bd5e8574cc97d625a25",
-          "collectors/encodeplus/util.py": "92e22d86d3304b80e9997466cbb0d3497e320f181ae5630fcfc64c30fa625a56",
-          "collectors/encodeplus/verify.py": "07434dc5a51054b8833e90d9f05247f368d5a4e3b01046282a1c51476fe84b7e",
-          "collectors/ops/browser_check.cjs": "d30aacf255198ac83812934f0ba18d35b39dac337de6bf3ae764b7ce15a5623b",
-          "collectors/ops/launcher.py": "5e2e8544c224a357393c8892ea25961b35212f2a5c5c3d22e89ff18de3ec5c06",
-          "collectors/ops/requirements.txt": "ade259bf5a5cfb51909036b5eaf316b3bdea9fba30122ae65e1019fbe98a9d33",
-          "collectors/registry/access-advisories.json": "3f9e9dcc033e148c9dad67a565233f3fd0ee0fe29e96f5c3a611c5d1f9818525",
-          "collectors/registry/catalog.py": "f95665851e0aab02911ec3ce12f208e8047ed69132f445c042c05327460b4a15",
-          "collectors/registry/collect.py": "8eb3350ce9201b333210499d384a25c2ac4acc9623948a66190d36e0f490d6fc",
-          "collectors/registry/dispatch.py": "9eabc0c206ea46fa674a19ec73f095a8e16a31af0b1fdbed8bcdb307c615650a",
-          "collectors/registry/followup-additional-publications.json": "0fac7ac0d4874d63c2a2165e140b03ffd5f6689fd57e582d3007b3db8b57ca3d",
-          "collectors/registry/followup-qualified-configs.json": "b20403fd19cd9ab4cc4990beca1a9c82c5f19ef8d3d20fe86932d31ab72afd34",
-          "collectors/registry/followup-source-evidence-manifest.json": "5c34eaed09567d8d7a3bba81b4d3380efa1b8677a8a343cab4eeec6f10b2ae69",
-          "collectors/registry/gridics-access-stop-witness.json": "ef9b4bf71cd4c71fb9505efd9a85c6ba658c668ca838d280d5ca091139f48c2f",
-          "collectors/registry/original-adapter-qualified-configs.json": "ca31918d4ac8a51df7c21d62debdf314d8d9605b49cb4d66474736a3ff16d87b",
-          "collectors/registry/original-adapter-source-evidence-manifest.json": "1ad192fca550f8e7d360dee32df71ea434d161852fcd0ee6c9c5fd2ccf854d69",
-          "collectors/registry/original-official-needs.json": "c65cb3c91612616e26fc73d88f6c9507cb89b69b9efb87c90505b805e9ef6a1b",
-          "collectors/registry/original-publications.json": "f4f89a287624b076c839b0db9ad5987e7d1eeb3ee7a87c3a8916a218f6731e78",
-          "collectors/registry/original-targets.json": "3d4173ca37d787ef78d969a1d3076d97cf4339a7b1e9a2a0a24c4ad37cee7512",
-          "collectors/registry/primary-plan.json": "3e42db20d1f9be9e0aacc9865a6ed9e719fbb5d446bbdc5cefdd065e6c2e9c79",
-          "collectors/registry/publications.json": "a6d60b68e0674bc84613f79e3e078545fd7d607957b18368cb48828bb31e8a65",
-          "collectors/registry/readiness-additional-publications.json": "46a35c1c70b892ede3be407175b259440d87a3b6f1c6427080307b81806a1f03",
-          "collectors/registry/readiness-overrides.json": "b20a9447f61834ca7b3cae09254828fc049953f85e524f4fec4a68157f07d9b3",
-          "collectors/registry/readiness-qualified-configs.json": "421f1d7e016b881c4d8ae4ea83817996c4511cc259c14fb5efb32006842a0648",
-          "collectors/registry/targets.json": "2bb1c30141305620410cb2f77825bc7bf59e40fa865a501289b7cf214f24882d",
-          "collectors/registry/verification.json": "af579f758a2cb607c04a19f2608bdefd0387b24fc6f7e7a4dfefb5fe61539728"
-        },
-        "artifact_manifest_sha256": "eb5911752d802c8bec35f8431e98d680d19db132dd9f4c5e24241ba79ad9774b",
-        "runtime_receipt_sha256": "13ea509f0fa6083ee63e6af582f9249177ef94549b110b19e8a01417ffc8c048",
-        "artifact_manifest": "outputs/collection-readiness-post1997ee1-2026-10-17/root/overland-final-current-fresh-runtime-v3/artifact-manifest.json",
-        "runtime_receipt": "outputs/collection-readiness-post1997ee1-2026-10-17/root/overland-final-current-fresh-runtime-v3/runtime.json",
-        "verification_receipt": "outputs/collection-readiness-post1997ee1-2026-10-17/root/overland-final-current-fresh-runtime-v3/verification.json",
-        "verification_receipt_sha256": "aeb2badcd3a2eaff59a1cd2c163dda041923c69b2b1a20f1d2931c3f750891a2",
-        "scope_id": "02059123e0883c0da3df5f924072c486da0d23fd202c96e7eeef9076e190e1a8",
-        "selected_configuration": {
-          "publication": {
-            "id": "82-primary",
-            "target_id": "82",
-            "title": "Overland Park, Kansas Municipal Code",
-            "observed_title": "Overland Park, Kansas Municipal Code",
-            "source_url": "https://codes.opkansas.org/municipal-code",
-            "publisher": "encodeplus",
-            "source_family": "encodeplus",
-            "scope_kind": "publication",
-            "role": "primary",
-            "required_for_jurisdiction": true,
-            "expected_identity": {
-              "client_names": [
-                "Overland Park"
-              ],
-              "state": "KS"
-            },
-            "publisher_product_id": null,
-            "publisher_publication_id": null,
-            "selector": {},
-            "runnable": true,
-            "unsupported_reason": null,
-            "validation_level": "mapped_only",
-            "full_live_verified": false,
-            "evidence_paths": [
-              "expanded-scope-index.json",
-              "packages/wave3-validation-2026-10-17/encodeplus/results.json"
-            ],
-            "image_policy": {
-              "mode": "literal_placeholder",
-              "placeholder": "[IMAGE]",
-              "download_images": false,
-              "source_id_heading_retained": true,
-              "native_originals_may_contain_images": true,
-              "scope_note": "Image-only units are retained. Intentional image omission is not an unresolved required nonimage attachment."
-            },
-            "qualified_config_path": null,
-            "adapter_config_key": "overland",
-            "dispatch_config": {
-              "jurisdiction": "Overland Park, KS",
-              "base": "https://codes.opkansas.org/municipal-code/",
-              "identity": "Overland Park, Kansas Municipal Code",
-              "scope": "Municipal Code including UDO; separate STO/UPOC, policies and comprehensive plan excluded"
-            },
-            "observed_access_advisories": []
-          },
-          "target_expected_identity": {
-            "client_names": [
-              "Overland Park"
-            ],
-            "state": "KS"
-          },
-          "command_plan": {
-            "argv": [
-              "python3",
-              "-m",
-              "collectors.encodeplus.collect",
-              "overland",
-              "--out",
-              "{OUT}"
-            ],
-            "staged_config": null,
-            "qualified_config_path": null,
-            "publication_id": "82-primary",
-            "publication_title": "Overland Park, Kansas Municipal Code",
-            "publication_expected_identity": {
-              "client_names": [
-                "Overland Park"
-              ],
-              "state": "KS"
-            },
-            "required_for_jurisdiction": true,
-            "jurisdiction_scope": null,
-            "edition_scope": null,
-            "required_publication_dependencies": [],
-            "configuration_alias_of": null,
-            "scope": "publication",
-            "image_policy": {
-              "mode": "literal_placeholder",
-              "placeholder": "[IMAGE]",
-              "download_images": false,
-              "source_id_heading_retained": true,
-              "native_originals_may_contain_images": true,
-              "scope_note": "Image-only units are retained. Intentional image omission is not an unresolved required nonimage attachment."
-            },
-            "jurisdiction_complete": false,
-            "named_config_path": "collectors/encodeplus/targets.json",
-            "named_config_key": "overland"
-          },
-          "qualified_config": {
-            "jurisdiction": "Overland Park, KS",
-            "base": "https://codes.opkansas.org/municipal-code/",
-            "identity": "Overland Park, Kansas Municipal Code",
-            "scope": "Municipal Code including UDO; separate STO/UPOC, policies and comprehensive plan excluded"
-          },
-          "qualified_config_file_sha256": "a49ef8ea245588ceb30a2e654295566ae3b4d6b6d0afd1a8900abd72bd094163"
-        },
-        "requirements_not_promoted": true,
-        "publication_accepted": false,
-        "notes": "Actual common verification tuple only; independent body/table/resume/image dimension receipts remain required and are not manufactured by this importer."
-      },
       "selected_configuration_sha256": "ede33e4d4a86a3dc798a5635f8d09cddd1c707d4076313668e26d5e79023ecd1",
       "active_readiness_binding": {
         "accepted": false,
@@ -36429,25 +37104,9 @@
           "requirement_not_active_pass:resume_integrity",
           "requirement_not_active_pass:fresh_setup_cli",
           "requirement_not_active_pass:legal_structure",
-          "active_component_revision_mismatch",
-          "verification_not_accepted_readonly",
-          "verification_source_drift",
-          "unbound_requirement:identity",
-          "unbound_requirement:full_inventory",
-          "unbound_requirement:owned_text",
-          "unbound_requirement:required_nonimage_documents",
-          "unbound_requirement:table_fidelity",
-          "unbound_requirement:image_policy",
-          "unbound_requirement:closing_consistency",
-          "unbound_requirement:resume_integrity",
-          "unbound_requirement:fresh_setup_cli",
-          "unbound_requirement:legal_structure",
-          "image_transport_regression:'path'",
-          "normalized_image_audit:'path'",
-          "acquired_bytes_image_audit:'path'"
+          "missing_active_runtime_proof"
         ],
-        "scope_coherent": false,
-        "proof_scope_id": "02059123e0883c0da3df5f924072c486da0d23fd202c96e7eeef9076e190e1a8"
+        "scope_coherent": false
       },
       "discovery_candidate_classification": {
         "publication_id": "82-primary",
@@ -47300,6 +47959,19 @@
       "readiness_verified": false,
       "gaps": [
         {
+          "kind": "access_stop",
+          "reason": "Sacramento required external California Legislative Information PROB reference HEAD returned HTTP403 with Cf-Mitigated challenge. The shared American Legal collection workflow stopped and its primary queue halted after five of fourteen queued publications. This preserves that observed workflow stop; it is not evidence that every American Legal page or legitimate route is unavailable. Offline verification remains allowed. No automatic retry or reset.",
+          "evidence": {
+            "source_path": "outputs/collection-readiness-followup-2026-10-17/american-legal/primary-23-sacramento_ca-v7/failure-response.json",
+            "sha256": "7367c1b4392e05049918bfa7e074881e425e1c9424e8e4a786337e8adaecdf8e",
+            "request_method": "HEAD",
+            "http_status": 403,
+            "cf_mitigated": "challenge",
+            "body_snippet_bytes": 0,
+            "url": "https://leginfo.legislature.ca.gov/faces/codesTOCSelected.xhtml?tocCode=PROB"
+          }
+        },
+        {
           "kind": "identity",
           "status": "not_established",
           "reason": "Exact government/state/publication/source identity independently bound to raw acquisition"
@@ -47352,6 +48024,7 @@
         {
           "kind": "active_revision_coherence",
           "reason": [
+            "observed_access_stop",
             "requirement_not_active_pass:identity",
             "requirement_not_active_pass:full_inventory",
             "requirement_not_active_pass:owned_text",
@@ -47370,7 +48043,40 @@
       "adapter_family": "american-legal",
       "configuration_qualified": true,
       "unsupported_reason": null,
-      "observed_access_advisories": [],
+      "observed_access_advisories": [
+        {
+          "family": "american-legal",
+          "operator_review_required": true,
+          "automatic_retry": false,
+          "reason": "Sacramento required external California Legislative Information PROB reference HEAD returned HTTP403 with Cf-Mitigated challenge. The shared American Legal collection workflow stopped and its primary queue halted after five of fourteen queued publications. This preserves that observed workflow stop; it is not evidence that every American Legal page or legitimate route is unavailable. Offline verification remains allowed. No automatic retry or reset.",
+          "observed_stop": {
+            "url": "https://leginfo.legislature.ca.gov/faces/codesTOCSelected.xhtml?tocCode=PROB",
+            "reason": "Access block/challenge",
+            "retry_after": null,
+            "stopped_at": "2026-10-18T02:56:17.786707+00:00",
+            "retry_not_before": 1792292477.787155,
+            "operator_review_required": true
+          },
+          "original_gate_path": "/tmp/compliSolv-american-legal-full-gate/browser-stop.json",
+          "source_sha256": "cc41433c18b63efb119a07e3e1ce27c8309921471f2e2d0b4f8cc564adbcb66d",
+          "raw_refusal_witness": {
+            "source_path": "outputs/collection-readiness-followup-2026-10-17/american-legal/primary-23-sacramento_ca-v7/failure-response.json",
+            "sha256": "7367c1b4392e05049918bfa7e074881e425e1c9424e8e4a786337e8adaecdf8e",
+            "request_method": "HEAD",
+            "http_status": 403,
+            "cf_mitigated": "challenge",
+            "body_snippet_bytes": 0,
+            "url": "https://leginfo.legislature.ca.gov/faces/codesTOCSelected.xhtml?tocCode=PROB"
+          },
+          "queue_stop_witness": {
+            "source_path": "outputs/collection-readiness-followup-2026-10-17/american-legal/remaining-primary-queue.json",
+            "sha256": "f4545a44e992562c7f454c2d757cd07ce1da2023d098964c649982da0a9f9f9d",
+            "terminal_publications": 5,
+            "queued_publications": 14,
+            "scope": "Queue stopped after observed access refusal; remaining route availability untested."
+          }
+        }
+      ],
       "followup_qualification": null,
       "image_policy": {
         "mode": "literal_placeholder",
@@ -47381,10 +48087,11 @@
         "scope_note": "Image-only units are retained. Intentional image omission is not an unresolved required nonimage attachment."
       },
       "scope_narrowed_for_pass": false,
-      "selected_configuration_sha256": "7851872469d80275eb82b1fefd4331d1d656d792b55d176d44042e741f382aa9",
+      "selected_configuration_sha256": "d3607ab3cda744f89d14665ccda3e1ecec2a5deed0c35ed4a19002feb9ddd721",
       "active_readiness_binding": {
         "accepted": false,
         "errors": [
+          "observed_access_stop",
           "requirement_not_active_pass:identity",
           "requirement_not_active_pass:full_inventory",
           "requirement_not_active_pass:owned_text",
@@ -47601,6 +48308,19 @@
       "readiness_verified": false,
       "gaps": [
         {
+          "kind": "access_stop",
+          "reason": "Sacramento required external California Legislative Information PROB reference HEAD returned HTTP403 with Cf-Mitigated challenge. The shared American Legal collection workflow stopped and its primary queue halted after five of fourteen queued publications. This preserves that observed workflow stop; it is not evidence that every American Legal page or legitimate route is unavailable. Offline verification remains allowed. No automatic retry or reset.",
+          "evidence": {
+            "source_path": "outputs/collection-readiness-followup-2026-10-17/american-legal/primary-23-sacramento_ca-v7/failure-response.json",
+            "sha256": "7367c1b4392e05049918bfa7e074881e425e1c9424e8e4a786337e8adaecdf8e",
+            "request_method": "HEAD",
+            "http_status": 403,
+            "cf_mitigated": "challenge",
+            "body_snippet_bytes": 0,
+            "url": "https://leginfo.legislature.ca.gov/faces/codesTOCSelected.xhtml?tocCode=PROB"
+          }
+        },
+        {
           "kind": "identity",
           "status": "prior_evidence",
           "reason": "Exact government/state/publication/source identity independently bound to raw acquisition"
@@ -47653,6 +48373,7 @@
         {
           "kind": "active_revision_coherence",
           "reason": [
+            "observed_access_stop",
             "requirement_not_active_pass:identity",
             "requirement_not_active_pass:full_inventory",
             "requirement_not_active_pass:owned_text",
@@ -47671,7 +48392,40 @@
       "adapter_family": "american-legal",
       "configuration_qualified": true,
       "unsupported_reason": null,
-      "observed_access_advisories": [],
+      "observed_access_advisories": [
+        {
+          "family": "american-legal",
+          "operator_review_required": true,
+          "automatic_retry": false,
+          "reason": "Sacramento required external California Legislative Information PROB reference HEAD returned HTTP403 with Cf-Mitigated challenge. The shared American Legal collection workflow stopped and its primary queue halted after five of fourteen queued publications. This preserves that observed workflow stop; it is not evidence that every American Legal page or legitimate route is unavailable. Offline verification remains allowed. No automatic retry or reset.",
+          "observed_stop": {
+            "url": "https://leginfo.legislature.ca.gov/faces/codesTOCSelected.xhtml?tocCode=PROB",
+            "reason": "Access block/challenge",
+            "retry_after": null,
+            "stopped_at": "2026-10-18T02:56:17.786707+00:00",
+            "retry_not_before": 1792292477.787155,
+            "operator_review_required": true
+          },
+          "original_gate_path": "/tmp/compliSolv-american-legal-full-gate/browser-stop.json",
+          "source_sha256": "cc41433c18b63efb119a07e3e1ce27c8309921471f2e2d0b4f8cc564adbcb66d",
+          "raw_refusal_witness": {
+            "source_path": "outputs/collection-readiness-followup-2026-10-17/american-legal/primary-23-sacramento_ca-v7/failure-response.json",
+            "sha256": "7367c1b4392e05049918bfa7e074881e425e1c9424e8e4a786337e8adaecdf8e",
+            "request_method": "HEAD",
+            "http_status": 403,
+            "cf_mitigated": "challenge",
+            "body_snippet_bytes": 0,
+            "url": "https://leginfo.legislature.ca.gov/faces/codesTOCSelected.xhtml?tocCode=PROB"
+          },
+          "queue_stop_witness": {
+            "source_path": "outputs/collection-readiness-followup-2026-10-17/american-legal/remaining-primary-queue.json",
+            "sha256": "f4545a44e992562c7f454c2d757cd07ce1da2023d098964c649982da0a9f9f9d",
+            "terminal_publications": 5,
+            "queued_publications": 14,
+            "scope": "Queue stopped after observed access refusal; remaining route availability untested."
+          }
+        }
+      ],
       "followup_qualification": null,
       "image_policy": {
         "mode": "literal_placeholder",
@@ -47682,10 +48436,11 @@
         "scope_note": "Image-only units are retained. Intentional image omission is not an unresolved required nonimage attachment."
       },
       "scope_narrowed_for_pass": false,
-      "selected_configuration_sha256": "13476d60928c74c6cc21b9f07616c00ae12a8c205001ff00cffc4be5d8ee3645",
+      "selected_configuration_sha256": "9881228591cabbbafbedef069778666d179c02fbed1046c47bd68f7e212abe90",
       "active_readiness_binding": {
         "accepted": false,
         "errors": [
+          "observed_access_stop",
           "requirement_not_active_pass:identity",
           "requirement_not_active_pass:full_inventory",
           "requirement_not_active_pass:owned_text",
@@ -47846,6 +48601,19 @@
       "readiness_verified": false,
       "gaps": [
         {
+          "kind": "access_stop",
+          "reason": "Sacramento required external California Legislative Information PROB reference HEAD returned HTTP403 with Cf-Mitigated challenge. The shared American Legal collection workflow stopped and its primary queue halted after five of fourteen queued publications. This preserves that observed workflow stop; it is not evidence that every American Legal page or legitimate route is unavailable. Offline verification remains allowed. No automatic retry or reset.",
+          "evidence": {
+            "source_path": "outputs/collection-readiness-followup-2026-10-17/american-legal/primary-23-sacramento_ca-v7/failure-response.json",
+            "sha256": "7367c1b4392e05049918bfa7e074881e425e1c9424e8e4a786337e8adaecdf8e",
+            "request_method": "HEAD",
+            "http_status": 403,
+            "cf_mitigated": "challenge",
+            "body_snippet_bytes": 0,
+            "url": "https://leginfo.legislature.ca.gov/faces/codesTOCSelected.xhtml?tocCode=PROB"
+          }
+        },
+        {
           "kind": "identity",
           "status": "not_established",
           "reason": "Exact government/state/publication/source identity independently bound to raw acquisition"
@@ -47898,6 +48666,7 @@
         {
           "kind": "active_revision_coherence",
           "reason": [
+            "observed_access_stop",
             "requirement_not_active_pass:identity",
             "requirement_not_active_pass:full_inventory",
             "requirement_not_active_pass:owned_text",
@@ -47916,7 +48685,40 @@
       "adapter_family": "american-legal",
       "configuration_qualified": true,
       "unsupported_reason": null,
-      "observed_access_advisories": [],
+      "observed_access_advisories": [
+        {
+          "family": "american-legal",
+          "operator_review_required": true,
+          "automatic_retry": false,
+          "reason": "Sacramento required external California Legislative Information PROB reference HEAD returned HTTP403 with Cf-Mitigated challenge. The shared American Legal collection workflow stopped and its primary queue halted after five of fourteen queued publications. This preserves that observed workflow stop; it is not evidence that every American Legal page or legitimate route is unavailable. Offline verification remains allowed. No automatic retry or reset.",
+          "observed_stop": {
+            "url": "https://leginfo.legislature.ca.gov/faces/codesTOCSelected.xhtml?tocCode=PROB",
+            "reason": "Access block/challenge",
+            "retry_after": null,
+            "stopped_at": "2026-10-18T02:56:17.786707+00:00",
+            "retry_not_before": 1792292477.787155,
+            "operator_review_required": true
+          },
+          "original_gate_path": "/tmp/compliSolv-american-legal-full-gate/browser-stop.json",
+          "source_sha256": "cc41433c18b63efb119a07e3e1ce27c8309921471f2e2d0b4f8cc564adbcb66d",
+          "raw_refusal_witness": {
+            "source_path": "outputs/collection-readiness-followup-2026-10-17/american-legal/primary-23-sacramento_ca-v7/failure-response.json",
+            "sha256": "7367c1b4392e05049918bfa7e074881e425e1c9424e8e4a786337e8adaecdf8e",
+            "request_method": "HEAD",
+            "http_status": 403,
+            "cf_mitigated": "challenge",
+            "body_snippet_bytes": 0,
+            "url": "https://leginfo.legislature.ca.gov/faces/codesTOCSelected.xhtml?tocCode=PROB"
+          },
+          "queue_stop_witness": {
+            "source_path": "outputs/collection-readiness-followup-2026-10-17/american-legal/remaining-primary-queue.json",
+            "sha256": "f4545a44e992562c7f454c2d757cd07ce1da2023d098964c649982da0a9f9f9d",
+            "terminal_publications": 5,
+            "queued_publications": 14,
+            "scope": "Queue stopped after observed access refusal; remaining route availability untested."
+          }
+        }
+      ],
       "followup_qualification": null,
       "image_policy": {
         "mode": "literal_placeholder",
@@ -47927,10 +48729,11 @@
         "scope_note": "Image-only units are retained. Intentional image omission is not an unresolved required nonimage attachment."
       },
       "scope_narrowed_for_pass": false,
-      "selected_configuration_sha256": "84ff67b4735305028aec1a7c532c2c0fb4a6b30728ca53814eb5a7e3bf96f9e8",
+      "selected_configuration_sha256": "7723835d558b9ab5a87d5229d4597dd36cbd4d4b84c793d49e1ef77c95d33ffd",
       "active_readiness_binding": {
         "accepted": false,
         "errors": [
+          "observed_access_stop",
           "requirement_not_active_pass:identity",
           "requirement_not_active_pass:full_inventory",
           "requirement_not_active_pass:owned_text",
@@ -48091,6 +48894,19 @@
       "readiness_verified": false,
       "gaps": [
         {
+          "kind": "access_stop",
+          "reason": "Sacramento required external California Legislative Information PROB reference HEAD returned HTTP403 with Cf-Mitigated challenge. The shared American Legal collection workflow stopped and its primary queue halted after five of fourteen queued publications. This preserves that observed workflow stop; it is not evidence that every American Legal page or legitimate route is unavailable. Offline verification remains allowed. No automatic retry or reset.",
+          "evidence": {
+            "source_path": "outputs/collection-readiness-followup-2026-10-17/american-legal/primary-23-sacramento_ca-v7/failure-response.json",
+            "sha256": "7367c1b4392e05049918bfa7e074881e425e1c9424e8e4a786337e8adaecdf8e",
+            "request_method": "HEAD",
+            "http_status": 403,
+            "cf_mitigated": "challenge",
+            "body_snippet_bytes": 0,
+            "url": "https://leginfo.legislature.ca.gov/faces/codesTOCSelected.xhtml?tocCode=PROB"
+          }
+        },
+        {
           "kind": "identity",
           "status": "not_established",
           "reason": "Exact government/state/publication/source identity independently bound to raw acquisition"
@@ -48143,6 +48959,7 @@
         {
           "kind": "active_revision_coherence",
           "reason": [
+            "observed_access_stop",
             "requirement_not_active_pass:identity",
             "requirement_not_active_pass:full_inventory",
             "requirement_not_active_pass:owned_text",
@@ -48161,7 +48978,40 @@
       "adapter_family": "american-legal",
       "configuration_qualified": true,
       "unsupported_reason": null,
-      "observed_access_advisories": [],
+      "observed_access_advisories": [
+        {
+          "family": "american-legal",
+          "operator_review_required": true,
+          "automatic_retry": false,
+          "reason": "Sacramento required external California Legislative Information PROB reference HEAD returned HTTP403 with Cf-Mitigated challenge. The shared American Legal collection workflow stopped and its primary queue halted after five of fourteen queued publications. This preserves that observed workflow stop; it is not evidence that every American Legal page or legitimate route is unavailable. Offline verification remains allowed. No automatic retry or reset.",
+          "observed_stop": {
+            "url": "https://leginfo.legislature.ca.gov/faces/codesTOCSelected.xhtml?tocCode=PROB",
+            "reason": "Access block/challenge",
+            "retry_after": null,
+            "stopped_at": "2026-10-18T02:56:17.786707+00:00",
+            "retry_not_before": 1792292477.787155,
+            "operator_review_required": true
+          },
+          "original_gate_path": "/tmp/compliSolv-american-legal-full-gate/browser-stop.json",
+          "source_sha256": "cc41433c18b63efb119a07e3e1ce27c8309921471f2e2d0b4f8cc564adbcb66d",
+          "raw_refusal_witness": {
+            "source_path": "outputs/collection-readiness-followup-2026-10-17/american-legal/primary-23-sacramento_ca-v7/failure-response.json",
+            "sha256": "7367c1b4392e05049918bfa7e074881e425e1c9424e8e4a786337e8adaecdf8e",
+            "request_method": "HEAD",
+            "http_status": 403,
+            "cf_mitigated": "challenge",
+            "body_snippet_bytes": 0,
+            "url": "https://leginfo.legislature.ca.gov/faces/codesTOCSelected.xhtml?tocCode=PROB"
+          },
+          "queue_stop_witness": {
+            "source_path": "outputs/collection-readiness-followup-2026-10-17/american-legal/remaining-primary-queue.json",
+            "sha256": "f4545a44e992562c7f454c2d757cd07ce1da2023d098964c649982da0a9f9f9d",
+            "terminal_publications": 5,
+            "queued_publications": 14,
+            "scope": "Queue stopped after observed access refusal; remaining route availability untested."
+          }
+        }
+      ],
       "followup_qualification": null,
       "image_policy": {
         "mode": "literal_placeholder",
@@ -48172,10 +49022,11 @@
         "scope_note": "Image-only units are retained. Intentional image omission is not an unresolved required nonimage attachment."
       },
       "scope_narrowed_for_pass": false,
-      "selected_configuration_sha256": "7bf99cf72c134566b9d467155e1a7a3ea01fc1b499aea7fe304e0bffbae6cbab",
+      "selected_configuration_sha256": "3227bfde0dceba3b7e3992bc3d490ca25e023b4e8f3c4d322f5e1c6cf0bf5756",
       "active_readiness_binding": {
         "accepted": false,
         "errors": [
+          "observed_access_stop",
           "requirement_not_active_pass:identity",
           "requirement_not_active_pass:full_inventory",
           "requirement_not_active_pass:owned_text",
@@ -48336,6 +49187,19 @@
       "readiness_verified": false,
       "gaps": [
         {
+          "kind": "access_stop",
+          "reason": "Sacramento required external California Legislative Information PROB reference HEAD returned HTTP403 with Cf-Mitigated challenge. The shared American Legal collection workflow stopped and its primary queue halted after five of fourteen queued publications. This preserves that observed workflow stop; it is not evidence that every American Legal page or legitimate route is unavailable. Offline verification remains allowed. No automatic retry or reset.",
+          "evidence": {
+            "source_path": "outputs/collection-readiness-followup-2026-10-17/american-legal/primary-23-sacramento_ca-v7/failure-response.json",
+            "sha256": "7367c1b4392e05049918bfa7e074881e425e1c9424e8e4a786337e8adaecdf8e",
+            "request_method": "HEAD",
+            "http_status": 403,
+            "cf_mitigated": "challenge",
+            "body_snippet_bytes": 0,
+            "url": "https://leginfo.legislature.ca.gov/faces/codesTOCSelected.xhtml?tocCode=PROB"
+          }
+        },
+        {
           "kind": "identity",
           "status": "not_established",
           "reason": "Exact government/state/publication/source identity independently bound to raw acquisition"
@@ -48388,6 +49252,7 @@
         {
           "kind": "active_revision_coherence",
           "reason": [
+            "observed_access_stop",
             "requirement_not_active_pass:identity",
             "requirement_not_active_pass:full_inventory",
             "requirement_not_active_pass:owned_text",
@@ -48406,7 +49271,40 @@
       "adapter_family": "american-legal",
       "configuration_qualified": true,
       "unsupported_reason": null,
-      "observed_access_advisories": [],
+      "observed_access_advisories": [
+        {
+          "family": "american-legal",
+          "operator_review_required": true,
+          "automatic_retry": false,
+          "reason": "Sacramento required external California Legislative Information PROB reference HEAD returned HTTP403 with Cf-Mitigated challenge. The shared American Legal collection workflow stopped and its primary queue halted after five of fourteen queued publications. This preserves that observed workflow stop; it is not evidence that every American Legal page or legitimate route is unavailable. Offline verification remains allowed. No automatic retry or reset.",
+          "observed_stop": {
+            "url": "https://leginfo.legislature.ca.gov/faces/codesTOCSelected.xhtml?tocCode=PROB",
+            "reason": "Access block/challenge",
+            "retry_after": null,
+            "stopped_at": "2026-10-18T02:56:17.786707+00:00",
+            "retry_not_before": 1792292477.787155,
+            "operator_review_required": true
+          },
+          "original_gate_path": "/tmp/compliSolv-american-legal-full-gate/browser-stop.json",
+          "source_sha256": "cc41433c18b63efb119a07e3e1ce27c8309921471f2e2d0b4f8cc564adbcb66d",
+          "raw_refusal_witness": {
+            "source_path": "outputs/collection-readiness-followup-2026-10-17/american-legal/primary-23-sacramento_ca-v7/failure-response.json",
+            "sha256": "7367c1b4392e05049918bfa7e074881e425e1c9424e8e4a786337e8adaecdf8e",
+            "request_method": "HEAD",
+            "http_status": 403,
+            "cf_mitigated": "challenge",
+            "body_snippet_bytes": 0,
+            "url": "https://leginfo.legislature.ca.gov/faces/codesTOCSelected.xhtml?tocCode=PROB"
+          },
+          "queue_stop_witness": {
+            "source_path": "outputs/collection-readiness-followup-2026-10-17/american-legal/remaining-primary-queue.json",
+            "sha256": "f4545a44e992562c7f454c2d757cd07ce1da2023d098964c649982da0a9f9f9d",
+            "terminal_publications": 5,
+            "queued_publications": 14,
+            "scope": "Queue stopped after observed access refusal; remaining route availability untested."
+          }
+        }
+      ],
       "followup_qualification": null,
       "image_policy": {
         "mode": "literal_placeholder",
@@ -48417,10 +49315,11 @@
         "scope_note": "Image-only units are retained. Intentional image omission is not an unresolved required nonimage attachment."
       },
       "scope_narrowed_for_pass": false,
-      "selected_configuration_sha256": "3f1fe93d0f0722e94b93fa9b4c7d73edb608a096d674a54bab88fa810fc277bb",
+      "selected_configuration_sha256": "b9df2930be6753d0c9604a3ab705ce24c19414c98b8c15aa63bf6d2ee8a55e50",
       "active_readiness_binding": {
         "accepted": false,
         "errors": [
+          "observed_access_stop",
           "requirement_not_active_pass:identity",
           "requirement_not_active_pass:full_inventory",
           "requirement_not_active_pass:owned_text",
@@ -51625,23 +52524,7 @@
             "requirement_not_active_pass:resume_integrity",
             "requirement_not_active_pass:fresh_setup_cli",
             "requirement_not_active_pass:legal_structure",
-            "active_component_revision_mismatch",
-            "verification_source_drift",
-            "unbound_requirement:identity",
-            "unbound_requirement:full_inventory",
-            "unbound_requirement:owned_text",
-            "unbound_requirement:required_nonimage_documents",
-            "unbound_requirement:table_fidelity",
-            "unbound_requirement:image_policy",
-            "unbound_requirement:closing_consistency",
-            "unbound_requirement:resume_integrity",
-            "unbound_requirement:fresh_setup_cli",
-            "unbound_requirement:legal_structure",
-            "unbound_or_failed_image_gate:image_transport_regression",
-            "unbound_or_failed_image_gate:normalized_image_audit",
-            "current_qa_revision_mismatch:normalized_image_audit",
-            "unbound_or_failed_image_gate:acquired_bytes_image_audit",
-            "current_qa_revision_mismatch:acquired_bytes_image_audit"
+            "missing_active_runtime_proof"
           ]
         }
       ],
@@ -51664,197 +52547,6 @@
         "scope_note": "Image-only units are retained. Intentional image omission is not an unresolved required nonimage attachment."
       },
       "scope_narrowed_for_pass": false,
-      "active_runtime_proof": {
-        "publication_id": "original-flagstaff-az-primary",
-        "source_url": "https://www.codepublishing.com/AZ/Flagstaff/",
-        "config_sha256": "32fa0c7e4979f9f5146f26b8e08533f9a06abfa4b933c52992ad6598e87737ec",
-        "component_sources": {
-          "collect.py": "5bcc1e86ec8f82288079501b6cbbad17f4e1d43b34d1a994997f9023c5893e3e",
-          "collectors/ops/browser_check.cjs": "d30aacf255198ac83812934f0ba18d35b39dac337de6bf3ae764b7ce15a5623b",
-          "collectors/ops/launcher.py": "65593369f9c80bf5c28be5c5a64bb54896bd0dbb78b798120dc84f87ae2619ae",
-          "collectors/ops/requirements.txt": "ade259bf5a5cfb51909036b5eaf316b3bdea9fba30122ae65e1019fbe98a9d33",
-          "collectors/originals/__init__.py": "f5e752ff6d6a0e39ab3447789bc9db5584af53f7620f5567e813b5ebf773f169",
-          "collectors/originals/browser_safety.py": "6ec6268d05e82d5f29fa7029b83db1b9cdfb01a6efa9db76c46e836bb8200797",
-          "collectors/originals/character_recovery.py": "0b4e3e94c5233ba1e379749e83064c8c7fb74bb075915eb2ae9bc23d758e5f18",
-          "collectors/originals/cli.py": "6c5a192e562de99656a43266b5702cb2255ccff8478a499ec16a73cc492fb1f2",
-          "collectors/originals/collect.py": "b70a98ef84991321612805105c68e85fbc114f668a42b3cf07c8b98c14b2053a",
-          "collectors/originals/configs/flagstaff.json": "5a5fb094290fa7bc6d6b93180447ddd731545aca6fa1fc7816b1df2de02be3c9",
-          "collectors/originals/configs/king-county.json": "d7b299b85edf2862a4b3bb3b2528b998d1be5deac4d9cc395e5080a932435a7d",
-          "collectors/originals/configs.json": "fe29224e020c57d5fc4eb73e9e80c7a6365a48b872a29f921f07b5743e351327",
-          "collectors/originals/doctor.py": "7db8b1c2a5ef4e166209d345a0531144d6ba88fe362d7119ca443e5581f22340",
-          "collectors/originals/flagstaff_html.py": "e7df1d039cba6a9aeb6b98c151dea9629d861faf30865112ff9dad7e23f3ab9f",
-          "collectors/originals/flagstaff_html_normalize.py": "56f640caebe71707e7ca1ea512871440fdc5c4769b64a71cd2e2703356f8b6aa",
-          "collectors/originals/flagstaff_inventory.py": "3eb8e2b3e127de52b7c528238d172547a88d2bbbde47c7e0cee7a2c7763441b2",
-          "collectors/originals/flagstaff_normalize.py": "ecef81020002436e11eabd6c40f848b71c92823f2046114a7b02546c8a76283e",
-          "collectors/originals/flagstaff_root.py": "744662fec8e33386f65e94476fa391af04a220f321cd2b5bdb4ec6b5e8c55398",
-          "collectors/originals/flagstaff_root_guard.py": "ad31c7991cda7687719867412cfbe3324b05afba24b6b5c3ddd650231b872438",
-          "collectors/originals/integration-contract.json": "e12461bba019fdaebeaba0f1f1091a756dd7059b5ecda905891ef8ea46f61fcc",
-          "collectors/originals/king_acquire.py": "2c8985cc24a98d62539df4a28eef1c6b83c1d77682ec8ec943a8497e6f175cc9",
-          "collectors/originals/king_native.py": "15c1eb49bfe6854c691c633e9a08fdac3fd3d7ba000fe1c1fd15b3b476ffa25b",
-          "collectors/originals/king_native_audit.py": "2202f86d9cac226c7bf586dd21cd56bbb74bbb57d229510800cfba6654a69607",
-          "collectors/originals/king_normalize.py": "3be1ec2d9c9cc0baa98ed9c618df93685ea86ad589ccb7cafc207e86fbc8dccb",
-          "collectors/originals/king_symbol_audit.py": "f0fa7add16c3b6387a0a274bf0122521c65fffb09d8960317ef71fac9ee0d434",
-          "collectors/originals/king_word_import.py": "1b626e9a1ae701d6cb22800921e43cc08f5df14a9aaf5f1972f0c82f0e755626",
-          "collectors/originals/legacy_html.py": "b3799648ab453ff71217d336f55d78501dcc4a8a92e6cf6d187632508b665048",
-          "collectors/originals/model.py": "67cc4d9971f659e41b5cf24021cb1fd3ebecb5aa9536b4d357f7c156a42a6c6e",
-          "collectors/originals/offline.py": "69eee08c4b7973840eabe0a420bdcf040a5ac970fed8c13c4e1847d916a0be94",
-          "collectors/originals/profile.py": "34863f105037cf8b1f5caaab7f945183b5c6be647c5f52c42f37c3a267e424b2",
-          "collectors/originals/publication_source_verify.py": "4c602fa34f580b3b2cb51e214361468a88cccb00493b00fb53f94285ee933e17",
-          "collectors/originals/shared_transport.py": "db4d02b35ce7dc4285a2c0d67bb0dbc5d23c4bb2e2023bf6db83ef2fbdaf34ce",
-          "collectors/originals/source_character_dispositions.json": "5fbad98ece63b53e10e3a0f164a832178b4578127553e29eeb704ea7b3f15574",
-          "collectors/originals/source_common.py": "dcd7f2f34b19af906da8e5ba8a1f213250efd2ec123b3810878790ac286f83a9",
-          "collectors/originals/source_dispositions.json": "b5c557e7d1e28d67a58298b1015dd62f76a7e9c3376e07083069e280b69ee24d",
-          "collectors/originals/validation-summary.json": "cef53aedc7d08613e8fbe6eecce013c7018d0a88d773f49a54b4477dcdba5cc7",
-          "collectors/originals/verify.py": "4e7fdfbb38891da25f2d4b6e77f59ede3647ac5a94a4aeb5238f50ce25840b36",
-          "collectors/originals/word_model.py": "eb889b034777fd2767946c427f30c5e75e4e75b1627d024d579df61a259d7efc",
-          "collectors/originals/workflow.py": "d2680334c1b2f81144eb6d34e947dc555e3d9a896ce8906300e1aeb28d0685b2",
-          "collectors/registry/access-advisories.json": "3f9e9dcc033e148c9dad67a565233f3fd0ee0fe29e96f5c3a611c5d1f9818525",
-          "collectors/registry/catalog.py": "f95665851e0aab02911ec3ce12f208e8047ed69132f445c042c05327460b4a15",
-          "collectors/registry/collect.py": "8eb3350ce9201b333210499d384a25c2ac4acc9623948a66190d36e0f490d6fc",
-          "collectors/registry/dispatch.py": "410f91e36615cf4de0f179c707ef135038c3f96ae95f1f326e526faa396a1078",
-          "collectors/registry/followup-additional-publications.json": "0fac7ac0d4874d63c2a2165e140b03ffd5f6689fd57e582d3007b3db8b57ca3d",
-          "collectors/registry/followup-qualified-configs.json": "b20403fd19cd9ab4cc4990beca1a9c82c5f19ef8d3d20fe86932d31ab72afd34",
-          "collectors/registry/followup-source-evidence-manifest.json": "5c34eaed09567d8d7a3bba81b4d3380efa1b8677a8a343cab4eeec6f10b2ae69",
-          "collectors/registry/gridics-access-stop-witness.json": "ef9b4bf71cd4c71fb9505efd9a85c6ba658c668ca838d280d5ca091139f48c2f",
-          "collectors/registry/original-adapter-qualified-configs.json": "ca31918d4ac8a51df7c21d62debdf314d8d9605b49cb4d66474736a3ff16d87b",
-          "collectors/registry/original-adapter-source-evidence-manifest.json": "1ad192fca550f8e7d360dee32df71ea434d161852fcd0ee6c9c5fd2ccf854d69",
-          "collectors/registry/original-official-needs.json": "c65cb3c91612616e26fc73d88f6c9507cb89b69b9efb87c90505b805e9ef6a1b",
-          "collectors/registry/original-publications.json": "f4f89a287624b076c839b0db9ad5987e7d1eeb3ee7a87c3a8916a218f6731e78",
-          "collectors/registry/original-targets.json": "3d4173ca37d787ef78d969a1d3076d97cf4339a7b1e9a2a0a24c4ad37cee7512",
-          "collectors/registry/primary-plan.json": "3e42db20d1f9be9e0aacc9865a6ed9e719fbb5d446bbdc5cefdd065e6c2e9c79",
-          "collectors/registry/publications.json": "a6d60b68e0674bc84613f79e3e078545fd7d607957b18368cb48828bb31e8a65",
-          "collectors/registry/readiness-additional-publications.json": "46a35c1c70b892ede3be407175b259440d87a3b6f1c6427080307b81806a1f03",
-          "collectors/registry/readiness-overrides.json": "b20a9447f61834ca7b3cae09254828fc049953f85e524f4fec4a68157f07d9b3",
-          "collectors/registry/readiness-qualified-configs.json": "421f1d7e016b881c4d8ae4ea83817996c4511cc259c14fb5efb32006842a0648",
-          "collectors/registry/targets.json": "2bb1c30141305620410cb2f77825bc7bf59e40fa865a501289b7cf214f24882d",
-          "collectors/registry/verification.json": "af579f758a2cb607c04a19f2608bdefd0387b24fc6f7e7a4dfefb5fe61539728"
-        },
-        "artifact_manifest_sha256": "5f57a88b7a2eb79e13c0d08ffc25723a7c532a4848df33a8245b9fdbf9ece223",
-        "runtime_receipt_sha256": "2d1f08b78d8a4e3479d6ed4e8799e7afb890ee6612929bea731efa7f0af87f1e",
-        "artifact_manifest": "outputs/collection-readiness-post-91f6c59-2026-10-17/qa/flagstaff-current-common-tuple-v1/artifact-manifest.json",
-        "runtime_receipt": "outputs/collection-readiness-post-91f6c59-2026-10-17/qa/flagstaff-current-common-tuple-v1/runtime.json",
-        "verification_receipt": "outputs/collection-readiness-post-91f6c59-2026-10-17/qa/flagstaff-current-common-tuple-v1/verification.json",
-        "verification_receipt_sha256": "aae82d76555a61765f2505d43efe7210c8abb1b3e840d3908794bcac8ece7cb7",
-        "scope_id": "e6e012bef5e6a26988ebb13b22db3cb67a307110d79abe3e8c16aaff16463626",
-        "selected_configuration": {
-          "publication": {
-            "id": "original-flagstaff-az-primary",
-            "target_id": "original-flagstaff-az",
-            "title": "City Code including Charter",
-            "observed_title": null,
-            "source_url": "https://www.codepublishing.com/AZ/Flagstaff/",
-            "publisher": "official",
-            "source_family": "codepublishing",
-            "scope_kind": "publication",
-            "role": "primary",
-            "required_for_jurisdiction": true,
-            "expected_identity": {
-              "client_names": [
-                "Flagstaff"
-              ],
-              "state": "AZ"
-            },
-            "selector": {},
-            "publisher_product_id": null,
-            "publisher_publication_id": null,
-            "runnable": true,
-            "unsupported_reason": null,
-            "validation_level": "mapped_only",
-            "full_live_verified": false,
-            "evidence_paths": [
-              "packages/local-extraction-e2e-2026-10-15/SOURCE-MATRIX.json"
-            ],
-            "image_policy": {
-              "mode": "literal_placeholder",
-              "placeholder": "[IMAGE]",
-              "download_images": false,
-              "source_id_heading_retained": true,
-              "native_originals_may_contain_images": true,
-              "scope_note": "Image-only units are retained. Intentional image omission is not an unresolved required nonimage attachment."
-            },
-            "adapter_family": "originals",
-            "adapter_config_path": "collectors/originals/configs/flagstaff.json",
-            "qualification_evidence": {
-              "kind": "original-adapter-source-profile",
-              "source_bundle": "original-adapter-source-evidence.zip",
-              "source_manifest": "original-adapter-source-evidence-manifest.json"
-            },
-            "observed_access_advisories": []
-          },
-          "target_expected_identity": {
-            "client_names": [
-              "Flagstaff"
-            ],
-            "state": "AZ"
-          },
-          "command_plan": {
-            "argv": [
-              "python3",
-              "collectors/originals/cli.py",
-              "collect",
-              "--config",
-              "collectors/originals/configs/flagstaff.json",
-              "--out",
-              "{OUT}"
-            ],
-            "staged_config": null,
-            "qualified_config_path": "collectors/originals/configs/flagstaff.json",
-            "publication_id": "original-flagstaff-az-primary",
-            "publication_title": "City Code including Charter",
-            "publication_expected_identity": {
-              "client_names": [
-                "Flagstaff"
-              ],
-              "state": "AZ"
-            },
-            "required_for_jurisdiction": true,
-            "jurisdiction_scope": null,
-            "edition_scope": null,
-            "required_publication_dependencies": [],
-            "configuration_alias_of": null,
-            "scope": "publication",
-            "image_policy": {
-              "mode": "literal_placeholder",
-              "placeholder": "[IMAGE]",
-              "download_images": false,
-              "source_id_heading_retained": true,
-              "native_originals_may_contain_images": true,
-              "scope_note": "Image-only units are retained. Intentional image omission is not an unresolved required nonimage attachment."
-            },
-            "jurisdiction_complete": false
-          },
-          "qualified_config": {
-            "schema_version": 1,
-            "profile": "flagstaff_html",
-            "required_formats": [
-              "html"
-            ],
-            "target_id": "original-flagstaff-az",
-            "jurisdiction": "Flagstaff",
-            "state": "AZ",
-            "source_url": "https://www.codepublishing.com/AZ/Flagstaff/",
-            "publication": "City Code including Charter"
-          },
-          "qualified_config_file_sha256": "5a5fb094290fa7bc6d6b93180447ddd731545aca6fa1fc7816b1df2de02be3c9"
-        },
-        "requirements_not_promoted": true,
-        "publication_accepted": true,
-        "notes": "Actual common verification tuple only; independent body/table/resume/image dimension receipts remain required and are not manufactured by this importer.",
-        "normalized_image_audit": {
-          "path": "outputs/collection-readiness-post-91f6c59-2026-10-17/qa/flagstaff-current-common-image-gates-v1/normalized_image_audit.json",
-          "sha256": "8c724627e9388519760a3fae184bef0d09060501e019205d34255e0da0692e9d"
-        },
-        "acquired_bytes_image_audit": {
-          "path": "outputs/collection-readiness-post-91f6c59-2026-10-17/qa/flagstaff-current-common-image-gates-v1/acquired_bytes_image_audit.json",
-          "sha256": "b80868a4e3bc688f62cfb530b19d6865f2270c0e39e9212c0c23cfe5c7e4b051"
-        },
-        "image_transport_regression": {
-          "path": "outputs/collection-readiness-post-91f6c59-2026-10-17/qa/flagstaff-current-common-image-gates-v1/image_transport_regression.json",
-          "sha256": "fd17d9c88996853bfa5c575d277e135666012dd344528d3b27a8e6ba279c29e0"
-        },
-        "actual_image_gates_read_only": true,
-        "actual_image_gates_evidence_unchanged": true
-      },
       "selected_configuration_sha256": "32fa0c7e4979f9f5146f26b8e08533f9a06abfa4b933c52992ad6598e87737ec",
       "active_readiness_binding": {
         "accepted": false,
@@ -51869,26 +52561,9 @@
           "requirement_not_active_pass:resume_integrity",
           "requirement_not_active_pass:fresh_setup_cli",
           "requirement_not_active_pass:legal_structure",
-          "active_component_revision_mismatch",
-          "verification_source_drift",
-          "unbound_requirement:identity",
-          "unbound_requirement:full_inventory",
-          "unbound_requirement:owned_text",
-          "unbound_requirement:required_nonimage_documents",
-          "unbound_requirement:table_fidelity",
-          "unbound_requirement:image_policy",
-          "unbound_requirement:closing_consistency",
-          "unbound_requirement:resume_integrity",
-          "unbound_requirement:fresh_setup_cli",
-          "unbound_requirement:legal_structure",
-          "unbound_or_failed_image_gate:image_transport_regression",
-          "unbound_or_failed_image_gate:normalized_image_audit",
-          "current_qa_revision_mismatch:normalized_image_audit",
-          "unbound_or_failed_image_gate:acquired_bytes_image_audit",
-          "current_qa_revision_mismatch:acquired_bytes_image_audit"
+          "missing_active_runtime_proof"
         ],
-        "scope_coherent": false,
-        "proof_scope_id": "e6e012bef5e6a26988ebb13b22db3cb67a307110d79abe3e8c16aaff16463626"
+        "scope_coherent": false
       },
       "evidence_applicability": "Historical and candidate dimensions remain retained; active readiness additionally requires one current component/config/record scope with bound current image transport and artifact audits."
     },
@@ -64525,7 +65200,7 @@
   "operational_gaps": [
     {
       "kind": "known-access-stops",
-      "reason": "Municode/eCode360/municipal.codes/Gridics observed workflow stops prohibit new acquisition until explicit operator review; no retry/reset. Exact event scope retained; no claim every public route is unavailable."
+      "reason": "Municode/eCode360/municipal.codes/Gridics/American Legal observed workflow stops prohibit new acquisition until explicit operator review; no retry/reset. Exact event scope retained; no claim every public route is unavailable."
     },
     {
       "kind": "actual-all-publication-proof",

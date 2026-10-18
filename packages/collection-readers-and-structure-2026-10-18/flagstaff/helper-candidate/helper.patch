@@ -1,0 +1,149 @@
+--- initial-untested/verify_flagstaff_input.py
++++ candidate/verify_flagstaff_input.py
+@@ -1,6 +1,6 @@
+ """Create portable Flagstaff corpus proof through the selected common verifier.
+ 
+-No acquisition, upgrade or source normalization is requested. The common verifier
++No acquisition, upgrade or in-place normalization is requested. The common verifier
+ performs its standard read-only raw replay. Original receipt/report bytes are
+ preserved; a derivative receipt adds only safe relative report selection.
+ """
+@@ -11,7 +11,7 @@
+ import json
+ import os
+ import subprocess
+-from pathlib import Path
++from pathlib import Path, PurePosixPath
+ 
+ TARGET = 'original-flagstaff-az'
+ PUBLICATION = TARGET + '-primary'
+@@ -45,8 +45,62 @@
+             result[path.relative_to(root).as_posix()] = sha(path)
+     return result
+ 
++def rooted_file(root, name):
++    require(isinstance(name, str) and name and '\\' not in name,
++            'Unsafe relative file reference')
++    rel = PurePosixPath(name)
++    require(not rel.is_absolute() and rel.as_posix() == name
++            and all(part not in ('', '.', '..') for part in name.split('/')),
++            'Unsafe relative file reference')
++    current = root
++    for part in rel.parts:
++        current = current / part
++        require(not current.is_symlink(), 'Symlink file component is unsupported')
++    require(current.is_file() and current.resolve().is_relative_to(root),
++            'Referenced file is missing or outside its root')
++    return current
++
++
++def collector_files(root):
++    """Independent current common originals code_binding, without importing it.
++
++    Deliberately exact: a future launcher binding change requires helper review,
++    rather than accepting a supplied subset of the command's dependencies.
++    """
++    names = {'collect.py', 'collectors/ops/launcher.py',
++             'collectors/ops/browser_check.cjs', 'collectors/ops/requirements.txt',
++             'collectors/registry/collect.py', 'collectors/registry/dispatch.py',
++             'collectors/registry/catalog.py'}
++    family = root / 'collectors/originals'
++    require(family.is_dir() and not family.is_symlink(), 'Missing originals implementation')
++    for folder in (root / 'collectors/registry', family):
++        require(not folder.is_symlink(), 'Symlink source directory is unsupported')
++    for path in family.glob('*'):
++        if path.suffix in ('.py', '.cjs', '.json'):
++            names.add(path.relative_to(root).as_posix())
++    for folder in ('configs', 'policies', 'profiles'):
++        directory = family / folder
++        require(not directory.is_symlink(), 'Symlink source directory is unsupported')
++        for path in directory.rglob('*'):
++            require(not path.is_symlink(), 'Symlink collector source is unsupported')
++            if path.is_file() and path.suffix == '.json':
++                names.add(path.relative_to(root).as_posix())
++    ignored = {'source-evidence-manifest.json', 'original-source-evidence-manifest.json',
++               'readiness-source-evidence-manifest.json'}
++    for path in (root / 'collectors/registry').glob('*.json'):
++        if path.name not in ignored:
++            names.add(path.relative_to(root).as_posix())
++    return {name: sha(rooted_file(root, name)) for name in sorted(names)}
++
++
++def unchanged(call, expected):
++    try:
++        return call() == expected
++    except Exception:
++        return False
++
+ def run(source, collector, runtime, out):
+-    for path in (source, collector, runtime):
++    for path in (source, collector, runtime, out):
+         require(not path.is_symlink(), 'Symlink root is unsupported')
+     source, collector, runtime, out = (p.resolve() for p in (source, collector, runtime, out))
+     require(source.is_dir() and collector.is_dir() and runtime.is_dir(), 'Existing input, collector and runtime directories required')
+@@ -57,8 +111,11 @@
+     require(cfg.get('profile') == 'flagstaff_html' and cfg.get('target_id') == TARGET and cfg.get('source_url') == SOURCE and cfg.get('required_formats') == ['html'], 'Only the exact Flagstaff primary HTML profile is supported')
+     runtime_receipt = runtime / 'runtime.json'
+     require(runtime_receipt.is_file(), 'Run common runtime setup first')
++    runtime_receipt = rooted_file(runtime, 'runtime.json')
+     before = files(source)
+     require(before, 'Empty input')
++    sources_before = collector_files(collector)
++    require(load(rooted_file(collector, 'collectors/originals/configs/flagstaff.json')) == cfg, 'Input configuration differs from selected collector configuration')
+     runtime_sha = sha(runtime_receipt)
+     helper_sha = sha(Path(__file__))
+     argv = [sys.executable, '-B', str(entry), '--runtime', str(runtime), 'verify', '--target', TARGET, '--publication', PUBLICATION, '--out', str(source)]
+@@ -72,35 +129,44 @@
+         receipt = json.loads(result.stdout)
+         require(receipt.get('publication_id') == PUBLICATION and receipt.get('selected_config') == cfg, 'Common verification selected another publication/config')
+         require(Path(receipt.get('output', '')).resolve() == source, 'Common verification input mismatch')
+-        require(receipt.get('verification_exit') in (0, 2), 'Family verification did not return a valid complete/incomplete result')
+-        require(receipt.get('evidence_read_only') is True and receipt.get('publisher_requests') == 0 and receipt.get('source_changed_during_run') is False and receipt.get('runtime_changed_during_run') is False, 'Common verification is not unchanged/read-only')
++        require(type(receipt.get('verification_exit')) is int and receipt['verification_exit'] in (0, 2), 'Family verification did not return a valid complete/incomplete result')
++        require(receipt.get('evidence_read_only') is True and type(receipt.get('publisher_requests')) is int and receipt['publisher_requests'] == 0 and receipt.get('source_changed_during_run') is False and receipt.get('runtime_changed_during_run') is False, 'Common verification is not unchanged/read-only')
+         after = files(source)
+         require(before == after == receipt.get('evidence_sha256_before') == receipt.get('evidence_sha256_after'), 'Input evidence changed or proof map mismatched')
+         sources = receipt.get('collector_sources_before')
+         require(isinstance(sources, dict) and sources and sources == receipt.get('collector_sources_after'), 'Missing or changed collector source binding')
+-        for name, expected in sources.items():
+-            rel = Path(name)
+-            require(not rel.is_absolute() and '..' not in rel.parts, 'Unsafe collector source reference')
+-            path = collector / rel
+-            require(path.resolve().is_relative_to(collector) and path.is_file() and sha(path) == expected, 'Selected collector source changed')
++        require(sources_before == collector_files(collector) == sources, 'Independent collector source/configuration binding changed or is incomplete')
+         require(receipt.get('runtime_receipt_sha256') == runtime_sha == sha(runtime_receipt), 'Runtime receipt changed')
+         require(Path(receipt.get('runtime_receipt_path', '')).resolve() == runtime_receipt, 'Common verification used another runtime')
+         log = Path(receipt.get('log', ''))
+         require(log.is_absolute() and not log.is_symlink() and log.resolve().is_relative_to(runtime / 'verifications') and log.is_file(), 'Family report must be a real log inside the selected runtime verification directory')
++        log = rooted_file(runtime, log.relative_to(runtime).as_posix())
++        saved = rooted_file(runtime, log.with_suffix('.json').relative_to(runtime).as_posix())
++        require(load(saved) == receipt, 'Saved common receipt does not identify this exact family log')
++        python = runtime / 'venv/bin/python'
++        require(receipt.get('verification_argv') == [str(python), '-B', str(collector / 'collectors/registry/collect.py'), 'verify', '--target', TARGET, '--publication', PUBLICATION, '--out', str(source), '--python', str(python)], 'Unexpected common verification command')
++        acceptance = receipt.get('acceptance')
++        require(isinstance(acceptance, dict) and type(acceptance.get('publication_accepted')) is bool, 'Missing explicit common acceptance result')
++        accepted = acceptance['publication_accepted']
++        require(receipt.get('family_verifier_passed') is (receipt['verification_exit'] == 0), 'Contradictory family exit status')
++        require((result.returncode == 0) is accepted and (not accepted or receipt['verification_exit'] == 0), 'Contradictory common exit/acceptance result')
++        require(receipt.get('status') == ('verified_publication' if accepted else 'publication_acceptance_incomplete'), 'Unexpected common verification status')
+         family_bytes = log.read_bytes()
+         family = json.loads(family_bytes)
+         require(isinstance(family, dict) and family.get('full_raw_replay_equal') is True and family.get('input_files_modified') is False and family.get('source_route_ledger_verified') is True and family.get('opening_body_closing_chronology_verified') is True, 'Family raw replay/route/chronology is not qualified')
+         require(family.get('publication_config') == cfg, 'Family report configuration differs')
++        require(not accepted or (family.get('publication_accepted') is True and family.get('complete') is True), 'Common acceptance contradicts family publication result')
+         require(sha(Path(__file__)) == helper_sha, 'Helper source changed')
++        require(log.read_bytes() == family_bytes and load(saved) == receipt, 'Common receipt or family log changed during copying')
+         (out / 'family-verification.json').write_bytes(family_bytes)
+         proof = dict(receipt)
+         proof.update(family_verification_path='family-verification.json', family_verification_sha256=hashlib.sha256(family_bytes).hexdigest(), proof_origin={'original_common_receipt_path': 'common-readonly.json', 'original_common_receipt_sha256': hashlib.sha256(result.stdout).hexdigest(), 'derivative_changes': ['relative family report path', 'family report SHA256', 'this lineage object'], 'original_common_receipt_unchanged': True})
+         (out / 'read-only-proof.json').write_bytes(encoded(proof))
+-        terminal = {'verification_adapter_complete': True, 'common_exit': result.returncode, 'publication_id': PUBLICATION, 'primary_publication_accepted': receipt.get('acceptance', {}).get('publication_accepted'), 'jurisdiction_complete': receipt.get('acceptance', {}).get('jurisdiction_complete'), 'publication_acceptance_added': False, 'source_files': len(before), 'collector_sources': len(sources), 'source_unchanged': True, 'publisher_requests': 0, 'proof': 'read-only-proof.json', 'family_report': 'family-verification.json', 'runtime_receipt_sha256': runtime_sha, 'helper_sha256': helper_sha}
++        terminal = {'verification_adapter_complete': True, 'common_exit': result.returncode, 'publication_id': PUBLICATION, 'primary_publication_accepted': receipt.get('acceptance', {}).get('publication_accepted'), 'jurisdiction_complete': receipt.get('acceptance', {}).get('jurisdiction_complete'), 'publication_acceptance_added': False, 'source_files': len(before), 'collector_sources': len(sources), 'source_unchanged': True, 'publisher_requests': 0, 'proof': 'read-only-proof.json', 'family_report': 'family-verification.json', 'runtime_receipt_sha256': runtime_sha, 'helper_sha256': helper_sha, 'collector_binding_scope': 'independent exact current originals/common code/configuration map; common runtime doctor validates installed runtime', 'family_report_sha256': hashlib.sha256(family_bytes).hexdigest()}
+         (out / 'terminal.json').write_bytes(encoded(terminal))
+         return terminal
+     except BaseException as error:
+-        failure = {'verification_adapter_complete': False, 'error': type(error).__name__ + ': ' + str(error), 'input_unchanged': files(source) == before, 'runtime_receipt_unchanged': sha(runtime_receipt) == runtime_sha, 'source_not_deleted_or_rewritten': True}
++        failure = {'verification_adapter_complete': False, 'error': type(error).__name__ + ': ' + str(error), 'input_unchanged': unchanged(lambda: files(source), before), 'runtime_receipt_unchanged': unchanged(lambda: sha(runtime_receipt), runtime_sha), 'collector_sources_unchanged': unchanged(lambda: collector_files(collector), sources_before), 'acceptance_proof_written': False}
+         (out / 'verification-failure.json').write_bytes(encoded(failure))
+         raise
+ 

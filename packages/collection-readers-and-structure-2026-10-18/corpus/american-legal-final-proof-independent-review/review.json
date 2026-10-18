@@ -1,0 +1,77 @@
+{
+  "schema": "independent-current-cleveland-offline-proof-review-1",
+  "passed": true,
+  "actual_verifier_rerun": false,
+  "production_or_actual_proof_modified": false,
+  "proof_kind": "Actual standard AL family verify() through portable verify_input; not a collect.py common-launcher acceptance receipt",
+  "exit": 0,
+  "helper_sha256": "b23d5de5e5e08654e9224df48c8bfd71e0d98ca4002385c1504e574991a2ff2a",
+  "standard_family_verifier_sha256": "402d884053809e13e1818e36fa6b0409e0367ca84ac102fc60789c713ea6e71c",
+  "family_report_sha256": "4560b39cde20b04913c931d6bbfd80fe35af6f38385cf12e8b814ac3f8b59fc2",
+  "exact_coverage_bytes_hash": "4560b39cde20b04913c931d6bbfd80fe35af6f38385cf12e8b814ac3f8b59fc2",
+  "report_equals_stored_coverage": true,
+  "input_files": 988,
+  "current_family_files": 66,
+  "independent_rehash_before_after_equal": true,
+  "python_binary_packages_unchanged_and_current": true,
+  "python_packages": 23,
+  "publication_namespace": "caller-assigned59-primary; registry mapping explicitly unverified",
+  "guard_evidence": {
+    "zero_forbidden_calls_reported": true,
+    "current_helper_guard_source_bound": true,
+    "source_hash": "b23d5de5e5e08654e9224df48c8bfd71e0d98ca4002385c1504e574991a2ff2a",
+    "guard_api_markers": [
+      "(socket,['create_connection'])",
+      "(socket.socket,['connect'])",
+      "(Image,['open'])",
+      "(pypdfium2.PdfPage,['render','get_objects'])",
+      "(pypdfium2.PdfImage,['extract','get_bitmap','get_data'])",
+      "(pdfplumber.page.Page,['to_image'])",
+      "patch.object(PageObject,'images'",
+      "patch.object(PDFStream,'get_data',guarded_stream)",
+      "(fitz.Document,['extract_image'])",
+      "(fitz.Page,['get_pixmap','get_svg_image'])"
+    ],
+    "guard_installed_before_selected_collector_import": true,
+    "no_separate_guard_loaded_event_log_in_this_adapter": "In-process guarded standard family invocation, not the Flagstaff subprocess sitecustomize protocol."
+  },
+  "family_dimensions": {
+    "inventory_count": 6140,
+    "owned_source_block_count": 43676,
+    "independently_recomputed_branch_count": 459,
+    "table_count": 322,
+    "table_cell_count": 7738,
+    "required_asset_count": 5,
+    "retained_asset_count": 5,
+    "pdf_text_layer_pages_parsed": 5,
+    "publication_complete": true,
+    "jurisdiction_complete": false,
+    "native_publication_files_complete": false,
+    "pdf_legal_provision_segmentation_qualified": false,
+    "pdf_semantic_text_completeness_qualified": true,
+    "pdf_table_completeness_qualified": true,
+    "image_binary_download_count": 0,
+    "image_marker_count": 33,
+    "limitations": [
+      "Independent inventory is recomputed recursively from retained publisher TOC responses, including middle branches.",
+      "Images intentionally become [IMAGE] under user policy; this is not a completeness gap. Tagged PDF source order, roles and spans are qualified separately from inferred legal provision segmentation; untagged geometry remains unqualified unless a source-wide profile proves it.",
+      "Attachment completeness covers required media/document references discovered in the retained content, not arbitrary external navigation destinations.",
+      "One publication never qualifies all independently published jurisdiction families."
+    ]
+  },
+  "actual_files_sha256": {
+    "cli.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "cli.stdout": "318a6d925b44d6950a15da6fd82763f934a10119c3b25439cfa213b6fc345d93",
+    "command.json": "a967829b442861f1e5e64495e8f8d55714a0d380ad36eaaba12e64f35edb83b8",
+    "exit.json": "e89df0eae5ec7db81135aed16463968955c578bcc4f2ec43172eff351f080c17",
+    "proof/family-verification.json": "4560b39cde20b04913c931d6bbfd80fe35af6f38385cf12e8b814ac3f8b59fc2",
+    "proof/read-only-proof.json": "6e26b047114393b117c9122133f841fc037ffdfd5ae9a6aa412ca4df4ae4f8ba"
+  },
+  "scope_limits": [
+    "Existing native HTML source and five one-page attachments reverified by the actual helper; this peer rechecks proof/maps only, no parser/native rerun.",
+    "publication_complete is this selected AL family result, not new common registry acceptance, whole-jurisdiction coverage or PDF legal-provision segmentation.",
+    "No source acquisition or scope upgrade; exact original limitations remain."
+  ],
+  "peer_publisher_requests": 0,
+  "peer_image_download_decode_render_extract_ocr_operations": 0
+}

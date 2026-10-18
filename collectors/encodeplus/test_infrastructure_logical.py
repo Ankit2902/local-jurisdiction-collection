@@ -6,7 +6,7 @@ HERE=pathlib.Path(__file__).resolve().parent
 class InfrastructurePrintedWorkflow(unittest.TestCase):
  @classmethod
  def setUpClass(cls):
-  cls.fixture=json.loads(gzip.decompress((HERE/'fixtures/infrastructure-printed-native/source-ir-and-native-inventory.json.gz').read_bytes()));cls.cfg=json.loads((HERE/'configs/native-82-0c6b3dc40877.json').read_text());cls.rows,cls.dim=m.project_records(cls.fixture['source_pages'],cls.fixture['native_inventory'],cls.cfg,'raw/start.pdf')
+  cls.fixture=json.loads(gzip.decompress((HERE/'fixtures/infrastructure-printed-native/source-ir-and-native-inventory.json.gz').read_bytes()));cls.cfg=json.loads((HERE/'configs/native-82-0c6b3dc40877.json').read_text());cls.rows,cls.dim=m.project_records(cls.fixture['source_pages'],cls.fixture['native_inventory'],cls.cfg,'raw/start.pdf',list_witness=json.loads((HERE/'fixtures/infrastructure-printed-native/native-page26-list-witness.json').read_text()))
  def setUp(self):
   p=patch.object(socket,'socket',side_effect=AssertionError('No network'));p.start();self.addCleanup(p.stop)
  def test_actual172_units62_pages_5grids79cells_and_diagnostics(self):

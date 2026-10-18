@@ -28,15 +28,19 @@ def runtime():
 def encode(v):return (json.dumps(v,ensure_ascii=False,indent=2)+'\n').encode()
 def load(p):return json.loads(p.read_text(encoding='utf-8'))
 def main(argv=None):
- ap=argparse.ArgumentParser(description=__doc__);ap.add_argument('--reader',required=True,choices=['municode-html-publication-v1','encodeplus-html-publication-v1']);ap.add_argument('--input',required=True,type=Path);ap.add_argument('--collector-root',required=True,type=Path);ap.add_argument('--publication-id',required=True);ap.add_argument('--out',required=True,type=Path);a=ap.parse_args(argv)
+ ap=argparse.ArgumentParser(description=__doc__);ap.add_argument('--reader',required=True,choices=['municode-html-publication-v1','encodeplus-html-publication-v1','american-legal-native-html-publication-v1']);ap.add_argument('--input',required=True,type=Path);ap.add_argument('--collector-root',required=True,type=Path);ap.add_argument('--publication-id',required=True);ap.add_argument('--out',required=True,type=Path);a=ap.parse_args(argv)
  if not re.fullmatch(r'[A-Za-z0-9][A-Za-z0-9_-]{0,127}',a.publication_id):raise ValueError('publication-id must be a safe caller-assigned stable slug (1-128 ASCII letters/digits/_/-)')
- root=a.input.resolve();chosen=a.collector_root.resolve();out=a.out.resolve();mode='municode' if a.reader.startswith('municode-') else 'encodeplus';familyroot=chosen/'collectors'/mode if (chosen/'collectors'/mode/'verify.py').is_file() else chosen
+ root=a.input.resolve();chosen=a.collector_root.resolve();out=a.out.resolve();mode={'municode-html-publication-v1':'municode','encodeplus-html-publication-v1':'encodeplus','american-legal-native-html-publication-v1':'american-legal'}[a.reader];familyroot=chosen/'collectors'/mode if (chosen/'collectors'/mode/'verify.py').is_file() else chosen
  if not (familyroot/'verify.py').is_file():raise ValueError('collector-root must contain verify.py or collectors/'+mode+'/verify.py')
  if not root.is_dir() or out.exists() or out.is_relative_to(root) or root.is_relative_to(out) or out.is_relative_to(familyroot) or familyroot.is_relative_to(out):raise ValueError('Fresh disjoint verification output and existing source/input required')
  cp=load(root/'checkpoint.json')
  if mode=='municode':
   if cp.get('schema_version')!=1 or cp.get('phase')!='finished' or len(cp.get('publications',{}))!=1:raise ValueError('One finished Municode HTML publication required')
   cfg=cp['binding'];prefix=''
+ elif mode=='american-legal':
+  run=load(root/'run.json');identity=run['identity'];prefix=''
+  if run.get('status')!='acquired' or run.get('strategy')!='native' or run.get('max_items') is not None or identity.get('is_pdf') is not False:raise ValueError('Terminal whole native AL HTML required; PDF/page/limited modes refuse')
+  cfg={'source_url':run['source_url'],'publication_selector':run['publication_selector']}
  else:
   cfg=cp['config'];prefix='collectors/encodeplus/'
   if cp.get('phase')!='finished' or cfg.get('mode') or '/regs/' not in cfg.get('base',''):raise ValueError('Finished source-owned enCodePlus HTML required; native/page modes refuse')
@@ -53,7 +57,18 @@ def main(argv=None):
     for name in names:
      if hasattr(obj,name):guard.enter_context(patch.object(obj,name,no))
    guard.enter_context(patch.object(PageObject,'images',new_callable=PropertyMock,side_effect=no))
-   if mode=='municode':
+   if mode=='american-legal':
+    import fitz
+    from pdfminer.pdftypes import PDFStream,resolve1
+    stream_data=PDFStream.get_data
+    def guarded_stream(stream):
+     if str(resolve1(stream.attrs.get('Subtype'))) in ["/'Image'",'Image','/Image']:return no()
+     return stream_data(stream)
+    guard.enter_context(patch.object(PDFStream,'get_data',guarded_stream))
+    for obj,names in [(fitz.Document,['extract_image']),(fitz.Page,['get_pixmap','get_svg_image'])]:
+     for name in names:
+      if hasattr(obj,name):guard.enter_context(patch.object(obj,name,no))
+   if mode in ['municode','american-legal']:
     sys.path.insert(0,str(familyroot));module=importlib.import_module('verify')
    else:
     name='_corpus_explicit_encodeplus';pkg=types.ModuleType(name);pkg.__path__=[str(familyroot)];sys.modules[name]=pkg;module=importlib.import_module(name+'.verify')

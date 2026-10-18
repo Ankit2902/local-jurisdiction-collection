@@ -1,0 +1,141 @@
+{
+  "status": "independent_review_and_final56_passed_isolated_candidate_not_promoted",
+  "source_binding": {
+    "production_parser_sha256": "5d0141e7712aae0637ec9a4b226cab00ff3326fbe54aa992dd511bb590cb8f02",
+    "v3_parser_sha256": "c8e0c02a675253d6b07e71a5baabf7cffe061bc1dda6da1063fcff6f678673cf",
+    "inline_candidate_parser_sha256": "2bdd4253eac70865ae4a7e6a77e404f6e5f4784fb728f0938c8d4cd5acb3cd90",
+    "official_parser_sha256": "6ed606080bec583ea5118a84b3a1f98f48a0cdccec084b126c1685a4044d4944",
+    "actual_charter_source_sha256": "b2cf3f57150581560328494e4a59b2bf6bac1ceb05ba87e7940f0f27f4f14360",
+    "v3_input_directory": "outputs/collection-readiness-next-2026-10-17/encodeplus/post-91f6c59/overland-five-required-v3",
+    "inline_helper_ast_exact_official": true
+  },
+  "final_runtime_files": {
+    "collectors/encodeplus/pdf_structure.py": "2bdd4253eac70865ae4a7e6a77e404f6e5f4784fb728f0938c8d4cd5acb3cd90",
+    "collectors/encodeplus/native_document.py": "4e0eb4d0b9e3276c44f720d9b871d6921776e9c0a4bac91543c8e2f04a73c079",
+    "collectors/encodeplus/test_inline_image_identity.py": "136521752cb542b9c0c9759a0605259f1cb0045abe975f46f69deee2881a7c03",
+    "collectors/encodeplus/test_native_diagnostic_aggregate.py": "d23db6e7b2fb3eafef3d666c6d4b2644d1c6cbb9537a670f0ffb43effc2e6624"
+  },
+  "production_sources_unchanged": true,
+  "parser_ast_scope": {
+    "production_to_v3_changed_functions": [
+      "pages"
+    ],
+    "v3_to_final_added_functions": [
+      "image_source_name"
+    ],
+    "v3_to_final_modified_functions": [
+      "pages"
+    ],
+    "native_aggregate_changed_functions": [
+      "page_records"
+    ],
+    "table_detection_and_image_redaction_functions_unchanged": true
+  },
+  "independent_invariants": {
+    "pages": 636,
+    "cells": 6248,
+    "whole_owned_words": 142533,
+    "existing_cell_disagreements": 795,
+    "legacy_cid_engine_failure_pages": 102,
+    "image_placeholders_unchanged": 201,
+    "v2_all_fields_equal_after_only_extraction_bbox_removed": true,
+    "bounded_actual_queries": 5,
+    "native_pages_queried": 2
+  },
+  "inline_smoke": {
+    "source_physical_pages": [
+      52,
+      57,
+      63
+    ],
+    "independent_processes": 4,
+    "only_changed_source_names": 7,
+    "candidate_repeatable": true,
+    "named_refs_preserved": [
+      152,
+      179,
+      1967
+    ],
+    "image_markers_preserved": 10,
+    "forbidden_calls": [],
+    "scope": "Selectedactualnativepages, withlogicaltopphysicalmapping; not wholeCharter/fullpublication"
+  },
+  "five_document_inline_exposure": {
+    "owner_source_metadata_receipt_sha256": "380b0065cfa6def45ada09a94f7e8312944c644010e862b0b14b5d017188a4e2",
+    "image_occurrences": 201,
+    "unnamed_inline_objects": 0,
+    "independent_named_xref_occurrences": 201,
+    "helper_output_changes_expected": 0,
+    "scope": "Sourceobjid/xrefexposureplusunchangedtypedhelperbehavior; no repeatedfull636parse"
+  },
+  "five_document_aggregate_guard_invariants": {
+    "overland-required-c15031ba3373": {
+      "pages": 172,
+      "before_diagnostic_guard": false,
+      "after_diagnostic_guard": false
+    },
+    "overland-required-0768ee8be4a8": {
+      "pages": 62,
+      "before_diagnostic_guard": true,
+      "after_diagnostic_guard": true
+    },
+    "overland-required-4fd6ad7fa132": {
+      "pages": 6,
+      "before_diagnostic_guard": true,
+      "after_diagnostic_guard": true
+    },
+    "overland-required-57f6356897e1": {
+      "pages": 224,
+      "before_diagnostic_guard": true,
+      "after_diagnostic_guard": true
+    },
+    "overland-required-48e085dea510": {
+      "pages": 172,
+      "before_diagnostic_guard": true,
+      "after_diagnostic_guard": true
+    }
+  },
+  "tests": {
+    "family_before_aggregate_guard": {
+      "passed": 53,
+      "seconds": 131.015
+    },
+    "final_aggregate_native_image_and_inline": {
+      "passed": 7,
+      "seconds": 22.094
+    },
+    "final_exact_four_files_full_family": {
+      "passed": 56,
+      "seconds": 96.34,
+      "exit": 0,
+      "log_sha256": "210bdc11357bbf919248448f7c6da20b8ebd15f27fac26fe01e634e0aad459c4",
+      "runtime_receipt_sha256": "13ea509f0fa6083ee63e6af582f9249177ef94549b110b19e8a01417ffc8c048"
+    }
+  },
+  "image_policy": {
+    "placeholder": "[IMAGE]",
+    "separate_image_acquisition": false,
+    "image_stream_decode_extract_render_ocr": false,
+    "source_ID_geometry_ownership_preserved": true,
+    "native_originals_unchanged": true
+  },
+  "remaining_gaps": [
+    "795detectedcell disagreements remain unqualified.",
+    "Legacy40th2024UPOC102CID/enginefailurepages remain unqualified; currentHTML42ndeditionconflict not waived.",
+    "Arbitrary table detection, reading order, legal section semantics and global official edition alignment remain unqualified.",
+    "A new6pagefaultprobe tests propagation ofglyph/CIDdiagnostics only; no newsemanticcompleteclaim."
+  ],
+  "harness_attempts": [
+    "Initial boundedprobe failed safely on relativeimport context; original failedscript/log retained.",
+    "A later testpreparation used wrongworkingdirectory and reported missingtestmodule; fullrawlog was inadvertently replaced, so only candidtool-observedfailure receipt retained. Finalcorrectedsource/tests pass separately."
+  ],
+  "publisher_requests": 0,
+  "full636_native_reparse_repeated": false,
+  "shared_tuple_repeated": false,
+  "promotion_whitelist": [
+    "collectors/encodeplus/pdf_structure.py",
+    "collectors/encodeplus/native_document.py",
+    "collectors/encodeplus/test_inline_image_identity.py",
+    "collectors/encodeplus/test_native_diagnostic_aggregate.py"
+  ]
+}

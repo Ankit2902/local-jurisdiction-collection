@@ -1,0 +1,55 @@
+{
+  "passed": true,
+  "source_sha256": "6e9907649263fea71c8561709a80a305b6345a3e6981e25c7d18a7f8a5413e71",
+  "rows": [
+    {
+      "case": "whole",
+      "passed": true,
+      "output": "[IMAGE]",
+      "error": null
+    },
+    {
+      "case": "upper",
+      "passed": true,
+      "output": "[IMAGE]",
+      "error": null
+    },
+    {
+      "case": "quoted",
+      "passed": true,
+      "output": null,
+      "error": "Unsupported ambiguous inline-image text boundary; source sha256=4f4082a4444ea4171201374a701f5017f84d8380d278dc5ad918ee0c0ae9a470"
+    },
+    {
+      "case": "trailing",
+      "passed": true,
+      "output": null,
+      "error": "Unsupported ambiguous inline-image text boundary; source sha256=c04f051d274b889e9bc6c9577eccf0d0a631c6a7e54f9b644f023c9c92152072"
+    },
+    {
+      "case": "multi-root",
+      "passed": true,
+      "output": null,
+      "error": "Unsupported ambiguous inline-image text boundary; source sha256=962be62d994eac9a6cb1f841100a5e652e9c4f0e4abfac6e5f1625468b81838a"
+    },
+    {
+      "case": "selfclosed-strayclose",
+      "passed": true,
+      "output": null,
+      "error": "Unsupported ambiguous inline-image text boundary; source sha256=10573cf378e6954e00abe1e6aca26e194143db1ee87bade614e5397fe0dcf1e0"
+    },
+    {
+      "case": "quoted-opening",
+      "passed": true,
+      "output": null,
+      "error": "Unsupported ambiguous inline-image text boundary; source sha256=6378ba3a88227c8e2708e29c1e95f4a0c69d84673c548ce707776c43b4136c82"
+    },
+    {
+      "case": "quoted-base64",
+      "passed": true,
+      "output": "Before \"[IMAGE]\" after legal caption.",
+      "error": null
+    }
+  ],
+  "network_requests_sent": 0
+}

@@ -1,0 +1,18 @@
+--- v1/american_legal_html.py
++++ v2/american_legal_html.py
+@@ -152,10 +152,14 @@
+             disposition='excluded_by_scope';reason='Intentional user image policy; exact source markers and locator retained, no image file'
+         else:
+             require(a['required'] is True,'Unknown nonimage asset scope')
++            require(owners,'Required nonimage document has no independently owned HTML source reference')
+             retained=a['status']=='retained'
+             if retained:require(sha(safe(root,a['file']).read_bytes())==a['sha256'],'Required document bytes missing')
+             related=[p for p in pages if p.get('source_url')==a['url']]
+-            no_glyph=bool(related) and all(p.get('source_qualification',{}).get('policy_not_applicable_to_text_glyph_fidelity') is True and p['source_qualification'].get('source_text_glyph_count')==0 and p.get('native_source_evidence',{}).get('glyph_count')==0 and p.get('text','').replace('[IMAGE]','').strip()=='' for p in related)
++            validation=a.get('validation',{});count=validation.get('pages');owner='attachment:'+a.get('sha256','')
++            expected_ids=[owner+':page:'+str(i) for i in range(1,count+1)] if type(count) is int and count>0 else []
++            full_pdf_pages=retained and validation.get('kind')=='pdf' and validation.get('qualified') is True and bool(expected_ids) and a.get('normalized_pdf_document_pages')==count and a.get('normalized_pdf_owner_id')==owner and a.get('normalized_pdf_page_ids')==expected_ids and len(related)==count and [p.get('document_id') for p in related]==expected_ids and [p.get('page') for p in related]==list(range(1,count+1)) and all(p.get('owner_id')==owner and p.get('image_policy')==IMAGE_POLICY for p in related)
++            no_glyph=full_pdf_pages and all(p.get('source_qualification',{}).get('policy_not_applicable_to_text_glyph_fidelity') is True and p['source_qualification'].get('source_text_glyph_count')==0 and p.get('native_source_evidence',{}).get('glyph_count')==0 and p.get('text','').replace('[IMAGE]','').strip()=='' for p in related)
+             disposition='excluded_by_scope' if no_glyph else 'unresolved'
+             reason='All source pages prove zero text glyphs; image policy N/A, existing [IMAGE] diagnostics preserved' if no_glyph else 'Required nonimage source retained/reported; no qualified canonical legal-unit grouping is asserted by this HTML-only reader'
+             if disposition=='unresolved':exceptions.append({'kind':'required_nonimage_source_not_canonically_projected','asset_node_id':aid,'url':a['url'],'status':a['status'],'reason':reason})

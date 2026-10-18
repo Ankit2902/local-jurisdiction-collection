@@ -1,0 +1,118 @@
+{
+  "passed": true,
+  "reviewed_packet_manifest_sha256": "b3ce7e076d2e5fc66e16e1cd9b55c929247d41a58ea0bfa3afb8a55adcb07984",
+  "packet_files": 23,
+  "source_stop_sha256": "cc41433c18b63efb119a07e3e1ce27c8309921471f2e2d0b4f8cc564adbcb66d",
+  "raw_refusal_sha256": "7367c1b4392e05049918bfa7e074881e425e1c9424e8e4a786337e8adaecdf8e",
+  "observed_method": "HEAD",
+  "observed_status": 403,
+  "observed_cf_mitigated": "challenge",
+  "observed_external_host": "leginfo.legislature.ca.gov",
+  "scope": "Conservative American Legal workflow stop. Other AL route availability untested; not a platformwide unavailability claim.",
+  "packet_tests": 10,
+  "shipped_portable_tests": 6,
+  "additional_state_request_tripwire_trials": [
+    {
+      "advisory": "valid",
+      "optimized": false,
+      "refused_before_state_or_request": true,
+      "descriptive_portable_stop_message": true,
+      "nonzero_failclosed_exception_if_no_message": null
+    },
+    {
+      "advisory": "valid",
+      "optimized": true,
+      "refused_before_state_or_request": true,
+      "descriptive_portable_stop_message": true,
+      "nonzero_failclosed_exception_if_no_message": null
+    },
+    {
+      "advisory": "missing",
+      "optimized": false,
+      "refused_before_state_or_request": true,
+      "descriptive_portable_stop_message": true,
+      "nonzero_failclosed_exception_if_no_message": null
+    },
+    {
+      "advisory": "missing",
+      "optimized": true,
+      "refused_before_state_or_request": true,
+      "descriptive_portable_stop_message": true,
+      "nonzero_failclosed_exception_if_no_message": null
+    },
+    {
+      "advisory": "malformed",
+      "optimized": false,
+      "refused_before_state_or_request": true,
+      "descriptive_portable_stop_message": true,
+      "nonzero_failclosed_exception_if_no_message": null
+    },
+    {
+      "advisory": "malformed",
+      "optimized": true,
+      "refused_before_state_or_request": true,
+      "descriptive_portable_stop_message": true,
+      "nonzero_failclosed_exception_if_no_message": null
+    },
+    {
+      "advisory": "wrong-source",
+      "optimized": false,
+      "refused_before_state_or_request": true,
+      "descriptive_portable_stop_message": true,
+      "nonzero_failclosed_exception_if_no_message": null
+    },
+    {
+      "advisory": "wrong-source",
+      "optimized": true,
+      "refused_before_state_or_request": true,
+      "descriptive_portable_stop_message": true,
+      "nonzero_failclosed_exception_if_no_message": null
+    },
+    {
+      "advisory": "empty-records",
+      "optimized": false,
+      "refused_before_state_or_request": true,
+      "descriptive_portable_stop_message": true,
+      "nonzero_failclosed_exception_if_no_message": null
+    },
+    {
+      "advisory": "empty-records",
+      "optimized": true,
+      "refused_before_state_or_request": true,
+      "descriptive_portable_stop_message": false,
+      "nonzero_failclosed_exception_if_no_message": "IndexError"
+    },
+    {
+      "advisory": "default-gate",
+      "optimized": false,
+      "refused_before_state_or_request": true,
+      "descriptive_portable_stop_message": true,
+      "nonzero_failclosed_exception_if_no_message": null
+    },
+    {
+      "advisory": "default-gate",
+      "optimized": true,
+      "refused_before_state_or_request": true,
+      "descriptive_portable_stop_message": true,
+      "nonzero_failclosed_exception_if_no_message": null
+    }
+  ],
+  "all23ALcatalog_entries_advised": true,
+  "nonAL_catalog_entries_unchanged": 202,
+  "existing_registry_advisories_unchanged": true,
+  "original_tmp_stop_preserved": true,
+  "freshgate_state_requests_created": false,
+  "readonly_standard_HTML_fixture_verification_available": {
+    "fixture_sha256": "d03ca4b7c70986202c72d17edb6bc260a85c8392182c28ebe860c14bd9d81cb5",
+    "inventory_count": 5,
+    "publication_complete": true,
+    "image_binary_download_count": 0,
+    "image_reference_placeholder_count": 1,
+    "no_requests_or_image_open": true,
+    "fixture_unchanged": true
+  },
+  "publisher_native_image_operations": 0,
+  "production_and_packet_unchanged": true,
+  "nonblocking_qualification": "Optimized Python (-O) with an empty advisory list exits nonzero via IndexError rather than descriptive stop text. No state/request is reached; normal documented commands retain the descriptive portable stop.",
+  "limits": "Common catalog/access_state tested with isolated registry overlay; no live acquisition, actual native replay or jurisdiction availability inferred."
+}

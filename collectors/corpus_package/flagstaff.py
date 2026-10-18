@@ -3,6 +3,7 @@ import json
 from urllib.parse import urlsplit,urlunsplit
 from common import *
 from flagstaff_hierarchy import derive
+from readiness import common_publication_evidence
 
 ROOT='https://www.codepublishing.com/AZ/Flagstaff/'
 def document(url):
@@ -76,4 +77,5 @@ def read_projection(root,proof,verified):
     meta={'jurisdiction':cfg['jurisdiction'],'source_version':version,'source_config':cfg,'acquisition_interval':{'started_at':source['started_at'],'finished_at':source['finished_at'],'role':'Original source acquisition interval; exact per-body timestamps preserved in scrape_date'},'source_coverage_path':'inherited-coverage.json','source_scope':'Same original verified source units; no new legal section grouping','source_verification_report':'evidence/proofs/read-only-proof.json','family_verification_report':'evidence/proofs/family-verification.json','hierarchy_mapping':'Unverified hierarchy/section-number fields deliberately blank; source ancestry and IDs retained in sidecars'}
     meta['hierarchy_mapping']='Root-scoped complete publisher ancestry paths, source heading classes/types, and displayed locators corroborated by own canonical name/id anchors. Unknown/conflicting mappings qualified explicitly.'
     meta['hierarchy_qualifications']=hierarchy['issues']
-    return Projection(proof['publication_id'],rows,pubs,nodes,dispositions,provenance,exceptions,meta,cov)
+    evidence=common_publication_evidence(proof,verified,cfg,version,cov,file_hash(root/'coverage.json'))
+    return Projection(proof['publication_id'],rows,pubs,nodes,dispositions,provenance,exceptions,meta,cov,evidence)
