@@ -10,7 +10,7 @@ Use Python 3.12+ on macOS/Linux (the shared gate uses `fcntl`), Node20+ and ordi
 
 ```sh
 python3 -m venv .venv
-.venv/bin/python -m pip install -r collectors/american-legal/requirements.txt
+.venv/bin/python -m pip install -r collectors/american-legal/requirements-lock.txt
 npm install --prefix collectors/american-legal
 ```
 
@@ -274,3 +274,51 @@ zero mismatches/resource requests;339 required nonimage references and the closi
 source checks still prevent Dallas completion. Frozen v9 and the live v7 queue
 are preserved separately. No new publisher traffic, image decoding, extraction,
 rendering or OCR was used for this revision.
+
+
+### Source-reference and dependency compatibility revision v11
+
+The v11 lock changes only SoupSieve2.8.4 to3.0.3 to match the actual shared
+Python3.12.14 runtime. All six declared family requirements and BS4's indirect
+`soupsieve>=1.6.1` constraint are satisfied; all twelve lock pins match.
+Use the exact lock for a tested standalone Python installation. The ten fixture
+suites pass137 cases on SoupSieve3.0.3. Full retained-source comparisons pass for Dallas (4,542 records) and Cleveland
+(6,140 records). Dallas differs only in the fifteen explicit asset aliases; all
+other fields and CSV bytes match. Cleveland JSONL and CSV are byte-identical.
+The root reviewer independently reran all 137 fixtures. The compact receipts
+are in [the v11 proof directory](../qa/followup-proof-receipts/american-legal-v11/).
+No environment was modified while the original publisher job ran.
+
+The alias profile addresses only `http://"https://files.amlegal.com/pdffiles/...pdf`
+when its embedded exact HTTPS URL and same numeric ordinance citation are
+independently observed as a direct href in a different inventoried owner of the
+same native source SHA/edition. Citation must equal the PDF basename. It retains
+the original malformed href in HTML/raw reference metadata and adds explicit
+`source_alias` corroboration to the required asset reference. Unknown citation,
+missing independent owner, wrong edition and other unsupported matches fail
+closed; images stay excluded. No destination is guessed or waived. Dallas has
+fifteen such occurrences of one malformed duplicate32195 URL, with a valid direct
+32195 URL in its Code Comparative Table.339 raw required URLs map to338 required
+acquisition targets only when this source relationship is proven. No attachment
+bytes or semantic qualification are inferred from the alias.
+
+The browser profiles remain distinct. Standalone `package.json` pins Node
+Playwright1.62.1, matching the earlier genuine AL live proofs. The shared launcher
+uses the official Python Playwright1.64.0 wheel's bundled core
+1.64.0-beta-1791568591000 with Node24.21.0/Chrome155.0.8059.84 and exports
+`COLLECTION_PLAYWRIGHT_CORE`, `PLAYWRIGHT_MODULE_ROOT`, `NODE_BIN` and `PYTHON`.
+A close-only AL bridge RPC qualifies module/dependency wiring without launching
+Chrome or requesting publisher content. The shared setup's separate headed doctor
+proof does not relabel earlier AL publisher runs or qualify a new shared-profile
+live AL acquisition. No local/global environment or persistent gate was reset.
+
+Live Dallas continuation must wait until the original entire serial queue has
+finished, its child is gone, the publisher slot is unoccupied, and the persistent
+gate allows work. The queue immediately advances after each child, so completion
+of Fort Worth alone is not a free slot. A fresh operator directory preserves the
+failed v7 run/native job and must perform a fresh overview/edition check before
+cached source reuse. Required documents and the closing inventory remain pending.
+
+### Explicit short dispositions
+
+Two Fort Worth units have source-explicit dispositions that the generic minimum-text-length check missed: an own body exactly `[Repealed]` and a numbered native Section heading ending `RESERVED.`. The collector now retains their exact text, IDs and blocks and adds source-fragment evidence for the disposition. It does not infer a disposition for the other seven unresolved units. The rebased source passes 146 tests, including nine portable actual-source/fault cases; all original fields in those nine records match except the two classification/evidence additions. See [the evidence](../qa/followup-proof-receipts/american-legal-fortworth-status/). The two unavailable required exhibits and existing PDF semantic limitations still prevent complete Fort Worth acceptance. This is an offline normalization correction, not a new full acquisition.

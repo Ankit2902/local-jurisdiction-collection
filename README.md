@@ -1,5 +1,7 @@
 # Local jurisdiction collection
 
+The latest [source-fidelity update](collectors/qa/followup-proof-receipts/source-fidelity-2026-10-18/summary.json) adds corroborated Dallas PDF references, explicit short Fort Worth dispositions, and PDF whole-word/diagnostic corrections. Validation passed 146 American Legal cases, 56 enCodePlus cases, and 34 integrated check programs. These are tested collector improvements; remaining source, access, document and legal-structure gaps are still listed in the current readiness ledger.
+
 Technical handoff for source discovery, acquisition scripts, parsing, and validation of the **original 30-jurisdiction backlog and 100 additional local jurisdictions**. The expansion adds major cities, populous counties, and coverage in states missing from the earlier inventory. The newest stage provides standalone full-publication collectors, a target registry, resume workflows, and source-derived completeness checks. Earlier sealed packages retain their bounded sample results. Representative whole-publication tests qualify specific collector paths; no completed collection of all 100 jurisdictions or new database audit is claimed.
 
 ## Full-publication collectors

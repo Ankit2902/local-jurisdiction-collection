@@ -33,7 +33,7 @@ The shipped [access advisories](access-advisories.json) preserve observed stoppe
 
 ## Active post-checkpoint qualifications
 
-The sealed checkpoint counts remain historical. The current [follow-up ledger](../qa/followup-requirements.json) derives its counts from the union catalog; the most recent audit has130governments,225publication entries,193dispatchable configurations and32unqualified candidates. Shipped observed-workflow advisories currently apply to131entries. They preserve exact events rather than declaring every publisher route unavailable.
+The sealed checkpoint counts remain historical. The current [follow-up ledger](../qa/followup-requirements.json) derives its counts from the union catalog; the most recent audit has130governments,225publication entries,195 dispatchable configurations and 30 unqualified candidates. Shipped observed-workflow advisories currently apply to131entries. They preserve exact events rather than declaring every publisher route unavailable.
 
 `followup-qualified-configs.json` adds six exact enCodePlus `native_document` configurations supported by current absolute publisher anchors and original file SHA/page pins. Their dispatcher uses the native module's collection/verification interface, never an invented HTML TOC identity. Native capture/page validation is separate from full legal-publication acceptance. `followup-additional-publications.json` records the separately observed Miami Comprehensive Neighborhood Plan, document94, with49top-level roots. It does not inherit Miami Zoning's validation or become complete from configuration discovery.
 

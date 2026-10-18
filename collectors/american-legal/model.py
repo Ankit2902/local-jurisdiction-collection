@@ -124,7 +124,21 @@ def html_record(payload,item,identity,source_url,source_sha,resolved_images=()):
  text=dom_text(soup);assert text.strip(),'Empty packet'
  own_heading=dom_text(root,' ');body_text=text.replace(dom_text(root),'',1).strip()
  classification='operative-or-front-matter-body' if len(body_text)>10 else 'intentional-image-placeholder' if placeholders else 'structural-heading-only' if item['has_children'] else 'reserved-heading-only' if re.search(r'repealed|reserved|deleted|omitted|not used',item['heading'],re.I) else 'unqualified-heading-only'
- return {'document_id':item['document_id'],'heading':item['heading'],'path':item['path'],'parent_id':item['parent_id'],'kind':'html-renderer-owned-range','text':text,'html':str(soup),'image_placeholders':placeholders,'image_policy':IMAGE_POLICY,'body_block_ids':ids,'content_classification':classification,'tables':tables,'table_parent_indices':table_parents,'links':links,'assets':assets,'source_url':source_url,'source_sha256':source_sha,'publication_identity':identity,'notes':{'publisher_title':payload.get('title'),'code_lookup':payload.get('code_lookup')},'text_sha256':digest(text.encode())}
+ # A short explicit legal disposition is content, even when the generic body-length
+ # threshold does not reach it. Inspect only this owner's native source, never a
+ # neighboring heading, inherited title, or a generic empty-article waiver.
+ disposition=None
+ if classification=='unqualified-heading-only' and 'Section' in root.get('class',[]):
+  if body_text=='[Repealed]' and len(ids)==2:
+   disposition={'status':'repealed','source_field':'own-body','literal':body_text}
+  elif not body_text and re.fullmatch(r'§{1,2}\s*\d+(?:[.-]\d+)*(?:\s*[—–-]\s*\d+(?:[.-]\d+)*)?\s+RESERVED\.',own_heading):
+   disposition={'status':'reserved','source_field':'own-source-heading','literal':own_heading}
+ if disposition:
+  classification='source-explicit-status'
+  disposition.update({'source_fragment_sha256':digest(html.encode()),'source_sha256':source_sha,'source_url':source_url,'owner_document_id':item['document_id'],'owned_source_block_ids':ids.copy(),'original_toc_heading':item['heading'],'qualification':'Exact standalone owner-body [Repealed], or cited numeric Section/range native heading ending standalone RESERVED.; no body synthesized.'})
+ result={'document_id':item['document_id'],'heading':item['heading'],'path':item['path'],'parent_id':item['parent_id'],'kind':'html-renderer-owned-range','text':text,'html':str(soup),'image_placeholders':placeholders,'image_policy':IMAGE_POLICY,'body_block_ids':ids,'content_classification':classification,'tables':tables,'table_parent_indices':table_parents,'links':links,'assets':assets,'source_url':source_url,'source_sha256':source_sha,'publication_identity':identity,'notes':{'publisher_title':payload.get('title'),'code_lookup':payload.get('code_lookup')},'text_sha256':digest(text.encode())}
+ if disposition:result['source_status_evidence']=disposition
+ return result
 
 def internal_references(assets,links,identity):
  """Same-book legal citations are bound to retained IDs, never treated as document downloads."""
@@ -289,7 +303,35 @@ def native_records(data,inventory,identity,url,sha,resolved_images=(),inventory_
   fragment=''.join(parts[did]);record=html_record({'doc_id':did,'id':item['internal_id'],'title':item['heading'],'html':fragment},item,identity,url,sha,resolved_images);record['kind']='publisher-native-html-owned-range';record['notes']['normalization_basis']='Independent TOC owners + every retained native rich block, exactly once'
   if aux_owned[did]:record['native_auxiliary_fragments']=aux_owned[did];record['notes']['auxiliary_ownership']='Publisher footnote heading/table fragments retain exact source position and section-local reciprocal anchor binding.'
   result.append(record)
- owned=[v for r in result for v in r['body_block_ids']];assert len(owned)==len(set(owned)) and set(owned)==set(ids),'Native raw blocks not reconciled exactly once';return result
+ owned=[v for r in result for v in r['body_block_ids']];assert len(owned)==len(set(owned)) and set(owned)==set(ids),'Native raw blocks not reconciled exactly once';return bind_source_asset_aliases(result)
+
+def bind_source_asset_aliases(records):
+ """Resolve only a malformed quoted-scheme PDF href corroborated in the same file.
+
+ The original malformed href remains in HTML/raw metadata. No URL is guessed:
+ a direct exact canonical href with the same numeric ordinance label must exist
+ in a different independently inventoried owner of this native source/edition.
+ """
+ direct={}
+ for r in records:
+  for a in r['assets']:
+   if a.get('kind')=='attachment' and a.get('disposition')=='required-asset' and a.get('tag')=='a' and a.get('attribute')=='href' and a.get('raw')==a['url']:
+    direct.setdefault(a['url'],[]).append((r,a))
+ for r in records:
+  for i,a in enumerate(r['assets']):
+   if a.get('kind')=='image' or a.get('disposition')=='image-placeholder':continue
+   match=re.fullmatch(r'http://"(?P<canonical>https://files\.amlegal\.com/pdffiles/[^"\s<>]+\.pdf)',a['url'])
+   if not match:continue
+   assert a.get('kind')=='attachment' and a.get('disposition')=='required-asset' and a.get('tag')=='a' and a.get('attribute')=='href','Unsupported malformed source reference context'
+   citation=a.get('label','');canonical=match['canonical'];assert re.fullmatch(r'[0-9]+',citation) and urlparse(canonical).path.rsplit('/',1)[-1]==citation+'.pdf','Malformed reference citation/filename mismatch'
+   evidence=[(owner,ref) for owner,ref in direct.get(canonical,[]) if owner['document_id']!=r['document_id'] and owner['source_sha256']==r['source_sha256'] and owner['publication_identity']==r['publication_identity'] and ref.get('label')==citation]
+   assert evidence,'Malformed source reference lacks independent exact URL/citation corroboration in same native source/edition'
+   proof=[]
+   for owner,ref in evidence:
+    reference={k:ref[k] for k in ['raw','source_attribute','url','label']}
+    proof.append({'document_id':owner['document_id'],'source_sha256':owner['source_sha256'],'direct_reference_sha256':digest(json.dumps(reference,sort_keys=True,separators=(',',':')).encode())})
+   r['assets'][i]=dict(a,url=canonical,source_alias={'original_url':a['url'],'canonical_url':canonical,'numeric_ordinance_citation':citation,'source_native_sha256':r['source_sha256'],'corroborating_direct_references':sorted(proof,key=lambda e:(e['document_id'],e['direct_reference_sha256'])),'qualification':'Exact embedded canonical PDF URL and same numeric ordinance citation independently observed as a direct href in a different owner of this same original native source/edition. Original malformed href retained; no guessed destination or exclusion.'})
+ return records
 
 def css_links(data):
  text=data.decode('utf-8',errors='strict');return sorted(set(re.findall(r'url\([\s\'"]*([^\)\'\"]+)',text,re.I)+re.findall(r'@import\s+[\'"]([^\'"]+)',text,re.I)))

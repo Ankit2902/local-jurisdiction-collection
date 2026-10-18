@@ -1,0 +1,25 @@
+--- v11/model.py
++++ candidate/model.py
+@@ -124,7 +124,21 @@
+  text=dom_text(soup);assert text.strip(),'Empty packet'
+  own_heading=dom_text(root,' ');body_text=text.replace(dom_text(root),'',1).strip()
+  classification='operative-or-front-matter-body' if len(body_text)>10 else 'intentional-image-placeholder' if placeholders else 'structural-heading-only' if item['has_children'] else 'reserved-heading-only' if re.search(r'repealed|reserved|deleted|omitted|not used',item['heading'],re.I) else 'unqualified-heading-only'
+- return {'document_id':item['document_id'],'heading':item['heading'],'path':item['path'],'parent_id':item['parent_id'],'kind':'html-renderer-owned-range','text':text,'html':str(soup),'image_placeholders':placeholders,'image_policy':IMAGE_POLICY,'body_block_ids':ids,'content_classification':classification,'tables':tables,'table_parent_indices':table_parents,'links':links,'assets':assets,'source_url':source_url,'source_sha256':source_sha,'publication_identity':identity,'notes':{'publisher_title':payload.get('title'),'code_lookup':payload.get('code_lookup')},'text_sha256':digest(text.encode())}
++ # A short explicit legal disposition is content, even when the generic body-length
++ # threshold does not reach it. Inspect only this owner's native source, never a
++ # neighboring heading, inherited title, or a generic empty-article waiver.
++ disposition=None
++ if classification=='unqualified-heading-only' and 'Section' in root.get('class',[]):
++  if body_text=='[Repealed]' and len(ids)==2:
++   disposition={'status':'repealed','source_field':'own-body','literal':body_text}
++  elif not body_text and re.fullmatch(r'§{1,2}\s*\d+(?:[.-]\d+)*(?:\s*[—–-]\s*\d+(?:[.-]\d+)*)?\s+RESERVED\.',own_heading):
++   disposition={'status':'reserved','source_field':'own-source-heading','literal':own_heading}
++ if disposition:
++  classification='source-explicit-status'
++  disposition.update({'source_fragment_sha256':digest(html.encode()),'source_sha256':source_sha,'source_url':source_url,'owner_document_id':item['document_id'],'owned_source_block_ids':ids.copy(),'original_toc_heading':item['heading'],'qualification':'Exact standalone owner-body [Repealed], or cited numeric Section/range native heading ending standalone RESERVED.; no body synthesized.'})
++ result={'document_id':item['document_id'],'heading':item['heading'],'path':item['path'],'parent_id':item['parent_id'],'kind':'html-renderer-owned-range','text':text,'html':str(soup),'image_placeholders':placeholders,'image_policy':IMAGE_POLICY,'body_block_ids':ids,'content_classification':classification,'tables':tables,'table_parent_indices':table_parents,'links':links,'assets':assets,'source_url':source_url,'source_sha256':source_sha,'publication_identity':identity,'notes':{'publisher_title':payload.get('title'),'code_lookup':payload.get('code_lookup')},'text_sha256':digest(text.encode())}
++ if disposition:result['source_status_evidence']=disposition
++ return result
+ 
+ def internal_references(assets,links,identity):
+  """Same-book legal citations are bound to retained IDs, never treated as document downloads."""

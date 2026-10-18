@@ -1,0 +1,79 @@
+{
+  "schema_version": 1,
+  "at": "2026-10-18T01:03:09.812855+00:00",
+  "status": "Read-only proposed promotion; no production or frozen candidate edits performed.",
+  "exact_direct_copy_files": [
+    {
+      "source": "outputs/collection-readiness-post-1997ee1-2026-10-17/american-legal/candidate-v11/source/model.py",
+      "destination": "collectors/american-legal/model.py",
+      "source_sha256": "c9ea4067967db036fcbfdd7d36edd3e85fbdbff9ab538508e3cfa856b5c19c67",
+      "current_production_sha256": "bfc95785b762d7ae020f354c052c92e361b5457371a466e9b3b9156bfa629667",
+      "note": null
+    },
+    {
+      "source": "outputs/collection-readiness-post-1997ee1-2026-10-17/american-legal/candidate-v11/source/requirements-lock.txt",
+      "destination": "collectors/american-legal/requirements-lock.txt",
+      "source_sha256": "6f72e713e4ad17b898923f6c0e82dbcc0d11311b475e63cdf530d30fdb241721",
+      "current_production_sha256": "7be64927955736bbe8b04e8cbd02cc1a5a372348e2f601c0d73aa2cd47e62d4d",
+      "note": null
+    },
+    {
+      "source": "outputs/collection-readiness-post-1997ee1-2026-10-17/american-legal/candidate-v11/source/test_source_alias.py",
+      "destination": "collectors/american-legal/test_source_alias.py",
+      "source_sha256": "664c3539305d7157260dc1b5a95caafa0fa2e762215613799d0ccc7d9a372f5d",
+      "current_production_sha256": null,
+      "note": null
+    },
+    {
+      "source": "outputs/collection-readiness-post-1997ee1-2026-10-17/american-legal/candidate-v11/source/README.md",
+      "destination": "collectors/american-legal/README.md",
+      "source_sha256": "d0bfc44b9937a054cdb3b4ff2f6ad3974dcfa440bd94d49ce707780eb9e797b4",
+      "current_production_sha256": "24f02eaedfeef2e9477d643f33751dc6617972e98e114f27d9719fb6c32d0905",
+      "note": "README still says isolated candidate: update promotion wording only after independent137 fixtures; preserve profiles/limitations."
+    }
+  ],
+  "derived_metadata_steps": [
+    {
+      "file": "collectors/american-legal/validation-summary.json",
+      "action": "Preserve all existing v10/prior sections. Add v11 qualification section from candidate-v11/SUMMARY.json plus root independent137-case receipt; do NOT replace historic production summary with candidate-only source/validation-summary.json. Keep new live acquisition/publication completion false."
+    },
+    {
+      "file": "collectors/american-legal/freeze-manifest.json",
+      "action": "Regenerate from final reviewed promoted source/receipts with new revision ID; preserve old71eed manifest in retained evidence. Never copy stale v10 manifest."
+    },
+    {
+      "file": "collectors/american-legal/source-alias-tests.json (new if desired)",
+      "action": "Copy exact source-alias fixture receipt from frozen candidate tests only or root rerun; distinguish owner137suite from independent root rerun."
+    }
+  ],
+  "unchanged_runtime_files": [
+    "collect.py",
+    "transport.py",
+    "browser.cjs",
+    "gate.py",
+    "resume_copy.py",
+    "verify.py",
+    "pdf_tags.py",
+    "pdf_grid.py",
+    "requirements.txt",
+    "package.json"
+  ],
+  "candidate_manifest_sha256": "2bcc9648f15ef7a66d7dc631c15b9784ce52f2b15762e240a69319ce713128ee",
+  "v11_source_manifest_sha256": "27db9fa4adabfff1537d5389b0c6539faa12e2a9eea64596a1201f5d4480d271",
+  "live_queue_boundary": {
+    "process_lines": [
+      "78376 12985    02:20:04 /Users/oliverflint/My Drive/Claude/Projects/CompliSolv 2.00/github/local-jurisdiction-collection/.collection-runtime/venv/bin/python run-remaining-primary-v7.py",
+      "99733 78376       14:40 /Users/oliverflint/My Drive/Claude/Projects/CompliSolv 2.00/github/local-jurisdiction-collection/.collection-runtime/venv/bin/python /Users/oliverflint/My Drive/Claude/Projects/CompliSolv 2.00/outputs/collection-readiness-followup-2026-10-17/american-legal/executed-v7/collect.py --url https://codelibrary.amlegal.com/codes/boston/latest/boston_ma --jurisdiction Boston --state MA --publication boston_ma --strategy native --assets download --out /Users/oliverflint/My Drive/Claude/Projects/CompliSolv 2.00/outputs/collection-readiness-followup-2026-10-17/american-legal/primary-15-boston_ma-v7 --identity-alias Boston"
+    ],
+    "immutable_v7_directory": "outputs/collection-readiness-followup-2026-10-17/american-legal/executed-v7",
+    "v7_collect_sha256": "839d202beeb4cabbd0b6eb87670bc194b1c2470f281743d1b8c654a242ac429e",
+    "v7_model_sha256": "24a5e5f290d91dae231fc6ea7835620c22e3ef5350d7fb34e51e5d649fb03420",
+    "v7_transport_sha256": "0bded10c0727b97d7d2ade2c6a08aacf9304164ea5a90cdd4375103b4e36ca2e",
+    "production_collect_sha256": "839d202beeb4cabbd0b6eb87670bc194b1c2470f281743d1b8c654a242ac429e",
+    "production_model_sha256": "bfc95785b762d7ae020f354c052c92e361b5457371a466e9b3b9156bfa629667",
+    "queue_restarted_or_edited": false,
+    "reason": "Actual active child command points to executed-v7/collect.py; imports resolve immutable executed-v7 modules, not production collector. Original v7 run.json retains its executed hashes. Production promotion does not rewrite that process or its source snapshot."
+  },
+  "image_policy": "No image fetch/decode/extract/render/OCR. v11 adds only source-proven nonimagePDF alias; image refs remain excluded.",
+  "FortWorth_candidate": "Separate fortworth-source-status-v1 based v10; not included in v11 or this promotion."
+}

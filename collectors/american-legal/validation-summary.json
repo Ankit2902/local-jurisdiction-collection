@@ -1,9 +1,9 @@
 {
   "schema_version": 3,
   "publisher": "american-legal",
-  "status": "frozen_v10_declared_image_anchor_hardened_131tests_Dallas_not_yet_complete",
+  "status": "source_corroborated_PDF_alias_and_explicit_status_146tests_live_gaps_retained",
   "frozen": true,
-  "updated_at": "2026-10-18T00:11:36.899260+00:00",
+  "updated_at": "2026-10-18T01:03:33.514068+00:00",
   "evidence_root": "outputs/collection-readiness-followup-2026-10-17/american-legal",
   "image_policy": "literal-[IMAGE]-no-image-fetch-v1",
   "scope_warning": "Two named genuine full-publication scopes and reusable methods are qualified; all15 primary configs, every secondary and entire jurisdictions are not thereby qualified.",
@@ -24,7 +24,7 @@
     ],
     "independent_fullbook_auditor": "executed-v7/audit_pdf_tags.py",
     "promotion_manifest": "freeze-manifest.json",
-    "current_delivery": "executed-v10 narrow declared-image anchor context hardening; earlier live source/normalization/queue retain their revisions"
+    "current_delivery": "v11 source alias plus source-explicit Fort Worth status correction; historical live runs retain executed revisions"
   },
   "runtime": {
     "kind": "Current proof runtime and controlled source lineage",
@@ -43,7 +43,7 @@
       "runtime": "v24.19.0"
     },
     "core_source_revision": "executed-v6",
-    "delivery_candidate": "executed-v10",
+    "delivery_candidate": "v11",
     "source_manifest_sha256": {
       "executed-v6": "0fa61f7c1cbbff370e9f27af249a5535604083a07a3efcd5e275ae626d66da6a",
       "executed-v7": "71a2fc76ad5924f4d8eedb87fbfaca72a07672e07f151f86731f379292c4d4fc"
@@ -400,6 +400,32 @@
     "image_decode_calls": 0,
     "frozen_v9_modified": false,
     "original_queue_modified": false,
+    "publication_completion_upgraded": false
+  },
+  "source_alias_v11": {
+    "model_sha256": "c9ea4067967db036fcbfdd7d36edd3e85fbdbff9ab538508e3cfa856b5c19c67",
+    "requirements_lock_sha256": "6f72e713e4ad17b898923f6c0e82dbcc0d11311b475e63cdf530d30fdb241721",
+    "candidate_fixture_cases": 137,
+    "independent_root_fixture_cases": 137,
+    "proof_directory": "../qa/followup-proof-receipts/american-legal-v11",
+    "full_retained_source_comparisons": {
+      "Dallas": 4542,
+      "Cleveland": 6140
+    },
+    "Dallas_alias_instances": 15,
+    "Dallas_required_download_targets": 338,
+    "new_live_acquisition": false,
+    "publication_completion_upgraded": false,
+    "image_policy": "literal-[IMAGE]-no-image-fetch-v1",
+    "live_queue_revision": "immutable executed-v7; no restart or edits"
+  },
+  "source_explicit_status_revision": {
+    "model_sha256": "c568aa07a68a8dc5ae50652fc4b1c164d536b1e90a729b3e49b0ee74df4a6ca4",
+    "tests": 146,
+    "proof_directory": "../qa/followup-proof-receipts/american-legal-fortworth-status",
+    "qualified_status_records": 2,
+    "other_actual_unqualified_units": 7,
+    "new_live_acquisition": false,
     "publication_completion_upgraded": false
   }
 }

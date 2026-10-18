@@ -1,0 +1,1 @@
+"""Standalone enCodePlus publication collector."""

@@ -24,7 +24,7 @@
     "tests": "proofs/svg-opening-37-tests.log; proofsvg-opening-actual-retained-differential.json",
     "image_operations": "No markup interpretation, pixel decoding, image extraction/render/OCR/network"
   },
-  "local_delta": {
+  "prior_bounded_hyphen_delta": {
     "parent_sha256": "6e9907649263fea71c8561709a80a305b6345a3e6981e25c7d18a7f8a5413e71",
     "current_sha256": "5d0141e7712aae0637ec9a4b226cab00ff3326fbe54aa992dd511bb590cb8f02",
     "helper_sha256": "a579f2a79c15833e0c5a8c65bc4fa6024b2dbb6eafb408d1135f500c64c72770",
@@ -32,5 +32,14 @@
     "scope": "Source-proven bounded hyphen alias only; original text/bboxes/words/ordering/remaining44gaps retained; all image boundary functions unchanged",
     "proof": "proofs/bounded-hyphen-actual-full109.json",
     "image_operations": "No images fetched/extracted/rendered/decoded/OCRed"
+  },
+  "local_delta": {
+    "parent_sha256": "5d0141e7712aae0637ec9a4b226cab00ff3326fbe54aa992dd511bb590cb8f02",
+    "current_sha256": "2bdd4253eac70865ae4a7e6a77e404f6e5f4784fb728f0938c8d4cd5acb3cd90",
+    "change": "Whole source-word page serialization; exact native extraction rectangles; glyph/CID diagnostics; process-stable inline image metadata. Table cell text/bounds and unresolved disagreements retained.",
+    "native_document_sha256": "4e0eb4d0b9e3276c44f720d9b871d6921776e9c0a4bac91543c8e2f04a73c079",
+    "proof": "proofs/native-word-conservation-2026-10-18/validation-summary.json",
+    "tests": 56,
+    "image_operations": "No separate image acquisition, extraction, decoding, rendering or OCR; exact [IMAGE] positions preserved."
   }
 }

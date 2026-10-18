@@ -1,0 +1,68 @@
+{
+  "schema_version": 1,
+  "at": "2026-10-18T01:06:13.158683+00:00",
+  "scope": "Discovery and webtool availability only. No HTTP bytes downloaded, no attachment acquired or qualified.",
+  "observations": [
+    {
+      "url": "https://www.fortworthtexas.gov/departments/development-services/urban-design",
+      "method": "web.run open",
+      "tool_reference": "turn158view0",
+      "result": "Parsed page returned successfully; root described200. Tool result supplies no retained raw HTTP status/header/body receipt, and may reflect indexed/cache content.",
+      "displayed_title": "Urban Design Districts and Overlays – Welcome to the City of Fort Worth",
+      "displayed_total_lines": 371,
+      "observed_links": [
+        {
+          "label": "Berry/University Form-Based Code(PDF,17MB)",
+          "line": 194,
+          "target_url": null,
+          "limitation": "Link label observed; target not separately requested."
+        },
+        {
+          "label": "Stockyards",
+          "line": 236,
+          "target_url": null
+        }
+      ]
+    },
+    {
+      "url": "https://www.fortworthtexas.gov/departments/development-services/historic-preservation/historic-stockyards",
+      "method": "web.run open",
+      "tool_reference": "turn158view1",
+      "result": "Failed to fetch https://www.fortworthtexas.gov/departments/development-services/historic-preservation/historic-stockyards: (403) Forbidden",
+      "observed_access_stop": true,
+      "retried": false
+    }
+  ],
+  "parent_source_discovery": [
+    {
+      "url": "https://www.fortworthtexas.gov/files/assets/public/v/1/development-services/documents/all-preservation-and-design/urbandesign/form-base-code/berry-university/ordinance-23647-05-2019-5_.pdf",
+      "parent_claim": "Official exact23647-05-2019 candidate, discovered by parent websearch.",
+      "acquired_by_this_study": false
+    },
+    {
+      "url": "https://www.fortworthtexas.gov/files/assets/public/v/1/development-services/documents/4-1308-berry-university-form-based-code-ord.pdf",
+      "parent_claim": "Amends4.1308.D with attachedExhibitA; exact edition not qualified.",
+      "acquired_by_this_study": false
+    },
+    {
+      "url": "https://www.fortworthtexas.gov/files/assets/public/v/1/development-services/documents/all-preservation-and-design/urbandesign/form-base-code/berry-university/form-base-code-ordinance.pdf",
+      "parent_claim": "Older creation ordinance; no current/exact missing-exhibit equivalence inferred.",
+      "acquired_by_this_study": false
+    },
+    {
+      "url": "https://apps.fortworthtexas.gov/council_packet/render_file.asp?filename=%2FZoning_Cases%2F3962%2Fzc-17-044.pdf",
+      "parent_claim": "Council packet with physical ExhibitA note and olderStockyardsURL; exact adopted attachment not qualified.",
+      "acquired_by_this_study": false
+    }
+  ],
+  "policy": "403 authoritative. No further government fetch, changed browser/route, challenge attempt, AL traffic, image acquisition/decode/extract/render/OCR. Original native PDFs may contain embedded images if later properly acquired.",
+  "original_missing_references_preserved": true,
+  "required404s_resolved": 0,
+  "edition_adoption_and_attachment_scope_qualified": false,
+  "next_requirements": [
+    "Permitted public source availability without bypass.",
+    "Actual immutable PDF bytes+SHA/type/page closure.",
+    "Exact ordinance/adoption/exhibit edition match to native note.",
+    "Text/image-placeholder/structure normalization and independent verification."
+  ]
+}
