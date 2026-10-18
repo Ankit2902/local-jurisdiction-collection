@@ -1,0 +1,9 @@
+# Final source recovery and image-policy checks
+
+The final combined source snapshot passes **56 programs and 579 unittest cases**, with unchanged source and runtime. Six actual-input verifier dependency checks also pass. The standard-library five-reader composition reproduces **14,118 rows** using the corrected Albany and Cleveland derivatives and the previously retained Flagstaff, Henderson and Lincoln proofs.
+
+The [sealed source packet](../../../../packages/collection-source-recovery-2026-10-18/README.md) retains independent raw-source reviews, exact collector snapshots, finite source-structure qualifications, image transport corrections, standalone runtime checks and terminal Arlington verification. Source-specific success does not establish all-publication or whole-jurisdiction acceptance. The current catalog still has 30 unqualified configurations and 154 entries with acquisition advisories; physical host gates may add restrictions.
+
+See [summary.json](summary.json), [integrated test report](integrated-suite/report.json), [current executable comparison](final-executable-source-comparison.json), [five-reader comparison](five-reader-composition.json), [execution guide](../../../ops/README.md) and [image policy](../../../IMAGE-POLICY.md). Every image remains `[IMAGE]`; separate image bodies are omitted before reading, including HTTP error responses. Final selected-packet and normalized-image audits accompany this index.
+
+The first combined run found an outdated mock in the browser-shim tamper test: it did not answer the new Python-version query. The original failure, exact fixture correction and all 19 passing corrected cases are retained in the packet. The complete replacement 56-program run above is the release result; no production behavior was weakened to satisfy that test.

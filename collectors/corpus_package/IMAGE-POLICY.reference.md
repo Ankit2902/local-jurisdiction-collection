@@ -2,7 +2,7 @@
 
 The user reaffirmed the existing corpus convention on October 17, 2026: **do not collect image assets; replace all images with the exact literal `[IMAGE]`**. This instruction governs the final collectors and overrides the earlier implementation-stage requirement to download images.
 
-The original [output contract](../packages/local-extraction-handoff-2026-10-15/OUTPUT-CONTRACT.md#content-fidelity) already specifies ordered `[IMAGE]` placeholders. The current instruction makes the acquisition exclusion explicit.
+The original [output contract](../../packages/local-extraction-handoff-2026-10-15/OUTPUT-CONTRACT.md#content-fidelity) already specifies ordered `[IMAGE]` placeholders. The current instruction makes the acquisition exclusion explicit.
 
 - Do not request, download, extract, decode, render, OCR, or save separate image binaries as collection output. Ordinary browser image resources are blocked where the browser workflow supports that without changing access/challenge controls.
 - Replace source images in normalized text and HTML with `[IMAGE]` in source order. Handle ordinary images, picture/source alternatives, inline SVG, image-only provisions and CSS image references. Preserve surrounding text, captions and labels already available as text.
@@ -29,3 +29,9 @@ Earlier sealed validation evidence is immutable. Some exploratory runs predate t
 Normalized audit scope also includes official `attachment-pages.jsonl` and normalized `native-attachments/*.json`, in addition to the existing record/reference/page streams and supplemental metadata. This does not open original PDF/DOCX binary members. Raw-source table QA must sanitize in an inert template before attaching nodes; aborting network after raw attachment alone cannot establish that inline images were never rendered.
 
 Image context takes precedence over a data URI MIME label: an `img`, picture source, image-typed object/link, poster, or CSS image locator remains an image when its URI says `application/octet-stream`. Hash its complete payload-bearing locator without decoding it. Preserve ordinary nonimage document references and available legal prose. Normalized image download anchors must be inert; retain original source URLs only as provenance/omission metadata. Regression tests must exercise real record construction and assert that image-decoder and image-acquisition functions were not called.
+
+Image controls and resource declarations are included: image-type form inputs, standalone `srcset`, namespaced SVG image elements, image preloads and icon links must not survive as active normalized markup. The normalized-output audit checks declared image context even when the source URL has no image extension. A plain PDF link or an inert original image URL in omission metadata remains valid provenance.
+
+Image MIME classification normalizes surrounding whitespace and case before applying these rules. Whitespace must not turn an image-typed object, embed or metadata payload into an allowed opaque document. Regression checks include ordinary PDF controls so legal document references remain usable.
+
+HTTP success and error responses use the same image exclusion. Check normalized response MIME before reading the body, including image responses with HTTP 403, 404 or 429. Retain status, headers and any publisher access stop while recording that the image body was intentionally omitted. Error handling must not acquire image bytes.

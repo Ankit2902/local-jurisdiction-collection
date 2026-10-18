@@ -50,6 +50,29 @@ class NamedEncodePlusBinding(unittest.TestCase):
             path.parent.mkdir(parents=True, exist_ok=True)
             path.write_text('constant no-network fingerprint fixture')
         self.write_configs()
+        self.geometry_path = self.root / 'collectors/encodeplus/infrastructure-multiline-native-geometry.json'
+        self.geometry_path.write_bytes((REPO / 'collectors/encodeplus/infrastructure-multiline-native-geometry.json').read_bytes())
+
+    def test_actual_geometry_mutation_changes_both_source_bindings(self):
+        key = 'collectors/encodeplus/infrastructure-multiline-native-geometry.json'
+        ops_before = self.ops.code_binding('encodeplus')
+        qa_before = self.qa.current_components(self.root, 'encodeplus')
+        self.assertEqual(ops_before[key], self.qa.sha(self.geometry_path))
+        self.assertEqual(ops_before, qa_before)
+        self.geometry_path.write_bytes(self.geometry_path.read_bytes() + b'\n')
+        ops_after = self.ops.code_binding('encodeplus')
+        qa_after = self.qa.current_components(self.root, 'encodeplus')
+        self.assertEqual(ops_after, qa_after)
+        self.assertNotEqual(ops_before[key], ops_after[key])
+        self.assertEqual({k:v for k,v in ops_before.items() if k != key},
+                         {k:v for k,v in ops_after.items() if k != key})
+
+    def test_missing_required_geometry_refuses_both_source_bindings(self):
+        self.geometry_path.unlink()
+        for call in (lambda: self.ops.code_binding('encodeplus'),
+                     lambda: self.qa.current_components(self.root, 'encodeplus')):
+            with self.assertRaises(FileNotFoundError):
+                call()
 
     def write_configs(self):
         self.path = self.root / 'collectors/encodeplus/targets.json'

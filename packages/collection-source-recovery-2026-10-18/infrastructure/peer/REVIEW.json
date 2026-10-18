@@ -1,0 +1,233 @@
+{
+  "schema_version": 1,
+  "outcome": "PASS scoped family candidate; common geometry-data binding required before integration",
+  "candidate_project_relative_path": "outputs/collection-readiness-post716cfcb-2026-10-17/encodeplus/infrastructure-exhaustive-structure-v1/FROZEN-PACKET",
+  "candidate_manifest_sha256": "ba06d8fbc4eb98aa2ac1f5add08828086353c6e4cd91d478f411f7c2ff19ec39",
+  "candidate_files": 89,
+  "reviewed_whitelist": {
+    "production_modified": false,
+    "files": [
+      {
+        "path": "collectors/encodeplus/infrastructure_logical.py",
+        "candidate": "runtime/collectors/encodeplus/infrastructure_logical.py",
+        "before_sha256": "e8c7b79d4477e495c8e5b531e0c77381039214a7762694a290ae2f6d4f076df4",
+        "after_sha256": "afcfa846fc242691f4ac7019fb4296680baacd75023e1d1497cad8ad2cd15584",
+        "new": false
+      },
+      {
+        "path": "collectors/encodeplus/collect.py",
+        "candidate": "runtime/collectors/encodeplus/collect.py",
+        "before_sha256": "adb0ec2b363732e2a360dd0549df3760df5901bc1d7576438200365cd6b6af02",
+        "after_sha256": "3822e5b1cc63562e62859e5b9a57fdb6a4dd388066e79fb6e79fb828fed17bab",
+        "new": false
+      },
+      {
+        "path": "collectors/encodeplus/infrastructure_flow_inventory.py",
+        "candidate": "runtime/collectors/encodeplus/infrastructure_flow_inventory.py",
+        "before_sha256": null,
+        "after_sha256": "0b7ab29e2d34815d846e7afcd6255901381e1b2c0f757863f1ea78d23882de52",
+        "new": true
+      },
+      {
+        "path": "collectors/encodeplus/infrastructure_printed_flow.py",
+        "candidate": "runtime/collectors/encodeplus/infrastructure_printed_flow.py",
+        "before_sha256": null,
+        "after_sha256": "de5f1c1bcaa0485c0adc022ff690a3b7c452fea631ba2ab7ebc62b96a8a61ba4",
+        "new": true
+      },
+      {
+        "path": "collectors/encodeplus/infrastructure-multiline-native-geometry.json",
+        "candidate": "runtime/collectors/encodeplus/infrastructure-multiline-native-geometry.json",
+        "before_sha256": null,
+        "after_sha256": "ce34644c285715bfb453e40b0431413bb10fa29287cac362cee7fd9c3bc4b732",
+        "new": true
+      },
+      {
+        "path": "collectors/encodeplus/test_infrastructure_printed_flow.py",
+        "candidate": "runtime/collectors/encodeplus/test_infrastructure_printed_flow.py",
+        "before_sha256": null,
+        "after_sha256": "75c12c9c54a017d9418bfb28d0abdab8de49a685a776a736cda40896f0af14b0",
+        "new": true
+      }
+    ],
+    "excluded_sibling": "transport.py and all other existing files are contextual snapshots, never promotion candidates"
+  },
+  "independent_executions": [
+    {
+      "command": "<shared Python3.12.14> -B -S -m unittest collectors.encodeplus.test_infrastructure_printed_flow -v",
+      "cwd": "<packet>/runtime",
+      "tests": 11,
+      "exit_code": 0,
+      "stdout": "portable-tests.stdout",
+      "stderr": "portable-tests.stderr"
+    },
+    {
+      "command": "<shared Python3.12.14> -B -S test_source_comparison.py -v",
+      "cwd": "<packet>",
+      "tests": 9,
+      "exit_code": 0,
+      "stdout": "source-tests.stdout",
+      "stderr": "source-tests.stderr"
+    },
+    {
+      "command": "python3 -B -S <packet>/verify_packet.py",
+      "tests": null,
+      "exit_code": 0,
+      "stdout": "verify-packet.stdout",
+      "stderr": "verify-packet.stderr",
+      "scope": "Normal copied project_records/validate_records/outputs replay, entire cached62-page IR; no native parse"
+    },
+    {
+      "command": "python3 -B -S independent_consumer.py <packet>",
+      "exit_code": 0,
+      "stdout": "independent-consumer.json",
+      "stderr": "independent-consumer.stderr",
+      "scope": "Own independent all-row JSONL/HTML/CSV consumer; no candidate projection imports"
+    }
+  ],
+  "independent_allrow_scope": {
+    "passed": true,
+    "packet_manifest_sha256": "ba06d8fbc4eb98aa2ac1f5add08828086353c6e4cd91d478f411f7c2ff19ec39",
+    "packet_files_unchanged": 89,
+    "source_units": 172,
+    "source_pages": 62,
+    "source_fragments_once": 1776,
+    "source_words_once": 18662,
+    "stats": {
+      "cells": 79,
+      "tables": 5,
+      "paragraphs": 385,
+      "lists": 19,
+      "items": 85,
+      "headings": 171,
+      "IMAGE": 5,
+      "nonlist": 8
+    },
+    "cross_page_relationships_unqualified": 38,
+    "multiline_geometry_fragments": 9,
+    "retained_native_queries_checked_metadata_only": 68,
+    "all_canonical_JSON_HTML_CSV_source_fields_and_superseded_fields_conserved": true,
+    "whole_publication_accepted": false,
+    "new_native_queries": 0,
+    "native_image_network_operations": 0
+  },
+  "page26_qualified_membership": [
+    {
+      "marker": "a)",
+      "block_index": 12,
+      "parents": []
+    },
+    {
+      "marker": "▸",
+      "block_index": 13,
+      "parents": [
+        "a)"
+      ]
+    },
+    {
+      "marker": "▸",
+      "block_index": 14,
+      "parents": [
+        "a)"
+      ]
+    },
+    {
+      "marker": "b)",
+      "block_index": 15,
+      "parents": []
+    },
+    {
+      "marker": "▸",
+      "block_index": 17,
+      "parents": [
+        "b)"
+      ]
+    },
+    {
+      "marker": "▸",
+      "block_index": 18,
+      "parents": [
+        "b)"
+      ]
+    }
+  ],
+  "source_fidelity_evidence": {
+    "source_pdf_sha256": "915fe1fdf8ff5da33acfce7d08637808cb57886fbbc7f157b2b81bfcf970827c",
+    "source_cache_sha256": "8bf0cf6e1d319d900fbdafff16dd8f051e945f39a6102aaad035fe3a4001afe9",
+    "all172_source_text_identity_metadata_tables_and_fragment_sequences_unchanged": true,
+    "exact_original_canonical_fields_recoverable_in_superseded_printed_flow_diagnostics": true,
+    "all_fragment_source_page_block_bbox_text_role_and_wordID_ownership_compared": true,
+    "HTML_every_source_fragment_once_in_source_order": true,
+    "CSV_id_text_HTML_sourcepages_match_JSONL": true,
+    "table_cell_text_rowspan_colspan_exact": 79,
+    "HTML_grid_spacing_policy": "Literal retained bounded cell text/spans authoritative in HTML; original whole-word table block text remains exact. Only whitespace sequence differs; no character/cell/span changes hidden.",
+    "existing_geometry_capsule_checked": "Exact fixed SHA; all9 fragments and68 line-query metadata matched old source text/bbox/wordID order. Native queries were not repeated.",
+    "source_word_or_glyph_reextraction": "None; uses exact previously qualified source IR and bounded query witness; does not independently requalify all native glyphs."
+  },
+  "source_integration_review": [
+    {
+      "file": "infrastructure_logical.py",
+      "lines": [
+        40,
+        42,
+        70,
+        80,
+        81,
+        98
+      ],
+      "finding": "Prior source validator runs first; new projection drives canonical HTML/ordered_blocks/text; final validator restores superseded fields and reprojects entire canonical records; default build_records surfaces scoped dimensions."
+    },
+    {
+      "file": "infrastructure_printed_flow.py",
+      "lines": [
+        11,
+        82,
+        103,
+        110,
+        146,
+        147,
+        150,
+        155
+      ],
+      "finding": "Fixed geometry source/hash, unique ordered leaves, explicit false cross-page/legal-intent/global gates, exact image placeholders; no transport or pixel APIs."
+    },
+    {
+      "file": "collect.py",
+      "lines": [
+        12
+      ],
+      "finding": "Family execution hashes include new root geometryJSON explicitly alongside Python and targets/requirements."
+    }
+  ],
+  "integration_prerequisite": {
+    "required": true,
+    "finding": "Common launcher/readiness component maps omit new root infrastructure-multiline-native-geometry.json under current generic family enumeration.",
+    "safety_context": "Family code_hashes includes it and loader pins its exact SHA, so missing/modified data already refuses; shared proof tuple must also bind it.",
+    "owner": "root",
+    "requested_action": "Append explicit new geometry JSON to launcher.code_binding and qa.readiness_binding.current_components; demonstrate mutation/missing changes/refusal with targeted tests.",
+    "peer_scope": "Family candidate is approved subject to this common binding integration; no independent pass for unreviewed shared code."
+  },
+  "transport_lineage": {
+    "runtime_transport_sha256": "16b8db775d37f4017b1dc4168add01dc47b44b971b4a3bd5e8574cc97d625a25",
+    "current_production_transport_sha256": "1c003e8d7de18b85249dc2d3b550968f0bafb9524ea58bcb0dc53e8c343f7f7d",
+    "excluded_from_native_projection_whitelist": true,
+    "reason": "Independent approved sibling MIME correction after native candidate context snapshot. Native projection sources are disjoint; no transport operation is invoked by this replay."
+  },
+  "limitations": [
+    "No new native PDF parsing, glyph extraction, pixel/image access, render, OCR, network, browser or publisher operation; source PDF only hashed.",
+    "Only whole-source literal printed grouping qualifies.38 cross-page paragraph relationships remain false; native reading order, broad nested-list hierarchy, paragraph continuation semantics, external dependencies, edition and whole publication remain false.",
+    "Owner37 existing-plus-new Infrastructure test total is historical owner evidence; independent rerun here is exactly11new portable+9whole-source methods, plus actual cached workflow and separate consumer.",
+    "No production, registry, source packet, gate, shared runtime or Git mutation. Prior reviewed transport MIME correction is deliberately excluded from whitelist."
+  ],
+  "packet_unchanged": true,
+  "runtime_at_review": {
+    "system_python": "3.9.6 (default, May 22 2026, 11:13:45) \n[Clang 21.0.0 (clang-2100.1.1.101)]",
+    "executable": "/Library/Developer/CommandLineTools/usr/bin/python3",
+    "executable_sha256": "bdea59019a38eb6600cc9e71e984a97fedadc406448431281e7657030f54987e",
+    "platform": "macOS-26.6.2-arm64-arm-64bit"
+  },
+  "production_modified": false,
+  "new_native_pages_parsed": 0,
+  "image_fetch_decode_extract_render_OCR_calls": 0,
+  "publisher_requests": 0
+}

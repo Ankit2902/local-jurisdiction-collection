@@ -1,0 +1,49 @@
+{
+  "schema": "owned-interpreter-version-usability-candidate-1",
+  "passed": true,
+  "production_modified": false,
+  "tests": {
+    "methods": 8,
+    "passed": true,
+    "controlled_baseline_reproductions": 2,
+    "actual_pip_install_or_browser_calls": 0
+  },
+  "current_actual_owned_version_query": {
+    "actual_owned_version": [
+      3,
+      12,
+      14
+    ],
+    "existing_receipt_version": [
+      3,
+      12,
+      14
+    ],
+    "same": true,
+    "receipt_python_before_after": {
+      "receipt": "2d1f08b78d8a4e3479d6ed4e8799e7afb890ee6612929bea731efa7f0af87f1e",
+      "python_binary": "8506f337a83611246ffcff62d6e96c6d2269e5db48508ca3ac2553d56c962aee"
+    },
+    "runtime_modified": false,
+    "setup_doctor_pip_browser_executed": false,
+    "publisher_requests": 0,
+    "source_sha256": "a924112d786e1df486389c7b82d7b611e6579e48a9ed007e30395ba4ae07bd0d",
+    "note": "Only Python stdlib sys/json version query executed with bytecode disabled. No dependency installation, browser or publication replay."
+  },
+  "runtime_source_sha256": "a924112d786e1df486389c7b82d7b611e6579e48a9ed007e30395ba4ae07bd0d",
+  "baseline_sha256": "5e2e8544c224a357393c8892ea25961b35212f2a5c5c3d22e89ff18de3ec5c06",
+  "test_sha256": "bfcdb935dabb1b32de31a0442f94e42f616b560cedd78009af9687643eabec7c",
+  "patch_sha256": "abeb4275cec77dea58575d4e8e94ad89c902b1b3a2b2ef6823c5cc84c314e975",
+  "behavior": [
+    "Setup checks actual existing/new owned interpreter is3.12 before pip installation; never replaces it silently.",
+    "Receipt python_version records actual owned version; optional setup_python_version records bootstrap interpreter.",
+    "Doctor compares actual owned version against3.12 and exact recorded patch version. Existing correctly recorded3.12 receipts remain valid without requiring the optional new field."
+  ],
+  "scope_limits": [
+    "Setup/doctor controls are deterministic isolated fixtures, not a new installation/live platform qualification. Prior actual fresh-setup proof retained as context.",
+    "Actual current3.12.14 interpreter query only; no setup/doctor/pip/browser or full source replay against real runtime.",
+    "Same-version binary replacement detection is outside this narrow version validation change; portable corpus helper already records actual binary hashes independently."
+  ],
+  "publisher_requests": 0,
+  "image_operations": 0
+}

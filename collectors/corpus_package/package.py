@@ -8,7 +8,7 @@ from common import *
 from readers import reader,READERS
 
 HERE=Path(__file__).resolve().parent
-MODULES=['common.py','readers.py','flagstaff.py','flagstaff_hierarchy.py','package.py','reader_utils.py','municode_html.py','encodeplus_html.py','readiness.py','ecode_html.py','american_legal_html.py']
+MODULES=['common.py','readers.py','flagstaff.py','flagstaff_hierarchy.py','package.py','reader_utils.py','municode_html.py','encodeplus_html.py','readiness.py','ecode_html.py','american_legal_html.py','american_legal_attachment.py']
 IMAGE_SUFFIXES={'.png','.jpg','.jpeg','.gif','.webp','.svg','.bmp','.avif','.tif','.tiff','.ico'}
 def code():return {n:sha((HERE/n).read_bytes()) for n in MODULES}
 def validate_input(root,proof,family):

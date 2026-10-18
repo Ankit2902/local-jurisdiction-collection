@@ -92,9 +92,10 @@ class OpsAcceptance(unittest.TestCase):
   runtime=self.root/'runtime';runtime.mkdir();packages=[{'name':line.split('==')[0],'version':line.split('==')[1]} for line in (ops.HERE/'requirements.txt').read_text().splitlines() if line and not line.startswith('#')]
   for name in ('package.json','node_modules/playwright/package.json','node_modules/playwright/index.cjs'):
    p=runtime/name;p.parent.mkdir(parents=True,exist_ok=True);p.write_text('{}' if name.endswith('.json') else 'safe shim')
-  self.save(runtime/'runtime.json',{'owner':ops.MARKER,'setup_complete':True,'packages':packages,'requirements_sha256':ops.sha(ops.HERE/'requirements.txt'),'browser_driver_sha256':{'node':'same'},'shim_sha256':ops.shim_hashes(runtime)})
+  self.save(runtime/'runtime.json',{'owner':ops.MARKER,'setup_complete':True,'python_version':[3,12,14],'packages':packages,'requirements_sha256':ops.sha(ops.HERE/'requirements.txt'),'browser_driver_sha256':{'node':'same'},'shim_sha256':ops.shim_hashes(runtime)})
   (runtime/'node_modules/playwright/index.cjs').write_text('changed shim')
   def captured(argv,*args,**kwargs):
+   if len(argv)>2 and argv[1]=='-c' and 'version_info' in argv[2]:return '[3,12,14]'
    if '--format=json' in argv:return json.dumps(packages)
    if str(ops.HERE/'browser_check.cjs') in [str(x) for x in argv]:raise AssertionError('Tampered alias must never execute')
    return ''

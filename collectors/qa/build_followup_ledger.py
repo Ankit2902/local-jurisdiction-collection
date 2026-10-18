@@ -8,6 +8,19 @@ from dispatch import command,Unsupported
 from readiness_binding import assess,current_components,canonical,selected_configuration,implementation_family
 
 def sha(p):return hashlib.sha256(p.read_bytes()).hexdigest()
+def refresh_catalog_operational_state(row,pub,prior_ledger):
+ """Current dispatch/access fields come only from catalog; no readiness credit.
+
+ Prior copied fields remain explicitly historical, never mixed with current
+ advisories or mistaken for current configuration qualification.
+ """
+ prior_fields={key:copy.deepcopy(row[key]) for key in ('dispatchable_config','operational_access_prohibited','access_stop_evidence') if key in row}
+ if prior_fields:
+  row['historical_operational_state']={'source_ledger':copy.deepcopy(prior_ledger),'scope':'Copied prior checkpoint fields; not current dispatch/access authority','values':prior_fields}
+ advisories=copy.deepcopy(pub.get('observed_access_advisories',[]))
+ row.update(dispatchable_config=pub['runnable'],configuration_qualified=pub['runnable'],operational_access_prohibited=bool(advisories),access_stop_evidence=copy.deepcopy(advisories),observed_access_advisories=advisories)
+ return row
+
 def build(proof_paths=(),source_scope_paths=()):
  priorpath=HERE/'readiness-requirements.json';prior=json.loads(priorpath.read_text());old={p['publication_id']:p for p in prior['publications']};catalog=load_catalog();targets={t['id']:t for t in catalog['targets']};rows=[];out=PROJECT/'outputs/collection-readiness-followup-2026-10-17/qa';descriptions={k:v['requirement'] for k,v in prior['publications'][0]['requirements'].items()};components={implementation_family(p):current_components(ROOT,p) for p in catalog['publications']}
  active_proofs={}
@@ -36,6 +49,7 @@ def build(proof_paths=(),source_scope_paths=()):
   ident=pub['id'];target=targets[pub['target_id']]
   row=copy.deepcopy(old.get(ident,{'publication_id':ident,'target_id':pub['target_id'],'cohort':'original' if pub['target_id'].startswith('original-') else 'expansion','jurisdiction':target['jurisdiction'],'state':target['state'],'requirements':{k:{'status':'not_established','requirement':v,'evidence':[]} for k,v in descriptions.items()},'jurisdiction_complete':False}))
   row.update(title=pub['title'],role=pub['role'],required_for_jurisdiction=pub['required_for_jurisdiction'],active_source_url=pub['source_url'],publisher=pub['publisher'],adapter_family=implementation_family(pub),source_family=pub['source_family'],configuration_qualified=pub['runnable'],unsupported_reason=pub.get('unsupported_reason'),expected_identity=pub.get('expected_identity'),required_publication_dependencies=pub.get('required_publication_dependencies',[]),observed_access_advisories=pub.get('observed_access_advisories',[]),followup_qualification=pub.get('qualification_evidence'),image_policy=pub['image_policy'])
+  refresh_catalog_operational_state(row,pub,{'path':str(priorpath.relative_to(ROOT)),'sha256':sha(priorpath)})
   row.setdefault('original_source_url',pub.get('original_source_url',pub['source_url']));row.setdefault('original_scope_kind',pub['scope_kind']);row['scope_narrowed_for_pass']=False
   try:row['dispatch_plan']=command(pub,target,'{OUT}')
   except Unsupported as error:row['dispatch_plan']={'runnable':False,'unsupported_reason':str(error)}

@@ -1,0 +1,27 @@
+--- a/collectors/corpus_package/american_legal_html.py
++++ b/collectors/corpus_package/american_legal_html.py
+@@ -7,6 +7,7 @@
+ from urllib.parse import urlsplit
+ from common import *
+ from reader_utils import envelope,lines,literal_components,finish
++from american_legal_attachment import project as project_attachments
+ 
+ IMAGE_POLICY='literal-[IMAGE]-no-image-fetch-v1'
+ READER='american-legal-native-html-publication-v1'
+@@ -171,4 +172,4 @@
+               'source_verification_report':'evidence/proofs/family-verification.json','source_coverage_path':'inherited-coverage.json','source_order':'Native-forward HTML header/block order equals independently reconstructed TOC preorder; original IR BFS ordinal retained separately',
+               'canonical_HTML_records':len(records)-sum(r['kind']=='publisher-toc-passthrough-container' for r in records),'structural_TOC_passthrough_records':sum(r['kind']=='publisher-toc-passthrough-container' for r in records),
+               'PDF_diagnostics_not_canonical_units':'evidence/input/pdf-pages.jsonl','inherited_coverage_unmodified':True,'source_native_sha256':export['sha256']}
+-    return finish(proof['publication_id'],rows,pubs,nodes,dispositions,provenance,exceptions,metadata,coverage)
++    return project_attachments(root,proof,family,finish(proof['publication_id'],rows,pubs,nodes,dispositions,provenance,exceptions,metadata,coverage))
+--- a/collectors/corpus_package/package.py
++++ b/collectors/corpus_package/package.py
+@@ -8,7 +8,7 @@
+ from readers import reader,READERS
+ 
+ HERE=Path(__file__).resolve().parent
+-MODULES=['common.py','readers.py','flagstaff.py','flagstaff_hierarchy.py','package.py','reader_utils.py','municode_html.py','encodeplus_html.py','readiness.py','ecode_html.py','american_legal_html.py']
++MODULES=['common.py','readers.py','flagstaff.py','flagstaff_hierarchy.py','package.py','reader_utils.py','municode_html.py','encodeplus_html.py','readiness.py','ecode_html.py','american_legal_html.py','american_legal_attachment.py']
+ IMAGE_SUFFIXES={'.png','.jpg','.jpeg','.gif','.webp','.svg','.bmp','.avif','.tif','.tiff','.ico'}
+ def code():return {n:sha((HERE/n).read_bytes()) for n in MODULES}
+ def validate_input(root,proof,family):

@@ -151,10 +151,12 @@ def rebuild(out,state):
    if art['role']=='root-start':external_pubroots.update(p['url'] for p in municipal_publications(load_artifact(out,art),base) if p['url']!=base)
  image_refs=[ref for r in records.values() for ref in r['assets'] if ref.get('image')]
  known_urls={clean_url(n['url']) for n in nodes.values()};image_urls={r['url'] for r in image_refs};ledger=[]
+ owned_definition_refs={(r['id'],a['source_target']['resolved_href']):a for r in records.values() for a in r['assets'] if a.get('kind')=='owned_definition_self_anchor' and not a.get('required') and a.get('source_target',{}).get('owner_id')==r['id']}
  for r in records.values():
   for link in r.get('links',[]):
    u=link['url'];p=urlsplit(u);cl=None
-   if u in image_urls:cl='intentional_image_omission'
+   if (r['id'],u) in owned_definition_refs:cl='owned_inline_definition_reference'
+   elif u in image_urls:cl='intentional_image_omission'
    elif u.split('#')[0] in assets:cl='required_nonimage_attachment'
    elif clean_url(u) in known_urls:cl='inventoried_publication_reference'
    elif p.scheme in ['mailto','tel']:cl='contact_reference'

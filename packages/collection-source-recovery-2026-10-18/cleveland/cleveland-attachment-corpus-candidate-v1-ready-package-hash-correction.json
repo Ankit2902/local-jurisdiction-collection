@@ -1,0 +1,20 @@
+{
+  "schema": "append-only-frozen-ready-label-correction-1",
+  "at": "2026-10-18T03:38:13.498041+00:00",
+  "frozen_manifest_sha256": "2f5a0a2ab511252d57071756328733e5b282963a2dda61eeadb1131274f3b219",
+  "frozen_ready_sha256": "16b13c9210a43b69da0b64fb9ef01c0803bef5c7b0d0321246c711dbd57550ad",
+  "frozen_files_modified": false,
+  "field": "READY.json/package_sha256",
+  "issue": "Ambiguous/misleading field name: value is the generated package run-manifest hash, not package.py source hash. This was not a baseline hash. terminal-summary.json correctly calls it package_manifest_sha256 and MANIFEST.json correctly binds both source files.",
+  "actual_run_manifest_sha256": "03cf6417b7432616fc9bdad62e8c9c8ba311d283dc354b2e6dc354214182c2c5",
+  "correct_package_py_source_sha256": "2b8d7655e85e7e9b175d1a9eed16bcb6eecb0ba8dc5a80abf1c1a112ef1260ba",
+  "identical_source_paths": [
+    "candidate/package.py",
+    "package/packager-source/package.py"
+  ],
+  "authoritative_runtime_manifest_entries": {
+    "candidate/package.py": "2b8d7655e85e7e9b175d1a9eed16bcb6eecb0ba8dc5a80abf1c1a112ef1260ba",
+    "package/packager-source/package.py": "2b8d7655e85e7e9b175d1a9eed16bcb6eecb0ba8dc5a80abf1c1a112ef1260ba"
+  },
+  "promotion_rule": "Use frozen manifest source-file hashes (and minimal MODULES delta) for runtime promotion. Do not use the wrongly named READY alias as a source-code hash."
+}

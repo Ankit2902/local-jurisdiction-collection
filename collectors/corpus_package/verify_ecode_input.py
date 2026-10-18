@@ -2,7 +2,7 @@
 """Read-only exact explicitly selected eCode engine.verify; never acquisition/migration."""
 import sys
 sys.dont_write_bytecode=True
-import argparse,base64,contextlib,datetime,hashlib,importlib,importlib.metadata,json,platform,socket,subprocess,types
+import argparse,base64,contextlib,datetime,hashlib,importlib,importlib.metadata,importlib.util,json,platform,socket,subprocess,types
 from pathlib import Path
 from unittest.mock import patch
 
@@ -15,6 +15,14 @@ def tree(root):
   if p.is_file():out[p.relative_to(root).as_posix()]=sha(p)
  return out
 def runtime():return {'python':sys.version,'platform':platform.platform(),'python_executable':str(Path(sys.executable).resolve()),'python_executable_sha256':sha(Path(sys.executable).resolve()),'packages':dict(sorted((d.metadata['Name'],d.version) for d in importlib.metadata.distributions() if d.metadata.get('Name')))}
+def verification_dependencies():
+ missing=[]
+ for module,distribution in [('PIL.Image','Pillow'),('bs4','beautifulsoup4'),('requests','requests'),('pypdf','pypdf')]:
+  try:available=importlib.util.find_spec(module) is not None
+  except (ImportError,ModuleNotFoundError,ValueError):available=False
+  if not available:missing.append(distribution+' ('+module+')')
+ if missing:raise ValueError('Missing read-only source-verification dependencies: '+', '.join(missing)+'. Install the exact selected collector dependencies and collectors/corpus_package/requirements-verification.txt using the same Python interpreter. No verification output was created; the portable corpus writer/verifier itself remains standard-library only.')
+
 def main():
  ap=argparse.ArgumentParser(description=__doc__);ap.add_argument('--input',required=True,type=Path);ap.add_argument('--collector-root',required=True,type=Path);ap.add_argument('--publication-id',required=True);ap.add_argument('--out',required=True,type=Path);a=ap.parse_args()
  import re
@@ -23,6 +31,7 @@ def main():
  if out.exists() or out.is_relative_to(root) or root.is_relative_to(out) or out.is_relative_to(src):raise ValueError('Fresh disjoint proof directory required')
  if {p.name:sha(p) for p in src.glob('*.py')}!=expected:raise ValueError('Explicit standard verifier source is not exact retained executed revision')
  if cp['config']['family']!='ecode360':raise ValueError('eCode360 only')
+ verification_dependencies()
  out.mkdir(parents=True);before=tree(root);codes=tree(src);rt=runtime();started=datetime.datetime.now(datetime.timezone.utc).isoformat();calls=[]
  def forbidden(*args,**kwargs):calls.append('forbidden_network_process_image_decode');raise AssertionError('Offline exact verification forbids network/process/image decoding')
  try:

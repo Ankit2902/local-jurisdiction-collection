@@ -1,0 +1,14 @@
+--- collectors/encodeplus/transport.py
++++ collectors/encodeplus/transport.py
+@@ -38,9 +38,9 @@
+    time.sleep(max(0,max(global_state.get('last_start',0),global_state.get('last_completed',0))+REQUEST_GAP_SECONDS-time.time()));global_state['last_start']=time.time();atomic_json(global_path,global_state);started=now();error=None;image_skip=False
+    try:
+     req=urllib.request.Request(url,headers={'User-Agent':'CompliSolv public publication collection/1.0'})
+-    response=urllib.request.build_opener(NoRedirect()).open(req,timeout=timeout);status=response.status;headers=dict(response.headers);image_skip=str(response.headers.get('Content-Type','')).lower().startswith('image/');body=b'' if image_skip else response.read();response.close()
++    response=urllib.request.build_opener(NoRedirect()).open(req,timeout=timeout);status=response.status;headers=dict(response.headers);image_skip=str(response.headers.get('Content-Type','')).strip().lower().startswith('image/');body=b'' if image_skip else response.read();response.close()
+    except urllib.error.HTTPError as e:
+-    status=e.code;headers=dict(e.headers);image_skip=str(e.headers.get('Content-Type','')).lower().startswith('image/');error=str(e)
++    status=e.code;headers=dict(e.headers);image_skip=str(e.headers.get('Content-Type','')).strip().lower().startswith('image/');error=str(e)
+     try:body=b'' if image_skip else e.read()
+     except Exception as read_error:body=b'';error+='; response read failed: '+str(read_error)
+     finally:e.close()

@@ -7,6 +7,7 @@ from html.parser import HTMLParser
 from urllib.parse import urlsplit
 from common import *
 from reader_utils import envelope,lines,literal_components,finish
+from american_legal_attachment import project as project_attachments
 
 IMAGE_POLICY='literal-[IMAGE]-no-image-fetch-v1'
 READER='american-legal-native-html-publication-v1'
@@ -171,4 +172,4 @@ def read_projection(root,proof,family):
               'source_verification_report':'evidence/proofs/family-verification.json','source_coverage_path':'inherited-coverage.json','source_order':'Native-forward HTML header/block order equals independently reconstructed TOC preorder; original IR BFS ordinal retained separately',
               'canonical_HTML_records':len(records)-sum(r['kind']=='publisher-toc-passthrough-container' for r in records),'structural_TOC_passthrough_records':sum(r['kind']=='publisher-toc-passthrough-container' for r in records),
               'PDF_diagnostics_not_canonical_units':'evidence/input/pdf-pages.jsonl','inherited_coverage_unmodified':True,'source_native_sha256':export['sha256']}
-    return finish(proof['publication_id'],rows,pubs,nodes,dispositions,provenance,exceptions,metadata,coverage)
+    return project_attachments(root,proof,family,finish(proof['publication_id'],rows,pubs,nodes,dispositions,provenance,exceptions,metadata,coverage))

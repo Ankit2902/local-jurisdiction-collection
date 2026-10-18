@@ -103,11 +103,18 @@ def runtime_env(runtime):
     return python, node, env
 
 
+def interpreter_version(python):
+    version = json.loads(captured([python, '-c', 'import sys,json;print(json.dumps(list(sys.version_info[:3])))']))
+    if not isinstance(version, list) or len(version) != 3 or any(type(part) is not int or part < 0 for part in version):
+        raise OperationError('Python interpreter did not report a valid version triplet.')
+    return version
+
+
 def setup(runtime, python_command):
     if os.name != 'posix':
         raise OperationError('Current publisher gates require POSIX file locks. Use a macOS or Linux graphical host; Windows is not yet qualified.')
     runtime, python = runtime_paths(runtime)
-    version = json.loads(captured([python_command, '-c', 'import sys,json;print(json.dumps(list(sys.version_info[:3])))']))
+    version = interpreter_version(python_command)
     if version[:2] != [3, 12]:
         raise OperationError('The integrated runtime is pinned to Python 3.12. Pass --python /path/to/python3.12.')
     marker = runtime / 'runtime.json'
@@ -118,6 +125,9 @@ def setup(runtime, python_command):
     save(marker, dict(previous, owner=MARKER, setup_complete=False, updated_at=now()))
     if not python.exists():
         subprocess.run([python_command, '-m', 'venv', str(runtime / 'venv')], check=True)
+    owned_version = interpreter_version(python)
+    if owned_version[:2] != [3, 12]:
+        raise OperationError('Owned runtime Python is not 3.12. Use a fresh runtime directory with Python 3.12; setup will not replace an existing interpreter.')
     log_path = runtime / 'install.log'
     print('Installing the pinned runtime. Log: ' + str(log_path), flush=True)
     with log_path.open('a') as log:
@@ -139,7 +149,7 @@ def setup(runtime, python_command):
     packages = json.loads(captured([python, '-m', 'pip', 'list', '--format=json']))
     check_pins(packages)
     receipt = dict(owner=MARKER, setup_complete=True, created_at=previous.get('created_at', now()),
-                   updated_at=now(), python=str(python), python_version=version,
+                   updated_at=now(), python=str(python), python_version=owned_version, setup_python_version=version,
                    node=str(node), node_version=captured([node, '--version']).strip(),
                    requirements_sha256=sha(HERE / 'requirements.txt'), packages=packages,
                    shim_sha256=shim_hashes(runtime),
@@ -301,6 +311,11 @@ def doctor(runtime, target=None, publication=None, browser=False, output=None):
     try:
         python, node, env = runtime_env(runtime)
         receipt = read(runtime / 'runtime.json')
+        owned_version = interpreter_version(python)
+        if owned_version[:2] != [3, 12]:
+            issues.append('Owned runtime Python is not 3.12; use a fresh runtime directory created with Python 3.12.')
+        if receipt.get('python_version') != owned_version:
+            issues.append('Owned runtime Python version differs from the setup receipt; rerun setup before acquisition.')
         if not receipt.get('setup_complete'):
             issues.append('Setup did not finish; rerun setup.')
         if receipt.get('requirements_sha256') != sha(HERE / 'requirements.txt'):
@@ -343,6 +358,7 @@ def code_binding(family):
     files += [p for folder in ('configs', 'policies') for p in (ROOT / 'collectors' / family / folder).rglob('*.json')]
     if family == 'encodeplus':
         files.append(ROOT / 'collectors/encodeplus/targets.json')
+        files.append(ROOT / 'collectors/encodeplus/infrastructure-multiline-native-geometry.json')
     if family == 'originals':
         # Source character/ownership profiles are parser inputs, not optional
         # reports. Bind them alongside the original-source adapter modules.
@@ -702,7 +718,8 @@ def main(argv=None):
         p.add_argument('--target', required=name in ('run', 'verify'))
         p.add_argument('--publication')
         if name == 'plan':
-            p.add_argument('--all', action='store_true')
+            p.add_argument('--all', action='store_true', help='Plan the primary publication for every selected target')
+            p.add_argument('--all-publications', action='store_true', help='Plan all inventoried primary/secondary publications, including unqualified discoveries; no acquisition')
             p.add_argument('--cohort', choices=('expansion', 'original', 'all'), default='all')
         if name == 'doctor':
             p.add_argument('--browser', action='store_true')
@@ -730,6 +747,8 @@ def main(argv=None):
                 command += ['--publication', args.publication]
             if args.all:
                 command += ['--all']
+            if args.all_publications:
+                command += ['--all-publications']
             command += ['--cohort', args.cohort]
             return subprocess.run(command, cwd=ROOT).returncode
         else:

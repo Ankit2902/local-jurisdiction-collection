@@ -1,0 +1,28 @@
+{
+  "schema_version": 1,
+  "publisher_requests": 0,
+  "native_parses": 0,
+  "production_edits": false,
+  "database_or_git_writes": false,
+  "catalog_qualification_audit": {
+    "command": "SUPPORTED_PYTHON -B collectors/registry/verify_catalog.py",
+    "exit": 0,
+    "targets": 130,
+    "publications": 225,
+    "dispatchable": 195,
+    "errors": []
+  },
+  "bare_system_python_audit_attempt": {
+    "exit": 1,
+    "reason": "ModuleNotFoundError: No module named bs4, imported by followup_qualification.py",
+    "interpretation": "Documented standard-library planning versus source-qualification dependency boundary; correct owned runtime passes."
+  },
+  "candidate_ledger_regressions": {
+    "count": 6,
+    "passed": true,
+    "actual_catalog_rows": 225,
+    "dispatch_plans": 195,
+    "unsupported_refusals": 30,
+    "requirements_and_readiness_unchanged": true
+  }
+}

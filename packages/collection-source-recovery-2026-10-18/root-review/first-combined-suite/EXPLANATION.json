@@ -1,0 +1,9 @@
+{
+  "first_suite_passed": false,
+  "only_failed_program": "ops-readonly-binding",
+  "reason": "The existing browser-shim tamper test mocked captured() without answering the newly required owned-interpreter version query. Its old fixture returned an empty string before reaching the tampered shim.",
+  "correction": "Supply explicit matching Python 3.12.14 runtime receipt and controlled version-query output. The unchanged tamper assertion still requires alias rejection and no browser execution.",
+  "production_code_changed_for_failure": false,
+  "corrected_19_case_program_passed": true,
+  "full_replacement_suite": "source-recovery-final-suite-v2; record terminal outcome separately"
+}

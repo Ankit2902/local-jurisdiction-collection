@@ -104,6 +104,26 @@ def image_attribute(name,value):
  if 'data:image/' in text.lower() or (name in {'src','srcset','href','xlink:href','data','style','background','poster'} and re.search(r'data\s*:',text,re.I)):
   return 'image-data-sha256:'+digest(text.encode())
  return value
+def owned_definition_reference(el,s,base,owner):
+ # Only a publisher definition's own inert term anchor inside this exact body.
+ if urlsplit(base).netloc!='ecode360.com' or not str(owner).isdigit():return None
+ roots=s.select('[id="'+str(owner)+'_content"].content')
+ if len(roots)!=1 or roots[0] not in el.parents:return None
+ if 'termLink' not in el.get('class',[]) or not re.fullmatch(r'\s*return\s+false\s*;?\s*',el.get('onclick','')):return None
+ if el.get('type','').strip().lower() not in ['', 'text/html']:return None
+ parent=el.parent
+ if parent.name!='dfn' or 'term' not in parent.get('class',[]):return None
+ definition=el.find_parent('section',class_='definition')
+ if not definition or definition.get('id') is None:return None
+ target=definition['id'];parts=urlsplit(urljoin(base,el['href']))
+ if not target.isdigit() or parts.scheme!='https' or parts.netloc!='ecode360.com' or parts.path!='/'+target or parts.query or parts.fragment!=target:return None
+ if len(roots[0].find_all(id=target))!=1:return None
+ nearest=definition.find_parent(lambda p:'content' in p.get('class',[]) and bool(re.fullmatch(r'[0-9]+_content',p.get('id',''))))
+ if nearest is not roots[0]:return None
+ text=definition.select_one('.deftext')
+ if text is None or not text.get_text(' ',strip=True):return None
+ return {'owner_id':str(owner),'definition_id':target,'body_root_id':str(owner)+'_content','source_href':el['href'],'resolved_href':urljoin(base,el['href']),'definition_html_sha256':digest(str(definition).encode()),'definition_text_sha256':digest(text.get_text(' ',strip=True).encode()),'basis':'Unique typed definition target, exact inert own term anchor and substantive definition body already retained by this owner'}
+
 def asset_refs(html,base,owner):
  s=BeautifulSoup(html,'html.parser');out={}
  def add(href,kind):
@@ -128,7 +148,12 @@ def asset_refs(html,base,owner):
   if name=='a' and el.get('href'):
    u=el['href']
    if el.get('type','').lower().startswith('image/'):add(u,'image_asset')
-   elif re.search(r'(?:^|[/_-])(attachment|download|document|exhibit|media)(?:[/_?=-]|$)',u,re.I) or re.search(r'\b(download|attachment|exhibit|figure|map)\b',el.get_text(' ',strip=True),re.I) or re.search(r'\.(pdf|docx?|xlsx?|csv|zip|tiff?|png|jpe?g|gif|svg)(?:[?#]|$)',u,re.I):add(u,'attachment')
+   elif re.search(r'(?:^|[/_-])(attachment|download|document|exhibit|media)(?:[/_?=-]|$)',u,re.I) or re.search(r'\b(download|attachment|exhibit|figure|map)\b',el.get_text(' ',strip=True),re.I) or re.search(r'\.(pdf|docx?|xlsx?|csv|zip|tiff?|png|jpe?g|gif|svg)(?:[?#]|$)',u,re.I):
+    proof=owned_definition_reference(el,s,base,owner)
+    if proof:
+     key=clean_url(proof['resolved_href'])
+     if not out.get(key,{}).get('required'):out[key]={'url':key,'owner_id':str(owner),'required':False,'image':False,'kind':'owned_definition_self_anchor','policy':'Already retained own definition; no separate document acquisition','source_target':proof}
+    else:add(u,'attachment')
   for css in [el.get('style',''),el.get_text() if name=='style' else '']:
    for m in re.finditer(r'url\(\s*[\"\']?([^\)\"\']+)',css,re.I):add(m.group(1).strip(),'css_asset')
  return list(out.values())
@@ -190,10 +215,14 @@ def substantive(html):
 def link_refs(html,base,owner):
  s=BeautifulSoup(html,'html.parser');return [{'url':('image-data-sha256:'+digest(a['href'].encode()) if 'data:image/' in a['href'].lower() or (image_anchor(a) and re.search(r'data\s*:',a['href'],re.I)) else urljoin(base,a['href'])),'label':a.get_text(' ',strip=True),'owner_id':owner} for a in s.select('a[href]') if a['href']]
 
-def _record(nid,label,kind,body,url,parent=None):
+def _record(nid,label,kind,body,url,parent=None,independent_owners=None):
  # Own body only. Nested independently identified content is never counted twice.
  clone=BeautifulSoup(str(body),'html.parser')
- for child in clone.select('.content .content,article article'):child.decompose()
+ for child in list(clone.select('.content[id]')):
+  if child.parent is None:continue
+  target=child.get('id','')
+  if target==str(nid)+'_content':continue
+  if re.fullmatch(r'[0-9]+_content',target) and target[:-8] in (independent_owners or set()):child.decompose()
  for ui in clone.select('script,button,input,.actions,.selection-control'):ui.decompose()
  for a in clone.select('a[href^="#"]'):a['href']='https://ecode360.com/'+str(nid)+a['href']
  original=str(clone);refs=asset_refs(original,url,str(nid));occurrences=image_occurrences(original,str(nid));links=link_refs(original,url,str(nid));clone=normalized_images(original);serial=ec.serialize(clone,url);html=str(clone);text=serial['full_text']
@@ -207,13 +236,14 @@ def parse_ecode(raw,url,expected):
  root,nodes=ecode_inventory(raw,url);by={n['id']:n for n in nodes};records=[];dispositions=[];owned=set()
  code=s.select_one('#codeContent')
  if not code:raise QualificationError('No legal codeContent')
- for body in code.select('[id$="_content"].content'):
+ bodies=code.select('[id$="_content"].content');independent_owners={b['id'][:-8] for b in bodies if re.fullmatch(r'[0-9]+_content',b['id'])}
+ for body in bodies:
   nid=body['id'][:-8];header=s.select_one('#childContent .contentTitle[data-guid="'+nid+'"]') or s.select_one('[id="'+nid+'_title"]');label=header.get('data-full-title') if header else None;kind=header.get('data-code-content-type') if header else None
   if not kind:
    body_kind=next((c[:-8] for c in body.get('class',[]) if c.endswith('_content')),None);kind=body_kind
   if not label and nid==pageid:label=s.select_one('#pageTitle').get_text(' ',strip=True) if s.select_one('#pageTitle') else s.body.get('data-page-string');kind=kind or by.get(nid,{}).get('kind','container')
   if not label:raise QualificationError('Owned content lacks matching heading '+nid)
-  rec=_record(nid,label,kind or 'container',body,'https://ecode360.com/'+nid,(header.get('data-parent-guid') if header else None) or (pageid if nid!=pageid else None));owned.add(nid)
+  rec=_record(nid,label,kind or 'container',body,'https://ecode360.com/'+nid,(header.get('data-parent-guid') if header else None) or (pageid if nid!=pageid else None),independent_owners);owned.add(nid)
   if substantive(rec['content_html']):records.append(rec);dispositions.append({'id':nid,'classification':'owned_content','evidence':'exact '+nid+'_content and own heading'})
   elif has_owned_visual(rec['content_html']) or any(a['required'] for a in rec['assets']):records.append(rec);dispositions.append({'id':nid,'classification':'unresolved_nontext_document','evidence':'Own body has only nonimage embed/document; original bytes are separate from normalized primary text'})
   elif re.search('reserved|repealed',label,re.I):dispositions.append({'id':nid,'classification':'reserved_or_repealed_empty','evidence':label})
@@ -222,7 +252,12 @@ def parse_ecode(raw,url,expected):
   if nid not in by:nodes.append({'id':nid,'url':'https://ecode360.com/'+nid,'heading':label,'kind':kind,'observed_on':url})
  # Every legal body and note must have an owner, even on pages that own history.
  own=strip_processing(BeautifulSoup(str(code),'html.parser'))
- for el in own.select('#toc,#displayDate,.content,.contentTitle,button,input,.actions,.selection-control'):el.decompose()
+ for el in list(own.select('.content[id]')):
+  if el.parent is None:continue
+  target=el.get('id','')
+  if el.parent is not None and re.fullmatch(r'[0-9]+_content',target) and target[:-8] in owned:el.decompose()
+ if own.select_one('.content'):raise QualificationError('Unowned legal content container outside exact independently owned GUID bodies')
+ for el in own.select('#toc,#displayDate,.contentTitle,button,input,.actions,.selection-control'):el.decompose()
  if own.get_text(' ',strip=True) or has_owned_visual(str(own)) or asset_refs(str(own),url,pageid):raise QualificationError('Unowned legal/notes/visual content requires profiling: '+own.get_text(' ',strip=True)[:180])
  if pageid not in owned:
   label=by.get(pageid,{}).get('heading','')

@@ -1,0 +1,41 @@
+{
+  "source_manifest": "fd2f54293862534c12d3b59b3a825a1168837a0c78e467723e609746dba4c92d",
+  "peer_manifest": "d605f59a2ecd5df13232cbcecf276c23f38b57d8e2cc8974378fae477a26634b",
+  "peer_review": "d9c61484baef94e24c77107c77997592879371e8cb07bb84413c336be7ea2251",
+  "files": [
+    {
+      "destination": "collectors/ecode/adapters.py",
+      "before_sha256": "169c6f9411d0858b4a032e3d0faae5168aa1e7c07ab01bad39afc8c44522844b",
+      "candidate_path": "candidate-v3/adapters.py",
+      "candidate_sha256": "daeac010f79b210634459ee30a44f69dccd8503bee456f1e8f5710626af6933c"
+    },
+    {
+      "destination": "collectors/ecode/engine.py",
+      "before_sha256": "6a39ccae5a28d1ac2e6241e20cdfe8606038a03142d55b3637c614774d716e68",
+      "candidate_path": "candidate-v3/engine.py",
+      "candidate_sha256": "2aa9dfcd020199b9b80e5e8274713dbf8ddf025db439ef6db6e3b3d031a91fd8"
+    },
+    {
+      "destination": "collectors/corpus_package/verify_ecode_input.py",
+      "before_sha256": "9c278c13e000a833f249ce51c3223f362f7e76248277caece37853ea80850a18",
+      "candidate_path": "handoff-candidate/verify_ecode_input.py",
+      "candidate_sha256": "4a55f1cc53e082719dedc3b5cc6d7cc08e2bc8786e25d204fd4288465300252d"
+    },
+    {
+      "destination": "collectors/qa/test_ecode_body_ownership.py",
+      "candidate_path": "test_ecode_body_ownership.py",
+      "candidate_sha256": "a6c70f72ec6146b2c406d7e31d9bffb322be14d81878416075dec2899c2f95c3",
+      "command": "$PY -B collectors/qa/test_ecode_body_ownership.py --collector-root collectors/ecode",
+      "expected_tests": 18
+    },
+    {
+      "destination": "collectors/qa/test_ecode_helper_preflight.py",
+      "candidate_path": "test_ecode_helper_preflight.py",
+      "candidate_sha256": "a8339030f6e2615ee9890f6e1fab2f6d7e3c3fe330847497caeb04ef05c16293",
+      "command": "$PY -B collectors/qa/test_ecode_helper_preflight.py --input PROOF/corrected-corpus-v3/evidence/input --helper collectors/corpus_package/verify_ecode_input.py",
+      "expected_tests": 6,
+      "fixture": "Use actual470file corrected retainedinput; no new synthetic source or publisher requests."
+    }
+  ],
+  "historical_raw_and_proofs_unchanged": true
+}

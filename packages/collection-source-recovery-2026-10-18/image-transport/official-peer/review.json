@@ -1,0 +1,45 @@
+{
+  "schema": "independent-official-error-image-transport-review-1",
+  "passed": true,
+  "production_modified_by_peer": false,
+  "reviewed_sources": [
+    {
+      "file": "collectors/official/transport.py",
+      "before": "856f00a0de7d561839ba8842af7ae49483fd5efd31fb0352dbe7cbccc011a148",
+      "after": "aa776a422fb593bd04bc085befc30d0ac9ff20272daa3044735f7001aa24d6e3"
+    },
+    {
+      "file": "collectors/official/post_transport.py",
+      "before": "ad9d0b3662f49ffe54420f7b3b4cb1d62acfce19be4e4a394243bc92c2b06c33",
+      "after": "4b8f7d2cbe3f11da627c3ea485777b71440b3da995bc5754b5ba5dc002f9d83d"
+    }
+  ],
+  "production_test_sha256": "592b7c6abbedc8d85b7e01fe4c2c4340f404a5b0122c9a5f94ae0ec5433d6fb2",
+  "independent_test_sha256": "aba8c1a23969749b5b1dd71c7de559f1eaa1069eada4e45c380afc81adfdc9dd",
+  "production_methods": 4,
+  "independent_methods": 3,
+  "independent_parameter_cases": 14,
+  "all_passed": true,
+  "error_image_body_read_calls": 0,
+  "behavior_verified": [
+    "GET/POST403404429 image error MIME omits body before read and reports0bytes/emptySHA.",
+    "Mixed-case Content-Type names, padded uppercase SVG MIME and charset parameters preserve omission.",
+    "403429 access stops remain set and receive exact original status/headers/Retry-After.",
+    "404 image with challenge header stops without reading body; ordinary image404 does not invent an access stop.",
+    "Nonimage403/404 error evidence remains byte-exact; body-based challenge detection remains available.",
+    "Existing synthetic collector image no-fetch/exactIMAGE output control passes."
+  ],
+  "no_state_or_network": {
+    "reserve_and_stop_mocked": true,
+    "real_gate_operations": 0,
+    "socket_connect_forbidden_in_independent_controls": true,
+    "publisher_requests": 0,
+    "browser_operations": 0,
+    "image_decode_render_extract_ocr": 0
+  },
+  "scope_limits": [
+    "Synthetic response objects and source inspection, not new live publisher acquisition.",
+    "MIME decision matches existing successful-response policy; no new generic binary sniffing or altered legal-text treatment.",
+    "This corrects error-response image body acquisition only; it does not reset a stop or change collection acceptance."
+  ]
+}

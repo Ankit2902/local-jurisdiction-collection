@@ -37,10 +37,14 @@ def project_records(pages,inventory,cfg,raw_ref,metadata=None,list_witness=None)
  records[54]['source_nested_list_native_witness']=copy.deepcopy(list_witness)
  records[0]['source_document_evidence']={'profile':source.PROFILE,'native_metadata':metadata,'native_inventory':copy.deepcopy(inventory),'source_control_count':142,'source_word_count':18662,'cross_page_units':40,'required_external_legal_dependencies_complete':False,'edition_complete':False,'nested_list_hierarchy_qualified':False,'paragraph_continuation_semantics_qualified':False}
  records[0]['superseded_detector_diagnostics']={'schema_version':1,'unit':'whole_native_document','reason':'Source printed units supersede generic physical-page records; every original page/TOC/cover/table diagnostic remains exact.','raw_ref':raw_ref,'raw_sha256':source.SHA,'original_page_records':copy.deepcopy(pages)}
+ validate_prior_records(records,cfg)
+ from .infrastructure_printed_flow import project as printed_flow_project
+ records,flow_dimensions=printed_flow_project(records)
+ dimensions['source_printed_flow_dimensions']=flow_dimensions
  validate_records(records,cfg)
  return records,dimensions
 
-def validate_records(records,cfg):
+def validate_prior_records(records,cfg):
  assert cfg['id']==source.ID and cfg['url']==source.URL,'Wrong Infrastructure record configuration'
  assert len(records)==172 and len({r['id'] for r in records})==172,'Infrastructure source-unit identity/count mismatch'
  assert all(r.get('unit')==UNIT and r.get('document_id')==source.ID and r.get('raw_sha256')==source.SHA and r.get('page_count')==62 and 'physical_page' not in r for r in records),'Infrastructure logical/page/source dimensions conflated'
@@ -63,6 +67,20 @@ def validate_records(records,cfg):
  assert all(r['raw_ref']==old[0]['raw_ref'] and r['publication']==TITLE and r['jurisdiction']=='Overland Park, Kansas' and r['state']=='KS' for r in records),'Infrastructure record raw/context ownership differs'
  assert all(r['canonical_structure_selection']['source_outline_ordinal']==(r['source_outline']['ordinal'] if r['source_outline'] else None) for r in records),'Infrastructure selection outline binding differs'
 
+def validate_records(records,cfg):
+ """Reconstruct exact prior source profile, then compare the complete new projection."""
+ from .infrastructure_printed_flow import PROFILE,project as printed_flow_project
+ prior=[]
+ for record in records:
+  assert record.get('source_printed_flow_evidence',{}).get('profile')==PROFILE,'Missing current whole-source printed-flow profile'
+  r=copy.deepcopy(record);fields=r['superseded_printed_flow_diagnostics']['original_fields']
+  for k,v in fields.items():r[k]=copy.deepcopy(v)
+  if 'html' not in fields:r.pop('html',None)
+  r.pop('superseded_printed_flow_diagnostics');r.pop('source_printed_flow_evidence');prior.append(r)
+ validate_prior_records(prior,cfg)
+ expected,_=printed_flow_project(prior)
+ assert records==expected,'Whole-source printed-flow canonical/diagnostic fields differ from source reconstruction'
+
 def build_records(data,cfg,raw_ref,page_parser):
  assert matches(data,cfg)
  pins={k:importlib.metadata.version(k) for k in RUNTIME_PINS};assert pins==RUNTIME_PINS,'Infrastructure source parser runtime differs from tested pins'
@@ -77,6 +95,7 @@ def build_records(data,cfg,raw_ref,page_parser):
  # Own extractable characters/flat printed units are measured. Full text semantics,
  # list/paragraph intent and required document closure deliberately remain false.
  details={'metadata':metadata,'pages':62,'physical_page_count':62,'normalized_record_count':172,'canonical_record_unit':UNIT,'parser_profile':source.PROFILE,'source_sha256':source.SHA,'runtime_pins':pins,'source_native_text_coverage_complete':False,'source_extractable_characters_conserved':True,'source_flat_printed_units_qualified':True,'source_cover_units':1,'source_table_of_contents_units':1,'source_other_printed_heading_units':170,'source_flat_fragment_order_qualified':True,'source_logical_structure_qualified':False,'source_native_reading_order_complete':False,'nested_list_hierarchy_qualified':False,'source_selected_nested_list_dimensions':{'profile':nested.PROFILE,'source_unit':nested.ID,'physical_page':26,'outer_items':2,'child_items':4,'selected_printed_hierarchy_qualified':True,'whole_document_list_qualification':False},'paragraph_continuation_semantics_qualified':False,'required_external_legal_dependencies_complete':False,'edition_currentness_qualified':False,'pdf_extractable_text_reconciled':True,'detected_table_cells_qualified':True,'detected_table_count':5,'detected_table_cells':79,'pdf_table_semantics_complete':False,'reading_order_manual_review_required':True,'source_infrastructure_dimensions':summary(pages),'source_printed_unit_dimensions':{k:v for k,v in dimensions.items() if k not in ['original_page_records','canonical_pages']},'review_conditions':{'reading_order':'Untagged flat source outline and preserved source fragments do not establish nested list/paragraph intent','spacing':'Three previously qualified TOC leader/folio full-line spacing disagreements remain explicit','table_note':'Physical53 prints height marker2, printed note begins1; no reassociation','external_dependencies':'Current Construction Specifications/StandardDetails/ApprovedMaterials/KCMMB/KDOT/TrafficControlHandbook/StreetlightDesignManual remain unresolved','edition':'CoverMarch1,2024 and metadata draft title/creation date remain distinct; no adoption/currentness qualification'}}
+ details['source_exhaustive_printed_flow_dimensions']=dimensions['source_printed_flow_dimensions']
  return records,details
 
 def outputs(records):

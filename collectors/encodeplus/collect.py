@@ -9,7 +9,7 @@ from .documents import qualify_document
 from .publication_references import reconcile,qualify_bound_document
 HERE=pathlib.Path(__file__).resolve().parent
 TARGETS=read_json(HERE/'targets.json')
-def code_hashes():return {p.name:digest(p.read_bytes()) for p in sorted(HERE.glob('*.py')) if p.name!='tests.py'}|{name:digest((HERE/name).read_bytes()) for name in ['targets.json','requirements.txt']}
+def code_hashes():return {p.name:digest(p.read_bytes()) for p in sorted(HERE.glob('*.py')) if p.name!='tests.py'}|{name:digest((HERE/name).read_bytes()) for name in ['targets.json','requirements.txt','infrastructure-multiline-native-geometry.json']}
 def runtime_info():
  packages={}
  for name in ['beautifulsoup4','brotli','pypdf','fonttools','pdfplumber','pypdfium2','pdfminer.six','cryptography']:

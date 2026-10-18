@@ -35,7 +35,10 @@ def fetch(url,max_bytes=160_000_000):
     data=b'';receipt.update(policy_omitted_image=True,reason='User no-image policy; response image body deliberately not read')
    else:data=response.read(max_bytes+1)
  except urllib.error.HTTPError as error:
-  data=error.read(max_bytes+1);receipt.update(status=error.code,final_url=error.url,headers=dict(error.headers),error=str(error))
+  receipt.update(status=error.code,final_url=error.url,headers=dict(error.headers),error=str(error))
+  if error.headers.get_content_type().lower().startswith('image/'):
+   data=b'';receipt['policy_omitted_image']=True
+  else:data=error.read(max_bytes+1)
  if len(data)>max_bytes:raise RuntimeError('Configured maximum native-file bytes exceeded')
  challenge=any(k.lower()=='cf-mitigated' and 'challenge' in v.lower() for k,v in receipt['headers'].items()) or b'<title>Just a moment' in data[:20000]
  if receipt['status'] in (403,429) or challenge:stop(url,receipt['status'],receipt['headers'],'HTTP refusal/rate limit/challenge');receipt['access_stop']=True

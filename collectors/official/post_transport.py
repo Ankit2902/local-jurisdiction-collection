@@ -11,7 +11,10 @@ def fetch(url,fields,max_bytes=160_000_000):
    if response.headers.get_content_type().lower().startswith('image/'):data=b'';receipt['policy_omitted_image']=True
    else:data=response.read(max_bytes+1)
  except urllib.error.HTTPError as error:
-  data=error.read(max_bytes+1);receipt.update(status=error.code,final_url=error.url,headers=dict(error.headers),error=str(error))
+  receipt.update(status=error.code,final_url=error.url,headers=dict(error.headers),error=str(error))
+  if error.headers.get_content_type().lower().startswith('image/'):
+   data=b'';receipt['policy_omitted_image']=True
+  else:data=error.read(max_bytes+1)
  if len(data)>max_bytes:raise ValueError('Observed form native response exceeds configured byte limit')
  challenge=any(k.lower()=='cf-mitigated' and 'challenge' in v.lower() for k,v in receipt['headers'].items()) or b'<title>Just a moment' in data[:20000]
  if receipt['status'] in (403,429) or challenge:transport.stop(url,receipt['status'],receipt['headers'],'Observed form refusal/rate limit/challenge');receipt['access_stop']=True

@@ -30,6 +30,11 @@ def main():
  if a.suite=='release-followup':commands += [('corpus-selected-publication-readiness',['-m','unittest','discover','-s','collectors/corpus_package','-p','test_readiness.py','-v'])]
  if a.suite=='release-followup':commands += [('american-legal-corpus-ownership',['-m','unittest','discover','-s','collectors/corpus_package','-p','test_american_legal_html.py','-v'])]
  if a.suite=='release-followup':commands += [('american-legal-portable-access-stop',['collectors/american-legal/test_access_advisory.py'])]
+ if a.suite=='release-followup':commands += [('owned-python-runtime',['collectors/qa/test_owned_python.py']),('current-catalog-status',['collectors/qa/test_current_catalog_status.py']),('all-publication-plans',['collectors/qa/test_all_publication_plans.py'])]
+ if a.suite=='release-followup':commands += [('cleveland-canonical-attachment',['-m','unittest','discover','-s','collectors/corpus_package','-p','test_american_legal_attachment.py','-v'])]
+ if a.suite=='release-followup':commands += [('ep-image-response-mime',['-m','unittest','collectors.encodeplus.test_transport_image_mime','-v'])]
+ if a.suite=='release-followup':commands += [('ecode-source-body-ownership',['collectors/qa/test_ecode_body_ownership.py','--collector-root','collectors/ecode'])]
+ if a.suite=='release-followup':commands += [('ep-whole-source-printed-flow',['-m','unittest','collectors.encodeplus.test_infrastructure_printed_flow','-v'])]
  with tempfile.TemporaryDirectory(prefix='followup-network-denied-') as td:
   (Path(td)/'sitecustomize.py').write_text("import socket\ndef deny(*a,**k):raise RuntimeError('QA_NETWORK_FORBIDDEN')\nsocket.socket.connect=deny\nsocket.socket.connect_ex=deny\nsocket.create_connection=deny\n")
   env=dict(os.environ,PYTHONDONTWRITEBYTECODE='1',PYTHONPATH=td+os.pathsep+str(snapshot))

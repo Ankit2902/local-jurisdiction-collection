@@ -1,0 +1,253 @@
+test_get_error_images_omitted_without_read_and_stop_preserved (__main__.RefusalBodies.test_get_error_images_omitted_without_read_and_stop_preserved) ... 
+  test_get_error_images_omitted_without_read_and_stop_preserved (__main__.RefusalBodies.test_get_error_images_omitted_without_read_and_stop_preserved) (status=403, mime='image/png') ... FAIL
+  test_get_error_images_omitted_without_read_and_stop_preserved (__main__.RefusalBodies.test_get_error_images_omitted_without_read_and_stop_preserved) (status=403, mime=' IMAGE/SVG+XML ') ... FAIL
+  test_get_error_images_omitted_without_read_and_stop_preserved (__main__.RefusalBodies.test_get_error_images_omitted_without_read_and_stop_preserved) (status=404, mime='image/png') ... FAIL
+  test_get_error_images_omitted_without_read_and_stop_preserved (__main__.RefusalBodies.test_get_error_images_omitted_without_read_and_stop_preserved) (status=404, mime=' IMAGE/SVG+XML ') ... FAIL
+  test_get_error_images_omitted_without_read_and_stop_preserved (__main__.RefusalBodies.test_get_error_images_omitted_without_read_and_stop_preserved) (status=429, mime='image/png') ... FAIL
+  test_get_error_images_omitted_without_read_and_stop_preserved (__main__.RefusalBodies.test_get_error_images_omitted_without_read_and_stop_preserved) (status=429, mime=' IMAGE/SVG+XML ') ... FAIL
+test_nonimage_error_evidence_retained (__main__.RefusalBodies.test_nonimage_error_evidence_retained) ... ok
+test_post_error_images_omitted_without_read_and_stop_preserved (__main__.RefusalBodies.test_post_error_images_omitted_without_read_and_stop_preserved) ... FAIL
+test_no_image_fetch_and_complete_selected_synthetic_document (__main__.Tests.test_no_image_fetch_and_complete_selected_synthetic_document) ... ok
+
+======================================================================
+FAIL: test_get_error_images_omitted_without_read_and_stop_preserved (__main__.RefusalBodies.test_get_error_images_omitted_without_read_and_stop_preserved) (status=403, mime='image/png')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/oliverflint/My Drive/Claude/Projects/CompliSolv 2.00/github/local-jurisdiction-collection/collectors/official/transport.py", line 32, in fetch
+    with urllib.request.build_opener(Redirect()).open(urllib.request.Request(url,headers={'User-Agent':'CompliSolv municipal publication research/1.0'}),timeout=180) as response:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/oliverflint/My Drive/Claude/Projects/CompliSolv 2.00/github/local-jurisdiction-collection/collectors/qa/test_official_image_transport.py", line 30, in <lambda>
+    opener=SimpleNamespace(open=lambda *a,**k:(_ for _ in ()).throw(error))
+                                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/oliverflint/My Drive/Claude/Projects/CompliSolv 2.00/github/local-jurisdiction-collection/collectors/qa/test_official_image_transport.py", line 30, in <genexpr>
+    opener=SimpleNamespace(open=lambda *a,**k:(_ for _ in ()).throw(error))
+urllib.error.HTTPError: HTTP Error 403: Synthetic refusal
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/oliverflint/My Drive/Claude/Projects/CompliSolv 2.00/github/local-jurisdiction-collection/collectors/qa/test_official_image_transport.py", line 39, in test_get_error_images_omitted_without_read_and_stop_preserved
+    (data,r),reads,stops=self.invoke(False,status,mime,b'image body must not be accessed',True)
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/oliverflint/My Drive/Claude/Projects/CompliSolv 2.00/github/local-jurisdiction-collection/collectors/qa/test_official_image_transport.py", line 32, in invoke
+    result=post_transport.fetch(BASE,[('book','one')]) if post else collect.transport.fetch(BASE)
+                                                                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/oliverflint/My Drive/Claude/Projects/CompliSolv 2.00/github/local-jurisdiction-collection/collectors/official/transport.py", line 38, in fetch
+    data=error.read(max_bytes+1);receipt.update(status=error.code,final_url=error.url,headers=dict(error.headers),error=str(error))
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/oliverflint/.cache/codex-runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/tempfile.py", line 499, in func_wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/oliverflint/My Drive/Claude/Projects/CompliSolv 2.00/github/local-jurisdiction-collection/collectors/qa/test_official_image_transport.py", line 27, in read
+    if forbid_read:raise AssertionError('Image error body must never be read')
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: Image error body must never be read
+
+======================================================================
+FAIL: test_get_error_images_omitted_without_read_and_stop_preserved (__main__.RefusalBodies.test_get_error_images_omitted_without_read_and_stop_preserved) (status=403, mime=' IMAGE/SVG+XML ')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/oliverflint/My Drive/Claude/Projects/CompliSolv 2.00/github/local-jurisdiction-collection/collectors/official/transport.py", line 32, in fetch
+    with urllib.request.build_opener(Redirect()).open(urllib.request.Request(url,headers={'User-Agent':'CompliSolv municipal publication research/1.0'}),timeout=180) as response:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/oliverflint/My Drive/Claude/Projects/CompliSolv 2.00/github/local-jurisdiction-collection/collectors/qa/test_official_image_transport.py", line 30, in <lambda>
+    opener=SimpleNamespace(open=lambda *a,**k:(_ for _ in ()).throw(error))
+                                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/oliverflint/My Drive/Claude/Projects/CompliSolv 2.00/github/local-jurisdiction-collection/collectors/qa/test_official_image_transport.py", line 30, in <genexpr>
+    opener=SimpleNamespace(open=lambda *a,**k:(_ for _ in ()).throw(error))
+urllib.error.HTTPError: HTTP Error 403: Synthetic refusal
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/oliverflint/My Drive/Claude/Projects/CompliSolv 2.00/github/local-jurisdiction-collection/collectors/qa/test_official_image_transport.py", line 39, in test_get_error_images_omitted_without_read_and_stop_preserved
+    (data,r),reads,stops=self.invoke(False,status,mime,b'image body must not be accessed',True)
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/oliverflint/My Drive/Claude/Projects/CompliSolv 2.00/github/local-jurisdiction-collection/collectors/qa/test_official_image_transport.py", line 32, in invoke
+    result=post_transport.fetch(BASE,[('book','one')]) if post else collect.transport.fetch(BASE)
+                                                                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/oliverflint/My Drive/Claude/Projects/CompliSolv 2.00/github/local-jurisdiction-collection/collectors/official/transport.py", line 38, in fetch
+    data=error.read(max_bytes+1);receipt.update(status=error.code,final_url=error.url,headers=dict(error.headers),error=str(error))
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/oliverflint/.cache/codex-runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/tempfile.py", line 499, in func_wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/oliverflint/My Drive/Claude/Projects/CompliSolv 2.00/github/local-jurisdiction-collection/collectors/qa/test_official_image_transport.py", line 27, in read
+    if forbid_read:raise AssertionError('Image error body must never be read')
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: Image error body must never be read
+
+======================================================================
+FAIL: test_get_error_images_omitted_without_read_and_stop_preserved (__main__.RefusalBodies.test_get_error_images_omitted_without_read_and_stop_preserved) (status=404, mime='image/png')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/oliverflint/My Drive/Claude/Projects/CompliSolv 2.00/github/local-jurisdiction-collection/collectors/official/transport.py", line 32, in fetch
+    with urllib.request.build_opener(Redirect()).open(urllib.request.Request(url,headers={'User-Agent':'CompliSolv municipal publication research/1.0'}),timeout=180) as response:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/oliverflint/My Drive/Claude/Projects/CompliSolv 2.00/github/local-jurisdiction-collection/collectors/qa/test_official_image_transport.py", line 30, in <lambda>
+    opener=SimpleNamespace(open=lambda *a,**k:(_ for _ in ()).throw(error))
+                                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/oliverflint/My Drive/Claude/Projects/CompliSolv 2.00/github/local-jurisdiction-collection/collectors/qa/test_official_image_transport.py", line 30, in <genexpr>
+    opener=SimpleNamespace(open=lambda *a,**k:(_ for _ in ()).throw(error))
+urllib.error.HTTPError: HTTP Error 404: Synthetic refusal
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/oliverflint/My Drive/Claude/Projects/CompliSolv 2.00/github/local-jurisdiction-collection/collectors/qa/test_official_image_transport.py", line 39, in test_get_error_images_omitted_without_read_and_stop_preserved
+    (data,r),reads,stops=self.invoke(False,status,mime,b'image body must not be accessed',True)
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/oliverflint/My Drive/Claude/Projects/CompliSolv 2.00/github/local-jurisdiction-collection/collectors/qa/test_official_image_transport.py", line 32, in invoke
+    result=post_transport.fetch(BASE,[('book','one')]) if post else collect.transport.fetch(BASE)
+                                                                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/oliverflint/My Drive/Claude/Projects/CompliSolv 2.00/github/local-jurisdiction-collection/collectors/official/transport.py", line 38, in fetch
+    data=error.read(max_bytes+1);receipt.update(status=error.code,final_url=error.url,headers=dict(error.headers),error=str(error))
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/oliverflint/.cache/codex-runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/tempfile.py", line 499, in func_wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/oliverflint/My Drive/Claude/Projects/CompliSolv 2.00/github/local-jurisdiction-collection/collectors/qa/test_official_image_transport.py", line 27, in read
+    if forbid_read:raise AssertionError('Image error body must never be read')
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: Image error body must never be read
+
+======================================================================
+FAIL: test_get_error_images_omitted_without_read_and_stop_preserved (__main__.RefusalBodies.test_get_error_images_omitted_without_read_and_stop_preserved) (status=404, mime=' IMAGE/SVG+XML ')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/oliverflint/My Drive/Claude/Projects/CompliSolv 2.00/github/local-jurisdiction-collection/collectors/official/transport.py", line 32, in fetch
+    with urllib.request.build_opener(Redirect()).open(urllib.request.Request(url,headers={'User-Agent':'CompliSolv municipal publication research/1.0'}),timeout=180) as response:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/oliverflint/My Drive/Claude/Projects/CompliSolv 2.00/github/local-jurisdiction-collection/collectors/qa/test_official_image_transport.py", line 30, in <lambda>
+    opener=SimpleNamespace(open=lambda *a,**k:(_ for _ in ()).throw(error))
+                                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/oliverflint/My Drive/Claude/Projects/CompliSolv 2.00/github/local-jurisdiction-collection/collectors/qa/test_official_image_transport.py", line 30, in <genexpr>
+    opener=SimpleNamespace(open=lambda *a,**k:(_ for _ in ()).throw(error))
+urllib.error.HTTPError: HTTP Error 404: Synthetic refusal
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/oliverflint/My Drive/Claude/Projects/CompliSolv 2.00/github/local-jurisdiction-collection/collectors/qa/test_official_image_transport.py", line 39, in test_get_error_images_omitted_without_read_and_stop_preserved
+    (data,r),reads,stops=self.invoke(False,status,mime,b'image body must not be accessed',True)
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/oliverflint/My Drive/Claude/Projects/CompliSolv 2.00/github/local-jurisdiction-collection/collectors/qa/test_official_image_transport.py", line 32, in invoke
+    result=post_transport.fetch(BASE,[('book','one')]) if post else collect.transport.fetch(BASE)
+                                                                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/oliverflint/My Drive/Claude/Projects/CompliSolv 2.00/github/local-jurisdiction-collection/collectors/official/transport.py", line 38, in fetch
+    data=error.read(max_bytes+1);receipt.update(status=error.code,final_url=error.url,headers=dict(error.headers),error=str(error))
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/oliverflint/.cache/codex-runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/tempfile.py", line 499, in func_wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/oliverflint/My Drive/Claude/Projects/CompliSolv 2.00/github/local-jurisdiction-collection/collectors/qa/test_official_image_transport.py", line 27, in read
+    if forbid_read:raise AssertionError('Image error body must never be read')
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: Image error body must never be read
+
+======================================================================
+FAIL: test_get_error_images_omitted_without_read_and_stop_preserved (__main__.RefusalBodies.test_get_error_images_omitted_without_read_and_stop_preserved) (status=429, mime='image/png')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/oliverflint/My Drive/Claude/Projects/CompliSolv 2.00/github/local-jurisdiction-collection/collectors/official/transport.py", line 32, in fetch
+    with urllib.request.build_opener(Redirect()).open(urllib.request.Request(url,headers={'User-Agent':'CompliSolv municipal publication research/1.0'}),timeout=180) as response:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/oliverflint/My Drive/Claude/Projects/CompliSolv 2.00/github/local-jurisdiction-collection/collectors/qa/test_official_image_transport.py", line 30, in <lambda>
+    opener=SimpleNamespace(open=lambda *a,**k:(_ for _ in ()).throw(error))
+                                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/oliverflint/My Drive/Claude/Projects/CompliSolv 2.00/github/local-jurisdiction-collection/collectors/qa/test_official_image_transport.py", line 30, in <genexpr>
+    opener=SimpleNamespace(open=lambda *a,**k:(_ for _ in ()).throw(error))
+urllib.error.HTTPError: HTTP Error 429: Synthetic refusal
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/oliverflint/My Drive/Claude/Projects/CompliSolv 2.00/github/local-jurisdiction-collection/collectors/qa/test_official_image_transport.py", line 39, in test_get_error_images_omitted_without_read_and_stop_preserved
+    (data,r),reads,stops=self.invoke(False,status,mime,b'image body must not be accessed',True)
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/oliverflint/My Drive/Claude/Projects/CompliSolv 2.00/github/local-jurisdiction-collection/collectors/qa/test_official_image_transport.py", line 32, in invoke
+    result=post_transport.fetch(BASE,[('book','one')]) if post else collect.transport.fetch(BASE)
+                                                                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/oliverflint/My Drive/Claude/Projects/CompliSolv 2.00/github/local-jurisdiction-collection/collectors/official/transport.py", line 38, in fetch
+    data=error.read(max_bytes+1);receipt.update(status=error.code,final_url=error.url,headers=dict(error.headers),error=str(error))
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/oliverflint/.cache/codex-runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/tempfile.py", line 499, in func_wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/oliverflint/My Drive/Claude/Projects/CompliSolv 2.00/github/local-jurisdiction-collection/collectors/qa/test_official_image_transport.py", line 27, in read
+    if forbid_read:raise AssertionError('Image error body must never be read')
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: Image error body must never be read
+
+======================================================================
+FAIL: test_get_error_images_omitted_without_read_and_stop_preserved (__main__.RefusalBodies.test_get_error_images_omitted_without_read_and_stop_preserved) (status=429, mime=' IMAGE/SVG+XML ')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/oliverflint/My Drive/Claude/Projects/CompliSolv 2.00/github/local-jurisdiction-collection/collectors/official/transport.py", line 32, in fetch
+    with urllib.request.build_opener(Redirect()).open(urllib.request.Request(url,headers={'User-Agent':'CompliSolv municipal publication research/1.0'}),timeout=180) as response:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/oliverflint/My Drive/Claude/Projects/CompliSolv 2.00/github/local-jurisdiction-collection/collectors/qa/test_official_image_transport.py", line 30, in <lambda>
+    opener=SimpleNamespace(open=lambda *a,**k:(_ for _ in ()).throw(error))
+                                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/oliverflint/My Drive/Claude/Projects/CompliSolv 2.00/github/local-jurisdiction-collection/collectors/qa/test_official_image_transport.py", line 30, in <genexpr>
+    opener=SimpleNamespace(open=lambda *a,**k:(_ for _ in ()).throw(error))
+urllib.error.HTTPError: HTTP Error 429: Synthetic refusal
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/oliverflint/My Drive/Claude/Projects/CompliSolv 2.00/github/local-jurisdiction-collection/collectors/qa/test_official_image_transport.py", line 39, in test_get_error_images_omitted_without_read_and_stop_preserved
+    (data,r),reads,stops=self.invoke(False,status,mime,b'image body must not be accessed',True)
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/oliverflint/My Drive/Claude/Projects/CompliSolv 2.00/github/local-jurisdiction-collection/collectors/qa/test_official_image_transport.py", line 32, in invoke
+    result=post_transport.fetch(BASE,[('book','one')]) if post else collect.transport.fetch(BASE)
+                                                                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/oliverflint/My Drive/Claude/Projects/CompliSolv 2.00/github/local-jurisdiction-collection/collectors/official/transport.py", line 38, in fetch
+    data=error.read(max_bytes+1);receipt.update(status=error.code,final_url=error.url,headers=dict(error.headers),error=str(error))
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/oliverflint/.cache/codex-runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/tempfile.py", line 499, in func_wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/oliverflint/My Drive/Claude/Projects/CompliSolv 2.00/github/local-jurisdiction-collection/collectors/qa/test_official_image_transport.py", line 27, in read
+    if forbid_read:raise AssertionError('Image error body must never be read')
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: Image error body must never be read
+
+======================================================================
+FAIL: test_post_error_images_omitted_without_read_and_stop_preserved (__main__.RefusalBodies.test_post_error_images_omitted_without_read_and_stop_preserved)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/oliverflint/My Drive/Claude/Projects/CompliSolv 2.00/github/local-jurisdiction-collection/collectors/official/post_transport.py", line 9, in fetch
+    with urllib.request.build_opener(transport.Redirect()).open(req,timeout=240) as response:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/oliverflint/My Drive/Claude/Projects/CompliSolv 2.00/github/local-jurisdiction-collection/collectors/qa/test_official_image_transport.py", line 30, in <lambda>
+    opener=SimpleNamespace(open=lambda *a,**k:(_ for _ in ()).throw(error))
+                                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/oliverflint/My Drive/Claude/Projects/CompliSolv 2.00/github/local-jurisdiction-collection/collectors/qa/test_official_image_transport.py", line 30, in <genexpr>
+    opener=SimpleNamespace(open=lambda *a,**k:(_ for _ in ()).throw(error))
+urllib.error.HTTPError: HTTP Error 403: Synthetic refusal
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/oliverflint/My Drive/Claude/Projects/CompliSolv 2.00/github/local-jurisdiction-collection/collectors/qa/test_official_image_transport.py", line 43, in test_post_error_images_omitted_without_read_and_stop_preserved
+    (data,r),reads,stops=self.invoke(True,status,'image/png',b'image body must not be accessed',True)
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/oliverflint/My Drive/Claude/Projects/CompliSolv 2.00/github/local-jurisdiction-collection/collectors/qa/test_official_image_transport.py", line 32, in invoke
+    result=post_transport.fetch(BASE,[('book','one')]) if post else collect.transport.fetch(BASE)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/oliverflint/My Drive/Claude/Projects/CompliSolv 2.00/github/local-jurisdiction-collection/collectors/official/post_transport.py", line 14, in fetch
+    data=error.read(max_bytes+1);receipt.update(status=error.code,final_url=error.url,headers=dict(error.headers),error=str(error))
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/oliverflint/.cache/codex-runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/tempfile.py", line 499, in func_wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/oliverflint/My Drive/Claude/Projects/CompliSolv 2.00/github/local-jurisdiction-collection/collectors/qa/test_official_image_transport.py", line 27, in read
+    if forbid_read:raise AssertionError('Image error body must never be read')
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: Image error body must never be read
+
+----------------------------------------------------------------------
+Ran 4 tests in 0.093s
+
+FAILED (failures=7)

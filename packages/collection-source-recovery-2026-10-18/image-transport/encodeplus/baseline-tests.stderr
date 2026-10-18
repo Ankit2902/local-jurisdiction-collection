@@ -1,0 +1,49 @@
+test_ordinary_text_and_PDF_error_bodies_and_stop_preserved (baseline.collectors.encodeplus.test_transport_image_mime.ImageMIME.test_ordinary_text_and_PDF_error_bodies_and_stop_preserved) ... ok
+test_ordinary_text_and_PDF_success_bodies_preserved (baseline.collectors.encodeplus.test_transport_image_mime.ImageMIME.test_ordinary_text_and_PDF_success_bodies_preserved) ... ok
+test_padded_image_GET200_body_never_read (baseline.collectors.encodeplus.test_transport_image_mime.ImageMIME.test_padded_image_GET200_body_never_read) ... 
+  test_padded_image_GET200_body_never_read (baseline.collectors.encodeplus.test_transport_image_mime.ImageMIME.test_padded_image_GET200_body_never_read) (mime=' IMAGE/PNG ') ... FAIL
+  test_padded_image_GET200_body_never_read (baseline.collectors.encodeplus.test_transport_image_mime.ImageMIME.test_padded_image_GET200_body_never_read) (mime='\timage/svg+xml ; charset=UTF-8 ') ... FAIL
+test_padded_image_HTTPError403_body_never_read_stop_preserved (baseline.collectors.encodeplus.test_transport_image_mime.ImageMIME.test_padded_image_HTTPError403_body_never_read_stop_preserved) ... 
+  test_padded_image_HTTPError403_body_never_read_stop_preserved (baseline.collectors.encodeplus.test_transport_image_mime.ImageMIME.test_padded_image_HTTPError403_body_never_read_stop_preserved) (mime=' IMAGE/PNG ') ... FAIL
+  test_padded_image_HTTPError403_body_never_read_stop_preserved (baseline.collectors.encodeplus.test_transport_image_mime.ImageMIME.test_padded_image_HTTPError403_body_never_read_stop_preserved) (mime='\tIMAGE/SVG+XML ; charset=UTF-8 ') ... FAIL
+
+======================================================================
+FAIL: test_padded_image_GET200_body_never_read (baseline.collectors.encodeplus.test_transport_image_mime.ImageMIME.test_padded_image_GET200_body_never_read) (mime=' IMAGE/PNG ')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/oliverflint/My Drive/Claude/Projects/CompliSolv 2.00/outputs/collection-readiness-post716cfcb-2026-10-18/qa/encodeplus-image-mime-candidate-v1/baseline/collectors/encodeplus/test_transport_image_mime.py", line 39, in test_padded_image_GET200_body_never_read
+    self.assertEqual(reads,0);self.assertEqual(body,b'');self.assertEqual(r['http_status'],200);self.assertIs(r['image_body_intentionally_skipped'],True);self.assertIs(r['request_attempted'],True);self.assertFalse(stopped);self.assertFalse(state.get('stopped',False));self.assertEqual(r['sha256'],transport.digest(b''))
+    ^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 1 != 0
+
+======================================================================
+FAIL: test_padded_image_GET200_body_never_read (baseline.collectors.encodeplus.test_transport_image_mime.ImageMIME.test_padded_image_GET200_body_never_read) (mime='\timage/svg+xml ; charset=UTF-8 ')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/oliverflint/My Drive/Claude/Projects/CompliSolv 2.00/outputs/collection-readiness-post716cfcb-2026-10-18/qa/encodeplus-image-mime-candidate-v1/baseline/collectors/encodeplus/test_transport_image_mime.py", line 39, in test_padded_image_GET200_body_never_read
+    self.assertEqual(reads,0);self.assertEqual(body,b'');self.assertEqual(r['http_status'],200);self.assertIs(r['image_body_intentionally_skipped'],True);self.assertIs(r['request_attempted'],True);self.assertFalse(stopped);self.assertFalse(state.get('stopped',False));self.assertEqual(r['sha256'],transport.digest(b''))
+    ^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 1 != 0
+
+======================================================================
+FAIL: test_padded_image_HTTPError403_body_never_read_stop_preserved (baseline.collectors.encodeplus.test_transport_image_mime.ImageMIME.test_padded_image_HTTPError403_body_never_read_stop_preserved) (mime=' IMAGE/PNG ')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/oliverflint/My Drive/Claude/Projects/CompliSolv 2.00/outputs/collection-readiness-post716cfcb-2026-10-18/qa/encodeplus-image-mime-candidate-v1/baseline/collectors/encodeplus/test_transport_image_mime.py", line 44, in test_padded_image_HTTPError403_body_never_read_stop_preserved
+    self.assertEqual(reads,0);self.assertEqual(body,b'');self.assertEqual(r['http_status'],403);self.assertTrue(r['image_body_intentionally_skipped']);self.assertTrue(stopped);self.assertTrue(state['stopped']);self.assertEqual(state['stop_reason']['status'],403);self.assertEqual(r['headers']['Content-Type'],mime);self.assertTrue(r['challenge'])
+    ^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 1 != 0
+
+======================================================================
+FAIL: test_padded_image_HTTPError403_body_never_read_stop_preserved (baseline.collectors.encodeplus.test_transport_image_mime.ImageMIME.test_padded_image_HTTPError403_body_never_read_stop_preserved) (mime='\tIMAGE/SVG+XML ; charset=UTF-8 ')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/oliverflint/My Drive/Claude/Projects/CompliSolv 2.00/outputs/collection-readiness-post716cfcb-2026-10-18/qa/encodeplus-image-mime-candidate-v1/baseline/collectors/encodeplus/test_transport_image_mime.py", line 44, in test_padded_image_HTTPError403_body_never_read_stop_preserved
+    self.assertEqual(reads,0);self.assertEqual(body,b'');self.assertEqual(r['http_status'],403);self.assertTrue(r['image_body_intentionally_skipped']);self.assertTrue(stopped);self.assertTrue(state['stopped']);self.assertEqual(state['stop_reason']['status'],403);self.assertEqual(r['headers']['Content-Type'],mime);self.assertTrue(r['challenge'])
+    ^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 1 != 0
+
+----------------------------------------------------------------------
+Ran 4 tests in 0.056s
+
+FAILED (failures=4)

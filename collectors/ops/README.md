@@ -22,6 +22,20 @@ To choose another runtime directory, put the global option before the command:
 python3.12 collect.py --runtime /absolute/path/collection-runtime setup --python python3.12
 ```
 
+## List the full inventoried publication scope
+
+`plan --all` lists the 130 primary publications. To list all 225 known publication entries, including secondary books and unqualified discoveries, use:
+
+```sh
+python3.12 collect.py plan --all-publications
+python3.12 collect.py plan --all-publications --cohort original
+python3.12 collect.py plan --target 82 --all-publications
+```
+
+Planning uses only Python's standard library and can run before setup. It sends no publisher requests and creates no runtime or collection output. Each entry retains its exact source, dependencies, qualification and access advisories; unsupported entries have no collection command. The catalog is a finite known scope, not proof that every separate publication has been discovered. `--all-publications` is plan-only and cannot be combined with `--all` or `--publication`; actual collection and verification remain explicit single-publication commands.
+
+Setup checks the actual owned Python interpreter before installing dependencies, records its version, and doctor compares it with Python 3.12 and the setup receipt. An existing wrong-version interpreter is refused rather than silently replaced.
+
 ## Select and collect one publication
 
 The catalog contains both the original jurisdictions and the expanded scope. Use `plan --all --cohort original` or `plan --all --cohort expansion` to narrow it. Publication IDs are stable and separate primary codes from secondary books and required publication dependencies. A target alone selects its primary publication; specify `--publication` for another book.

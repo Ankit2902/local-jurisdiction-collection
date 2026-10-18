@@ -1,0 +1,145 @@
+{
+  "actual_root_cli": {
+    "advisory_entries": 154,
+    "every_entry_exact_identity_title_role_url_scope_match": true,
+    "optional_nonexistent_runtime_not_created_or_inspected": true,
+    "publication_entries": 225,
+    "runnable": 195,
+    "targets": 130,
+    "unqualified": 30
+  },
+  "candidate_files_unchanged": 102,
+  "eight_existing_focused_tests_passed": true,
+  "forbidden_calls": [],
+  "illegal_combinations_refused_before_execution": [
+    {
+      "argv_tail": [
+        "plan",
+        "--all-publications",
+        "--all"
+      ],
+      "direct_registry": false,
+      "exit": 2
+    },
+    {
+      "argv_tail": [
+        "plan",
+        "--all-publications",
+        "--publication",
+        "82-primary"
+      ],
+      "direct_registry": false,
+      "exit": 2
+    },
+    {
+      "argv_tail": [
+        "plan",
+        "--all-publications",
+        "--target",
+        "original-petaluma-ca",
+        "--cohort",
+        "expansion"
+      ],
+      "direct_registry": false,
+      "exit": 2
+    },
+    {
+      "argv_tail": [
+        "collect",
+        "--all-publications",
+        "--target",
+        "82",
+        "--out",
+        "/var/folders/vx/krkxgc9x7k77rg6grgbvx1pm0000gv/T/independent-catalog-plan-g1ytung5/bad1"
+      ],
+      "direct_registry": true,
+      "exit": 2
+    },
+    {
+      "argv_tail": [
+        "verify",
+        "--all-publications",
+        "--target",
+        "82",
+        "--out",
+        "/var/folders/vx/krkxgc9x7k77rg6grgbvx1pm0000gv/T/independent-catalog-plan-g1ytung5/bad2"
+      ],
+      "direct_registry": true,
+      "exit": 2
+    },
+    {
+      "argv_tail": [
+        "status",
+        "--all-publications"
+      ],
+      "direct_registry": true,
+      "exit": 2
+    },
+    {
+      "argv_tail": [
+        "run",
+        "--all-publications",
+        "--target",
+        "82",
+        "--out",
+        "/var/folders/vx/krkxgc9x7k77rg6grgbvx1pm0000gv/T/independent-catalog-plan-g1ytung5/bad3"
+      ],
+      "direct_registry": false,
+      "exit": 2
+    },
+    {
+      "argv_tail": [
+        "verify",
+        "--all-publications",
+        "--target",
+        "82",
+        "--out",
+        "/var/folders/vx/krkxgc9x7k77rg6grgbvx1pm0000gv/T/independent-catalog-plan-g1ytung5/bad4"
+      ],
+      "direct_registry": false,
+      "exit": 2
+    },
+    {
+      "argv_tail": [
+        "doctor",
+        "--all-publications",
+        "--target",
+        "82"
+      ],
+      "direct_registry": false,
+      "exit": 2
+    }
+  ],
+  "legacy_primary_all_preserved": 130,
+  "material_blockers": [],
+  "native_or_browser_imports": 0,
+  "owned_python_baseline_exactly_preserved_after_removing_only_plan_delta": true,
+  "owned_python_reviewed_baseline_sha256": "a924112d786e1df486389c7b82d7b611e6579e48a9ed007e30395ba4ae07bd0d",
+  "packet_manifest_sha256": "c9d2e6bb967dfd037684c69fbef692d936e9abae57a8e3e684ea04063dc652e7",
+  "plan_launcher_sha256": "a0e7e257916afef62af052af3847a183b0a6936b29fe8a370e58b6f91906626c",
+  "publisher_requests": 0,
+  "registry_collect_sha256": "879412fc45caf52d1b4761c444d1c3fe13953d9d08c280b994d3a5030bdf62ad",
+  "schema_version": 1,
+  "scope": "Pure catalog planning; no runtime setup/doctor/acquisition/native parsing/readiness change or jurisdiction qualification.",
+  "selected_filters": [
+    {
+      "publications": 36,
+      "selector": "original",
+      "targets": 30
+    },
+    {
+      "publications": 189,
+      "selector": "expansion",
+      "targets": 100
+    },
+    {
+      "publications": 26,
+      "selector": "82"
+    },
+    {
+      "publications": 4,
+      "selector": "original-petaluma-ca"
+    }
+  ],
+  "status": "PASS"
+}

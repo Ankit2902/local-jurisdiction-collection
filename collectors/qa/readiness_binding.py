@@ -18,7 +18,7 @@ def current_components(repo,publisher):
  files += [ops/name for name in ('launcher.py','browser_check.cjs','requirements.txt') if (ops/name).is_file()]
  files += [p for p in family.glob('*') if p.suffix in ('.py','.cjs')]
  files += [p for folder in ('configs','policies') for p in (family/folder).rglob('*.json')]
- if publisher=='encodeplus':files.append(family/'targets.json')
+ if publisher=='encodeplus':files += [family/'targets.json',family/'infrastructure-multiline-native-geometry.json']
  if publisher=='originals':
   files += list(family.glob('*.json'))+list((family/'profiles').rglob('*.json'))
  files += [p for p in registry.glob('*.json') if p.name not in ('source-evidence-manifest.json','original-source-evidence-manifest.json','readiness-source-evidence-manifest.json')]

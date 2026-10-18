@@ -33,3 +33,5 @@ Image context takes precedence over a data URI MIME label: an `img`, picture sou
 Image controls and resource declarations are included: image-type form inputs, standalone `srcset`, namespaced SVG image elements, image preloads and icon links must not survive as active normalized markup. The normalized-output audit checks declared image context even when the source URL has no image extension. A plain PDF link or an inert original image URL in omission metadata remains valid provenance.
 
 Image MIME classification normalizes surrounding whitespace and case before applying these rules. Whitespace must not turn an image-typed object, embed or metadata payload into an allowed opaque document. Regression checks include ordinary PDF controls so legal document references remain usable.
+
+HTTP success and error responses use the same image exclusion. Check normalized response MIME before reading the body, including image responses with HTTP 403, 404 or 429. Retain status, headers and any publisher access stop while recording that the image body was intentionally omitted. Error handling must not acquire image bytes.
