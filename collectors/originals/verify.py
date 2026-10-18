@@ -17,7 +17,7 @@ def verify(family,source,normalized):
    files=['records.jsonl','document-audits.json','relationships.json']
   elif family=='flagstaff-html':
    from flagstaff_html_normalize import run
-   files=['records.jsonl','records.csv','document-audits.json','dependencies.json','source-inventory.json']
+   files=['records.jsonl','records.csv','document-audits.json','dependencies.json','source-inventory.json','source-link-defects.json','source-target-coverage.json']
   elif family=='king':
    from king_normalize import run
    files=['records.jsonl','records.csv','document-audits.json','dependencies.json']

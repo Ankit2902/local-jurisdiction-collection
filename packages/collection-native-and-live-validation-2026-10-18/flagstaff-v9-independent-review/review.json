@@ -1,0 +1,142 @@
+{
+  "schema_version": 1,
+  "review": "Independent finite Flagstaff V9 retained-source navigation coverage qualification",
+  "created_utc": "2026-10-18T01:52:22.338238+00:00",
+  "passed": true,
+  "packet": {
+    "path": "/Users/oliverflint/My Drive/Claude/Projects/CompliSolv 2.00/outputs/collection-readiness-next-2026-10-17/originals-integration/source-navigation-candidate-v9",
+    "manifest_sha256": "3faa217335cd28dc95070c8eed6e0bde21e31c888f407cdfe566613fc2884713",
+    "files": 599,
+    "bytes": 58420115,
+    "all_files_unchanged_before_after": true,
+    "review_ready_sha256": "2766a4d1ab5befe3cf6bacfe97da53971634e74df5277d59d8191abcadf897d7"
+  },
+  "runtime_changes": {
+    "configs.json": {
+      "before_sha256": "fe29224e020c57d5fc4eb73e9e80c7a6365a48b872a29f921f07b5743e351327",
+      "after_sha256": "1a85f89b79c7b4a5ccfb3264eaf6ae2cb6b447aead391048313c563868a047e4"
+    },
+    "flagstaff_html_normalize.py": {
+      "before_sha256": "0a260a93e0331652b8b82057294eb10b2182c7eb3144d52ec391b40c2a61ecd7",
+      "after_sha256": "38deaff9705e259ddb0cc739fa92194d7abca26f0a145241265e7405f0dd1d59"
+    },
+    "source_navigation.py": {
+      "before_sha256": null,
+      "after_sha256": "d6f4135f5c2acf0bea378415d3467c1d629f8746140c9abcf6bb07225089a4dc"
+    },
+    "verify.py": {
+      "before_sha256": "4e7fdfbb38891da25f2d4b6e77f59ede3647ac5a94a4aeb5238f50ce25840b36",
+      "after_sha256": "d4f6783d818fef569fdaf739d022c7d52cbf9e05606f3c8ba62d61028249f1d9"
+    },
+    "workflow.py": {
+      "before_sha256": "e63a1cc05cdfda18b8ddf556a532ee6ffa1bc7cc3ec74f623608e4297415d318",
+      "after_sha256": "7ba499c06b1b8c690347f53a24bdd9a1a3462ca8aa5c598b2636d5b03e601757"
+    }
+  },
+  "execution": {
+    "independently_rerun_baseline": {
+      "tests": 100,
+      "seconds": 8.252,
+      "exit_code": 0,
+      "log_sha256": "96b8791af789fc9fbe9c2fabd1ca1052d237cffc4e9a773b02e25d04fb5d91b2"
+    },
+    "independently_rerun_portable": {
+      "tests": 9,
+      "seconds": 0.064,
+      "exit_code": 0,
+      "network_browser_tripwires": true,
+      "image_decoder_tripwires_in_image_cases": true,
+      "receipt_sha256": "38cb9852dd244173848ddc7a16ea5b2e7c9c4dc90de45f0dcd5f707fa2aa11ca"
+    },
+    "independently_rerun_navigation_faults": {
+      "tests": 13,
+      "seconds": 0.715,
+      "exit_code": 0,
+      "log_sha256": "ece4c652a6b6155c179cf34c1e58208d3e4ae8ad4aa6acd8c363d3a0a77bc074"
+    },
+    "independent_raw_source_audit": {
+      "exit_code": 0,
+      "report_sha256": "3fbd33d98870d9ae0e03d27149fba9f2460ee5467b4f717d5a948a443ffdd330",
+      "auditor_sha256": "c4c9a356c502e789a11540fcb606a402b828e12ecdccd650d8434ab33829b979",
+      "scope": "Original raw SHA + independent atomic block partition for all361documents; finite3anchor/body/TOC witness checks; ledger binding. Existing full raw normalized replay was not redundantly rerun.",
+      "forbidden_calls": []
+    },
+    "owner_full_raw_replay": {
+      "reviewed_hash_bound_terminal": true,
+      "receipt_sha256": "0327dcb1b2c7b6ea45c90b85018c2e969e4ffdafaa53a4477599a2cfb191d2c1",
+      "full_raw_replay_equal": true,
+      "input_files_modified": false,
+      "source_route_ledger_verified": true,
+      "opening_body_closing_chronology_verified": true
+    }
+  },
+  "source_qualifications": {
+    "raw_documents": 361,
+    "normalized_records": 2661,
+    "owned_blocks": 24237,
+    "tables": 377,
+    "native_TOC_edges": 2658,
+    "image_placeholders": 882,
+    "dependencies": 993,
+    "dependency_statuses": {
+      "policy_omitted_image": 882,
+      "independent_legal_layer_reference": 18,
+      "retained_primary_document": 93
+    },
+    "finite_reference_occurrences": 3,
+    "finite_reference_owner_records": 2,
+    "literal_fragment_present": false,
+    "target_id_and_name_with_literal_trailing_TAB_preserved": true,
+    "target_original_raw_body_fulltext_html_hashes_verified": true,
+    "source_target_coverage_complete": true,
+    "literal_browser_fragment_complete": false,
+    "record_stream_sha256": "1344484a99e9dce522f72d2254b713e9b725d552bb28d174c3fb66884a7fae5b",
+    "existing_body_table_stream_unchanged": true,
+    "new_live_transport_credit": false,
+    "whole_jurisdiction_complete": false
+  },
+  "reviewed_failclosed_guards": [
+    "Finite rule binds exact target raw SHA, publication currency, unique numeric heading, exact target record/heading/source IDs/block indices/fulltext/semantic HTML/raw body, native TOC edge/mapping and all3raw anchor hashes/owner indices.",
+    "No trimming, href rewrite or id/name repair occurs. Literal missing browser fragment remains false and stored diagnostics remain explicit.",
+    "Unknown source/version, target collision, owner/reference alteration, changed body, missing document or duplicate block cannot obtain source coverage.",
+    "Full source assets are reparsed from raw atomic blocks and compared against record asset references. Dependency ledger must reconcile to those record references before attachment coverage.",
+    "V8 lesson independently reproduced: deleting both source asset metadata and ledger entry now makes source_asset_reference_inventory_complete and dependency_coverage_complete false.",
+    "Required nonimage dependency status cannot be waived by the3finite navigation resolutions. Policy image omissions remain deliberate/excluded.",
+    "Workflow uses measured source ownership and dependency coverage; it separates source-target qualification from literal browser link health.",
+    "Offline verify adds both source-link-defects.json and source-target-coverage.json to its regenerated comparison. Source code/config fingerprint includes source_navigation.py."
+  ],
+  "test_scope": "122testmethods independently rerun. Additional raw-source audit and V8 omission/wrong-edition controls ran without browser or image APIs. No full361 normalizer replay repeated.",
+  "common_validation": {
+    "status": "pending separate actual isolated common rehearsal; not accepted by this review",
+    "reviewed_plan": "Copy exact current common launcher/registry and frozenV9 family into a new isolated root; generate a fresh current-V9 retained-source derivative from terminal actualV7 source, then execute the copied common read-only verifier and bind source/runtime/evidence before-after. Preserve productionV7 and existing proofs unchanged.",
+    "required_receipt": "Exact copied common/family/config/runtime hashes, new proof paths, family and common exits, no publisher requests, unchanged inputs, literal browser healthfalse retained; no implicit oldcache upgrade.",
+    "actual_common_command_or_terminal_not_yet_reviewed": true
+  },
+  "bounded_confidence": [
+    "Pass applies to this exact retained primary publication, finite3reference witnesses, raw-body ownership, dependency reconciliation and tested refusal cases.",
+    "No new live acquisition/resume credit or current common acceptance is inferred from candidate family replay.",
+    "Existing independent body/table/notes/list source audits can bind through the exact1344484a recordstream; this review does not claim another raw-browser table execution.",
+    "Separate Employee Handbook and external adopted legal layers remain outside whole-jurisdiction acceptance."
+  ],
+  "warnings": {
+    "own_auditor_lexical_SyntaxWarnings": "Four decimal/and token whitespace warnings are retained in stderr; execution passed. Exact executed source/hash and full output are preserved, with no code mutation during execution."
+  },
+  "image_policy": {
+    "literal_placeholder": "[IMAGE]",
+    "separate_image_acquisition": false,
+    "decode": false,
+    "render": false,
+    "extraction": false,
+    "OCR": false,
+    "publisher_requests": 0
+  },
+  "mutation": {
+    "production": false,
+    "sealed_packets": false,
+    "new_own_QA_only": true
+  },
+  "runtime": {
+    "python": "3.12.14 (main, Aug 25 2026, 13:50:33) [Clang 22.1.3 ]",
+    "executable": "/Users/oliverflint/My Drive/Claude/Projects/CompliSolv 2.00/github/local-jurisdiction-collection/.collection-runtime/venv/bin/python"
+  }
+}

@@ -11,6 +11,8 @@ def metadata_text(value):
 
 def page_records(data,cfg,raw_ref='raw/start.pdf'):
  from .pdf_structure import pages
+ from .solid_waste_logical import matches,build_records
+ if matches(data,cfg):return build_records(data,cfg,raw_ref,pages)
  reader=PdfReader(io.BytesIO(data),strict=True)
  records,_=pages(data,{'id':cfg['id'],'heading':cfg['title'],'url':cfg['url'],'raw_ref':raw_ref},{'publication':cfg['title'],'jurisdiction':cfg['jurisdiction'],'state':cfg['state']})
  details={'metadata':{str(k):metadata_text(v) for k,v in (reader.metadata or {}).items()},'pages':len(records),'parser_sha256':digest((HERE/'pdf_structure.py').read_bytes()),'pdf_extractable_text_reconciled':all(r['pdf_qualification']['source_word_ownership_complete'] and r['pdf_qualification']['normalized_source_word_characters_agree'] and r['pdf_qualification']['independent_text_engine_characters_agree'] and r['pdf_qualification'].get('source_words_cover_deduplicated_glyph_characters') is True and r['pdf_qualification'].get('undecoded_cid_literals') == [] and not r['pdf_qualification']['unmapped_or_private_use_codepoints'] for r in records),'detected_table_cells_qualified':all(r['pdf_qualification']['detected_table_cells']==r['pdf_qualification']['independent_table_cells_agree'] for r in records),'detected_table_count':sum(r['pdf_qualification']['detected_table_count'] for r in records),'detected_table_cells':sum(r['pdf_qualification']['detected_table_cells'] for r in records),'pdf_table_semantics_complete':False,'reading_order_manual_review_required':True,'review_conditions':{str(r['physical_page']):r['pdf_qualification']['review_conditions'] for r in records if r['pdf_qualification']['review_conditions']}}
@@ -23,10 +25,25 @@ def page_records(data,cfg,raw_ref='raw/start.pdf'):
  from .sto_appendix_b import summary as appendix_b_summary
  appendix=appendix_b_summary(records)
  if appendix is not None:details['source_appendix_b_dimensions']=appendix
+ from .infrastructure_contents import summary as infrastructure_summary
+ infrastructure=infrastructure_summary(records)
+ if infrastructure is not None:details['source_infrastructure_dimensions']=infrastructure
  return records,details
 def outputs(records):
+ if any(r.get('unit')=='pdf_logical_unit' for r in records):
+  from .solid_waste_logical import outputs as logical_outputs
+  return logical_outputs(records)
  buf=io.StringIO(newline='');fields=['id','heading','physical_page','page_count','text','source_url','raw_sha256'];w=csv.DictWriter(buf,fieldnames=fields);w.writeheader();w.writerows({k:r[k] for k in fields} for r in records)
  return {'records.jsonl':''.join(json.dumps(r,ensure_ascii=False,sort_keys=True)+'\n' for r in records).encode(),'records.csv':buf.getvalue().encode()}
+def validate_record_identity(records,details,cfg):
+ assert details['pages']==cfg['expected_pages'],'Native physical-page pin mismatch'
+ if details.get('canonical_record_unit')=='pdf_logical_unit':
+  from .solid_waste_logical import validate_records
+  validate_records(records,cfg)
+  assert details['normalized_record_count']==len(records)==88 and details['physical_page_count']==6,'Logical units and physical pages must remain distinct'
+ else:
+  assert len(records)==cfg['expected_pages'] and [r['physical_page'] for r in records]==list(range(1,cfg['expected_pages']+1)),'Native page record sequence mismatch'
+  assert all(r['document_id']==cfg['id'] and r['raw_sha256']==cfg['expected_sha256'] for r in records),'Native record source identity mismatch'
 def validate_config(cfg):
  assert cfg['mode']=='native_document' and cfg['url'].startswith('https://'),'Wrong native-document mode/URL'
  assert set(['id','title','jurisdiction','state','url','expected_sha256','expected_pages','qualification']).issubset(cfg),'Native config requires qualified exact identity/source/hash/page pin'
@@ -42,9 +59,9 @@ def verify(out):
   bodies=[]
   for key in ['start','end']:
    e=s[key];p=validate_file(out,e['path'],e['sha256']);m=read_json(p.with_name(p.name+'.receipt.json'));assert e['url']==cfg['url']==m['url'] and m['http_status']==200 and not m.get('challenge') and m['sha256']==e['sha256'],'Native receipt/source binding mismatch';data=p.read_bytes();qualify_document(data,cfg['url'],'application/pdf');assert digest(data)==cfg['expected_sha256'],'Native file differs from qualified edition/hash';bodies.append(data)
-  assert bodies[0]==bodies[1],'Native start/end bytes changed';records,details=page_records(bodies[0],cfg,s['start']['path']);assert details['pages']==cfg['expected_pages'],'Native page-count pin mismatch';assert s['phase']=='finished','Interrupted native-document collection'
+  assert bodies[0]==bodies[1],'Native start/end bytes changed';records,details=page_records(bodies[0],cfg,s['start']['path']);validate_record_identity(records,details,cfg);assert s['phase']=='finished','Interrupted native-document collection'
   for name,data in outputs(records).items():assert (out/name).read_bytes()==data,'Native normalized output differs from source replay: '+name
-  return {'schema_version':1,'status':'native_captured_semantic_review_required','target':cfg['id'],'publication_identity':cfg['title'],'source_url':cfg['url'],'native_document_complete':True,'source_page_traversal_complete':True,'physical_pages':len(records),'source_sha256':cfg['expected_sha256'],'start_end_consistent':True,'publication_text_complete':False,'attachments_complete':False,'edition_complete':False,'jurisdiction_complete':False,'image_policy':'[IMAGE]; original native PDFs allowed, no separate image extraction','pdf_details':details,'errors':[],'limits':['Whole original PDF and every page are retained/replayed. Coordinate text/word ownership and detected table cells are checked, but all tables, reading order and legal semantics remain explicitly qualified; do not promote this native-only result to full publication semantic completeness.']}
+  return {'schema_version':1,'status':('native_source_logical_structure_qualified_dependencies_unresolved' if details.get('source_logical_structure_qualified') else 'native_captured_semantic_review_required'),'target':cfg['id'],'publication_identity':cfg['title'],'source_url':cfg['url'],'native_document_complete':True,'source_page_traversal_complete':True,'physical_pages':details['pages'],'normalized_record_count':len(records),'canonical_record_unit':details.get('canonical_record_unit','pdf_page'),'source_native_text_coverage_complete':details.get('source_native_text_coverage_complete',False),'source_logical_structure_qualified':details.get('source_logical_structure_qualified',False),'required_external_legal_dependencies_complete':details.get('required_external_legal_dependencies_complete',False),'source_sha256':cfg['expected_sha256'],'start_end_consistent':True,'publication_text_complete':details.get('source_native_text_coverage_complete',False),'publication_text_scope':('Own exact native document text; required external legal dependencies separately unresolved' if details.get('source_native_text_coverage_complete') else 'Native text/structure not fully qualified'),'publication_complete':False,'attachments_complete':False,'edition_complete':False,'jurisdiction_complete':False,'image_policy':'[IMAGE]; original native PDFs allowed, no separate image extraction','pdf_details':details,'errors':[],'limits':['Whole original PDF and every page are retained/replayed. Coordinate text/word ownership and detected table cells are checked, but all tables, reading order and legal semantics remain explicitly qualified; do not promote this native-only result to full publication semantic completeness.']}
  except Exception as exc:return {'schema_version':1,'status':'incomplete','native_document_complete':False,'source_page_traversal_complete':False,'publication_text_complete':False,'attachments_complete':False,'edition_complete':False,'jurisdiction_complete':False,'errors':[type(exc).__name__+': '+str(exc)]}
 def collect(cfg,out,resume=False,interrupt_after_start=False,upgrade_code=False):
  validate_config(cfg);out=pathlib.Path(out)
@@ -66,7 +83,7 @@ def collect(cfg,out,resume=False,interrupt_after_start=False,upgrade_code=False)
   for name,h in versions.items():atomic_bytes(out/'script-versions'/(h+pathlib.Path(name).suffix),(HERE/name).read_bytes())
   s={'native_schema_version':1,'config':cfg,'config_sha256':hash_json(cfg),'code_hashes':versions,'command':sys.argv,'runtime':runtime_info(),'generation':0,'phase':'start','failures':[]};atomic_json(out/'checkpoint.json',s)
  try:
-  ensure_revision(s);data,meta=cached(out,cfg['url'],'raw/start.pdf');s['start']=entry('raw/start.pdf',meta);ensure_revision(s);qualify_document(data,cfg['url'],'application/pdf');assert digest(data)==cfg['expected_sha256'],'Wrong source edition/hash';records,details=page_records(data,cfg,s['start']['path']);assert details['pages']==cfg['expected_pages'],'Wrong page-count pin';s['phase']='normalized';atomic_json(out/'checkpoint.json',s)
+  ensure_revision(s);data,meta=cached(out,cfg['url'],'raw/start.pdf');s['start']=entry('raw/start.pdf',meta);ensure_revision(s);qualify_document(data,cfg['url'],'application/pdf');assert digest(data)==cfg['expected_sha256'],'Wrong source edition/hash';records,details=page_records(data,cfg,s['start']['path']);validate_record_identity(records,details,cfg);s['phase']='normalized';atomic_json(out/'checkpoint.json',s)
   for name,b in outputs(records).items():atomic_bytes(out/name,b)
   if interrupt_after_start:raise InterruptedError('Intentional native checkpoint interruption')
   ensure_revision(s);end_path='raw/end-'+str(s['generation'])+'.pdf' if s.get('generation',0) else 'raw/end.pdf';end,em=cached(out,cfg['url'],end_path);s['end']=entry(end_path,em);ensure_revision(s);assert end==data,'Native source changed during collection';s['phase']='finished';atomic_json(out/'checkpoint.json',s)

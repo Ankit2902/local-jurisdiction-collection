@@ -1,0 +1,8 @@
+/Users/oliverflint/My Drive/Claude/Projects/CompliSolv 2.00/outputs/collection-readiness-post1997ee1-2026-10-17/qa/flagstaff-source-navigation-v9-review-v1/audit_source.py:43: SyntaxWarning: invalid decimal literal
+  assert len(source_refs)==3and len(set(r['owner_record_id']for r in source_refs))==2
+/Users/oliverflint/My Drive/Claude/Projects/CompliSolv 2.00/outputs/collection-readiness-post1997ee1-2026-10-17/qa/flagstaff-source-navigation-v9-review-v1/audit_source.py:45: SyntaxWarning: invalid decimal literal
+  edge=[e for e in inv if e['edge_id']==rule['source_toc_edge_id']];assert len(edge)==1and edge[0]['label']==target['heading']and edge[0]['source_url']==url+'#'+fragment
+/Users/oliverflint/My Drive/Claude/Projects/CompliSolv 2.00/outputs/collection-readiness-post1997ee1-2026-10-17/qa/flagstaff-source-navigation-v9-review-v1/audit_source.py:46: SyntaxWarning: invalid decimal literal
+  maps=[m for a in audits for m in a['mapping']if m['edge_id']==rule['source_toc_edge_id']];assert len(maps)==1and maps[0]['record_id']==target['record_id']
+/Users/oliverflint/My Drive/Claude/Projects/CompliSolv 2.00/outputs/collection-readiness-post1997ee1-2026-10-17/qa/flagstaff-source-navigation-v9-review-v1/audit_source.py:52: SyntaxWarning: invalid decimal literal
+  nav=load(norm/'source-target-coverage.json');assert nav['source_target_coverage_complete']is True and nav['literal_browser_fragment_complete']is False and nav['dependency_coverage_complete']is True and nav['source_asset_reference_inventory_complete']is True and len(nav['diagnostics'])==len(nav['resolutions'])==3and not nav['unresolved']and not nav['errors']

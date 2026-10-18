@@ -1,0 +1,9 @@
+# Infrastructure registered native route delta
+
+This immutable additional delta adds exactly the registered and previously acquired `online.encodeplus.com/regs/overlandpark-ks/doclibrary.aspx?id=3e3d98cc-890e-4630-9c2b-8f84375b0c67` alias to the source-pinned Infrastructure profile. The earlier `codes.opkansas.org` route remains admitted. Every other profile field is unchanged. This packet does not rewrite the frozen canonical-v2 packet (manifest 09669541).
+
+The native config identifies publication `82-0c6b3dc40877`, raw `raw/start.pdf`, source SHA `915fe1fdf8ff5da33acfce7d08637808cb57886fbbc7f157b2b81bfcf970827c`, and 62 physical pages. Genuine retained HTTP 200 start/end receipts establish the literal alias; there were no new requests. SOURCE-BINDING.json records the retained checkpoint/config witness. No full-book parse occurred here.
+
+Run `python3.12 -B run_tests.py` from any directory with the pinned PDF/bs4 runtime used by the canonical-v2 packet. All 32 tests passed. Five production-shaped route tests read the exact config ID, use the catalog document namespace and raw reference, exercise all four source-proven regions, reject selected source drift atomically, and leave an unknown alias unchanged before native access. The earlier 24 source/canonical tests and three receipt/delta tests also pass. The three page-6 leader/folio spacing discrepancies and all 44 superseded failed detector cells remain explicit.
+
+Promote only `candidate/collectors/encodeplus/infrastructure_profile.py` and the new `test_infrastructure_native_route.py` into their corresponding `collectors/encodeplus/` locations. The config and gzip fixture already exist there. The copied remaining runtime modules are proof dependencies, not a request to overwrite newer production files. Full 62-page current-runtime replay remains pending the final root code freeze. Images remain literal `[IMAGE]`; no image acquisition, rendering, extraction or OCR was performed.

@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Frameset//EN" "http://www.w3.org/TR/html4/frameset.dtd">
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+	<meta http-equiv='Content-Type' content='Type=text/html; charset=utf-8'>
+        <title>Flagstaff Municipal Code</title>
+        <script>
+		function Startup() {
+                if (location.search == "?f") {return;}
+                if ( screen.width < 500) { window.location = "mobile/"; }
+                isMobile();
+
+			 if ( location.search.match(/html\d*\/Flagstaff/i) ) {
+				var via = location.search.replace(/\?/,'?archive=' ).replace(/\//,'&page=' ) + '&anchor=' + location.hash.replace(/#/,'');
+				parent.crumbular.location = "cgi/versionMenu.pl" + via;
+			}
+			else if ( location.search.match(/\?Flagstaff/i) ) {
+				var via = "html/"+  location.search.replace(/\?/,'') + location.hash;
+				parent.doc.location =via;
+			}
+		}
+        </script>
+        <script src="/cgi-bin/detectMobile.js"></script>
+        <script src="/cgi-bin/domFunction.js"></script>
+
+</head>
+
+
+    <frameset rows="117px, 65px,  *" id="rows" framespacing="0"  frameborder="no" >
+        <frame src="nav_bar.html" name="nav" id="nav" scrolling="no" frameborder="0"  title="Search Navigation Bar" noresize>
+              <frame src="cgi/versionMenu.pl"  name="crumbular" id="crumbular" frameborder="0" title="Breadcrumbs" scrolling="no" noresize >
+     <frameset cols="300px, *" id="cols">
+            <frame src="cgi/FlagstaffTOC.pl" name="toc" id="toc" frameborder="0" title="Table of Contents" noresize >
+
+                     <frame src="html/FlagstaffNT.html"  name="doc" id="doc" frameborder="0" title="Main Document">
+
+    </frameset>
+
+    <noframes>
+        <p><a href="mobile/">Mobile Version</a></p>
+    </noframes>
+
+    </html>
+<script type="module" src="https://static.cloudflareinsights.com/beacon.min.js/vce701823e78c4301a35b7e07294d87301792088814092" integrity="sha512-UKNk8GbxkABxKcXYuLkO16EleLGUkcvJWtpSNmExE0Too3ZaFAxTscNWEc1OdAv5/BikHawapSCaiD2XCmp+Bw==" data-cf-beacon='{"version":"2024.11.0","token":"c60ba34ac0fe48c1acf405bbc7e1a7c6","r":1,"spa":2}' crossorigin="anonymous"></script>

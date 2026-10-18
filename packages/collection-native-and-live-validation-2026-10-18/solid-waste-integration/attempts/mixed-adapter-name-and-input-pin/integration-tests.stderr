@@ -1,0 +1,118 @@
+test_actual88_units_6pages_complete_evidence (collectors.encodeplus.test_solid_waste_logical.Logical.test_actual88_units_6pages_complete_evidence) ... ERROR
+test_canonical_JSON_CSV_sourcepages_and_control_sidecars (collectors.encodeplus.test_solid_waste_logical.Logical.test_canonical_JSON_CSV_sourcepages_and_control_sidecars) ... ERROR
+test_count_identity_fake_physical_page_refuses (collectors.encodeplus.test_solid_waste_logical.Logical.test_count_identity_fake_physical_page_refuses) ... ok
+test_current_native_verify_scope_counts_and_owntext (collectors.encodeplus.test_solid_waste_logical.Logical.test_current_native_verify_scope_counts_and_owntext) ... ERROR
+test_current_native_verify_source_CSV_controls_identity_faults (collectors.encodeplus.test_solid_waste_logical.Logical.test_current_native_verify_source_CSV_controls_identity_faults) ... ERROR
+test_mixed_generic_and_logical_CSV_unambiguous (collectors.encodeplus.test_solid_waste_logical.Logical.test_mixed_generic_and_logical_CSV_unambiguous) ... ERROR
+test_other_source_noop_and_generic_export_unchanged (collectors.encodeplus.test_solid_waste_logical.Logical.test_other_source_noop_and_generic_export_unchanged) ... ok
+test_text_parent_crosspage_or_missing_evidence_refuses (collectors.encodeplus.test_solid_waste_logical.Logical.test_text_parent_crosspage_or_missing_evidence_refuses) ... ERROR
+test_wrong_source_edition_config_or_owner_refuses (collectors.encodeplus.test_solid_waste_logical.Logical.test_wrong_source_edition_config_or_owner_refuses) ... ok
+
+======================================================================
+ERROR: test_actual88_units_6pages_complete_evidence (collectors.encodeplus.test_solid_waste_logical.Logical.test_actual88_units_6pages_complete_evidence)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/oliverflint/My Drive/Claude/Projects/CompliSolv 2.00/outputs/collection-readiness-post1997ee1-2026-10-17/solid-waste-production-integration-candidate-v1/candidate/collectors/encodeplus/test_solid_waste_logical.py", line 12, in test_actual88_units_6pages_complete_evidence
+    n.validate_record_identity(self.rows,self.details,self.cfg);e=self.rows[0]['source_document_evidence'];self.assertEqual((len(self.rows),self.details['pages'],len(e['source_controls']),len(e['source_glyphs']),len(e['source_tags']['references'])),(88,6,26,15574,109));self.assertEqual(len(self.rows[0]['superseded_detector_diagnostics']['original_page_records']),6)
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/oliverflint/My Drive/Claude/Projects/CompliSolv 2.00/outputs/collection-readiness-post1997ee1-2026-10-17/solid-waste-production-integration-candidate-v1/candidate/collectors/encodeplus/native_document.py", line 42, in validate_record_identity
+    validate_records(records,cfg)
+  File "/Users/oliverflint/My Drive/Claude/Projects/CompliSolv 2.00/outputs/collection-readiness-post1997ee1-2026-10-17/solid-waste-production-integration-candidate-v1/candidate/collectors/encodeplus/solid_waste_logical.py", line 41, in validate_records
+    evidence=logical[0]['source_document_evidence'];assert all('source_document_evidence' not in r for r in records[1:])
+             ^^^^^^^
+NameError: name 'logical' is not defined
+
+======================================================================
+ERROR: test_canonical_JSON_CSV_sourcepages_and_control_sidecars (collectors.encodeplus.test_solid_waste_logical.Logical.test_canonical_JSON_CSV_sourcepages_and_control_sidecars)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/oliverflint/My Drive/Claude/Projects/CompliSolv 2.00/outputs/collection-readiness-post1997ee1-2026-10-17/solid-waste-production-integration-candidate-v1/candidate/collectors/encodeplus/test_solid_waste_logical.py", line 14, in test_canonical_JSON_CSV_sourcepages_and_control_sidecars
+    out=n.outputs(self.rows);self.assertEqual([json.loads(l) for l in out['records.jsonl'].decode().splitlines()],self.rows);csvrows=list(csv.DictReader(io.StringIO(out['records.csv'].decode())));self.assertEqual(len(csvrows),88)
+        ^^^^^^^^^^^^^^^^^^^^
+  File "/Users/oliverflint/My Drive/Claude/Projects/CompliSolv 2.00/outputs/collection-readiness-post1997ee1-2026-10-17/solid-waste-production-integration-candidate-v1/candidate/collectors/encodeplus/native_document.py", line 35, in outputs
+    return logical_outputs(records)
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/oliverflint/My Drive/Claude/Projects/CompliSolv 2.00/outputs/collection-readiness-post1997ee1-2026-10-17/solid-waste-production-integration-candidate-v1/candidate/collectors/encodeplus/solid_waste_logical.py", line 72, in outputs
+    cfg={'id':logical[0]['document_id'],'url':logical[0]['source_document_url']};validate_records(logical,cfg)
+                                                                                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/oliverflint/My Drive/Claude/Projects/CompliSolv 2.00/outputs/collection-readiness-post1997ee1-2026-10-17/solid-waste-production-integration-candidate-v1/candidate/collectors/encodeplus/solid_waste_logical.py", line 41, in validate_records
+    evidence=logical[0]['source_document_evidence'];assert all('source_document_evidence' not in r for r in records[1:])
+             ^^^^^^^
+NameError: name 'logical' is not defined
+
+======================================================================
+ERROR: test_current_native_verify_scope_counts_and_owntext (collectors.encodeplus.test_solid_waste_logical.Logical.test_current_native_verify_scope_counts_and_owntext)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/oliverflint/My Drive/Claude/Projects/CompliSolv 2.00/outputs/collection-readiness-post1997ee1-2026-10-17/solid-waste-production-integration-candidate-v1/candidate/collectors/encodeplus/test_solid_waste_logical.py", line 57, in test_current_native_verify_scope_counts_and_owntext
+    root=Path(td);self.checkpoint(root)
+                  ^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/oliverflint/My Drive/Claude/Projects/CompliSolv 2.00/outputs/collection-readiness-post1997ee1-2026-10-17/solid-waste-production-integration-candidate-v1/candidate/collectors/encodeplus/test_solid_waste_logical.py", line 54, in checkpoint
+    for name,body in n.outputs(self.rows).items():(root/name).write_bytes(body)
+                     ^^^^^^^^^^^^^^^^^^^^
+  File "/Users/oliverflint/My Drive/Claude/Projects/CompliSolv 2.00/outputs/collection-readiness-post1997ee1-2026-10-17/solid-waste-production-integration-candidate-v1/candidate/collectors/encodeplus/native_document.py", line 35, in outputs
+    return logical_outputs(records)
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/oliverflint/My Drive/Claude/Projects/CompliSolv 2.00/outputs/collection-readiness-post1997ee1-2026-10-17/solid-waste-production-integration-candidate-v1/candidate/collectors/encodeplus/solid_waste_logical.py", line 72, in outputs
+    cfg={'id':logical[0]['document_id'],'url':logical[0]['source_document_url']};validate_records(logical,cfg)
+                                                                                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/oliverflint/My Drive/Claude/Projects/CompliSolv 2.00/outputs/collection-readiness-post1997ee1-2026-10-17/solid-waste-production-integration-candidate-v1/candidate/collectors/encodeplus/solid_waste_logical.py", line 41, in validate_records
+    evidence=logical[0]['source_document_evidence'];assert all('source_document_evidence' not in r for r in records[1:])
+             ^^^^^^^
+NameError: name 'logical' is not defined
+
+======================================================================
+ERROR: test_current_native_verify_source_CSV_controls_identity_faults (collectors.encodeplus.test_solid_waste_logical.Logical.test_current_native_verify_source_CSV_controls_identity_faults)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/oliverflint/My Drive/Claude/Projects/CompliSolv 2.00/outputs/collection-readiness-post1997ee1-2026-10-17/solid-waste-production-integration-candidate-v1/candidate/collectors/encodeplus/test_solid_waste_logical.py", line 63, in test_current_native_verify_source_CSV_controls_identity_faults
+    root=Path(td);self.checkpoint(root)
+                  ^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/oliverflint/My Drive/Claude/Projects/CompliSolv 2.00/outputs/collection-readiness-post1997ee1-2026-10-17/solid-waste-production-integration-candidate-v1/candidate/collectors/encodeplus/test_solid_waste_logical.py", line 54, in checkpoint
+    for name,body in n.outputs(self.rows).items():(root/name).write_bytes(body)
+                     ^^^^^^^^^^^^^^^^^^^^
+  File "/Users/oliverflint/My Drive/Claude/Projects/CompliSolv 2.00/outputs/collection-readiness-post1997ee1-2026-10-17/solid-waste-production-integration-candidate-v1/candidate/collectors/encodeplus/native_document.py", line 35, in outputs
+    return logical_outputs(records)
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/oliverflint/My Drive/Claude/Projects/CompliSolv 2.00/outputs/collection-readiness-post1997ee1-2026-10-17/solid-waste-production-integration-candidate-v1/candidate/collectors/encodeplus/solid_waste_logical.py", line 72, in outputs
+    cfg={'id':logical[0]['document_id'],'url':logical[0]['source_document_url']};validate_records(logical,cfg)
+                                                                                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/oliverflint/My Drive/Claude/Projects/CompliSolv 2.00/outputs/collection-readiness-post1997ee1-2026-10-17/solid-waste-production-integration-candidate-v1/candidate/collectors/encodeplus/solid_waste_logical.py", line 41, in validate_records
+    evidence=logical[0]['source_document_evidence'];assert all('source_document_evidence' not in r for r in records[1:])
+             ^^^^^^^
+NameError: name 'logical' is not defined
+
+======================================================================
+ERROR: test_mixed_generic_and_logical_CSV_unambiguous (collectors.encodeplus.test_solid_waste_logical.Logical.test_mixed_generic_and_logical_CSV_unambiguous)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/oliverflint/My Drive/Claude/Projects/CompliSolv 2.00/outputs/collection-readiness-post1997ee1-2026-10-17/solid-waste-production-integration-candidate-v1/candidate/collectors/encodeplus/test_solid_waste_logical.py", line 45, in test_mixed_generic_and_logical_CSV_unambiguous
+    old=copy.deepcopy(self.rows[0]['superseded_detector_diagnostics']['original_page_records'][0]);old['id']='unrelated::page:1';old['document_id']='unrelated';mixed=[old]+copy.deepcopy(self.rows);out=n.outputs(mixed);cs=list(csv.DictReader(io.StringIO(out['records.csv'].decode())));self.assertEqual(len(cs),89);self.assertEqual(cs[0]['physical_page'],'1');self.assertEqual(cs[1]['physical_page'],'');self.assertEqual([r['text'] for r in cs],[r['text'] for r in mixed]);self.assertEqual(json.loads(out['records.jsonl'].decode().splitlines()[0]),old)
+                                                                                                                                                                                                         ^^^^^^^^^^^^^^^^
+  File "/Users/oliverflint/My Drive/Claude/Projects/CompliSolv 2.00/outputs/collection-readiness-post1997ee1-2026-10-17/solid-waste-production-integration-candidate-v1/candidate/collectors/encodeplus/native_document.py", line 35, in outputs
+    return logical_outputs(records)
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/oliverflint/My Drive/Claude/Projects/CompliSolv 2.00/outputs/collection-readiness-post1997ee1-2026-10-17/solid-waste-production-integration-candidate-v1/candidate/collectors/encodeplus/solid_waste_logical.py", line 72, in outputs
+    cfg={'id':logical[0]['document_id'],'url':logical[0]['source_document_url']};validate_records(logical,cfg)
+                                                                                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/oliverflint/My Drive/Claude/Projects/CompliSolv 2.00/outputs/collection-readiness-post1997ee1-2026-10-17/solid-waste-production-integration-candidate-v1/candidate/collectors/encodeplus/solid_waste_logical.py", line 41, in validate_records
+    evidence=logical[0]['source_document_evidence'];assert all('source_document_evidence' not in r for r in records[1:])
+             ^^^^^^^
+NameError: name 'logical' is not defined
+
+======================================================================
+ERROR: test_text_parent_crosspage_or_missing_evidence_refuses (collectors.encodeplus.test_solid_waste_logical.Logical.test_text_parent_crosspage_or_missing_evidence_refuses)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/oliverflint/My Drive/Claude/Projects/CompliSolv 2.00/outputs/collection-readiness-post1997ee1-2026-10-17/solid-waste-production-integration-candidate-v1/candidate/collectors/encodeplus/test_solid_waste_logical.py", line 43, in test_text_parent_crosspage_or_missing_evidence_refuses
+    with self.assertRaises(AssertionError):s.validate_records(rows,self.cfg)
+                                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/oliverflint/My Drive/Claude/Projects/CompliSolv 2.00/outputs/collection-readiness-post1997ee1-2026-10-17/solid-waste-production-integration-candidate-v1/candidate/collectors/encodeplus/solid_waste_logical.py", line 41, in validate_records
+    evidence=logical[0]['source_document_evidence'];assert all('source_document_evidence' not in r for r in records[1:])
+             ^^^^^^^
+NameError: name 'logical' is not defined
+
+----------------------------------------------------------------------
+Ran 9 tests in 3.532s
+
+FAILED (errors=6)

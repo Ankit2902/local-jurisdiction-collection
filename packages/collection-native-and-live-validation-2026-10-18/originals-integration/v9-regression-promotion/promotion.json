@@ -1,0 +1,19 @@
+{
+  "promote": [
+    {
+      "source": "run_originals_source_navigation.py",
+      "destination": "collectors/qa/run_originals_source_navigation.py",
+      "before_sha256": null,
+      "after_sha256": "b1095c48d4e729303f29d72971a456b1e193adffac9862db2e90a1a13b1c134d"
+    },
+    {
+      "source": "test_protocol_guards.py",
+      "destination": "collectors/originals/tests/test_protocol_guards.py",
+      "before_sha256": "128be33a9d6b0066ff1de3cd93807a6c1c41547f99c6dcb460b227597b9544ff",
+      "after_sha256": "d4ed5b61e3f0e99855a1f28d60728fc4821923a8af6a1e60d1e2b0bbe608263d"
+    }
+  ],
+  "fixtures": "13 synthetic fixture cases are embedded in QA file; no additional external fixture or retained raw required.",
+  "reason": "Existing manual summary test must explicitly supply new measured source ownership/dependency proof while retaining edition failure. Added negative forbids counts-only body/text/structure promotion. No weakening of publisher-source checks. Original baseline file/log retained in frozenv9 failurehistory.",
+  "runtime_binding": "QA runner outside family; baseline test file beneath tests/, neither affects top-level runtime fingerprint. Production runtime5filewhitelist remains separate."
+}

@@ -1,0 +1,42 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Frameset//EN" "http://www.w3.org/TR/html4/frameset.dtd"><html lang="en" xmlns="http://www.w3.org/1999/xhtml"><head>
+	<meta http-equiv="Content-Type" content="Type=text/html; charset=utf-8">
+        <title>Flagstaff Municipal Code</title>
+        <script>
+		function Startup() {
+                if (location.search == "?f") {return;}
+                if ( screen.width < 500) { window.location = "mobile/"; }
+                isMobile();
+
+			 if ( location.search.match(/html\d*\/Flagstaff/i) ) {
+				var via = location.search.replace(/\?/,'?archive=' ).replace(/\//,'&page=' ) + '&anchor=' + location.hash.replace(/#/,'');
+				parent.crumbular.location = "cgi/versionMenu.pl" + via;
+			}
+			else if ( location.search.match(/\?Flagstaff/i) ) {
+				var via = "html/"+  location.search.replace(/\?/,'') + location.hash;
+				parent.doc.location =via;
+			}
+		}
+        </script>
+        <script src="/cgi-bin/detectMobile.js"></script>
+        <script src="/cgi-bin/domFunction.js"></script><script src="https://www.googletagmanager.com/gtag/js?id=G-F0LNZ6CN9W"></script>
+
+</head>
+
+
+    <frameset rows="117px, 65px,  *" id="rows" framespacing="0" frameborder="no">
+        <frame src="nav_bar.html" name="nav" id="nav" scrolling="no" frameborder="0" title="Search Navigation Bar" noresize="">
+              <frame src="cgi/versionMenu.pl" name="crumbular" id="crumbular" frameborder="0" title="Breadcrumbs" scrolling="no" noresize="">
+     <frameset cols="300px, *" id="cols">
+            <frame src="cgi/FlagstaffTOC.pl" name="toc" id="toc" frameborder="0" title="Table of Contents" noresize="">
+
+                     <frame src="html/FlagstaffNT.html" name="doc" id="doc" frameborder="0" title="Main Document">
+
+    </frameset>
+
+    <noframes>
+        <p><a href="mobile/">Mobile Version</a></p>
+    </noframes>
+
+    
+
+</frameset></html>

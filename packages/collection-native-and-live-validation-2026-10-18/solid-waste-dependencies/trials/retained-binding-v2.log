@@ -1,0 +1,8 @@
+Traceback (most recent call last):
+  File "/Users/oliverflint/My Drive/Claude/Projects/CompliSolv 2.00/outputs/collection-readiness-post-1997ee1-2026-10-17/american-legal/solid-waste-dependencies-v1/source/bind_retained.py", line 41, in <module>
+    p=argparse.ArgumentParser();p.add_argument('--retained',required=True);p.add_argument('--out',required=True);a=p.parse_args();r=bind(a.retained,a.out);print(json.dumps({k:r[k] for k in ['owned_units','operative_units','raw_start_end_equal','post2011_amended_unit_count','reusable_as_current_same_source_dependency_graph','reusable_as_2011_edition_equivalent']},indent=2))
+                                                                                                                                    ^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/oliverflint/My Drive/Claude/Projects/CompliSolv 2.00/outputs/collection-readiness-post-1997ee1-2026-10-17/american-legal/solid-waste-dependencies-v1/source/bind_retained.py", line 18, in bind
+    r=by[sid];assert r['raw_path']==root['raw_path'] and r['raw_sha256']==root['raw_sha256'];assert r['body_sha256']==hashlib.sha256(r['body_html'].encode()).hexdigest()
+                                                                                                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError

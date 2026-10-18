@@ -1,0 +1,109 @@
+{
+  "schema_version": 1,
+  "review": "Independent exact current-common V9 retained-source terminal binding review before promotion",
+  "created_utc": "2026-10-18T01:59:17.208795+00:00",
+  "passed": true,
+  "terminal_packet": {
+    "path": "/Users/oliverflint/My Drive/Claude/Projects/CompliSolv 2.00/outputs/collection-readiness-next-2026-10-17/originals-integration/v9-current-common-terminal-handoff-v1",
+    "promotion_and_validation_sha256": "d6de4e2da1c60fdef65b0be2682396962f0a19246608838fdac86cc75b4b0075",
+    "artifact_manifest_sha256": "e66607ac772a3a18cc40865c4c7fd53c3504982b27e4cfb0568e11e0463d6b7a",
+    "files": 696,
+    "bytes": 63387949,
+    "all_members_hash_verified_unchanged": true
+  },
+  "actual_common_receipt": {
+    "path": "/Users/oliverflint/My Drive/Claude/Projects/CompliSolv 2.00/outputs/collection-readiness-next-2026-10-17/originals-integration/v9-isolated-current-common-verification-v1.json",
+    "sha256": "50d602cd55dd9873f6f2ddb687288a401fc4e65bcf6aad1933a0962453a2a883",
+    "status": "verified_publication",
+    "verification_exit": 0,
+    "family_verifier_passed": true,
+    "evidence_read_only": true,
+    "publisher_requests": 0,
+    "source_changed_during_run": false,
+    "runtime_changed_during_run": false
+  },
+  "independent_audit": {
+    "report_sha256": "13771614b0efea0df53c58bc7299f60845b9cab08977abf00b57ffd786cfd0d9",
+    "program_sha256": "4e1b2ecf57a54a5e07d61c8f3943ce88e714e556302b9992d93313e48213845a",
+    "exit_code": 0,
+    "reran_full_replay": false,
+    "copied_current_common_files_exact": 80,
+    "copied_frozen_v9_family_files_exact": 60,
+    "common_component_files_before_after_current_equal": 60,
+    "evidence_files_before_after_current_equal": 549,
+    "original_v7_source_tree_files_exact_in_v9_replay": 482
+  },
+  "current_binding": {
+    "common_root_manifest_sha256": "f99c7b8f17d05401b57b0718c570adae5d6d3e69085f3cf4f0dbfaae00ce2afd",
+    "runtime_receipt_sha256": "2d1f08b78d8a4e3479d6ed4e8799e7afb890ee6612929bea731efa7f0af87f1e",
+    "runtime_receipt_is_current_production_owned_runtime": true,
+    "exact_typed_flagstaff_config_equal_selected_common_and_collection": true,
+    "exact_family_source_equals_previously_reviewed_v9_candidate": true,
+    "source_navigation_review_sha256": "3b437b5a6933694d8cdeef7b6d2a0a2a0f2871ace4d84184535374cab8e66135",
+    "new_replay_origin_checkpoint_equals_actual_terminal_v7_source": "6e3d638702f24570470554817ad27e301010ccea35058b4c41e4dd845d7e4d8f",
+    "record_stream_sha256": "1344484a99e9dce522f72d2254b713e9b725d552bb28d174c3fb66884a7fae5b"
+  },
+  "scope": {
+    "acquisition_mode": "retained_source_replay",
+    "publication": "City Code including Charter",
+    "primary_publication_accepted_under_exact_isolated_v9_common": true,
+    "whole_jurisdiction_complete": false,
+    "literal_browser_fragment_complete": false,
+    "finite_source_target_coverage_complete": true,
+    "native_capture_verified": false,
+    "edition_complete": null,
+    "external_adopted_legal_dependency_closure_complete": false,
+    "independent_final_review_complete_not_manufactured": true,
+    "new_v9_live_transport_credit": false,
+    "new_v9_interrupted_acquisition_resume_credit": false,
+    "prior_actual_v7_transport_SIGINT_resume_history_retained_without_relabeling": true
+  },
+  "executed_commands_reviewed": {
+    "replay": [
+      "/Users/oliverflint/My Drive/Claude/Projects/CompliSolv 2.00/github/local-jurisdiction-collection/.collection-runtime/venv/bin/python",
+      "-B",
+      "/Users/oliverflint/My Drive/Claude/Projects/CompliSolv 2.00/outputs/collection-readiness-next-2026-10-17/originals-integration/v9-common-rehearsal-v1-root/collectors/originals/offline.py",
+      "replay",
+      "--config",
+      "/Users/oliverflint/My Drive/Claude/Projects/CompliSolv 2.00/outputs/collection-readiness-next-2026-10-17/originals-integration/v9-common-rehearsal-v1-root/collectors/originals/configs/flagstaff.json",
+      "--source",
+      "/Users/oliverflint/My Drive/Claude/Projects/CompliSolv 2.00/outputs/collection-readiness-next-2026-10-17/originals-integration/flagstaff-common-live-recovery-v1/source",
+      "--out",
+      "/Users/oliverflint/My Drive/Claude/Projects/CompliSolv 2.00/outputs/collection-readiness-next-2026-10-17/originals-integration/v9-current-live-source-replay-v1"
+    ],
+    "current_common_verify": [
+      "/Users/oliverflint/My Drive/Claude/Projects/CompliSolv 2.00/github/local-jurisdiction-collection/.collection-runtime/venv/bin/python",
+      "-B",
+      "/Users/oliverflint/My Drive/Claude/Projects/CompliSolv 2.00/outputs/collection-readiness-next-2026-10-17/originals-integration/v9-common-rehearsal-v1-root/collect.py",
+      "--runtime",
+      "/Users/oliverflint/My Drive/Claude/Projects/CompliSolv 2.00/github/local-jurisdiction-collection/.collection-runtime",
+      "verify",
+      "--target",
+      "original-flagstaff-az",
+      "--out",
+      "/Users/oliverflint/My Drive/Claude/Projects/CompliSolv 2.00/outputs/collection-readiness-next-2026-10-17/originals-integration/v9-current-live-source-replay-v1"
+    ]
+  },
+  "review_notes": [
+    "Both command roots/interpreter/config/output paths are exact. Replay uses frozenV9 offline.py in isolated root and original terminalV7/source, producing a new output root.",
+    "Standard copied common verify selects original-flagstaff-az-primary through current copied registry and exact typed adapter config. Its actual log matches the frozen handoff copy byte-for-byte.",
+    "Current production common/ops/registry bytes match copied rehearsal; independent ongoing EP parser edits are outside this original-family selected component set.",
+    "Original source tree, checkpoints, raw bodies and acquisition history remain exact. New V9 normalization/config fingerprint is explicit rather than an in-place upgrade of the V7 bound job.",
+    "The primary acceptance is source fidelity plus exact finite retained-target qualification; literal broken-link diagnostics, separate Employee Handbook and external law scope remain explicit.",
+    "No early-initialization candidate code or proof is included."
+  ],
+  "limits": [
+    "This is independent manifest/command/config/runtime-receipt/source-artifact binding review; the completed standard verifier was not rerun.",
+    "It supports promotion of the previously reviewed exact five V9 runtime files by root. It is not a claim that production has already executed V9.",
+    "No new publisher acquisition, network, browser, image download/decode/render/extraction/OCR or full replay occurred in this review."
+  ],
+  "mutation": {
+    "production": false,
+    "old_reports_or_packets": false,
+    "new_own_QA_receipts_only": true
+  },
+  "runtime": {
+    "python": "3.12.14 (main, Aug 25 2026, 13:50:33) [Clang 22.1.3 ]",
+    "executable": "/Users/oliverflint/My Drive/Claude/Projects/CompliSolv 2.00/github/local-jurisdiction-collection/.collection-runtime/venv/bin/python"
+  }
+}

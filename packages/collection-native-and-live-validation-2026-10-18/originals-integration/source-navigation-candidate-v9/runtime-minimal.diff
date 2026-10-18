@@ -1,0 +1,248 @@
+--- production-v7/configs.json
++++ candidate-v9/configs.json
+@@ -29,6 +29,68 @@
+           "context_regex": "Secretary of the Interior.s Standards and Guidelines for Archeology and Historic Preservation",
+           "reason": "Professional qualification citation to36CFR61 is an independent federal legal layer; not a native attachment to this primary publication."
+         }
++      ],
++      "source_navigation_resolutions": [
++        {
++          "rule_id": "flagstaff-0305004-reconstruction-trailing-source-tab-v1",
++          "source_url": "https://www.codepublishing.com/AZ/Flagstaff/html/Flagstaff03/Flagstaff0305004.html",
++          "source_sha256": "c4730f17d03eb72d8e451f647407ce04490794ee1f01f783d3f6ebd50f92b0d8",
++          "publication_currency": "The Flagstaff City Charter and City Code are current through Ordinance 2026-19, passed August 25, 2026.",
++          "href_fragment": "3.05.004.0416.2",
++          "printed_numeric_locator": "3-05-004-0416.2",
++          "target_record_id": "742635b1c1a2e48a5759c0afaa2947ef7386fd733a3e0bebfd655cba72492f45",
++          "target_heading": "3-05-004-0416.2 RECONSTRUCTION CONTRACTING",
++          "target_source_heading_ids": [
++            "3.05.004.0416.2\t",
++            "3.05.004.0416.2\t"
++          ],
++          "target_block_indices": [
++            200,
++            201,
++            202,
++            203,
++            204,
++            205,
++            206,
++            207,
++            208
++          ],
++          "target_source_body_sha256": "8f6260bb25ab82eb8d431581d6052578031caf74c2a261016524c1b6810f7e59",
++          "target_full_text_sha256": "e44922a4c38bf72bb9b1eb70c492ddeea423b50bbd88d2dfdc4158a2be4ef4eb",
++          "target_semantic_html_sha256": "8f6260bb25ab82eb8d431581d6052578031caf74c2a261016524c1b6810f7e59",
++          "source_toc_edge_id": "a737a40e61ad479b60c7fb23babbf90be2fae31804b568a713a308835b915adf",
++          "source_refs": [
++            {
++              "owner_record_id": "3289bd5a0388f60610b958281f4b072f61d492a80cf530585f2e309072fcdc44",
++              "link_index": 7,
++              "source_block_index": 10,
++              "source_raw_href": "../Flagstaff03/Flagstaff0305004.html#3.05.004.0416.2",
++              "source_text": "3-05-004-0416.2",
++              "source_anchor_sha256": "13303c8a50a14e42837122901c2296124a1f879b72b066f2bafaf2e2634f67ac"
++            },
++            {
++              "owner_record_id": "d07348ae0d6396a02849506ba6c82d4d53f66863aeb95e798847d1f9ec9578d5",
++              "link_index": 0,
++              "source_block_index": 145,
++              "source_raw_href": "../Flagstaff03/Flagstaff0305004.html#3.05.004.0416.2",
++              "source_text": "3-05-004-0416.2",
++              "source_anchor_sha256": "13303c8a50a14e42837122901c2296124a1f879b72b066f2bafaf2e2634f67ac"
++            },
++            {
++              "owner_record_id": "d07348ae0d6396a02849506ba6c82d4d53f66863aeb95e798847d1f9ec9578d5",
++              "link_index": 1,
++              "source_block_index": 150,
++              "source_raw_href": "../Flagstaff03/Flagstaff0305004.html#3.05.004.0416.2",
++              "source_text": "3-05-004-0416.2",
++              "source_anchor_sha256": "13303c8a50a14e42837122901c2296124a1f879b72b066f2bafaf2e2634f67ac"
++            }
++          ],
++          "evidence_audit_sha256": "2e645cb94378cf8365d31bd8e47cee9d302cb094baaeb077d832d69f20331f73",
++          "policy": "Finite exact-source retained-target qualification only; original href/id/name remain unchanged and literal browser navigation remains false. Unknown/changed/ambiguous/foreign source fails closed."
++        }
++      ],
++      "source_known_separate_publication_prefixes": [
++        "https://www.codepublishing.com/AZ/Flagstaff/html/FlagstaffEmployeeHandbook/"
+       ]
+     },
+     "original-king-county-wa": {
+--- production-v7/flagstaff_html_normalize.py
++++ candidate-v9/flagstaff_html_normalize.py
+@@ -74,7 +74,7 @@
+    if r['body_qualification']=='unresolved_heading_only':heading_only.append(r['record_id'])
+  return records,{'url':url,'encoding':encoding,'source_blocks':len(units),'owned_blocks':sum(len(r['block_indices']) for r in records),'unique_owned_blocks':len({i for r in records for i in r['block_indices']}),'source_tables':len(root.find_all('table')),'owned_tables':sum(len(r['tables']) for r in records),'source_toc_edges':len(expected),'matched_toc_edges':len(mapping),'mapping':mapping,'missing_toc_edges':missing,'extra_body_headings':[{'record_id':r['record_id'],'heading':r['heading']} for r in available if r['kind']=='section'],'source_body_only_containers':[{'record_id':r['record_id'],'heading':r['heading'],'source_classes':r['source_heading_classes']} for r in available if r['kind']!='section'],'source_structural_parents':sum(r.get('body_qualification')=='source_structural_parent_with_published_children' for r in records),'heading_only_unresolved':heading_only,'image_placeholders':sum(r['image_placeholder_count'] for r in records)}
+ 
+-CODEFILES=['flagstaff_html_normalize.py', 'flagstaff_html.py', 'flagstaff_inventory.py', 'flagstaff_root.py', 'flagstaff_root_guard.py', 'flagstaff_normalize.py', 'king_normalize.py', 'source_common.py', 'shared_transport.py', 'model.py', 'legacy_html.py', 'browser_safety.py', 'configs.json', 'king_acquire.py', 'source_dispositions.json','publication_source_verify.py','character_recovery.py','source_character_dispositions.json']
++CODEFILES=['flagstaff_html_normalize.py', 'flagstaff_html.py', 'flagstaff_inventory.py', 'flagstaff_root.py', 'flagstaff_root_guard.py', 'flagstaff_normalize.py', 'king_normalize.py', 'source_common.py', 'shared_transport.py', 'model.py', 'legacy_html.py', 'browser_safety.py', 'configs.json', 'king_acquire.py', 'source_dispositions.json','publication_source_verify.py','character_recovery.py','source_character_dispositions.json','source_navigation.py']
+ 
+ def run(source,out):
+  validate_source('flagstaff-html',source)
+@@ -135,19 +135,15 @@
+      else:a.update(required=True,status='unresolved_nonimage_attachment')
+     dependencies.append(a)
+    if re.search(r'data:image/|<(?:img|svg|picture)\b|background\s*=',r['semantic_html'],re.I):errors.append('Active normalized image markup')
+- source_targets={}
+- for document in docs:
+-  artifact=next(a for a in state['artifacts'] if a['role']=='content' and a['source_url']==document)
+-  body=BeautifulSoup(decode((src/artifact['path']).read_bytes())[0],'html.parser')
+-  source_targets[document]={str(node[field]) for node in body.find_all(True) for field in ['id','name'] if node.get(field)}
+- source_link_defects=[]
+- from urllib.parse import unquote
+- for record in records:
+-  for link in record['links']:
+-   destination=key(link['url']);fragment=unquote(urlsplit(link['url']).fragment)
+-   if destination in source_targets and fragment and fragment not in source_targets[destination]:source_link_defects.append({'owner_record_id':record['record_id'],'url':link['url'],'source_issue':'publisher_missing_anchor','correction_applied':False})
+- if source_link_defects:errors.append('Publisher source contains absent primary cross-reference targets')
++ from source_navigation import assess
++ navconfig=load(Path(__file__).parent/'configs.json')['targets']['original-flagstaff-az']
++ raw_documents={document:(src/next(a['path'] for a in state['artifacts'] if a['role']=='content' and a['source_url']==document)).read_bytes() for document in docs}
++ navigation=assess(records,raw_documents,opening,audits,dependencies,currencies[0],navconfig.get('source_navigation_resolutions',[]),reference_rules,navconfig.get('source_known_separate_publication_prefixes',[]),blocks)
++ source_link_defects=navigation['diagnostics']
++ if not navigation['source_target_coverage_complete']:errors.append('Unresolved primary source-target coverage')
++ errors.extend(navigation['errors'])
+  save(out/'source-link-defects.json',source_link_defects)
++ save(out/'source-target-coverage.json',navigation)
+  unresolved=[a for a in dependencies if a.get('required') and a.get('status')=='unresolved_nonimage_attachment']
+  if unresolved:errors.append('Unresolved required nonimage dependencies')
+  verify_normalization_revision(code)
+@@ -155,6 +151,6 @@
+  with (out/'records.csv').open('w',newline='') as f:
+   w=csv.DictWriter(f,fieldnames=['record_id','source_url','kind','heading','full_text']);w.writeheader();w.writerows({k:r[k] for k in w.fieldnames} for r in records)
+  save(out/'document-audits.json',audits);save(out/'dependencies.json',dependencies);save(out/'source-inventory.json',opening)
+- summary={'schema':'flagstaff-full-html-normalized-1','source':str(src),'complete':not errors and not state['errors'] and not state['blocked'],'whole_jurisdiction_complete':False,'publication':'City Code including Charter; Employee Handbook separate and excluded','source_graph_edges':len(opening),'source_documents':len(docs),'acquired_parsed_documents':len(audits),'records':len(records),'source_blocks':sum(a['source_blocks'] for a in audits),'owned_blocks':sum(a['owned_blocks'] for a in audits),'source_tables':sum(a['source_tables'] for a in audits),'owned_tables':sum(a['owned_tables'] for a in audits),'matched_toc_edges':sum(a['matched_toc_edges'] for a in audits),'missing_toc_edges':sum(len(a['missing_toc_edges']) for a in audits),'extra_body_headings':sum(len(a['extra_body_headings']) for a in audits),'heading_only_unresolved':sum(len(a['heading_only_unresolved']) for a in audits),'image_placeholders':sum(a['image_placeholders'] for a in audits),'images_downloaded':False,'opening_closing_inventory_equal':opening==closing,'opening_closing_roots_equal':root_sets==[expected_roots,expected_roots],'opening_currency':currencies[0],'closing_currency':currencies[1],'independent_legal_layer_references':sum(a.get('status')=='independent_legal_layer_reference' for a in dependencies),'source_body_only_containers':sum(len(a['source_body_only_containers']) for a in audits),'source_structural_parents':sum(a['source_structural_parents'] for a in audits),'source_navigation_complete':not source_link_defects,'source_broken_link_occurrences':len(source_link_defects),'source_list_groups':sum(len(record.get('source_list_groups',[])) for record in records),'unresolved_nonimage_dependencies':len(unresolved),'errors':sorted(set(errors)),'code_fingerprint':code};save(out/'summary.json',summary);return summary
++ summary={'schema':'flagstaff-full-html-normalized-1','source':str(src),'complete':not errors and not state['errors'] and not state['blocked'],'whole_jurisdiction_complete':False,'publication':'City Code including Charter; Employee Handbook separate and excluded','source_graph_edges':len(opening),'source_documents':len(docs),'acquired_parsed_documents':len(audits),'records':len(records),'source_blocks':sum(a['source_blocks'] for a in audits),'owned_blocks':sum(a['owned_blocks'] for a in audits),'source_tables':sum(a['source_tables'] for a in audits),'owned_tables':sum(a['owned_tables'] for a in audits),'matched_toc_edges':sum(a['matched_toc_edges'] for a in audits),'missing_toc_edges':sum(len(a['missing_toc_edges']) for a in audits),'extra_body_headings':sum(len(a['extra_body_headings']) for a in audits),'heading_only_unresolved':sum(len(a['heading_only_unresolved']) for a in audits),'image_placeholders':sum(a['image_placeholders'] for a in audits),'images_downloaded':False,'opening_closing_inventory_equal':opening==closing,'opening_closing_roots_equal':root_sets==[expected_roots,expected_roots],'opening_currency':currencies[0],'closing_currency':currencies[1],'independent_legal_layer_references':sum(a.get('status')=='independent_legal_layer_reference' for a in dependencies),'source_body_only_containers':sum(len(a['source_body_only_containers']) for a in audits),'source_structural_parents':sum(a['source_structural_parents'] for a in audits),'source_navigation_complete':navigation['literal_browser_fragment_complete'],'source_target_coverage_complete':navigation['source_target_coverage_complete'],'source_text_ownership_complete':navigation['source_text_ownership_complete'],'full_primary_source_ownership_complete':navigation['full_primary_source_ownership_complete'],'dependency_coverage_complete':navigation['dependency_coverage_complete'],'source_target_resolutions':len(navigation['resolutions']),'unresolved_source_target_occurrences':len(navigation['unresolved']),'source_broken_link_occurrences':len(source_link_defects),'source_list_groups':sum(len(record.get('source_list_groups',[])) for record in records),'unresolved_nonimage_dependencies':len(unresolved),'errors':sorted(set(errors)),'code_fingerprint':code};save(out/'summary.json',summary);return summary
+ if __name__=='__main__':
+  p=argparse.ArgumentParser();p.add_argument('--source',required=True);p.add_argument('--out',required=True);a=p.parse_args();r=run(a.source,a.out);print(json.dumps(r,indent=2));sys.exit(0 if r['complete'] else 2)
+--- production-v7/source_navigation.py
++++ candidate-v9/source_navigation.py
+@@ -0,0 +1,97 @@
++"""Finite source-bound retained-target coverage, separate from literal browser fragment validity.
++No acquisition, source rewriting, ID trimming or inferred missing legal sections.
++"""
++import collections,re
++from urllib.parse import urljoin,urlsplit,unquote
++from bs4 import BeautifulSoup
++from source_common import sha,clean,decode,key
++from model import dom_text,sanitize_images,table_data,normalized_links,source_notes,source_assets,image_asset
++
++def assess(records,raw_documents,inventory,audits,dependencies,currency,rules,reference_rules,separate_prefixes,blocks):
++ errors=[];asset_reference_complete=True;contexts={};owners={};primary_references=[];diagnostics=[];resolutions=[];unresolved=[];body_stats=[]
++ bydoc=collections.defaultdict(list)
++ for row in records:bydoc[key(row['source_url'])].append(row)
++ if set(bydoc)!=set(raw_documents):errors.append('Primary document/record ownership inventory differs')
++ if {key(e['source_url']) for e in inventory}!=set(raw_documents):errors.append('Primary native inventory/document acquisition differs')
++ for url,raw in raw_documents.items():
++  root=BeautifulSoup(decode(raw)[0],'html.parser').select_one('#mainContent')
++  if root is None:errors.append('Primary legal source container absent '+url);continue
++  units=list(blocks(root));rows=bydoc[url];indices=[i for row in rows for i in row['block_indices']]
++  if sorted(indices)!=list(range(len(units))):errors.append('Primary source block missing/duplicate '+url)
++  sourceids=collections.Counter((field,str(node[field])) for node in root.find_all(True) for field in ['id','name'] if node.get(field));normids=collections.Counter();idowners={'id':collections.defaultdict(set),'name':collections.defaultdict(set)}
++  for row in rows:
++   if row.get('source_sha256')!=sha(raw):errors.append('Primary record source hash differs '+row['record_id'])
++   if any(i<0 or i>=len(units) for i in row['block_indices']):errors.append('Primary record source index outside document');continue
++   expectedtext=clean(' '.join(dom_text(sanitize_images(units[i])) for i in row['block_indices']))
++   if row['full_text']!=expectedtext:errors.append('Primary source text conservation differs '+row['record_id'])
++   semantic=BeautifulSoup(row['semantic_html'],'html.parser')
++   if dom_text(semantic)!=row['full_text']:errors.append('Primary rendered HTML/text conservation differs '+row['record_id'])
++   expectedtables=[];expectedlinks=[];expectednotes=[];expectedassets=[];expectedimages=0
++   for i in row['block_indices']:
++    unit=units[i];projected=sanitize_images(unit);expectedtables.extend(table_data(projected));expectedlinks.extend(normalized_links(unit,url));expectednotes.extend(source_notes(unit));expectedassets.extend(source_assets(unit,url));expectedimages+=projected.get_text().count('[IMAGE]')
++   if row['tables']!=expectedtables or row['links']!=expectedlinks or row['notes']!=expectednotes or row['image_placeholder_count']!=expectedimages:errors.append('Primary table/link/note/image source projection differs '+row['record_id'])
++   if len(row['assets'])!=len(expectedassets):errors.append('Primary source asset-reference inventory differs '+row['record_id']);asset_reference_complete=False
++   else:
++    for actual,expected in zip(row['assets'],expectedassets):
++     if any(actual.get(k)!=v for k,v in expected.items() if k not in ['required','status','classification','reason']):errors.append('Primary source asset-reference fields differ '+row['record_id']);asset_reference_complete=False
++   for node in semantic.find_all(True):
++    for field in ['id','name']:
++     if node.get(field):normids[(field,str(node[field]))]+=1;idowners[field][str(node[field])].add(row['record_id'])
++   for link_index,link in enumerate(row['links']):primary_references.append((row,link_index,link))
++  if sourceids!=normids:errors.append('Primary source ID/name occurrence conservation differs '+url)
++  contexts[url]={'raw':raw,'root':root,'units':units,'records':rows};owners[url]=idowners;body_stats.append({'source_url':url,'source_sha256':sha(raw),'source_blocks':len(units),'owned_blocks':len(indices),'source_id_name_occurrences':sum(sourceids.values()),'normalized_id_name_occurrences':sum(normids.values())})
++ for audit in audits:
++  if audit['source_blocks']!=audit['owned_blocks'] or audit['source_blocks']!=audit['unique_owned_blocks'] or audit['source_tables']!=audit['owned_tables'] or audit['source_toc_edges']!=audit['matched_toc_edges'] or any(audit[k] for k in ['missing_toc_edges','extra_body_headings','heading_only_unresolved']):errors.append('Primary native inventory/body/table audit incomplete '+audit['url'])
++ ownership_errors=list(errors)
++ expecteddeps=[dict(asset,owner_record_id=row['record_id']) for row in records for asset in row['assets']]
++ if len(expecteddeps)!=len(dependencies):errors.append('Required dependency ledger inventory differs')
++ else:
++  for original,dep in zip(expecteddeps,dependencies):
++   if any(dep.get(k)!=v for k,v in original.items() if k not in ['required','status','classification','reason']):errors.append('Dependency/source reference binding differs')
++   if image_asset(dep):valid=dep.get('required') is False and dep.get('status')=='policy_omitted_image'
++   elif key(dep['url']) in raw_documents:valid=dep.get('required') is False and dep.get('status')=='retained_primary_document'
++   else:
++    matches=[r for r in reference_rules if re.fullmatch(r['url_regex'],dep['url']) and re.search(r['context_regex'],dep.get('context',''),re.I)]
++    valid=len(matches)==1 and dep.get('required') is False and dep.get('status')=='independent_legal_layer_reference'
++   if not valid:errors.append('Required nonimage dependency remains unqualified '+dep.get('url',''))
++ dependency_errors=[e for e in errors if e not in ownership_errors]
++ validpins={}
++ for rule in rules:
++  context=contexts.get(rule['source_url']);active=context and sha(context['raw'])==rule['source_sha256']
++  # Changed source receives no finite disposition. Unknown literal defects still fail below.
++  if not active:continue
++  reasons=[]
++  if currency!=rule['publication_currency']:reasons.append('edition marker differs')
++  numeric=[r for r in context['records'] if r['heading'].split(' ',1)[0]==rule['printed_numeric_locator']]
++  if len(numeric)!=1:reasons.append('numeric locator missing/ambiguous')
++  target=numeric[0] if len(numeric)==1 else None
++  if target:
++   for field,expected in [('record_id',rule['target_record_id']),('heading',rule['target_heading']),('source_heading_ids',rule['target_source_heading_ids']),('block_indices',rule['target_block_indices'])]:
++    if target.get(field)!=expected:reasons.append('target '+field+' differs')
++   if target.get('body_qualification')!='source_body' or sha(target['full_text'].encode())!=rule['target_full_text_sha256'] or sha(target['semantic_html'].encode())!=rule['target_semantic_html_sha256']:reasons.append('retained target body differs/unqualified')
++   if all(0<=i<len(context['units']) for i in rule['target_block_indices']):
++    sourcebody=''.join(str(context['units'][i]) for i in rule['target_block_indices'])
++    if sha(sourcebody.encode())!=rule['target_source_body_sha256']:reasons.append('source target block witness differs')
++   else:reasons.append('source target block index missing')
++  edges=[e for e in inventory if e['edge_id']==rule['source_toc_edge_id'] and e['label']==rule['target_heading'] and e['source_url']==rule['source_url']+'#'+rule['href_fragment']]
++  maps=[m for audit in audits for m in audit['mapping'] if m['edge_id']==rule['source_toc_edge_id'] and m['record_id']==rule['target_record_id']]
++  if len(edges)!=1 or len(maps)!=1:reasons.append('native inventory target mapping missing/ambiguous')
++  for ref in rule['source_refs']:
++   rs=[r for r in context['records'] if r['record_id']==ref['owner_record_id']];row=rs[0] if len(rs)==1 else None;index=ref['link_index'];link=row['links'][index] if row and index<len(row['links']) else None
++   if not row or ref['source_block_index'] not in row['block_indices'] or not link or link.get('url')!=rule['source_url']+'#'+rule['href_fragment'] or link.get('attributes',{}).get('href')!=ref['source_raw_href'] or link.get('text')!=ref['source_text']:reasons.append('owner/reference changed or missing');continue
++   unit=context['units'][ref['source_block_index']];anchors=([unit] if unit.name=='a' else [])+list(unit.find_all('a',href=True));matching=[n for n in anchors if n.get('href')==ref['source_raw_href'] and sha(str(n).encode())==ref['source_anchor_sha256']]
++   if len(matching)!=1:reasons.append('raw source reference witness missing/ambiguous')
++  if reasons:errors.append('Finite source navigation witness rejected '+rule['rule_id']+': '+', '.join(sorted(set(reasons))));continue
++  for ref in rule['source_refs']:validpins[(ref['owner_record_id'],ref['link_index'])]={'rule_id':rule['rule_id'],'source_url':rule['source_url'],'source_sha256':rule['source_sha256'],'publication_currency':currency,'target_record_id':rule['target_record_id'],'target_heading':rule['target_heading'],'target_source_heading_ids':rule['target_source_heading_ids'],'target_full_text_sha256':rule['target_full_text_sha256'],'original_href':ref['source_raw_href'],'literal_browser_fragment_valid':False,'publisher_source_rewritten':False}
++ for row,index,link in primary_references:
++  destination=key(link['url']);fragment=unquote(urlsplit(link['url']).fragment)
++  if any(destination.startswith(prefix) for prefix in separate_prefixes):continue
++  if destination.startswith('https://www.codepublishing.com/AZ/Flagstaff/html/') and destination not in raw_documents:unresolved.append({'owner_record_id':row['record_id'],'url':link['url'],'reason':'Unacquired same-primary publication document'});continue
++  if destination not in raw_documents or not fragment:continue
++  targetowners=owners.get(destination,{});found=targetowners.get('id',{}).get(fragment,set()) or targetowners.get('name',{}).get(fragment,set())
++  if len(found)==1:continue
++  defect={'owner_record_id':row['record_id'],'url':link['url'],'source_issue':'publisher_missing_anchor' if not found else 'source_ambiguous_target_owner','correction_applied':False,'link_index':index};diagnostics.append(defect)
++  pin=validpins.get((row['record_id'],index))
++  if pin and destination==pin['source_url']:resolutions.append(dict(defect,**pin))
++  else:unresolved.append(dict(defect,reason='No unique exact-source retained target witness'))
++ return {'schema':'source-navigation-target-coverage-1','source_target_coverage_complete':not errors and not unresolved,'literal_browser_fragment_complete':not diagnostics,'source_broken_link_occurrences':len(diagnostics),'diagnostics':diagnostics,'resolutions':resolutions,'unresolved':unresolved,'full_primary_source_ownership_complete':not ownership_errors,'source_text_ownership_complete':not ownership_errors,'dependency_coverage_complete':not dependency_errors and asset_reference_complete,'source_asset_reference_inventory_complete':asset_reference_complete,'primary_documents':len(raw_documents),'primary_records':len(records),'primary_source_evidence':body_stats,'dependency_references_checked':len(dependencies),'errors':sorted(set(errors)),'scope':'Primary source fidelity and exact retained-target coverage; literal publisher browser navigation remains separately reported. No publisher bytes or href/id/name values are repaired.'}
+--- production-v7/verify.py
++++ candidate-v9/verify.py
+@@ -17,7 +17,7 @@
+    files=['records.jsonl','document-audits.json','relationships.json']
+   elif family=='flagstaff-html':
+    from flagstaff_html_normalize import run
+-   files=['records.jsonl','records.csv','document-audits.json','dependencies.json','source-inventory.json']
++   files=['records.jsonl','records.csv','document-audits.json','dependencies.json','source-inventory.json','source-link-defects.json','source-target-coverage.json']
+   elif family=='king':
+    from king_normalize import run
+    files=['records.jsonl','records.csv','document-audits.json','dependencies.json']
+--- production-v7/workflow.py
++++ candidate-v9/workflow.py
+@@ -15,12 +15,12 @@
+  out=Path(out);flag=cfg['profile']=='flagstaff_html';html=html if html is not None else load(out/'normalized/summary.json');word=None if flag else word if word is not None else load(out/'native-normalized/summary.json')
+  formats={'html':{'normalized':'normalized','summary':html}}
+  if word:formats['word']={'normalized':'native-normalized','summary':word}
+- body_html=bool(html.get('publication_body_complete')) if not flag else bool(html.get('source_documents')==html.get('acquired_parsed_documents') and html.get('source_blocks')==html.get('owned_blocks') and html.get('source_tables')==html.get('owned_tables') and html.get('source_graph_edges')==html.get('matched_toc_edges') and html.get('missing_toc_edges')==0 and html.get('extra_body_headings')==0 and html.get('heading_only_unresolved')==0)
++ body_html=bool(html.get('publication_body_complete')) if not flag else bool(html.get('source_documents')==html.get('acquired_parsed_documents') and html.get('source_blocks')==html.get('owned_blocks') and html.get('source_tables')==html.get('owned_tables') and html.get('source_graph_edges')==html.get('matched_toc_edges') and html.get('missing_toc_edges')==0 and html.get('extra_body_headings')==0 and html.get('heading_only_unresolved')==0 and html.get('source_text_ownership_complete',False))
+  bodies=body_html and (not word or word.get('publication_body_complete') is True)
+  text=bool(bodies and html.get('character_semantics_complete',True) and (not word or word.get('character_semantics_complete')))
+- attachments=html.get('attachments_complete',html.get('unresolved_nonimage_dependencies')==0) and (not word or word.get('attachments_complete') is True)
+- consistency=bool(html.get('opening_closing_inventory_equal') and (html.get('opening_closing_roots_equal') and html.get('opening_currency') and html.get('opening_currency')==html.get('closing_currency') and html.get('source_navigation_complete',False) if flag else html.get('publication_update_labels_consistent') and html.get('source_navigation_complete')) and (not word or word.get('edition_complete') is True))
+- structure=bool(bodies and html.get('source_tables')==html.get('owned_tables'))
++ attachments=html.get('attachments_complete',html.get('unresolved_nonimage_dependencies')==0) and (html.get('dependency_coverage_complete',False) if flag else True) and (not word or word.get('attachments_complete') is True)
++ consistency=bool(html.get('opening_closing_inventory_equal') and (html.get('opening_closing_roots_equal') and html.get('opening_currency') and html.get('opening_currency')==html.get('closing_currency') and html.get('source_target_coverage_complete',False) if flag else html.get('publication_update_labels_consistent') and html.get('source_navigation_complete')) and (not word or word.get('edition_complete') is True))
++ structure=bool(bodies and html.get('source_tables')==html.get('owned_tables') and (html.get('full_primary_source_ownership_complete',False) if flag else True))
+  accepted=bool(text and attachments and consistency and structure and html.get('complete') and (not word or word.get('complete')))
+  result={'schema':'originals-coverage-1','publisher':'official','adapter_family':'originals','target_id':cfg['target_id'],'config':cfg,'required_formats':cfg['required_formats'],'publication_text_complete':text,'publication_bodies_acquired_and_owned':bool(bodies),'attachments_complete':bool(attachments),'legal_structure_qualified':structure,'legal_structure_qualification_scope':'Profiled source ownership, heading/navigation and table conservation gates; independent final source-DOM/Word audits are tracked separately and not inferred from this field','source_consistency_complete':consistency,'publication_accepted':accepted,'complete':accepted,'whole_jurisdiction_complete':False,'external_adopted_legal_dependency_closure_complete':False,'independent_final_review_complete':False,'independent_review_note':'Prior exact source-DOM/XML conservation reports retained; final Flagstaff and latest King deltas need their own independent promotion record','image_policy':'No separate image body/member acquisition; exact[IMAGE] in source order; native original document may intrinsically contain images','formats':formats,'errors':html.get('errors',[])+(word.get('errors',[]) if word else [])}
+  if write:

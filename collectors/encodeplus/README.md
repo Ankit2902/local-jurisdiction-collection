@@ -1,5 +1,7 @@
 # enCodePlus full-publication collector
 
+The newer [native and live validation checkpoint](../../packages/collection-native-and-live-validation-2026-10-18/README.md) adds four Infrastructure source regions and the source-specific six-page Solid Waste logical collector. Solid Waste emits 88 logical units with explicit page spans and preserved original page diagnostics; required external legal dependencies remain unresolved. The mixed derivative has 718 records and preserves all 201 image positions. Images remain exact `[IMAGE]`, with no separate image acquisition, extraction, decoding, rendering or OCR. The canonical PDF section below describes the prior sealed checkpoint.
+
 ## Current canonical PDF correction
 
 The current scripts make source-verified STO four-column schedules, UPOC printed indexes and STO Appendix B three-column schedules authoritative in `tables`, `ordered_blocks`, `text` and CSV. Prior inferred output remains exact under `superseded_detector_diagnostics.original_record_fields`. `canonical_structure_selection` binds the selected representation to the original source SHA, URL and physical page. Keep these diagnostic and source-evidence fields with the exported corpus.

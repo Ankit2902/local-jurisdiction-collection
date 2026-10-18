@@ -1,5 +1,5 @@
 """Network-free source-backed replay, fault injection and durable resume equivalence."""
-import copy,json,pathlib,tempfile,unittest,os,io
+import copy,gzip,json,pathlib,tempfile,unittest,os,io
 from unittest.mock import patch
 from . import collect as module
 from .verify import verify
@@ -7,6 +7,13 @@ from .util import atomic_json,atomic_bytes,digest,read_json
 from .model import inventory,parse_document
 from .transport import scope_path,Stopped
 HERE=pathlib.Path(__file__).parent
+def retained_logical_page_records(data,cfg,raw_ref='raw/start.pdf'):
+ # Source extraction is exercised once by the fresh full6 integration receipt;
+ # these existing workflow tests isolate checkpoint/resume/upgrade/export logic.
+ assert digest(data)==cfg['expected_sha256']=='1af70bb8170cf2701cfb9e7ede2b274bf848309ca6fcaa3b7a7eeba9cd426c39'
+ fixture=HERE/'fixtures/solid-waste-logical'
+ rows=[json.loads(l) for l in gzip.decompress((fixture/'captured-records.jsonl.gz').read_bytes()).decode().splitlines()]
+ return rows,read_json(fixture/'captured-details.json')
 class Tests(unittest.TestCase):
  def fake(self,url,out,timeout=120):
   out=pathlib.Path(out)
@@ -161,13 +168,14 @@ class Tests(unittest.TestCase):
   payload='PIXELS_SENTINEL';doc=BeautifulSoup('<section style="background:url(root.png)"><table><tr><td background="outer.png">Outer<table><tr><td style="background:url(inner.png)">Inner</td></tr></table></td></tr></table><img src="ordinary.png" alt="data:image/png;base64,'+payload+'"><p title="data:image/png;base64,'+payload+'">Rule</p></section>','html.parser');root=doc.section;images=replace_images(root,'https://example.gov/');self.assertNotIn(payload,json.dumps({'html':str(root),'refs':images}));self.assertNotIn('background=',str(root));self.assertNotIn('url(',str(root));self.assertTrue(all('[IMAGE]' in source_text(c) for c in root.select('td')));self.assertTrue(any(r['inline_data_sha256'] or r.get('alt_inline_data_sha256') for r in images))
  def test_native_document_capture_resume_and_corruption(self):
   from . import native_document as native
+  mock=patch.object(native,'page_records',side_effect=retained_logical_page_records);mock.start();self.addCleanup(mock.stop)
   data=(HERE/'fixtures/overland-solid-waste-native.pdf').read_bytes();cfg=read_json(HERE/'configs/native-82-4b983dc51ab6.json')
   def fake(url,out,timeout=120):
    meta={'url':url,'http_status':200,'headers':{'Content-Type':'application/pdf'},'sha256':digest(data),'bytes':len(data),'challenge':False};atomic_bytes(out,data);atomic_json(pathlib.Path(str(out)+'.receipt.json'),meta);return data,meta
   with tempfile.TemporaryDirectory() as td:
    out=pathlib.Path(td)/'resumed';full=pathlib.Path(td)/'full'
    with patch.object(module,'fetch',fake):
-    self.assertFalse(native.collect(cfg,out,interrupt_after_start=True)['native_document_complete']);r=native.collect(cfg,out,resume=True);self.assertTrue(r['native_document_complete']);self.assertFalse(r['publication_text_complete']);self.assertEqual(r['physical_pages'],6);native.collect(cfg,full)
+    self.assertFalse(native.collect(cfg,out,interrupt_after_start=True)['native_document_complete']);r=native.collect(cfg,out,resume=True);self.assertTrue(r['native_document_complete']);self.assertTrue(r['publication_text_complete']);self.assertFalse(r['attachments_complete']);self.assertFalse(r['publication_complete']);self.assertEqual(r['normalized_record_count'],88);self.assertEqual(r['physical_pages'],6);native.collect(cfg,full)
    self.assertEqual((out/'records.jsonl').read_bytes(),(full/'records.jsonl').read_bytes());p=out/'records.jsonl';p.write_text(p.read_text()+p.read_text().splitlines()[0]+'\n');self.assertFalse(native.verify(out)['native_document_complete'])
    p=full/'raw/start.pdf';p.write_bytes(b'%PDF-truncated');state=read_json(full/'checkpoint.json');state['start']['sha256']=digest(p.read_bytes());m=read_json(pathlib.Path(str(p)+'.receipt.json'));m['sha256']=state['start']['sha256'];atomic_json(pathlib.Path(str(p)+'.receipt.json'),m);atomic_json(full/'checkpoint.json',state);self.assertFalse(native.verify(full)['native_document_complete'])
  def test_native_explicit_retry_preserves_failed_poll_attempt(self):
@@ -303,6 +311,7 @@ class Tests(unittest.TestCase):
    state=read_json(root/'gate/state.json');receipt=read_json(root/'refused.bin.receipt.json');self.assertTrue(state['stopped']);self.assertIn('last_completed',state);self.assertEqual(receipt['http_status'],403);self.assertTrue(receipt['challenge']);self.assertIn('response read failed',receipt['error']);self.assertEqual(opener.open.call_count,1);self.assertFalse(read_json(root/'blocked.bin.receipt.json')['request_attempted'])
  def test_native_explicit_upgrade_revalidates_raw_and_refreshes_closing(self):
   from . import native_document as native
+  mock=patch.object(native,'page_records',side_effect=retained_logical_page_records);mock.start();self.addCleanup(mock.stop)
   import shutil
   data=(HERE/'fixtures/overland-solid-waste-native.pdf').read_bytes();cfg=read_json(HERE/'configs/native-82-4b983dc51ab6.json');requests=[]
   def fake(url,out,timeout=120):

@@ -1,0 +1,56 @@
+{
+  "at": "2026-10-18T01:49:39.779509+00:00",
+  "status": "frozen_review_ready_not_promoted",
+  "runtime_changes": {
+    "configs.json": {
+      "before_sha256": "fe29224e020c57d5fc4eb73e9e80c7a6365a48b872a29f921f07b5743e351327",
+      "after_sha256": "1a85f89b79c7b4a5ccfb3264eaf6ae2cb6b447aead391048313c563868a047e4"
+    },
+    "flagstaff_html_normalize.py": {
+      "before_sha256": "0a260a93e0331652b8b82057294eb10b2182c7eb3144d52ec391b40c2a61ecd7",
+      "after_sha256": "38deaff9705e259ddb0cc739fa92194d7abca26f0a145241265e7405f0dd1d59"
+    },
+    "source_navigation.py": {
+      "before_sha256": null,
+      "after_sha256": "d6f4135f5c2acf0bea378415d3467c1d629f8746140c9abcf6bb07225089a4dc"
+    },
+    "verify.py": {
+      "before_sha256": "4e7fdfbb38891da25f2d4b6e77f59ede3647ac5a94a4aeb5238f50ce25840b36",
+      "after_sha256": "d4f6783d818fef569fdaf739d022c7d52cbf9e05606f3c8ba62d61028249f1d9"
+    },
+    "workflow.py": {
+      "before_sha256": "e63a1cc05cdfda18b8ddf556a532ee6ffa1bc7cc3ec74f623608e4297415d318",
+      "after_sha256": "7ba499c06b1b8c690347f53a24bdd9a1a3462ca8aa5c598b2636d5b03e601757"
+    }
+  },
+  "tests": {
+    "baseline": 100,
+    "portable": 9,
+    "navigation_faults": 13,
+    "total": 122,
+    "terminal": "PASS"
+  },
+  "actual_raw_replay": {
+    "status": "PASS",
+    "publisher_requests": 0,
+    "input_files_modified": false,
+    "full_raw_replay_equal": true,
+    "records_sha256": "1344484a99e9dce522f72d2254b713e9b725d552bb28d174c3fb66884a7fae5b",
+    "documents": 361,
+    "records": 2661,
+    "owned_blocks": 24237,
+    "tables": 377,
+    "image_placeholders": 882,
+    "dependency_references": 993,
+    "source_target_resolutions": 3,
+    "literal_browser_fragment_complete": false,
+    "whole_jurisdiction_complete": false
+  },
+  "failure_history": {
+    "v8": "Full actual replay passed and overall coverage failed closed on omission fault, but dependency_coverage_complete alone was incorrectly true if both source asset metadata entry and dependency ledger entry were omitted. V9 explicitly carries asset-reference source reconciliation into dependency coverage; thirteen fault tests now pass. V8 original output/script/failure logs retained unchanged.",
+    "initial_baseline_fixture": "One manual summary fixture omitted newly required measured ownership fields. Original copied test/log preserved. Updated copied fixture gives explicit ownership proof; added negative forbids body/structure promotion from counts alone."
+  },
+  "acquisition": "Retained v7 actual source; new v9 normalization and read-only reconstruction. No v9 fresh live transport claim. Current production v7 live run remains unchanged.",
+  "prior_source_audit": "../flagstaff-broken-navigation-source-audit-v2/audit.json",
+  "common_validation": "Pending isolated-root copy of exact current common launcher/registry plus v9 family, fresh v9 replay of terminal actual v7 source, then actual copied common verify. No silent production cache upgrade."
+}

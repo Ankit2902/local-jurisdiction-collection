@@ -8,11 +8,11 @@ HERE=Path(__file__).resolve().parent
 class NativeDiagnosticAggregate(unittest.TestCase):
  @classmethod
  def setUpClass(cls):
-  cls.data=(HERE/'fixtures/overland-solid-waste-native.pdf').read_bytes();cls.cfg=json.loads((HERE/'configs/native-82-4b983dc51ab6.json').read_text());cls.rows,cls.initial_details=native_document.page_records(cls.data,cls.cfg)
+  cls.data=(HERE/'fixtures/overland-solid-waste-native.pdf').read_bytes();cls.cfg=json.loads((HERE/'configs/native-82-4b983dc51ab6.json').read_text());cls.rows=[json.loads(l) for l in (HERE/'fixtures/sto-four-column/ordinary-solid-waste-baseline.jsonl').read_text().splitlines()]
  def setUp(self):
   guard=patch.object(socket,'socket',side_effect=AssertionError('No network'));guard.start();self.addCleanup(guard.stop)
  def details(self,rows):
-  with patch.object(pdf_structure,'pages',return_value=(rows,[])):return native_document.page_records(self.data,self.cfg)[1]
+  with patch('collectors.encodeplus.solid_waste_logical.matches',return_value=False),patch.object(pdf_structure,'pages',return_value=(rows,[])):return native_document.page_records(self.data,self.cfg)[1]
  def test_actual_all_six_pages_keep_existing_positive_capture_dimensions(self):
   self.assertEqual(len(self.rows),6);self.assertTrue(self.details(self.rows)['pdf_extractable_text_reconciled']);self.assertFalse(self.details(self.rows)['pdf_table_semantics_complete']);self.assertTrue(all(r['pdf_qualification']['source_words_cover_deduplicated_glyph_characters'] and r['pdf_qualification']['undecoded_cid_literals']==[] for r in self.rows))
  def test_false_or_missing_glyph_conservation_cannot_hide_in_aggregate(self):

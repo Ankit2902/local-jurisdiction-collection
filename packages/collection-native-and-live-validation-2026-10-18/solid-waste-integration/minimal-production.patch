@@ -1,0 +1,167 @@
+--- baseline/native_document.py
++++ candidate/native_document.py
+@@ -11,6 +11,8 @@
+ 
+ def page_records(data,cfg,raw_ref='raw/start.pdf'):
+  from .pdf_structure import pages
++ from .solid_waste_logical import matches,build_records
++ if matches(data,cfg):return build_records(data,cfg,raw_ref,pages)
+  reader=PdfReader(io.BytesIO(data),strict=True)
+  records,_=pages(data,{'id':cfg['id'],'heading':cfg['title'],'url':cfg['url'],'raw_ref':raw_ref},{'publication':cfg['title'],'jurisdiction':cfg['jurisdiction'],'state':cfg['state']})
+  details={'metadata':{str(k):metadata_text(v) for k,v in (reader.metadata or {}).items()},'pages':len(records),'parser_sha256':digest((HERE/'pdf_structure.py').read_bytes()),'pdf_extractable_text_reconciled':all(r['pdf_qualification']['source_word_ownership_complete'] and r['pdf_qualification']['normalized_source_word_characters_agree'] and r['pdf_qualification']['independent_text_engine_characters_agree'] and r['pdf_qualification'].get('source_words_cover_deduplicated_glyph_characters') is True and r['pdf_qualification'].get('undecoded_cid_literals') == [] and not r['pdf_qualification']['unmapped_or_private_use_codepoints'] for r in records),'detected_table_cells_qualified':all(r['pdf_qualification']['detected_table_cells']==r['pdf_qualification']['independent_table_cells_agree'] for r in records),'detected_table_count':sum(r['pdf_qualification']['detected_table_count'] for r in records),'detected_table_cells':sum(r['pdf_qualification']['detected_table_cells'] for r in records),'pdf_table_semantics_complete':False,'reading_order_manual_review_required':True,'review_conditions':{str(r['physical_page']):r['pdf_qualification']['review_conditions'] for r in records if r['pdf_qualification']['review_conditions']}}
+@@ -28,8 +30,20 @@
+  if infrastructure is not None:details['source_infrastructure_dimensions']=infrastructure
+  return records,details
+ def outputs(records):
++ if any(r.get('unit')=='pdf_logical_unit' for r in records):
++  from .solid_waste_logical import outputs as logical_outputs
++  return logical_outputs(records)
+  buf=io.StringIO(newline='');fields=['id','heading','physical_page','page_count','text','source_url','raw_sha256'];w=csv.DictWriter(buf,fieldnames=fields);w.writeheader();w.writerows({k:r[k] for k in fields} for r in records)
+  return {'records.jsonl':''.join(json.dumps(r,ensure_ascii=False,sort_keys=True)+'\n' for r in records).encode(),'records.csv':buf.getvalue().encode()}
++def validate_record_identity(records,details,cfg):
++ assert details['pages']==cfg['expected_pages'],'Native physical-page pin mismatch'
++ if details.get('canonical_record_unit')=='pdf_logical_unit':
++  from .solid_waste_logical import validate_records
++  validate_records(records,cfg)
++  assert details['normalized_record_count']==len(records)==88 and details['physical_page_count']==6,'Logical units and physical pages must remain distinct'
++ else:
++  assert len(records)==cfg['expected_pages'] and [r['physical_page'] for r in records]==list(range(1,cfg['expected_pages']+1)),'Native page record sequence mismatch'
++  assert all(r['document_id']==cfg['id'] and r['raw_sha256']==cfg['expected_sha256'] for r in records),'Native record source identity mismatch'
+ def validate_config(cfg):
+  assert cfg['mode']=='native_document' and cfg['url'].startswith('https://'),'Wrong native-document mode/URL'
+  assert set(['id','title','jurisdiction','state','url','expected_sha256','expected_pages','qualification']).issubset(cfg),'Native config requires qualified exact identity/source/hash/page pin'
+@@ -45,9 +59,9 @@
+   bodies=[]
+   for key in ['start','end']:
+    e=s[key];p=validate_file(out,e['path'],e['sha256']);m=read_json(p.with_name(p.name+'.receipt.json'));assert e['url']==cfg['url']==m['url'] and m['http_status']==200 and not m.get('challenge') and m['sha256']==e['sha256'],'Native receipt/source binding mismatch';data=p.read_bytes();qualify_document(data,cfg['url'],'application/pdf');assert digest(data)==cfg['expected_sha256'],'Native file differs from qualified edition/hash';bodies.append(data)
+-  assert bodies[0]==bodies[1],'Native start/end bytes changed';records,details=page_records(bodies[0],cfg,s['start']['path']);assert details['pages']==cfg['expected_pages'],'Native page-count pin mismatch';assert s['phase']=='finished','Interrupted native-document collection'
++  assert bodies[0]==bodies[1],'Native start/end bytes changed';records,details=page_records(bodies[0],cfg,s['start']['path']);validate_record_identity(records,details,cfg);assert s['phase']=='finished','Interrupted native-document collection'
+   for name,data in outputs(records).items():assert (out/name).read_bytes()==data,'Native normalized output differs from source replay: '+name
+-  return {'schema_version':1,'status':'native_captured_semantic_review_required','target':cfg['id'],'publication_identity':cfg['title'],'source_url':cfg['url'],'native_document_complete':True,'source_page_traversal_complete':True,'physical_pages':len(records),'source_sha256':cfg['expected_sha256'],'start_end_consistent':True,'publication_text_complete':False,'attachments_complete':False,'edition_complete':False,'jurisdiction_complete':False,'image_policy':'[IMAGE]; original native PDFs allowed, no separate image extraction','pdf_details':details,'errors':[],'limits':['Whole original PDF and every page are retained/replayed. Coordinate text/word ownership and detected table cells are checked, but all tables, reading order and legal semantics remain explicitly qualified; do not promote this native-only result to full publication semantic completeness.']}
++  return {'schema_version':1,'status':('native_source_logical_structure_qualified_dependencies_unresolved' if details.get('source_logical_structure_qualified') else 'native_captured_semantic_review_required'),'target':cfg['id'],'publication_identity':cfg['title'],'source_url':cfg['url'],'native_document_complete':True,'source_page_traversal_complete':True,'physical_pages':details['pages'],'normalized_record_count':len(records),'canonical_record_unit':details.get('canonical_record_unit','pdf_page'),'source_native_text_coverage_complete':details.get('source_native_text_coverage_complete',False),'source_logical_structure_qualified':details.get('source_logical_structure_qualified',False),'required_external_legal_dependencies_complete':details.get('required_external_legal_dependencies_complete',False),'source_sha256':cfg['expected_sha256'],'start_end_consistent':True,'publication_text_complete':details.get('source_native_text_coverage_complete',False),'publication_text_scope':('Own exact native document text; required external legal dependencies separately unresolved' if details.get('source_native_text_coverage_complete') else 'Native text/structure not fully qualified'),'publication_complete':False,'attachments_complete':False,'edition_complete':False,'jurisdiction_complete':False,'image_policy':'[IMAGE]; original native PDFs allowed, no separate image extraction','pdf_details':details,'errors':[],'limits':['Whole original PDF and every page are retained/replayed. Coordinate text/word ownership and detected table cells are checked, but all tables, reading order and legal semantics remain explicitly qualified; do not promote this native-only result to full publication semantic completeness.']}
+  except Exception as exc:return {'schema_version':1,'status':'incomplete','native_document_complete':False,'source_page_traversal_complete':False,'publication_text_complete':False,'attachments_complete':False,'edition_complete':False,'jurisdiction_complete':False,'errors':[type(exc).__name__+': '+str(exc)]}
+ def collect(cfg,out,resume=False,interrupt_after_start=False,upgrade_code=False):
+  validate_config(cfg);out=pathlib.Path(out)
+@@ -69,7 +83,7 @@
+   for name,h in versions.items():atomic_bytes(out/'script-versions'/(h+pathlib.Path(name).suffix),(HERE/name).read_bytes())
+   s={'native_schema_version':1,'config':cfg,'config_sha256':hash_json(cfg),'code_hashes':versions,'command':sys.argv,'runtime':runtime_info(),'generation':0,'phase':'start','failures':[]};atomic_json(out/'checkpoint.json',s)
+  try:
+-  ensure_revision(s);data,meta=cached(out,cfg['url'],'raw/start.pdf');s['start']=entry('raw/start.pdf',meta);ensure_revision(s);qualify_document(data,cfg['url'],'application/pdf');assert digest(data)==cfg['expected_sha256'],'Wrong source edition/hash';records,details=page_records(data,cfg,s['start']['path']);assert details['pages']==cfg['expected_pages'],'Wrong page-count pin';s['phase']='normalized';atomic_json(out/'checkpoint.json',s)
++  ensure_revision(s);data,meta=cached(out,cfg['url'],'raw/start.pdf');s['start']=entry('raw/start.pdf',meta);ensure_revision(s);qualify_document(data,cfg['url'],'application/pdf');assert digest(data)==cfg['expected_sha256'],'Wrong source edition/hash';records,details=page_records(data,cfg,s['start']['path']);validate_record_identity(records,details,cfg);s['phase']='normalized';atomic_json(out/'checkpoint.json',s)
+   for name,b in outputs(records).items():atomic_bytes(out/name,b)
+   if interrupt_after_start:raise InterruptedError('Intentional native checkpoint interruption')
+   ensure_revision(s);end_path='raw/end-'+str(s['generation'])+'.pdf' if s.get('generation',0) else 'raw/end.pdf';end,em=cached(out,cfg['url'],end_path);s['end']=entry(end_path,em);ensure_revision(s);assert end==data,'Native source changed during collection';s['phase']='finished';atomic_json(out/'checkpoint.json',s)
+--- baseline/requirements.txt
++++ candidate/requirements.txt
+@@ -6,3 +6,5 @@
+ pypdfium2==5.14.0
+ pdfminer.six==20251107
+ cryptography==50.0.2
++PyMuPDF==1.26.5
++Pillow==11.3.0
+--- baseline/tests.py
++++ candidate/tests.py
+@@ -1,5 +1,5 @@
+ """Network-free source-backed replay, fault injection and durable resume equivalence."""
+-import copy,json,pathlib,tempfile,unittest,os,io
++import copy,gzip,json,pathlib,tempfile,unittest,os,io
+ from unittest.mock import patch
+ from . import collect as module
+ from .verify import verify
+@@ -7,6 +7,13 @@
+ from .model import inventory,parse_document
+ from .transport import scope_path,Stopped
+ HERE=pathlib.Path(__file__).parent
++def retained_logical_page_records(data,cfg,raw_ref='raw/start.pdf'):
++ # Source extraction is exercised once by the fresh full6 integration receipt;
++ # these existing workflow tests isolate checkpoint/resume/upgrade/export logic.
++ assert digest(data)==cfg['expected_sha256']=='1af70bb8170cf2701cfb9e7ede2b274bf848309ca6fcaa3b7a7eeba9cd426c39'
++ fixture=HERE/'fixtures/solid-waste-logical'
++ rows=[json.loads(l) for l in gzip.decompress((fixture/'captured-records.jsonl.gz').read_bytes()).decode().splitlines()]
++ return rows,read_json(fixture/'captured-details.json')
+ class Tests(unittest.TestCase):
+  def fake(self,url,out,timeout=120):
+   out=pathlib.Path(out)
+@@ -161,13 +168,14 @@
+   payload='PIXELS_SENTINEL';doc=BeautifulSoup('<section style="background:url(root.png)"><table><tr><td background="outer.png">Outer<table><tr><td style="background:url(inner.png)">Inner</td></tr></table></td></tr></table><img src="ordinary.png" alt="data:image/png;base64,'+payload+'"><p title="data:image/png;base64,'+payload+'">Rule</p></section>','html.parser');root=doc.section;images=replace_images(root,'https://example.gov/');self.assertNotIn(payload,json.dumps({'html':str(root),'refs':images}));self.assertNotIn('background=',str(root));self.assertNotIn('url(',str(root));self.assertTrue(all('[IMAGE]' in source_text(c) for c in root.select('td')));self.assertTrue(any(r['inline_data_sha256'] or r.get('alt_inline_data_sha256') for r in images))
+  def test_native_document_capture_resume_and_corruption(self):
+   from . import native_document as native
++  mock=patch.object(native,'page_records',side_effect=retained_logical_page_records);mock.start();self.addCleanup(mock.stop)
+   data=(HERE/'fixtures/overland-solid-waste-native.pdf').read_bytes();cfg=read_json(HERE/'configs/native-82-4b983dc51ab6.json')
+   def fake(url,out,timeout=120):
+    meta={'url':url,'http_status':200,'headers':{'Content-Type':'application/pdf'},'sha256':digest(data),'bytes':len(data),'challenge':False};atomic_bytes(out,data);atomic_json(pathlib.Path(str(out)+'.receipt.json'),meta);return data,meta
+   with tempfile.TemporaryDirectory() as td:
+    out=pathlib.Path(td)/'resumed';full=pathlib.Path(td)/'full'
+    with patch.object(module,'fetch',fake):
+-    self.assertFalse(native.collect(cfg,out,interrupt_after_start=True)['native_document_complete']);r=native.collect(cfg,out,resume=True);self.assertTrue(r['native_document_complete']);self.assertFalse(r['publication_text_complete']);self.assertEqual(r['physical_pages'],6);native.collect(cfg,full)
++    self.assertFalse(native.collect(cfg,out,interrupt_after_start=True)['native_document_complete']);r=native.collect(cfg,out,resume=True);self.assertTrue(r['native_document_complete']);self.assertTrue(r['publication_text_complete']);self.assertFalse(r['attachments_complete']);self.assertFalse(r['publication_complete']);self.assertEqual(r['normalized_record_count'],88);self.assertEqual(r['physical_pages'],6);native.collect(cfg,full)
+    self.assertEqual((out/'records.jsonl').read_bytes(),(full/'records.jsonl').read_bytes());p=out/'records.jsonl';p.write_text(p.read_text()+p.read_text().splitlines()[0]+'\n');self.assertFalse(native.verify(out)['native_document_complete'])
+    p=full/'raw/start.pdf';p.write_bytes(b'%PDF-truncated');state=read_json(full/'checkpoint.json');state['start']['sha256']=digest(p.read_bytes());m=read_json(pathlib.Path(str(p)+'.receipt.json'));m['sha256']=state['start']['sha256'];atomic_json(pathlib.Path(str(p)+'.receipt.json'),m);atomic_json(full/'checkpoint.json',state);self.assertFalse(native.verify(full)['native_document_complete'])
+  def test_native_explicit_retry_preserves_failed_poll_attempt(self):
+@@ -303,6 +311,7 @@
+    state=read_json(root/'gate/state.json');receipt=read_json(root/'refused.bin.receipt.json');self.assertTrue(state['stopped']);self.assertIn('last_completed',state);self.assertEqual(receipt['http_status'],403);self.assertTrue(receipt['challenge']);self.assertIn('response read failed',receipt['error']);self.assertEqual(opener.open.call_count,1);self.assertFalse(read_json(root/'blocked.bin.receipt.json')['request_attempted'])
+  def test_native_explicit_upgrade_revalidates_raw_and_refreshes_closing(self):
+   from . import native_document as native
++  mock=patch.object(native,'page_records',side_effect=retained_logical_page_records);mock.start();self.addCleanup(mock.stop)
+   import shutil
+   data=(HERE/'fixtures/overland-solid-waste-native.pdf').read_bytes();cfg=read_json(HERE/'configs/native-82-4b983dc51ab6.json');requests=[]
+   def fake(url,out,timeout=120):
+--- baseline/test_native_diagnostic_aggregate.py
++++ candidate/test_native_diagnostic_aggregate.py
+@@ -8,11 +8,11 @@
+ class NativeDiagnosticAggregate(unittest.TestCase):
+  @classmethod
+  def setUpClass(cls):
+-  cls.data=(HERE/'fixtures/overland-solid-waste-native.pdf').read_bytes();cls.cfg=json.loads((HERE/'configs/native-82-4b983dc51ab6.json').read_text());cls.rows,cls.initial_details=native_document.page_records(cls.data,cls.cfg)
++  cls.data=(HERE/'fixtures/overland-solid-waste-native.pdf').read_bytes();cls.cfg=json.loads((HERE/'configs/native-82-4b983dc51ab6.json').read_text());cls.rows=[json.loads(l) for l in (HERE/'fixtures/sto-four-column/ordinary-solid-waste-baseline.jsonl').read_text().splitlines()]
+  def setUp(self):
+   guard=patch.object(socket,'socket',side_effect=AssertionError('No network'));guard.start();self.addCleanup(guard.stop)
+  def details(self,rows):
+-  with patch.object(pdf_structure,'pages',return_value=(rows,[])):return native_document.page_records(self.data,self.cfg)[1]
++  with patch('collectors.encodeplus.solid_waste_logical.matches',return_value=False),patch.object(pdf_structure,'pages',return_value=(rows,[])):return native_document.page_records(self.data,self.cfg)[1]
+  def test_actual_all_six_pages_keep_existing_positive_capture_dimensions(self):
+   self.assertEqual(len(self.rows),6);self.assertTrue(self.details(self.rows)['pdf_extractable_text_reconciled']);self.assertFalse(self.details(self.rows)['pdf_table_semantics_complete']);self.assertTrue(all(r['pdf_qualification']['source_words_cover_deduplicated_glyph_characters'] and r['pdf_qualification']['undecoded_cid_literals']==[] for r in self.rows))
+  def test_false_or_missing_glyph_conservation_cannot_hide_in_aggregate(self):
+--- baseline/test_sto_physical_schedule.py
++++ candidate/test_sto_physical_schedule.py
+@@ -83,8 +83,13 @@
+     with self.assertRaises(AssertionError):scoped.attach_record(row,page,tp,self.item,self.digest)
+   self.first(check)
+  def test_ordinary_native_parser_records_and_coverage_unchanged(self):
+-  from . import native_document
+-  cfg=json.loads((HERE/'configs/native-82-4b983dc51ab6.json').read_text());data=(HERE/'fixtures/overland-solid-waste-native.pdf').read_bytes();expected=[json.loads(l) for l in (FIX/'ordinary-solid-waste-baseline.jsonl').read_text().splitlines()];records,details=native_document.page_records(data,cfg);self.assertEqual(records,expected);self.assertNotIn('source_physical_schedule_dimensions',details);self.assertFalse(details['pdf_table_semantics_complete'])
++  from . import native_document,pdf_structure
++  cfg=json.loads((HERE/'configs/native-82-4b983dc51ab6.json').read_text());data=(HERE/'fixtures/overland-solid-waste-native.pdf').read_bytes();expected=[json.loads(l) for l in (FIX/'ordinary-solid-waste-baseline.jsonl').read_text().splitlines()];
++  # This remains the generic historical six-page diagnostic control; selected
++  # source-native logical behavior is separately exercised by full6 evidence.
++  with patch('collectors.encodeplus.solid_waste_logical.matches',return_value=False),patch.object(pdf_structure,'pages',return_value=(expected,[])):
++   records,details=native_document.page_records(data,cfg)
++  self.assertEqual(records,expected);self.assertNotIn('source_physical_schedule_dimensions',details);self.assertFalse(details['pdf_table_semantics_complete'])
+  def test_native_coverage_exposes_physical_not_logical_semantics(self):
+   from . import native_document,pdf_structure
+   cfg=json.loads((HERE/'configs/native-82-04514ddf4ea3.json').read_text())
+@@ -95,7 +100,7 @@
+   partial=scoped.summary(self.rows[:-1]);self.assertFalse(partial['physical_cell_fidelity_complete']);self.assertFalse(partial['whole_pdf_table_semantics_complete'])
+   with self.assertRaises(AssertionError):scoped.summary(self.rows+[self.rows[0]])
+  def test_canonical_consumer_tables_ordered_blocks_text_and_CSV_agree(self):
+-  from . import native_document
++  from . import native_document,pdf_structure
+   for row in self.rows:
+    source=row['source_physical_schedules'][0];table=row['tables'][0];block=row['ordered_blocks'][0]
+    self.assertEqual(row['canonical_structure_selection']['canonical_table_ids'],[table['id']]);self.assertEqual(block['id'],table['id']);self.assertEqual(block['word_ids'],[w for c in source['cells'] for w in c['source_word_ids']]);self.assertEqual(len(block['word_ids']),len(set(block['word_ids'])))
+--- baseline/test_upoc_printed_index.py
++++ candidate/test_upoc_printed_index.py
+@@ -112,6 +112,11 @@
+   with patch.object(pdf_structure,'pages',return_value=(copy.deepcopy([r for r in self.rows if r['document_id']==it['id']]),[])):rs,ds=native_document.page_records(self.sources[it['id']][1],cfg)
+   self.assertIn('source_printed_index_dimensions',ds);self.assertNotIn('source_physical_schedule_dimensions',ds);self.assertFalse(ds['pdf_table_semantics_complete']);self.assertTrue(ds['reading_order_manual_review_required'])
+  def test_ordinary_sixpage_full_parser_noop(self):
+-  from . import native_document
+-  cfg=json.loads((H/'configs/native-82-4b983dc51ab6.json').read_text());data=(H/'fixtures/overland-solid-waste-native.pdf').read_bytes();expected=[json.loads(l) for l in (H/'fixtures/sto-four-column/ordinary-solid-waste-baseline.jsonl').read_text().splitlines()];rs,ds=native_document.page_records(data,cfg);self.assertEqual(rs,expected);self.assertNotIn('source_printed_index_dimensions',ds);self.assertNotIn('source_physical_schedule_dimensions',ds);self.assertFalse(ds['pdf_table_semantics_complete'])
++  from . import native_document,pdf_structure
++  cfg=json.loads((H/'configs/native-82-4b983dc51ab6.json').read_text());data=(H/'fixtures/overland-solid-waste-native.pdf').read_bytes();expected=[json.loads(l) for l in (H/'fixtures/sto-four-column/ordinary-solid-waste-baseline.jsonl').read_text().splitlines()];
++  # This remains the generic historical six-page diagnostic control; selected
++  # source-native logical behavior is separately exercised by full6 evidence.
++  with patch('collectors.encodeplus.solid_waste_logical.matches',return_value=False),patch.object(pdf_structure,'pages',return_value=(expected,[])):
++   rs,ds=native_document.page_records(data,cfg)
++  self.assertEqual(rs,expected);self.assertNotIn('source_printed_index_dimensions',ds);self.assertNotIn('source_physical_schedule_dimensions',ds);self.assertFalse(ds['pdf_table_semantics_complete'])
+ if __name__=='__main__':unittest.main(verbosity=2)

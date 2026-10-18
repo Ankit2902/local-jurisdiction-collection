@@ -1,0 +1,74 @@
+{
+  "at": "2026-10-18T01:57:27.278084+00:00",
+  "status": "candidate_reviewed_isolated_current_common_verified_not_promoted",
+  "exact_runtime_whitelist": {
+    "configs.json": {
+      "before_sha256": "fe29224e020c57d5fc4eb73e9e80c7a6365a48b872a29f921f07b5743e351327",
+      "after_sha256": "1a85f89b79c7b4a5ccfb3264eaf6ae2cb6b447aead391048313c563868a047e4"
+    },
+    "flagstaff_html_normalize.py": {
+      "before_sha256": "0a260a93e0331652b8b82057294eb10b2182c7eb3144d52ec391b40c2a61ecd7",
+      "after_sha256": "38deaff9705e259ddb0cc739fa92194d7abca26f0a145241265e7405f0dd1d59"
+    },
+    "source_navigation.py": {
+      "before_sha256": null,
+      "after_sha256": "d6f4135f5c2acf0bea378415d3467c1d629f8746140c9abcf6bb07225089a4dc"
+    },
+    "verify.py": {
+      "before_sha256": "4e7fdfbb38891da25f2d4b6e77f59ede3647ac5a94a4aeb5238f50ce25840b36",
+      "after_sha256": "d4f6783d818fef569fdaf739d022c7d52cbf9e05606f3c8ba62d61028249f1d9"
+    },
+    "workflow.py": {
+      "before_sha256": "e63a1cc05cdfda18b8ddf556a532ee6ffa1bc7cc3ec74f623608e4297415d318",
+      "after_sha256": "7ba499c06b1b8c690347f53a24bdd9a1a3462ca8aa5c598b2636d5b03e601757"
+    }
+  },
+  "candidate_source": "../source-navigation-candidate-v9/source",
+  "common_root_manifest": "../v9-common-rehearsal-v1-root-manifest.json",
+  "common_root_manifest_sha256": "f99c7b8f17d05401b57b0718c570adae5d6d3e69085f3cf4f0dbfaae00ce2afd",
+  "executed_commands": {
+    "replay": [
+      "/Users/oliverflint/My Drive/Claude/Projects/CompliSolv 2.00/github/local-jurisdiction-collection/.collection-runtime/venv/bin/python",
+      "-B",
+      "/Users/oliverflint/My Drive/Claude/Projects/CompliSolv 2.00/outputs/collection-readiness-next-2026-10-17/originals-integration/v9-common-rehearsal-v1-root/collectors/originals/offline.py",
+      "replay",
+      "--config",
+      "/Users/oliverflint/My Drive/Claude/Projects/CompliSolv 2.00/outputs/collection-readiness-next-2026-10-17/originals-integration/v9-common-rehearsal-v1-root/collectors/originals/configs/flagstaff.json",
+      "--source",
+      "/Users/oliverflint/My Drive/Claude/Projects/CompliSolv 2.00/outputs/collection-readiness-next-2026-10-17/originals-integration/flagstaff-common-live-recovery-v1/source",
+      "--out",
+      "/Users/oliverflint/My Drive/Claude/Projects/CompliSolv 2.00/outputs/collection-readiness-next-2026-10-17/originals-integration/v9-current-live-source-replay-v1"
+    ],
+    "current_common_verify": [
+      "/Users/oliverflint/My Drive/Claude/Projects/CompliSolv 2.00/github/local-jurisdiction-collection/.collection-runtime/venv/bin/python",
+      "-B",
+      "/Users/oliverflint/My Drive/Claude/Projects/CompliSolv 2.00/outputs/collection-readiness-next-2026-10-17/originals-integration/v9-common-rehearsal-v1-root/collect.py",
+      "--runtime",
+      "/Users/oliverflint/My Drive/Claude/Projects/CompliSolv 2.00/github/local-jurisdiction-collection/.collection-runtime",
+      "verify",
+      "--target",
+      "original-flagstaff-az",
+      "--out",
+      "/Users/oliverflint/My Drive/Claude/Projects/CompliSolv 2.00/outputs/collection-readiness-next-2026-10-17/originals-integration/v9-current-live-source-replay-v1"
+    ]
+  },
+  "common_receipt": "../v9-isolated-current-common-verification-v1.json",
+  "common_receipt_sha256": "50d602cd55dd9873f6f2ddb687288a401fc4e65bcf6aad1933a0962453a2a883",
+  "scope": "Actual v7 transport/SIGINT/resume/closing history retained intact; explicit new v9 normalization and current copied-common read-only proof. Not v9 fresh transport. No checkpoint editing or implicit cache upgrade. Primary City Code including Charter only; separate Employee Handbook/external adopted laws excluded. Literal publisher fragmenthealth remains false.",
+  "operator_upgrade": "After reviewed promotion, use production collectors/originals/offline.py replay --config collectors/originals/configs/flagstaff.json --source EXISTING_V7/source --out NEW_EMPTY_OUTPUT, then production collect.py --runtime OWNED_RUNTIME verify --target original-flagstaff-az --out NEW_OUTPUT. Do not run collect --resume against oldv7job with changed runtime.",
+  "metadata_merge": "Promote only exact5runtimefiles. Preserve current README and validation-summary history; add new external proof/currentcandidate references and distinguish actualv7transport fromv9normalization. Do not overwrite metadata with inherited candidate snapshots. Registry typed government/source config unchanged. Source rawhref/TABIDs remain exact; three finite targetresolutions recorded separately from literal broken-link diagnostic.",
+  "results": {
+    "family_verifier_passed": true,
+    "publication_accepted": true,
+    "jurisdiction_complete": false,
+    "evidence_read_only": true,
+    "source_runtime_unchanged": true,
+    "publisher_requests": 0,
+    "records_sha256": "1344484a99e9dce522f72d2254b713e9b725d552bb28d174c3fb66884a7fae5b",
+    "source_checkpoint_sha256": "6e3d638702f24570470554817ad27e301010ccea35058b4c41e4dd845d7e4d8f",
+    "origin": {
+      "html_checkpoint_sha256": "6e3d638702f24570470554817ad27e301010ccea35058b4c41e4dd845d7e4d8f",
+      "word_checkpoint_sha256": null
+    }
+  }
+}

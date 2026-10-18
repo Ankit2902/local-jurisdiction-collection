@@ -1,0 +1,59 @@
+{
+  "passed": true,
+  "scope": "Independent exact candidate code+9fault rerun+standard fresh collect/interruption/resume/verify with mocked transfer and retained actual IR; mixed718 canonical export reserialization. No native reparse, no live requests.",
+  "candidate_files_unchanged": true,
+  "source_sha256": "1af70bb8170cf2701cfb9e7ede2b274bf848309ca6fcaa3b7a7eeba9cd426c39",
+  "tests": 9,
+  "workflow_cases": [
+    {
+      "case": "fresh_standard_collect_and_finished_resume",
+      "passed": true,
+      "simulated_transfer_calls": 2,
+      "actual_network_calls": 0,
+      "physical_pages": 6,
+      "primary_records": 88,
+      "dependencies_and_common_publication_false": true
+    },
+    {
+      "case": "interrupt_after_normalize_then_resume",
+      "passed": true,
+      "original_start_reused": true,
+      "simulated_resume_end_transfers": 1
+    },
+    {
+      "case": "actual_retained_source_byte_corruption",
+      "passed": true,
+      "errors": [
+        "ValueError: Missing/corrupt retained file: /private/var/folders/vx/krkxgc9x7k77rg6grgbvx1pm0000gv/T/tmpb9nbaoxi/interrupted/raw/start.pdf"
+      ]
+    },
+    {
+      "case": "exact_source_config_identity_refusals",
+      "passed": true
+    },
+    {
+      "case": "transport_refusal_no_native_acceptance",
+      "passed": true,
+      "actual_requests": 0,
+      "errors": [
+        "KeyError: 'start'"
+      ]
+    }
+  ],
+  "mixed": {
+    "passed": true,
+    "records": 718,
+    "unchanged_others": 630,
+    "logical": 88,
+    "physical_replaced": 6,
+    "canonical_selections_other_preserved": 17,
+    "image_ownership_positions_preserved": 201,
+    "all_export_files_recomputed_byte_equal": true,
+    "source_sha256": "f652ec0a07a17e891067fd3703b65df3bb7964fc47ae8b3a8c499a15670584ae"
+  },
+  "forbidden_calls": [],
+  "seconds": 24.592130707984325,
+  "own_native_text_qualified": true,
+  "external_dependencies_edition_jurisdiction_publication_complete": false,
+  "limitation": "The generic publication_text_complete boolean is explicitly scoped by publication_text_scope to own native text; it is not dependency closure. Legacypdf_table_semantics_complete remainsfalse/commonacceptancefalse. Full6source/glyph qualification is prior independent proof, not repeated by this review."
+}

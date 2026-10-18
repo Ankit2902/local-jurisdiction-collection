@@ -112,6 +112,11 @@ class UpocPrintedIndex(unittest.TestCase):
   with patch.object(pdf_structure,'pages',return_value=(copy.deepcopy([r for r in self.rows if r['document_id']==it['id']]),[])):rs,ds=native_document.page_records(self.sources[it['id']][1],cfg)
   self.assertIn('source_printed_index_dimensions',ds);self.assertNotIn('source_physical_schedule_dimensions',ds);self.assertFalse(ds['pdf_table_semantics_complete']);self.assertTrue(ds['reading_order_manual_review_required'])
  def test_ordinary_sixpage_full_parser_noop(self):
-  from . import native_document
-  cfg=json.loads((H/'configs/native-82-4b983dc51ab6.json').read_text());data=(H/'fixtures/overland-solid-waste-native.pdf').read_bytes();expected=[json.loads(l) for l in (H/'fixtures/sto-four-column/ordinary-solid-waste-baseline.jsonl').read_text().splitlines()];rs,ds=native_document.page_records(data,cfg);self.assertEqual(rs,expected);self.assertNotIn('source_printed_index_dimensions',ds);self.assertNotIn('source_physical_schedule_dimensions',ds);self.assertFalse(ds['pdf_table_semantics_complete'])
+  from . import native_document,pdf_structure
+  cfg=json.loads((H/'configs/native-82-4b983dc51ab6.json').read_text());data=(H/'fixtures/overland-solid-waste-native.pdf').read_bytes();expected=[json.loads(l) for l in (H/'fixtures/sto-four-column/ordinary-solid-waste-baseline.jsonl').read_text().splitlines()];
+  # This remains the generic historical six-page diagnostic control; selected
+  # source-native logical behavior is separately exercised by full6 evidence.
+  with patch('collectors.encodeplus.solid_waste_logical.matches',return_value=False),patch.object(pdf_structure,'pages',return_value=(expected,[])):
+   rs,ds=native_document.page_records(data,cfg)
+  self.assertEqual(rs,expected);self.assertNotIn('source_printed_index_dimensions',ds);self.assertNotIn('source_physical_schedule_dimensions',ds);self.assertFalse(ds['pdf_table_semantics_complete'])
 if __name__=='__main__':unittest.main(verbosity=2)

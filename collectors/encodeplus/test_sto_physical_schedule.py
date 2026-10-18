@@ -83,8 +83,13 @@ class StoPhysicalSchedule(unittest.TestCase):
     with self.assertRaises(AssertionError):scoped.attach_record(row,page,tp,self.item,self.digest)
   self.first(check)
  def test_ordinary_native_parser_records_and_coverage_unchanged(self):
-  from . import native_document
-  cfg=json.loads((HERE/'configs/native-82-4b983dc51ab6.json').read_text());data=(HERE/'fixtures/overland-solid-waste-native.pdf').read_bytes();expected=[json.loads(l) for l in (FIX/'ordinary-solid-waste-baseline.jsonl').read_text().splitlines()];records,details=native_document.page_records(data,cfg);self.assertEqual(records,expected);self.assertNotIn('source_physical_schedule_dimensions',details);self.assertFalse(details['pdf_table_semantics_complete'])
+  from . import native_document,pdf_structure
+  cfg=json.loads((HERE/'configs/native-82-4b983dc51ab6.json').read_text());data=(HERE/'fixtures/overland-solid-waste-native.pdf').read_bytes();expected=[json.loads(l) for l in (FIX/'ordinary-solid-waste-baseline.jsonl').read_text().splitlines()];
+  # This remains the generic historical six-page diagnostic control; selected
+  # source-native logical behavior is separately exercised by full6 evidence.
+  with patch('collectors.encodeplus.solid_waste_logical.matches',return_value=False),patch.object(pdf_structure,'pages',return_value=(expected,[])):
+   records,details=native_document.page_records(data,cfg)
+  self.assertEqual(records,expected);self.assertNotIn('source_physical_schedule_dimensions',details);self.assertFalse(details['pdf_table_semantics_complete'])
  def test_native_coverage_exposes_physical_not_logical_semantics(self):
   from . import native_document,pdf_structure
   cfg=json.loads((HERE/'configs/native-82-04514ddf4ea3.json').read_text())
@@ -95,7 +100,7 @@ class StoPhysicalSchedule(unittest.TestCase):
   partial=scoped.summary(self.rows[:-1]);self.assertFalse(partial['physical_cell_fidelity_complete']);self.assertFalse(partial['whole_pdf_table_semantics_complete'])
   with self.assertRaises(AssertionError):scoped.summary(self.rows+[self.rows[0]])
  def test_canonical_consumer_tables_ordered_blocks_text_and_CSV_agree(self):
-  from . import native_document
+  from . import native_document,pdf_structure
   for row in self.rows:
    source=row['source_physical_schedules'][0];table=row['tables'][0];block=row['ordered_blocks'][0]
    self.assertEqual(row['canonical_structure_selection']['canonical_table_ids'],[table['id']]);self.assertEqual(block['id'],table['id']);self.assertEqual(block['word_ids'],[w for c in source['cells'] for w in c['source_word_ids']]);self.assertEqual(len(block['word_ids']),len(set(block['word_ids'])))
