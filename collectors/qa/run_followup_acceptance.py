@@ -35,6 +35,12 @@ def main():
  if a.suite=='release-followup':commands += [('ep-image-response-mime',['-m','unittest','collectors.encodeplus.test_transport_image_mime','-v'])]
  if a.suite=='release-followup':commands += [('ecode-source-body-ownership',['collectors/qa/test_ecode_body_ownership.py','--collector-root','collectors/ecode'])]
  if a.suite=='release-followup':commands += [('ep-whole-source-printed-flow',['-m','unittest','collectors.encodeplus.test_infrastructure_printed_flow','-v'])]
+ if a.suite=='release-followup':
+  municipal=ROOT/'packages/collection-dispatch-and-municipal-2026-10-18/municipal'
+  commands += [('clark-exact-dispatch',['collectors/registry/test_clark_title30_config.py']),('clark-source-qualification',['collectors/registry/test_clark_title30_qualification.py']),('municipal-canonical-source-reader',['collectors/corpus_package/test_municipal_codes_html.py',str(municipal/'package-v3/evidence/input'),str(municipal/'actual-standard-proof/read-only-proof.json'),str(municipal/'synthetic-controls-v2'),str(municipal/'synthetic-controls-proof-v2/read-only-proof.json')]),('municipal-helper-preflight',['collectors/corpus_package/test_municipal_helper_preflight.py','--input',str(municipal/'package-v3/evidence/input'),'--helper','collectors/corpus_package/verify_municipal_input.py'])]
+ if a.suite=='release-followup':
+  upoc=ROOT/'packages/collection-dispatch-and-municipal-2026-10-18/upoc-2024'
+  commands += [('upoc-retained-native-guards',['collectors/encodeplus/qa/test_retained_native.py',str(upoc)]),('upoc-historical-qualification',[str(upoc/'test_qualification.py')])]
  with tempfile.TemporaryDirectory(prefix='followup-network-denied-') as td:
   (Path(td)/'sitecustomize.py').write_text("import socket\ndef deny(*a,**k):raise RuntimeError('QA_NETWORK_FORBIDDEN')\nsocket.socket.connect=deny\nsocket.socket.connect_ex=deny\nsocket.create_connection=deny\n")
   env=dict(os.environ,PYTHONDONTWRITEBYTECODE='1',PYTHONPATH=td+os.pathsep+str(snapshot))

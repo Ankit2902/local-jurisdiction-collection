@@ -19,8 +19,9 @@ class NativeUpgrade(unittest.TestCase):
   for attr,value in [('STATE_ROOT',self.root/'durable'),('runtime_env',lambda *_:(Path('/fake/python'),Path('/fake/node'),{})),('registry_plan',lambda *_:{'publication_id':self.pub['id'],'staged_config':self.cfg}),('catalog_publication',lambda *_:self.pub),('doctor',lambda *a,**kw:{'runtime_ready':True,'ready':True,'issues':[]}),('code_binding',lambda *_:{'native_document.py':self.version}),('access_state',lambda *_:[])]:stack.enter_context(patch.object(ops,attr,value))
   stack.enter_context(patch.object(ops.subprocess,'run',side_effect=child));return stack
  def run_job(self,**kwargs):return ops.execute_job(self.runtime,'82',self.pub['id'],self.out,**kwargs)
- def test_all_six_exact_native_configs_dispatch_without_html_target_assumption(self):
-  selected=[p for p in self.catalog['publications'] if p.get('adapter_mode')=='native_document'];self.assertEqual(len(selected),6)
+ def test_seven_source_qualified_native_configs_dispatch_without_html_target_assumption(self):
+  selected=[p for p in self.catalog['publications'] if p.get('adapter_mode')=='native_document'];self.assertEqual(len(selected),7)
+  current=[p for p in selected if p['qualification_evidence']['kind']=='literal-current-publisher-anchor-and-pinned-original-native-file'];historical=[p for p in selected if p['qualification_evidence']['kind']=='historical-observed-native-receipt-full172-retained-current-parser'];self.assertEqual(len(current),6);self.assertEqual([p['id'] for p in historical],['82-8fbdce15716d'])
   for pub in selected:
    collect=command(pub,self.target,'/fresh',resume=True,upgrade_code=True);self.assertIn('collectors.encodeplus.native_document',collect['argv']);self.assertIn('--upgrade-code',collect['argv']);self.assertIn('--config',collect['argv']);self.assertIsNone(collect['staged_config'])
    verify=command(pub,self.target,'/fresh',verify=True);self.assertIn('--verify',verify['argv']);self.assertNotIn('collectors.encodeplus.verify',verify['argv'])

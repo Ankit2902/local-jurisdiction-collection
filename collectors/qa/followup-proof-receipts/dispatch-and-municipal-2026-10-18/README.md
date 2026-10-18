@@ -1,0 +1,9 @@
+# Dispatch, municipal export and image-policy validation
+
+The final integrated source passes **62 programs and 644 unittest cases**. Its isolated executable/config snapshot and runtime stayed unchanged. Six ordinary Python readers reproduce **14,191 actual retained rows**, with all prior data artifacts unchanged. The [summary](summary.json) and [full suite report](integrated-suite/report.json) identify the exact source and limitations.
+
+The [handoff package](../../../../packages/collection-dispatch-and-municipal-2026-10-18/README.md) contains the corrected UPOC full172 run, Clark dispatch proof, municipal original-source/portable-export peers, Boston routing evidence and source-specific runbooks. The current catalog has 197 dispatchable and 28 unqualified configurations across 225 entries and 130 governments. These are not completed-collection counts.
+
+All images remain exact `[IMAGE]`. Current native image guards refuse inline image dictionaries without a subtype before decoding; ordinary text/font streams still work. The initial failed guard probe is preserved, and the corrected source completed a fresh full172 retained extraction. The normalized audits pass for all73 municipal records and172 native page records; the real municipal sample has no images/tables, so those dimensions use separately labeled synthetic controls.
+
+The final production municipal package also passed ordinary stdlib-only verification from an unrelated working directory, leaving all105 files unchanged; exit2 correctly preserves incomplete source. Clark's exact sealed family proof is bridged into dispatch without claiming a fresh common verification. UPOC retains102 text/glyph disagreement pages, historical edition and absent closing. Boston has routing evidence only. No whole-jurisdiction readiness is inferred.

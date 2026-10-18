@@ -1,0 +1,97 @@
+{
+  "schema": "independent-municipal-codes-reader-peer-1",
+  "verdict": "PASS within retained partial PhoenixCharter scope; no material final reader blocker",
+  "reviewer": "american_legal57",
+  "created_at": "2026-10-18T04:13:40.392382+00:00",
+  "candidate_manifest": {
+    "path": "../../../municipal-corpus-reader-v1/CANDIDATE-MANIFEST.json",
+    "sha256": "cb83300f9d12ae6e18b779c906db17cc511974ca9a5b562c8770a400b1211e0f",
+    "selected_files": 181,
+    "selected_bytes": 4811396
+  },
+  "reader_source_sha256": "96887cbad5a3c056c1c4ae23f757f994585bd8f1e42ce6fd22460749c1702376",
+  "source_audit_manifest_sha256": "61c225bd41921caa195dcde5c41c5e6e733423407fbcbbe7c4e478415d79146e",
+  "source_audit_original_selected_files_unchanged": true,
+  "real_source": {
+    "raw_responses": 16,
+    "successful_HTML": 15,
+    "source_unique_articles": 80,
+    "owned_records": 73,
+    "source_empty_articles": 7,
+    "source_nodes_with_root_preface": 279,
+    "structural_dispositions": 8,
+    "missing_nodes_explicit": 198,
+    "owned_body_IDs": 235,
+    "body_links": 32,
+    "header_fn_links_in_accessible_provenance": 3,
+    "notes_once": 3,
+    "subsection_nodes": 159,
+    "tables": 0,
+    "IMAGE": 0
+  },
+  "independent_methods": [
+    "Original typed article ownership traversal; all source DOM tags/attributes/text/headings/notes/IDs/links vs existing canonicalIR, no producer selector/helper import",
+    "Independent all277sourceTOC entry order/parent/classes plus root/preface; unowned source text classified",
+    "All73source body word boundaries; whitespace collapse only",
+    "All73\u00d716 exported fields +279dispositions + raw header slices/hashes +3sameowner footnote target hashes +CSV/BOM/TOC pairs",
+    "All181selected manifest/source/proof bytes;73sourceinputs and105filefinalpackage closure",
+    "Own guarded ordinary no-B -S shipped relocated verifier; expected incomplete exit2, no file changes"
+  ],
+  "executed_tests": {
+    "author_reader_cases_independently_rerun": 22,
+    "helper_preflight_cases_independently_rerun": 6,
+    "own_source_heading_offset_image_controls": 7,
+    "all_passed": true
+  },
+  "resolved_findings": [
+    "Existing IR bodylinkarrays omit3heading fn anchors: finalreader now exposes exactoriginalheaderHTML/links/raw+targethashes in ordinary record-provenance.jsonl, all3notes remain once",
+    "LF-only offsets now preserve exact rawheader slices across U+2028/U+0085/RS/CR",
+    "Known image heading contexts become literal[IMAGE] with available captions/table structure preserved and payload omitted; no decoding"
+  ],
+  "preserved_limits": [
+    "198source nodes never acquired before429",
+    "No closing inventory or currentness sweep",
+    "Literal source currency throughNovember6,2018election only",
+    "State source identity verification remainsfalse",
+    "Text/attachments/edition/jurisdiction gates remainfalse",
+    "No acquired tables/images does not qualify missing nodes",
+    "Synthetic complete case never upgrades real acquisition"
+  ],
+  "result": {
+    "package_verified": true,
+    "serialization_complete": true,
+    "complete": false,
+    "selected_publication_ready": false,
+    "downstream_ready": false,
+    "ordinary_relocated_exit": 2
+  },
+  "no_image_policy": {
+    "placeholder": "[IMAGE]",
+    "actual_acquired_images": 0,
+    "forbidden_calls": 0,
+    "network_requests": 0,
+    "image_decode_extract_render_OCR_calls": 0,
+    "full_collector_source_normalization_native_parse_calls": 0
+  },
+  "production_Git_gate_original_source_edits": 0,
+  "receipts": {
+    "literal-text-review.json": {
+      "sha256": "6733b9a2694897ee204b537cc90b69255b7af7e4cbaf2f3884c15fbdc55db62b"
+    },
+    "package-consumer-review.json": {
+      "sha256": "34ffcd9f3f2d72dafbe920d43fb2a61a53e77ac270e046b950b07d37a28129a9"
+    },
+    "heading-guard-review.json": {
+      "sha256": "847524b09b68be7c4efd6c9e45776076a8cc49e1c940dcf6aed6281282b6f63c"
+    },
+    "relocated-review.json": {
+      "sha256": "8099ed5fcf34ff0ab3dc9498266bde37889d432229744e9f6ac7ad1efcd702c3"
+    },
+    "author-tests.log": {
+      "sha256": "672c0de08d3d7757e2d2679aefe76a48d2c9dda9550d994e9ae6116cd0b0de94"
+    },
+    "helper-preflight-tests.log": {
+      "sha256": "b52fd2030bf92de4dd39dd804082b2d46694302b3e58cf9795e8231d2f98f7c2"
+    }
+  }
+}

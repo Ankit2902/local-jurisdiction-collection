@@ -20,7 +20,22 @@ def audit(here,catalog):
         anchors={urljoin(receipt['url'],a['href']):' '.join(a.stripped_strings) for a in BeautifulSoup(document,'html.parser').select('a[href]')}
         native_ids={name.split('/')[1] for name in z.namelist() if name.startswith('native/82-')}
         overrides=json.loads((here/'followup-qualified-configs.json').read_text())['publications']
-        check(native_ids==set(overrides),'Exact six source-qualified native configuration entries')
+        current_kind='literal-current-publisher-anchor-and-pinned-original-native-file'
+        current_ids={ident for ident,q in overrides.items()if q.get('qualification_evidence',{}).get('kind')==current_kind}
+        check(native_ids==current_ids,'Exact six current source-qualified native configuration entries')
+        extra_kinds={q.get('qualification_evidence',{}).get('kind')for ident,q in overrides.items()if ident not in current_ids}
+        for kind in extra_kinds:
+            if kind=='fresh-full30-native-capture-all-page-parse-real-closing-guarded-family-verify':
+                from clark_title30_qualification import audit as audit_clark
+                errors.extend(audit_clark(here,catalog))
+            elif kind=='historical-observed-native-receipt-full172-retained-current-parser':
+                historical_ids={ident for ident,q in overrides.items()if q.get('qualification_evidence',{}).get('kind')==kind}
+                check(historical_ids=={'82-8fbdce15716d'},'Exact one historical UPOC source-qualified configuration entry')
+                try:
+                    from historical_upoc_qualification import audit as audit_historical_upoc
+                    errors.extend(audit_historical_upoc(here,catalog))
+                except ImportError:check(False,'Historical UPOC qualification verifier missing')
+            else:check(False,'Unknown follow-up qualification proof kind: '+str(kind))
         for ident in native_ids:
             p=publications.get(ident,{});cfgbytes=z.read('native/'+ident+'/config.json');cfg=json.loads(cfgbytes);original=json.loads(z.read('native/'+ident+'/native-receipt.json'));actual=here.parents[1]/p.get('adapter_config_path','missing')
             check(actual.is_file() and actual.read_bytes()==cfgbytes,'Current native config differs from qualified witness '+ident)

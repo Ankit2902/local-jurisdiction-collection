@@ -1,0 +1,16 @@
+--- frozen-v1/retained_native.py
++++ v2/retained_native.py
+@@ -36,8 +36,11 @@
+  def image_stream_guard(original):
+   def guarded(stream,*a,**k):
+    attrs=getattr(stream,'attrs',None)
+-   subtype=attrs.get('Subtype')if attrs is not None else stream.get('/Subtype')
+-   if str(subtype).strip("/'")== 'Image' or str(subtype)=="/'Image'":return deny()
++   mapping=attrs if attrs is not None else stream
++   subtype=mapping.get('Subtype',mapping.get('/Subtype'))
++   width=any(k in mapping for k in ['W','Width','/W','/Width'])
++   height=any(k in mapping for k in ['H','Height','/H','/Height'])
++   if str(subtype).strip("/'").lower()=='image' or width and height:return deny()
+    return original(stream,*a,**k)
+   return guarded
+  with contextlib.ExitStack()as stack:

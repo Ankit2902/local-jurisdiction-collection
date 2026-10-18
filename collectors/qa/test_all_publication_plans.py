@@ -60,12 +60,12 @@ class AllPublicationPlanTests(unittest.TestCase):
   d=self.result(['plan','--all']);self.assertEqual(d['targets'],130);self.assertEqual(len(d['plans']),130)
   self.assertEqual({p['publication_id'] for p in d['plans']},{t['primary_publication_id'] for t in self.target.values()});self.assertNotIn('publication_count',d)
  def test_all_known_publications_discoverable(self):
-  d=self.result(['plan','--all-publications']);self.assertEqual(d['targets'],130);self.assertEqual(d['publication_count'],225);self.assertEqual(d['runnable_config_count'],195)
+  d=self.result(['plan','--all-publications']);self.assertEqual(d['targets'],130);self.assertEqual(d['publication_count'],225);self.assertEqual(d['runnable_config_count'],197)
   self.assertEqual({p['publication_id'] for p in d['plans']},set(self.pub));self.assertEqual(len(d['plans']),len({p['publication_id'] for p in d['plans']}));self.assertEqual(sum(bool(p['observed_access_advisories']) for p in d['plans']),154)
   for p in d['plans']:
    source=self.pub[p['publication_id']];self.assertEqual(p['publication_role'],source['role']);self.assertEqual(p['source_url'],source['source_url']);self.assertEqual(p['publication_title'],source['title']);self.assertEqual(p['target_id'],source['target_id']);self.assertIs(p['jurisdiction_complete'],False)
  def test_unknown_publication_configs_retained_with_actual_reasons(self):
-  d=self.result(['plan','--all-publications']);unknown=[p for p in d['plans'] if not p['runnable']];self.assertEqual(len(unknown),30)
+  d=self.result(['plan','--all-publications']);unknown=[p for p in d['plans'] if not p['runnable']];self.assertEqual(len(unknown),28)
   for p in unknown:self.assertTrue(p['unsupported_reason']);self.assertTrue(p['publication_title']);self.assertTrue(p['source_url']);self.assertNotIn('argv',p)
  def test_direct_registry_same_plan_scope(self):
   a=self.result(['plan','--all-publications']);b=self.result(['plan','--all-publications'],True);self.assertEqual(a,b)

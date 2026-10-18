@@ -12,3 +12,6 @@ READERS={'originals-flagstaff-html-v1':read_projection,'municode-html-publicatio
 def reader(name):
     if name not in READERS:raise ValueError('Unsupported reader; no speculative family mapping: '+name)
     return READERS[name]
+
+from municipal_codes_html import read_projection as municipal_codes
+READERS['municipal-codes-html-publication-v1']=municipal_codes

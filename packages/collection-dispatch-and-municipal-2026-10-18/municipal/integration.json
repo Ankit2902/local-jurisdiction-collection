@@ -1,0 +1,34 @@
+{
+  "new_files": [
+    {
+      "source": "source/municipal_codes_html.py",
+      "destination": "collectors/corpus_package/municipal_codes_html.py",
+      "sha256": "96887cbad5a3c056c1c4ae23f757f994585bd8f1e42ce6fd22460749c1702376"
+    },
+    {
+      "source": "source/verify_municipal_input.py",
+      "destination": "collectors/corpus_package/verify_municipal_input.py",
+      "sha256": "d1fb9db7f79b019185f438121b388eec04a9118304d0e8d2efb9324e0ab99b32"
+    },
+    {
+      "source": "source/test_municipal_codes_html.py",
+      "destination": "collectors/corpus_package/test_municipal_codes_html.py",
+      "sha256": "43587b1ae5c77afa3fdb92c44fc4489eb10b18da21c202338f1b74c99df2e1e9"
+    },
+    {
+      "source": "source/test_municipal_helper_preflight.py",
+      "destination": "collectors/corpus_package/test_municipal_helper_preflight.py",
+      "sha256": "a8339030f6e2615ee9890f6e1fab2f6d7e3c3fe330847497caeb04ef05c16293"
+    }
+  ],
+  "merge_only": {
+    "collectors/corpus_package/readers.py": "from municipal_codes_html import read_projection as municipal_codes; READERS['municipal-codes-html-publication-v1']=municipal_codes",
+    "collectors/corpus_package/package.py": "Append municipal_codes_html.py to MODULES; do not overwrite other current modules"
+  },
+  "proof_family": "municipal-codes",
+  "collector_family": "municipal.codes (existing ecode collector explicit retained revision)",
+  "reader": "municipal-codes-html-publication-v1",
+  "complete_real_scope": false,
+  "publisher_requests": 0,
+  "strict_exit": 2
+}

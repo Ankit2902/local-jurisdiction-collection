@@ -1,0 +1,47 @@
+test_01_exact_tested_config_and_narrow_scope (test_clark_title30_config.Clark.test_01_exact_tested_config_and_narrow_scope) ... ok
+test_02_current_inventory_not_legacy (test_clark_title30_config.Clark.test_02_current_inventory_not_legacy) ... ok
+test_03_plan_and_configuration_identity (test_clark_title30_config.Clark.test_03_plan_and_configuration_identity) ... ok
+test_04_missing_or_wrong_source_configuration_refuses (test_clark_title30_config.Clark.test_04_missing_or_wrong_source_configuration_refuses) ... ok
+test_05_retained_binding_no_reparse_and_mutations (test_clark_title30_config.Clark.test_05_retained_binding_no_reparse_and_mutations) ... ERROR
+test_06_collect_dispatch_only_no_transport (test_clark_title30_config.Clark.test_06_collect_dispatch_only_no_transport) ... ok
+test_07_verify_dispatch_only_no_native_verifier (test_clark_title30_config.Clark.test_07_verify_dispatch_only_no_native_verifier) ... FAIL
+test_08_wrong_target_and_nonempty_output_refuse_before_dispatch (test_clark_title30_config.Clark.test_08_wrong_target_and_nonempty_output_refuse_before_dispatch) ... ok
+test_09_partial_and_resume_flags_remain_explicit (test_clark_title30_config.Clark.test_09_partial_and_resume_flags_remain_explicit) ... ok
+test_10_common_acceptance_preserves_semantic_gap (test_clark_title30_config.Clark.test_10_common_acceptance_preserves_semantic_gap) ... ok
+test_11_exact_family_source_bridge_no_fresh_common_claim (test_clark_title30_config.Clark.test_11_exact_family_source_bridge_no_fresh_common_claim) ... ok
+test_12_no_borrowed_publisher_identity_and_primary_unchanged (test_clark_title30_config.Clark.test_12_no_borrowed_publisher_identity_and_primary_unchanged) ... ok
+
+======================================================================
+ERROR: test_05_retained_binding_no_reparse_and_mutations (test_clark_title30_config.Clark.test_05_retained_binding_no_reparse_and_mutations)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/oliverflint/My Drive/Claude/Projects/CompliSolv 2.00/outputs/collection-readiness-post9ef7220-2026-10-18/clark-registry-integration-candidate-v1/candidate/collectors/registry/test_clark_title30_config.py", line 37, in test_05_retained_binding_no_reparse_and_mutations
+    with patch.object(socket,'socket',side_effect=self.forbidden):self.assertTrue(bind_run(self.pub,self.target,PROOF/'run'))
+                                                                                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/oliverflint/My Drive/Claude/Projects/CompliSolv 2.00/outputs/collection-readiness-post9ef7220-2026-10-18/clark-registry-integration-candidate-v1/candidate/collectors/registry/dispatch.py", line 128, in bind_run
+    elif family=='official':require(read(out/'config.json')==q['config'],'exact official publication config')
+                                    ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/oliverflint/My Drive/Claude/Projects/CompliSolv 2.00/outputs/collection-readiness-post9ef7220-2026-10-18/clark-registry-integration-candidate-v1/candidate/collectors/registry/dispatch.py", line 6, in read
+    def read(p):return json.loads(p.read_text())
+                                  ^^^^^^^^^^^^^
+  File "/Users/oliverflint/.cache/codex-runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/pathlib.py", line 1027, in read_text
+    with self.open(mode='r', encoding=encoding, errors=errors) as f:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/oliverflint/.cache/codex-runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/pathlib.py", line 1013, in open
+    return io.open(self, mode, buffering, encoding, errors, newline)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: '/Users/oliverflint/My Drive/Claude/Projects/CompliSolv 2.00/outputs/collection-readiness-post9ef7220-2026-10-18/clark-registry-integration-candidate-v1/evidence/full30/run/config.json'
+
+======================================================================
+FAIL: test_07_verify_dispatch_only_no_native_verifier (test_clark_title30_config.Clark.test_07_verify_dispatch_only_no_native_verifier)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/oliverflint/My Drive/Claude/Projects/CompliSolv 2.00/outputs/collection-readiness-post9ef7220-2026-10-18/clark-registry-integration-candidate-v1/candidate/collectors/registry/test_clark_title30_config.py", line 55, in test_07_verify_dispatch_only_no_native_verifier
+    code,calls,_,_=self.cli(['verify','--target','96','--publication',ID,'--out',str(PROOF/'run')]);self.assertEqual(code,0);self.assertEqual(len(calls),1);self.assertEqual(calls[0][0],[sys.executable,'collectors/official/verify.py',str((PROOF/'run').resolve())])
+                                                                                                    ^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 2 != 0
+
+----------------------------------------------------------------------
+Ran 12 tests in 0.225s
+
+FAILED (failures=1, errors=1)

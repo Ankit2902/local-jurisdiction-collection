@@ -1,0 +1,805 @@
+--- a/collectors/official/configs/clark-title30-current-associated-documents.json
++++ b/collectors/official/configs/clark-title30-current-associated-documents.json
+@@ -0,0 +1,21 @@
++{
++  "schema": 1,
++  "id": "96-clark-title30-current-associated-documents",
++  "jurisdiction": "Clark County",
++  "state": "NV",
++  "publication": "Title 30 Unified Development Code and associated documents in official current group",
++  "source_url": "https://www.clarkcountynv.gov/government/departments/comprehensive_planning_department/library/title-30",
++  "mode": "pdf_set",
++  "transport": "http",
++  "document_transport": "http",
++  "inventory_selector": "main .document-center > div:has(> div:first-child:-soup-contains(\"Title 30 - Effective 9/17/2026\")) > div:nth-of-type(2) a[href]",
++  "include_url_regex": "^https://www[.]clarkcountynv[.]gov/adobe/assets/urn:aaid:aem:[0-9a-f-]+/original/as/[^?#]+[.]pdf$",
++  "source_currency_selector": "main .document-center > div:has(> div:first-child:-soup-contains(\"Title 30 - Effective 9/17/2026\")) > div:first-child",
++  "source_identity_tokens": [
++    "Title 30 is the Clark County Code related to land use, zoning and development.",
++    "Title 30 - Effective 9/17/2026"
++  ],
++  "coverage_level": "file_pages",
++  "pdf_normalization": "coordinate-v1",
++  "scope_warning": "Exactlycurrentdocument-center group:corePDF+29associatedmapPDFs. Notlegacy66links,notwholecounty/uncodifiedlaw. Source labels/nativePDFedition vsfilename keptliteral. FullPDFsemantic/section/table/label qualification isnotfilecapture. Rootapproval+gatecheck required before any requests."
++}
+--- a/collectors/registry/followup-qualified-configs.json
++++ b/collectors/registry/followup-qualified-configs.json
+@@ -103,6 +103,45 @@
+         "independent_audit": "outputs/collection-readiness-followup-2026-10-17/qa/native-config-current-anchor-qualified.json",
+         "scope_note": "Exact entire original native file configuration is dispatchable. Legal section/table/reading-order/edition acceptance remains unqualified; native capture exit0 is not publication acceptance."
+       }
++    },
++    "96-7e8795b1baee": {
++      "runnable": true,
++      "unsupported_reason": null,
++      "adapter_config_path": "collectors/official/configs/clark-title30-current-associated-documents.json",
++      "adapter_mode": "pdf_set",
++      "title": "Title 30 current official group (effective 9/17/2026): core code and 29 associated map PDFs",
++      "observed_title": "Title 30 - Effective 9/17/2026",
++      "scope_kind": "publication",
++      "expected_identity": {
++        "client_names": [
++          "Clark County"
++        ],
++        "state": "NV",
++        "official_source_url": "https://www.clarkcountynv.gov/government/departments/comprehensive_planning_department/library/title-30",
++        "official_current_group": "Title 30 - Effective 9/17/2026"
++      },
++      "full_live_verified": false,
++      "qualification_evidence": {
++        "kind": "fresh-full30-native-capture-all-page-parse-real-closing-guarded-family-verify",
++        "evidence_path": "packages/collection-source-recovery-2026-10-18/clark/full30",
++        "manifest_sha256": "f138e7116c4552c242c79177fae024b6eb0158617b821c72a8818db539008537",
++        "config_sha256": "a9f72d7a2e9dfad0ac295448de8f4699e7d7ebee18bf71020bebcda9b1345813",
++        "independent_audit": "packages/collection-source-recovery-2026-10-18/clark/peer/review.json",
++        "independent_audit_sha256": "6681d51a12377c2395e3f50065f03bd60d34d00441f6d5c7572cbc3be05b0d4d",
++        "selected_document_count": 30,
++        "core_document_count": 1,
++        "associated_map_document_count": 29,
++        "physical_pages": 381,
++        "requested_level": "file_pages",
++        "full_file_pages_live_verified": true,
++        "full_live_verified": false,
++        "legal_semantic_coverage_complete": false,
++        "jurisdiction_complete": false,
++        "scope_note": "Exact current official group only; excludes 66 historical PDFs. All 30 initial and later native hashes and the later official page match; all 381 pages were parsed and passed guarded read-only family verification. These are physical pages, not 381 legal provisions or legal/jurisdiction acceptance. The 196 cell disagreements, 43 review pages and U+F0FC on core pages 225/226 remain unresolved. No separate images, pixels, rendering or OCR.",
++        "bundle": "clark-title30-source-evidence.zip",
++        "source_manifest": "clark-title30-source-evidence-manifest.json",
++        "source_archive_sha256": "9e184424b36283b23842c8277a642335c6c88d9f96ae4425331b93fc31a4aa88"
++      }
+     }
+   }
+ }
+--- a/collectors/registry/followup_qualification.py
++++ b/collectors/registry/followup_qualification.py
+@@ -20,7 +20,22 @@
+         anchors={urljoin(receipt['url'],a['href']):' '.join(a.stripped_strings) for a in BeautifulSoup(document,'html.parser').select('a[href]')}
+         native_ids={name.split('/')[1] for name in z.namelist() if name.startswith('native/82-')}
+         overrides=json.loads((here/'followup-qualified-configs.json').read_text())['publications']
+-        check(native_ids==set(overrides),'Exact six source-qualified native configuration entries')
++        current_kind='literal-current-publisher-anchor-and-pinned-original-native-file'
++        current_ids={ident for ident,q in overrides.items()if q.get('qualification_evidence',{}).get('kind')==current_kind}
++        check(native_ids==current_ids,'Exact six current source-qualified native configuration entries')
++        extra_kinds={q.get('qualification_evidence',{}).get('kind')for ident,q in overrides.items()if ident not in current_ids}
++        for kind in extra_kinds:
++            if kind=='fresh-full30-native-capture-all-page-parse-real-closing-guarded-family-verify':
++                from clark_title30_qualification import audit as audit_clark
++                errors.extend(audit_clark(here,catalog))
++            elif kind=='historical-observed-native-receipt-full172-retained-current-parser':
++                historical_ids={ident for ident,q in overrides.items()if q.get('qualification_evidence',{}).get('kind')==kind}
++                check(historical_ids=={'82-8fbdce15716d'},'Exact one historical UPOC source-qualified configuration entry')
++                try:
++                    from historical_upoc_qualification import audit as audit_historical_upoc
++                    errors.extend(audit_historical_upoc(here,catalog))
++                except ImportError:check(False,'Historical UPOC qualification verifier missing')
++            else:check(False,'Unknown follow-up qualification proof kind: '+str(kind))
+         for ident in native_ids:
+             p=publications.get(ident,{});cfgbytes=z.read('native/'+ident+'/config.json');cfg=json.loads(cfgbytes);original=json.loads(z.read('native/'+ident+'/native-receipt.json'));actual=here.parents[1]/p.get('adapter_config_path','missing')
+             check(actual.is_file() and actual.read_bytes()==cfgbytes,'Current native config differs from qualified witness '+ident)
+--- a/collectors/registry/clark_title30_qualification.py
++++ b/collectors/registry/clark_title30_qualification.py
+@@ -0,0 +1,80 @@
++"""Source-bound Clark configuration audit, not a native reparse or legal acceptance.
++
++Uses portable documentary witnesses pinned to the sealed full30 proof. Native
++originals remain in that proof; no PDF/image extraction or network is performed.
++"""
++import datetime,hashlib,json,zipfile
++from bs4 import BeautifulSoup
++ID='96-7e8795b1baee'
++KIND='fresh-full30-native-capture-all-page-parse-real-closing-guarded-family-verify'
++BUNDLE='clark-title30-source-evidence.zip'
++MANIFEST='clark-title30-source-evidence-manifest.json'
++SEALED='f138e7116c4552c242c79177fae024b6eb0158617b821c72a8818db539008537'
++PEER='6681d51a12377c2395e3f50065f03bd60d34d00441f6d5c7572cbc3be05b0d4d'
++CONFIG='a9f72d7a2e9dfad0ac295448de8f4699e7d7ebee18bf71020bebcda9b1345813'
++ROUTE='https://www.clarkcountynv.gov/government/departments/comprehensive_planning_department/library/title-30'
++HEADER='Title 30 - Effective 9/17/2026'
++PATH='collectors/official/configs/clark-title30-current-associated-documents.json'
++def sha(data):return hashlib.sha256(data).hexdigest()
++def audit(here,catalog):
++    errors=[]
++    def need(ok,message):
++        if not ok:raise ValueError(message)
++    try:
++        overrides=json.loads((here/'followup-qualified-configs.json').read_text())['publications']
++        selected={ident:q for ident,q in overrides.items()if q.get('qualification_evidence',{}).get('kind')==KIND}
++        need(set(selected)=={ID},'Exact one Clark source-qualified entry required')
++        q=selected[ID];pub=next(p for p in catalog['publications']if p['id']==ID);e=q['qualification_evidence']
++        need(pub['target_id']=='96'and pub['publisher']=='official'and pub['source_url']==ROUTE,'Clark publication/government/source binding')
++        need(pub['validation_level']=='mapped_only'and not pub.get('full_live_verified'),'Clark base mapping cannot confer live/semantic acceptance')
++        need(pub.get('adapter_mode')=='pdf_set'and pub.get('adapter_config_path')==PATH and pub.get('runnable'),'Clark exact official adapter configuration')
++        need(pub['expected_identity'].get('client_names')==['Clark County']and pub['expected_identity'].get('state')=='NV'and not pub['expected_identity'].get('publisher_product_id'),'Clark official identity must not borrow a publisher product')
++        need(pub['image_policy']['placeholder']=='[IMAGE]'and pub['image_policy']['download_images']is False,'Clark literal no-image policy')
++        need(e.get('bundle')==BUNDLE and e.get('source_manifest')==MANIFEST,'Clark source bundle/manifest selection')
++        m=json.loads((here/MANIFEST).read_text());archive=(here/BUNDLE).read_bytes()
++        need(sha(archive)==m['archive_sha256']==e['source_archive_sha256'],'Clark source archive hash')
++        with zipfile.ZipFile(here/BUNDLE)as z:
++            entries={r['member']:r for r in m['files']};need(set(z.namelist())==set(entries),'Clark source archive exact entries')
++            raw={n:z.read(n)for n in entries}
++            for n,b in raw.items():need(len(b)==entries[n]['bytes']and sha(b)==entries[n]['sha256'],'Clark archive witness corrupt: '+n)
++        need(sha(raw['full30/MANIFEST.json'])==SEALED==e['manifest_sha256'],'Clark sealed full30 proof identity')
++        full=json.loads(raw['full30/MANIFEST.json'])['files']
++        def witness(name):
++            b=raw['full30/'+name];r=full[name];need(len(b)==r['bytes']and sha(b)==r['sha256'],'Clark sealed source witness differs: '+name);return b
++        def obj(name):return json.loads(witness(name))
++        need(sha(raw['peer/review.json'])==PEER==e['independent_audit_sha256'],'Clark independent review identity')
++        peer=json.loads(raw['peer/review.json']);need(peer['passed']and peer['packet_manifest_sha256']==SEALED and peer['requested_file_pages_complete']and not peer['legal_semantic_coverage_complete']and not peer['jurisdiction_complete'],'Clark independent proof qualification scope')
++        config=witness('config.json');need(sha(config)==CONFIG==e['config_sha256'],'Clark tested config fingerprint')
++        actual=(here.parents[1]/PATH).read_bytes();need(actual==config,'Clark current config differs from tested source config')
++        c=json.loads(config);need(c['source_url']==ROUTE and c['jurisdiction']=='Clark County'and c['state']=='NV'and c['mode']=='pdf_set'and c['coverage_level']=='file_pages','Clark exact government/native-file/page scope')
++        need(witness('run/config.json')==config,'Clark producer selected config')
++        state=obj('run/checkpoint.json');need(state['completed']and not state['limits_history']and len(state['items'])==len(state['done'])==30 and len(set(state['done']))==30,'Clark entire unbounded selected inventory')
++        opening=witness('run/'+state['identity']['source_ref']);closing=witness('run/'+state['consistency']['raw_ref'])
++        need(opening==closing and state['consistency']['consistent']and state['identity']['source_currency']==HEADER,'Clark actual later source/currency closure')
++        soup=BeautifulSoup(opening,'html.parser');currency=soup.select(c['source_currency_selector']);need(len(currency)==1 and currency[0].get_text(' ',strip=True)==HEADER,'Clark exact unique current source group')
++        anchors=soup.select(c['inventory_selector']);inventory=obj('source-inventory.json');ordered=[(a['href'],a.get_text(' ',strip=True))for a in anchors]
++        need(len(ordered)==30 and len({u for u,t in ordered})==30 and ordered==[(r['url'],r['label'])for r in inventory['current_documents']],'Clark current30 source-owned ordered inventory')
++        need(ordered==[(i['url'],i['heading'])for i in state['items']],'Clark producer inventory vs source anchors')
++        legacy=inventory['historical_documents_explicitly_outside_current_group'];need(len(legacy)==66 and not({r['url']for r in legacy}&{u for u,t in ordered}),'Clark legacy66 explicitly excluded')
++        def receipt(ref,url,expected_name=None):
++            name='run/'+ref.removesuffix('.bin')+'.receipt.json';r=obj(name)
++            need(r['status']==200 and not r.get('access_stop')and not r.get('policy_omitted_image')and r['url']==url and r['final_url']==url,'Clark source response identity/refusal: '+name)
++            if expected_name:need(r['request_name']==expected_name,'Clark request ownership: '+name)
++            body=full['run/'+ref];need(body['sha256']==r['sha256']and body['bytes']==r['bytes'],'Clark retained original body/receipt: '+name)
++            return r
++        a=receipt(state['identity']['source_ref'],ROUTE,'discovery');b=receipt(state['consistency']['raw_ref'],ROUTE)
++        need(datetime.datetime.fromisoformat(b['started_at'])>datetime.datetime.fromisoformat(a['finished_at']),'Clark actual later page response required')
++        checks={x['id']:x for x in state['item_consistency']};need(len(checks)==30 and set(checks)==set(state['done']),'Clark all30 later source checks')
++        for item in state['items']:
++            start=receipt(item['raw_ref'],item['url'],'item:'+item['id']);x=checks[item['id']];end=receipt(x['raw_ref'],item['url'])
++            need(x['matches_initial_content']and x['sha256']==start['sha256']==end['sha256'],'Clark native initial/later hash closure')
++            need(end['request_name'].startswith('item-end:'+item['id']+':')and datetime.datetime.fromisoformat(end['started_at'])>datetime.datetime.fromisoformat(start['finished_at']),'Clark later native response ownership')
++        coverage=obj('run/coverage.json');verification=obj('verify.stdout');status=obj('status.json')
++        need(coverage['requested_level']=='file_pages'and coverage['requested_coverage_complete']and coverage['pdf_page_extraction_complete']and coverage['parsed_record_count']==381 and coverage['image_placeholder_count']==229,'Clark measured full file/page coverage')
++        need(not coverage['legal_semantic_coverage_complete']and not coverage['jurisdiction_complete']and coverage['manual_review_required'],'Clark semantic gaps remain explicit')
++        need(verification['all_run_files_unchanged']and verification['run_file_count']==177 and not verification['forbidden_calls']and status['collection_exit']==0 and not status['image_calls'],'Clark retained guarded family verification')
++        for n,h in state['scripts'].items():need(sha(witness('run/executed/'+n))==h,'Clark exact executed source snapshot: '+n)
++        need(e['full_file_pages_live_verified']is True and e['full_live_verified']is False and e['legal_semantic_coverage_complete']is False and e['jurisdiction_complete']is False,'Clark configuration evidence must not waive legal/jurisdiction qualification')
++    except (OSError,KeyError,ValueError,TypeError,StopIteration,zipfile.BadZipFile)as exc:
++        errors.append('Clark Title30 source qualification: '+str(exc))
++    return errors
+Binary addition collectors/registry/clark-title30-source-evidence.zip SHA256 9e184424b36283b23842c8277a642335c6c88d9f96ae4425331b93fc31a4aa88
+--- a/collectors/registry/clark-title30-source-evidence-manifest.json
++++ b/collectors/registry/clark-title30-source-evidence-manifest.json
+@@ -0,0 +1,474 @@
++{
++  "schema_version": 1,
++  "archive_sha256": "9e184424b36283b23842c8277a642335c6c88d9f96ae4425331b93fc31a4aa88",
++  "source_full_manifest_sha256": "f138e7116c4552c242c79177fae024b6eb0158617b821c72a8818db539008537",
++  "source_peer_review_sha256": "6681d51a12377c2395e3f50065f03bd60d34d00441f6d5c7572cbc3be05b0d4d",
++  "scope": "Documentary selector/identity/initial-closing receipts and original verified file-page qualification only; no nativePDFbinaries copied, no new common/native verification.",
++  "files": [
++    {
++      "member": "full30/MANIFEST.json",
++      "bytes": 39779,
++      "sha256": "f138e7116c4552c242c79177fae024b6eb0158617b821c72a8818db539008537"
++    },
++    {
++      "member": "full30/config.json",
++      "bytes": 1407,
++      "sha256": "a9f72d7a2e9dfad0ac295448de8f4699e7d7ebee18bf71020bebcda9b1345813"
++    },
++    {
++      "member": "full30/run.py",
++      "bytes": 4118,
++      "sha256": "e2b1d82de461f0761fd8b67814adecd230649449ac9c254ef83be93963a5858b"
++    },
++    {
++      "member": "full30/run/checkpoint.json",
++      "bytes": 38770,
++      "sha256": "9fc3dd563105bcacaa05e9ae8814c86bec1c9e12b4836de8ac153f8e7b9b6650"
++    },
++    {
++      "member": "full30/run/config.json",
++      "bytes": 1407,
++      "sha256": "a9f72d7a2e9dfad0ac295448de8f4699e7d7ebee18bf71020bebcda9b1345813"
++    },
++    {
++      "member": "full30/run/coverage.json",
++      "bytes": 33474,
++      "sha256": "f9d68aecd4bfac1fcaf584465d66d68a61b9de038c1e095099fbe844274e0420"
++    },
++    {
++      "member": "full30/run/executed/attachment_outputs.py",
++      "bytes": 5498,
++      "sha256": "38a2500220c206ca0ee6f33d1756cffe23df4fb70496589e4cf68c063d9c446f"
++    },
++    {
++      "member": "full30/run/executed/bounded_decoder.py",
++      "bytes": 3040,
++      "sha256": "a579f2a79c15833e0c5a8c65bc4fa6024b2dbb6eafb408d1135f500c64c72770"
++    },
++    {
++      "member": "full30/run/executed/browser_fetch.cjs",
++      "bytes": 5748,
++      "sha256": "9dbf7e1f5f1acbded4821a59021075c0859c705e7d4b7e87d30c0736f6955918"
++    },
++    {
++      "member": "full30/run/executed/collect.py",
++      "bytes": 42696,
++      "sha256": "21e043bafebd9cf1e8676a6b08fb55c01661bfa6c153caa8f26bc51c862c7f59"
++    },
++    {
++      "member": "full30/run/executed/git_archive_binding.py",
++      "bytes": 2957,
++      "sha256": "e74bf2b5e847099f6212266b0c1e747471e90320aff80f1a68247f64be467fbc"
++    },
++    {
++      "member": "full30/run/executed/legacy_html.py",
++      "bytes": 12495,
++      "sha256": "b3799648ab453ff71217d336f55d78501dcc4a8a92e6cf6d187632508b665048"
++    },
++    {
++      "member": "full30/run/executed/model.py",
++      "bytes": 36568,
++      "sha256": "4a335f8e822066f16863c13ca2296f27b8150f90b2b38bc81202ecada7b60686"
++    },
++    {
++      "member": "full30/run/executed/native_labels.py",
++      "bytes": 7922,
++      "sha256": "dc2489d1d734f177bb1b15a9c73b1117cda37a51d0c57fe5c2f0fe45e96fb6de"
++    },
++    {
++      "member": "full30/run/executed/openlaw_xml.py",
++      "bytes": 7449,
++      "sha256": "172fc1cfd76f241fd891f4b2e0e07ee187b9821fa9020baa9843a6a7bd6fb547"
++    },
++    {
++      "member": "full30/run/executed/pdf_structure.py",
++      "bytes": 21072,
++      "sha256": "6ed606080bec583ea5118a84b3a1f98f48a0cdccec084b126c1685a4044d4944"
++    },
++    {
++      "member": "full30/run/executed/post_transport.py",
++      "bytes": 1871,
++      "sha256": "4b8f7d2cbe3f11da627c3ea485777b71440b3da995bc5754b5ba5dc002f9d83d"
++    },
++    {
++      "member": "full30/run/executed/publication_refs.py",
++      "bytes": 3204,
++      "sha256": "46304b9958b05a172a6faa9b24151411898c3cbb7ee6b6588dc442baddfd3640"
++    },
++    {
++      "member": "full30/run/executed/replay.py",
++      "bytes": 11582,
++      "sha256": "b2df04cdb494500a605c8e68d05b76f537ba224619769f83b1926534f521adaf"
++    },
++    {
++      "member": "full30/run/executed/spokane_bulk.py",
++      "bytes": 14810,
++      "sha256": "f5bf3fb9dc69acc878e414d43935231f7f8049732229b1202e9780459ed8785b"
++    },
++    {
++      "member": "full30/run/executed/transport.py",
++      "bytes": 3998,
++      "sha256": "aa776a422fb593bd04bc085befc30d0ac9ff20272daa3044735f7001aa24d6e3"
++    },
++    {
++      "member": "full30/run/executed/verify.py",
++      "bytes": 3767,
++      "sha256": "3205bf0aa89c2c40fcf1b63697607d893f457c7df3d76ba71a7fe9b87e371989"
++    },
++    {
++      "member": "full30/run/raw/00fe0827960d8cc169db.receipt.json",
++      "bytes": 1999,
++      "sha256": "4533eb7e7a601db0034f6a87a3c5387021724be63a3e58943dad2f4db13187ce"
++    },
++    {
++      "member": "full30/run/raw/03190eac674ab2839886.receipt.json",
++      "bytes": 2089,
++      "sha256": "320319f661718a536a9a554b85358ba61702245708236b57bece56859c076a52"
++    },
++    {
++      "member": "full30/run/raw/04e2ec4624a20c2e4561.receipt.json",
++      "bytes": 1925,
++      "sha256": "29616d819129643338d9dbfde6b3e76679030a1eb18f8e3df59ef93dab355a00"
++    },
++    {
++      "member": "full30/run/raw/04f7018bc3cc5ab9f33a.receipt.json",
++      "bytes": 2088,
++      "sha256": "3ba0a9703d25fcdbf76dbfc72132e32c4d3c5bf2bb2ec16b75e1cf3107f65a00"
++    },
++    {
++      "member": "full30/run/raw/07c14ccf48d3970e4478.receipt.json",
++      "bytes": 2077,
++      "sha256": "e06cb876c852b84cbfb3f20af6a1c2138a04eeb7121ab56316c596f5be39a899"
++    },
++    {
++      "member": "full30/run/raw/08d502078c3e1796d639.receipt.json",
++      "bytes": 1948,
++      "sha256": "bf15525a5f95814721eaa31c7bc1048b8362857a35e46fb9209eddff05a777b6"
++    },
++    {
++      "member": "full30/run/raw/09e53d92bc3335bca7d3.receipt.json",
++      "bytes": 1926,
++      "sha256": "00000e46738e8157c431a83f0f587a4823096ffbfc0c9370084b6d54275253b3"
++    },
++    {
++      "member": "full30/run/raw/0a48243926c283d62b8a.receipt.json",
++      "bytes": 1936,
++      "sha256": "9b251ca7059d15d89bb022b2129ef5dca23625e1d59b34aaa8ff19e381a5552c"
++    },
++    {
++      "member": "full30/run/raw/10d5c28fd3f0ccbc42ca.receipt.json",
++      "bytes": 2041,
++      "sha256": "b16b0b002371d507c8660384111bec0cb3362c697da77cbabba4cc7307cbb162"
++    },
++    {
++      "member": "full30/run/raw/11c2614a283b42ce6a31.receipt.json",
++      "bytes": 2052,
++      "sha256": "70022359f10661e80c93bc6fa6b557705923b2d1cc861953cc53a2847f227294"
++    },
++    {
++      "member": "full30/run/raw/139ae1a6c63aa06bb416.receipt.json",
++      "bytes": 2051,
++      "sha256": "3ff62b6c67f8f5fd0d7418444a21834c495e616e1030f4f7f86366c0c61f4ccb"
++    },
++    {
++      "member": "full30/run/raw/1609caeb5c2c10f34d22.receipt.json",
++      "bytes": 2031,
++      "sha256": "f4c37617fc39b1cf7fad4023b62097ef8839cdea5f3c84bd4b95348348347f68"
++    },
++    {
++      "member": "full30/run/raw/1ff7a39f3be486d5584c.receipt.json",
++      "bytes": 2019,
++      "sha256": "18d1932ce6faeebcc088b533ab6ba51b5c77fe198fffe161dec849be8c8d9f17"
++    },
++    {
++      "member": "full30/run/raw/2c4951e191366d7499c6.receipt.json",
++      "bytes": 2099,
++      "sha256": "92ae16659942177350a7417b3165e0cb255f8d28db7a8c3aab34bfc2510c991f"
++    },
++    {
++      "member": "full30/run/raw/300f69dc57dc9e4072be.receipt.json",
++      "bytes": 2021,
++      "sha256": "c552228023511369e1b56517b10f450487fa5986afe18bc8c4271b8dc2f3b3c4"
++    },
++    {
++      "member": "full30/run/raw/31286c73ac2516b79574.receipt.json",
++      "bytes": 2013,
++      "sha256": "f6f1824ef4c01d53579c83b9c7e201078582839d35d7ad8790400294e0c6c42d"
++    },
++    {
++      "member": "full30/run/raw/315544f17aa85f52d98b.receipt.json",
++      "bytes": 1858,
++      "sha256": "392f78e7c8a3f6efde9e4e419dc8d371ddabf2a4ca7d4a139e57f15768788791"
++    },
++    {
++      "member": "full30/run/raw/323d13a02f89d079ee19.receipt.json",
++      "bytes": 1958,
++      "sha256": "9fd5dd3ab18e907ef03e0c20834d9b1b79ca662144d9038748d9320ed3b8fb3e"
++    },
++    {
++      "member": "full30/run/raw/49a4f062929669fef5e3.receipt.json",
++      "bytes": 1994,
++      "sha256": "54dffc42de4df299b7cbb56eb9e13207929f0b23afc305f0824898432ffc43b8"
++    },
++    {
++      "member": "full30/run/raw/4c7968276d93b75c4cde.receipt.json",
++      "bytes": 2106,
++      "sha256": "cf8959cb693982174b72536ede4212d01bd21df80fc2c953a45037289f82b5ef"
++    },
++    {
++      "member": "full30/run/raw/4ef549764ee08c0bab02.receipt.json",
++      "bytes": 2110,
++      "sha256": "cce55ee564380ed2f56d2f726d6d2b53aa5603e7c438e94d18a03f8e4b453b5f"
++    },
++    {
++      "member": "full30/run/raw/51872fd71fe02f9b2258.receipt.json",
++      "bytes": 2049,
++      "sha256": "1b202fa8182be5798b1a3331aefd2ac5e7da8ecf25ab0722336faf01bbb6566e"
++    },
++    {
++      "member": "full30/run/raw/587cacce05e82079a87d.receipt.json",
++      "bytes": 2143,
++      "sha256": "02d2c8859aa5def44095b2fef247df0f2fa8c9ece16a7326f34e90c11022fa78"
++    },
++    {
++      "member": "full30/run/raw/593345088408d31bb43a.receipt.json",
++      "bytes": 2063,
++      "sha256": "8b110bf3acaa6b443eab979a6b0582bf82a19f41ada1a70b6b86941e9287a132"
++    },
++    {
++      "member": "full30/run/raw/5bc5136c40087e6cee8e.receipt.json",
++      "bytes": 1984,
++      "sha256": "5ab15e8de08cebade855b45f595203eafdf6c347ea0ca5f5da2a2e839a4bd34e"
++    },
++    {
++      "member": "full30/run/raw/5e9022468d3f8bbfb249.receipt.json",
++      "bytes": 2090,
++      "sha256": "f2ea5ac69d008db7a62115236e7442217db1131e15b74adc9047872acc25b682"
++    },
++    {
++      "member": "full30/run/raw/5f9334c6a26a228e9e19.receipt.json",
++      "bytes": 2016,
++      "sha256": "6aa21e78174ba6de7493cd69e3c2abb91fa66fdbd828035377cf38faccce7efb"
++    },
++    {
++      "member": "full30/run/raw/62bbd3127ff467cb0478.bin",
++      "bytes": 25112,
++      "sha256": "cf274c87809aef61c4ebf2e9202974015882e111bb1eeacb9a448ed4b7ad4266"
++    },
++    {
++      "member": "full30/run/raw/62bbd3127ff467cb0478.receipt.json",
++      "bytes": 1567,
++      "sha256": "3be3b39f395d83c3dcf77202083dad6c27e7676cf067b62dbc8d8070ae29550c"
++    },
++    {
++      "member": "full30/run/raw/6b956976102079dcb507.receipt.json",
++      "bytes": 2064,
++      "sha256": "a81847808c82a47dbcb1664d8fc51d149f94b43445795a261eef127d8d8ea33b"
++    },
++    {
++      "member": "full30/run/raw/6c3ead44da9bbef2e9ba.receipt.json",
++      "bytes": 2154,
++      "sha256": "9b5f461852985c64dc1ed43a5d3154352cf281704c2f5a77226300cb7fc6b05a"
++    },
++    {
++      "member": "full30/run/raw/72ffa2a3224ea3e496b6.receipt.json",
++      "bytes": 2013,
++      "sha256": "cbe1ee866a8f113b5c5253bc3bc2d75d3a9311024626b169f4d368c2f8c624bf"
++    },
++    {
++      "member": "full30/run/raw/76b6e4f8fa245d156648.receipt.json",
++      "bytes": 1895,
++      "sha256": "49946f4c2fb4186d4e49dddd462759eecb431881f639c96caf84ef624159a020"
++    },
++    {
++      "member": "full30/run/raw/7c2dee604a792b0619c7.receipt.json",
++      "bytes": 2057,
++      "sha256": "5d6a14ca0c0514b05106dbd2c19ecf183a2e8aed58fe8c5c5a78f1dac4e3d935"
++    },
++    {
++      "member": "full30/run/raw/7f3a59f9ab739e2751a4.receipt.json",
++      "bytes": 2053,
++      "sha256": "6def3dc0da1913dd638040947c27565baeec918df0599ab0972afe9758e333ae"
++    },
++    {
++      "member": "full30/run/raw/8494ffff2057d0386be5.receipt.json",
++      "bytes": 1978,
++      "sha256": "ced36d7aa1c47a017dfdee27ec9094c0951f538d9cca0f0aeeb62fa0e43aedec"
++    },
++    {
++      "member": "full30/run/raw/84d56d6bcc32ba4e2182.receipt.json",
++      "bytes": 2068,
++      "sha256": "19beb8b1aaa86d0d1982ff2a8aa86603bd47e68126c8453532840bad9ca61910"
++    },
++    {
++      "member": "full30/run/raw/868ffa0ce777a6bceba5.receipt.json",
++      "bytes": 2028,
++      "sha256": "2d47feb184dc0bfc3e922ae7751047b8905adb9b8f05d1245ac42e6316649ff2"
++    },
++    {
++      "member": "full30/run/raw/888878a02ce3405d4e2d.receipt.json",
++      "bytes": 1975,
++      "sha256": "f4ee7080319f18f53064ac41162cc64fb6823e752477a0d176d07c3c55a50417"
++    },
++    {
++      "member": "full30/run/raw/8bdec015dd1ce52bf7a8.receipt.json",
++      "bytes": 2104,
++      "sha256": "c709b067fdc4b5cb9abff1db84cd7f5ee37b011c9571aa30c382462e53ac98ee"
++    },
++    {
++      "member": "full30/run/raw/8d7b2087205ef9a2cf25.receipt.json",
++      "bytes": 2118,
++      "sha256": "a87dfcdd06d655157d89e46c8d8555d11a7b778daf2175bde762e4b7b45c41db"
++    },
++    {
++      "member": "full30/run/raw/8ea34ff76e587719b645.receipt.json",
++      "bytes": 2061,
++      "sha256": "e834c2e48dc709f6dd70ed42210e48f9b1e82aec4fe7a376ce0a5a8405d39533"
++    },
++    {
++      "member": "full30/run/raw/95eca86610890fb78876.receipt.json",
++      "bytes": 2063,
++      "sha256": "019d55018d1ad5fbf230ed4e031e190cad03706fdc1cf3e2fc1d9e8d20d54583"
++    },
++    {
++      "member": "full30/run/raw/97518fa229e089ab7bd1.receipt.json",
++      "bytes": 2100,
++      "sha256": "7a67d799670c3acb56536e28434bfbceb5e4fb68fde8a84a0d2e17dfd5377c77"
++    },
++    {
++      "member": "full30/run/raw/9ed2f053b726c9bf2f8a.receipt.json",
++      "bytes": 2093,
++      "sha256": "8bd2b517bee8411447bb026aef4a2d4731dfa9fbd4a39f9e082896dad3d7ebce"
++    },
++    {
++      "member": "full30/run/raw/a1565b4865f7b7703fb8.receipt.json",
++      "bytes": 1933,
++      "sha256": "f4c4defede179dafe8a582094ce74236351f64114bc2323211d622ef39651f73"
++    },
++    {
++      "member": "full30/run/raw/a2590dfdabad63586f34.receipt.json",
++      "bytes": 1969,
++      "sha256": "f21ef569da75c640ddafb445950bcf53655095d381a6932893aef5240aeb3fb4"
++    },
++    {
++      "member": "full30/run/raw/af0782f675bfa7810571.receipt.json",
++      "bytes": 1941,
++      "sha256": "46397419377aec084031f3d80d499de24b4ae1e8549f73a6f6a2abd85c112179"
++    },
++    {
++      "member": "full30/run/raw/b1698ad5dead5a9afb51.receipt.json",
++      "bytes": 1963,
++      "sha256": "b7d19479119693b55760367d69c4247a112261acee86c41cef4b0a24f5644225"
++    },
++    {
++      "member": "full30/run/raw/b19f0f3736b45ffe12c2.receipt.json",
++      "bytes": 1938,
++      "sha256": "f2bb7b9ba38e1f7d678f449c22324e76432072a708414f62e06ab53af797ba7c"
++    },
++    {
++      "member": "full30/run/raw/ba00165f5c5a110179f7.receipt.json",
++      "bytes": 2073,
++      "sha256": "f50ecbe898a57f32d21d7d3403fe3dc24050336deeaebe4f27408fece6d3410e"
++    },
++    {
++      "member": "full30/run/raw/c448ec9c87bcf1a1d86f.receipt.json",
++      "bytes": 1983,
++      "sha256": "d3b3d302e9a1a73e99b11e268bb2dfb634b7b7025bc5276dff4378f8e76a52d1"
++    },
++    {
++      "member": "full30/run/raw/c76bb496a4e64108d65b.receipt.json",
++      "bytes": 1963,
++      "sha256": "ae4937e67fa0d36e11a342c9bacf3526ac40b35e310ee5110b0937f49b257d43"
++    },
++    {
++      "member": "full30/run/raw/d173af24a04a804ff2c1.receipt.json",
++      "bytes": 1977,
++      "sha256": "e1b6d60b4d6c53bd1ff9b4d42909aec69ee13f385926c377e2dd9a2c8ddc333f"
++    },
++    {
++      "member": "full30/run/raw/d7da83460a48ad6e8470.receipt.json",
++      "bytes": 2049,
++      "sha256": "d94e4645fa04bd6aaf3e75e1fe81d29ea9cfb332ec805fc3995ff5a195554edf"
++    },
++    {
++      "member": "full30/run/raw/d821b8aa1faf23362e51.receipt.json",
++      "bytes": 1962,
++      "sha256": "4d0fabf15025384920ec1022925df2a53615bcadff9447712ad99f6c13160abe"
++    },
++    {
++      "member": "full30/run/raw/db20cd0cc6e5040fa5e2.receipt.json",
++      "bytes": 1941,
++      "sha256": "89b58e2ff82da1d370d4ec61f91c316cd59a290a29a58c839a3e2846b9a54d99"
++    },
++    {
++      "member": "full30/run/raw/dfdf1b6d91fc1a75b0c0.receipt.json",
++      "bytes": 2098,
++      "sha256": "49033f3708f3e64ed24fcfaa7af2ee8b83d71ce8105ddbedccaa621196c38523"
++    },
++    {
++      "member": "full30/run/raw/eacdb3e632b80ed9a47e.receipt.json",
++      "bytes": 2129,
++      "sha256": "8cdafd79a8201b8097de753bec94027e0f26c3e837c0825dc2d2d8a99d97f27c"
++    },
++    {
++      "member": "full30/run/raw/eb35eca9a1285a931fdb.receipt.json",
++      "bytes": 2053,
++      "sha256": "64cc8a188fd39566aba756e5451034cb4550d958628c1f1dbd36d6caf06ea5dd"
++    },
++    {
++      "member": "full30/run/raw/f16b239802b096b608ac.receipt.json",
++      "bytes": 2067,
++      "sha256": "e733f16aad6c3533e1c9def674e7b7bef240efcb26382418c7c3a1aee23ee3c6"
++    },
++    {
++      "member": "full30/run/raw/f74ba30b89281b7dcb11.receipt.json",
++      "bytes": 1972,
++      "sha256": "13fc737f5617cd81853e7fc5e428a72644f77a0df9cd27b306968f8453e611a4"
++    },
++    {
++      "member": "full30/run/raw/fa44132b238e67958fb1.bin",
++      "bytes": 25112,
++      "sha256": "cf274c87809aef61c4ebf2e9202974015882e111bb1eeacb9a448ed4b7ad4266"
++    },
++    {
++      "member": "full30/run/raw/fa44132b238e67958fb1.receipt.json",
++      "bytes": 1528,
++      "sha256": "5784a5e37c6b789c011364fbf8b3bbe33475219b414cb5441741415953367ea9"
++    },
++    {
++      "member": "full30/source-binding.json",
++      "bytes": 1853,
++      "sha256": "599417a96c247db3de16558b3d531f32ed975926f4d446827a742c2d7979e41a"
++    },
++    {
++      "member": "full30/source-inventory.json",
++      "bytes": 52477,
++      "sha256": "277b8e5b73f509a612cdceda17d5c065635eebe68f7235ddd8fe62ee30830705"
++    },
++    {
++      "member": "full30/status.json",
++      "bytes": 408,
++      "sha256": "2111bb9f2431d0f46583fa25d11fc8b2d31b1b808d16cc60c46253bcec09d3a5"
++    },
++    {
++      "member": "full30/verification-source-binding.json",
++      "bytes": 1778,
++      "sha256": "a0b279b5754545a522ebb241e0f6498fada4520ab1223e277124093a3f3084e9"
++    },
++    {
++      "member": "full30/verify.stdout",
++      "bytes": 13508,
++      "sha256": "608e979807ad60c205e2914e18c945c747725c9097fb74bcf2ba37a011e8af14"
++    },
++    {
++      "member": "full30/verify_guarded.py",
++      "bytes": 1977,
++      "sha256": "84a84cd005d3f5311395fca02a4e37baae45379915d3812552d2d16d8c957c36"
++    },
++    {
++      "member": "peer/review.json",
++      "bytes": 3372,
++      "sha256": "6681d51a12377c2395e3f50065f03bd60d34d00441f6d5c7572cbc3be05b0d4d"
++    }
++  ]
++}
+--- a/collectors/registry/test_clark_title30_config.py
++++ b/collectors/registry/test_clark_title30_config.py
+@@ -0,0 +1,80 @@
++"""Clark source-bound configuration dispatch tests; no publisher/native/image work.
++
++Optional CLARK_PROOF_ROOT points to the relocated sealed full30 proof directory.
++These tests exercise planning/dispatch and retained-proof identity, not a fresh
++common family-verifier run. That all-page verification is sealed in the proof.
++"""
++import copy,hashlib,importlib.util,io,json,os,socket,subprocess,sys,tempfile,unittest,zipfile
++from contextlib import redirect_stdout,redirect_stderr
++from pathlib import Path
++from unittest.mock import patch
++from bs4 import BeautifulSoup
++sys.path.insert(0,str(Path(__file__).resolve().parent))
++from catalog import load_catalog
++from dispatch import ROOT,Unsupported,qualified,command,bind_run
++ID='96-7e8795b1baee';CONFIG='collectors/official/configs/clark-title30-current-associated-documents.json'
++PROOF=Path(os.environ.get('CLARK_PROOF_ROOT',ROOT/'packages/collection-source-recovery-2026-10-18/clark/full30'))
++def read(p):return json.loads(Path(p).read_text())
++def digest(p):return hashlib.sha256(Path(p).read_bytes()).hexdigest()
++def module(name,path):
++ spec=importlib.util.spec_from_file_location(name,path);m=importlib.util.module_from_spec(spec);spec.loader.exec_module(m);return m
++class Clark(unittest.TestCase):
++ @classmethod
++ def setUpClass(cls):
++  global PROOF
++  if not (PROOF/'run/checkpoint.json').is_file():
++   # Source-only snapshots carry this audited documentary archive, not native PDFs.
++   temp=tempfile.TemporaryDirectory();cls.addClassCleanup(temp.cleanup);PROOF=Path(temp.name)
++   with zipfile.ZipFile(ROOT/'collectors/registry/clark-title30-source-evidence.zip')as z:
++    cp=json.loads(z.read('full30/run/checkpoint.json'));names=['config.json','run/config.json','run/checkpoint.json','run/coverage.json','source-inventory.json','verify.stdout','run/'+cp['identity']['source_ref']]+['run/executed/'+n for n in cp['scripts']]
++    for n in names:
++     dest=PROOF/n;dest.parent.mkdir(parents=True,exist_ok=True);dest.write_bytes(z.read('full30/'+n))
++  cls.cat=load_catalog();cls.pub=next(p for p in cls.cat['publications']if p['id']==ID);cls.target=next(t for t in cls.cat['targets']if t['id']=='96');cls.cfg=read(ROOT/CONFIG)
++ def forbidden(self,*a,**kw):raise AssertionError('No network or family/native/image execution')
++ def test_01_exact_tested_config_and_narrow_scope(self):
++  self.assertEqual((ROOT/CONFIG).read_bytes(),(PROOF/'config.json').read_bytes());self.assertEqual(self.cfg['coverage_level'],'file_pages');self.assertEqual(self.cfg['mode'],'pdf_set');self.assertEqual(self.cfg['transport'],'http');self.assertEqual(self.cfg['document_transport'],'http');self.assertIn('9/17/2026',self.cfg['inventory_selector']);self.assertEqual(self.pub['validation_level'],'mapped_only');self.assertFalse(self.pub['full_live_verified']);self.assertTrue(self.pub['qualification_evidence']['full_file_pages_live_verified']);self.assertFalse(self.pub['qualification_evidence']['legal_semantic_coverage_complete']);self.assertFalse(self.pub['qualification_evidence']['jurisdiction_complete'])
++ def test_02_current_inventory_not_legacy(self):
++  s=read(PROOF/'run/checkpoint.json');html=(PROOF/'run'/s['identity']['source_ref']).read_bytes();soup=BeautifulSoup(html,'html.parser');self.assertEqual(len(soup.select(self.cfg['source_currency_selector'])),1);selected=soup.select(self.cfg['inventory_selector']);prior=read(PROOF/'source-inventory.json');self.assertEqual([(a['href'],a.get_text(' ',strip=True))for a in selected],[(a['url'],a['label'])for a in prior['current_documents']]);self.assertEqual(len(selected),30);self.assertEqual(len(prior['historical_documents_explicitly_outside_current_group']),66)
++ def test_03_plan_and_configuration_identity(self):
++  p=command(self.pub,self.target,'/fresh/clark',sys.executable);self.assertEqual(p['qualified_config_path'],CONFIG);self.assertIsNone(p['staged_config']);self.assertEqual(p['argv'],[sys.executable,'collectors/official/collect.py','--config',CONFIG,'--out','/fresh/clark']);self.assertFalse(p['jurisdiction_complete']);self.assertEqual(qualified(self.pub,self.target)['config'],self.cfg)
++ def test_04_missing_or_wrong_source_configuration_refuses(self):
++  for changes in [{'adapter_config_path':'collectors/official/configs/MISSING-clark.json'},{'source_url':'https://www.clarkcountynv.gov/NOT-THE-OBSERVED-PUBLICATION'}]:
++   p=copy.deepcopy(self.pub);p.update(changes)
++   with self.assertRaises(Unsupported):qualified(p,self.target)
++ def test_05_retained_binding_no_reparse_and_mutations(self):
++  with patch.object(socket,'socket',side_effect=self.forbidden):self.assertTrue(bind_run(self.pub,self.target,PROOF/'run'))
++  for key,value in [('coverage_level','publication_text'),('jurisdiction','Another County'),('state','CA'),('source_url','https://www.clarkcountynv.gov/other'),('inventory_selector','main a[href]')]:
++   c=copy.deepcopy(self.cfg);c[key]=value
++   with tempfile.TemporaryDirectory()as td:
++    (Path(td)/'config.json').write_text(json.dumps(c))
++    with self.assertRaises(Unsupported):bind_run(self.pub,self.target,td)
++ def cli(self,args,expected=0):
++  m=module('clark_registry_cli',ROOT/'collectors/registry/collect.py');calls=[]
++  def child(argv,**kw):calls.append((argv,kw));return subprocess.CompletedProcess(argv,0)
++  out,err=io.StringIO(),io.StringIO()
++  with patch.object(sys,'argv',['registry',*args]),patch.object(m.subprocess,'run',side_effect=child),patch.object(socket,'socket',side_effect=self.forbidden),redirect_stdout(out),redirect_stderr(err):
++   try:m.main();code=0
++   except SystemExit as e:code=e.code
++  return code,calls,out.getvalue(),err.getvalue()
++ def test_06_collect_dispatch_only_no_transport(self):
++  with tempfile.TemporaryDirectory()as td:
++   code,calls,_,_=self.cli(['collect','--target','96','--publication',ID,'--out',str(Path(td)/'NEW')]);self.assertEqual(code,0);self.assertEqual(len(calls),1);self.assertEqual(calls[0][0][1:4],['collectors/official/collect.py','--config',CONFIG]);self.assertEqual(calls[0][1]['cwd'],ROOT);self.assertFalse((Path(td)/'NEW').exists())
++ def test_07_verify_dispatch_only_no_native_verifier(self):
++  code,calls,_,_=self.cli(['verify','--target','96','--publication',ID,'--out',str(PROOF/'run')]);self.assertEqual(code,0);self.assertEqual(len(calls),1);self.assertEqual(calls[0][0],[sys.executable,'collectors/official/verify.py',str((PROOF/'run').resolve())])
++ def test_08_wrong_target_and_nonempty_output_refuse_before_dispatch(self):
++  code,calls,_,_=self.cli(['collect','--target','95','--publication',ID,'--out','/tmp/clark-should-not-exist']);self.assertEqual(code,2);self.assertEqual(calls,[])
++  with tempfile.TemporaryDirectory()as td:
++   (Path(td)/'kept').write_text('retained');code,calls,_,_=self.cli(['collect','--target','96','--publication',ID,'--out',td]);self.assertEqual(code,2);self.assertEqual(calls,[]);self.assertEqual((Path(td)/'kept').read_text(),'retained')
++ def test_09_partial_and_resume_flags_remain_explicit(self):
++  p=command(self.pub,self.target,'/fresh/clark',sys.executable,resume=True,max_items=1);self.assertEqual(p['argv'][-3:],['--resume','--max-items','1']);self.assertNotIn('--max-items',command(self.pub,self.target,'/fresh/clark',sys.executable)['argv'])
++ def test_10_common_acceptance_preserves_semantic_gap(self):
++  m=module('clark_ops',ROOT/'collectors/ops/launcher.py');before=digest(PROOF/'run/coverage.json')
++  with patch.object(socket,'socket',side_effect=self.forbidden):a=m.publication_acceptance(self.pub,PROOF/'run')
++  self.assertTrue(a['native_capture_verified']);self.assertTrue(a['required_nonimage_documents_complete']);self.assertFalse(a['publication_text_complete']);self.assertFalse(a['legal_structure_qualified']);self.assertFalse(a['publication_coverage_accepted']);self.assertFalse(a['jurisdiction_complete']);self.assertEqual(digest(PROOF/'run/coverage.json'),before)
++ def test_11_exact_family_source_bridge_no_fresh_common_claim(self):
++  cp=read(PROOF/'run/checkpoint.json');self.assertEqual(len(cp['scripts']),16)
++  for name,sha in cp['scripts'].items():self.assertEqual(digest(ROOT/'collectors/official'/name),sha,name);self.assertEqual(digest(PROOF/'run/executed'/name),sha,name)
++  v=read(PROOF/'verify.stdout');self.assertTrue(v['all_run_files_unchanged']);self.assertEqual(v['forbidden_calls'],[]);self.assertFalse(v['coverage']['legal_semantic_coverage_complete']);self.assertEqual(v['coverage']['image_placeholder_count'],229)
++ def test_12_no_borrowed_publisher_identity_and_primary_unchanged(self):
++  self.assertEqual(self.pub['expected_identity']['client_names'],['Clark County']);self.assertEqual(self.pub['expected_identity']['state'],'NV');self.assertNotIn('publisher_product_id',self.pub['expected_identity']);self.assertEqual(self.target['primary_publication']['publisher'],'municode');self.assertNotEqual(self.target['primary_publication']['id'],ID);self.assertTrue(self.target['primary_publication']['observed_access_advisories']);self.assertFalse(self.pub['observed_access_advisories']);self.assertFalse(self.pub['image_policy']['download_images']);self.assertEqual(self.pub['image_policy']['placeholder'],'[IMAGE]')
++if __name__=='__main__':unittest.main(verbosity=2)
+--- a/collectors/registry/test_clark_title30_qualification.py
++++ b/collectors/registry/test_clark_title30_qualification.py
+@@ -0,0 +1,60 @@
++"""Finite source archive/receipt/config/scope faults; no native/image/network work."""
++import copy,hashlib,json,sys,tempfile,unittest,zipfile,socket
++from pathlib import Path
++from unittest.mock import patch
++sys.path.insert(0,str(Path(__file__).resolve().parent))
++from catalog import load_catalog
++from dispatch import ROOT
++from clark_title30_qualification import audit,ID,KIND,BUNDLE,MANIFEST,PATH
++import followup_qualification
++HERE=ROOT/'collectors/registry'
++def read(p):return json.loads(p.read_text())
++def sha(b):return hashlib.sha256(b).hexdigest()
++class Qualification(unittest.TestCase):
++ def setUp(self):self.cat=load_catalog()
++ def forbidden(self,*a,**kw):raise AssertionError('No native/image/network work')
++ def stage(self,root):
++  here=Path(root)/'collectors/registry';here.mkdir(parents=True);cfg=Path(root)/PATH;cfg.parent.mkdir(parents=True)
++  cfg.write_bytes((ROOT/PATH).read_bytes())
++  for n in [BUNDLE,MANIFEST,'followup-qualified-configs.json']:(here/n).write_bytes((HERE/n).read_bytes())
++  return here
++ def mutate_archive(self,here,member,fn):
++  with zipfile.ZipFile(here/BUNDLE)as z:raw={n:z.read(n)for n in z.namelist()}
++  raw[member]=fn(raw[member])
++  with zipfile.ZipFile(here/BUNDLE,'w',zipfile.ZIP_DEFLATED)as z:
++   for n,b in raw.items():z.writestr(n,b)
++  m=read(here/MANIFEST);m['archive_sha256']=sha((here/BUNDLE).read_bytes());m['files']=[{'member':n,'bytes':len(b),'sha256':sha(b)}for n,b in raw.items()];(here/MANIFEST).write_text(json.dumps(m))
++  q=read(here/'followup-qualified-configs.json');q['publications'][ID]['qualification_evidence']['source_archive_sha256']=m['archive_sha256'];(here/'followup-qualified-configs.json').write_text(json.dumps(q))
++ def test_actual_portable_archive_passes_without_packages(self):
++  with tempfile.TemporaryDirectory()as td,patch.object(socket,'socket',side_effect=self.forbidden):self.assertEqual(audit(self.stage(td),self.cat),[])
++ def test_corrupt_archive_refuses(self):
++  with tempfile.TemporaryDirectory()as td:
++   h=self.stage(td);(h/BUNDLE).write_bytes((h/BUNDLE).read_bytes()+b'corrupt');self.assertTrue(audit(h,self.cat))
++ def test_source_html_mutation_refuses_even_repacked_manifest(self):
++  with tempfile.TemporaryDirectory()as td:
++   h=self.stage(td)
++   with zipfile.ZipFile(h/BUNDLE)as z:cp=json.loads(z.read('full30/run/checkpoint.json'))
++   n='full30/run/'+cp['identity']['source_ref'];self.mutate_archive(h,n,lambda b:b.replace(b'Title 30 - Effective 9/17/2026',b'Historic unrelated book'))
++   self.assertTrue(audit(h,self.cat))
++ def test_native_closing_receipt_mutation_refuses(self):
++  with tempfile.TemporaryDirectory()as td:
++   h=self.stage(td)
++   with zipfile.ZipFile(h/BUNDLE)as z:cp=json.loads(z.read('full30/run/checkpoint.json'))
++   n='full30/run/'+cp['item_consistency'][0]['raw_ref'].removesuffix('.bin')+'.receipt.json'
++   def change(b):x=json.loads(b);x['sha256']='0'*64;return json.dumps(x).encode()
++   self.mutate_archive(h,n,change);self.assertTrue(audit(h,self.cat))
++ def test_selector_and_scope_config_mutations_refuse(self):
++  for key,value in [('inventory_selector','main a[href]'),('source_url','https://www.clarkcountynv.gov/other'),('coverage_level','publication_text'),('jurisdiction','Other County')]:
++   with tempfile.TemporaryDirectory()as td:
++    h=self.stage(td);f=Path(td)/PATH;c=read(f);c[key]=value;f.write_text(json.dumps(c));self.assertTrue(audit(h,self.cat),key)
++ def test_owner_and_qualification_promotion_refuse(self):
++  for key,value in [('target_id','95'),('validation_level','full_file_pages_live_verified'),('full_live_verified',True)]:
++   c=copy.deepcopy(self.cat);next(p for p in c['publications']if p['id']==ID)[key]=value;self.assertTrue(audit(HERE,c),key)
++ def test_router_arbitrary_extra_and_unknown_proof_kinds_refuse(self):
++  original=Path.read_text;baseline=read(HERE/'followup-qualified-configs.json')
++  for kind in ['not-a-qualified-proof',None,'historical-observed-native-receipt-full172-retained-current-parser','literal-current-publisher-anchor-and-pinned-original-native-file',KIND]:
++   q=copy.deepcopy(baseline);q['publications']['fake-extra']={'qualification_evidence':{'kind':kind}}
++   def patched(path,*a,**kw):return json.dumps(q)if path==HERE/'followup-qualified-configs.json'else original(path,*a,**kw)
++   with patch.object(Path,'read_text',patched),patch.object(socket,'socket',side_effect=self.forbidden):errors=followup_qualification.audit(HERE,self.cat)
++   self.assertTrue(errors,kind)
++if __name__=='__main__':unittest.main(verbosity=2)

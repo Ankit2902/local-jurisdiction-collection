@@ -1,0 +1,162 @@
+{
+  "schema_version": 1,
+  "status": "PASS",
+  "reviewer": "official_sources57",
+  "completed_at_UTC": "2026-10-18T04:21:16.324160+00:00",
+  "selected_source_packet": {
+    "path": "outputs/collection-readiness-post9ef7220-2026-10-18/encodeplus/upoc-2024-native-method-v2/FROZEN-PACKET",
+    "manifest_sha256": "a36fffa215822e70ca55615bf5172181f8fb4b063032f190eb999c2dcd70463d",
+    "files": 169,
+    "checkpoint_sha256": "1467440f618dbb7006df42c265eb69ce3d21a7d80c9074b53be1395f0f6eee97"
+  },
+  "historical_v1_packet": {
+    "manifest_sha256": "8379927b6f81cb22f3356821110b6462f2e0a7691bb8c692c45fc3509099ef8d",
+    "original_wrapper_sha256": "04f5e6914ef0b86ff2a322530424d1c73d069ee715109335abb01691aba849b8",
+    "preserved_unchanged": true,
+    "guard_deficiency": "Synthetic dimension-only inline image contexts reached the stubbed original decoder; no real image decoding was established."
+  },
+  "resolved_finding": {
+    "id": "inline-image-stream-decoder-guard",
+    "status": "resolved_in_selected_v2",
+    "corrected_wrapper_sha256": "f7ef2d7ec3e12454c13be9fcb099c93f806b0a3ed451501bfc84f8707bb04bf3",
+    "correction": "Source Image subtype or W/H or Width/Height plain/slash keys refuse before get_data; nonimage font/text/page streams remain allowed.",
+    "independent_image_source_context_tests": 11,
+    "all_refused_before_original_decoder": true,
+    "nonimage_positive_control": true,
+    "actual_corrected_full172_execution_bound": true,
+    "normalized_JSONL_CSV_coverage_byte_identical_to_v1": true
+  },
+  "source_identity": {
+    "publication_id": "82-8fbdce15716d",
+    "url": "https://codes.opkansas.org/municipal-code/doclibrary.aspx?id=29e4fde6-8eab-4f2c-a715-8914aa24cfe0",
+    "native_sha256": "877c6e874d4de7873d22dd51443fd5c42169445ad2955db3836841a105a57102",
+    "native_bytes": 1658134,
+    "physical_pages": 172,
+    "historical_identity": "Overland Park, Kansas;40th edition;POC-3460;2024 copyright;source filename UPOC-Criminal-Code-Index-(2024)-Final-v2.pdf",
+    "unverified_catalog_alias": "https://online.encodeplus.com/regs/overlandpark-ks/doclibrary.aspx?id=29e4fde6-8eab-4f2c-a715-8914aa24cfe0",
+    "current42nd_2026_not_substituted": true,
+    "original_HTTP200_receipt_bound": true,
+    "new_network_or_closing_claimed": false
+  },
+  "actual_consumer_checks": {
+    "all172_ordered_source_page_IDs_and_hashes": true,
+    "all172_cached_text_exact": true,
+    "all172_noncontext_IR_equal_after_declared_namespace_rawref_rebind": true,
+    "all172_CSV_fields_exact": true,
+    "prior_immutable_full828_source_hash_and_selected172_rows_bound": true,
+    "captured_and_candidate_family_source_files": 55,
+    "whole_source_packet_files_unchanged": 169,
+    "reusable_direct_captured_source_CLI_verify_exit": 0,
+    "ordinary_CLI_without_B_does_not_write_bytecode": true
+  },
+  "counts": {
+    "source_words": 28603,
+    "exact_IMAGE_placeholders": 46,
+    "all_observed_image_source_names": [
+      "Im0"
+    ],
+    "canonical_detected_cells": 745,
+    "canonical_detected_cells_agree": 745,
+    "superseded_detector_cells": 514,
+    "superseded_failed_comparisons": 272,
+    "undecoded_CID_pages": 102,
+    "independent_engine_disagreement_pages": 102
+  },
+  "qualification": {
+    "native_file_pages": true,
+    "publication_text_complete": false,
+    "all_tables_detected": false,
+    "source_logical_structure_qualified": false,
+    "attachments_complete": false,
+    "required_external_legal_dependencies_complete": false,
+    "closing_acquisition_performed": false,
+    "start_end_consistent": null,
+    "edition_complete": false,
+    "current_adopted_edition_qualified": false,
+    "jurisdiction_complete": false,
+    "kind": "historical-observed-native-receipt-full172-retained-current-parser"
+  },
+  "fault_checks": {
+    "method_tests": 13,
+    "method_tests_exit": 0,
+    "pure_qualification_tests": 5,
+    "pure_qualification_tests_exit": 0,
+    "source_or_edition_hash": true,
+    "alias_receipt_refusal": true,
+    "HTTP403_challenge_error_MIME_filename": true,
+    "missing_reordered_pages": true,
+    "historical_identity_witness": true,
+    "corrupt_normalized_artifact": true,
+    "escaping_source_symlink": true,
+    "existing_output_protection": true,
+    "hardlink_source_verified_without_rewrite": true,
+    "wrong_kind_current_live_flags_pages_archive_config_external_symlink": true
+  },
+  "operation_scope": {
+    "reviewer_native_parser_calls": 0,
+    "reviewer_publisher_calls": 0,
+    "reviewer_real_image_decode_render_OCR_calls": 0,
+    "owner_corrected_v2_full172_run_exit": 0,
+    "owner_v2_forbidden_operation_calls": [],
+    "production_or_Git_edits_by_reviewer": false
+  },
+  "promotion_scope": {
+    "files": [
+      {
+        "source": "candidate/collectors/encodeplus/retained_native.py",
+        "destination": "collectors/encodeplus/retained_native.py",
+        "before_sha256": null,
+        "after_sha256": "f7ef2d7ec3e12454c13be9fcb099c93f806b0a3ed451501bfc84f8707bb04bf3"
+      },
+      {
+        "source": "candidate/collectors/encodeplus/configs/native-82-8fbdce15716d.json",
+        "destination": "collectors/encodeplus/configs/native-82-8fbdce15716d.json",
+        "before_sha256": null,
+        "after_sha256": "0167a3a39a6728834f0e226f4177843fbdc5027a4a7c23b9129a284a5d1bae2f"
+      },
+      {
+        "source": "test_retained_native.py",
+        "destination": "collectors/encodeplus/qa/test_retained_native.py",
+        "before_sha256": null,
+        "after_sha256": "013ada471c1774f229eb212f473a22b40619e85953adf8a19e0948f915b25436"
+      },
+      {
+        "source": "candidate/collectors/registry/historical_upoc_qualification.py",
+        "destination": "collectors/registry/historical_upoc_qualification.py",
+        "before_sha256": null,
+        "after_sha256": "0c51cb923b8b2be194506d490db87e9a0d6bfd83b85cf2d5c4d71e40bff6de7b"
+      },
+      {
+        "source": "candidate/collectors/registry/historical-upoc-source-evidence.zip",
+        "destination": "collectors/registry/historical-upoc-source-evidence.zip",
+        "before_sha256": null,
+        "after_sha256": "dab48f3cc0a9955fdac57b8ab3f0da542d657a88fe083c68da5ef08b725dc170"
+      },
+      {
+        "source": "candidate/collectors/registry/historical-upoc-source-evidence-manifest.json",
+        "destination": "collectors/registry/historical-upoc-source-evidence-manifest.json",
+        "before_sha256": null,
+        "after_sha256": "87b20dbd0be6b13f2435620eee74cad7faa3e11d4ce7cd896090b6464b5a2be6"
+      }
+    ],
+    "recommendation": "Only the six exact selected-v2 whitelist files are covered; root/core own catalog-kind integration. No current legal/edition or unrelated-family qualification."
+  },
+  "limits": [
+    "Whole retained PDF and all physical page records are verified. This review does not repeat native parsing or independently resolve102CID/engine pages.",
+    "745 agreeing detected cells plus finite printed-index source checks do not establish arbitrary table discovery or complete legal hierarchy/reading order.",
+    "Image omissions are intentional exact [IMAGE] policy. No image transcription or separate image acquisition is requested or claimed.",
+    "The original receipt is historical; catalog alias, fresh closing/current edition and external legal dependencies stay unqualified."
+  ],
+  "evidence": [
+    "independent-v2-consumer.json",
+    "independent-v2-after-tests-consumer.json",
+    "independent-v2-final-image-guards.json",
+    "v2-executed-source-and-output-delta.json",
+    "external-immutable-origin-check.json",
+    "v2-tests.stderr",
+    "v2-qualification.stderr",
+    "v2-portable-verify.stdout",
+    "v2-captured-cli.stdout",
+    "independent-v1-image-guards.json"
+  ]
+}

@@ -1,0 +1,106 @@
+{
+  "passed": true,
+  "candidate_manifest_sha256": "b269b6e7099329d615d78d3c71c28bfe70e56754a252da9392bd307314140015",
+  "candidate_files_unchanged": 422,
+  "sealed_manifest_sha256": "f138e7116c4552c242c79177fae024b6eb0158617b821c72a8818db539008537",
+  "all253_sealed_files_hash_verified_unchanged": true,
+  "sealed_run_files": 177,
+  "configuration_sha256": "a9f72d7a2e9dfad0ac295448de8f4699e7d7ebee18bf71020bebcda9b1345813",
+  "exact16_sealed_executed_candidate_current_production_modules": {
+    "collect.py": "21e043bafebd9cf1e8676a6b08fb55c01661bfa6c153caa8f26bc51c862c7f59",
+    "model.py": "4a335f8e822066f16863c13ca2296f27b8150f90b2b38bc81202ecada7b60686",
+    "transport.py": "aa776a422fb593bd04bc085befc30d0ac9ff20272daa3044735f7001aa24d6e3",
+    "legacy_html.py": "b3799648ab453ff71217d336f55d78501dcc4a8a92e6cf6d187632508b665048",
+    "browser_fetch.cjs": "9dbf7e1f5f1acbded4821a59021075c0859c705e7d4b7e87d30c0736f6955918",
+    "post_transport.py": "4b8f7d2cbe3f11da627c3ea485777b71440b3da995bc5754b5ba5dc002f9d83d",
+    "spokane_bulk.py": "f5bf3fb9dc69acc878e414d43935231f7f8049732229b1202e9780459ed8785b",
+    "pdf_structure.py": "6ed606080bec583ea5118a84b3a1f98f48a0cdccec084b126c1685a4044d4944",
+    "openlaw_xml.py": "172fc1cfd76f241fd891f4b2e0e07ee187b9821fa9020baa9843a6a7bd6fb547",
+    "git_archive_binding.py": "e74bf2b5e847099f6212266b0c1e747471e90320aff80f1a68247f64be467fbc",
+    "publication_refs.py": "46304b9958b05a172a6faa9b24151411898c3cbb7ee6b6588dc442baddfd3640",
+    "verify.py": "3205bf0aa89c2c40fcf1b63697607d893f457c7df3d76ba71a7fe9b87e371989",
+    "replay.py": "b2df04cdb494500a605c8e68d05b76f537ba224619769f83b1926534f521adaf",
+    "attachment_outputs.py": "38a2500220c206ca0ee6f33d1756cffe23df4fb70496589e4cf68c063d9c446f",
+    "bounded_decoder.py": "a579f2a79c15833e0c5a8c65bc4fa6024b2dbb6eafb408d1135f500c64c72770",
+    "native_labels.py": "dc2489d1d734f177bb1b15a9c73b1117cda37a51d0c57fe5c2f0fe45e96fb6de"
+  },
+  "portable_archive_members_exact_sealed_bytes": 93,
+  "portable_archive_contains_native_PDF_or_image_files": false,
+  "actual_root_cli_cases": [
+    {
+      "name": "peer-plan-all",
+      "args": [
+        "plan",
+        "--all-publications"
+      ],
+      "exit_code": 0,
+      "guard": "candidate tripwire/sitecustomize.py"
+    },
+    {
+      "name": "peer-plan-selected",
+      "args": [
+        "plan",
+        "--target",
+        "96",
+        "--publication",
+        "96-7e8795b1baee"
+      ],
+      "exit_code": 0,
+      "guard": "candidate tripwire/sitecustomize.py"
+    },
+    {
+      "name": "peer-plan-primary",
+      "args": [
+        "plan",
+        "--all"
+      ],
+      "exit_code": 0,
+      "guard": "candidate tripwire/sitecustomize.py"
+    },
+    {
+      "name": "peer-wrong-owner",
+      "args": [
+        "plan",
+        "--target",
+        "95",
+        "--publication",
+        "96-7e8795b1baee"
+      ],
+      "exit_code": 2,
+      "guard": "candidate tripwire/sitecustomize.py"
+    },
+    {
+      "name": "peer-correct-run",
+      "args": [
+        "--runtime",
+        "/Users/oliverflint/My Drive/Claude/Projects/CompliSolv 2.00/outputs/collection-readiness-post9ef7220-2026-10-18/qa/clark-registry-integration-independent-v2/ABSENT-RUNTIME",
+        "run",
+        "--target",
+        "96",
+        "--publication",
+        "96-7e8795b1baee",
+        "--out",
+        "/Users/oliverflint/My Drive/Claude/Projects/CompliSolv 2.00/outputs/collection-readiness-post9ef7220-2026-10-18/qa/clark-registry-integration-independent-v2/ABSENT-OUTPUT"
+      ],
+      "exit_code": 3,
+      "guard": "candidate tripwire/sitecustomize.py"
+    }
+  ],
+  "catalog": {
+    "governments": 130,
+    "publications": 225,
+    "dispatchable": 196,
+    "advisories": 154
+  },
+  "requested_level": "file_pages",
+  "selected_documents": 30,
+  "physical_pages": 381,
+  "IMAGE_count": 229,
+  "base_validation_level": "mapped_only",
+  "legal_semantic_coverage_complete": false,
+  "jurisdiction_complete": false,
+  "fresh_current_common_verification": false,
+  "publisher_requests": 0,
+  "native_pages_parsed": 0,
+  "image_decode_render_extract_OCR": 0
+}

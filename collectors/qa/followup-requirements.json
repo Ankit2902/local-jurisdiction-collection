@@ -37,14 +37,14 @@
       }
     }
   },
-  "active_catalog_sha256": "abebe9ced0c6e3c30e29e1e24edc6b80361d8bef2cdc5fc2a1240eaeb37b8511",
+  "active_catalog_sha256": "e71fff39e7f487af413fd4452667a5eeac8403c238315f2d76e7b5a2824f4206",
   "summary": {
     "targets": 130,
     "publication_entries": 225,
     "primary": 130,
     "secondary": 95,
-    "dispatchable": 195,
-    "unqualified": 30,
+    "dispatchable": 197,
+    "unqualified": 28,
     "access_prohibited": 154,
     "readiness_verified": 0,
     "requirements_candidate_passed": {
@@ -43180,7 +43180,7 @@
       "state": "KS",
       "title": "Uniform Public Offense Code (UPOC: Effective 10/1/2024 - 10/1/2026)",
       "original_source_url": "https://online.encodeplus.com/regs/overlandpark-ks/doclibrary.aspx?id=29e4fde6-8eab-4f2c-a715-8914aa24cfe0",
-      "active_source_url": "https://online.encodeplus.com/regs/overlandpark-ks/doclibrary.aspx?id=29e4fde6-8eab-4f2c-a715-8914aa24cfe0",
+      "active_source_url": "https://codes.opkansas.org/municipal-code/doclibrary.aspx?id=29e4fde6-8eab-4f2c-a715-8914aa24cfe0",
       "original_scope_kind": "publication_candidate",
       "role": "secondary",
       "required_for_jurisdiction": false,
@@ -43199,12 +43199,44 @@
       "source_evidence_paths": [
         "packages/wave3-validation-2026-10-17/encodeplus/publication-inventory.json"
       ],
-      "dispatchable_config": false,
+      "dispatchable_config": true,
       "operational_access_prohibited": false,
       "access_stop_evidence": [],
       "dispatch_plan": {
-        "runnable": false,
-        "unsupported_reason": "Exact secondary enCodePlus TOC identity/base configuration remains unqualified; observed landing/link alone is insufficient"
+        "argv": [
+          "python3",
+          "-m",
+          "collectors.encodeplus.native_document",
+          "--config",
+          "collectors/encodeplus/configs/native-82-8fbdce15716d.json",
+          "--out",
+          "{OUT}"
+        ],
+        "staged_config": null,
+        "qualified_config_path": "collectors/encodeplus/configs/native-82-8fbdce15716d.json",
+        "publication_id": "82-8fbdce15716d",
+        "publication_title": "Uniform Public Offense Code (UPOC: Effective 10/1/2024 - 10/1/2026)",
+        "publication_expected_identity": {
+          "client_names": [
+            "Overland Park"
+          ],
+          "state": "KS"
+        },
+        "required_for_jurisdiction": false,
+        "jurisdiction_scope": null,
+        "edition_scope": "historical_explicit_publisher_date_label",
+        "required_publication_dependencies": [],
+        "configuration_alias_of": null,
+        "scope": "publication_candidate",
+        "image_policy": {
+          "mode": "literal_placeholder",
+          "placeholder": "[IMAGE]",
+          "download_images": false,
+          "source_id_heading_retained": true,
+          "native_originals_may_contain_images": true,
+          "scope_note": "Image-only units are retained. Intentional image omission is not an unresolved required nonimage attachment."
+        },
+        "jurisdiction_complete": false
       },
       "prior_exact_proofs": [],
       "new_readiness_receipts": [],
@@ -43315,7 +43347,6 @@
         {
           "kind": "active_revision_coherence",
           "reason": [
-            "unqualified_configuration",
             "requirement_not_active_pass:identity",
             "requirement_not_active_pass:full_inventory",
             "requirement_not_active_pass:owned_text",
@@ -43332,10 +43363,18 @@
       ],
       "jurisdiction_complete": false,
       "adapter_family": "encodeplus",
-      "configuration_qualified": false,
-      "unsupported_reason": "Exact secondary enCodePlus TOC identity/base configuration remains unqualified; observed landing/link alone is insufficient",
+      "configuration_qualified": true,
+      "unsupported_reason": null,
       "observed_access_advisories": [],
-      "followup_qualification": null,
+      "followup_qualification": {
+        "kind": "historical-observed-native-receipt-full172-retained-current-parser",
+        "config_sha256": "0167a3a39a6728834f0e226f4177843fbdc5027a4a7c23b9129a284a5d1bae2f",
+        "native_sha256": "877c6e874d4de7873d22dd51443fd5c42169445ad2955db3836841a105a57102",
+        "physical_pages": 172,
+        "evidence_path": "collectors/registry/historical-upoc-source-evidence-manifest.json",
+        "scope_note": "Entire historical172-page native method tested from actual retained acquisition; no new publisher request/closing sweep/current edition/text/table/legal completeness.",
+        "published_evidence_path": "packages/collection-dispatch-and-municipal-2026-10-18/upoc-2024/actual-retained-full172/coverage.json"
+      },
       "image_policy": {
         "mode": "literal_placeholder",
         "placeholder": "[IMAGE]",
@@ -43357,11 +43396,16 @@
         }
       },
       "scope_narrowed_for_pass": false,
-      "selected_configuration_sha256": "928670611e7a09de9f6aeb37bfc56c0387d06a535692e6b089b99a0ef703c008",
+      "native_configuration_evidence": {
+        "path": "outputs/collection-readiness-followup-2026-10-17/qa/native-config-current-anchor-qualified.json",
+        "sha256": "422fb3067a6c5da20faa174bdd466f087a4656bcb89d40fd7dacac991d088c80"
+      },
+      "native_capture_is_not_publication_acceptance": true,
+      "followup_status_note": "Current literal publisher link plus exact native file SHA/pages qualifies dispatch only; fresh common-launcher proof pending. Original publication requirements remain.",
+      "selected_configuration_sha256": "099c574f66d4173682e6cadda3709bb211f5ae3e70c5e3655b8e58c6562b6a54",
       "active_readiness_binding": {
         "accepted": false,
         "errors": [
-          "unqualified_configuration",
           "requirement_not_active_pass:identity",
           "requirement_not_active_pass:full_inventory",
           "requirement_not_active_pass:owned_text",
@@ -55509,7 +55553,7 @@
       "cohort": "expansion",
       "jurisdiction": "Clark County",
       "state": "NV",
-      "title": "clark-title30",
+      "title": "Title 30 current official group (effective 9/17/2026): core code and 29 associated map PDFs",
       "original_source_url": "https://www.clarkcountynv.gov/government/departments/comprehensive_planning_department/library/title-30",
       "active_source_url": "https://www.clarkcountynv.gov/government/departments/comprehensive_planning_department/library/title-30",
       "original_scope_kind": "publication_candidate",
@@ -55526,21 +55570,51 @@
           "Clark County"
         ],
         "state": "NV",
-        "publisher_client_id": 11836,
-        "publisher_product_name": "Code of Ordinances",
-        "publisher_product_id": 16214,
-        "publisher_publication_id": 3294,
-        "evidence_path": "packages/wave3-validation-2026-10-17/municode-counties/browser/clark-county/receipt.json"
+        "official_source_url": "https://www.clarkcountynv.gov/government/departments/comprehensive_planning_department/library/title-30",
+        "official_current_group": "Title 30 - Effective 9/17/2026"
       },
       "source_evidence_paths": [
         "packages/wave3-validation-2026-10-17/municode-counties/source-scope-inventory.json"
       ],
-      "dispatchable_config": false,
+      "dispatchable_config": true,
       "operational_access_prohibited": false,
       "access_stop_evidence": [],
       "dispatch_plan": {
-        "runnable": false,
-        "unsupported_reason": "Known government route lacks a qualified publication inventory/content selector; it is not assumed to be a complete publication"
+        "argv": [
+          "python3",
+          "collectors/official/collect.py",
+          "--config",
+          "collectors/official/configs/clark-title30-current-associated-documents.json",
+          "--out",
+          "{OUT}"
+        ],
+        "staged_config": null,
+        "qualified_config_path": "collectors/official/configs/clark-title30-current-associated-documents.json",
+        "publication_id": "96-7e8795b1baee",
+        "publication_title": "Title 30 current official group (effective 9/17/2026): core code and 29 associated map PDFs",
+        "publication_expected_identity": {
+          "client_names": [
+            "Clark County"
+          ],
+          "state": "NV",
+          "official_source_url": "https://www.clarkcountynv.gov/government/departments/comprehensive_planning_department/library/title-30",
+          "official_current_group": "Title 30 - Effective 9/17/2026"
+        },
+        "required_for_jurisdiction": true,
+        "jurisdiction_scope": null,
+        "edition_scope": null,
+        "required_publication_dependencies": [],
+        "configuration_alias_of": null,
+        "scope": "publication",
+        "image_policy": {
+          "mode": "literal_placeholder",
+          "placeholder": "[IMAGE]",
+          "download_images": false,
+          "source_id_heading_retained": true,
+          "native_originals_may_contain_images": true,
+          "scope_note": "Image-only units are retained. Intentional image omission is not an unresolved required nonimage attachment."
+        },
+        "jurisdiction_complete": false
       },
       "prior_exact_proofs": [],
       "new_readiness_receipts": [],
@@ -55651,7 +55725,6 @@
         {
           "kind": "active_revision_coherence",
           "reason": [
-            "unqualified_configuration",
             "requirement_not_active_pass:identity",
             "requirement_not_active_pass:full_inventory",
             "requirement_not_active_pass:owned_text",
@@ -55668,10 +55741,30 @@
       ],
       "jurisdiction_complete": false,
       "adapter_family": "official",
-      "configuration_qualified": false,
-      "unsupported_reason": "Known government route lacks a qualified publication inventory/content selector; it is not assumed to be a complete publication",
+      "configuration_qualified": true,
+      "unsupported_reason": null,
       "observed_access_advisories": [],
-      "followup_qualification": null,
+      "followup_qualification": {
+        "kind": "fresh-full30-native-capture-all-page-parse-real-closing-guarded-family-verify",
+        "evidence_path": "packages/collection-source-recovery-2026-10-18/clark/full30",
+        "manifest_sha256": "f138e7116c4552c242c79177fae024b6eb0158617b821c72a8818db539008537",
+        "config_sha256": "a9f72d7a2e9dfad0ac295448de8f4699e7d7ebee18bf71020bebcda9b1345813",
+        "independent_audit": "packages/collection-source-recovery-2026-10-18/clark/peer/review.json",
+        "independent_audit_sha256": "6681d51a12377c2395e3f50065f03bd60d34d00441f6d5c7572cbc3be05b0d4d",
+        "selected_document_count": 30,
+        "core_document_count": 1,
+        "associated_map_document_count": 29,
+        "physical_pages": 381,
+        "requested_level": "file_pages",
+        "full_file_pages_live_verified": true,
+        "full_live_verified": false,
+        "legal_semantic_coverage_complete": false,
+        "jurisdiction_complete": false,
+        "scope_note": "Exact current official group only; excludes 66 historical PDFs. All 30 initial and later native hashes and the later official page match; all 381 pages were parsed and passed guarded read-only family verification. These are physical pages, not 381 legal provisions or legal/jurisdiction acceptance. The 196 cell disagreements, 43 review pages and U+F0FC on core pages 225/226 remain unresolved. No separate images, pixels, rendering or OCR.",
+        "bundle": "clark-title30-source-evidence.zip",
+        "source_manifest": "clark-title30-source-evidence-manifest.json",
+        "source_archive_sha256": "9e184424b36283b23842c8277a642335c6c88d9f96ae4425331b93fc31a4aa88"
+      },
       "image_policy": {
         "mode": "literal_placeholder",
         "placeholder": "[IMAGE]",
@@ -55693,11 +55786,10 @@
         }
       },
       "scope_narrowed_for_pass": false,
-      "selected_configuration_sha256": "652b6497e0e1aa4485fe5490a2c9fcb12f457767f3c476a71785d288498b709a",
+      "selected_configuration_sha256": "f95e11137693a9318fadb102cd3ef0ac243e54f50671aff53b5b924d309cceb6",
       "active_readiness_binding": {
         "accepted": false,
         "errors": [
-          "unqualified_configuration",
           "requirement_not_active_pass:identity",
           "requirement_not_active_pass:full_inventory",
           "requirement_not_active_pass:owned_text",

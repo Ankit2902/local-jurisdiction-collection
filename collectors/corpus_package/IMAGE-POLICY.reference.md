@@ -35,3 +35,5 @@ Image controls and resource declarations are included: image-type form inputs, s
 Image MIME classification normalizes surrounding whitespace and case before applying these rules. Whitespace must not turn an image-typed object, embed or metadata payload into an allowed opaque document. Regression checks include ordinary PDF controls so legal document references remain usable.
 
 HTTP success and error responses use the same image exclusion. Check normalized response MIME before reading the body, including image responses with HTTP 403, 404 or 429. Retain status, headers and any publisher access stop while recording that the image body was intentionally omitted. Error handling must not acquire image bytes.
+
+PDF image-stream guards must recognize inline image dictionaries that use `W`/`H` or `Width`/`Height` without an explicit image subtype. Refuse image-stream decoding before the underlying decoder runs, while allowing source page-content and font/text streams needed for legal text. Test both image refusals and nonimage controls; a corrected guard requires evidence bound to that corrected executable source.

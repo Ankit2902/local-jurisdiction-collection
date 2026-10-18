@@ -1,0 +1,163 @@
+{
+  "schema_version": 1,
+  "network_requests_sent": 0,
+  "action": "plan",
+  "cohort": "all",
+  "targets": 1,
+  "runnable_config_count": 2,
+  "plans": [
+    {
+      "argv": [
+        "/Users/oliverflint/My Drive/Claude/Projects/CompliSolv 2.00/outputs/collection-readiness-post1997ee1-2026-10-17/fresh-setup/runtime-v1/venv/bin/python",
+        "collectors/municode/collect.py",
+        "--url",
+        "https://library.municode.com/nv/clark_county/codes/code_of_ordinances",
+        "--state",
+        "NV",
+        "--product-id",
+        "16214",
+        "--out",
+        "{OUT}/96-primary",
+        "--client-name",
+        "Clark County",
+        "--client-id",
+        "11836"
+      ],
+      "staged_config": null,
+      "qualified_config_path": null,
+      "publication_id": "96-primary",
+      "publication_title": "Code of Ordinances",
+      "publication_expected_identity": {
+        "client_names": [
+          "Clark County"
+        ],
+        "state": "NV",
+        "publisher_client_id": 11836,
+        "publisher_product_name": "Code of Ordinances",
+        "publisher_product_id": 16214,
+        "publisher_publication_id": 3294,
+        "evidence_path": "packages/wave3-validation-2026-10-17/municode-counties/browser/clark-county/receipt.json"
+      },
+      "required_for_jurisdiction": true,
+      "jurisdiction_scope": null,
+      "edition_scope": null,
+      "required_publication_dependencies": [],
+      "configuration_alias_of": null,
+      "scope": "publication",
+      "image_policy": {
+        "mode": "literal_placeholder",
+        "placeholder": "[IMAGE]",
+        "download_images": false,
+        "source_id_heading_retained": true,
+        "native_originals_may_contain_images": true,
+        "scope_note": "Image-only units are retained. Intentional image omission is not an unresolved required nonimage attachment."
+      },
+      "jurisdiction_complete": false,
+      "target_id": "96",
+      "jurisdiction": "Clark County",
+      "state": "NV",
+      "runnable": true,
+      "observed_access_advisories": [
+        {
+          "family": "municode",
+          "operator_review_required": true,
+          "automatic_retry": false,
+          "reason": "Malformed publisher-owned source href www.jaxsheriff.org/fees was incorrectly resolved under library.municode.com; observed HEAD403/Cf-Mitigated challenge on that malformed path. Shared browser workflow stopped. This is not evidence that every legitimate public publisher route is unavailable.",
+          "observed_stop": {
+            "reason": "https://library.municode.com/www.jaxsheriff.org/fees HTTP access refusal",
+            "recorded_at": "2026-10-17T21:41:34.381324+00:00",
+            "operator_release_required": true
+          },
+          "original_gate_path": "/tmp/compliSolv-municode-rate-gate/browser-stop.json",
+          "source_sha256": "baa3b06c85e67ae21ee392de6769a32fd3d58b86d36d393138c8d1669740c68c",
+          "raw_refusal_witness": {
+            "source_path": "outputs/collection-readiness-2026-10-17/municode/batch-005/runs/6-primary/raw/bd96cbe9d3a3421fbfab39db5aac4127.json",
+            "sha256": "196ca151a450c474060d04357de28d00c7b6815aef47dabd018886f4c1abe0e5",
+            "request_method": "HEAD",
+            "http_status": 403,
+            "cf_mitigated": "challenge",
+            "response_body_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "source_doc_fixture": "collectors/municode/fixtures/jacksonville-bare-www.json"
+          }
+        }
+      ],
+      "publication_role": "primary",
+      "source_url": "https://library.municode.com/nv/clark_county/codes/code_of_ordinances",
+      "publisher": "municode",
+      "source_family": "municode"
+    },
+    {
+      "argv": [
+        "/Users/oliverflint/My Drive/Claude/Projects/CompliSolv 2.00/outputs/collection-readiness-post1997ee1-2026-10-17/fresh-setup/runtime-v1/venv/bin/python",
+        "collectors/official/collect.py",
+        "--config",
+        "collectors/official/configs/clark-title30-current-associated-documents.json",
+        "--out",
+        "{OUT}/96-7e8795b1baee"
+      ],
+      "staged_config": null,
+      "qualified_config_path": "collectors/official/configs/clark-title30-current-associated-documents.json",
+      "publication_id": "96-7e8795b1baee",
+      "publication_title": "Title 30 current official group (effective 9/17/2026): core code and 29 associated map PDFs",
+      "publication_expected_identity": {
+        "client_names": [
+          "Clark County"
+        ],
+        "state": "NV",
+        "official_source_url": "https://www.clarkcountynv.gov/government/departments/comprehensive_planning_department/library/title-30",
+        "official_current_group": "Title 30 - Effective 9/17/2026"
+      },
+      "required_for_jurisdiction": true,
+      "jurisdiction_scope": null,
+      "edition_scope": null,
+      "required_publication_dependencies": [],
+      "configuration_alias_of": null,
+      "scope": "publication",
+      "image_policy": {
+        "mode": "literal_placeholder",
+        "placeholder": "[IMAGE]",
+        "download_images": false,
+        "source_id_heading_retained": true,
+        "native_originals_may_contain_images": true,
+        "scope_note": "Image-only units are retained. Intentional image omission is not an unresolved required nonimage attachment."
+      },
+      "jurisdiction_complete": false,
+      "target_id": "96",
+      "jurisdiction": "Clark County",
+      "state": "NV",
+      "runnable": true,
+      "observed_access_advisories": [],
+      "publication_role": "secondary",
+      "source_url": "https://www.clarkcountynv.gov/government/departments/comprehensive_planning_department/library/title-30",
+      "publisher": "official",
+      "source_family": "official"
+    },
+    {
+      "target_id": "96",
+      "publication_id": "96-55b5a35f127a",
+      "runnable": false,
+      "unsupported_reason": "Known government route lacks a qualified publication inventory/content selector; it is not assumed to be a complete publication",
+      "observed_access_advisories": [],
+      "publication_title": "clark-county",
+      "publication_role": "secondary",
+      "source_url": "https://www.clarkcountynv.gov/government/elected_officials/county_clerk/county-code",
+      "publisher": "official",
+      "source_family": "official",
+      "required_for_jurisdiction": true,
+      "scope": "publication_candidate",
+      "required_publication_dependencies": [],
+      "image_policy": {
+        "mode": "literal_placeholder",
+        "placeholder": "[IMAGE]",
+        "download_images": false,
+        "source_id_heading_retained": true,
+        "native_originals_may_contain_images": true,
+        "scope_note": "Image-only units are retained. Intentional image omission is not an unresolved required nonimage attachment."
+      },
+      "jurisdiction_complete": false
+    }
+  ],
+  "validation_note": "Mapped/runnable configuration is not a full live publication pass. Primary scope is not jurisdiction scope.",
+  "publication_count": 3,
+  "selection_scope": "all_inventoried_publications_including_unqualified"
+}

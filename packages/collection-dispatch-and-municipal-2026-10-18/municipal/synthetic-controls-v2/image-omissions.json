@@ -1,0 +1,42 @@
+{
+  "placeholders": [
+    {
+      "owner_id": "https://synthetic.municipal.codes/Code/1",
+      "ordinal": 1,
+      "source_tag": "img",
+      "source_id": null,
+      "source_attributes": {
+        "src": "/synthetic-only-map.png"
+      },
+      "policy": "literal [IMAGE]; no image bytes acquired"
+    },
+    {
+      "owner_id": "https://synthetic.municipal.codes/Code/1-1",
+      "ordinal": 1,
+      "source_tag": "img",
+      "source_id": null,
+      "source_attributes": {
+        "src": "/synthetic-cell.png"
+      },
+      "policy": "literal [IMAGE]; no image bytes acquired"
+    }
+  ],
+  "references": [
+    {
+      "url": "https://synthetic.municipal.codes/synthetic-only-map.png",
+      "owner_id": "https://synthetic.municipal.codes/Code/1",
+      "required": false,
+      "image": true,
+      "kind": "img_asset",
+      "policy": "literal [IMAGE]; intentionally not acquired"
+    },
+    {
+      "url": "https://synthetic.municipal.codes/synthetic-cell.png",
+      "owner_id": "https://synthetic.municipal.codes/Code/1-1",
+      "required": false,
+      "image": true,
+      "kind": "img_asset",
+      "policy": "literal [IMAGE]; intentionally not acquired"
+    }
+  ]
+}

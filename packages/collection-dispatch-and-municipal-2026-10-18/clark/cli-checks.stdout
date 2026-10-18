@@ -1,0 +1,149 @@
+{
+  "passed": true,
+  "actual_root_cli_cases": 8,
+  "commands": [
+    {
+      "name": "all225",
+      "argv": [
+        "/Users/oliverflint/My Drive/Claude/Projects/CompliSolv 2.00/outputs/collection-readiness-post1997ee1-2026-10-17/fresh-setup/runtime-v1/venv/bin/python",
+        "-B",
+        "collect.py",
+        "plan",
+        "--all-publications"
+      ],
+      "exit": 0,
+      "expected_exit": 0,
+      "source_import_guard": "tripwire/sitecustomize.py",
+      "scope": "Actual rootCLI/registry planning or refusal only; no collector subprocess executed."
+    },
+    {
+      "name": "primary130",
+      "argv": [
+        "/Users/oliverflint/My Drive/Claude/Projects/CompliSolv 2.00/outputs/collection-readiness-post1997ee1-2026-10-17/fresh-setup/runtime-v1/venv/bin/python",
+        "-B",
+        "collect.py",
+        "plan",
+        "--all"
+      ],
+      "exit": 0,
+      "expected_exit": 0,
+      "source_import_guard": "tripwire/sitecustomize.py",
+      "scope": "Actual rootCLI/registry planning or refusal only; no collector subprocess executed."
+    },
+    {
+      "name": "clark-selected",
+      "argv": [
+        "/Users/oliverflint/My Drive/Claude/Projects/CompliSolv 2.00/outputs/collection-readiness-post1997ee1-2026-10-17/fresh-setup/runtime-v1/venv/bin/python",
+        "-B",
+        "collect.py",
+        "plan",
+        "--target",
+        "96",
+        "--publication",
+        "96-7e8795b1baee"
+      ],
+      "exit": 0,
+      "expected_exit": 0,
+      "source_import_guard": "tripwire/sitecustomize.py",
+      "scope": "Actual rootCLI/registry planning or refusal only; no collector subprocess executed."
+    },
+    {
+      "name": "clark-target",
+      "argv": [
+        "/Users/oliverflint/My Drive/Claude/Projects/CompliSolv 2.00/outputs/collection-readiness-post1997ee1-2026-10-17/fresh-setup/runtime-v1/venv/bin/python",
+        "-B",
+        "collect.py",
+        "plan",
+        "--all-publications",
+        "--target",
+        "96"
+      ],
+      "exit": 0,
+      "expected_exit": 0,
+      "source_import_guard": "tripwire/sitecustomize.py",
+      "scope": "Actual rootCLI/registry planning or refusal only; no collector subprocess executed."
+    },
+    {
+      "name": "wrong-owner",
+      "argv": [
+        "/Users/oliverflint/My Drive/Claude/Projects/CompliSolv 2.00/outputs/collection-readiness-post1997ee1-2026-10-17/fresh-setup/runtime-v1/venv/bin/python",
+        "-B",
+        "collect.py",
+        "collect",
+        "--target",
+        "95",
+        "--publication",
+        "96-7e8795b1baee",
+        "--out",
+        "/Users/oliverflint/My Drive/Claude/Projects/CompliSolv 2.00/outputs/collection-readiness-post9ef7220-2026-10-18/clark-registry-integration-candidate-v1/SHOULD-NOT-EXIST"
+      ],
+      "exit": 2,
+      "expected_exit": 2,
+      "source_import_guard": "tripwire/sitecustomize.py",
+      "scope": "Actual rootCLI/registry planning or refusal only; no collector subprocess executed."
+    },
+    {
+      "name": "all-collect",
+      "argv": [
+        "/Users/oliverflint/My Drive/Claude/Projects/CompliSolv 2.00/outputs/collection-readiness-post1997ee1-2026-10-17/fresh-setup/runtime-v1/venv/bin/python",
+        "-B",
+        "collect.py",
+        "collect",
+        "--all-publications",
+        "--out",
+        "/Users/oliverflint/My Drive/Claude/Projects/CompliSolv 2.00/outputs/collection-readiness-post9ef7220-2026-10-18/clark-registry-integration-candidate-v1/SHOULD-NOT-EXIST"
+      ],
+      "exit": 2,
+      "expected_exit": 2,
+      "source_import_guard": "tripwire/sitecustomize.py",
+      "scope": "Actual rootCLI/registry planning or refusal only; no collector subprocess executed."
+    },
+    {
+      "name": "unknown-publication",
+      "argv": [
+        "/Users/oliverflint/My Drive/Claude/Projects/CompliSolv 2.00/outputs/collection-readiness-post1997ee1-2026-10-17/fresh-setup/runtime-v1/venv/bin/python",
+        "-B",
+        "collect.py",
+        "plan",
+        "--publication",
+        "96-unknown"
+      ],
+      "exit": 2,
+      "expected_exit": 2,
+      "source_import_guard": "tripwire/sitecustomize.py",
+      "scope": "Actual rootCLI/registry planning or refusal only; no collector subprocess executed."
+    },
+    {
+      "name": "wrong-cohort",
+      "argv": [
+        "/Users/oliverflint/My Drive/Claude/Projects/CompliSolv 2.00/outputs/collection-readiness-post1997ee1-2026-10-17/fresh-setup/runtime-v1/venv/bin/python",
+        "-B",
+        "collect.py",
+        "plan",
+        "--cohort",
+        "original",
+        "--target",
+        "96",
+        "--publication",
+        "96-7e8795b1baee"
+      ],
+      "exit": 2,
+      "expected_exit": 2,
+      "source_import_guard": "tripwire/sitecustomize.py",
+      "scope": "Actual rootCLI/registry planning or refusal only; no collector subprocess executed."
+    }
+  ],
+  "all_publications": 225,
+  "runnable_configs": 196,
+  "unqualified": 29,
+  "advisory_entries": 154,
+  "primary_count": 130,
+  "changed_catalog_publications": [
+    "96-7e8795b1baee"
+  ],
+  "other_publications_unchanged": 224,
+  "government_primary_rows_unchanged": 130,
+  "publisher_requests_native_image_calls": 0,
+  "common_verify_executed": false,
+  "qualification": "Liveproof remains sealed familyverification with exact16source+config bridge; currentCLI planning/refusal/dispatch only."
+}

@@ -106,3 +106,12 @@ Qualification requires source identity and version binding, every original word/
 Preserve the publisher's literal text, placement, blanks, duplicate printed designations and source defects. Extraction does not authorize correcting an apparent legal drafting error or deciding what a citation was intended to mean. A faithfully retained source ambiguity must be described separately from a missing glyph, incorrect cell, unowned continuation or unresolved source version. No source defect may excuse incorrect extraction, and no scoped repair grants acceptance to the rest of a publication.
 
 Exact `[IMAGE]` placeholders and native original retention follow the current image policy; no image fetching, decoding, extraction, rendering or OCR is allowed.
+
+
+## Newly integrated source paths
+
+The [dispatch and municipal handoff](../packages/collection-dispatch-and-municipal-2026-10-18/README.md) connects Clark County's tested 30-document Title 30 group and the historical 172-page Overland Park UPOC configuration to the common launcher. It also adds the municipal.codes canonical export path. These configurations retain their precise file/page, historical-edition and incomplete-source limits.
+
+Use `collect.py plan --target 96 --publication 96-7e8795b1baee` for Clark and `collect.py plan --target 82 --publication 82-8fbdce15716d` for UPOC. The ordinary execution command is `collect.py --runtime /absolute/owned/runtime run --target TARGET --publication PUBLICATION --out /absolute/fresh-output`. Keep `--runtime` before `run`. Planning is read-only; execution follows existing access stops and may return incomplete legal coverage even after all native files are captured.
+
+For the offline UPOC method and exact image guards, follow the [retained-native runbook](../packages/collection-dispatch-and-municipal-2026-10-18/upoc-2024/README.md). For municipal.codes' standard-library corpus package and the dependency-requiring raw-verification helper, follow the [export runbook](../packages/collection-dispatch-and-municipal-2026-10-18/municipal/README.md). Both run without Codex. All normalized images remain exact `[IMAGE]`; no separate images are requested, extracted, decoded, rendered or OCRed.
