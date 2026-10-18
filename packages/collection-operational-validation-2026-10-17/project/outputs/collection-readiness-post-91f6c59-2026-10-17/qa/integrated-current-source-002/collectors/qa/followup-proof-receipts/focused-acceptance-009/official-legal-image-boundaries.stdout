@@ -1,0 +1,49 @@
+{
+  "passed": true,
+  "model_sha256": "805e16e570c9aa677d65c39bcb37bde68707de6a16edd83c7c62567f2b09af04",
+  "model_source_unchanged": true,
+  "rows": [
+    {
+      "case": "quoted",
+      "passed": true,
+      "normalized_text": "Section1 Every application shall apply the following requirement. Before legal text \"[IMAGE]\" after legal caption remains mandatory.",
+      "qualification_error": null,
+      "continuation_leaked": false,
+      "legal_suffix_retained": true
+    },
+    {
+      "case": "two-quoted",
+      "passed": true,
+      "normalized_text": "Section1 Every application shall apply the following requirement. Before legal text \"[IMAGE]\" between \"[IMAGE]\" after legal caption remains mandatory.",
+      "qualification_error": null,
+      "continuation_leaked": false,
+      "legal_suffix_retained": true
+    },
+    {
+      "case": "bare-LF",
+      "passed": true,
+      "normalized_text": "",
+      "qualification_error": "Ambiguous unquoted image data URI followed by whitespace/text; cannot qualify image-payload/prose boundary",
+      "continuation_leaked": false,
+      "legal_suffix_retained": false
+    },
+    {
+      "case": "bare-TAB",
+      "passed": true,
+      "normalized_text": "",
+      "qualification_error": "Ambiguous unquoted image data URI followed by whitespace/text; cannot qualify image-payload/prose boundary",
+      "continuation_leaked": false,
+      "legal_suffix_retained": false
+    },
+    {
+      "case": "bare-SPACE",
+      "passed": true,
+      "normalized_text": "",
+      "qualification_error": "Ambiguous unquoted image data URI followed by whitespace/text; cannot qualify image-payload/prose boundary",
+      "continuation_leaked": false,
+      "legal_suffix_retained": false
+    }
+  ],
+  "network_requests_sent": 0,
+  "scope": "Synthetic legal-text path through realhtml_records. Bounded quoted URI replacement preserves actual prose; unbounded ambiguity must explicitly refuse qualification."
+}

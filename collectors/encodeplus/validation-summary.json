@@ -1,8 +1,8 @@
 {
-  "schema_version": 5,
+  "schema_version": 6,
   "phase": "collection-readiness-next-2026-10-17",
-  "checkpoint_status": "Qualified conservative plainSVGopening boundary correction after boundedmetadata checkpoint; production source-empty changes excluded",
-  "observed_at": "2026-10-17T23:32:38.409622+00:00",
+  "checkpoint_status": "Exact Overland six-node and Savannah6451 source-empty/adopted-native qualifications plus boundedhyphen alias, on published731eff/6e99; priorproofs preserved",
+  "observed_at": "2026-10-18T00:18:41.904673+00:00",
   "runtime": {
     "python": "3.12.14",
     "os": "macOS-26.6.2-arm64-arm-64bit",
@@ -19,18 +19,26 @@
   },
   "source_versions": {
     "__init__.py": "b694a5d9aaec3d14d60b33a1633fcc183ac03862b6226f4fd0d2fe62ff4354e3",
+    "bounded_decoder.py": "a579f2a79c15833e0c5a8c65bc4fa6024b2dbb6eafb408d1135f500c64c72770",
     "collect.py": "adb0ec2b363732e2a360dd0549df3760df5901bc1d7576438200365cd6b6af02",
     "documents.py": "ad9a481cd7deca2e7ac262d42e39f2dcd6ab492f2905ac8c79976f7dc7601490",
-    "model.py": "3d987c6a7d535f25ffdc9a8c77753d7ef50f815b570ab072ac40e6cb342af4f7",
+    "model.py": "69f8fe1516cd388599b432eba67ab66e646bd1d6bb5c11e85601a35fdafca4e0",
     "native_document.py": "4fd4a565b684c0fdd84e9e4610440d314f4c3a2479488c87f08d1296aff182da",
-    "pdf_structure.py": "6e9907649263fea71c8561709a80a305b6345a3e6981e25c7d18a7f8a5413e71",
-    "publication_references.py": "daaca8d08d99967016788d5f34791644cef2b9302d9e4c501047f565fcebe2cf",
+    "pdf_structure.py": "5d0141e7712aae0637ec9a4b226cab00ff3326fbe54aa992dd511bb590cb8f02",
+    "publication_references.py": "add74802f947df9ae9a51a3a26615c279b211d11d264ba89f803ff013452445c",
     "reference_qualifications.py": "621d790168c4a6fc49e28950a0235efdc174fd844f87884ed878a190cc0ac799",
     "replay.py": "edd3c2f7a18881771e7ef8a27d08f5e5275d80c7bb72f8659c1170af0131b0fb",
-    "tests.py": "5b5a04f8fb614fe4d4916ff448ebac0d9dbb012eaccc0ff517fbfa732ff796fa",
+    "savannah_empty_qualification.py": "fa50f4798a8b38284461af6999a2c7c235ea0be2984aeb7de190e8d21590d09c",
+    "savannah_reference.py": "97425c3277807f5d25c959989a7a7923a86a39d8468fef87d5e6e213685b7d74",
+    "source_empty_qualifications.py": "d40e47d316bcebc6a2629999353a57c2754e00a0d05a350962c5cd4a9bf63f9c",
+    "test_bounded_decoder.py": "ee34d64ccced51a2ee6e9aaab03b03bebf62db51353987875e230f333e4c211e",
+    "test_image_context_scheme.py": "d7a262d68050f669cdac12aedfb2d2e932bc3dedc2d0b476e244203e048c9179",
+    "test_savannah_empty.py": "f3064b957ac68d924795ed2761fce8c979154d17cba8818978a0a0cbdd589b7f",
+    "test_savannah_reference.py": "8c06ab5d86590347bbba082b576acd365639536e51204084bd71e586a42365ee",
+    "tests.py": "df6b6c4c4e2e489205ac754abfe3fa90a463e0c38eebf1b69353b67da2c80fac",
     "transport.py": "16b8db775d37f4017b1dc4168add01dc47b44b971b4a3bd5e8574cc97d625a25",
     "util.py": "92e22d86d3304b80e9997466cbb0d3497e320f181ae5630fcfc64c30fa625a56",
-    "verify.py": "7c5852df0c5e5d5852cfb3fb46000fb09a78e5203b98befe500e0b8e2c233ea4",
+    "verify.py": "07434dc5a51054b8833e90d9f05247f368d5a4e3b01046282a1c51476fe84b7e",
     "targets.json": "a49ef8ea245588ceb30a2e654295566ae3b4d6b6d0afd1a8900abd72bd094163",
     "requirements.txt": "eb15f2af56a51491b429de83ebdbbca616a51b01a0eb173e7a27a4bce1264517"
   },
@@ -39,15 +47,19 @@
       "python",
       "-B",
       "-m",
-      "collectors.encodeplus.tests"
+      "unittest",
+      "collectors.encodeplus.tests",
+      "collectors.encodeplus.test_bounded_decoder",
+      "collectors.encodeplus.test_savannah_reference",
+      "collectors.encodeplus.test_savannah_empty",
+      "collectors.encodeplus.test_image_context_scheme",
+      "-v"
     ],
-    "executed_cwd": "outputs/collection-readiness-next-2026-10-17/encodeplus/bounded-svg-opening-candidate",
-    "interpreter": "outputs/collection-readiness-2026-10-17/encodeplus/.venv/bin/python",
-    "passed": 37,
-    "duration_seconds": 123.005,
-    "tests_py_sha256": "5b5a04f8fb614fe4d4916ff448ebac0d9dbb012eaccc0ff517fbfa732ff796fa",
-    "proof": "proofs/svg-opening-37-tests.log",
-    "scope": "Network-free sourcefixtures+synthetictransport/integrity/images/faults; not37livepublications"
+    "passed": 51,
+    "duration_seconds": 174.632,
+    "tests_py_sha256": "df6b6c4c4e2e489205ac754abfe3fa90a463e0c38eebf1b69353b67da2c80fac",
+    "proof": "proofs/final-primary-51-tests.log",
+    "scope": "Network-free family/image/integrity/transport/source-empty tests plus actual bounded-hyphen fixture and fault guards, not51livepublications"
   },
   "changes": {
     "transport": "4.0seconds from previous response/error completion under shared lock, pre-request reservation retained; exacthost stops/cooldowns unchanged; failed403body read retains refusal/stop",
@@ -59,7 +71,9 @@
     "source_backed_authority_relation": "ExactPFMbase+BoardURL+label+retainedparagraphSHA qualify authorityrelation only; typedsourcewitnessledger. Genuineincorporateddocuments/maplocations and unknowncontexts remainrequired.",
     "qualified_overland_source_references": "Exact owner/target/body/path/substantivewitness binding for3malformedfragments, and already acquired samecityPOC3529/UPOC42nd2026 fullnativeSHA/pages/coverqualified alternative; original failures retained.",
     "wrapped_image_payload_boundaries": "Bounded metadata values include whitespace continuation; directlyquotedHTMLimagevalue preserves outsideprose; unquotedterminalURItoken allowed; ambiguous barewhitespace/prose failsclosed with sourcehash only. No pixels/imagefetch/decode/render/OCR.",
-    "bounded_svg_metadata": "Generic SVG uses only plainunambiguous opening or standaloneselfclose; typedPDFannotationURI wholevalue omission unchanged. Selfclosingrootpairedwithlaterclosing and genericattribute/quoteddelimiter ambiguity refuse. QuotedSVG/freeprose/nested/multiroot ambiguousboundary explicitly refuses sourcehash-only. Safequotedbase64 preservesoutsidelegalprose. AllPDFgeometry/table algorithms unchanged."
+    "bounded_svg_metadata": "Generic SVG uses only plainunambiguous opening or standaloneselfclose; typedPDFannotationURI wholevalue omission unchanged. Selfclosingrootpairedwithlaterclosing and genericattribute/quoteddelimiter ambiguity refuse. QuotedSVG/freeprose/nested/multiroot ambiguousboundary explicitly refuses sourcehash-only. Safequotedbase64 preservesoutsidelegalprose. AllPDFgeometry/table algorithms unchanged.",
+    "source_empty_qualification": "Only six exact Overland IDs with selected native/HTML/raw/hierarchy/config and every source witness pinned. Missing/corrupt/changed evidence keeps unresolved;7942 body remains exclusively parent7941. No generic heading exemption.",
+    "bounded_decoder_aliases": "Only source-proven native U+0002 hyphen alias accepted in qualified cell comparison: exact UTF16/native mapping, marked nongenerated native hyphen, recovered range noncharacter and unique independent glyph at same physical bbox inside cell. Original bounded/detector text/geometry retained. No detector/word/reading-order changes."
   },
   "live_timing": {
     "scope": "Three known qualified public TOC responses for actual completion-gate timing only; not whole-publication acquisition proof",
@@ -109,7 +123,8 @@
     "PriorPFM97missingledger remains historical. Retained14/83pages now independentlyqualifybyteintegrity and BoardauthorityURL is not documentbytes; no other unresolvedscope/transport/nativefailures are waived or retroactively resealed.",
     "Actual current full primary Lincoln/Overland/Savannah and PFM gaps remain. Overland sixsourceempty classifications are unchanged despite bounded source/native diagnostics. Lincoln one-page root stub and PFM native body discrepancies do not qualify full native exports. Livev1 jobs retain their exact preceding source/runtime; no current revision live success inferred.",
     "SVG/text ambiguity is explicitly unsupported rather than transcribed, partially leaked or silently consuming legal prose. Whole primary/source/native and PDF table/ordering gaps from preceding checkpoint remain; newsourceempty work is isolated and not included.",
-    "SVG/text ambiguity is explicitly unsupported rather than transcribed, partially leaked or silently consuming legal prose. Whole primary/source/native and PDF table/ordering gaps from preceding checkpoint remain; newsourceempty work is isolated and not included."
+    "SVG/text ambiguity is explicitly unsupported rather than transcribed, partially leaked or silently consuming legal prose. Whole primary/source/native and PDF table/ordering gaps from preceding checkpoint remain; newsourceempty work is isolated and not included.",
+    "Current retained Overland6279-record source/required-document capture passes after six exact source-empty dispositions. Full native export, global legal edition and jurisdiction claims stay false. Fire799/799 and Cleveland18/18 detected cells reconcile; Infrastructure572/616 retains44 concrete cell gaps. Savannah adopted-reference full5674body/707required-document checks passed, and exact6451source-empty independently passed; final combined exhaustive replay is separately recorded, pending unless terminal; original malformed404 and excluded blank-date draft remain. Native full-export and globaledition/jurisdiction stillfalse. Fresh current commonCLI primary run remains separate proof until terminal."
   ],
   "immutable_test_snapshot": "outputs/collection-readiness-next-2026-10-17/encodeplus/execution-source-v2",
   "completion_gate_audit": {
@@ -355,7 +370,7 @@
     "source_empty_qualification_included": false,
     "regression_scope": "SyntheticliteralSVGmetadata strings/actualsyntheticPDFannotation path; no actualEPsourceSVGleak claimed"
   },
-  "qualified_delta": {
+  "prior_qualified_delta": {
     "parent_manifest_sha256": "2ceb28bda570339560dbba2458527bdb537a636c7ce5c7bc39fd3df54506656e",
     "pdf_structure_sha256": "6e9907649263fea71c8561709a80a305b6345a3e6981e25c7d18a7f8a5413e71",
     "independent_review": "proofs/svg-opening-independent-contexts.json",
@@ -370,5 +385,78 @@
     "dependencies_changed": false,
     "source_empty_qualification_included": false,
     "regression_scope": "SyntheticliteralSVGmetadata strings/actualsyntheticPDFannotation path; no actualEPsourceSVGleak claimed"
+  },
+  "qualified_delta": {
+    "parent_manifest_sha256": "731eff70d270f2d40e3bdc23d3b90dfacdfc6eae798e4c277804689d5969dc39",
+    "current_model_sha256": "69f8fe1516cd388599b432eba67ab66e646bd1d6bb5c11e85601a35fdafca4e0",
+    "full_corpus_execution_model_sha256": "3d987c6a7d535f25ffdc9a8c77753d7ef50f815b570ab072ac40e6cb342af4f7",
+    "case_only_actual_output_equivalence_proven": true,
+    "source_empty_qualifications_sha256": "d40e47d316bcebc6a2629999353a57c2754e00a0d05a350962c5cd4a9bf63f9c",
+    "pdf_structure_sha256": "5d0141e7712aae0637ec9a4b226cab00ff3326fbe54aa992dd511bb590cb8f02",
+    "bounded_decoder_sha256": "a579f2a79c15833e0c5a8c65bc4fa6024b2dbb6eafb408d1135f500c64c72770",
+    "independent_reviews": [
+      "proofs/source-empty-independent-review.json",
+      "proofs/bounded-hyphen-independent-review.json",
+      "proofs/savannah-independent-review.json",
+      "proofs/image-context-independent-review.json"
+    ],
+    "actual_proofs": [
+      "proofs/source-empty-actual-full6279.json",
+      "proofs/source-empty-relocated-full6279.json",
+      "proofs/bounded-hyphen-actual-full109.json",
+      "proofs/savannah-actual-full5674-adopted-reference.json",
+      "proofs/image-context-actual-full11953-equivalence.json"
+    ],
+    "source_empty_changed_ids": [
+      "3061",
+      "3088",
+      "3125",
+      "3282",
+      "3665",
+      "7942"
+    ],
+    "only_source_empty_classification_and_typed_ledger_changed": true,
+    "retained_savannah_body_nodes": 5674,
+    "retained_savannah_documents_integrity_verified": 707,
+    "retained_savannah_publication_text_complete": true,
+    "retained_savannah_attachments_complete": true,
+    "savannah_combined_full_replay_status": "terminal_pass",
+    "savannah_finite_6451_qualification_independently_passed": true,
+    "savannah_finitely_qualified_source_empty_nodes": [
+      "6451"
+    ],
+    "savannah_adopted_native_sha256": "49637afca507126704ead37155e4a8a839423cc17273c4a36a7914649a587d9d",
+    "retained_overland_body_nodes": 6279,
+    "retained_overland_publication_text_complete": true,
+    "retained_overland_attachments_complete": true,
+    "overland_native_export_complete": false,
+    "edition_complete": false,
+    "jurisdiction_complete": false,
+    "actual_native_pdf_page_count": 109,
+    "pdf_cell_qualification": [
+      {
+        "source": "fire",
+        "agree": 799,
+        "detected_cells": 799,
+        "remaining_gaps": 0
+      },
+      {
+        "source": "infrastructure",
+        "agree": 572,
+        "detected_cells": 616,
+        "remaining_gaps": 44
+      },
+      {
+        "source": "cleveland",
+        "agree": 18,
+        "detected_cells": 18,
+        "remaining_gaps": 0
+      }
+    ],
+    "source_native_geometry_and_raw_cell_text_unchanged": true,
+    "dependencies_changed": false,
+    "network_requests_during_application": 0,
+    "prior_four_overland_asset_failure_entries_preserved": true,
+    "image_policy": "Literal [IMAGE]; no separate images, pixels, rendering or OCR; exact PDF image guard functions preserved; HTML known-image address scheme checks corrected"
   }
 }

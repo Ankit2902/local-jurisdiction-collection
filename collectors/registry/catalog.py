@@ -38,6 +38,10 @@ def load_catalog(cohort='all', here=None):
     if qualification_path.exists():
         qualifications=json.loads(qualification_path.read_text())['publications']
         for pub in ps:pub.update(qualifications.get(pub['id'],{}))
+    qualification_path=here/'original-adapter-qualified-configs.json'
+    if qualification_path.exists():
+        qualifications=json.loads(qualification_path.read_text())['publications']
+        for pub in ps:pub.update(qualifications.get(pub['id'],{}))
     advisory_path=here/'access-advisories.json'
     if not advisory_path.is_file():raise ValueError('Access advisory catalog missing; use the complete collector package')
     if advisory_path.exists():

@@ -1,0 +1,17 @@
+Traceback (most recent call last):
+  File "/Users/oliverflint/My Drive/Claude/Projects/CompliSolv 2.00/outputs/collection-readiness-next-2026-10-17/original-adapters/king_symbol_audit_v2.py", line 63, in <module>
+    p=argparse.ArgumentParser();p.add_argument('--html-source',required=True);p.add_argument('--word-source',required=True);p.add_argument('--normalized',required=True);p.add_argument('--out',required=True);a=p.parse_args();r=run(a.html_source,a.word_source,a.normalized,a.out);print(json.dumps({k:v for k,v in r.items() if k!='rows'},indent=2));sys.exit(2)
+                                                                                                                                                                                                                                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/oliverflint/My Drive/Claude/Projects/CompliSolv 2.00/outputs/collection-readiness-next-2026-10-17/original-adapters/king_symbol_audit_v2.py", line 55, in run
+    m=matching(record['text'],dom_text(hnode))
+      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/oliverflint/My Drive/Claude/Projects/CompliSolv 2.00/outputs/collection-readiness-next-2026-10-17/original-adapters/king_symbol_audit_v2.py", line 13, in matching
+    expression='^'+''.join(re.escape(x) if i%2==0 else '(.)' for i,x in enumerate(parts))+'$';m=re.fullmatch(expression,html_text,re.S)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/oliverflint/My Drive/Claude/Projects/CompliSolv 2.00/outputs/collection-readiness-next-2026-10-17/original-adapters/king_symbol_audit_v2.py", line 13, in <genexpr>
+    expression='^'+''.join(re.escape(x) if i%2==0 else '(.)' for i,x in enumerate(parts))+'$';m=re.fullmatch(expression,html_text,re.S)
+                           ^^^^^^^^^^^^
+  File "/Users/oliverflint/.cache/codex-runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/re/__init__.py", line 260, in escape
+    return pattern.translate(_special_chars_map)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+KeyboardInterrupt

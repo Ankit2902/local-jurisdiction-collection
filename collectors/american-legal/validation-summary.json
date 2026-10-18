@@ -1,9 +1,9 @@
 {
   "schema_version": 3,
   "publisher": "american-legal",
-  "status": "frozen_v8_image_metadata_hardened_full_primary_HTML_and_full_tagged_PDF_proofs_retained_remaining_targets_running",
+  "status": "frozen_v10_declared_image_anchor_hardened_131tests_Dallas_not_yet_complete",
   "frozen": true,
-  "updated_at": "2026-10-17T23:11:49.228777+00:00",
+  "updated_at": "2026-10-18T00:11:36.899260+00:00",
   "evidence_root": "outputs/collection-readiness-followup-2026-10-17/american-legal",
   "image_policy": "literal-[IMAGE]-no-image-fetch-v1",
   "scope_warning": "Two named genuine full-publication scopes and reusable methods are qualified; all15 primary configs, every secondary and entire jurisdictions are not thereby qualified.",
@@ -24,7 +24,7 @@
     ],
     "independent_fullbook_auditor": "executed-v7/audit_pdf_tags.py",
     "promotion_manifest": "freeze-manifest.json",
-    "current_delivery": "executed-v8 metadata policy hardening; old proof and queue revisions preserved"
+    "current_delivery": "executed-v10 narrow declared-image anchor context hardening; earlier live source/normalization/queue retain their revisions"
   },
   "runtime": {
     "kind": "Current proof runtime and controlled source lineage",
@@ -43,7 +43,7 @@
       "runtime": "v24.19.0"
     },
     "core_source_revision": "executed-v6",
-    "delivery_candidate": "executed-v8",
+    "delivery_candidate": "executed-v10",
     "source_manifest_sha256": {
       "executed-v6": "0fa61f7c1cbbff370e9f27af249a5535604083a07a3efcd5e275ae626d66da6a",
       "executed-v7": "71a2fc76ad5924f4d8eedb87fbfaca72a07672e07f151f86731f379292c4d4fc"
@@ -55,7 +55,8 @@
     "verify": "python verify.py RUN_DIR --offline",
     "native_HTML_replay": "python replay.py --from ORIGINAL_ACQUIRED_NATIVE_HTML_RUN --out FRESH_DIR",
     "PDF_source_audit": "python audit_pdf_tags.py RUN_DIR [--owner OBSERVED_PDF_OWNER]",
-    "requirements": "Python3.12+, Node20+ (tested24.19.0), ordinary Chrome, requirements.txt/package.json; exact tested Python versions in runtime and requirements-lock.txt"
+    "requirements": "Python3.12+, Node20+ (tested24.19.0), ordinary Chrome, requirements.txt/package.json; exact tested Python versions in runtime and requirements-lock.txt",
+    "fresh_directory_operator_resume": "python resume_copy.py --from ORIGINAL_SAME_IMAGE_POLICY_RUN --out FRESH_DIR [--prepare-only] [--upgrade-assets] [--retry-unavailable-assets]"
   },
   "proofs": [
     {
@@ -287,5 +288,118 @@
     "terminal_proof_directories_modified": false,
     "remaining_queue_source": "executed-v7 unchanged",
     "mixed_actual_text": "Quoted syntactically bounded base64 URI retains exact surrounding prose. Ambiguous mixed unquoted ActualText retains safe prefix+source hash, redacts payload, and cannot qualify complete source interpretation."
+  },
+  "native_notes_and_operator_v9": {
+    "kind": "Scoped retained-source full Dallas native HTML normalization, not terminal acquisition",
+    "evidence_root": "outputs/collection-readiness-post-91f6c59-2026-10-17/american-legal",
+    "source_run": "../../collection-readiness-followup-2026-10-17/american-legal/primary-4-dallas_tx-v7",
+    "normalization": "../../collection-readiness-followup-2026-10-17/american-legal/research/native-note-ownership-v1/actual-dallas-normalization",
+    "native_bytes": 44379988,
+    "native_sha256": "05062096efe74785be55c8a0198c9734894ce7b02265ef45b53b28118174f35e",
+    "inventory_nodes": 4542,
+    "independent_start_branches": 588,
+    "owned_rich_blocks": 53570,
+    "auxiliary_fragments": 4,
+    "tables": 583,
+    "cells": 70000,
+    "original_DOM_python_table_audit": {
+      "passed": true,
+      "report_sha256": "b9af7074b2f9e22e2fcd5d71f91751d181f416fcc1487633120b3462ab72538e"
+    },
+    "independent_inert_Chrome_table_audit": {
+      "path": "../qa/dallas-original-native-browser-v3.json",
+      "sha256": "8dafb0473e238d4886800531a052948d174b8bc3d5355d2915515cc365bb3eb6",
+      "passed": true,
+      "tables": 583,
+      "cells": 70000,
+      "mismatches": 0,
+      "network_requests": 0
+    },
+    "sections_sha256": "91b4e6b2f3a4ec5f4a2528a79e7432260d9d0c2ce6bf3dbf18143f6c07e2208a",
+    "image_policy_report": "v9-image-policy-actual.json",
+    "literal_IMAGE_in_text": 123,
+    "required_nonimage_references_pending": 339,
+    "publication_complete": false,
+    "terminal_source_state": "Original v7 failed; original source and error retained",
+    "missing": [
+      "genuine required nonimage asset acquisition and semantic qualification",
+      "independent closing inventory/edition checks"
+    ],
+    "prepared_operator_directory": "dallas-operator-v9",
+    "operator_executed": false,
+    "new_publisher_requests": 0,
+    "image_decode_calls": 0,
+    "Cleveland_6140_record_compatibility": {
+      "passed": true,
+      "sections_JSONL_and_CSV_byte_identical": true,
+      "receipt_sha256": "bc8f3fc96ecaa017a33540f898fefbde3a3ad1ff9364a179819725c00c9ae940"
+    },
+    "tests": {
+      "count": 129,
+      "passed": true,
+      "report": "v9-final-tests.json"
+    },
+    "serial_queue_snapshot": {
+      "checked_at": "2026-10-17T23:51:27.924597+00:00",
+      "original_runner_pid": 78376,
+      "active_child_pid": 85179,
+      "active_publication": "ftworth_tx",
+      "active_start_inventory_requests": 491,
+      "terminal_original_Dallas": "failed v7",
+      "remaining_primary_not_started": 12,
+      "restarted_or_edited": false
+    },
+    "scoped_implementation_changes": [
+      "model.py auxiliary fragment ownership only",
+      "audit_native.py independent raw auxiliary table owner reconstruction",
+      "resume_copy.py fresh-copy operator wrapper",
+      "two regression suites and documentation"
+    ],
+    "unchanged": [
+      "publisher transport/rate gate/browser",
+      "PDF parsers and all image metadata/no-decode guards",
+      "original live queue source"
+    ],
+    "current_corpus_status": "23 catalog entries,22 unique books; two named Cleveland scopes previously qualified. Dallas normalization proof does not promote all configurations or jurisdiction coverage."
+  },
+  "declared_image_context_v10": {
+    "kind": "Tiny declared-image a/link context policy correction; no acquisition",
+    "at": "2026-10-18T00:11:36.899260+00:00",
+    "prior_v9_freeze_sha256": "d2435f859214e166ba74cd5f5ea5d9afaf8bd72d5596ddc94527d571288851d8",
+    "model_sha256": "bfc95785b762d7ae020f354c052c92e361b5457371a466e9b3b9156bfa629667",
+    "tests": {
+      "passed": true,
+      "count": 131,
+      "receipt": "image-context-v10-candidate/candidate-tests.json",
+      "sha256": "0ff4df6832757078577f55c081ec79c9972f28387100de7c6e3d1e3ec46c0e8b"
+    },
+    "independent_narrow_review": {
+      "reviewer": "municode_major57",
+      "passed": true,
+      "reviewed_model_sha256": "bfc95785b762d7ae020f354c052c92e361b5457371a466e9b3b9156bfa629667",
+      "two_real_html_record_tests_passed": true,
+      "scope": "Declared image a/link, source IDs, available labels, opaque payload absence, ordinaryPDF control"
+    },
+    "actual_source_exposure": {
+      "path": "image-context-v10-candidate/actual-source-exposure.json",
+      "sha256": "d63f806d186a94c5c9b88414ef8ade8238146ddda60a3180dde88f1920d99532",
+      "zero_affected_source_anchors": true,
+      "qualification": "Changed predicate unreachable on both exact raw native sources; no fresh live acquisition or full replay claim"
+    },
+    "Dallas_original_inert_browser_table_audit": {
+      "path": "../qa/dallas-original-native-browser-v3.json",
+      "sha256": "8dafb0473e238d4886800531a052948d174b8bc3d5355d2915515cc365bb3eb6",
+      "passed": true,
+      "tables": 583,
+      "cells": 70000,
+      "mismatches": 0,
+      "network_requests": 0
+    },
+    "image_policy": "literal-[IMAGE]-no-image-fetch-v1",
+    "network_requests": 0,
+    "image_decode_calls": 0,
+    "frozen_v9_modified": false,
+    "original_queue_modified": false,
+    "publication_completion_upgraded": false
   }
 }

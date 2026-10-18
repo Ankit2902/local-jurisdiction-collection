@@ -56,8 +56,8 @@ class ReadinessCatalog(unittest.TestCase):
  def test_cli_refuses_all_unknown_foreign_and_unsupported_without_output(self):
   with tempfile.TemporaryDirectory() as td:
    out=Path(td)/'never-created'
-   c=load_catalog();unsupported=next(t for t in c['targets'] if not next(p for p in c['publications'] if p['id']==t['primary_publication_id'])['runnable'])
-   for args in [('collect','--all'),('collect','--target','unknown'),('collect','--target','original-daly-city-ca','--publication','1-primary'),('collect','--target',unsupported['id'])]:
+   c=load_catalog();unsupported=next(p for p in c['publications'] if not p['runnable'])
+   for args in [('collect','--all'),('collect','--target','unknown'),('collect','--target','original-daly-city-ca','--publication','1-primary'),('collect','--target',unsupported['target_id'],'--publication',unsupported['id'])]:
     r=self.cli(*args,'--out',str(out));self.assertNotEqual(r.returncode,0,(args,r.stdout));self.assertFalse(out.exists(),args)
  def test_adapter_tripwire_blocks_a_runnable_target_before_execution(self):
   with tempfile.TemporaryDirectory() as td:

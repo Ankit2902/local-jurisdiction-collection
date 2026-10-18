@@ -1,0 +1,2185 @@
+
+    <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+    <html>
+    <head>
+
+        <title>Title 15 - Public Improvements</title>
+        <link type="text/css" rel="Stylesheet" href="jqueryui/css/jqueryui.css" media="all" />
+        <link type="text/css" rel="Stylesheet" href="css/ui.css" media="all" />
+        <link type="text/css" rel="Stylesheet" href="css/customui.css" media="all" />
+        <link type="text/css" rel="Stylesheet" href="css/document.css" media="all" />
+        <link type="text/css" rel="Stylesheet" href="css/customdoc.css" media="all" />
+        <link type="text/css" rel="Stylesheet" href="tablestyles.aspx" media="all" />
+        <link rel="StyleSheet" type="text/css" href="/common/font-awesome/css/all.min.css">
+        <link type="text/css" rel="Stylesheet" href="css/docprint.css" media="print" />
+        <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+        <script type="text/javascript" src="jqueryui/js/jquery-ui-1.8.21.custom.min.js"></script>
+        <script type="text/javascript" src="js/doc-view.js?_t=290"></script>
+        <script type="text/javascript" src="js/tabletools.js"></script>
+        <script type="text/javascript" src="js/tabs.js"></script>
+        <script type="text/javascript">
+            var iframeReady = false;
+        </script>
+        
+    </head>
+    <body class='doc-view'>
+        <script type="text/javascript">
+            $(document).ready(function () {
+                ZP.DocView.InitDef();
+                ZP.DocView.OpenDefinitionPage = null;
+                ZP.DocView.OpenDefinitionMode = '_self';
+                ZP.DocView.OpenXRefPage = 'doc-viewer.aspx#$2-';
+                ZP.DocView.OpenXRefMode = '_blank';
+                $(window).bind('hashchange', ZP.DocView.HashChanged);
+        
+        if (typeof ZP.DocView.ZoomClasses == 'undefined') {
+            ZP.DocView.ZoomClasses = ["Unzoom1", "", "Zoom1", "Zoom2", "Zoom3", "Zoom4"];
+        }
+        ZP.DocView.InitializeZoom();
+        EC.SortedTable.Init(".ord-tbl, .stat-tbl", ".sortable");
+        EC.Tabs.PositionLeftTabs();
+    });
+
+
+        </script>
+
+
+    <div id="doc-viewer">
+        
+
+<div id="doc-view">
+    <div id="doc-view-content">
+        
+<div id="pageControls">
+<script type="text/javascript" >
+    function clearEffDate() {
+        jQuery.get("doc-view-helper.aspx?task=currentversion", function () {
+            window.location.reload();
+        });
+        return false;
+    }
+</script>
+     <div class="pageControls psuedoTable" role="navigation" aria-label="Document Navigation">  
+        <div class="psuedoTableBody" >     
+            <div class="psuedoTableRow">         
+                <div class="pageControls_outer" ></div>
+                <div class="pageControls_inner left">
+                    <a id='button1' onclick='ZP.DocView.PrintDoc("015",false);return false;' href="#" title="Print" role="button"> 
+                        <img alt="Print" src="resources/btn-print-white.png" /></a>
+                    <a id='Button2' onclick='ZP.DocView.OpenPDF("015",false);return false;' href="#" title="Export PDF" role="button">
+                        <img alt="Generate PDF" src="resources/btn-makepdf-white.png" /></a>
+                        <a class="popup" params="toobar=0,menubar=0,scrollbars=1,height=436,width=626" href="https://www.facebook.com/sharer/sharer.php?s=100&p[title]=Title+15+-+Public+Improvements&p[summary]=Overland+Park%2c+Kansas+Municipal+Code&p[url]=https%3a%2f%2fcodes.opkansas.org%2fmunicipal-code%2fdoc-viewer.aspx%3fsecid%3d3867" title="Click to Share this page" style="text-decoration:none;border:none;" ><img src="resources/share-icon-white.png" alt="Click to Share this page on facebook" /></a>     
+                </div>
+                <div  class="pageControls_inner breadCrumbs" title="Navigation 'breadcrumbs'">
+                     <div class='breadCrumbs'><a href='/municipal-code/doc-viewer.aspx?tocid=015' >Title 15 - Public Improvements</a></div>
+                </div>
+                 <div  class="pageControls_inner right">       
+                     <ul >  
+                         <li>
+                            <a id='button3' class="nav" onclick="ZP.DocView.LoadPrevDoc('015');return false;" href="#"  title="Previous Section" accesskey="," role="button"><img alt="Go to Previous Section" src="resources/btn-back-white.png" /></a>
+                         </li>  
+                         <li>
+                             <a id='Button4'  class="nav" onclick="ZP.DocView.LoadNextDoc('015');return false;" href="#"  title="Next Section" accesskey="." role="button"> <img alt="Go to Next Section" src="resources/btn-forward-white.png" /></a>
+                         </li>   
+                         <li>
+                             <a id="pageControls-overflow" onclick="ZP.DocView.PgCntrlOverflowClick(event);return false;" href="#" title="Click for more options" role="button" >
+                            <img src="resources/overflow-btn-white.png" alt="Click for more options" /></a>
+                               
+  <ul class="submenu" role="dialog">
+            <li><a href="/municipal-code/doc-viewer.aspx?secid=3867" onclick="javascript:alert('Right click this icon and select \'add to favorites\' or \'Bookmark this Link\' to bookmark this page');return false;" title="Bookmark this page" >Bookmark</a></li>
+            <li>
+                                        
+                <a id="zoomMinus" onclick="ZP.DocView.DecreaseZoom();return false;" href="#" title="Decrease Zoom" class="zoomLink glyphicon" >&#x2212;</a>
+                <a onclick="ZP.DocView.DefaultZoom();return false;"  href="#" title="Default Zoom"  class="zoomLink" >100%</a>
+                <a id="zoomPlus" onclick="ZP.DocView.IncreaseZoom();return false;" href="#" title="Increase Zoom"  class="zoomLink glyphicon" > &#x2b; </a>
+            </li>
+           
+                           
+                
+                <li><a id="subscribe-btn" onclick="ZP.DocView.OpenSubscribeDlg();return false;" title="Subscribe to Notifications" href="subscribe.aspx" role="button">Subscribe</a></li>
+                <li><a id="unsubscribe-btn" onclick="ZP.DocView.OpenUnsubscribeDlg();return false;" title="Cancel Notifications Subscription" href="unsubscribe.aspx" role="button" >Unsubscribe</a></li>
+                
+</ul>
+                         </li>        
+                        
+                        </ul>   
+                </div>
+                <div class="pageControls_outer"></div>
+            </div>
+        </div>
+    </div> 
+    <div id="subscribe-dialog" title="" aria-live="polite" >
+        <div id="sub-message"></div>
+        <div id="sub-form-cntr"></div>
+    </div>
+</div>
+
+
+        <div id="thePage-outer" >
+            <div id="thePage-wrap" class="thePage-wrap ">
+                <div id="outer-doc-banner"></div>
+                <div id="thePage-border">
+                    <div id="thePage" class="textPage " tocid="015" secid="3867" role="main" aria-label="Document">
+                        <img id="sectionBanner" title="Document text banner" src="resources/docbanner.png" width="720" valign="Top" alt="Document text banner">
+                        
+                        <section id='secid-3867' class='secLvl1 _015' tabindex='-1' data-secid='3867'> 
+<h1>
+	<strong>Title 15 - Public Improvements</strong></h1>
+<div class="mini-TOC" data-endlevel="2" data-id="mini-TOC" data-startlevel="2">
+	<div class="mini-TOC-label">
+		<strong>Contents:</strong></div>
+	<ul><li><a class="tocLink" href="doc-viewer.aspx#secid-5147">15.04 Sanitary Sewer System - Connections</a></li>
+<li><a class="tocLink" href="doc-viewer.aspx#secid-3873">15.06 Stormwater Management Program and Utility</a></li>
+<li><a class="tocLink" href="doc-viewer.aspx#secid-4036">15.10 Stormwater Management Program - Standards and Permitting</a></li>
+<li><a class="tocLink" href="doc-viewer.aspx#secid-7734">Repealed Sections of Title 15 Public Improvements</a></li>
+</ul>
+</div>
+
+
+</section> 
+<section id='secid-5147' class='secLvl2 _015 _015-001' tabindex='-1' data-secid='5147'> 
+<h2>
+	15.04 Sanitary Sewer System &ndash; Connections<sup>1</sup></h2>
+<ol start="1" style="list-style-type: decimal;" class="list-v2">
+	<li><div class='li-num'>1.</div><div class='li-cont'>
+		For statutory provisions indicating that a City may require connections with a sewer system, and if the owner of property or other person required to so connect fails to do so, the City may cause such connections and assess the cost against the property and premises.&nbsp; See K.S.A. 12-631.&nbsp; For regulations governing connections with public sanitary sewer system as a prerequisite to issuance of a certificate of occupancy, see Chapter 18.52</div></li>
+</ol>
+<div class="mini-TOC" data-endlevel="3" data-id="mini-TOC" data-startlevel="3">
+	<div class="mini-TOC-label">
+		<strong>Contents:</strong></div>
+	<ul><li><a class="tocLink" href="doc-viewer.aspx#secid-3869">15.04.010  Required Connection Determined by Governing Body.</a></li>
+<li><a class="tocLink" href="doc-viewer.aspx#secid-3870">15.04.020  Failure to Connect after Notification - Connection by City or Bidder - Assessment against Property.</a></li>
+<li><a class="tocLink" href="doc-viewer.aspx#secid-3871">15.04.030 Financing Costs until Assessment Paid.</a></li>
+<li><a class="tocLink" href="doc-viewer.aspx#secid-3872">15.04.040 Disobedience to Chapter Deemed Offense.</a></li>
+</ul>
+</div>
+
+
+</section> 
+<section id='secid-3869' class='secLvl3 _015 _015-001 _015-001-001' tabindex='-1' data-secid='3869'> 
+<h3>
+	<strong>15.04.010 Required </strong><strong>Connection Determined </strong><strong>by Governing Body.</strong></h3>
+<p>
+	Any person or property owner owning buildings within the City, which buildings are, or shall be, located near a sanitary sewer, or in a block within any sanitary sewer district through which a sewer extends, may be required to make such connections with the sanitary sewer system as may be necessary in the judgment of the Governing Body of the City for the protection of the health of the public and for the purpose of disposing of all substances from any such building affecting the public health which may be lawfully and properly disposed of by means of such sanitary sewer.</p>
+<p>
+	(History: Ord. SSS-328 &sect;1, 65)</p>
+
+<p class='archiveNotice nullValue '>Effective on:&nbsp;1/1/1901</p>
+</section> 
+<section id='secid-3870' class='secLvl3 _015 _015-001 _015-001-002' tabindex='-1' data-secid='3870'> 
+<h3>
+	<strong>15.04.020 Failure to </strong><strong>Connect </strong><strong>after </strong><strong>Notification </strong><strong>- Connection by City or </strong><strong>Bidder </strong><strong>- Assessment against </strong><strong>Property</strong><strong>.</strong></h3>
+<p>
+	If any person or persons fail, neglect, or refuse to so connect any building or buildings with the sanitary sewer system for more than ten days after being notified in writing by the Governing Body to do so, the Governing Body may cause such buildings to be connected with the sanitary sewer system, or may advertise for bids for the construction and making of such sanitary sewer connections, and contract therefor with the lowest responsible bidder, and may assess the costs and expense thereof against the property and premises so connected.</p>
+<p>
+	(History: Ord. SSS-328 &sect;2, 65)</p>
+
+<p class='archiveNotice nullValue '>Effective on:&nbsp;1/1/1901</p>
+</section> 
+<section id='secid-3871' class='secLvl3 _015 _015-001 _015-001-003' tabindex='-1' data-secid='3871'> 
+<h3>
+	<strong>15.04.030 Financing </strong><strong>Costs </strong><strong>until </strong><strong>Assessment Paid</strong><strong>.</strong></h3>
+<p>
+	All costs incurred by the City under the provisions of this chapter may be financed, until the assessment is paid, out of the general fund, or by the issuance of no-fund warrants.</p>
+<p>
+	(History: Ord. SSS-328 &sect;3, 65)</p>
+
+<p class='archiveNotice nullValue '>Effective on:&nbsp;1/1/1901</p>
+</section> 
+<section id='secid-3872' class='secLvl3 _015 _015-001 _015-001-004' tabindex='-1' data-secid='3872'> 
+<h3>
+	<strong>15.04.040 Disobedience to </strong><strong>Chapter Deemed Offense</strong><strong>.</strong></h3>
+<p>
+	It is a public offense to disobey the provisions of this chapter.</p>
+<p>
+	(History: Added during codification in accordance with KSA 12-3015)</p>
+
+<p class='archiveNotice nullValue '>Effective on:&nbsp;1/1/1901</p>
+</section> 
+<section id='secid-3873' class='secLvl2 _015 _015-002' tabindex='-1' data-secid='3873'> 
+<h2>
+	<strong>15.06<strong> </strong>Stormwater Management Program </strong><strong>a</strong><strong>nd Utility</strong></h2>
+<div class="mini-TOC" data-endlevel="3" data-id="mini-TOC" data-startlevel="3">
+	<div class="mini-TOC-label">
+		<strong>Contents:</strong></div>
+	<ul><li><a class="tocLink" href="doc-viewer.aspx#secid-3874">15.06.010  Definitions.</a></li>
+<li><a class="tocLink" href="doc-viewer.aspx#secid-3898">15.06.020  Findings and Statements of Policy.</a></li>
+<li><a class="tocLink" href="doc-viewer.aspx#secid-3899">15.06.030  Creation of a Storm Water Management Program; Establishment of a Storm Water Utility.</a></li>
+<li><a class="tocLink" href="doc-viewer.aspx#secid-3900">15.06.040  Administration.</a></li>
+<li><a class="tocLink" href="doc-viewer.aspx#secid-3901">15.06.050  Budget.</a></li>
+<li><a class="tocLink" href="doc-viewer.aspx#secid-3902">15.06.060  Storm Water Utility User Fee.</a></li>
+<li><a class="tocLink" href="doc-viewer.aspx#secid-3903">15.06.070  Appeal Procedure.</a></li>
+<li><a class="tocLink" href="doc-viewer.aspx#secid-3904">15.06.080  Storm Water Utility User Fee Collection.</a></li>
+<li><a class="tocLink" href="doc-viewer.aspx#secid-3905">15.06.090  Storm Water Utility Fund.</a></li>
+<li><a class="tocLink" href="doc-viewer.aspx#secid-3906">15.06.100  Severability.</a></li>
+</ul>
+</div>
+
+
+</section> 
+<section id='secid-3874' class='secLvl3 _015 _015-002 _015-002-001' tabindex='-1' data-secid='3874'> 
+<h3>
+	<strong>15.06.010 Definitions.</strong></h3>
+<p>
+	In addition to the words, terms and phrases elsewhere defined in this ordinance, the following words, terms and phrases, as used in this ordinance, shall have the following meanings:</p>
+
+
+</section> 
+<section id='secid-3875' class='secLvl4 _015 _015-002 _015-002-001 _015-002-001-001' tabindex='-1' data-secid='3875'> 
+<p>
+	<strong class="def">Bonds</strong> means obligations of the City, for which the principal of and the interest on is paid in whole or in part from special assessments, user fees, sales tax, general ad valorem taxes, or any available City or Storm Water Utility revenues heretofore or hereafter issued to finance the Costs of Capital Improvements.</p>
+
+<p class='archiveNotice nullValue '>Effective on:&nbsp;1/1/1901</p>
+</section> 
+<section id='secid-3876' class='secLvl4 _015 _015-002 _015-002-001 _015-002-001-002' tabindex='-1' data-secid='3876'> 
+<p>
+	<strong class="def">City</strong> means the City of Overland Park, Kansas.</p>
+
+<p class='archiveNotice nullValue '>Effective on:&nbsp;1/1/1901</p>
+</section> 
+<section id='secid-3877' class='secLvl4 _015 _015-002 _015-002-001 _015-002-001-003' tabindex='-1' data-secid='3877'> 
+<p>
+	<strong class="def">City Manager</strong> means the City Manager of the City or the City Manager&rsquo;s designee.</p>
+
+<p class='archiveNotice nullValue '>Effective on:&nbsp;1/1/1901</p>
+</section> 
+<section id='secid-3878' class='secLvl4 _015 _015-002 _015-002-001 _015-002-001-004' tabindex='-1' data-secid='3878'> 
+<p>
+	<strong class="def">Costs of Capital Improvements </strong>means costs incurred by the Storm Water Utility in providing capital improvements as part of the Storm Water Management Program, including, without limitation, alteration, enlargement, extension, improvement, construction, reconstruction, and development of the Public Storm Sewers, professional services and studies connected therewith; principal and interest on Bonds heretofore or hereafter issued, including payment of any delinquencies; studies related to the operation of the system; costs related to water quality enhancements, costs related to complying with federal, state or local regulations; acquisition of real and personal property by purchase, lease, donation, condemnation or otherwise; and for the costs associated with purchasing equipment, computers, furniture and all other items necessary or convenient for the operations of the of the Storm Water Utility.</p>
+
+<p class='archiveNotice nullValue '>Effective on:&nbsp;1/1/1901</p>
+</section> 
+<section id='secid-3879' class='secLvl4 _015 _015-002 _015-002-001 _015-002-001-005' tabindex='-1' data-secid='3879'> 
+<p>
+	<strong class="def">Debt Service </strong>means an amount equal to the sum of all interest payable on Bonds during any fiscal year or years, and any principal installments payable on the Bonds during such fiscal year or years.</p>
+
+<p class='archiveNotice nullValue '>Effective on:&nbsp;1/1/1901</p>
+</section> 
+<section id='secid-3880' class='secLvl4 _015 _015-002 _015-002-001 _015-002-001-006' tabindex='-1' data-secid='3880'> 
+<p>
+	<strong class="def">Director </strong>means the Director of the City&#39;s Public Works Department or the Director&#39;s designee.</p>
+
+<p class='archiveNotice nullValue '>Effective on:&nbsp;1/1/1901</p>
+</section> 
+<section id='secid-3881' class='secLvl4 _015 _015-002 _015-002-001 _015-002-001-007' tabindex='-1' data-secid='3881'> 
+<p>
+	<strong class="def">Dwelling Unit </strong>means an enclosure containing sleeping, kitchen and bathroom facilities designed for and used or held ready for use as a permanent residence by one Family, as defined in <a class="xref" target="_blank" href="doc-viewer.aspx#secid-5207">Title 18</a> of the Overland Park Municipal Code.</p>
+
+<p class='archiveNotice nullValue '>Effective on:&nbsp;1/1/1901</p>
+</section> 
+<section id='secid-3882' class='secLvl4 _015 _015-002 _015-002-001 _015-002-001-008' tabindex='-1' data-secid='3882'> 
+<p>
+	<strong class="def">Equivalent Residential Unit or ERU</strong> means a unit of measure that is equal to the average Impervious Area per Dwelling Unit located on Residential Property within the City limits.</p>
+
+<p class='archiveNotice nullValue '>Effective on:&nbsp;1/1/1901</p>
+</section> 
+<section id='secid-3883' class='secLvl4 _015 _015-002 _015-002-001 _015-002-001-009' tabindex='-1' data-secid='3883'> 
+<p>
+	<strong class="def">Equivalent Residential Unit Rate</strong> or <strong class="def">ERU Rate </strong>means the amount charged for each ERU in calculating the Storm Water Utility User Fee.</p>
+
+<p class='archiveNotice nullValue '>Effective on:&nbsp;1/1/1901</p>
+</section> 
+<section id='secid-3884' class='secLvl4 _015 _015-002 _015-002-001 _015-002-001-010' tabindex='-1' data-secid='3884'> 
+<p>
+	<strong class="def">Exempt Property </strong>means public right-of-way, public trails, public streets, public alleys, public sidewalks, and public lands and/or easements in or upon which the Public Storm Sewers are constructed and/or located.</p>
+
+<p class='archiveNotice nullValue '>Effective on:&nbsp;1/1/1901</p>
+</section> 
+<section id='secid-3885' class='secLvl4 _015 _015-002 _015-002-001 _015-002-001-011' tabindex='-1' data-secid='3885'> 
+<p>
+	<strong class="def">Fiscal Year </strong>means a twelve-month period commencing on the first day of January of any year.</p>
+
+<p class='archiveNotice nullValue '>Effective on:&nbsp;1/1/1901</p>
+</section> 
+<section id='secid-3886' class='secLvl4 _015 _015-002 _015-002-001 _015-002-001-012' tabindex='-1' data-secid='3886'> 
+<p>
+	<strong class="def">Governing Body</strong> means the governing body of the City.</p>
+
+<p class='archiveNotice nullValue '>Effective on:&nbsp;1/1/1901</p>
+</section> 
+<section id='secid-3887' class='secLvl4 _015 _015-002 _015-002-001 _015-002-001-013' tabindex='-1' data-secid='3887'> 
+<p>
+	<strong class="def">Impervious Area </strong>means the total number of square feet of hard surface area on a given property that either prevents or retards the entry of water into the soil matrix, or causes water to run off the surface in greater quantities or at an increased rate of flow, than it would enter under conditions similar to those on undeveloped land. &quot;Impervious Area&quot; includes but is not limited to, roofs, roof extensions, driveways, pavement and athletic courts.</p>
+
+<p class='archiveNotice nullValue '>Effective on:&nbsp;1/1/1901</p>
+</section> 
+<section id='secid-3888' class='secLvl4 _015 _015-002 _015-002-001 _015-002-001-014' tabindex='-1' data-secid='3888'> 
+<p>
+	<strong class="def">Nonresidential Property </strong>means all property other than Residential Property.</p>
+
+<p class='archiveNotice nullValue '>Effective on:&nbsp;1/1/1901</p>
+</section> 
+<section id='secid-3889' class='secLvl4 _015 _015-002 _015-002-001 _015-002-001-015' tabindex='-1' data-secid='3889'> 
+<p>
+	<strong class="def">Operating Budget </strong>means the annual budget established for the Storm Water Utility for the succeeding Fiscal Year.</p>
+
+<p class='archiveNotice nullValue '>Effective on:&nbsp;1/1/1901</p>
+</section> 
+<section id='secid-3890' class='secLvl4 _015 _015-002 _015-002-001 _015-002-001-016' tabindex='-1' data-secid='3890'> 
+<p>
+	<strong class="def">Operations and Maintenance </strong>means, without limitation, the current expenses, paid or secured, by the Storm Water Utility, for operation, maintenance and repair and minor replacement of the Public Storm Sewers or for implementing the Storm Water Management Program, as calculated in accordance with generally accepted accounting practices, and includes, without limiting the generality of the foregoing, insurance premiums, administrative expenses including professional services, equipment costs, labor costs, and the cost of materials and supplies used for current operations.</p>
+
+<p class='archiveNotice nullValue '>Effective on:&nbsp;1/1/1901</p>
+</section> 
+<section id='secid-3891' class='secLvl4 _015 _015-002 _015-002-001 _015-002-001-017' tabindex='-1' data-secid='3891'> 
+<p>
+	<strong class="def">Public Storm Sewers </strong>means all storm sewers within the City, and all appurtenances and ancillary structures thereto, which have been dedicated to and accepted by the City for ownership and maintenance or otherwise owned by the City.</p>
+
+<p class='archiveNotice nullValue '>Effective on:&nbsp;1/1/1901</p>
+</section> 
+<section id='secid-3892' class='secLvl4 _015 _015-002 _015-002-001 _015-002-001-018' tabindex='-1' data-secid='3892'> 
+<p>
+	<strong class="def">Residential Property </strong>means property used primarily for one-family, two-family or multi-family Dwelling Units.</p>
+
+<p class='archiveNotice nullValue '>Effective on:&nbsp;1/1/1901</p>
+</section> 
+<section id='secid-3893' class='secLvl4 _015 _015-002 _015-002-001 _015-002-001-019' tabindex='-1' data-secid='3893'> 
+<p>
+	<strong class="def">Storm Water Management Program </strong>means all aspects of work necessary to perform and provide storm and surface water services in the City, including but not limited to administration, planning, engineering, operations, maintenance, best management practices, control measures, public education, citizen participation, regulation and enforcement, protection, and capital improvement of Storm Water Management Systems, plus such non-operating expenses as reserves and&nbsp;bond&nbsp;debt service coverage as are associated with provision of the Storm Water Management Program.</p>
+
+<p class='archiveNotice nullValue '>Effective on:&nbsp;1/1/1901</p>
+</section> 
+<section id='secid-3894' class='secLvl4 _015 _015-002 _015-002-001 _015-002-001-020' tabindex='-1' data-secid='3894'> 
+<p>
+	<strong class="def">Storm Water Management System</strong>, means surface water and storm sewers and all appurtenances necessary in the maintenance, operation, regulation, and improvement of the same, including, but not limited to, pumping stations; enclosed storm sewers; outfall sewers; surface drains; street, curb and alley improvements associated with storm or surface water improvements; natural and manmade wetlands; channels; ditches; rivers; streams; detention and retention facilities; and other flood control facilities and works for the collection, conveyance, pumping, infiltration, treating, controlling, managing and disposing of water carried pollutants or storm or surface water.</p>
+
+<p class='archiveNotice nullValue '>Effective on:&nbsp;1/1/1901</p>
+</section> 
+<section id='secid-3895' class='secLvl4 _015 _015-002 _015-002-001 _015-002-001-021' tabindex='-1' data-secid='3895'> 
+<p>
+	<strong class="def">Storm Water Utility </strong>means the utility created by this ordinance for the purpose of implementing and funding the Storm Water Management Program.</p>
+
+<p class='archiveNotice nullValue '>Effective on:&nbsp;1/1/1901</p>
+</section> 
+<section id='secid-3896' class='secLvl4 _015 _015-002 _015-002-001 _015-002-001-022' tabindex='-1' data-secid='3896'> 
+<p>
+	<strong class="def">Storm Water Utility User Fee </strong>means a fee authorized by Charter Ordinance No. Seventy-Nine and this ordinance, charged to owners of property served and benefited by the Storm Water Utility.</p>
+
+<p class='archiveNotice nullValue '>Effective on:&nbsp;1/1/1901</p>
+</section> 
+<section id='secid-3897' class='secLvl4 _015 _015-002 _015-002-001 _015-002-001-023' tabindex='-1' data-secid='3897'> 
+<p>
+	<strong class="def">Undeveloped Land</strong> means land that has not been built upon or altered from its natural condition in a manner that disturbed or altered the topography or soils on the property to the degree that the entrance of water into the soil matrix is prevented or retarded.</p>
+<p>
+	(History: Ord. SWU-2315 &sect;1, 2001)</p>
+
+<p class='archiveNotice nullValue '>Effective on:&nbsp;1/1/1901</p>
+</section> 
+<section id='secid-3898' class='secLvl3 _015 _015-002 _015-002-002' tabindex='-1' data-secid='3898'> 
+<h3>
+	<strong>15.06.020 Findings and Statements of Policy.</strong></h3>
+<ol class="list-v2">
+	<li><div class='li-num'>A.</div><div class='li-cont'>
+		The City of Overland Park, Kansas, desires to create a Storm Water Management Program pursuant to Charter Ordinance No. Seventy-Nine.</div></li>
+	<li><div class='li-num'>B.</div><div class='li-cont'>
+		A&nbsp;Storm Water Management Program&nbsp;will provide both general and specific benefits to all property within the&nbsp;City&nbsp;and will&nbsp;include the provision of adequate&nbsp;systems of collection, conveyance, detention, retention, treatment and release of storm water; the reduction of hazards to property and life resulting from storm water runoff; improvement in general health and welfare through reduction of undesirable storm water conditions; improvement of water quality in the Storm Water Management System and its receiving waters; the provision of a planned and orderly system for managing and mitigating the effects of new development on storm water and appropriate balancing between development and preservation of the natural environment.</div></li>
+	<li><div class='li-num'>C.</div><div class='li-cont'>
+		The&nbsp;Storm Water Management Program&nbsp;will also initiate innovative and proactive approaches to storm water management within the&nbsp;City&nbsp;to address&nbsp;problems in areas of the&nbsp;City&nbsp;that currently are prone to flooding, protect&nbsp;against&nbsp;replication of these types of problems and the creation of similar problems in newly developing areas of the&nbsp;City, protect property in the&nbsp;City&nbsp;from stream bank erosion and the attendant loss of natural resources and the reduction&nbsp;of&nbsp;property values, conserve natural stream assets within the&nbsp;City, enhance water quality, and assist in meeting the&nbsp;mandates of the National Pollutant Discharge Elimination System as created under the Federal Clean Water Act and associated state and federal laws and their supporting regulations.</div></li>
+	<li><div class='li-num'>D.</div><div class='li-cont'>
+		Both standard and innovative storm water management is necessary in the interest of the public health, safety and general welfare of the residents, businesses and visitors of the&nbsp;City.</div></li>
+	<li><div class='li-num'>E.</div><div class='li-cont'>
+		Implementation of the&nbsp;Storm Water Management Program&nbsp;will require the expenditure of significant amounts of public money.</div></li>
+	<li><div class='li-num'>F.</div><div class='li-cont'>
+		All developed property in the&nbsp;City&nbsp;will benefit from the&nbsp;Storm Water Management Program.</div></li>
+	<li><div class='li-num'>G.</div><div class='li-cont'>
+		The&nbsp;City&nbsp;desires to fairly distribute costs of the&nbsp;Storm Water Management Program&nbsp;implementation among all developed&nbsp;property which generates the need&nbsp;therefor.</div></li>
+	<li><div class='li-num'>H.</div><div class='li-cont'>
+		The&nbsp;City&nbsp;has determined that the establishment of a Storm Water Utility is an appropriate method of funding certain portions of the costs of implementing the&nbsp;Storm Water Management Program.</div></li>
+	<li><div class='li-num'>I.</div><div class='li-cont'>
+		The&nbsp;City&nbsp;has adopted Charter Ordinance No. Seventy-Nine, which grants to the&nbsp;City&nbsp;the authority to adopt, by ordinance,&nbsp;rules&nbsp;and regulations providing for the management and operation of a&nbsp;Storm Water Utility, fixing Storm Water Utility User Fees, requiring security for the payment thereof, providing methods and rules relating to the calculation and collection of the fees and for credits against the fees, and providing for the disposition of the revenues derived therefrom.</div></li>
+	<li><div class='li-num'>J.</div><div class='li-cont'>
+		The&nbsp;City&nbsp;commissioned a study that was prepared by Camp Dresser &amp; McKee Inc., to assist the&nbsp;City&nbsp;in developing the&nbsp;Storm&nbsp;Water Utility&nbsp;and&nbsp;to recommend an&nbsp;ERU&nbsp;and an&nbsp;ERU Rate.</div></li>
+	<li><div class='li-num'>K.</div><div class='li-cont'>
+		The Governing Body has evaluated the study and recommendations and hereby determines that the fees set forth herein are reasonable and necessary and should be implemented.</div></li>
+	<li><div class='li-num'>L.</div><div class='li-cont'>
+		The&nbsp;Storm Water Utility User Fee&nbsp;imposed by this Ordinance, is calculated by a formula that reasonably relates classes of property within the&nbsp;City&nbsp;to their anticipated use of or benefit from the&nbsp;Storm Water Management System, and such fee is&nbsp;neither a tax nor a special&nbsp;assessment, but a charge (in the nature of tolls, fees or rents) for services rendered or available.</div></li>
+	<li><div class='li-num'>M.</div><div class='li-cont'>
+		The&nbsp;City&nbsp;has researched collection options and hereby determines that in order to promote efficiency, eliminate duplication of&nbsp;services, and utilize the most economically feasible method of fee collection, the&nbsp;Storm Water Utility User Fee&nbsp;should be included on&nbsp;Overland Park ad valorem real property tax bills issued by Johnson County, in accordance with an agreement to be negotiated with the County, which will be placed on file in the office of the city clerk.</div></li>
+</ol>
+<p>
+	(History: Ord. SWU-2315 &sect;2, 2001)</p>
+
+<p class='archiveNotice nullValue '>Effective on:&nbsp;1/1/1901</p>
+</section> 
+<section id='secid-3899' class='secLvl3 _015 _015-002 _015-002-003' tabindex='-1' data-secid='3899'> 
+<h3>
+	<strong>15.06.030 Creation of a&nbsp;</strong>Storm Water Management Program<strong>; Establishment of a&nbsp;</strong>Storm Water Utility<strong>.</strong></h3>
+<p>
+	Pursuant to City Charter Ordinance No. Seventy-Nine, the&nbsp;City&#39;s&nbsp;general home rule authority, its nuisance abatement authority, its&nbsp;police powers and all other authority, the Overland Park Governing Body does hereby create a Storm Water Management Program and does hereby establish a Storm Water Utility and declares its intention to operate the same.</p>
+<p>
+	(History: Ord. SWU-2315 &sect;3, 2001)</p>
+
+<p class='archiveNotice nullValue '>Effective on:&nbsp;1/1/1901</p>
+</section> 
+<section id='secid-3900' class='secLvl3 _015 _015-002 _015-002-004' tabindex='-1' data-secid='3900'> 
+<h3>
+	<strong>15.06.040 Administration.</strong></h3>
+<p>
+	The Storm Water Utility, under the supervision of the Director, and not in contravention of any City ordinance, resolution or regulation, shall have the power to undertake the following activities to implement the Storm Water Management Program:</p>
+<ol class="list-v2">
+	<li><div class='li-num'>A.</div><div class='li-cont'>
+		Advise the Governing Body on matters relating to the&nbsp;Storm Water Management Program&nbsp;and to make recommendations to the&nbsp;Governing Body&nbsp;concerning&nbsp;the adoption of ordinances, resolutions, policies, guidelines and regulations in furtherance of the&nbsp;objectives of the&nbsp;Storm Water Management Program.</div></li>
+	<li><div class='li-num'>B.</div><div class='li-cont'>
+		To undertake studies, acquire data, prepare master plans, analyze policies or undertake such other planning and analyses as may be needed to address concerns related to storm water within the&nbsp;City&nbsp;and to further the objectives of the&nbsp;Storm Water Management Program, and to&nbsp;undertake activities designed to communicate, educate and involve the public and citizens in addressing these issues or in understanding and abiding by the elements of the&nbsp;Storm Water Management Program.</div></li>
+	<li><div class='li-num'>C.</div><div class='li-cont'>
+		Acquire, design, construct, operate, maintain, expand, or replace any element or elements of the Public Storm Sewers, including funding the acquisition of easements by eminent domain, and obtaining title or easements other than by eminent domain, over any real or personal property that is part of, will become part of or will protect the&nbsp;Public Storm Sewers, or is necessary or&nbsp;convenient for the implementation of the&nbsp;Storm Water Management Program.</div></li>
+	<li><div class='li-num'>D.</div><div class='li-cont'>
+		Regulate, establish standards, review, and inspect the design, construction or operation and maintenance of any Storm Water Management System that is under the control of private owners, whether or not such systems are required or intended for dedication to the&nbsp;Public Storm Sewer&nbsp;system, when such systems have the potential to impact, enhance, damage, obstruct or affect&nbsp;the operation and maintenance of the&nbsp;Public Storm Sewers&nbsp;or the implementation of the&nbsp;Storm Water Management Program.</div></li>
+	<li><div class='li-num'>E.</div><div class='li-cont'>
+		Regulate, establish standards, review and inspect land use or property owner activities when such activities have the potential to affect the quantity, timing, velocity, erosive forces, quality, environmental value or other characteristics of storm water which would flow into the&nbsp;Storm Water Management System&nbsp;or in any way effect the implementation of the&nbsp;Storm Water Management Program.</div></li>
+	<li><div class='li-num'>F.</div><div class='li-cont'>
+		Undertake any activities related to storm water management when such activities are recommended by applicable federal, state or local agencies or when such activities are required by any permit, regulation, ordinance, or statute governing storm water or water quality concerns.</div></li>
+	<li><div class='li-num'>G.</div><div class='li-cont'>
+		Analyze the cost of services and benefits provided by the&nbsp;Storm Water Utility&nbsp;and the structure of fees, service charges, credits, and other&nbsp;revenues on an annual basis and make recommendations to the&nbsp;Governing Body&nbsp;regarding the same.</div></li>
+	<li><div class='li-num'>H.</div><div class='li-cont'>
+		Undertake expenditures as required to implement these activities, including all Costs of Capital Improvements, Operations and Maintenance, Debt Service, and other costs as required.</div></li>
+</ol>
+<p>
+	(History: Ord. SWU-2315 &sect;4, 2001)</p>
+
+<p class='archiveNotice nullValue '>Effective on:&nbsp;1/1/1901</p>
+</section> 
+<section id='secid-3901' class='secLvl3 _015 _015-002 _015-002-005' tabindex='-1' data-secid='3901'> 
+<h3>
+	<strong>15.06.050 Budget.</strong></h3>
+<p>
+	The City shall, as part of its annual budget process, adopt capital and operating budgets for the Storm Water Utility. The&nbsp;operating budget&nbsp;shall&nbsp;conform with State law,&nbsp;City&nbsp;policy and generally accepted accounting practices. The initial&nbsp;operating budget&nbsp;will&nbsp;commence January 1, 2002, and ends December 31, 2002.</p>
+<p>
+	(History: Ord. SWU-2315 &sect;5, 2001)</p>
+
+<p class='archiveNotice nullValue '>Effective on:&nbsp;1/1/1901</p>
+</section> 
+<section id='secid-3902' class='secLvl3 _015 _015-002 _015-002-006' tabindex='-1' data-secid='3902'> 
+<h3><strong>15.06.060&nbsp;</strong>Storm Water Utility User Fee<strong>.</strong></h3>
+
+<ol class="list-v2">
+	<li>
+	<div class="li-num">A.</div>
+
+	<div class="li-cont"><strong>User Fee Established</strong>. Subject to the provisions of this ordinance, there is imposed on each Residential Property and Nonresidential Property, other than Exempt Property, property not served or benefited by the Storm Water Management Program or property consisting exclusively of Undeveloped Land, a Storm Water Utility User Fee. This&nbsp;fee&nbsp;is hereby imposed for the year 2001, and each subsequent year on all such property.</div>
+	</li>
+	<li>
+	<div class="li-num">B.</div>
+
+	<div class="li-cont"><strong>Equivalent Residential Unit</strong>. The&nbsp;Equivalent Residential Unit&nbsp;(ERU) is hereby established for purposes of calculating the&nbsp;Storm Water Utility User Fee. The&nbsp;ERU&nbsp;is hereby established to be 2,485 square feet of Impervious Area.</div>
+	</li>
+	<li>
+	<div class="li-num">C.</div>
+
+	<div class="li-cont"><strong>Equivalent Residential Unit Rate</strong>. The&nbsp;ERU rate&nbsp;to be used for calculating&nbsp;Storm Water Utility User Fees&nbsp;for each&nbsp;ERU&nbsp;is hereby established to be $44.00 per year.</div>
+	</li>
+	<li>
+	<div class="li-num">D.</div>
+
+	<div class="li-cont"><strong>Storm Water Utility User Fee&nbsp;for&nbsp;Residential Property</strong>. Subject to subparagraph G below, the&nbsp;Storm Water Utility User Fee&nbsp;for&nbsp;Residential Property&nbsp;shall be the&nbsp;ERU Rate&nbsp;multiplied by the number of individual Dwelling Units existing on the property. &nbsp; &nbsp;</div>
+	</li>
+	<li>
+	<div class="li-num">E.</div>
+
+	<div class="li-cont"><strong>Storm Water Utility User Fee&nbsp;for&nbsp;Nonresidential Property</strong>. Subject to subparagraph G below, the&nbsp;Storm Water Utility User Fee&nbsp;for&nbsp;Nonresidential Property&nbsp;shall be the&nbsp;ERU Rate&nbsp;multiplied by a numerical factor calculated by dividing the total&nbsp;Impervious Area&nbsp;of the property by the number of square feet in one&nbsp;ERU. In performing this calculation, the numerical factor shall be rounded to the nearest whole number. For&nbsp;Nonresidential Property&nbsp;with joint users of common&nbsp;Impervious&nbsp;Areas, the Director shall calculate and allocate the pro rata&nbsp;Storm Water Utility User Fee&nbsp;among the users.</div>
+	</li>
+	<li>
+	<div class="li-num">F.</div>
+
+	<div class="li-cont"><strong>Dwelling Unit&nbsp;and Impervious Surface Calculation</strong>. The&nbsp;Director&nbsp;shall make the initial calculations in accordance with the methods established in this section to&nbsp;determine the number of&nbsp;ERUs&nbsp;located on all&nbsp;Residential Property&nbsp;and&nbsp;Nonresidential Property&nbsp;and may from time to time change this calculation from the information&nbsp;and&nbsp;data deemed pertinent. With respect to new construction, the&nbsp;Director&nbsp;may require that the applicant for development approval submit&nbsp;square footage&nbsp;Impervious Area&nbsp;calculations and/or&nbsp;Dwelling Unit&nbsp;calculations. Any increase or decrease in the&nbsp;ERU&nbsp;calculation for a&nbsp;Residential Property&nbsp;or&nbsp;Nonresidential&nbsp;Property&nbsp;associated with new construction shall commence upon the issuance of the temporary certificate of occupancy, certificate of occupancy or&nbsp;certificate of compliance, whichever is first issued. The&nbsp;Storm Water Utility User Fee&nbsp;shall be based on the status of the property on January 1, 2001, for the year 2001 and&nbsp;upon the status of the property on May 31, for all subsequent years.</div>
+	</li>
+	<li>
+	<div class="li-num">G.</div>
+
+	<div class="li-cont"><strong>Storm Water Utility User Fee&nbsp;Credits</strong>. The Governing Body may, by ordinance, establish a system of credits, which may reduce the&nbsp;Storm Water Utility User Fee&nbsp;that is imposed in Section&nbsp;<a class="xref" target="_blank" href="doc-viewer.aspx#secid-3902">15.06.060</a>A., above.</div>
+	</li>
+	<li>
+	<div class="li-num">H.</div>
+
+	<div class="li-cont"><strong>Storm Water Utility User Fee&nbsp;Request for Recalculation</strong>. If the owner of&nbsp;Residential Property&nbsp;or&nbsp;Nonresidential Property, for which a&nbsp;Storm Water Utility User Fee&nbsp;has&nbsp;been&nbsp;imposed&nbsp;disagrees with the calculation of the&nbsp;Storm Water Utility User Fee&nbsp;imposed upon such owner&rsquo;s property, the owner may request a recalculation of the fee.</div>
+	</li>
+	<li>
+	<div class="li-num">I.</div>
+
+	<div class="li-cont"><strong>Procedure</strong>. Requests for credit or recalculation must be submitted, in writing, by the owner of&nbsp;Residential Property&nbsp;or&nbsp;Nonresidential Property, for which a&nbsp;Storm Water Utility&nbsp;User&nbsp;Fee&nbsp;has been imposed, to the&nbsp;Director&nbsp;on or before 5:00 p.m. on November 30 of the year for which the credit or recalculation is requested.&nbsp;The owner shall&nbsp;provide information substantiating the request, including detailed calculations of the amount of credit requested and the basis therefor or evidence of a mistake in initial fee calculation. The&nbsp;Director&nbsp;shall issue a determination in writing within 15 days of the receipt of the request.</div>
+	</li>
+</ol>
+
+<p>(History: Ord. SWU-3514, &sect;1, 2026; Ord. SWU-3455 &sect;1, 2024;&nbsp;Ord. SWU-3412 &sect;1, 2023;&nbsp;Ord. SWU-3333 <span style="font-size:14.6666669845581px; line-height:18.3333339691162px">&sect;1, 2021;&nbsp;</span>Ord. <span style="font-size:14.6666669845581px; line-height:18.3333339691162px">SWU-3216&nbsp;&sect;1, 2018; SWU-3138 &sect;1, 2016;&nbsp;</span><span style="font-size:11pt; line-height:18.3333339691162px">SWU-2315 &sect;6, 2001)</span></p>
+
+<p class='archiveNotice nullValue '>Effective on:&nbsp;1/1/1901</p>
+</section> 
+<section id='secid-3903' class='secLvl3 _015 _015-002 _015-002-007' tabindex='-1' data-secid='3903'> 
+<h3>
+	<strong>15.06.070 Appeal Procedure.</strong></h3>
+<p>
+	Owners of Residential Property or Nonresidential Property, for which a Storm Water Utility User Fee has been imposed, who disagree: (1) with the calculation of the Storm Water Utility User Fee; or (2) with the decision that their property is entitled to a credit or the continuation of a credit or on the amount of a credit, may appeal the calculation or finding to the City Manager. The owner must file a written notice of appeal with the City Clerk on or before 5:00 p.m. on December 31 of the current year being appealed. The owner, by the date set in writing by the Director, which shall not be less than seven days, shall provide information concerning the basis of the appeal, including a land survey prepared by a registered surveyor showing Dwelling Units, total property area, type of surface material and Impervious Area, as appropriate, and any other information that the Director shall request in writing to the owner. The Director may waive the submission of a land survey, if the Director determines that the survey is not necessary to make a determination on the appeal. The owner shall be afforded a hearing on the matter before the City Manager within sixty (60) days of filing the appeal. The burden of proof shall be on the owner to demonstrate, by clear and convincing evidence, that the determination of the Director, from which the appeal is being taken, is erroneous. Based on information provided in writing and at the hearing, the City Manager shall make a determination as to whether the Storm Water Utility User Fee and/or the credit should be adjusted or eliminated for the subject property. The City Manager shall notify the owner in writing of the decision.</p>
+<p>
+	The filing of a notice of appeal shall not stay the imposition, calculation or duty to pay the fee. The owner shall pay the Storm Water Utility User Fee, as stated in the billing, to the Johnson County, Kansas, Treasurer. If the City Manager determines that the owner should not pay a fee, pay a fee amount less than the amount appealed from, or receive a credit, the City shall issue a check to the owner in the appropriate amount within 10 business days of the date of the applicable written decision, which in no event shall be more than the amount of the fee paid by the owner as of the date the check is issued. If the credit is larger than the amount paid and additional fees are due for the same year, the City will issue the remaining credit within 10 business days after the remaining fees have been paid in full. All refunds shall be without interest.</p>
+<p>
+	The decision of the City Manager shall be final.</p>
+<p>
+	(History: Ord. SWU-2315 &sect;7, 2001)</p>
+
+<p class='archiveNotice nullValue '>Effective on:&nbsp;1/1/1901</p>
+</section> 
+<section id='secid-3904' class='secLvl3 _015 _015-002 _015-002-008' tabindex='-1' data-secid='3904'> 
+<h3>
+	<strong>15.06.080&nbsp;</strong>Storm Water Utility User Fee<strong>&nbsp;Collection.</strong></h3>
+<p>
+	The Storm Water Utility User Fee shall be billed by the Johnson County, Kansas, Clerk and collected by the Johnson County, Kansas, Treasurer. The&nbsp;Storm Water Utility User Fee&nbsp;shall be shown as a separate item on the County&#39;s annual ad valorem real property tax statement, in accordance with the procedures established in an agreement, pursuant to K.S.A. 12-2908, between the City and the County, as hereby authorized. The payment of&nbsp;Storm Water Utility User Fee&nbsp;bills for any given property shall be the responsibility of the&nbsp;owner of the property.</p>
+<p>
+	To the extent permitted by applicable law,&nbsp;Storm Water Utility User Fees&nbsp;shall be subject to interest for late payment at a rate that is the same as the rate&nbsp;prescribed in K.S.A. 79-2004, as amended and K.S.A.79-2968, as amended, shall constitute a lien on the applicable property, and shall be collected in the same manner as ad valorem real property taxes collected by the County, regardless of whether the&nbsp;Storm Water Utility User Fees&nbsp;were incurred when a property owner was in possession of the property or a non-owner was in&nbsp;possession of the property.</p>
+<p>
+	(History: Ord. SWU-2315 &sect;8, 2001)</p>
+
+<p class='archiveNotice nullValue '>Effective on:&nbsp;1/1/1901</p>
+</section> 
+<section id='secid-3905' class='secLvl3 _015 _015-002 _015-002-009' tabindex='-1' data-secid='3905'> 
+<h3>
+	<strong>15.06.090&nbsp;</strong>Storm Water Utility<strong>&nbsp;Fund.</strong></h3>
+<p>
+	Storm Water Utility User Fees, dedicated ad valorem taxes and other available revenues shall be paid into a fund that is hereby created and shall be known as the &quot;Storm Water Utility Fund.&quot; This fund shall be used for the purpose of paying Costs of Capital Improvements, Operations and Maintenance, Debt Service and any other costs associated with the implementation and operation of the Storm Water Management Program.</p>
+<p>
+	(History: Ord. SWU-2315 &sect;9, 2001)</p>
+
+<p class='archiveNotice nullValue '>Effective on:&nbsp;1/1/1901</p>
+</section> 
+<section id='secid-3906' class='secLvl3 _015 _015-002 _015-002-010' tabindex='-1' data-secid='3906'> 
+<h3>
+	<strong>15.06.100 Severability.</strong></h3>
+<p>
+	If any section, subsection, sentence, clause, phrase, or portion of this ordinance is for any reason held invalid or unconstitutional by any court or administrative agency of competent jurisdiction, such portion shall be deemed a separate, distinct, and independent provision and such holding shall not affect the validity of the remaining portions hereof.</p>
+<p>
+	(History: Ord. SWU-2315 &sect;10, 2001)</p>
+
+<p class='archiveNotice nullValue '>Effective on:&nbsp;1/1/1901</p>
+</section> 
+<section id='secid-4036' class='secLvl2 _015 _015-003' tabindex='-1' data-secid='4036'> 
+<h2>
+	<strong>15.10</strong><strong> </strong><strong>Stormwater Management Program - Standards and Permitting</strong></h2>
+<div class="mini-TOC" data-endlevel="3" data-id="mini-TOC" data-startlevel="3">
+	<div class="mini-TOC-label">
+		<strong>Contents:</strong></div>
+	<ul><li><a class="tocLink" href="doc-viewer.aspx#secid-4037">15.10.100  Stormwater Management Standards.</a></li>
+<li><a class="tocLink" href="doc-viewer.aspx#secid-4038">15.10.150  Approval of Construction.</a></li>
+<li><a class="tocLink" href="doc-viewer.aspx#secid-4039">15.10.200  Methods of Conveying Stormwater.</a></li>
+<li><a class="tocLink" href="doc-viewer.aspx#secid-4040">15.10.300  Lakes and Ponds.</a></li>
+<li><a class="tocLink" href="doc-viewer.aspx#secid-4041">15.10.400  Stormwater Detention.</a></li>
+<li><a class="tocLink" href="doc-viewer.aspx#secid-4042">15.10.450  Downstream Improvement Alternative to Storm Water Detention.</a></li>
+<li><a class="tocLink" href="doc-viewer.aspx#secid-4043">15.10.500  Maintenance.</a></li>
+<li><a class="tocLink" href="doc-viewer.aspx#secid-4044">15.10.550  Private Improvements in Easements Containing Public Drainage Facilities.</a></li>
+<li><a class="tocLink" href="doc-viewer.aspx#secid-4045">15.10.600  Insurance.</a></li>
+<li><a class="tocLink" href="doc-viewer.aspx#secid-4046">15.10.700  Surety Submission; Amount and Period.</a></li>
+<li><a class="tocLink" href="doc-viewer.aspx#secid-4047">15.10.800  Variances.</a></li>
+<li><a class="tocLink" href="doc-viewer.aspx#secid-4048">15.10.900  Violation – Penalty.</a></li>
+<li><a class="tocLink" href="doc-viewer.aspx#secid-4049">15.10.950  Enjoinment.</a></li>
+</ul>
+</div>
+
+
+</section> 
+<section id='secid-4037' class='secLvl3 _015 _015-003 _015-003-001' tabindex='-1' data-secid='4037'> 
+<h3>
+	<strong>15.10.100 Stormwater Management Standards.</strong></h3>
+<ol class="list-v2">
+	<li><div class='li-num'>A.</div><div class='li-cont'>
+		<strong>Standards</strong>
+		<p>
+			All methods of stormwater management constructed or modified in the City, shall be in accordance with the requirements in this Chapter and the current requirements for stormwater conveyance facilities set forth in the Standards as defined and incorporated by reference in <a class="xref" target="_blank" href="doc-viewer.aspx#secid-3613">13.10</a>, on file in the office of the City Clerk. Stormwater management includes, but is not limited to, storm sewers, natural or engineered channels, stormwater detention facilities, and dams.</p>
+	</div></li>
+	<li><div class='li-num'>B.</div><div class='li-cont'>
+		<strong>Adoption of and Amendment to Standards</strong>
+		<p>
+			The requirements for stormwater conveyance facilities contained within the Standards shall be adopted and amended by the City Engineer in accordance with Section <a class="xref" target="_blank" href="doc-viewer.aspx#secid-3629">13.10.020</a>.</p>
+	</div></li>
+</ol>
+<p>
+	(History: Ord. SWM-2853 &sect;1, 2010; SWM-2668 &sect;1, 2008; SWM-2505 &sect;1, 2004; SDR-2379 &sect;&sect;1 through 4, 2002; SDR-2192 &sect;&sect; 1, 3 through 8, &sect;&sect;10 through 14, &sect;&sect;16 through 20, &sect;&sect;22 through 36 &amp; &sect;44, 2000; SDR-2096 &sect;1, 98; SDR-1820 &sect;&sect;2 through 4, 93; SDR-1736 &sect;1 and &sect;2, 92; SDR-1413 &sect;1, 86; SDR-1340 &sect;3, 85; SD-1276 &sect;2 and &sect;3,84; SDR-1275 &sect;&sect;1 through 6, &sect;&sect;8 through 14, &sect;&sect;17 through 22 &amp; &sect;&sect;24 through 29, 84; SD-1234 &sect;2, &sect;&sect;4 through 20 &amp; &sect;23, 83; SDR-1168 &sect;&sect;1 through 4, 82; SDR-703 &sect;3-1 (part), &sect;3-2 (part), &sect;&sect;3-3 through 3-7 &amp; &sect;&sect;3-9 through 3-10, 72; SDR-349,B &sect;1 (part), &sect;&sect;3-1 through 3-7 &amp; &sect;&sect;3-9 through 3-10, 71; SDR-349,A &sect;3-10, 68; SDR-349 &sect;3 (part), &sect;4 part, &sect;&sect;3-1 through 3-7, &sect;3-9, &sect;&sect;4-1 through 4-9-7, &sect;&sect;4-10 through 4-10-2, &sect;&sect;4-11 through 4-11-2, &sect;&sect;4-12 through 4-17, &sect;&sect;5-1 through 5-3.2, &sect;5-4, &sect;5-6, &sect;5-8 through 5-12, &sect;&sect;6-1 through 6-2, &sect;&sect;7-1 through 7-5.4, &sect;&sect;8-1.1 through 8-1.2 &amp; &sect;8-2, 65)</p>
+
+<p class='archiveNotice nullValue '>Effective on:&nbsp;1/1/1901</p>
+</section> 
+<section id='secid-4038' class='secLvl3 _015 _015-003 _015-003-002' tabindex='-1' data-secid='4038'> 
+<h3>
+	<strong>15.10.150 Approval of Construction.</strong></h3>
+<p>
+	Any person or entity proposing to construct or modify any stormwater management improvement or modify a natural channel within the City shall apply to the City Engineer for approval of the location, dimensions, design and construction methods and materials of such stormwater management facility.&nbsp; The application shall be in writing and shall contain such information including maps, plats, diagrams, detailed drawings and specifications as the City Engineer may require.&nbsp; If the City Engineer finds that the proposed work will conform to the Standards, the City Engineer shall issue approval in writing.&nbsp; If the City Engineer finds that the proposed work will not conform to the Standards, the City Engineer may grant a written variance to the Standards, but not to any other provisions of this Chapter.&nbsp; Any variance granted by the City Engineer shall follow the guidelines established in Section <a class="xref" target="_blank" href="doc-viewer.aspx#secid-4047">15.10.800</a>.&nbsp; The City Engineer shall issue a written notice of disapproval when such a determination has been made.&nbsp; Any interested party may appeal the action of the City Engineer to the Governing Body by filing written notice with the City Clerk within ten days of the date of the action of the City Engineer.&nbsp; In case of a timely filed appeal for an approval by the City Engineer, approval shall be suspended until final disposition of the matter by the Governing Body.&nbsp; No stormwater management facility or modification to a channel shall be commenced within the City until a Public Improvement, Site Development, or Building permit authorizing the approved work is issued by the City, unless said work is exempt from obtaining all City permits and will not negatively impact storm drainage.</p>
+<p>
+	(History: Ord. SWM-2853 &sect;2, 2010; SWM-2668 &sect;2, 2008; SWM-2505 &sect;1, 2004; SDR-2192 &sect;&sect;2 &amp; 42, 2000; SDR-1340 &sect;1, 85; SDR-1275 &sect;35, 84; SD-1234 &sect;&sect;1 &amp; 25, 83; SDR-349 &sect;&sect;1 &amp; 9, 65)</p>
+
+<p class='archiveNotice nullValue '>Effective on:&nbsp;1/1/1901</p>
+</section> 
+<section id='secid-4039' class='secLvl3 _015 _015-003 _015-003-003' tabindex='-1' data-secid='4039'> 
+<h3><strong>15.10.200 Methods of Conveying Stormwater.</strong></h3>
+
+<p>As required by Section <a class="xref" target="_blank" href="doc-viewer.aspx#secid-3629">13.10.020</a>, the City Engineer will adopt, maintain and make available the Standards for methods of conveyance for stormwater, except for building roof drains which are regulated by the currently adopted version of the International Building Code. Additionally, <a class="xref" target="_blank" href="doc-viewer.aspx#secid-6019">18.365</a> establishes City criterion for protecting natural streams and Section <a class="xref" target="_blank" href="doc-viewer.aspx#secid-6030">18.365.030</a> provides specific exceptions which allow storm sewer improvements.</p>
+
+<p>Methods of conveying stormwater vary, depending on the natural watershed size. Watersheds with tributary areas less than 40 acres may utilize the natural stream OR underground storm sewers combined with overland flow. Watersheds with tributary areas greater than 40 acres shall utilize the natural stream for stormwater conveyance. When the watershed&rsquo;s tributary area is greater than 40 acres, underground storm sewer systems may be authorized only when one of the following is met:</p>
+
+<ol class="list-v2">
+	<li>
+	<div class="li-num">A.</div>
+
+	<div class="li-cont"><a class="xref" target="_blank" href="doc-viewer.aspx#secid-6019">18.365</a> criterion provides relief from dedication of a stream corridor.</div>
+	</li>
+	<li>
+	<div class="li-num">B.</div>
+
+	<div class="li-cont">The project qualifies for an exception in Section <a class="xref" target="_blank" href="doc-viewer.aspx#secid-6030">18.365.030</a>.</div>
+	</li>
+	<li>
+	<div class="li-num">C.</div>
+
+	<div class="li-cont">A deviation is granted, as provided in Section <a class="xref" target="_blank" href="doc-viewer.aspx#secid-6037">18.365.100</a>.</div>
+	</li>
+</ol>
+
+<p>Engineered channels and/or relocating natural streams are not approved methods of conveyance for stormwater; however, the City Engineer may adopt standards for these methods of conveyance for use under the following conditions:</p>
+
+<ol class="list-v2">
+	<li>
+	<div class="li-num">A.</div>
+
+	<div class="li-cont">A deviation, as specified in Section <a class="xref" target="_blank" href="doc-viewer.aspx#secid-6037">18.365.100</a>, is granted.</div>
+	</li>
+	<li>
+	<div class="li-num">B.</div>
+
+	<div class="li-cont">A variance may be granted by the Governing Body when the Section <a class="xref" target="_blank" href="doc-viewer.aspx#secid-6037">18.365.100</a> deviation process does not apply.</div>
+	</li>
+	<li>
+	<div class="li-num">C.</div>
+
+	<div class="li-cont">In an RE District, if the watershed is less than 40 acres and the channel is outside of street right-of-way, an engineered channel is allowed. In addition to the setback requirements established in <a class="xref" target="_blank" href="doc-viewer.aspx#secid-6019">18.365</a>, no building shall take place within 60 feet of the centerline of any channel in the RE District.</div>
+	</li>
+	<li>
+	<div class="li-num">D.</div>
+
+	<div class="li-cont">A natural conveyance swale, or similar facility permitted for conveying stormwater&nbsp;​​​​​​​is designed as an integral part of a stormwater treatment facility. Limitations for usage, locations and building setbacks for such facilities are provided in the Stormwater Treatment Standards as set forth under <a class="xref" target="_blank" href="doc-viewer.aspx#secid-6340">16.210</a> of this Code.</div>
+	</li>
+</ol>
+
+<p>(History: Ord., SWM-3426 &sect;1, 2024;&nbsp;​​​​​​​Ord. SWM-2853 &sect;3, 2010; SWM-2668 &sect;3, 2008; SWM-2505 &sect;1, 2004; SDR-2390 &sect;1, 2002; SDR-2192 &sect;9, 2000; SDR-1820 &sect;1, 93; SDR-1612 &sect;1, 89; SDR-1558 &sect;1, 88; SDR-1340 &sect;2, 85; SDR-1275 &sect;7, 84; SDR-703 &sect;3-8, 72; SDR-349,B &sect;3-8, 71; SDR-349 &sect;3-8, 65)</p>
+
+<p class='archiveNotice nullValue '>Effective on:&nbsp;1/1/1901</p>
+</section> 
+<section id='secid-4040' class='secLvl3 _015 _015-003 _015-003-004' tabindex='-1' data-secid='4040'> 
+<h3><strong>15.10.300<strong> </strong>Lakes and Ponds.</strong></h3>
+
+<p>In addition to the Standards, private lakes and ponds in subdivisions shall conform to the following minimum standards, which have been established to limit routine maintenance expenses experienced by the private lake and pond owners.</p>
+
+<ol class="list-v2">
+	<li>
+	<div class="li-num">A.</div>
+
+	<div class="li-cont">The minimum surface area is two acres per lake or pond, with the minimum maintained depth of four feet, or ten feet if intended to support fish, except that decorative water features not serially connected to the storm drainage system of the development are exempt from the minimum area requirement. Minimum depth&nbsp;and surface area requirements are not applicable to all or portions of such facilities designed as a stormwater treatment facility. Design requirements for stormwater treatment facilities are set forth under <a class="xref" target="_blank" href="doc-viewer.aspx#secid-6340">16.210</a>;</div>
+	</li>
+	<li>
+	<div class="li-num">B.</div>
+
+	<div class="li-cont">Design priority must be given for ease of removing accumulations of silt, including access for equipment and trucks, drainage of the lake or pond if feasible;</div>
+	</li>
+	<li>
+	<div class="li-num">C.</div>
+
+	<div class="li-cont">Plans for lakes and ponds must be approved by the City Engineer and include emergency spillway design in accordance with state law and the Standards, and provisions for suitable soil testing for dam and lake or pond construction;</div>
+	</li>
+	<li>
+	<div class="li-num">D.</div>
+
+	<div class="li-cont">Necessary state approvals and permits are to be obtained by the developer; and</div>
+	</li>
+	<li>
+	<div class="li-num">E.</div>
+
+	<div class="li-cont">An agreement running with the land must be executed by the applicant and approved by the Law Department declaring that the City has no past, present or future obligation to expend any public funds or to take any other action to maintain or improve the lake, lakes, pond, or ponds, including any inlet or outlet structures, or any portion of the drainage facilities approved by private facilities. This agreement must require that funds be collected from property owners sufficient to pay for the maintenance of lake, pond and storm sewer facilities.</div>
+	</li>
+</ol>
+
+<p>(History: Ord. SWM-3426 &sect;2, 2024;&nbsp;​​​​​​​Ord. SWM-2853 &sect;4, 2010; SWM-2668 &sect;4, 2008; SWM-2505 &sect;1, 2004)</p>
+
+<p class='archiveNotice nullValue '>Effective on:&nbsp;1/1/1901</p>
+</section> 
+<section id='secid-4041' class='secLvl3 _015 _015-003 _015-003-005' tabindex='-1' data-secid='4041'> 
+<h3><strong>15.10.400 Stormwater Detention.</strong></h3>
+
+<p>Stormwater detention facilities shall be constructed with all proposed developments that result in an increase in peak discharge from the site whenever downstream homes or habitable buildings are flooded in a 1% or more frequent storm, or when such homes and buildings would be flooded as a result of future development, either individually or cumulatively in the watershed, or whenever streets are subjected to flooding in excess of the Standards, except that detention is not required under any of the following circumstances:</p>
+
+<ol class="list-v2">
+	<li>
+	<div class="li-num">A.</div>
+
+	<div class="li-cont">When such flooding occurs within the Special Flood Hazard Area, as defined in <a class="xref" target="_blank" href="doc-viewer.aspx#secid-5908">18.360</a> and the watershed is greater than 5000 acres.</div>
+	</li>
+	<li>
+	<div class="li-num">B.</div>
+
+	<div class="li-cont">If the project does not increase impervious area.</div>
+	</li>
+	<li>
+	<div class="li-num">C.</div>
+
+	<div class="li-cont">When such development meets both of the following:&nbsp;
+	<ol>
+		<li>
+		<div class="li-num">1.</div>
+
+		<div class="li-cont">The development is one or more contiguous lots or parcels under common ownership and not part of a larger common plan of development, or redevelopment, that in total includes one (1) acre or less of land.&nbsp;</div>
+		</li>
+		<li>
+		<div class="li-num">2.</div>
+
+		<div class="li-cont">When such development is residential in nature and the allowed density under the zoning district is less than or equal to 12.5 dwelling units per acre.&nbsp;</div>
+		</li>
+	</ol>
+	</div>
+	</li>
+	<li>
+	<div class="li-num">D.</div>
+
+	<div class="li-cont">For developments larger than one (1) acre, where stormwater detention has not been previously provided on the site, a cumulative 8,000 square feet of additional impervious surface may be permitted without providing detention. Cumulative impervious area shall be measured from September 1984, the effective date of the first detention ordinance.&nbsp;For purposes of this ordinance, pervious payment shall be considered fully pervious.&nbsp;</div>
+	</li>
+	<li>
+	<div class="li-num">E.</div>
+
+	<div class="li-cont">Problems are identified in a watershed that had not previously required a detention study, and if the remaining increase in flooding caused by the cumulative remaining development in the watershed is less than 0.05 feet for building flooding or 0.2 feet for roadway flooding, or if the increase in peak flow rate from the cumulative remaining development in a basin is less than 0.5%.</div>
+	</li>
+	<li>
+	<div class="li-num">F.</div>
+
+	<div class="li-cont">If the City Engineer determines that detention would be ineffective to prevent flooding or would aggravate existing flooding conditions.</div>
+	</li>
+	<li>
+	<div class="li-num">G.</div>
+
+	<div class="li-cont">When the City Engineer determines that reasonably anticipated future problems can be solved by alternate storm drainage improvements constructed through the use of escrowed funds in accordance with this Section or other funding methods, or when alternative storm drainage improvements are constructed by the developer or when such downstream problems are due to a unique characteristic of a downstream building or buildings that could be corrected at reasonable cost and effort by their owner or owners.</div>
+	</li>
+	<li>
+	<div class="li-num">H.</div>
+
+	<div class="li-cont">Either a current or previous owner of a development site tributary to the Kingston Lake Regional Detention Facility has contributed funds to 151st Street Associates for the construction of that facility, and there is no flooding of homes and habitable structures or flooding of streets in excess of the Standards between the development site and Kingston Lake.</div>
+	</li>
+	<li>
+	<div class="li-num">I.</div>
+
+	<div class="li-cont">&quot;Flooding&quot; of homes and habitable buildings, for the purposes of stormwater detention, shall be defined as when the structure&rsquo;s lowest adjacent grade is less than one foot above the energy grade line of the 1% storm for fully developed conditions upstream AND the property owner is unable to fill adjacent to the structure to meet this criteria.</div>
+	</li>
+</ol>
+
+<p>(History: Ord. SWM-3426 &sect;3, 2024;&nbsp;​​​​​​​Ord. SWM-2853 &sect;5, 2010; SWM-2668 &sect;5, 2008; SWM-2505 &sect;1, 2004; SD-1365 &sect;1, 86; SD-1276 &sect;1, 84; SD-1234 &sect;3, 83)</p>
+
+<p class='archiveNotice nullValue '>Effective on:&nbsp;1/1/1901</p>
+</section> 
+<section id='secid-4042' class='secLvl3 _015 _015-003 _015-003-006' tabindex='-1' data-secid='4042'> 
+<h3><strong>15.10.450 Downstream Improvement Alternative to Storm Water Detention.</strong></h3>
+
+<p>In cases where a downstream flooding problem may reasonably be anticipated due to future development in a watershed, the City Engineer may, at his discretion and with the developer&#39;s consent, approve a plan of downstream flood relief in lieu of on-site detention.&nbsp; In such instances, an escrow deposit in the form of cash deposit&nbsp;in accordance with City policy and in an amount sufficient to pay an area-based proportional share of the cost of constructing a downstream flood relief project shall be required.&nbsp; The amount of the escrow deposit shall be calculated by the City Engineer for each drainage basin based on sufficient funds being collected to correct the problem when undetained development in the basin is one-half of the watershed area.</p>
+
+<p>The cash deposit shall&nbsp;be deposited with the City&#39;s Director of Finance, Budget and Administration.&nbsp; The funds collected shall be placed in an escrow account and set aside for the construction of the downstream flood relief project.&nbsp; The improvements will be made within 20 years from the time cash is placed into escrow or within 19 years from the cashing of the irrevocable letter of credit.&nbsp; In the event that the improvements are not made within the respective times stated above, the funds from the escrow account together with the actual accrued interest shall be returned to the developer or his successors in interest.&nbsp; In the event the actual construction costs are less than that estimated by the City Engineer, a proportionate share of the surplus funds shall be returned to the developer or his successors in interest.</p>
+
+<p>(History: Ord. SWM-3426 &sect;4, 2024;&nbsp;​​​​​​​Ord. SWM-2505 &sect;1, 2004; SD-1821 &sect;1, 93; SD-1365 &sect;2, 86)</p>
+
+<p class='archiveNotice nullValue '>Effective on:&nbsp;1/1/1901</p>
+</section> 
+<section id='secid-4043' class='secLvl3 _015 _015-003 _015-003-007' tabindex='-1' data-secid='4043'> 
+<h3>
+	<strong>15.10.500 Maintenance.</strong></h3>
+<p>
+	All public storm sewer systems constructed in conformance with the Standards and located within public drainage easements shall be maintained by the City upon final inspection and acceptance of the project. For a period of two years after the final inspection, the contractor shall be responsible for repair of all work he was authorized to perform by the Public Improvement Permit, as defined in Section <a class="xref" target="_blank" href="doc-viewer.aspx#secid-3614">13.10.010</a>, or other permit type requiring a maintenance bond. The contractor shall further be responsible, for two years from the final inspection, for the repair of streets, roadways, curbs, sidewalks or other surface facilities due to backfill settlement above the underground conduits.</p>
+<p>
+	Privately constructed stormwater treatment facilities as required under <a class="xref" target="_blank" href="doc-viewer.aspx#secid-6340">16.210</a> shall be privately maintained even when they receive drainage from public storm drainage facilities. Generally, public maintenance shall include the public storm sewer pipe system, end section and any required energy dissipation from the pipe system. For stormwater treatment facilities that discharge to a public storm drainage facility, public maintenance shall begin at the public storm sewer inlet. Maintenance of such private stormwater treatment facilities is intended to include cleanup and removal of silt, trash, debris, spills and other pollutants conveyed into the private facility by the public facility.</p>
+<p>
+	Compliance with <a class="xref" target="_blank" href="doc-viewer.aspx#secid-1489">7.26</a>, providing for property maintenance, shall be required as applicable.</p>
+<ol class="list-v2">
+	<li><div class='li-num'>A.</div><div class='li-cont'>
+		<strong>Swales</strong> <strong>-- </strong>Engineered swales, as defined by the Standards, constructed in residential subdivisions are the responsibility of the property owner to preserve and maintain. It is the responsibility of the property owner to install and maintain the grades to convey stormwater in accordance with the approved grading and building site plans. Prior to issuance of a temporary certificate of occupancy, the grades shall be inspected by the City. If any form of certificate of occupancy is issued prior to the City&#39;s approval of the grading, the permit applicant shall complete the grading within 60 days.<i> </i></div></li>
+	<li><div class='li-num'>B.</div><div class='li-cont'>
+		<strong>Stormwater Detention Facilities</strong> <strong>-- </strong>Stormwater detention facilities are most often private stormwater management facilities constructed to the Standards.<strong> </strong>Maintenance of detention facilities shall be the responsibility of the property owner and shall include: (1) debris removal and cleaning; (2) cutting of vegetation; (3) repair of erosion; (4) removal of silt; and (5) maintenance of structural facilities not located in a public drainage easement.</div></li>
+</ol>
+<p>
+	Upon completion of construction and after final stabilization, the owner of each detention basin shall furnish certification by a licensed professional engineer to the City Engineer that the detention basin has full storage capacity, all inlet and outlet structures are fully functional, all inlet and outlet structures are fully functional, and the basin is vegetated in conformance with the approved detention plans. Subsequently, maintenance certifications by a licensed professional engineer shall be submitted on or before May 1 the first full year following initial certification and every two years thereafter.</p>
+<p>
+	(History: Ord. SWM-2853 &sect;5, 2010; SWM-2668 &sect;6, 2008; SWM-2505 &sect;1, 2004; SDR-2192 &sect;38, 2000; SDR-1275 &sect;32, 84; SD-1234 &sect;21, 83; SDR-349 &sect;8-5, 65)</p>
+
+<p class='archiveNotice nullValue '>Effective on:&nbsp;1/1/1901</p>
+</section> 
+<section id='secid-4044' class='secLvl3 _015 _015-003 _015-003-008' tabindex='-1' data-secid='4044'> 
+<h3>
+	<strong>15.10.550 Private Improvements in </strong><strong>Easements Containing </strong><strong>Public Drainage </strong><strong>Facilitie</strong><strong>s.</strong></h3>
+<p>
+	Subject to the provisions of Section <a class="xref" target="_blank" href="doc-viewer.aspx#secid-5683">18.140.270</a>(A) (10) and (11), the City Engineer may allow private improvements to be constructed in easements containing public drainage facilities. The Governing Body has, by resolution, adopted administrative policies for installation of private improvements in easements containing public drainage facilities. Any private improvements constructed in easements containing public drainage facilities shall be removed at the direction of the City if the encroachment impairs the strength or interferes with the use and/or maintenance of the public drainage facilities. The removal shall be at the sole cost and expense of the property owner and the City will bear no cost associated therewith.</p>
+<p>
+	(History: Ord. SWM-2851 &sect;1, 2010)</p>
+
+<p class='archiveNotice nullValue '>Effective on:&nbsp;1/1/1901</p>
+</section> 
+<section id='secid-4045' class='secLvl3 _015 _015-003 _015-003-009' tabindex='-1' data-secid='4045'> 
+<h3><strong>15.10.600 Insurance.</strong></h3>
+
+<p>All contractors shall secure and maintain insurance coverage in accordance with provisions of <a class="xref" target="_blank" href="doc-viewer.aspx#secid-3636">13.10.090</a>.</p>
+
+<p>(History: Ord. SWM-3426 &sect;5, 2024;&nbsp;Ord. SWM-2505 &sect;1, 2004; SDR-2192 &sect;37, 2000; SDR-1275 &sect;31, 84; REP-1061 &sect;1, 80; SDR-349 &sect;8-4, 65)</p>
+
+<p class='archiveNotice nullValue '>Effective on:&nbsp;1/1/1901</p>
+</section> 
+<section id='secid-4046' class='secLvl3 _015 _015-003 _015-003-010' tabindex='-1' data-secid='4046'> 
+<h3><strong>15.10.700 Surety Submission; Amount and Period.</strong></h3>
+
+<p>All contractors shall submit a surety in the amount and for the period set out in accordance with the provisions of <a class="xref" target="_blank" href="doc-viewer.aspx#secid-3637">13.10.100</a> except private storm water detention facilities are not required to post a maintenance bond. The City Engineer may also waive the requirement for a storm water detention facility surety when: 1) the work is authorized by a building permit to construct a building of greater value than the required storm water detention surety or 2) all building permits within a residential subdivision are withheld until the detention facility is completed.</p>
+
+<p>(History: Ord. SWM-3426 &sect;6, 2024;&nbsp;Ord. SWM-2505 &sect;1, 2004; SDR-2192 &sect;39, 2000; SDR-1820 &sect;5, 93; SDR-1397 &sect;1, 86; SD-1394 &sect;1, 86; SDR-1275 &sect;33, 84; SD-1234 &sect;22, 83; SDR-349 &sect;8-6, 65)</p>
+
+<p class='archiveNotice nullValue '>Effective on:&nbsp;1/1/1901</p>
+</section> 
+<section id='secid-4047' class='secLvl3 _015 _015-003 _015-003-011' tabindex='-1' data-secid='4047'> 
+<h3>
+	<strong>15.10.800 Variances.</strong></h3>
+<ol class="list-v2">
+	<li><div class='li-num'>A.</div><div class='li-cont'>
+		Any variance of the provisions in this Chapter shall be submitted to and approved by the Governing Body.</div></li>
+	<li><div class='li-num'>B.</div><div class='li-cont'>
+		The City Engineer may grant a variance to the Standards which have been adopted by the City Engineer provided all of the following conditions are met:
+		<ol>
+			<li><div class='li-num'>1.</div><div class='li-cont'>
+				The variance complies with the general spirit and intent of the Standards.</div></li>
+			<li><div class='li-num'>2.</div><div class='li-cont'>
+				The granting of the variance will not adversely affect the rights of adjacent landowners.</div></li>
+			<li><div class='li-num'>3.</div><div class='li-cont'>
+				The granting of the variance will not result in substantial public expense, create nuisances, cause fraud on or cause harm to the public or conflict with existing local, federal or state laws, rules or regulations.</div></li>
+			<li><div class='li-num'>4.</div><div class='li-cont'>
+				The variance will not adversely affect the public health, safety, morals, order, convenience, prosperity or general welfare.</div></li>
+		</ol>
+	</div></li>
+	<li><div class='li-num'>C.</div><div class='li-cont'>
+		Appeals of decisions made by the City Engineer related to the Standards shall be made to the Governing Body.</div></li>
+</ol>
+<p>
+	(History: Ord. SWM-2853 &sect;6, 2010; SWM-2668 &sect;7, 2008; SWM-2505 &sect;1, 2004; SDR-2192 &sect;41, 2000; SD-1234 &sect;24, 83; SDR-349 &sect;8-8, 65)</p>
+
+<p class='archiveNotice nullValue '>Effective on:&nbsp;1/1/1901</p>
+</section> 
+<section id='secid-4048' class='secLvl3 _015 _015-003 _015-003-012' tabindex='-1' data-secid='4048'> 
+<h3>
+	<strong>15.10.900 Violation &ndash; Penalty.</strong></h3>
+<p>
+	Any person or entity violating any provision of this chapter is guilty of a public offense and upon conviction thereof shall be fined in a sum of not less than two hundred dollars ($200.00) nor more than five hundred dollars ($500.00). Every day this Chapter is violated shall constitute a separate offense.</p>
+<p>
+	(History: Ord. SWM-2505 &sect;1, 2004; SDR-2192 &sect;43, 2000; SDR-1275 &sect;36, 84; SD-1234 &sect;26, 83; SDR-349 &sect;10, 65)</p>
+
+<p class='archiveNotice nullValue '>Effective on:&nbsp;1/1/1901</p>
+</section> 
+<section id='secid-4049' class='secLvl3 _015 _015-003 _015-003-013' tabindex='-1' data-secid='4049'> 
+<h3>
+	<strong>15.10.950 Enjoinment.</strong></h3>
+<p>
+	Notwithstanding the foregoing penalty section the City may institute civil actions to enjoin violations of this ordinance.</p>
+<p>
+	(History: Ord. SWM-2505 &sect;1, 2004; SDR-1275 &sect;37, 84; SD-1234 &sect;27, 83; SDR-349 &sect;11, 65)</p>
+
+<p class='archiveNotice nullValue '>Effective on:&nbsp;1/1/1901</p>
+</section> 
+<section id='secid-7734' class='secLvl2 _015 _015-004' tabindex='-1' data-secid='7734'> 
+<h2>Repealed Sections of Title 15 Public Improvements</h2>
+
+<p>&nbsp;</p>
+
+
+</section> 
+<section id='secid-3907' class='secLvl3 _015 _015-004 _015-004-001' tabindex='-1' data-secid='3907'> 
+<h2>
+	<strong>15.08</strong><strong> </strong><strong>Storm</strong><strong> </strong><strong>Sewers</strong> (Repealed)</h2>
+<p>
+	(This entire chapter has been repealed. See <a class="xref" target="_blank" href="doc-viewer.aspx#secid-4036">15.10</a>)</p>
+<div class="mini-TOC" data-endlevel="4" data-id="mini-TOC" data-startlevel="3">
+	<div class="mini-TOC-label">
+		<strong>Contents:</strong></div>
+	<ul><li><a class="tocLink" href="doc-viewer.aspx#secid-3907">15.08 Storm Sewers (Repealed)</a><ul><li><a class="tocLink" href="doc-viewer.aspx#secid-3908">Article I.  General Regulations</a></li>
+<li><a class="tocLink" href="doc-viewer.aspx#secid-3913">Article II. Design Requirements</a></li>
+<li><a class="tocLink" href="doc-viewer.aspx#secid-3925">Article III.  Excavation and Trenching</a></li>
+<li><a class="tocLink" href="doc-viewer.aspx#secid-3955">Article IV. Concrete Culvert Pipe</a></li>
+<li><a class="tocLink" href="doc-viewer.aspx#secid-3972">Article V.  Corrugated Metal Pipe</a></li>
+<li><a class="tocLink" href="doc-viewer.aspx#secid-3975">Article VI.  Concrete Lined Ditch</a></li>
+<li><a class="tocLink" href="doc-viewer.aspx#secid-3985">Article VII.  Concrete Box Culverts</a></li>
+<li><a class="tocLink" href="doc-viewer.aspx#secid-3990">Article VIII.  Miscellaneous Regulations</a></li>
+<li><a class="tocLink" href="doc-viewer.aspx#secid-3996">Article IX.  Maintenance and Inspection</a></li>
+<li><a class="tocLink" href="doc-viewer.aspx#secid-4001">Article X.  Insurance and Surety</a></li>
+<li><a class="tocLink" href="doc-viewer.aspx#secid-4004">Article XI.  Penalty - Enjoinment</a></li>
+</ul>
+</li>
+</ul>
+</div>
+
+
+</section> 
+<section id='secid-3908' class='secLvl4 _015 _015-004 _015-004-001 _015-004-001-001' tabindex='-1' data-secid='3908'> 
+<h3>
+	<strong>Article I. </strong><strong>General Regulations</strong></h3>
+
+
+</section> 
+<section id='secid-3909' class='secLvl5 _015 _015-004 _015-004-001 _015-004-001-001 _015-004-001-001-001' tabindex='-1' data-secid='3909'> 
+<h4>
+	<strong>15.08.010 General. (Repealed. See <a class="xref" target="_blank" href="doc-viewer.aspx#secid-4037">15.10.100</a>)</strong></h4>
+<p>
+	Repealed. See <a class="xref" target="_blank" href="doc-viewer.aspx#secid-4037">15.10.100</a>.</p>
+<p>
+	(History: Ord. SWM-2505 &sect;2, 2004; SDR-2192&nbsp;<span style="font-size: 14.6666669845581px; line-height: 18.3333339691162px;">&sect;</span>3, 2000; SDR-1275&nbsp;<span style="font-size: 14.6666669845581px; line-height: 18.3333339691162px;">&sect;</span>1, 84)</p>
+
+<p class='archiveNotice nullValue '>Effective on:&nbsp;1/1/1901</p>
+</section> 
+<section id='secid-3910' class='secLvl5 _015 _015-004 _015-004-001 _015-004-001-001 _015-004-001-001-002' tabindex='-1' data-secid='3910'> 
+<h4>
+	<strong>15.08.015 Approval of Construction. (Repealed. See <a class="xref" target="_blank" href="doc-viewer.aspx#secid-4038">15.10.150</a></strong>)</h4>
+<p>
+	Repealed. See <a class="xref" target="_blank" href="doc-viewer.aspx#secid-4038">15.10.150</a>.</p>
+<p>
+	(History: Ord. SWM-2505&nbsp;<span style="font-size: 14.6666669845581px; line-height: 18.3333339691162px;">&sect;</span>2, 2004; SDR-2192&nbsp;<span style="font-size: 14.6666669845581px; line-height: 18.3333339691162px;">&sect;</span>2, 2000; SDR-1340&nbsp;<span style="font-size: 14.6666669845581px; line-height: 18.3333339691162px;">&sect;</span>1, 85; SDR-349&nbsp;<span style="font-size: 14.6666669845581px; line-height: 18.3333339691162px;">&sect;</span>1, 65)</p>
+
+<p class='archiveNotice nullValue '>Effective on:&nbsp;1/1/1901</p>
+</section> 
+<section id='secid-3911' class='secLvl5 _015 _015-004 _015-004-001 _015-004-001-001 _015-004-001-001-003' tabindex='-1' data-secid='3911'> 
+<h4>
+	<strong>15.08.020 Purpose. (Repealed)</strong></h4>
+<p>
+	Repealed.</p>
+<p>
+	(History: Ord. SDR-2192&nbsp;<span style="font-size: 14.6666669845581px; line-height: 18.3333339691162px;">&sect;</span>44, 2000; SDR-349&nbsp;<span style="font-size: 14.6666669845581px; line-height: 18.3333339691162px;">&sect;</span>2, 65)</p>
+
+<p class='archiveNotice nullValue '>Effective on:&nbsp;1/1/1901</p>
+</section> 
+<section id='secid-3912' class='secLvl5 _015 _015-004 _015-004-001 _015-004-001-001 _015-004-001-001-004' tabindex='-1' data-secid='3912'> 
+<h4>
+	<strong>15.08.025 Generally. (Repealed)</strong></h4>
+<p>
+	Repealed.</p>
+<p>
+	(History: Ord. SDR-2192&nbsp;<span style="font-size: 14.6666669845581px; line-height: 18.3333339691162px;">&sect;</span>44, 2000; SDR-1275&nbsp;<span style="font-size: 14.6666669845581px; line-height: 18.3333339691162px;">&sect;</span>1, 84)</p>
+
+<p class='archiveNotice nullValue '>Effective on:&nbsp;1/1/1901</p>
+</section> 
+<section id='secid-3913' class='secLvl4 _015 _015-004 _015-004-001 _015-004-001-002' tabindex='-1' data-secid='3913'> 
+<h3>
+	<strong>Article II. </strong><strong>Design Requirements</strong></h3>
+
+
+</section> 
+<section id='secid-3914' class='secLvl5 _015 _015-004 _015-004-001 _015-004-001-002 _015-004-001-002-001' tabindex='-1' data-secid='3914'> 
+<h4>
+	<strong>15.08.030 Design Formula for Rate of Runoff.</strong> (Repealed. See <a class="xref" target="_blank" href="doc-viewer.aspx#secid-4037">15.10.100</a>)</h4>
+<p>
+	Repealed. See <a class="xref" target="_blank" href="doc-viewer.aspx#secid-4037">15.10.100</a>.</p>
+<p>
+	(History: Ord. SWM-2505&nbsp;<span style="font-size: 14.6666669845581px; line-height: 18.3333339691162px;">&sect;</span>2, 2004; SDR-1275&nbsp;<span style="font-size: 14.6666669845581px; line-height: 18.3333339691162px;">&sect;</span>2, 84; SDR-703&nbsp;<span style="font-size: 14.6666669845581px; line-height: 18.3333339691162px;">&sect;</span>3-1 (part), 72; SDR-349,B&nbsp;<span style="font-size: 14.6666669845581px; line-height: 18.3333339691162px;">&sect;</span>3-1, 71; SDR-349&nbsp;<span style="font-size: 14.6666669845581px; line-height: 18.3333339691162px;">&sect;</span>3-1, 65)</p>
+
+<p class='archiveNotice nullValue '>Effective on:&nbsp;1/1/1901</p>
+</section> 
+<section id='secid-3915' class='secLvl5 _015 _015-004 _015-004-001 _015-004-001-002 _015-004-001-002-002' tabindex='-1' data-secid='3915'> 
+<h4>
+	<strong>15.08.040 Rainfall and Intensity.&nbsp;</strong><span style="font-size: 12pt;">(Repealed. See&nbsp;</span><a class="xref" target="_blank" href="doc-viewer.aspx#secid-4037">15.10.100</a><span style="font-size: 12pt;">)</span></h4>
+<p>
+	Repealed. See <a class="xref" target="_blank" href="doc-viewer.aspx#secid-4037">15.10.100</a>.</p>
+<p>
+	(History: Ord. SWM-2505&nbsp;<span style="font-size: 14.6666669845581px; line-height: 18.3333339691162px;">&sect;</span>2, 2004; SDR-2192&nbsp;<span style="font-size: 14.6666669845581px; line-height: 18.3333339691162px;">&sect;</span>4, 2000; SDR-703&nbsp;<span style="font-size: 14.6666669845581px; line-height: 18.3333339691162px;">&sect;</span>3-2 (part), 72; SDR-349,B&nbsp;<span style="font-size: 14.6666669845581px; line-height: 18.3333339691162px;">&sect;</span>3-2, 71; SDR-349,&nbsp;<span style="font-size: 14.6666669845581px; line-height: 18.3333339691162px;">&sect;</span>3-2 65)</p>
+
+<p class='archiveNotice nullValue '>Effective on:&nbsp;1/1/1901</p>
+</section> 
+<section id='secid-3916' class='secLvl5 _015 _015-004 _015-004-001 _015-004-001-002 _015-004-001-002-003' tabindex='-1' data-secid='3916'> 
+<h4>
+	<strong>15.08.050 Runoff Coefficients. (Repealed. See <a class="xref" target="_blank" href="doc-viewer.aspx#secid-4037">15.10.100</a>)</strong></h4>
+<p>
+	Repealed. See <a class="xref" target="_blank" href="doc-viewer.aspx#secid-4037">15.10.100</a>.</p>
+<p>
+	(History: Ord. SWM-2505&nbsp;<span style="font-size: 14.6666669845581px; line-height: 18.3333339691162px;">&sect;</span>2, 2004; SDR-2192&nbsp;<span style="font-size: 14.6666669845581px; line-height: 18.3333339691162px;">&sect;</span>5, 2000; SDR-1275&nbsp;<span style="font-size: 14.6666669845581px; line-height: 18.3333339691162px;">&sect;</span>3, 84; SDR-703&nbsp;<span style="font-size: 14.6666669845581px; line-height: 18.3333339691162px;">&sect;</span>3-3, 72; SDR-349,B&nbsp;<span style="font-size: 14.6666669845581px; line-height: 18.3333339691162px;">&sect;</span>3-3, 71; SDR-349&nbsp;<span style="font-size: 14.6666669845581px; line-height: 18.3333339691162px;">&sect;</span>3-3, 65)</p>
+
+<p class='archiveNotice nullValue '>Effective on:&nbsp;1/1/1901</p>
+</section> 
+<section id='secid-3917' class='secLvl5 _015 _015-004 _015-004-001 _015-004-001-002 _015-004-001-002-004' tabindex='-1' data-secid='3917'> 
+<h4>
+	<strong>15.08.060 Drainage Area. (Repealed. See <a class="xref" target="_blank" href="doc-viewer.aspx#secid-4037">15.10.100</a>)</strong></h4>
+<p>
+	Repealed. See <a class="xref" target="_blank" href="doc-viewer.aspx#secid-4037">15.10.100</a>.</p>
+<p>
+	(History: Ord. SWM-2505&nbsp;<span style="font-size: 14.6666669845581px; line-height: 18.3333339691162px;">&sect;</span>2, 2004; SDR-703&nbsp;<span style="font-size: 14.6666669845581px; line-height: 18.3333339691162px;">&sect;</span>3-4, 72; SDR-349,B&nbsp;<span style="font-size: 14.6666669845581px; line-height: 18.3333339691162px;">&sect;</span>3-4, 71; SDR-349&nbsp;<span style="font-size: 14.6666669845581px; line-height: 18.3333339691162px;">&sect;</span>3-4, 65)</p>
+
+<p class='archiveNotice nullValue '>Effective on:&nbsp;1/1/1901</p>
+</section> 
+<section id='secid-3918' class='secLvl5 _015 _015-004 _015-004-001 _015-004-001-002 _015-004-001-002-005' tabindex='-1' data-secid='3918'> 
+<h4>
+	<strong>15.08.070 Design Formula Information. (Repealed. See <a class="xref" target="_blank" href="doc-viewer.aspx#secid-4037">15.10.100</a>)</strong></h4>
+<p>
+	Repealed. See <a class="xref" target="_blank" href="doc-viewer.aspx#secid-4037">15.10.100</a>.</p>
+<p>
+	(History: Ord. SWM-2505&nbsp;<span style="font-size: 14.6666669845581px; line-height: 18.3333339691162px;">&sect;</span>2, 2004; SDR-2192&nbsp;<span style="font-size: 14.6666669845581px; line-height: 18.3333339691162px;">&sect;</span>6, 2000; SDR-1275&nbsp;<span style="font-size: 14.6666669845581px; line-height: 18.3333339691162px;">&sect;</span>4, 84; SDR-703&nbsp;<span style="font-size: 14.6666669845581px; line-height: 18.3333339691162px;">&sect;</span>3-5, 72; SDR-349,B&nbsp;<span style="font-size: 14.6666669845581px; line-height: 18.3333339691162px;">&sect;</span>3-5, 71; SDR-349&nbsp;<span style="font-size: 14.6666669845581px; line-height: 18.3333339691162px;">&sect;</span>3-5, 65)</p>
+
+<p class='archiveNotice nullValue '>Effective on:&nbsp;1/1/1901</p>
+</section> 
+<section id='secid-3919' class='secLvl5 _015 _015-004 _015-004-001 _015-004-001-002 _015-004-001-002-006' tabindex='-1' data-secid='3919'> 
+<h4>
+	<strong>15.08.080 Design Calculations and Storm Sewer Plans.</strong> <strong>(Repealed. See <a class="xref" target="_blank" href="doc-viewer.aspx#secid-4037">15.10.100</a>)</strong></h4>
+<p>
+	Repealed. See <a class="xref" target="_blank" href="doc-viewer.aspx#secid-4037">15.10.100</a>.</p>
+<p>
+	(History: Ord. SWM-2505&nbsp;<span style="font-size: 14.6666669845581px; line-height: 18.3333339691162px;">&sect;</span>2, 2004; SDR-2192&nbsp;<span style="font-size: 14.6666669845581px; line-height: 18.3333339691162px;">&sect;</span>7, 2000; SDR-1275&nbsp;<span style="font-size: 14.6666669845581px; line-height: 18.3333339691162px;">&sect;</span>5, 84; SDR-703&nbsp;<span style="font-size: 14.6666669845581px; line-height: 18.3333339691162px;">&sect;</span>3-6, 72; SDR-349,B&nbsp;<span style="font-size: 14.6666669845581px; line-height: 18.3333339691162px;">&sect;</span>3-6, 71; SDR-349&nbsp;<span style="font-size: 14.6666669845581px; line-height: 18.3333339691162px;">&sect;</span>3-6, 65)</p>
+
+<p class='archiveNotice nullValue '>Effective on:&nbsp;1/1/1901</p>
+</section> 
+<section id='secid-3920' class='secLvl5 _015 _015-004 _015-004-001 _015-004-001-002 _015-004-001-002-007' tabindex='-1' data-secid='3920'> 
+<h4>
+	<strong>15.08.090 Velocities and Discharge Design.</strong> <strong>(Repealed. See <a class="xref" target="_blank" href="doc-viewer.aspx#secid-4037">15.10.100</a>)</strong></h4>
+<p>
+	Repealed. See <a class="xref" target="_blank" href="doc-viewer.aspx#secid-4037">15.10.100</a>.</p>
+<p>
+	(History: Ord. SWM-2505&nbsp;<span style="font-size: 14.6666669845581px; line-height: 18.3333339691162px;">&sect;</span>2, 2004; SDR-2192&nbsp;<span style="font-size: 14.6666669845581px; line-height: 18.3333339691162px;">&sect;</span>8, 2000; SDR-1275 <span style="font-size: 14.6666669845581px; line-height: 18.3333339691162px;">&sect;</span><span style="font-size: 11pt; line-height: 18.3333339691162px;">&#39;6, 84; </span>SDR-703<span style="font-size: 11pt; line-height: 18.3333339691162px;">&nbsp;</span><span style="font-size: 14.6666669845581px; line-height: 18.3333339691162px;">&sect;</span><span style="font-size: 11pt; line-height: 18.3333339691162px;">3-7, 72; </span>SDR-349<span style="font-size: 11pt; line-height: 18.3333339691162px;">,B&nbsp;</span><span style="font-size: 14.6666669845581px; line-height: 18.3333339691162px;">&sect;</span><span style="font-size: 11pt; line-height: 18.3333339691162px;">3-7, 71; </span>SDR-349<span style="font-size: 11pt; line-height: 18.3333339691162px;">&nbsp;</span><span style="font-size: 14.6666669845581px; line-height: 18.3333339691162px;">&sect;</span><span style="font-size: 11pt; line-height: 18.3333339691162px;">3-7, 65)</span></p>
+
+<p class='archiveNotice nullValue '>Effective on:&nbsp;1/1/1901</p>
+</section> 
+<section id='secid-3921' class='secLvl5 _015 _015-004 _015-004-001 _015-004-001-002 _015-004-001-002-008' tabindex='-1' data-secid='3921'> 
+<h4>
+	<strong>15.08.100 Methods of Conveying Storm Water.</strong> (Repealed. See <a class="xref" target="_blank" href="doc-viewer.aspx#secid-4039">15.10.200</a>)</h4>
+<p>
+	Repealed. See <a class="xref" target="_blank" href="doc-viewer.aspx#secid-4039">15.10.200</a>.</p>
+<p>
+	(History: Ord. SWM-2505&nbsp;<span style="font-size: 14.6666669845581px; line-height: 18.3333339691162px;">&sect;</span>2, 2004; SDR-2390&nbsp;<span style="font-size: 14.6666669845581px; line-height: 18.3333339691162px;">&sect;</span>1, 2002; SDR-2192&nbsp;<span style="font-size: 14.6666669845581px; line-height: 18.3333339691162px;">&sect;</span>9, 2000; SDR-1820&nbsp;<span style="font-size: 14.6666669845581px; line-height: 18.3333339691162px;">&sect;</span>1, 93; SDR-1612&nbsp;<span style="font-size: 14.6666669845581px; line-height: 18.3333339691162px;">&sect;</span>1, 89; SDR-1558&nbsp;<span style="font-size: 14.6666669845581px; line-height: 18.3333339691162px;">&sect;</span>1, 88; SDR-1340&nbsp;<span style="font-size: 14.6666669845581px; line-height: 18.3333339691162px;">&sect;</span>2, 85; SDR-1275&nbsp;<span style="font-size: 14.6666669845581px; line-height: 18.3333339691162px;">&sect;</span>7, 84; SDR-703&nbsp;<span style="font-size: 14.6666669845581px; line-height: 18.3333339691162px;">&sect;</span>3-8, 72; SDR-349,B&nbsp;<span style="font-size: 14.6666669845581px; line-height: 18.3333339691162px;">&sect;</span>3-8, 71; SDR-349&nbsp;<span style="font-size: 14.6666669845581px; line-height: 18.3333339691162px;">&sect;</span>3-8, 65)</p>
+
+<p class='archiveNotice nullValue '>Effective on:&nbsp;1/1/1901</p>
+</section> 
+<section id='secid-3922' class='secLvl5 _015 _015-004 _015-004-001 _015-004-001-002 _015-004-001-002-009' tabindex='-1' data-secid='3922'> 
+<h4>
+	<strong>15.08.110 Design of Rigid Conduits. (Repealed. See <a class="xref" target="_blank" href="doc-viewer.aspx#secid-4037">15.10.100</a>)</strong></h4>
+<p>
+	Repealed. See <a class="xref" target="_blank" href="doc-viewer.aspx#secid-4037">15.10.100</a>.</p>
+<p>
+	(History: Ord. SWM-2505&nbsp;<span style="font-size: 14.6666669845581px; line-height: 18.3333339691162px;">&sect;</span>2, 2004; SDR-703&nbsp;<span style="font-size: 14.6666669845581px; line-height: 18.3333339691162px;">&sect;</span>3-9, 72; SDR-349,B&nbsp;<span style="font-size: 14.6666669845581px; line-height: 18.3333339691162px;">&sect;</span>3-9, 71; SDR-349&nbsp;<span style="font-size: 14.6666669845581px; line-height: 18.3333339691162px;">&sect;</span>3-9, 65)</p>
+
+<p class='archiveNotice nullValue '>Effective on:&nbsp;1/1/1901</p>
+</section> 
+<section id='secid-3923' class='secLvl5 _015 _015-004 _015-004-001 _015-004-001-002 _015-004-001-002-010' tabindex='-1' data-secid='3923'> 
+<h4>
+	<strong>15.08.120 Underground Culverts or Conduits - Length - Handrails. (Repealed. See <a class="xref" target="_blank" href="doc-viewer.aspx#secid-4037">15.10.100</a>)</strong></h4>
+<p>
+	Repealed. See <a class="xref" target="_blank" href="doc-viewer.aspx#secid-4037">15.10.100</a>.</p>
+<p>
+	(History: Ord. SWM-2505&nbsp;<span style="font-size: 14.6666669845581px; line-height: 18.3333339691162px;">&sect;</span>2, 2004; SDR-2192&nbsp;<span style="font-size: 14.6666669845581px; line-height: 18.3333339691162px;">&sect;</span>10, 2000; SDR-1340&nbsp;<span style="font-size: 14.6666669845581px; line-height: 18.3333339691162px;">&sect;</span>3, 85; SDR-703 &#39;3-<span style="font-size: 14.6666669845581px; line-height: 18.3333339691162px;">&sect;</span><span style="font-size: 11pt; line-height: 18.3333339691162px;">10, 72; </span>SDR-349<span style="font-size: 11pt; line-height: 18.3333339691162px;">,B&nbsp;</span><span style="font-size: 14.6666669845581px; line-height: 18.3333339691162px;">&sect;</span><span style="font-size: 11pt; line-height: 18.3333339691162px;">3-10, 71; </span>SDR-349<span style="font-size: 11pt; line-height: 18.3333339691162px;">,A&nbsp;</span><span style="font-size: 14.6666669845581px; line-height: 18.3333339691162px;">&sect;</span><span style="font-size: 11pt; line-height: 18.3333339691162px;">3-10, 68)</span></p>
+
+<p class='archiveNotice nullValue '>Effective on:&nbsp;1/1/1901</p>
+</section> 
+<section id='secid-3924' class='secLvl5 _015 _015-004 _015-004-001 _015-004-001-002 _015-004-001-002-011' tabindex='-1' data-secid='3924'> 
+<h4>
+	<strong>15.08.130 Figure 1 - Rainfall Intensity Duration Frequency Curves.</strong> <strong>(Repealed. See <a class="xref" target="_blank" href="doc-viewer.aspx#secid-4037">15.10.100</a>)</strong></h4>
+<p>
+	Repealed. See <a class="xref" target="_blank" href="doc-viewer.aspx#secid-4037">15.10.100</a>.</p>
+<p>
+	(History: Ord. SWM-2505&nbsp;<span style="font-size: 14.6666669845581px; line-height: 18.3333339691162px;">&sect;</span>2, 2004; SDR-2192&nbsp;<span style="font-size: 14.6666669845581px; line-height: 18.3333339691162px;">&sect;</span>11, 2000; SDR-703&nbsp;<span style="font-size: 14.6666669845581px; line-height: 18.3333339691162px;">&sect;</span>3-10 (part), 72; SDR-349,B&nbsp;<span style="font-size: 14.6666669845581px; line-height: 18.3333339691162px;">&sect;</span>1 (part), 71; SDR-349&nbsp;<span style="font-size: 14.6666669845581px; line-height: 18.3333339691162px;">&sect;</span>3 (part), 65)</p>
+
+<p class='archiveNotice nullValue '>Effective on:&nbsp;1/1/1901</p>
+</section> 
+<section id='secid-3925' class='secLvl4 _015 _015-004 _015-004-001 _015-004-001-003' tabindex='-1' data-secid='3925'> 
+<h3>
+	<strong>Article III. </strong><strong>Excavation and Trenching</strong></h3>
+
+
+</section> 
+<section id='secid-3926' class='secLvl5 _015 _015-004 _015-004-001 _015-004-001-003 _015-004-001-003-001' tabindex='-1' data-secid='3926'> 
+<h4>
+	<strong>15.08.140 Scope. (Repealed. See <a class="xref" target="_blank" href="doc-viewer.aspx#secid-4037">15.10.100</a>)</strong></h4>
+<p>
+	Repealed. See <a class="xref" target="_blank" href="doc-viewer.aspx#secid-4037">15.10.100</a>.</p>
+<p>
+	(History: Ord. SWM-2505&nbsp;<span style="font-size: 14.6666669845581px; line-height: 18.3333339691162px;">&sect;</span>2, 2004; SDR-349&nbsp;<span style="font-size: 14.6666669845581px; line-height: 18.3333339691162px;">&sect;</span>4-1, 65)</p>
+
+<p class='archiveNotice nullValue '>Effective on:&nbsp;1/1/1901</p>
+</section> 
+<section id='secid-3927' class='secLvl5 _015 _015-004 _015-004-001 _015-004-001-003 _015-004-001-003-002' tabindex='-1' data-secid='3927'> 
+<h4>
+	<strong>15.08.150 General Requirements.</strong> <strong>(Repealed. See <a class="xref" target="_blank" href="doc-viewer.aspx#secid-4037">15.10.100</a>)</strong></h4>
+<p>
+	Repealed. See <a class="xref" target="_blank" href="doc-viewer.aspx#secid-4037">15.10.100</a>.</p>
+<p>
+	(History: Ord. SWM-2505&nbsp;<span style="font-size: 14.6666669845581px; line-height: 18.3333339691162px;">&sect;</span>2, 2004; SDR-2379&nbsp;<span style="font-size: 14.6666669845581px; line-height: 18.3333339691162px;">&sect;</span>1, 2002; SDR-349&nbsp;<span style="font-size: 14.6666669845581px; line-height: 18.3333339691162px;">&sect;</span>4-2, 65)</p>
+
+<p class='archiveNotice nullValue '>Effective on:&nbsp;1/1/1901</p>
+</section> 
+<section id='secid-3928' class='secLvl5 _015 _015-004 _015-004-001 _015-004-001-003 _015-004-001-003-003' tabindex='-1' data-secid='3928'> 
+<h4>
+	<strong>15.08.160 Blasting. (Repealed. See <a class="xref" target="_blank" href="doc-viewer.aspx#secid-4037">15.10.100</a>)</strong></h4>
+<p>
+	Repealed. See <a class="xref" target="_blank" href="doc-viewer.aspx#secid-4037">15.10.100</a>.</p>
+<p>
+	(History: Ord. SWM-2505&nbsp;<span style="font-size: 14.6666669845581px; line-height: 18.3333339691162px;">&sect;</span>2, 2004; SDR-1275 <span style="font-size: 14.6666669845581px; line-height: 18.3333339691162px;">&sect;</span><span style="font-size: 11pt; line-height: 18.3333339691162px;">8, 84; </span>SDR-349<span style="font-size: 11pt; line-height: 18.3333339691162px;">&nbsp;</span><span style="font-size: 14.6666669845581px; line-height: 18.3333339691162px;">&sect;</span><span style="font-size: 11pt; line-height: 18.3333339691162px;">4-3, 65)</span></p>
+
+<p class='archiveNotice nullValue '>Effective on:&nbsp;1/1/1901</p>
+</section> 
+<section id='secid-3929' class='secLvl5 _015 _015-004 _015-004-001 _015-004-001-003 _015-004-001-003-004' tabindex='-1' data-secid='3929'> 
+<h4>
+	<strong>15.08.170 Unauthorized Excavation.</strong> <strong>(Repealed. See <a class="xref" target="_blank" href="doc-viewer.aspx#secid-4037">15.10.100</a>)</strong></h4>
+<p>
+	Repealed. See <a class="xref" target="_blank" href="doc-viewer.aspx#secid-4037">15.10.100</a>.</p>
+<p>
+	(History: Ord. SWM-2505&nbsp;<span style="font-size: 14.6666669845581px; line-height: 18.3333339691162px;">&sect;</span>2, 2004; SDR-349&nbsp;<span style="font-size: 14.6666669845581px; line-height: 18.3333339691162px;">&sect;</span>4-4, 65)</p>
+
+<p class='archiveNotice nullValue '>Effective on:&nbsp;1/1/1901</p>
+</section> 
+<section id='secid-3930' class='secLvl5 _015 _015-004 _015-004-001 _015-004-001-003 _015-004-001-003-005' tabindex='-1' data-secid='3930'> 
+<h4>
+	<strong>15.08.180 Removal of Water. (Repealed. See <a class="xref" target="_blank" href="doc-viewer.aspx#secid-4037">15.10.100</a>)</strong></h4>
+<p>
+	Repealed. See <a class="xref" target="_blank" href="doc-viewer.aspx#secid-4037">15.10.100</a>.</p>
+<p>
+	(History: Ord. SWM-2505&nbsp;<span style="font-size: 14.6666669845581px; line-height: 18.3333339691162px;">&sect;</span>2, 2004; SDR-349&nbsp;<span style="font-size: 14.6666669845581px; line-height: 18.3333339691162px;">&sect;</span>4-5,65)</p>
+
+<p class='archiveNotice nullValue '>Effective on:&nbsp;1/1/1901</p>
+</section> 
+<section id='secid-3931' class='secLvl5 _015 _015-004 _015-004-001 _015-004-001-003 _015-004-001-003-006' tabindex='-1' data-secid='3931'> 
+<h4>
+	<strong>15.08.190 Sheeting and Shoring. (Repealed. See <a class="xref" target="_blank" href="doc-viewer.aspx#secid-4037">15.10.100</a>)</strong></h4>
+<p>
+	Repealed. See <a class="xref" target="_blank" href="doc-viewer.aspx#secid-4037">15.10.100</a>.</p>
+<p>
+	(History: Ord. SWM-2505&nbsp;<span style="font-size: 14.6666669845581px; line-height: 18.3333339691162px;">&sect;</span>2, 2004; SDR-1820&nbsp;<span style="font-size: 14.6666669845581px; line-height: 18.3333339691162px;">&sect;</span>2, 93; SDR-349&nbsp;<span style="font-size: 14.6666669845581px; line-height: 18.3333339691162px;">&sect;</span>4-6, 65)</p>
+
+<p class='archiveNotice nullValue '>Effective on:&nbsp;1/1/1901</p>
+</section> 
+<section id='secid-3932' class='secLvl5 _015 _015-004 _015-004-001 _015-004-001-003 _015-004-001-003-007' tabindex='-1' data-secid='3932'> 
+<h4>
+	<strong>15.08.200 Stabilization.</strong> <strong>(Repealed. See <a class="xref" target="_blank" href="doc-viewer.aspx#secid-4037">15.10.100</a>)</strong></h4>
+<p>
+	Repealed. See <a class="xref" target="_blank" href="doc-viewer.aspx#secid-4037">15.10.100</a>.</p>
+<p>
+	(History: Ord. SWM-2505&nbsp;<span style="font-size: 14.6666669845581px; line-height: 18.3333339691162px;">&sect;</span>2, 2004; SDR-349&nbsp;<span style="font-size: 14.6666669845581px; line-height: 18.3333339691162px;">&sect;</span>4-7, 65)</p>
+
+<p class='archiveNotice nullValue '>Effective on:&nbsp;1/1/1901</p>
+</section> 
+<section id='secid-3933' class='secLvl5 _015 _015-004 _015-004-001 _015-004-001-003 _015-004-001-003-008' tabindex='-1' data-secid='3933'> 
+<h4>
+	<strong>15.08.210 Crushed Rock or Gravel Fills. (Repealed. See <a class="xref" target="_blank" href="doc-viewer.aspx#secid-4037">15.10.100</a>)</strong></h4>
+<p>
+	Repealed. See <a class="xref" target="_blank" href="doc-viewer.aspx#secid-4037">15.10.100</a>.</p>
+<p>
+	(History: Ord. SWM-2505&nbsp;<span style="font-size: 14.6666669845581px; line-height: 18.3333339691162px;">&sect;</span>2, 2004; SDR-349&nbsp;<span style="font-size: 14.6666669845581px; line-height: 18.3333339691162px;">&sect;</span>4-8, 65)</p>
+
+<p class='archiveNotice nullValue '>Effective on:&nbsp;1/1/1901</p>
+</section> 
+<section id='secid-3934' class='secLvl5 _015 _015-004 _015-004-001 _015-004-001-003 _015-004-001-003-009' tabindex='-1' data-secid='3934'> 
+<h4>
+	<strong>15.08.220 Trench Excavation.</strong> <strong>(Repealed. See <a class="xref" target="_blank" href="doc-viewer.aspx#secid-4037">15.10.100</a>)</strong></h4>
+<p>
+	Repealed. See <a class="xref" target="_blank" href="doc-viewer.aspx#secid-4037">15.10.100</a>.</p>
+<p>
+	(History: Ord. SWM-2505&nbsp;<span style="font-size: 14.6666669845581px; line-height: 18.3333339691162px;">&sect;</span>2, 2004; SDR-349&nbsp;<span style="font-size: 14.6666669845581px; line-height: 18.3333339691162px;">&sect;</span>4-9, 65)</p>
+
+<p class='archiveNotice nullValue '>Effective on:&nbsp;1/1/1901</p>
+</section> 
+<section id='secid-3935' class='secLvl5 _015 _015-004 _015-004-001 _015-004-001-003 _015-004-001-003-010' tabindex='-1' data-secid='3935'> 
+<h4>
+	<strong>15.08.230 Alignment, Grade and Minimum Cover. (Repealed. See <a class="xref" target="_blank" href="doc-viewer.aspx#secid-4037">15.10.100</a>)</strong></h4>
+<p>
+	Repealed. See <a class="xref" target="_blank" href="doc-viewer.aspx#secid-4037">15.10.100</a>.</p>
+<p>
+	(History: Ord. SWM-2505&nbsp;<span style="font-size: 14.6666669845581px; line-height: 18.3333339691162px;">&sect;</span>2, 2004; SDR-349&nbsp;<span style="font-size: 14.6666669845581px; line-height: 18.3333339691162px;">&sect;</span>4-9-1, 65)</p>
+
+<p class='archiveNotice nullValue '>Effective on:&nbsp;1/1/1901</p>
+</section> 
+<section id='secid-3936' class='secLvl5 _015 _015-004 _015-004-001 _015-004-001-003 _015-004-001-003-011' tabindex='-1' data-secid='3936'> 
+<h4>
+	<strong>15.08.240 Limiting Trench Widths and Pipe Clearances. (Repealed. See <a class="xref" target="_blank" href="doc-viewer.aspx#secid-4037">15.10.100</a>)</strong></h4>
+<p>
+	Repealed. See <a class="xref" target="_blank" href="doc-viewer.aspx#secid-4037">15.10.100</a>.</p>
+<p>
+	(History: Ord. SWM-2505&nbsp;<span style="font-size: 14.6666669845581px; line-height: 18.3333339691162px;">&sect;</span>2, 2004; SDR-2192&nbsp;<span style="font-size: 14.6666669845581px; line-height: 18.3333339691162px;">&sect;</span>12, 2000; SDR-349&nbsp;<span style="font-size: 14.6666669845581px; line-height: 18.3333339691162px;">&sect;</span>4-9-2, 65)</p>
+
+<p class='archiveNotice nullValue '>Effective on:&nbsp;1/1/1901</p>
+</section> 
+<section id='secid-3937' class='secLvl5 _015 _015-004 _015-004-001 _015-004-001-003 _015-004-001-003-012' tabindex='-1' data-secid='3937'> 
+<h4>
+	<strong>15.08.250 Unauthorized Trench Widths. (Repealed. See <a class="xref" target="_blank" href="doc-viewer.aspx#secid-4037">15.10.100</a>)</strong></h4>
+<p>
+	Repealed. See <a class="xref" target="_blank" href="doc-viewer.aspx#secid-4037">15.10.100</a>.</p>
+<p>
+	(History: Ord. SWM-2505&nbsp;<span style="font-size: 14.6666669845581px; line-height: 18.3333339691162px;">&sect;</span>2, 2004; SDR-349&nbsp;<span style="font-size: 14.6666669845581px; line-height: 18.3333339691162px;">&sect;</span>4-9-3, 65)</p>
+
+<p class='archiveNotice nullValue '>Effective on:&nbsp;1/1/1901</p>
+</section> 
+<section id='secid-3938' class='secLvl5 _015 _015-004 _015-004-001 _015-004-001-003 _015-004-001-003-013' tabindex='-1' data-secid='3938'> 
+<h4>
+	<strong>15.08.260 Mechanical Excavation. (Repealed. See <a class="xref" target="_blank" href="doc-viewer.aspx#secid-4037">15.10.100</a>)</strong></h4>
+<p>
+	Repealed. See <a class="xref" target="_blank" href="doc-viewer.aspx#secid-4037">15.10.100</a>.</p>
+<p>
+	(History: Ord. SWM-2505&nbsp;<span style="font-size: 14.6666669845581px; line-height: 18.3333339691162px;">&sect;</span>2, 2004; SDR-349&nbsp;<span style="font-size: 14.6666669845581px; line-height: 18.3333339691162px;">&sect;</span>4-9-4, 65)</p>
+
+<p class='archiveNotice nullValue '>Effective on:&nbsp;1/1/1901</p>
+</section> 
+<section id='secid-3939' class='secLvl5 _015 _015-004 _015-004-001 _015-004-001-003 _015-004-001-003-014' tabindex='-1' data-secid='3939'> 
+<h4>
+	<strong>15.08.270 Excavation Below Pipe Subgrade. (Repealed. See <a class="xref" target="_blank" href="doc-viewer.aspx#secid-4037">15.10.100</a>)</strong></h4>
+<p>
+	Repealed. See <a class="xref" target="_blank" href="doc-viewer.aspx#secid-4037">15.10.100</a>.</p>
+<p>
+	(History: Ord. SWM-2505&nbsp;<span style="font-size: 14.6666669845581px; line-height: 18.3333339691162px;">&sect;</span>2, 2004; SDR-2192&nbsp;<span style="font-size: 14.6666669845581px; line-height: 18.3333339691162px;">&sect;</span>13, 2000; SDR-1275&nbsp;<span style="font-size: 14.6666669845581px; line-height: 18.3333339691162px;">&sect;</span>9, 84; SDR-349&nbsp;<span style="font-size: 14.6666669845581px; line-height: 18.3333339691162px;">&sect;4-9-5</span>, 65)</p>
+
+<p class='archiveNotice nullValue '>Effective on:&nbsp;1/1/1901</p>
+</section> 
+<section id='secid-3940' class='secLvl5 _015 _015-004 _015-004-001 _015-004-001-003 _015-004-001-003-015' tabindex='-1' data-secid='3940'> 
+<h4>
+	<strong>15.08.280 Artificial Foundations in Trenches. (Repealed. See <a class="xref" target="_blank" href="doc-viewer.aspx#secid-4037">15.10.100</a>)</strong></h4>
+<p>
+	Repealed. See <a class="xref" target="_blank" href="doc-viewer.aspx#secid-4037">15.10.100</a>.</p>
+<p>
+	(History: Ord. SWM-2505&nbsp;<span style="font-size: 14.6666669845581px; line-height: 18.3333339691162px;">&sect;</span>2, 2004; SDR-349&nbsp;<span style="font-size: 14.6666669845581px; line-height: 18.3333339691162px;">&sect;</span>4-9-6, 65)</p>
+
+<p class='archiveNotice nullValue '>Effective on:&nbsp;1/1/1901</p>
+</section> 
+<section id='secid-3941' class='secLvl5 _015 _015-004 _015-004-001 _015-004-001-003 _015-004-001-003-016' tabindex='-1' data-secid='3941'> 
+<h4>
+	<strong>15.08.290 </strong><strong> Holes. (Repealed. See <a class="xref" target="_blank" href="doc-viewer.aspx#secid-4037">15.10.100</a>)</strong></h4>
+<p>
+	Repealed. See <a class="xref" target="_blank" href="doc-viewer.aspx#secid-4037">15.10.100</a>.</p>
+<p>
+	(History: Ord. SWM-2505&nbsp;<span style="font-size: 14.6666669845581px; line-height: 18.3333339691162px;">&sect;</span>2, 2004; SDR-349&nbsp;<span style="font-size: 14.6666669845581px; line-height: 18.3333339691162px;">&sect;</span>4-9-7, 65)</p>
+
+<p class='archiveNotice nullValue '>Effective on:&nbsp;1/1/1901</p>
+</section> 
+<section id='secid-3942' class='secLvl5 _015 _015-004 _015-004-001 _015-004-001-003 _015-004-001-003-017' tabindex='-1' data-secid='3942'> 
+<h4>
+	<strong>15.08.300 Pipe Embedment. (Repealed. See </strong><a class="xref" target="_blank" href="doc-viewer.aspx#secid-4037">15.10.100</a>)</h4>
+<p>
+	Repealed. See <a class="xref" target="_blank" href="doc-viewer.aspx#secid-4037">15.10.100</a>.</p>
+<p>
+	(History: Ord. SWM-2505&nbsp;<span style="font-size: 14.6666669845581px; line-height: 18.3333339691162px;">&sect;</span>2, 2004; SDR-2192&nbsp;<span style="font-size: 14.6666669845581px; line-height: 18.3333339691162px;">&sect;</span>14, 2000; SDR-349&nbsp;<span style="font-size: 14.6666669845581px; line-height: 18.3333339691162px;">&sect;</span>4-10, 65)</p>
+
+<p class='archiveNotice nullValue '>Effective on:&nbsp;1/1/1901</p>
+</section> 
+<section id='secid-3943' class='secLvl5 _015 _015-004 _015-004-001 _015-004-001-003 _015-004-001-003-018' tabindex='-1' data-secid='3943'> 
+<h4>
+	<strong>15.08.310 Embedment Classes. (Repealed. See <a class="xref" target="_blank" href="doc-viewer.aspx#secid-4037">15.10.100</a>)</strong></h4>
+<p>
+	Repealed. See <a class="xref" target="_blank" href="doc-viewer.aspx#secid-4037">15.10.100</a>.</p>
+<p>
+	(History: Ord. SWM-2505&nbsp;<span style="font-size: 14.6666669845581px; line-height: 18.3333339691162px;">&sect;</span>2, 2004; SDR- 2379&nbsp;<span style="font-size: 14.6666669845581px; line-height: 18.3333339691162px;">&sect;</span>2, 2002; SDR-349&nbsp;<span style="font-size: 14.6666669845581px; line-height: 18.3333339691162px;">&sect;</span>4-10-1, 65)</p>
+
+<p class='archiveNotice nullValue '>Effective on:&nbsp;1/1/1901</p>
+</section> 
+<section id='secid-3944' class='secLvl5 _015 _015-004 _015-004-001 _015-004-001-003 _015-004-001-003-019' tabindex='-1' data-secid='3944'> 
+<h4>
+	<strong>15.08.320 Placement and Compaction. (Repealed. See <a class="xref" target="_blank" href="doc-viewer.aspx#secid-4037">15.10.100</a>)</strong></h4>
+<p>
+	Repealed. See <a class="xref" target="_blank" href="doc-viewer.aspx#secid-4037">15.10.100</a>.</p>
+<p>
+	(History: Ord. SWM-2505&nbsp;<span style="font-size: 14.6666669845581px; line-height: 18.3333339691162px;">&sect;</span>2, 2004; SDR-2192&nbsp;<span style="font-size: 14.6666669845581px; line-height: 18.3333339691162px;">&sect;</span>15, 2000; SDR-349&nbsp;<span style="font-size: 14.6666669845581px; line-height: 18.3333339691162px;">&sect;</span>4-10-2, 65)</p>
+
+<p class='archiveNotice nullValue '>Effective on:&nbsp;1/1/1901</p>
+</section> 
+<section id='secid-3945' class='secLvl5 _015 _015-004 _015-004-001 _015-004-001-003 _015-004-001-003-020' tabindex='-1' data-secid='3945'> 
+<h4>
+	<strong>15.08.330 Trench Backfill. (Repealed. See <a class="xref" target="_blank" href="doc-viewer.aspx#secid-4037">15.10.100</a>)</strong></h4>
+<p>
+	Repealed. See <a class="xref" target="_blank" href="doc-viewer.aspx#secid-4037">15.10.100</a>.</p>
+<p>
+	(History: Ord. SWM-2505&nbsp;<span style="font-size: 14.6666669845581px; line-height: 18.3333339691162px;">&sect;</span>2, 2004; SDR-349&nbsp;<span style="font-size: 14.6666669845581px; line-height: 18.3333339691162px;">&sect;</span>4-11, 65)</p>
+
+<p class='archiveNotice nullValue '>Effective on:&nbsp;1/1/1901</p>
+</section> 
+<section id='secid-3946' class='secLvl5 _015 _015-004 _015-004-001 _015-004-001-003 _015-004-001-003-021' tabindex='-1' data-secid='3946'> 
+<h4>
+	<strong>15.08.340 Tamped Backfill. (Repealed. See <a class="xref" target="_blank" href="doc-viewer.aspx#secid-4037">15.10.100</a>)</strong></h4>
+<p>
+	Repealed. See <a class="xref" target="_blank" href="doc-viewer.aspx#secid-4037">15.10.100</a>.</p>
+<p>
+	(History: Ord. SWM-2505&nbsp;<span style="font-size: 14.6666669845581px; line-height: 18.3333339691162px;">&sect;</span>2, 2004; SDR- 2379&nbsp;<span style="font-size: 14.6666669845581px; line-height: 18.3333339691162px;">&sect;</span>3, 2002; SDR-2192&nbsp;<span style="font-size: 14.6666669845581px; line-height: 18.3333339691162px;">&sect;</span>16, 2000; SDR-1275&nbsp;<span style="font-size: 14.6666669845581px; line-height: 18.3333339691162px;">&sect;</span>10, 84; SDR-349&nbsp;<span style="font-size: 14.6666669845581px; line-height: 18.3333339691162px;">&sect;4-11-1</span>, 65)</p>
+
+<p class='archiveNotice nullValue '>Effective on:&nbsp;1/1/1901</p>
+</section> 
+<section id='secid-3947' class='secLvl5 _015 _015-004 _015-004-001 _015-004-001-003 _015-004-001-003-022' tabindex='-1' data-secid='3947'> 
+<h4>
+	<strong>15.08.350 Uncompacted Backfill. (Repealed. See <a class="xref" target="_blank" href="doc-viewer.aspx#secid-4037">15.10.100</a>)</strong></h4>
+<p>
+	Repealed. See <a class="xref" target="_blank" href="doc-viewer.aspx#secid-4037">15.10.100</a>.</p>
+<p>
+	(History: Ord. SWM-2505&nbsp;<span style="font-size: 14.6666669845581px; line-height: 18.3333339691162px;">&sect;</span>2, 2004; SDR-2192&nbsp;<span style="font-size: 14.6666669845581px; line-height: 18.3333339691162px;">&sect;</span>17, 2000; SDR-349&nbsp;<span style="font-size: 14.6666669845581px; line-height: 18.3333339691162px;">&sect;</span>4-11-2, 65)</p>
+
+<p class='archiveNotice nullValue '>Effective on:&nbsp;1/1/1901</p>
+</section> 
+<section id='secid-3948' class='secLvl5 _015 _015-004 _015-004-001 _015-004-001-003 _015-004-001-003-023' tabindex='-1' data-secid='3948'> 
+<h4>
+	<strong>15.08.360 Structure Backfill. (Repealed. See <a class="xref" target="_blank" href="doc-viewer.aspx#secid-4037">15.10.100</a>)</strong></h4>
+<p>
+	Repealed. See <a class="xref" target="_blank" href="doc-viewer.aspx#secid-4037">15.10.100</a>.</p>
+<p>
+	(History: Ord. SWM-2505&nbsp;<span style="font-size: 14.6666669845581px; line-height: 18.3333339691162px;">&sect;</span>2, 2004; SDR-2192 <span style="font-size: 14.6666669845581px; line-height: 18.3333339691162px;">&sect;</span><span style="font-size: 11pt; line-height: 18.3333339691162px;">18, 2000; </span>SDR-1275<span style="font-size: 11pt; line-height: 18.3333339691162px;">&nbsp;</span><span style="font-size: 14.6666669845581px; line-height: 18.3333339691162px;">&sect;</span><span style="font-size: 11pt; line-height: 18.3333339691162px;">11, 84; </span>SDR-349<span style="font-size: 11pt; line-height: 18.3333339691162px;">&nbsp;</span><span style="font-size: 14.6666669845581px; line-height: 18.3333339691162px;">&sect;</span><span style="font-size: 11pt; line-height: 18.3333339691162px;">4-12, 65)</span></p>
+
+<p class='archiveNotice nullValue '>Effective on:&nbsp;1/1/1901</p>
+</section> 
+<section id='secid-3949' class='secLvl5 _015 _015-004 _015-004-001 _015-004-001-003 _015-004-001-003-024' tabindex='-1' data-secid='3949'> 
+<h4>
+	<strong>15.08.370 Drainage Maintenance. (Repealed. See <a class="xref" target="_blank" href="doc-viewer.aspx#secid-4037">15.10.100</a>)</strong></h4>
+<p>
+	Repealed. See <a class="xref" target="_blank" href="doc-viewer.aspx#secid-4037">15.10.100</a>.</p>
+<p>
+	(History: Ord. SWM-2505&nbsp;<span style="font-size: 14.6666669845581px; line-height: 18.3333339691162px;">&sect;</span>2, 2004; SDR-349&nbsp;<span style="font-size: 14.6666669845581px; line-height: 18.3333339691162px;">&sect;</span>4-13, 65)</p>
+
+<p class='archiveNotice nullValue '>Effective on:&nbsp;1/1/1901</p>
+</section> 
+<section id='secid-3950' class='secLvl5 _015 _015-004 _015-004-001 _015-004-001-003 _015-004-001-003-025' tabindex='-1' data-secid='3950'> 
+<h4>
+	<strong>15.08.380 Protection of Trench - Backfill in Drainage - Courses.&nbsp; (Repealed. See <a class="xref" target="_blank" href="doc-viewer.aspx#secid-4037">15.10.100</a>)</strong></h4>
+<p>
+	Repealed. See <a class="xref" target="_blank" href="doc-viewer.aspx#secid-4037">15.10.100</a>.</p>
+<p>
+	(History: Ord. SWM-2505&nbsp;<span style="font-size: 14.6666669845581px; line-height: 18.3333339691162px;">&sect;</span>2, 2004; SDR-2192&nbsp;<span style="font-size: 14.6666669845581px; line-height: 18.3333339691162px;">&sect;</span>19, 2000; SDR-349&nbsp;<span style="font-size: 14.6666669845581px; line-height: 18.3333339691162px;">&sect;</span>4-14, 65)</p>
+
+<p class='archiveNotice nullValue '>Effective on:&nbsp;1/1/1901</p>
+</section> 
+<section id='secid-3951' class='secLvl5 _015 _015-004 _015-004-001 _015-004-001-003 _015-004-001-003-026' tabindex='-1' data-secid='3951'> 
+<h4>
+	<strong>15.08.390 Disposal of Excess Excavated Materials. (Repealed. See <a class="xref" target="_blank" href="doc-viewer.aspx#secid-4037">15.10.100</a>)</strong></h4>
+<p>
+	Repealed. See <a class="xref" target="_blank" href="doc-viewer.aspx#secid-4037">15.10.100</a>.</p>
+<p>
+	(History: Ord. SWM-2505&nbsp;<span style="font-size: 14.6666669845581px; line-height: 18.3333339691162px;">&sect;</span>2, 2004; SDR-349&nbsp;<span style="font-size: 14.6666669845581px; line-height: 18.3333339691162px;">&sect;</span>4-15, 65)</p>
+
+<p class='archiveNotice nullValue '>Effective on:&nbsp;1/1/1901</p>
+</section> 
+<section id='secid-3952' class='secLvl5 _015 _015-004 _015-004-001 _015-004-001-003 _015-004-001-003-027' tabindex='-1' data-secid='3952'> 
+<h4>
+	<strong>15.08.400 Maximum Trench Widths.&nbsp; (Repealed. See <a class="xref" target="_blank" href="doc-viewer.aspx#secid-4037">15.10.100</a>)</strong></h4>
+<p>
+	Repealed. See <a class="xref" target="_blank" href="doc-viewer.aspx#secid-4037">15.10.100</a>.</p>
+<p>
+	(History: Ord. SWM-2505&nbsp;<span style="font-size: 14.6666669845581px; line-height: 18.3333339691162px;">&sect;</span>2, 2004; SDR-2192&nbsp;<span style="font-size: 14.6666669845581px; line-height: 18.3333339691162px;">&sect;</span>20, 2000; SDR-349 <span style="font-size: 14.6666669845581px; line-height: 18.3333339691162px;">&sect;</span><span style="font-size: 11pt; line-height: 18.3333339691162px;">4-16, 65)</span></p>
+
+<p class='archiveNotice nullValue '>Effective on:&nbsp;1/1/1901</p>
+</section> 
+<section id='secid-3953' class='secLvl5 _015 _015-004 _015-004-001 _015-004-001-003 _015-004-001-003-028' tabindex='-1' data-secid='3953'> 
+<h4>
+	<strong>15.08.410 Minimum Trench Widths. (Repealed. See <a class="xref" target="_blank" href="doc-viewer.aspx#secid-4037">15.10.100</a>)</strong></h4>
+<p>
+	Repealed. See <a class="xref" target="_blank" href="doc-viewer.aspx#secid-4037">15.10.100</a>.</p>
+<p>
+	(History: Ord. SWM-2505&nbsp;<span style="font-size: 14.6666669845581px; line-height: 18.3333339691162px;">&sect;</span>2, 2004; SDR-1820&nbsp;<span style="font-size: 14.6666669845581px; line-height: 18.3333339691162px;">&sect;</span>3, 93; SDR-349&nbsp;<span style="font-size: 14.6666669845581px; line-height: 18.3333339691162px;">&sect;</span>4-17, 65)</p>
+
+<p class='archiveNotice nullValue '>Effective on:&nbsp;1/1/1901</p>
+</section> 
+<section id='secid-3954' class='secLvl5 _015 _015-004 _015-004-001 _015-004-001-003 _015-004-001-003-029' tabindex='-1' data-secid='3954'> 
+<h4>
+	<strong>15.08.420 Figure 2 - Embedment for Conduits. (Repealed)</strong></h4>
+<p>
+	Repealed.</p>
+<p>
+	(History: Ord. SDR-2192&nbsp;<span style="font-size: 14.6666669845581px; line-height: 18.3333339691162px;">&sect;</span>44, 2000; SDR-349&nbsp;<span style="font-size: 14.6666669845581px; line-height: 18.3333339691162px;">&sect;</span>4 (part), 65)</p>
+
+<p class='archiveNotice nullValue '>Effective on:&nbsp;1/1/1901</p>
+</section> 
+<section id='secid-3955' class='secLvl4 _015 _015-004 _015-004-001 _015-004-001-004' tabindex='-1' data-secid='3955'> 
+<h3>
+	<strong>Article IV. </strong><strong>Concrete Culvert Pipe</strong></h3>
+
+
+</section> 
+<section id='secid-3956' class='secLvl5 _015 _015-004 _015-004-001 _015-004-001-004 _015-004-001-004-001' tabindex='-1' data-secid='3956'> 
+<h4>
+	<strong>15.08.430 Specifications Generally. (Repealed. See <a class="xref" target="_blank" href="doc-viewer.aspx#secid-4037">15.10.100</a>)</strong></h4>
+<p>
+	Repealed. See <a class="xref" target="_blank" href="doc-viewer.aspx#secid-4037">15.10.100</a>.</p>
+<p>
+	(History: Ord. SWM-2505&nbsp;<span style="font-size: 14.6666669845581px; line-height: 18.3333339691162px;">&sect;</span>2, 2004; SDR-2192&nbsp;<span style="font-size: 14.6666669845581px; line-height: 18.3333339691162px;">&sect;</span>21, 2000; SDR-1275&nbsp;<span style="font-size: 14.6666669845581px; line-height: 18.3333339691162px;">&sect;</span>12, 84; SDR-349&nbsp;<span style="font-size: 14.6666669845581px; line-height: 18.3333339691162px;">&sect;</span>5-1, 65)</p>
+
+<p class='archiveNotice nullValue '>Effective on:&nbsp;1/1/1901</p>
+</section> 
+<section id='secid-3957' class='secLvl5 _015 _015-004 _015-004-001 _015-004-001-004 _015-004-001-004-002' tabindex='-1' data-secid='3957'> 
+<h4>
+	<strong>15.08.440 Reinforcement.</strong> <strong>(Repealed. See <a class="xref" target="_blank" href="doc-viewer.aspx#secid-4037">15.10.100</a>)</strong></h4>
+<p>
+	Repealed. See <a class="xref" target="_blank" href="doc-viewer.aspx#secid-4037">15.10.100</a>.</p>
+<p>
+	(History: Ord. SWM-2505&nbsp;<span style="font-size: 14.6666669845581px; line-height: 18.3333339691162px;">&sect;</span>2, 2004; SDR-349&nbsp;<span style="font-size: 14.6666669845581px; line-height: 18.3333339691162px;">&sect;</span>5-2, 65)</p>
+
+<p class='archiveNotice nullValue '>Effective on:&nbsp;1/1/1901</p>
+</section> 
+<section id='secid-3958' class='secLvl5 _015 _015-004 _015-004-001 _015-004-001-004 _015-004-001-004-003' tabindex='-1' data-secid='3958'> 
+<h4>
+	<strong>15.08.450 Joints.</strong> <strong>(Repealed. See <a class="xref" target="_blank" href="doc-viewer.aspx#secid-4037">15.10.100</a>)</strong></h4>
+<p>
+	Repealed. See <a class="xref" target="_blank" href="doc-viewer.aspx#secid-4037">15.10.100</a>.</p>
+<p>
+	(History: Ord. SWM-2505&nbsp;<span style="font-size: 14.6666669845581px; line-height: 18.3333339691162px;">&sect;</span>2, 2004; SDR-2192&nbsp;<span style="font-size: 14.6666669845581px; line-height: 18.3333339691162px;">&sect;</span>22, 2000; SDR-1275&nbsp;<span style="font-size: 14.6666669845581px; line-height: 18.3333339691162px;">&sect;</span>13, 84; SDR-349&nbsp;<span style="font-size: 14.6666669845581px; line-height: 18.3333339691162px;">&sect;</span>5-3, 65)</p>
+
+<p class='archiveNotice nullValue '>Effective on:&nbsp;1/1/1901</p>
+</section> 
+<section id='secid-3959' class='secLvl5 _015 _015-004 _015-004-001 _015-004-001-004 _015-004-001-004-004' tabindex='-1' data-secid='3959'> 
+<h4>
+	<strong>15.08.460 Rubber Gasket Joints.</strong> <strong>(Repealed. See <a class="xref" target="_blank" href="doc-viewer.aspx#secid-4037">15.10.100</a>)</strong></h4>
+<p>
+	Repealed. See <a class="xref" target="_blank" href="doc-viewer.aspx#secid-4037">15.10.100</a>.</p>
+<p>
+	(History: Ord. SWM-2505&nbsp;<span style="font-size: 14.6666669845581px; line-height: 18.3333339691162px;">&sect;</span>2, 2004; SDR-2192&nbsp;<span style="font-size: 14.6666669845581px; line-height: 18.3333339691162px;">&sect;</span>23, 2000; SDR-349&nbsp;<span style="font-size: 14.6666669845581px; line-height: 18.3333339691162px;">&sect;</span>5-3.1, 65)</p>
+
+<p class='archiveNotice nullValue '>Effective on:&nbsp;1/1/1901</p>
+</section> 
+<section id='secid-3960' class='secLvl5 _015 _015-004 _015-004-001 _015-004-001-004 _015-004-001-004-005' tabindex='-1' data-secid='3960'> 
+<h4>
+	<strong>15.08.470 Mastic Joints.</strong> <strong>(Repealed. See <a class="xref" target="_blank" href="doc-viewer.aspx#secid-4037">15.10.100</a>)</strong></h4>
+<p>
+	Repealed. See <a class="xref" target="_blank" href="doc-viewer.aspx#secid-4037">15.10.100</a>.</p>
+<p>
+	(History: Ord. SWM-2505&nbsp;<span style="font-size: 14.6666669845581px; line-height: 18.3333339691162px;">&sect;</span>2, 2004; SDR-2192&nbsp;<span style="font-size: 14.6666669845581px; line-height: 18.3333339691162px;">&sect;</span>24, 2000; SDR-1275&nbsp;<span style="font-size: 14.6666669845581px; line-height: 18.3333339691162px;">&sect;</span>14, 84; SDR-349&nbsp;<span style="font-size: 14.6666669845581px; line-height: 18.3333339691162px;">&sect;</span>3.2, 65)</p>
+
+<p class='archiveNotice nullValue '>Effective on:&nbsp;1/1/1901</p>
+</section> 
+<section id='secid-3961' class='secLvl5 _015 _015-004 _015-004-001 _015-004-001-004 _015-004-001-004-006' tabindex='-1' data-secid='3961'> 
+<h4>
+	<strong>15.08.480 Mortar Joints.</strong> <strong>(Repealed</strong><strong>)</strong></h4>
+<p>
+	Repealed.</p>
+<p>
+	(History: Ord. SDR-1275&nbsp;<span style="font-size: 14.6666669845581px; line-height: 18.3333339691162px;">&sect;</span>15, 84; SDR-349&nbsp;<span style="font-size: 14.6666669845581px; line-height: 18.3333339691162px;">&sect;</span>5-3.3, 65)</p>
+
+<p class='archiveNotice nullValue '>Effective on:&nbsp;1/1/1901</p>
+</section> 
+<section id='secid-3962' class='secLvl5 _015 _015-004 _015-004-001 _015-004-001-004 _015-004-001-004-007' tabindex='-1' data-secid='3962'> 
+<h4>
+	<strong>15.08.490 Fine Aggregate.</strong> <strong>(Repealed. See <a class="xref" target="_blank" href="doc-viewer.aspx#secid-4037">15.10.100</a>)</strong></h4>
+<p>
+	Repealed. See <a class="xref" target="_blank" href="doc-viewer.aspx#secid-4037">15.10.100</a>.</p>
+<p>
+	(History: Ord. SWM-2505&nbsp;<span style="font-size: 14.6666669845581px; line-height: 18.3333339691162px;">&sect;</span>2, 2004; SDR-349&nbsp;<span style="font-size: 14.6666669845581px; line-height: 18.3333339691162px;">&sect;</span>5-4, 65)</p>
+
+<p class='archiveNotice nullValue '>Effective on:&nbsp;1/1/1901</p>
+</section> 
+<section id='secid-3963' class='secLvl5 _015 _015-004 _015-004-001 _015-004-001-004 _015-004-001-004-008' tabindex='-1' data-secid='3963'> 
+<h4>
+	<strong>15.08.500 Marking. (Repealed. See <a class="xref" target="_blank" href="doc-viewer.aspx#secid-4037">15.10.100</a>)</strong></h4>
+<p>
+	Repealed. See <a class="xref" target="_blank" href="doc-viewer.aspx#secid-4037">15.10.100</a>.</p>
+<p>
+	(History: Ord. SWM-2505&nbsp;<span style="font-size: 14.6666669845581px; line-height: 18.3333339691162px;">&sect;</span>2, 2004; SDR-1275&nbsp;<span style="font-size: 14.6666669845581px; line-height: 18.3333339691162px;">&sect;</span>16, 84; SDR-349&nbsp;<span style="font-size: 14.6666669845581px; line-height: 18.3333339691162px;">&sect;</span>5-5, 65)</p>
+
+<p class='archiveNotice nullValue '>Effective on:&nbsp;1/1/1901</p>
+</section> 
+<section id='secid-3964' class='secLvl5 _015 _015-004 _015-004-001 _015-004-001-004 _015-004-001-004-009' tabindex='-1' data-secid='3964'> 
+<h4>
+	<strong>15.08.510 Joint Opening.</strong> <strong>(Repealed. See <a class="xref" target="_blank" href="doc-viewer.aspx#secid-4037">15.10.100</a>)</strong></h4>
+<p>
+	Repealed. See <a class="xref" target="_blank" href="doc-viewer.aspx#secid-4037">15.10.100</a>.</p>
+<p>
+	(History: Ord. SWM-2505&nbsp;<span style="font-size: 14.6666669845581px; line-height: 18.3333339691162px;">&sect;</span>2, 2004; SDR-2192&nbsp;<span style="font-size: 14.6666669845581px; line-height: 18.3333339691162px;">&sect;</span>25, 2000; SDR-1275&nbsp;<span style="font-size: 14.6666669845581px; line-height: 18.3333339691162px;">&sect;</span>17, 84; SDR-349&nbsp;<span style="font-size: 14.6666669845581px; line-height: 18.3333339691162px;">&sect;</span>5-6, 65)</p>
+
+<p class='archiveNotice nullValue '>Effective on:&nbsp;1/1/1901</p>
+</section> 
+<section id='secid-3965' class='secLvl5 _015 _015-004 _015-004-001 _015-004-001-004 _015-004-001-004-010' tabindex='-1' data-secid='3965'> 
+<h4>
+	<strong>15.08.520 Test Reports. (Repealed)</strong></h4>
+<p>
+	Repealed.</p>
+<p>
+	(History: Ord. SDR-2192&nbsp;<span style="font-size: 14.6666669845581px; line-height: 18.3333339691162px;">&sect;</span>44, 2000; SDR-349&nbsp;<span style="font-size: 14.6666669845581px; line-height: 18.3333339691162px;">&sect;</span>5-7, 65)</p>
+
+<p class='archiveNotice nullValue '>Effective on:&nbsp;1/1/1901</p>
+</section> 
+<section id='secid-3966' class='secLvl5 _015 _015-004 _015-004-001 _015-004-001-004 _015-004-001-004-011' tabindex='-1' data-secid='3966'> 
+<h4>
+	<strong>15.08.530 Bends. (Repealed. See <a class="xref" target="_blank" href="doc-viewer.aspx#secid-4037">15.10.100</a>)</strong></h4>
+<p>
+	Repealed. See <a class="xref" target="_blank" href="doc-viewer.aspx#secid-4037">15.10.100</a>.</p>
+<p>
+	(History: Ord. SWM-2505&nbsp;<span style="font-size: 14.6666669845581px; line-height: 18.3333339691162px;">&sect;</span>2, 2004; SDR-349&nbsp;<span style="font-size: 14.6666669845581px; line-height: 18.3333339691162px;">&sect;</span>5-8, 65)</p>
+
+<p class='archiveNotice nullValue '>Effective on:&nbsp;1/1/1901</p>
+</section> 
+<section id='secid-3967' class='secLvl5 _015 _015-004 _015-004-001 _015-004-001-004 _015-004-001-004-012' tabindex='-1' data-secid='3967'> 
+<h4>
+	<strong>15.08.540 Handling.</strong> <strong>(Repealed. See <a class="xref" target="_blank" href="doc-viewer.aspx#secid-4037">15.10.100</a>)</strong></h4>
+<p>
+	Repealed. See <a class="xref" target="_blank" href="doc-viewer.aspx#secid-4037">15.10.100</a>.</p>
+<p>
+	(History: Ord. SWM-2505&nbsp;<span style="font-size: 14.6666669845581px; line-height: 18.3333339691162px;">&sect;</span>2, 2004; SDR-2192&nbsp;<span style="font-size: 14.6666669845581px; line-height: 18.3333339691162px;">&sect;</span>26, 2000; SDR-349&nbsp;<span style="font-size: 14.6666669845581px; line-height: 18.3333339691162px;">&sect;</span>5-9, 65)</p>
+
+<p class='archiveNotice nullValue '>Effective on:&nbsp;1/1/1901</p>
+</section> 
+<section id='secid-3968' class='secLvl5 _015 _015-004 _015-004-001 _015-004-001-004 _015-004-001-004-013' tabindex='-1' data-secid='3968'> 
+<h4>
+	<strong>15.08.550 Cleaning. (Repealed. See <a class="xref" target="_blank" href="doc-viewer.aspx#secid-4037">15.10.100</a>)</strong></h4>
+<p>
+	Repealed. See <a class="xref" target="_blank" href="doc-viewer.aspx#secid-4037">15.10.100</a>.</p>
+<p>
+	(History: Ord. SWM-2505&nbsp;<span style="font-size: 14.6666669845581px; line-height: 18.3333339691162px;">&sect;</span>2, 2004; SDR-349&nbsp;<span style="font-size: 14.6666669845581px; line-height: 18.3333339691162px;">&sect;</span>5-10, 65)</p>
+
+<p class='archiveNotice nullValue '>Effective on:&nbsp;1/1/1901</p>
+</section> 
+<section id='secid-3969' class='secLvl5 _015 _015-004 _015-004-001 _015-004-001-004 _015-004-001-004-014' tabindex='-1' data-secid='3969'> 
+<h4>
+	<strong>15.08.560 Alignment.</strong> <strong>(Repealed. See <a class="xref" target="_blank" href="doc-viewer.aspx#secid-4037">15.10.100</a>)</strong></h4>
+<p>
+	Repealed. See <a class="xref" target="_blank" href="doc-viewer.aspx#secid-4037">15.10.100</a>.</p>
+<p>
+	(History: Ord. SWM-2505&nbsp;<span style="font-size: 14.6666669845581px; line-height: 18.3333339691162px;">&sect;</span>2, 2004; SDR-2192&nbsp;<span style="font-size: 14.6666669845581px; line-height: 18.3333339691162px;">&sect;</span>27, 2000; SDR-1275&nbsp;<span style="font-size: 14.6666669845581px; line-height: 18.3333339691162px;">&sect;</span>18, 84; SDR-349&nbsp;<span style="font-size: 14.6666669845581px; line-height: 18.3333339691162px;">&sect;</span>5-11, 65)</p>
+
+<p class='archiveNotice nullValue '>Effective on:&nbsp;1/1/1901</p>
+</section> 
+<section id='secid-3970' class='secLvl5 _015 _015-004 _015-004-001 _015-004-001-004 _015-004-001-004-015' tabindex='-1' data-secid='3970'> 
+<h4>
+	<strong>15.08.570 Laying Pipe.</strong> <strong>(Repealed. See <a class="xref" target="_blank" href="doc-viewer.aspx#secid-4037">15.10.100</a>)</strong></h4>
+<p>
+	Repealed. See <a class="xref" target="_blank" href="doc-viewer.aspx#secid-4037">15.10.100</a>.</p>
+<p>
+	(History: Ord. SWM-2505&nbsp;<span style="font-size: 14.6666669845581px; line-height: 18.3333339691162px;">&sect;</span>2, 2004; SDR-1275&nbsp;<span style="font-size: 14.6666669845581px; line-height: 18.3333339691162px;">&sect;</span>19, 84; SDR-349&nbsp;<span style="font-size: 14.6666669845581px; line-height: 18.3333339691162px;">&sect;</span>5-12, 65)</p>
+
+<p class='archiveNotice nullValue '>Effective on:&nbsp;1/1/1901</p>
+</section> 
+<section id='secid-3971' class='secLvl5 _015 _015-004 _015-004-001 _015-004-001-004 _015-004-001-004-016' tabindex='-1' data-secid='3971'> 
+<h4>
+	<strong>15.08.580 Rubber Gasketed Joints. (Repealed)</strong></h4>
+<p>
+	Repealed.</p>
+<p>
+	(History: Ord. SDR-2192&nbsp;<span style="font-size: 14.6666669845581px; line-height: 18.3333339691162px;">&sect;</span>44, 2000; SDR-349&nbsp;<span style="font-size: 14.6666669845581px; line-height: 18.3333339691162px;">&sect;</span>5-13, 65)</p>
+
+<p class='archiveNotice nullValue '>Effective on:&nbsp;1/1/1901</p>
+</section> 
+<section id='secid-3972' class='secLvl4 _015 _015-004 _015-004-001 _015-004-001-005' tabindex='-1' data-secid='3972'> 
+<h3>
+	<strong>Article V. </strong><strong>Corrugated Metal Pipe</strong></h3>
+
+
+</section> 
+<section id='secid-3973' class='secLvl5 _015 _015-004 _015-004-001 _015-004-001-005 _015-004-001-005-001' tabindex='-1' data-secid='3973'> 
+<h4>
+	<strong>15.08.590 Materials. (Repealed. See <a class="xref" target="_blank" href="doc-viewer.aspx#secid-4037">15.10.100</a>)</strong></h4>
+<p>
+	Repealed. See <a class="xref" target="_blank" href="doc-viewer.aspx#secid-4037">15.10.100</a>.</p>
+<p>
+	(History: Ord. SWM-2505&nbsp;<span style="font-size: 14.6666669845581px; line-height: 18.3333339691162px;">&sect;</span>2, 2004; SDR-1413&nbsp;<span style="font-size: 14.6666669845581px; line-height: 18.3333339691162px;">&sect;</span>1, 86; SDR-1275&nbsp;<span style="font-size: 14.6666669845581px; line-height: 18.3333339691162px;">&sect;</span>20, 84; SDR-349&nbsp;<span style="font-size: 14.6666669845581px; line-height: 18.3333339691162px;">&sect;</span>6-1, 65)</p>
+
+<p class='archiveNotice nullValue '>Effective on:&nbsp;1/1/1901</p>
+</section> 
+<section id='secid-3974' class='secLvl5 _015 _015-004 _015-004-001 _015-004-001-005 _015-004-001-005-002' tabindex='-1' data-secid='3974'> 
+<h4>
+	<strong>15.08.600 Handling and Installation.</strong> <strong>(Repealed. See <a class="xref" target="_blank" href="doc-viewer.aspx#secid-4037">15.10.100</a>)</strong></h4>
+<p>
+	Repealed. See <a class="xref" target="_blank" href="doc-viewer.aspx#secid-4037">15.10.100</a>.</p>
+<p>
+	(History: Ord. SWM-2505&nbsp;<span style="font-size: 14.6666669845581px; line-height: 18.3333339691162px;">&sect;</span>2, 2004; SDR-349&nbsp;<span style="font-size: 14.6666669845581px; line-height: 18.3333339691162px;">&sect;</span>6-2, 65)</p>
+
+<p class='archiveNotice nullValue '>Effective on:&nbsp;1/1/1901</p>
+</section> 
+<section id='secid-3975' class='secLvl4 _015 _015-004 _015-004-001 _015-004-001-006' tabindex='-1' data-secid='3975'> 
+<h3>
+	<strong>Article VI. </strong><strong>Concrete Lined Ditch</strong></h3>
+
+
+</section> 
+<section id='secid-3976' class='secLvl5 _015 _015-004 _015-004-001 _015-004-001-006 _015-004-001-006-001' tabindex='-1' data-secid='3976'> 
+<h4>
+	<strong>15.08.610 Design Requirements.</strong> <strong>(Repealed. See <a class="xref" target="_blank" href="doc-viewer.aspx#secid-4037">15.10.100</a>)</strong></h4>
+<p>
+	Repealed. See <a class="xref" target="_blank" href="doc-viewer.aspx#secid-4037">15.10.100</a>.</p>
+<p>
+	(History: Ord. SWM-2505&nbsp;<span style="font-size: 14.6666669845581px; line-height: 18.3333339691162px;">&sect;</span>2, 2004; SDR-2192&nbsp;<span style="font-size: 14.6666669845581px; line-height: 18.3333339691162px;">&sect;</span>28, 2000; SDR-1275&nbsp;<span style="font-size: 14.6666669845581px; line-height: 18.3333339691162px;">&sect;</span>21, 84; SDR-349&nbsp;<span style="font-size: 14.6666669845581px; line-height: 18.3333339691162px;">&sect;</span>7-1, 65)</p>
+
+<p class='archiveNotice nullValue '>Effective on:&nbsp;1/1/1901</p>
+</section> 
+<section id='secid-3977' class='secLvl5 _015 _015-004 _015-004-001 _015-004-001-006 _015-004-001-006-002' tabindex='-1' data-secid='3977'> 
+<h4>
+	<strong>15.08.620 Concrete.</strong> <strong>(Repealed. See <a class="xref" target="_blank" href="doc-viewer.aspx#secid-4037">15.10.100</a>)</strong></h4>
+<p>
+	Repealed. See <a class="xref" target="_blank" href="doc-viewer.aspx#secid-4037">15.10.100</a>.</p>
+<p>
+	(History: Ord. SWM-2505&nbsp;<span style="font-size: 14.6666669845581px; line-height: 18.3333339691162px;">&sect;</span>2, 2004; SDR-2192&nbsp;<span style="font-size: 14.6666669845581px; line-height: 18.3333339691162px;">&sect;</span>29, 2000; SDR-2096&nbsp;<span style="font-size: 14.6666669845581px; line-height: 18.3333339691162px;">&sect;</span>1, 98; SDR-1275&nbsp;<span style="font-size: 14.6666669845581px; line-height: 18.3333339691162px;">&sect;</span>22, 84; SDR-1168&nbsp;<span style="font-size: 14.6666669845581px; line-height: 18.3333339691162px;">&sect;</span>1, 82; SDR-349&nbsp;<span style="font-size: 14.6666669845581px; line-height: 18.3333339691162px;">&sect;</span>7-2, 65)</p>
+
+<p class='archiveNotice nullValue '>Effective on:&nbsp;1/1/1901</p>
+</section> 
+<section id='secid-3978' class='secLvl5 _015 _015-004 _015-004-001 _015-004-001-006 _015-004-001-006-003' tabindex='-1' data-secid='3978'> 
+<h4>
+	<strong>15.08.630 Testing. (Repealed)</strong></h4>
+<p>
+	Repealed.</p>
+<p>
+	(History: Ord. SDR-2192&nbsp;<span style="font-size: 14.6666669845581px; line-height: 18.3333339691162px;">&sect;</span>44, 2000; SDR-1275&nbsp;<span style="font-size: 14.6666669845581px; line-height: 18.3333339691162px;">&sect;</span>23, 84; SDR-349&nbsp;<span style="font-size: 14.6666669845581px; line-height: 18.3333339691162px;">&sect;</span>7-2.1, 65)</p>
+
+<p class='archiveNotice nullValue '>Effective on:&nbsp;1/1/1901</p>
+</section> 
+<section id='secid-3979' class='secLvl5 _015 _015-004 _015-004-001 _015-004-001-006 _015-004-001-006-004' tabindex='-1' data-secid='3979'> 
+<h4>
+	<strong>15.08.640 Ditch Shape. (Repealed. See <a class="xref" target="_blank" href="doc-viewer.aspx#secid-4037">15.10.100</a></strong>)</h4>
+<p>
+	Repealed. See <a class="xref" target="_blank" href="doc-viewer.aspx#secid-4037">15.10.100</a>.</p>
+<p>
+	(History: Ord. SWM-2505&nbsp;<span style="font-size: 14.6666669845581px; line-height: 18.3333339691162px;">&sect;</span>2, 2004; SDR-349&nbsp;<span style="font-size: 14.6666669845581px; line-height: 18.3333339691162px;">&sect;</span>7-3, 65)</p>
+
+<p class='archiveNotice nullValue '>Effective on:&nbsp;1/1/1901</p>
+</section> 
+<section id='secid-3980' class='secLvl5 _015 _015-004 _015-004-001 _015-004-001-006 _015-004-001-006-005' tabindex='-1' data-secid='3980'> 
+<h4>
+	<strong>15.08.650 Reinforcing.</strong> <strong>(Repealed. See <a class="xref" target="_blank" href="doc-viewer.aspx#secid-4037">15.10.100</a></strong>)</h4>
+<p>
+	Repealed. See <a class="xref" target="_blank" href="doc-viewer.aspx#secid-4037">15.10.100</a>.</p>
+<p>
+	(History: Ord. SWM-2505&nbsp;<span style="font-size: 14.6666669845581px; line-height: 18.3333339691162px;">&sect;</span>2, 2004; SDR-2192&nbsp;<span style="font-size: 14.6666669845581px; line-height: 18.3333339691162px;">&sect;</span>30, 2000; SDR-349&nbsp;<span style="font-size: 14.6666669845581px; line-height: 18.3333339691162px;">&sect;</span>7-4, 65)</p>
+
+<p class='archiveNotice nullValue '>Effective on:&nbsp;1/1/1901</p>
+</section> 
+<section id='secid-3981' class='secLvl5 _015 _015-004 _015-004-001 _015-004-001-006 _015-004-001-006-006' tabindex='-1' data-secid='3981'> 
+<h4>
+	<strong>15.08.660 Expansion and Contraction Joints.</strong> <strong>(Repealed. See <a class="xref" target="_blank" href="doc-viewer.aspx#secid-4037">15.10.100</a></strong>)</h4>
+<p>
+	Repealed. See <a class="xref" target="_blank" href="doc-viewer.aspx#secid-4037">15.10.100</a>.</p>
+<p>
+	(History: Ord. SWM-2505&nbsp;<span style="font-size: 14.6666669845581px; line-height: 18.3333339691162px;">&sect;</span>2, 2004; SDR-2192&nbsp;<span style="font-size: 14.6666669845581px; line-height: 18.3333339691162px;">&sect;</span>31, 2000; SDR-1275&nbsp;<span style="font-size: 14.6666669845581px; line-height: 18.3333339691162px;">&sect;</span>&nbsp;24, 84; SDR-349&nbsp;<span style="font-size: 14.6666669845581px; line-height: 18.3333339691162px;">&sect;</span>7-5.1, 65)</p>
+
+<p class='archiveNotice nullValue '>Effective on:&nbsp;1/1/1901</p>
+</section> 
+<section id='secid-3982' class='secLvl5 _015 _015-004 _015-004-001 _015-004-001-006 _015-004-001-006-007' tabindex='-1' data-secid='3982'> 
+<h4>
+	<strong>15.08.670 Weep Holes.</strong> <strong>(Repealed. See <a class="xref" target="_blank" href="doc-viewer.aspx#secid-4037">15.10.100</a></strong>)</h4>
+<p>
+	Repealed. See <a class="xref" target="_blank" href="doc-viewer.aspx#secid-4037">15.10.100</a>.</p>
+<p>
+	(History: Ord. SWM-2505&nbsp;<span style="font-size: 14.6666669845581px; line-height: 18.3333339691162px;">&sect;</span>2, 2004; SDR-2192&nbsp;<span style="font-size: 14.6666669845581px; line-height: 18.3333339691162px;">&sect;</span>32, 2000; SDR-1275&nbsp;<span style="font-size: 14.6666669845581px; line-height: 18.3333339691162px;">&sect;</span>25, 84;SDR-349&nbsp;<span style="font-size: 14.6666669845581px; line-height: 18.3333339691162px;">&sect;</span>7-5.2, 65)</p>
+
+<p class='archiveNotice nullValue '>Effective on:&nbsp;1/1/1901</p>
+</section> 
+<section id='secid-3983' class='secLvl5 _015 _015-004 _015-004-001 _015-004-001-006 _015-004-001-006-008' tabindex='-1' data-secid='3983'> 
+<h4>
+	<strong>15.08.680 Cut-off Walls.</strong> <strong>(Repealed. See <a class="xref" target="_blank" href="doc-viewer.aspx#secid-4037">15.10.100</a></strong>)</h4>
+<p>
+	Repealed. See <a class="xref" target="_blank" href="doc-viewer.aspx#secid-4037">15.10.100</a>.</p>
+<p>
+	(History: Ord. SWM-2505&nbsp;<span style="font-size: 14.6666669845581px; line-height: 18.3333339691162px;">&sect;</span>2, 2004; SDR-1275&nbsp;<span style="font-size: 14.6666669845581px; line-height: 18.3333339691162px;">&sect;</span>26, 84; SDR-349&nbsp;<span style="font-size: 14.6666669845581px; line-height: 18.3333339691162px;">&sect;</span>7-5.3, 65)</p>
+
+<p class='archiveNotice nullValue '>Effective on:&nbsp;1/1/1901</p>
+</section> 
+<section id='secid-3984' class='secLvl5 _015 _015-004 _015-004-001 _015-004-001-006 _015-004-001-006-009' tabindex='-1' data-secid='3984'> 
+<h4>
+	<strong>15.08.690 Easements. (Repealed)</strong></h4>
+<p>
+	Repealed.</p>
+<p>
+	(History: Ord. SDR-2192&nbsp;<span style="font-size: 14.6666669845581px; line-height: 18.3333339691162px;">&sect;</span>44, 2000; SDR-349&nbsp;<span style="font-size: 14.6666669845581px; line-height: 18.3333339691162px;">&sect;</span>7-5.4, 65)</p>
+
+<p class='archiveNotice nullValue '>Effective on:&nbsp;1/1/1901</p>
+</section> 
+<section id='secid-3985' class='secLvl4 _015 _015-004 _015-004-001 _015-004-001-007' tabindex='-1' data-secid='3985'> 
+<h3>
+	<strong>Article VII. </strong><strong>Concrete Box Culverts</strong></h3>
+
+
+</section> 
+<section id='secid-3986' class='secLvl5 _015 _015-004 _015-004-001 _015-004-001-007 _015-004-001-007-001' tabindex='-1' data-secid='3986'> 
+<h4>
+	<strong>15.08.692 Structural Design. (Repealed. See <a class="xref" target="_blank" href="doc-viewer.aspx#secid-4037">15.10.100</a></strong>)</h4>
+<p>
+	Repealed. See <a class="xref" target="_blank" href="doc-viewer.aspx#secid-4037">15.10.100</a>.</p>
+<p>
+	(History: Ord. SWM-2505&nbsp;<span style="font-size: 14.6666669845581px; line-height: 18.3333339691162px;">&sect;</span>2, 2004; SDR-2192&nbsp;<span style="font-size: 14.6666669845581px; line-height: 18.3333339691162px;">&sect;</span>1, 2000)</p>
+
+<p class='archiveNotice nullValue '>Effective on:&nbsp;1/1/1901</p>
+</section> 
+<section id='secid-3987' class='secLvl5 _015 _015-004 _015-004-001 _015-004-001-007 _015-004-001-007-002' tabindex='-1' data-secid='3987'> 
+<h4>
+	<strong>15.08.694 Handrail and Fence. (Repealed. See <a class="xref" target="_blank" href="doc-viewer.aspx#secid-4037">15.10.100</a></strong>)</h4>
+<p>
+	Repealed. See <a class="xref" target="_blank" href="doc-viewer.aspx#secid-4037">15.10.100</a>.</p>
+<p>
+	(History: Ord. SWM-2505&nbsp;<span style="font-size: 14.6666669845581px; line-height: 18.3333339691162px;">&sect;</span>2, 2004; SDR-2192&nbsp;<span style="font-size: 14.6666669845581px; line-height: 18.3333339691162px;">&sect;</span>1, 2000)</p>
+
+<p class='archiveNotice nullValue '>Effective on:&nbsp;1/1/1901</p>
+</section> 
+<section id='secid-3988' class='secLvl5 _015 _015-004 _015-004-001 _015-004-001-007 _015-004-001-007-003' tabindex='-1' data-secid='3988'> 
+<h4>
+	<strong>15.08.696&nbsp;Bridge&nbsp;</strong><strong>Box.</strong> <strong>(Repealed. See <a class="xref" target="_blank" href="doc-viewer.aspx#secid-4037">15.10.100</a></strong>)</h4>
+<p>
+	Repealed. See <a class="xref" target="_blank" href="doc-viewer.aspx#secid-4037">15.10.100</a>.</p>
+<p>
+	(History: Ord. SWM-2505&nbsp;<span style="font-size: 14.6666669845581px; line-height: 18.3333339691162px;">&sect;</span>2, 2004; SDR-2192&nbsp;<span style="font-size: 14.6666669845581px; line-height: 18.3333339691162px;">&sect;</span>1, 2000)</p>
+
+<p class='archiveNotice nullValue '>Effective on:&nbsp;1/1/1901</p>
+</section> 
+<section id='secid-3989' class='secLvl5 _015 _015-004 _015-004-001 _015-004-001-007 _015-004-001-007-004' tabindex='-1' data-secid='3989'> 
+<h4>
+	<strong>15.08.698 Pre-cast Box Joint Openings.</strong> <strong>(Repealed. See <a class="xref" target="_blank" href="doc-viewer.aspx#secid-4037">15.10.100</a></strong>)</h4>
+<p>
+	Repealed. See <a class="xref" target="_blank" href="doc-viewer.aspx#secid-4037">15.10.100</a>.</p>
+<p>
+	(History: Ord. SWM-2505&nbsp;<span style="font-size: 14.6666669845581px; line-height: 18.3333339691162px;">&sect;</span>2, 2004; SDR-2192&nbsp;<span style="font-size: 14.6666669845581px; line-height: 18.3333339691162px;">&sect;</span>1, 2000)</p>
+
+<p class='archiveNotice nullValue '>Effective on:&nbsp;1/1/1901</p>
+</section> 
+<section id='secid-3990' class='secLvl4 _015 _015-004 _015-004-001 _015-004-001-008' tabindex='-1' data-secid='3990'> 
+<h3>
+	<strong>Article VIII. </strong><strong>Miscellaneous Regulations</strong></h3>
+
+
+</section> 
+<section id='secid-3991' class='secLvl5 _015 _015-004 _015-004-001 _015-004-001-008 _015-004-001-008-001' tabindex='-1' data-secid='3991'> 
+<h4>
+	<strong>15.08.700 Curb Inlets.</strong> <strong>(Repealed. See <a class="xref" target="_blank" href="doc-viewer.aspx#secid-4037">15.10.100</a></strong>)</h4>
+<p>
+	Repealed. See <a class="xref" target="_blank" href="doc-viewer.aspx#secid-4037">15.10.100</a>.</p>
+<p>
+	(History: Ord. SWM-2505&nbsp;<span style="font-size: 14.6666669845581px; line-height: 18.3333339691162px;">&sect;</span>2, 2004; SDR-2379&nbsp;<span style="font-size: 14.6666669845581px; line-height: 18.3333339691162px;">&sect;</span>4, 2002; SDR-2192&nbsp;<span style="font-size: 14.6666669845581px; line-height: 18.3333339691162px;">&sect;</span>34, 2000; SDR-1820&nbsp;<span style="font-size: 14.6666669845581px; line-height: 18.3333339691162px;">&sect;</span>4, 93; SDR-1736&nbsp;<span style="font-size: 14.6666669845581px; line-height: 18.3333339691162px;">&sect;</span>1, 92; SDR-1275&nbsp;<span style="font-size: 14.6666669845581px; line-height: 18.3333339691162px;">&sect;</span>27, 84; SDR-1168&nbsp;<span style="font-size: 14.6666669845581px; line-height: 18.3333339691162px;">&sect;</span>2, 82; SDR-349&nbsp;<span style="font-size: 14.6666669845581px; line-height: 18.3333339691162px;">&sect;</span>8-1.1, 65)</p>
+
+<p class='archiveNotice nullValue '>Effective on:&nbsp;1/1/1901</p>
+</section> 
+<section id='secid-3992' class='secLvl5 _015 _015-004 _015-004-001 _015-004-001-008 _015-004-001-008-002' tabindex='-1' data-secid='3992'> 
+<h4>
+	<strong>15.08.710 Area Inlets.</strong> <strong>(Repealed. See <a class="xref" target="_blank" href="doc-viewer.aspx#secid-4037">15.10.100</a></strong>)</h4>
+<p>
+	Repealed. See <a class="xref" target="_blank" href="doc-viewer.aspx#secid-4037">15.10.100</a>.</p>
+<p>
+	(History: Ord. SWM-2505&nbsp;<span style="font-size: 14.6666669845581px; line-height: 18.3333339691162px;">&sect;</span>2, 2004; SDR-2192&nbsp;<span style="font-size: 14.6666669845581px; line-height: 18.3333339691162px;">&sect;</span>35, 2000; SDR-1275&nbsp;<span style="font-size: 14.6666669845581px; line-height: 18.3333339691162px;">&sect;</span>28, 84; SDR-1168&nbsp;<span style="font-size: 14.6666669845581px; line-height: 18.3333339691162px;">&sect;</span>3, 82; SDR-349&nbsp;<span style="font-size: 14.6666669845581px; line-height: 18.3333339691162px;">&sect;</span>8-1.2, 65)</p>
+
+<p class='archiveNotice nullValue '>Effective on:&nbsp;1/1/1901</p>
+</section> 
+<section id='secid-3993' class='secLvl5 _015 _015-004 _015-004-001 _015-004-001-008 _015-004-001-008-003' tabindex='-1' data-secid='3993'> 
+<h4>
+	<strong>15.08.720 Manholes and Junction Boxes.</strong> <strong>(Repealed. See <a class="xref" target="_blank" href="doc-viewer.aspx#secid-4037">15.10.100</a></strong>)</h4>
+<p>
+	Repealed. See <a class="xref" target="_blank" href="doc-viewer.aspx#secid-4037">15.10.100</a>.</p>
+<p>
+	(History: Ord. SWM-2505&nbsp;<span style="font-size: 14.6666669845581px; line-height: 18.3333339691162px;">&sect;</span>2, 2004; SDR-2192&nbsp;<span style="font-size: 14.6666669845581px; line-height: 18.3333339691162px;">&sect;</span>36, 2000; SDR-1736&nbsp;<span style="font-size: 14.6666669845581px; line-height: 18.3333339691162px;">&sect;</span>2, 92; SDR-1275&nbsp;<span style="font-size: 14.6666669845581px; line-height: 18.3333339691162px;">&sect;</span>&nbsp;29, 84; SDR-1168&nbsp;<span style="font-size: 14.6666669845581px; line-height: 18.3333339691162px;">&sect;</span>4, 82; SDR-349&nbsp;<span style="font-size: 14.6666669845581px; line-height: 18.3333339691162px;">&sect;</span>8-2, 65)</p>
+
+<p class='archiveNotice nullValue '>Effective on:&nbsp;1/1/1901</p>
+</section> 
+<section id='secid-3994' class='secLvl5 _015 _015-004 _015-004-001 _015-004-001-008 _015-004-001-008-004' tabindex='-1' data-secid='3994'> 
+<h4>
+	<strong>15.08.730 Box Culverts. (Repealed)</strong></h4>
+<p>
+	Repealed.</p>
+<p>
+	(History: Ord. SDR-2192&nbsp;<span style="font-size: 14.6666669845581px; line-height: 18.3333339691162px;">&sect;</span>44, 2000; SDR-1275&nbsp;<span style="font-size: 14.6666669845581px; line-height: 18.3333339691162px;">&sect;</span>30, 84; SDR-1168&nbsp;<span style="font-size: 14.6666669845581px; line-height: 18.3333339691162px;">&sect;</span>5, 82; SDR-349&nbsp;<span style="font-size: 14.6666669845581px; line-height: 18.3333339691162px;">&sect;</span>8-3, 65)</p>
+
+<p class='archiveNotice nullValue '>Effective on:&nbsp;1/1/1901</p>
+</section> 
+<section id='secid-3995' class='secLvl5 _015 _015-004 _015-004-001 _015-004-001-008 _015-004-001-008-005' tabindex='-1' data-secid='3995'> 
+<h4>
+	<strong>15.08.740 Easements. (Repealed. See <a class="xref" target="_blank" href="doc-viewer.aspx#secid-4037">15.10.100</a>)</strong></h4>
+<p>
+	Repealed. See <a class="xref" target="_blank" href="doc-viewer.aspx#secid-4037">15.10.100</a>.</p>
+<p>
+	(History: Ord. SWM-2505&nbsp;<span style="font-size: 14.6666669845581px; line-height: 18.3333339691162px;">&sect;</span>2, 2004; SDR-2192&nbsp;<span style="font-size: 14.6666669845581px; line-height: 18.3333339691162px;">&sect;</span>33, 2000; SDR-349&nbsp;<span style="font-size: 14.6666669845581px; line-height: 18.3333339691162px;">&sect;</span>7-5.4, 65)</p>
+
+<p class='archiveNotice nullValue '>Effective on:&nbsp;1/1/1901</p>
+</section> 
+<section id='secid-3996' class='secLvl4 _015 _015-004 _015-004-001 _015-004-001-009' tabindex='-1' data-secid='3996'> 
+<h3>
+	<strong>Article IX. </strong><strong>Maintenance and Inspection</strong></h3>
+
+
+</section> 
+<section id='secid-3997' class='secLvl5 _015 _015-004 _015-004-001 _015-004-001-009 _015-004-001-009-001' tabindex='-1' data-secid='3997'> 
+<h4>
+	<strong>15.08.750 Maintenance.</strong> <strong>(Repealed. See <a class="xref" target="_blank" href="doc-viewer.aspx#secid-4043">15.10.500</a>)</strong></h4>
+<p>
+	Repealed. See <a class="xref" target="_blank" href="doc-viewer.aspx#secid-4043">15.10.500</a>.</p>
+<p>
+	(History: Ord. SWM-2505&nbsp;<span style="font-size: 14.6666669845581px; line-height: 18.3333339691162px;">&sect;</span>2, 2004; SDR-2192&nbsp;<span style="font-size: 14.6666669845581px; line-height: 18.3333339691162px;">&sect;</span>38, 2000; SDR-1275&nbsp;<span style="font-size: 14.6666669845581px; line-height: 18.3333339691162px;">&sect;</span>32, 84; SDR-349&nbsp;<span style="font-size: 14.6666669845581px; line-height: 18.3333339691162px;">&sect;</span>8-5, 65)</p>
+
+<p class='archiveNotice nullValue '>Effective on:&nbsp;1/1/1901</p>
+</section> 
+<section id='secid-3998' class='secLvl5 _015 _015-004 _015-004-001 _015-004-001-009 _015-004-001-009-002' tabindex='-1' data-secid='3998'> 
+<h4>
+	<strong>15.08.760 Inspections. (Repealed)</strong></h4>
+<p>
+	Repealed.</p>
+<p>
+	(History: Ord. SDR-2192&nbsp;<span style="font-size: 14.6666669845581px; line-height: 18.3333339691162px;">&sect;</span>40 &amp; &#39;44, 2000; SDR-1275&nbsp;<span style="font-size: 14.6666669845581px; line-height: 18.3333339691162px;">&sect;</span>34, 84; SDR-349&nbsp;<span style="font-size: 14.6666669845581px; line-height: 18.3333339691162px;">&sect;</span>8-7, 65)</p>
+
+<p class='archiveNotice nullValue '>Effective on:&nbsp;1/1/1901</p>
+</section> 
+<section id='secid-3999' class='secLvl5 _015 _015-004 _015-004-001 _015-004-001-009 _015-004-001-009-003' tabindex='-1' data-secid='3999'> 
+<h4>
+	<strong>15.08.770 Variance Submission. (Repealed. See <a class="xref" target="_blank" href="doc-viewer.aspx#secid-4047">15.10.800</a>)</strong></h4>
+<p>
+	Repealed. See <a class="xref" target="_blank" href="doc-viewer.aspx#secid-4047">15.10.800</a>.</p>
+<p>
+	(History: Ord. SWM-2505&nbsp;<span style="font-size: 14.6666669845581px; line-height: 18.3333339691162px;">&sect;</span>2, 2004; SDR-2192&nbsp;<span style="font-size: 14.6666669845581px; line-height: 18.3333339691162px;">&sect;</span>41, 2000; SDR-349&nbsp;<span style="font-size: 14.6666669845581px; line-height: 18.3333339691162px;">&sect;</span>8-8, 65)</p>
+
+<p class='archiveNotice nullValue '>Effective on:&nbsp;1/1/1901</p>
+</section> 
+<section id='secid-4000' class='secLvl5 _015 _015-004 _015-004-001 _015-004-001-009 _015-004-001-009-004' tabindex='-1' data-secid='4000'> 
+<h4>
+	<strong>15.08.780 Engineer&#39;s Approval. (Repealed. See <a class="xref" target="_blank" href="doc-viewer.aspx#secid-4038">15.10.150</a>)</strong></h4>
+<p>
+	Repealed. See <a class="xref" target="_blank" href="doc-viewer.aspx#secid-4038">15.10.150</a>.</p>
+<p>
+	(History: Ord. SWM-2505 &sect;2, 2004; SDR-2192 &sect;42, 2000; SDR-1275 &sect;35, 84; SDR-349 &sect;9, 65)</p>
+
+<p class='archiveNotice nullValue '>Effective on:&nbsp;1/1/1901</p>
+</section> 
+<section id='secid-4001' class='secLvl4 _015 _015-004 _015-004-001 _015-004-001-010' tabindex='-1' data-secid='4001'> 
+<h3>
+	<strong>Article X. </strong><strong>Insurance and Surety</strong></h3>
+
+
+</section> 
+<section id='secid-4002' class='secLvl5 _015 _015-004 _015-004-001 _015-004-001-010 _015-004-001-010-001' tabindex='-1' data-secid='4002'> 
+<h4>
+	<strong>15.08.790 Insurance. (Repealed. See <a class="xref" target="_blank" href="doc-viewer.aspx#secid-4045">15.10.600</a>)</strong></h4>
+<p>
+	Repealed. See <a class="xref" target="_blank" href="doc-viewer.aspx#secid-4045">15.10.600</a>.</p>
+<p>
+	(History: Ord. SWM-2505 &sect;2, 2004; SDR-2192 &sect;37, 2000; SDR-1275 &sect;31, 84; REP-1061 &sect;1, 80; SDR-349 &sect;8-4, 65)</p>
+
+<p class='archiveNotice nullValue '>Effective on:&nbsp;1/1/1901</p>
+</section> 
+<section id='secid-4003' class='secLvl5 _015 _015-004 _015-004-001 _015-004-001-010 _015-004-001-010-002' tabindex='-1' data-secid='4003'> 
+<h4>
+	<strong>15.08.795 Surety Subm</strong><strong>i</strong><strong>ssion Amount - Period.</strong> (Repealed. See <a class="xref" target="_blank" href="doc-viewer.aspx#secid-4046">15.10.700</a>)</h4>
+<p>
+	Repealed. See <a class="xref" target="_blank" href="doc-viewer.aspx#secid-4046">15.10.700</a>.</p>
+<p>
+	(History: Ord. SWM-2505 &sect;2, 2004; SDR-2192 &sect;39, 2000; SDR-1820 &sect;5, 93; SDR-1397 &sect;1, 86; SDR-1275 &sect;33, 84; SDR-349 &sect;8-6, 65)</p>
+
+<p class='archiveNotice nullValue '>Effective on:&nbsp;1/1/1901</p>
+</section> 
+<section id='secid-4004' class='secLvl4 _015 _015-004 _015-004-001 _015-004-001-011' tabindex='-1' data-secid='4004'> 
+<h3>
+	<strong>Article XI. </strong><strong>Penalty - Enjoinment</strong></h3>
+
+
+</section> 
+<section id='secid-4005' class='secLvl5 _015 _015-004 _015-004-001 _015-004-001-011 _015-004-001-011-001' tabindex='-1' data-secid='4005'> 
+<h4>
+	<strong>15.08.800 Violation - Penalty. (Repealed. See <a class="xref" target="_blank" href="doc-viewer.aspx#secid-4048">15.10.900</a>)</strong></h4>
+<p>
+	Repealed. See <a class="xref" target="_blank" href="doc-viewer.aspx#secid-4048">15.10.900</a>.</p>
+<p>
+	(History: Ord. SWM-2505 &sect;2, 2004; SDR-2192 &sect;43, 2000; SDR-1275 &sect;36, 84; SDR-349 &sect;10, 65)</p>
+
+<p class='archiveNotice nullValue '>Effective on:&nbsp;1/1/1901</p>
+</section> 
+<section id='secid-4006' class='secLvl5 _015 _015-004 _015-004-001 _015-004-001-011 _015-004-001-011-002' tabindex='-1' data-secid='4006'> 
+<h4>
+	<strong>15.08.810 Enjoinment. (Repealed. See <a class="xref" target="_blank" href="doc-viewer.aspx#secid-4049">15.10.950</a>)</strong></h4>
+<p>
+	Repealed. See <a class="xref" target="_blank" href="doc-viewer.aspx#secid-4049">15.10.950</a>.</p>
+<p>
+	(History: Ord. SWM-2505 &sect;2, 2004; SDR-1275 &sect;37, 84; SDR-349 &sect;11, 65)</p>
+
+<p class='archiveNotice nullValue '>Effective on:&nbsp;1/1/1901</p>
+</section> 
+<section id='secid-4007' class='secLvl3 _015 _015-004 _015-004-002' tabindex='-1' data-secid='4007'> 
+<h2>
+	<strong>15.09 Stormwater Detention (Repealed. &nbsp;See Chapter 15.10)</strong></h2>
+<p>
+	(This entire chapter has been repealed. See <a class="xref" target="_blank" href="doc-viewer.aspx#secid-4036">15.10</a>)</p>
+<div class="mini-TOC" data-endlevel="3" data-id="mini-TOC" data-startlevel="3">
+	<div class="mini-TOC-label">
+		<strong>Contents:</strong></div>
+	<ul><li><a class="tocLink" href="doc-viewer.aspx#secid-4007">15.09 Stormwater Detention (Repealed.  See Chapter 15.10)</a></li>
+</ul>
+</div>
+
+<p>
+	&nbsp;</p>
+
+
+</section> 
+<section id='secid-4008' class='secLvl4 _015 _015-004 _015-004-002 _015-004-002-001' tabindex='-1' data-secid='4008'> 
+<h3>
+	<strong>15.09.010 Approval of Design and Construction. (Repealed. See <a class="xref" target="_blank" href="doc-viewer.aspx#secid-4038">15.10.150</a>)</strong></h3>
+<p>
+	Repealed. See <a class="xref" target="_blank" href="doc-viewer.aspx#secid-4038">15.10.150</a>.</p>
+<p>
+	(History: Ord. SWM-2505 &sect;2, 2004; SD-1234 &sect;1, 83)</p>
+
+<p class='archiveNotice nullValue '>Effective on:&nbsp;1/1/1901</p>
+</section> 
+<section id='secid-4009' class='secLvl4 _015 _015-004 _015-004-002 _015-004-002-002' tabindex='-1' data-secid='4009'> 
+<h3>
+	<strong>15.09.020 Purpose. (Repealed. See <a class="xref" target="_blank" href="doc-viewer.aspx#secid-4037">15.10.100</a>)</strong></h3>
+<p>
+	Repealed. See <a class="xref" target="_blank" href="doc-viewer.aspx#secid-4037">15.10.100</a>.</p>
+<p>
+	(History: Ord. SWM-2505 &sect;2, 2004; SD-1234 &sect;2, 83)</p>
+
+<p class='archiveNotice nullValue '>Effective on:&nbsp;1/1/1901</p>
+</section> 
+<section id='secid-4010' class='secLvl4 _015 _015-004 _015-004-002 _015-004-002-003' tabindex='-1' data-secid='4010'> 
+<h3>
+	<strong>15.09.030 Applicability. (Repealed. See <a class="xref" target="_blank" href="doc-viewer.aspx#secid-4041">15.10.400</a>)</strong></h3>
+<p>
+	Repealed. See <a class="xref" target="_blank" href="doc-viewer.aspx#secid-4041">15.10.400</a>.</p>
+<p>
+	(History: Ord. SWM-2505 &sect;2, 2004; SD-1365 &sect;1, 86; SD-1276 &sect;1, 84; SD-1234 &sect;3, 83)</p>
+
+<p class='archiveNotice nullValue '>Effective on:&nbsp;1/1/1901</p>
+</section> 
+<section id='secid-4011' class='secLvl4 _015 _015-004 _015-004-002 _015-004-002-004' tabindex='-1' data-secid='4011'> 
+<h3>
+	<strong>15.09.040 Definitions. (Repealed. See <a class="xref" target="_blank" href="doc-viewer.aspx#secid-4037">15.10.100</a>)</strong></h3>
+<p>
+	Repealed. See <a class="xref" target="_blank" href="doc-viewer.aspx#secid-4037">15.10.100</a>.</p>
+<p>
+	(History: Ord. SWM-2505 &sect;2, 2004; SD-1234 &sect;5, 83)</p>
+
+<p class='archiveNotice nullValue '>Effective on:&nbsp;1/1/1901</p>
+</section> 
+<section id='secid-4012' class='secLvl4 _015 _015-004 _015-004-002 _015-004-002-005' tabindex='-1' data-secid='4012'> 
+<h3>
+	<strong>15.09.050 Maximum Release Rate. (Repealed. See <a class="xref" target="_blank" href="doc-viewer.aspx#secid-4037">15.10.100</a>)</strong></h3>
+<p>
+	Repealed. See <a class="xref" target="_blank" href="doc-viewer.aspx#secid-4037">15.10.100</a>.</p>
+<p>
+	(History: Ord. SWM-2505 &sect;2, 2004; SD-1234 &sect;5, 83)</p>
+
+<p class='archiveNotice nullValue '>Effective on:&nbsp;1/1/1901</p>
+</section> 
+<section id='secid-4013' class='secLvl4 _015 _015-004 _015-004-002 _015-004-002-006' tabindex='-1' data-secid='4013'> 
+<h3>
+	<strong>15.09.060 Detention Storage Volume. (Repealed. See <a class="xref" target="_blank" href="doc-viewer.aspx#secid-4037">15.10.100</a>)</strong></h3>
+<p>
+	Repealed. See <a class="xref" target="_blank" href="doc-viewer.aspx#secid-4037">15.10.100</a>.</p>
+<p>
+	(History: Ord. SWM-2505 &sect;2, 2004; SD-1234 &sect;6, 83)</p>
+
+<p class='archiveNotice nullValue '>Effective on:&nbsp;1/1/1901</p>
+</section> 
+<section id='secid-4014' class='secLvl4 _015 _015-004 _015-004-002 _015-004-002-007' tabindex='-1' data-secid='4014'> 
+<h3>
+	<strong>15.09.070 Emergency Spillways. (Repealed. See <a class="xref" target="_blank" href="doc-viewer.aspx#secid-4037">15.10.100</a>)</strong></h3>
+<p>
+	Repealed. See <a class="xref" target="_blank" href="doc-viewer.aspx#secid-4037">15.10.100</a>.</p>
+<p>
+	(History: Ord. SWM-2505 &sect;2, 2004; SD-1234 &sect;7, 83)</p>
+
+<p class='archiveNotice nullValue '>Effective on:&nbsp;1/1/1901</p>
+</section> 
+<section id='secid-4015' class='secLvl4 _015 _015-004 _015-004-002 _015-004-002-008' tabindex='-1' data-secid='4015'> 
+<h3>
+	<strong>15.09.080 Project Site Information. (Repealed. See <a class="xref" target="_blank" href="doc-viewer.aspx#secid-4037">15.10.100</a>)</strong></h3>
+<p>
+	Repealed. See <a class="xref" target="_blank" href="doc-viewer.aspx#secid-4037">15.10.100</a>.</p>
+<p>
+	(History: Ord. SWM-2505 &sect;2, 2004; SD-1276 &sect;2, 84; SD-1234 &sect;8, 83)</p>
+
+<p class='archiveNotice nullValue '>Effective on:&nbsp;1/1/1901</p>
+</section> 
+<section id='secid-4016' class='secLvl4 _015 _015-004 _015-004-002 _015-004-002-009' tabindex='-1' data-secid='4016'> 
+<h3>
+	<strong>15.09.090 Design Data by City Engineer. (Repealed. See <a class="xref" target="_blank" href="doc-viewer.aspx#secid-4037">15.10.100</a>)</strong></h3>
+<p>
+	Repealed. See <a class="xref" target="_blank" href="doc-viewer.aspx#secid-4037">15.10.100</a>.</p>
+<p>
+	(History: Ord. SWM-2505 &sect;2, 2004; SD-1276 &sect;3, 84; SD-1234 &sect;9, 83)</p>
+
+<p class='archiveNotice nullValue '>Effective on:&nbsp;1/1/1901</p>
+</section> 
+<section id='secid-4017' class='secLvl4 _015 _015-004 _015-004-002 _015-004-002-010' tabindex='-1' data-secid='4017'> 
+<h3>
+	<strong>15.09.100 Plans, Specifications, and Calculations. (Repealed. See <a class="xref" target="_blank" href="doc-viewer.aspx#secid-4037">15.10.100</a>)</strong></h3>
+<p>
+	Repealed. See <a class="xref" target="_blank" href="doc-viewer.aspx#secid-4037">15.10.100</a>.</p>
+<p>
+	(History: Ord. SWM-2505 &sect;2, 2004; SD-1234 &sect;10, 83)</p>
+
+<p class='archiveNotice nullValue '>Effective on:&nbsp;1/1/1901</p>
+</section> 
+<section id='secid-4018' class='secLvl4 _015 _015-004 _015-004-002 _015-004-002-011' tabindex='-1' data-secid='4018'> 
+<h3>
+	<strong>15.09.110 Required Preliminary Studies. (Repealed. See <a class="xref" target="_blank" href="doc-viewer.aspx#secid-4037">15.10.100</a>)</strong></h3>
+<p>
+	Repealed. See <a class="xref" target="_blank" href="doc-viewer.aspx#secid-4037">15.10.100</a>.</p>
+<p>
+	(History: Ord. SWM-2505 &sect;2, 2004; SD-1234 &sect;11, 83)</p>
+
+<p class='archiveNotice nullValue '>Effective on:&nbsp;1/1/1901</p>
+</section> 
+<section id='secid-4019' class='secLvl4 _015 _015-004 _015-004-002 _015-004-002-012' tabindex='-1' data-secid='4019'> 
+<h3>
+	<strong>15.09.120 Detention Methods. (Repealed. See <a class="xref" target="_blank" href="doc-viewer.aspx#secid-4037">15.10.100</a>)</strong></h3>
+<p>
+	Repealed. See <a class="xref" target="_blank" href="doc-viewer.aspx#secid-4037">15.10.100</a>.</p>
+<p>
+	(History: Ord. SWM-2505 &sect;2, 2004; SD-1234 &sect;12, 83)</p>
+
+<p class='archiveNotice nullValue '>Effective on:&nbsp;1/1/1901</p>
+</section> 
+<section id='secid-4020' class='secLvl4 _015 _015-004 _015-004-002 _015-004-002-013' tabindex='-1' data-secid='4020'> 
+<h3>
+	<strong>15.09.130 Stormwater Runoff Not Detained. (Repealed. See <a class="xref" target="_blank" href="doc-viewer.aspx#secid-4037">15.10.100</a>)</strong></h3>
+<p>
+	Repealed. See <a class="xref" target="_blank" href="doc-viewer.aspx#secid-4037">15.10.100</a>.</p>
+<p>
+	(History: Ord. SWM-2505 &sect;2, 2004; SD-1234 &sect;13, 83)</p>
+
+<p class='archiveNotice nullValue '>Effective on:&nbsp;1/1/1901</p>
+</section> 
+<section id='secid-4021' class='secLvl4 _015 _015-004 _015-004-002 _015-004-002-014' tabindex='-1' data-secid='4021'> 
+<h3>
+	<strong>15.09.140 Construction. (Repealed. See <a class="xref" target="_blank" href="doc-viewer.aspx#secid-4037">15.10.100</a>)</strong></h3>
+<p>
+	Repealed. See <a class="xref" target="_blank" href="doc-viewer.aspx#secid-4037">15.10.100</a>.</p>
+<p>
+	(History: Ord. SWM-2505 &sect;2, 2004; SD-1234 &sect;14, 83)</p>
+
+<p class='archiveNotice nullValue '>Effective on:&nbsp;1/1/1901</p>
+</section> 
+<section id='secid-4022' class='secLvl4 _015 _015-004 _015-004-002 _015-004-002-015' tabindex='-1' data-secid='4022'> 
+<h3>
+	<strong>15.09.150 Slopes. (Repealed. See <a class="xref" target="_blank" href="doc-viewer.aspx#secid-4037">15.10.100</a>)</strong></h3>
+<p>
+	Repealed. See <a class="xref" target="_blank" href="doc-viewer.aspx#secid-4037">15.10.100</a>.</p>
+<p>
+	(History: Ord. SWM-2505 &sect;2, 2004; SD-1234 &sect;15, 83)</p>
+
+<p class='archiveNotice nullValue '>Effective on:&nbsp;1/1/1901</p>
+</section> 
+<section id='secid-4023' class='secLvl4 _015 _015-004 _015-004-002 _015-004-002-016' tabindex='-1' data-secid='4023'> 
+<h3>
+	<strong>15.09.160 Appearance. (Repealed. See <a class="xref" target="_blank" href="doc-viewer.aspx#secid-4037">15.10.100</a>)</strong></h3>
+<p>
+	Repealed. See <a class="xref" target="_blank" href="doc-viewer.aspx#secid-4037">15.10.100</a>.</p>
+<p>
+	(History: Ord. SWM-2505 &sect;2, 2004; SD-1234 &sect;16, 83)</p>
+
+<p class='archiveNotice nullValue '>Effective on:&nbsp;1/1/1901</p>
+</section> 
+<section id='secid-4024' class='secLvl4 _015 _015-004 _015-004-002 _015-004-002-017' tabindex='-1' data-secid='4024'> 
+<h3>
+	<strong>15.09.170 Access. (Repealed. See <a class="xref" target="_blank" href="doc-viewer.aspx#secid-4037">15.10.100</a>)</strong></h3>
+<p>
+	Repealed. See <a class="xref" target="_blank" href="doc-viewer.aspx#secid-4037">15.10.100</a>.</p>
+<p>
+	(History: Ord. SWM-2505 &sect;2, 2004; SD-1234 &sect;17, 83)</p>
+
+<p class='archiveNotice nullValue '>Effective on:&nbsp;1/1/1901</p>
+</section> 
+<section id='secid-4025' class='secLvl4 _015 _015-004 _015-004-002 _015-004-002-018' tabindex='-1' data-secid='4025'> 
+<h3>
+	<strong>15.09.180 Outflow Control Structures. (Repealed. See <a class="xref" target="_blank" href="doc-viewer.aspx#secid-4037">15.10.100</a>)</strong></h3>
+<p>
+	Repealed. See <a class="xref" target="_blank" href="doc-viewer.aspx#secid-4037">15.10.100</a>.</p>
+<p>
+	(History: Ord. SWM-2505 &sect;2, 2004; SD-1234 &sect;18, 83)</p>
+
+<p class='archiveNotice nullValue '>Effective on:&nbsp;1/1/1901</p>
+</section> 
+<section id='secid-4026' class='secLvl4 _015 _015-004 _015-004-002 _015-004-002-019' tabindex='-1' data-secid='4026'> 
+<h3>
+	<strong>15.09.190 Low Flow Bypass. (Repealed. See <a class="xref" target="_blank" href="doc-viewer.aspx#secid-4037">15.10.100</a>)</strong></h3>
+<p>
+	Repealed. See <a class="xref" target="_blank" href="doc-viewer.aspx#secid-4037">15.10.100</a>.</p>
+<p>
+	(History: Ord. SWM-2505 &sect;2, 2004; SD-1234 &sect;19, 83)</p>
+
+<p class='archiveNotice nullValue '>Effective on:&nbsp;1/1/1901</p>
+</section> 
+<section id='secid-4027' class='secLvl4 _015 _015-004 _015-004-002 _015-004-002-020' tabindex='-1' data-secid='4027'> 
+<h3>
+	<strong>15.09.200 Underground Storage. (Repealed. See <a class="xref" target="_blank" href="doc-viewer.aspx#secid-4037">15.10.100</a>)</strong></h3>
+<p>
+	Repealed. See <a class="xref" target="_blank" href="doc-viewer.aspx#secid-4037">15.10.100</a>.</p>
+<p>
+	(History: Ord. SWM-2505 &sect;2, 2004; SD-1234 &sect;20, 83)</p>
+
+<p class='archiveNotice nullValue '>Effective on:&nbsp;1/1/1901</p>
+</section> 
+<section id='secid-4028' class='secLvl4 _015 _015-004 _015-004-002 _015-004-002-021' tabindex='-1' data-secid='4028'> 
+<h3>
+	<strong>15.09.210 Easements and Maintenance. (Repealed. See <a class="xref" target="_blank" href="doc-viewer.aspx#secid-4043">15.10.500</a></strong>)</h3>
+<p>
+	Repealed. See <a class="xref" target="_blank" href="doc-viewer.aspx#secid-4043">15.10.500</a>.</p>
+<p>
+	(History: Ord. SWM-2505 &sect;2, 2004; SD-1234 &sect;21, 83)</p>
+
+<p class='archiveNotice nullValue '>Effective on:&nbsp;1/1/1901</p>
+</section> 
+<section id='secid-4029' class='secLvl4 _015 _015-004 _015-004-002 _015-004-002-022' tabindex='-1' data-secid='4029'> 
+<h3>
+	<strong>15.09.220 Surety Submission. (Repealed. See <a class="xref" target="_blank" href="doc-viewer.aspx#secid-4046">15.10.700</a>)</strong></h3>
+<p>
+	Repealed. See <a class="xref" target="_blank" href="doc-viewer.aspx#secid-4046">15.10.700</a>.</p>
+<p>
+	(History: Ord. SWM-2505 &sect;2, 2004; SD-1394 &sect;1, 86; SD-1234 &sect;22, 83)</p>
+
+<p class='archiveNotice nullValue '>Effective on:&nbsp;1/1/1901</p>
+</section> 
+<section id='secid-4030' class='secLvl4 _015 _015-004 _015-004-002 _015-004-002-023' tabindex='-1' data-secid='4030'> 
+<h3>
+	<strong>15.09.230 Inspections. (Repealed. See <a class="xref" target="_blank" href="doc-viewer.aspx#secid-4037">15.10.100</a>)</strong></h3>
+<p>
+	Repealed. See <a class="xref" target="_blank" href="doc-viewer.aspx#secid-4037">15.10.100</a>.</p>
+<p>
+	(History: Ord. SWM-2505 &sect;2, 2004; SD-1234 &sect;23, 83)</p>
+
+<p class='archiveNotice nullValue '>Effective on:&nbsp;1/1/1901</p>
+</section> 
+<section id='secid-4031' class='secLvl4 _015 _015-004 _015-004-002 _015-004-002-024' tabindex='-1' data-secid='4031'> 
+<h3>
+	<strong>15.09.240 Variances. (Repealed. See <a class="xref" target="_blank" href="doc-viewer.aspx#secid-4047">15.10.800</a>)</strong></h3>
+<p>
+	Repealed. See <a class="xref" target="_blank" href="doc-viewer.aspx#secid-4047">15.10.800</a>.</p>
+<p>
+	(History: Ord. SWM-2505 &sect;2, 2004; SD-1234 &sect;24, 83)</p>
+
+<p class='archiveNotice nullValue '>Effective on:&nbsp;1/1/1901</p>
+</section> 
+<section id='secid-4032' class='secLvl4 _015 _015-004 _015-004-002 _015-004-002-025' tabindex='-1' data-secid='4032'> 
+<h3>
+	<strong>15.09.250 Engineer&#39;s Approval. (Repealed. See <a class="xref" target="_blank" href="doc-viewer.aspx#secid-4038">15.10.150</a>)</strong></h3>
+<p>
+	Repealed. See <a class="xref" target="_blank" href="doc-viewer.aspx#secid-4038">15.10.150</a>.</p>
+<p>
+	(History: Ord. SWM-2505 &sect;2, 2004; SD-1234 &sect;25, 83)</p>
+
+<p class='archiveNotice nullValue '>Effective on:&nbsp;1/1/1901</p>
+</section> 
+<section id='secid-4033' class='secLvl4 _015 _015-004 _015-004-002 _015-004-002-026' tabindex='-1' data-secid='4033'> 
+<h3>
+	<strong>15.09.255 Downstream Improvement Alternative. (Repealed. See <a class="xref" target="_blank" href="doc-viewer.aspx#secid-4042">15.10.450</a>)</strong></h3>
+<p>
+	Repealed. See <a class="xref" target="_blank" href="doc-viewer.aspx#secid-4042">15.10.450</a>.</p>
+<p>
+	(History: Ord. SWM-2505 &sect;2, 2004; SD-1821 &sect;1, 93; SD-1365 &sect;2, 86)</p>
+
+<p class='archiveNotice nullValue '>Effective on:&nbsp;1/1/1901</p>
+</section> 
+<section id='secid-4034' class='secLvl4 _015 _015-004 _015-004-002 _015-004-002-027' tabindex='-1' data-secid='4034'> 
+<h3>
+	<strong>15.09.260 Violation - Penalty. (Repealed. See <a class="xref" target="_blank" href="doc-viewer.aspx#secid-4048">15.10.900</a>)</strong></h3>
+<p>
+	Repealed. See <a class="xref" target="_blank" href="doc-viewer.aspx#secid-4048">15.10.900</a>.</p>
+<p>
+	(History: Ord. SWM-2505 &sect;2, 2004; SD-1234 &sect;26, 83)</p>
+
+<p class='archiveNotice nullValue '>Effective on:&nbsp;1/1/1901</p>
+</section> 
+<section id='secid-4035' class='secLvl4 _015 _015-004 _015-004-002 _015-004-002-028' tabindex='-1' data-secid='4035'> 
+<h3>
+	<strong>15.09.270 Enjoinment. (Repealed. See <a class="xref" target="_blank" href="doc-viewer.aspx#secid-4049">15.10.950</a>)</strong></h3>
+<p>
+	Repealed. See <a class="xref" target="_blank" href="doc-viewer.aspx#secid-4049">15.10.950</a>.</p>
+<p>
+	(History: Ord. SWM-2505 &sect;2, 2004; SD-1234 &sect;27, 83)</p>
+
+<p class='archiveNotice nullValue '>Effective on:&nbsp;1/1/1901</p>
+</section> 
+
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<button id="commentsCTA" title="Add a Comment" aria-label="Add a Comment" role="button" tabindex="2">
+    COMMENTS
+</button>
+
+<!-- hidden div below is for definition popup -->
+<div id="defFrame">
+    <img alt='loading progress' src="resources/progress.gif" /></div>
+<!-- hidden div below is for ajax loading progress-->
+<div id='progress-template' style='display: none;'>
+    <div class="progress" style='padding: 100px;'>
+        <div style='margin: auto; display: block; width: 200px; border: 1px solid #ccc; background-color: #eee; padding: 10px;'>
+            <img alt='loading progress' src='resources/progress.gif' style='margin: auto; display: block;' />
+            <br />
+            <span style='margin: auto; display: block; width: 75px; padding-left: 10px;'>Loading...</span>
+        </div>
+    </div>
+</div>
+<iframe style="width: 1px; height: 1px" src="" id="printiframe" name="printiframe" onload="ZP.DocView.IFrameReady();" title="Print frame" aria-hidden="true" role="presentation"></iframe>
+
+    </div>
+
+
+    </body>
+</html>

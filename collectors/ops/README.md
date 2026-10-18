@@ -58,6 +58,22 @@ All adapters are subject to [the image policy](../IMAGE-POLICY.md): no separate 
 
 The launcher does not upload data, alter the database, or send credentials. Acquisition outputs can be large; choose a disk with adequate space and preserve job metadata alongside the evidence.
 
+## Flagstaff and King County original sources
+
+The original-source adapters also use the common launcher and the existing official-source access gates:
+
+```sh
+python3.12 collect.py plan --target original-flagstaff-az
+python3.12 collect.py run --target original-flagstaff-az --out /absolute/new/flagstaff
+python3.12 collect.py verify --target original-flagstaff-az --out /absolute/new/flagstaff
+python3.12 collect.py run --target original-king-county-wa --out /absolute/new/king-county
+python3.12 collect.py verify --target original-king-county-wa --out /absolute/new/king-county
+```
+
+Flagstaff uses installed ordinary headed Chrome for the complete current code publication. King County requires both source-listed HTML and Word alternatives; collecting HTML alone cannot satisfy its aggregate. Both adapters replace images with `[IMAGE]`, block separate image acquisition, and preserve source text and table ownership. See the [original-source adapter runbook](../originals/README.md) for exact scope, standalone commands and retained-source replay.
+
+Acceptance requires explicit text, required nonimage attachment, legal structure and source consistency results. An offline replay records its retained-source origin and zero publisher requests; it cannot establish a fresh live acquisition. Known King County date, reference and character-mapping conflicts remain incomplete. Separate Flagstaff Employee Handbook, King County Board of Health Code and external adopted model books require their own qualified collections.
+
 ## Explicit enCodePlus workflow actions
 
 The active registry now dispatches six exact Overland Park native documents through `collectors.encodeplus.native_document`, using literal observed publisher URLs and pinned original file hashes/page counts. For example:

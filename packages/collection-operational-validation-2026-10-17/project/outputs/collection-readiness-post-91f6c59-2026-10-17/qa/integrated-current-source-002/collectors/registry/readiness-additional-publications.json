@@ -1,0 +1,52 @@
+{
+  "schema_version": 1,
+  "publications": [
+    {
+      "id": "100-fairfax-public-facilities-manual",
+      "target_id": "100",
+      "title": "Fairfax County, VA Public Facilities Manual",
+      "source_url": "https://online.encodeplus.com/regs/fairfaxcounty-va-pfm/",
+      "publisher": "encodeplus",
+      "source_family": "encodeplus",
+      "scope_kind": "publication",
+      "role": "secondary",
+      "required_for_jurisdiction": true,
+      "expected_identity": {
+        "client_names": [
+          "Fairfax County"
+        ],
+        "state": "VA"
+      },
+      "selector": {},
+      "runnable": true,
+      "unsupported_reason": null,
+      "validation_level": "mapped_only",
+      "full_live_verified": false,
+      "evidence_paths": [
+        "readiness-source-evidence.zip::fairfax-pfm/toc.html",
+        "readiness-source-evidence.zip::fairfax-pfm/config.json",
+        "readiness-source-evidence.zip::fairfax-pfm/zoning-reference.html"
+      ],
+      "image_policy": {
+        "mode": "literal_placeholder",
+        "placeholder": "[IMAGE]",
+        "download_images": false,
+        "source_id_heading_retained": true,
+        "native_originals_may_contain_images": true,
+        "scope_note": "Image-only units are retained. Intentional image omission is not an unresolved required nonimage attachment."
+      },
+      "qualified_config_path": null,
+      "adapter_config_key": "fairfax-zoning",
+      "observed_title": "Fairfax County, VA Public Facilities Manual",
+      "dispatch_config": {
+        "jurisdiction": "Fairfax County, VA",
+        "base": "https://online.encodeplus.com/regs/fairfaxcounty-va/",
+        "identity": "Fairfax County, VA Zoning Ordinance",
+        "scope": "Separately published Zoning Ordinance only; main county code excluded"
+      },
+      "adapter_config_path": "collectors/encodeplus/configs/fairfax-public-facilities-manual.json",
+      "scope_note": "Separately published Public Facilities Manual; required dependency of Zoning Ordinance, not the main County Code",
+      "discovered_as_required_dependency_of": "100-0506c8bf0a84"
+    }
+  ]
+}

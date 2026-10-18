@@ -1,0 +1,67 @@
+{
+  "schema": 1,
+  "stable_source_checkpoint": true,
+  "all_requested_work_complete": false,
+  "source_hashes": {
+    "collect.py": "91156fd2a7e1830240ddd85bd2a8be0e565533576279307e6ed6a37a9e00c0f5",
+    "model.py": "805e16e570c9aa677d65c39bcb37bde68707de6a16edd83c7c62567f2b09af04",
+    "transport.py": "856f00a0de7d561839ba8842af7ae49483fd5efd31fb0352dbe7cbccc011a148",
+    "post_transport.py": "ad9d0b3662f49ffe54420f7b3b4cb1d62acfce19be4e4a394243bc92c2b06c33",
+    "legacy_html.py": "b3799648ab453ff71217d336f55d78501dcc4a8a92e6cf6d187632508b665048",
+    "browser_fetch.cjs": "9dbf7e1f5f1acbded4821a59021075c0859c705e7d4b7e87d30c0736f6955918",
+    "spokane_bulk.py": "f5bf3fb9dc69acc878e414d43935231f7f8049732229b1202e9780459ed8785b",
+    "pdf_structure.py": "b8ea53c254ca1911197e6fc3023923426d42dec2746da620235d64dd03a3f04b",
+    "openlaw_xml.py": "172fc1cfd76f241fd891f4b2e0e07ee187b9821fa9020baa9843a6a7bd6fb547",
+    "git_archive_binding.py": "e74bf2b5e847099f6212266b0c1e747471e90320aff80f1a68247f64be467fbc",
+    "verify.py": "3205bf0aa89c2c40fcf1b63697607d893f457c7df3d76ba71a7fe9b87e371989",
+    "verify_suite.py": "6ef7fd296426e96b625ee91cf5be6eb58b1f001d06d50c0821e2ea9f5d272476"
+  },
+  "tests": {
+    "schema": 1,
+    "passed": 53,
+    "failed": 0,
+    "network_free": true,
+    "command": "python -B -m unittest test_offline test_pdf_structure test_readiness test_spokane_revision test_baltimore_revision -v",
+    "suites": {
+      "test_offline": 16,
+      "test_pdf_structure": 18,
+      "test_readiness": 11,
+      "test_spokane_revision": 5,
+      "test_baltimore_revision": 3
+    },
+    "receipt": "checks/malformed-svg-53-tests.txt",
+    "sha256": "d668079ff3f6cd5acdaf5c10fb5c0e6128250b2cbbccc01d769817d937cae574"
+  },
+  "selected_live_scope": [
+    {
+      "path": "baltimore-final-live-v3",
+      "status": "Fresh official discovery/closing, complete commit-bound archive and all owned HTML text; inherited external model-code bodies remain a separate unresolved semantic dimension. PDF module not used in this run.",
+      "expected": {
+        "requested_coverage_complete": true,
+        "publication_file_coverage_complete": true,
+        "pdf_page_extraction_complete": false,
+        "publication_html_text_coverage_complete": true,
+        "legal_semantic_coverage_complete": false,
+        "expected_document_count": 1,
+        "acquired_document_count": 1,
+        "parsed_record_count": 6994,
+        "source_consistency_complete": true
+      },
+      "hashes": {
+        "config.json": "dcbf4a4fb42dc38680f01d9a7b62b03927b3ee7de9b299c7323d376a97411da4",
+        "inventory.json": "9acce30bd2132bcacae318b6f142c4bc1526ebadad46b91e968f2ae5cf64a773",
+        "records.jsonl": "814d1c82601a90df299f2283b6110064a59c6c0d74e406574a63305369d25879",
+        "coverage.json": "9c5675283ef28c3fe87e5e7dfa81d31d9529a6f3b2e4f5d9f490410dd7ede390"
+      }
+    }
+  ],
+  "revision_details": "REVISION-2026-10-17.json",
+  "historical_checkpoint": "prior-readiness-checkpoint.json",
+  "final_image_boundary_qualification": "Current model805/PDF exact hashes in runtime binding: 53 tests, known attribute and typed URI boundaries supported; single complete plain literal SVG metadata envelope or standalone plain selfclose omitted; generic attributed, malformed selfclose-plus-prose or uncertain root boundaries explicitly refuse; mixed/ambiguous literal markup or bare URI+prose refuses. Actual seven Baltimore articles and123 Spokane image tags have unchanged outputs vs745. Historical producer2c and readonly271 proofs remain separately bound; no fresh current-code acquisition/full replay claimed.",
+  "final_image_boundary_receipts": [
+    "checks/malformed-svg-real-html-boundaries.json",
+    "checks/malformed-svg-boundary-source-scope.json",
+    "checks/baltimore-malformed-svg-boundary-source-scan.json",
+    "checks/spokane-malformed-svg-boundary-source-scan.json"
+  ]
+}

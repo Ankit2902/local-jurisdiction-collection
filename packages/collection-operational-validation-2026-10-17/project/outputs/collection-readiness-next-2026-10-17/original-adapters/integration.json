@@ -1,0 +1,151 @@
+{
+  "schema_version": 1,
+  "status": "candidate; final source qualification and independent QA pending",
+  "ownership": "New isolated module directory; invoke child CLIs, do not merge flat model module into active official runtime",
+  "publisher": "official",
+  "requirements": "requirements.txt",
+  "shared_gate": "OFFICIAL_GATE_DIR or /tmp/compliSolv-official-publication-gate; existing stops never reset",
+  "targets": [
+    {
+      "id": "original-flagstaff-az",
+      "profile": "codepublishing-legacy-frameset-full-html",
+      "source_url": "https://www.codepublishing.com/AZ/Flagstaff/",
+      "publication": "City Code including Charter, current archive=html only",
+      "collect": [
+        "python",
+        "collect.py",
+        "--target",
+        "original-flagstaff-az",
+        "--out",
+        "<fresh-output>"
+      ],
+      "doctor": [
+        "python",
+        "doctor.py",
+        "--target",
+        "original-flagstaff-az"
+      ],
+      "verify": [
+        "python",
+        "verify.py",
+        "--family",
+        "flagstaff-html",
+        "--source",
+        "<source>",
+        "--normalized",
+        "<normalized>"
+      ],
+      "resume": [
+        "python",
+        "collect.py",
+        "--target",
+        "original-flagstaff-az",
+        "--out",
+        "<existing-output>",
+        "--resume"
+      ],
+      "known_limits": [
+        "Employee Handbook and historical archives are separate unvalidated publications",
+        "Native whole Print/Save returned empty; full observed HTML traversal used",
+        "Closing inventory/currency and all body/dependency checks required before complete"
+      ]
+    },
+    {
+      "id": "original-king-county-wa",
+      "profile": "king-county-official-word-html",
+      "source_url": "https://kingcounty.gov/en/dept/council/governance-leadership/county-legislation-codes/king-county-code",
+      "publication": "All source-listed Code documents, Charter and editorial matter",
+      "collect": [
+        "python",
+        "collect.py",
+        "--target",
+        "original-king-county-wa",
+        "--out",
+        "<fresh-output>"
+      ],
+      "doctor": [
+        "python",
+        "doctor.py",
+        "--target",
+        "original-king-county-wa"
+      ],
+      "verify": [
+        "python",
+        "verify.py",
+        "--family",
+        "king",
+        "--source",
+        "<html-source>",
+        "--normalized",
+        "<normalized>"
+      ],
+      "verify_word": [
+        "python",
+        "verify.py",
+        "--family",
+        "king-word",
+        "--source",
+        "<native-source>",
+        "--normalized",
+        "<native-normalized>"
+      ],
+      "resume": [
+        "python",
+        "collect.py",
+        "--target",
+        "original-king-county-wa",
+        "--out",
+        "<existing-output>",
+        "--resume"
+      ],
+      "known_limits": [
+        "Nine same-label official index/body UPDATED mismatches are explicit publication-update consistency gaps; no legal effective-date inference",
+        "Source-incorporated legacy MRSC URL404; actual current publisher PDF retained as explicit unresolved successor binding candidate",
+        "Board of Health Code is a separate unvalidated compilation",
+        "Native Word/HTML layout and source-scope qualification are separate from acquisition success",
+        "Declared legacy Symbol-font glyphs retain exact typed literals and source XML metadata; character semantics remain unqualified independently of dates/attachments"
+      ],
+      "resume_native": [
+        "python",
+        "king_native.py",
+        "--source",
+        "<html-source>",
+        "--out",
+        "<native-source>",
+        "--resume"
+      ]
+    }
+  ],
+  "exit_codes": {
+    "0": "All requested implemented completeness gates passed",
+    "1": "Runtime/configuration/verifier mismatch or collect wrapper refusing preflight/access condition; structured error preserves exact reason",
+    "2": "Source incomplete/unresolved edition/attachment/coverage",
+    "3": "doctor CLI preflight blocked (read-only, zero publisher requests)"
+  },
+  "normalized_primary_schema": [
+    "record_id",
+    "jurisdiction",
+    "publication",
+    "source_url",
+    "source_sha256",
+    "heading",
+    "kind",
+    "full_text",
+    "semantic_html",
+    "block_indices",
+    "tables",
+    "notes",
+    "links",
+    "assets",
+    "image_placeholder_count"
+  ],
+  "native_word_schema": "Source paragraph/table/note units with source ordinal/XML hash; text/tables/note/image positions. Supplemental original-format proof, primary semantic corpus uses HTML records.",
+  "read_only_verifier": "Recomputes from original source into temporary scratch, compares deterministic files, exact parser fingerprint required; inputs never modified",
+  "standalone_import_contract": "Copy all top-level .py and .json configuration/profile files plus requirements.txt as listed in module-manifest.json into one directory; imports resolve locally and installed requirements only. Explicit raw evidence path may be relocated intact.",
+  "selected_outputs": {
+    "flagstaff": "evidence/flagstaff-html-normalized-qualified-v3",
+    "king_html": "evidence/king-county-normalized-final-v6",
+    "king_word": "evidence/king-county-word-normalized-final-v8"
+  },
+  "promotion_status": "Candidate only: final own full-source replay required; prior independent King audits have exact earlier scope; Flagstaff377table independent audit queued"
+}

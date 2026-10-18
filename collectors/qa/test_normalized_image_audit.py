@@ -58,5 +58,18 @@ class NormalizedImageAuditTests(unittest.TestCase):
                 self.assertEqual(result['normalized_records'], 1)
 
 
+    def test_official_native_attachment_metadata_is_included(self):
+        for metadata in [{'text': '[IMAGE] Caption'}, {'source': {'uri': 'data:image/svg+xml,<svg>PIXELS</svg>'}}, {'html': '<img src="x.png">'}]:
+            with self.subTest(metadata=metadata), tempfile.TemporaryDirectory() as td:
+                root = Path(td)
+                (root/'attachment-pages.jsonl').write_text('{"id":"a::page:1","text":"[IMAGE] Caption"}\n')
+                (root/'native-attachments').mkdir()
+                (root/'native-attachments/a.json').write_text(json.dumps(metadata))
+                result = audit(root)
+                self.assertEqual(len(result['metadata_files']), 1)
+                self.assertEqual(result['normalized_records'], 1)
+                self.assertEqual(result['passed'], metadata == {'text': '[IMAGE] Caption'})
+
+
 if __name__ == '__main__':
     unittest.main(verbosity=2)

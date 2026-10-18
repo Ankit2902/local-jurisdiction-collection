@@ -1,0 +1,56 @@
+test_quoted_svg_preserves_prose_or_explicitly_refuses (__main__.PDFSVGMetadata.test_quoted_svg_preserves_prose_or_explicitly_refuses) ... ERROR
+test_separate_svg_roots_do_not_swallow_intervening_legal_text (__main__.PDFSVGMetadata.test_separate_svg_roots_do_not_swallow_intervening_legal_text) ... ERROR
+test_standalone_known_field_is_literal_placeholder (__main__.PDFSVGMetadata.test_standalone_known_field_is_literal_placeholder) ... ERROR
+
+======================================================================
+ERROR: test_quoted_svg_preserves_prose_or_explicitly_refuses (__main__.PDFSVGMetadata.test_quoted_svg_preserves_prose_or_explicitly_refuses)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/oliverflint/My Drive/Claude/Projects/CompliSolv 2.00/outputs/collection-readiness-post-91f6c59-2026-10-17/qa/integrated-current-source-001/collectors/qa/test_pdf_svg_metadata.py", line 18, in test_quoted_svg_preserves_prose_or_explicitly_refuses
+    for family,m in models():
+                    ^^^^^^^^
+  File "/Users/oliverflint/My Drive/Claude/Projects/CompliSolv 2.00/outputs/collection-readiness-post-91f6c59-2026-10-17/qa/integrated-current-source-001/collectors/qa/test_pdf_svg_metadata.py", line 9, in models
+    path=ROOT/'collectors'/family/'pdf_structure.py';spec=importlib.util.spec_from_file_location('qa_svg_'+family,path);m=importlib.util.module_from_spec(spec);spec.loader.exec_module(m);yield family,m
+                                                                                                                                                                ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen importlib._bootstrap_external>", line 999, in exec_module
+  File "<frozen importlib._bootstrap>", line 488, in _call_with_frames_removed
+  File "/Users/oliverflint/My Drive/Claude/Projects/CompliSolv 2.00/outputs/collection-readiness-post-91f6c59-2026-10-17/qa/integrated-current-source-001/collectors/official/pdf_structure.py", line 4, in <module>
+    from bounded_decoder import bounded_decoder_aliases
+ModuleNotFoundError: No module named 'bounded_decoder'
+
+======================================================================
+ERROR: test_separate_svg_roots_do_not_swallow_intervening_legal_text (__main__.PDFSVGMetadata.test_separate_svg_roots_do_not_swallow_intervening_legal_text)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/oliverflint/My Drive/Claude/Projects/CompliSolv 2.00/outputs/collection-readiness-post-91f6c59-2026-10-17/qa/integrated-current-source-001/collectors/qa/test_pdf_svg_metadata.py", line 24, in test_separate_svg_roots_do_not_swallow_intervening_legal_text
+    for family,m in models():
+                    ^^^^^^^^
+  File "/Users/oliverflint/My Drive/Claude/Projects/CompliSolv 2.00/outputs/collection-readiness-post-91f6c59-2026-10-17/qa/integrated-current-source-001/collectors/qa/test_pdf_svg_metadata.py", line 9, in models
+    path=ROOT/'collectors'/family/'pdf_structure.py';spec=importlib.util.spec_from_file_location('qa_svg_'+family,path);m=importlib.util.module_from_spec(spec);spec.loader.exec_module(m);yield family,m
+                                                                                                                                                                ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen importlib._bootstrap_external>", line 999, in exec_module
+  File "<frozen importlib._bootstrap>", line 488, in _call_with_frames_removed
+  File "/Users/oliverflint/My Drive/Claude/Projects/CompliSolv 2.00/outputs/collection-readiness-post-91f6c59-2026-10-17/qa/integrated-current-source-001/collectors/official/pdf_structure.py", line 4, in <module>
+    from bounded_decoder import bounded_decoder_aliases
+ModuleNotFoundError: No module named 'bounded_decoder'
+
+======================================================================
+ERROR: test_standalone_known_field_is_literal_placeholder (__main__.PDFSVGMetadata.test_standalone_known_field_is_literal_placeholder)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/oliverflint/My Drive/Claude/Projects/CompliSolv 2.00/outputs/collection-readiness-post-91f6c59-2026-10-17/qa/integrated-current-source-001/collectors/qa/test_pdf_svg_metadata.py", line 13, in test_standalone_known_field_is_literal_placeholder
+    for family,m in models():
+                    ^^^^^^^^
+  File "/Users/oliverflint/My Drive/Claude/Projects/CompliSolv 2.00/outputs/collection-readiness-post-91f6c59-2026-10-17/qa/integrated-current-source-001/collectors/qa/test_pdf_svg_metadata.py", line 9, in models
+    path=ROOT/'collectors'/family/'pdf_structure.py';spec=importlib.util.spec_from_file_location('qa_svg_'+family,path);m=importlib.util.module_from_spec(spec);spec.loader.exec_module(m);yield family,m
+                                                                                                                                                                ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen importlib._bootstrap_external>", line 999, in exec_module
+  File "<frozen importlib._bootstrap>", line 488, in _call_with_frames_removed
+  File "/Users/oliverflint/My Drive/Claude/Projects/CompliSolv 2.00/outputs/collection-readiness-post-91f6c59-2026-10-17/qa/integrated-current-source-001/collectors/official/pdf_structure.py", line 4, in <module>
+    from bounded_decoder import bounded_decoder_aliases
+ModuleNotFoundError: No module named 'bounded_decoder'
+
+----------------------------------------------------------------------
+Ran 3 tests in 0.632s
+
+FAILED (errors=3)

@@ -1,0 +1,252 @@
+{
+  "generated_at": "2026-10-17T20:22:29.961272+00:00",
+  "status": "Frozen; both representative runs independently verified incomplete after publisher access refusals",
+  "evidence_path_base": "outputs/full-publication-validation-2026-10-17/ecode (relative to project root; all child evidence paths below relative to this folder)",
+  "repository_package": "collectors/ecode",
+  "implementation": "Dynamic whole-publication inventory and node ownership for eCode360 current customer Code and municipal.codes selected publication tabs; explicit unsupported cases remain fail-closed.",
+  "validated_scope": "Representative publications and offline fault tests, not all 100 complete acquisitions.",
+  "source_revision": {
+    "revision_captured_at": "2026-10-17T20:16:38.516291+00:00",
+    "source_frozen": true,
+    "independent_review": "Peer narrow media/image/qualification review passed; no further concrete issue reported",
+    "pending": null,
+    "source_fingerprint": {
+      "__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "adapters.py": "d1ebfeb584c9403376fe3571873a663e300cf3bbc5e4cb090d1b34950eb8b93e",
+      "browser.py": "dfc3a5000c03e3776cdef239bb5ac85a53de9f2de48374fb6f21ee7504ec1040",
+      "cli.py": "8d51ba0b98db85c21b2eafb61c2f6f079f1174050298df8640c58a88c71bd771",
+      "common.py": "b5293cc27d152f1264eac1935d81fc492b98ab2b8b889ce0d241c255167ad43c",
+      "engine.py": "677a504660c815d0fa0d61cf25154e256131e573873a2903bb2d0865e6079ef9",
+      "legacy_ecode.py": "33ab8dd27c0c89dff86dbddf8602b826e44e4be19a66822a5a0530e51e6208d7",
+      "legacy_municipal.py": "6570af84a062a434085273d4649deb1bb8c20f1a78f10b650e2d98d160cdbb63",
+      "media.py": "3332c4cc2faef31675cd0cecec578bed5cd4ba4ac356bbb5cfa0400f9c709317"
+    },
+    "final_proof_status": "Both representative runs access-stopped; final current-parser offline replay. Albany HTML inventory fully resolved, attachments/closing not complete.",
+    "finalized_at": "2026-10-17T20:22:09.072383+00:00"
+  },
+  "tested_runtime": {
+    "python": "3.12.14",
+    "platform": "macOS-26.6.2-arm64-arm-64bit",
+    "chrome": "155.0.8059.84",
+    "headed": true,
+    "playwright": "1.64.0",
+    "beautifulsoup4": "4.15.0",
+    "requests": "2.34.2",
+    "pypdf": "6.21.1",
+    "dependency_lock": "collectors/ecode/requirements-tested.txt"
+  },
+  "tests": {
+    "fault_test_receipt": "collectors/ecode/tests/receipt.json",
+    "fault_test_count": 21,
+    "passed": true,
+    "command": "python -m unittest collectors.ecode.tests.test_faults -q",
+    "scope": "Network-free synthetic faults, image placeholders/no-fetch, document qualification, crash/resume, explicit migration and immutable stopped replay.",
+    "final_test_delta": "Added signature/EOF-valid zero-page PDF rejection assertion within existing qualification test; count remains 21. Runtime unchanged. Refreshed synthetic executed-source fixtures to frozen current runtime.",
+    "final_test_sha256": "f28a6c1d7f1ccfb3886fbcc0f4062ee7f24ac5851703db2137d84d7a9e176ab4",
+    "compact_live_fixture": {
+      "path": "collectors/ecode/fixtures/phoenix-charter-stopped.tar.gz",
+      "sha256": "161b2fd9b6817a6156259c590bda622b7cc2f65601e6ed29a2d9fb1c1b7ba7d2",
+      "bytes": 326620,
+      "command": "python -m collectors.ecode.tests.verify_live_fixture --fixture collectors/ecode/fixtures/phoenix-charter-stopped.tar.gz",
+      "expected_exit": 0,
+      "wrapper_check_passed": true,
+      "publication_complete": false,
+      "receipt": "live-fixture-verify.json"
+    }
+  },
+  "results": [
+    {
+      "family": "municipal.codes",
+      "jurisdiction": "Phoenix",
+      "state": "AZ",
+      "publication": "City Charter",
+      "source_url": "https://phoenix.municipal.codes/Charter",
+      "evidence_path": "phoenix-charter-qualified-policy",
+      "status": "verified_incomplete_access_stop",
+      "acquisition_mode": "retained_source_replay_only",
+      "intended_scope": "Entire selected City Charter; not general City Code and not all Phoenix publications",
+      "identity": {
+        "family": "municipal.codes",
+        "publication_base": "https://phoenix.municipal.codes/Charter",
+        "currency_raw": [
+          "The Phoenix City Charter is current through the November 6, 2018 election."
+        ],
+        "name": "Phoenix City Charter",
+        "state": null
+      },
+      "identity_binding": {
+        "jurisdiction_checked": true,
+        "state_source_verified": false,
+        "requested_state": "AZ"
+      },
+      "counts": {
+        "inventory": 279,
+        "resolved": 81,
+        "owned": 73,
+        "normalized": 73,
+        "missing": 198,
+        "required_assets": 0,
+        "acquired_assets": 0,
+        "unresolved_links": 14
+      },
+      "completion": {
+        "publication_text_complete": false,
+        "attachments_complete": false,
+        "edition_complete": false,
+        "jurisdiction_complete": false,
+        "complete": false
+      },
+      "access_stop": {
+        "status": 429,
+        "url": "https://phoenix.municipal.codes/Charter/XI",
+        "retrieved_at": "2026-10-17T19:58:59.855481+00:00",
+        "raw_path": "phoenix-charter-qualified-policy/raw/00015-content.bin",
+        "raw_sha256": "78e65865c7682a06cf7ae9b2ecde5a7e969d61f8bb8fd4e18d45f6a561d9aee8",
+        "retry_after": null,
+        "receipt": "municipal-codes-stop.json",
+        "no_further_network": true
+      },
+      "native_export": {
+        "whole_publication_control_enabled": false,
+        "observed_href": "",
+        "method": "Ordinary chapter bulk HTML traversal"
+      },
+      "native_export_scope": "Root This Page control observed disabled; no successful whole-publication native export. Ordinary public chapter HTML retained, bounded partial acquisition.",
+      "verification": {
+        "command": "python -m collectors.ecode.cli verify --out \"$ECODE_EVIDENCE/phoenix-charter-qualified-policy\"",
+        "expected_exit": 2,
+        "verified": true,
+        "receipt": "phoenix-charter-qualified-verify.json"
+      },
+      "proof_hashes": {
+        "coverage.json": "77b002d4761b055fd317059454a366b993ccd0d3fad5d57ed9954cba8da1217b",
+        "checkpoint.json": "bfa3f3d602733bc680a566ad8502248dcab0c7461c1107c0e06f04827d17957e"
+      },
+      "image_policy": "Current-parser placeholders; no separately downloaded images; all 16 artifacts are original HTML/document receipts.",
+      "provenance": "Original live acquisition in phoenix-charter-profiled and its retained ancestry. Current parser read-only replay in a new folder; no new requests or clearing of stopped state."
+    },
+    {
+      "family": "ecode360",
+      "jurisdiction": "Albany",
+      "state": "NY",
+      "publication": "Current customer Code, including inventoried Charter and Code divisions",
+      "source_url": "https://ecode360.com/AL0934",
+      "evidence_path": "albany-code-qualified-policy",
+      "status": "full_html_inventory_resolved_but_verified_incomplete_access_stop",
+      "acquisition_mode": "retained_source_replay_only",
+      "intended_scope": "Entire selected current customer Code; no other publications or external incorporated laws certified",
+      "identity": {
+        "family": "ecode360",
+        "customer_id": "AL0934",
+        "code_id": "336787",
+        "currency_raw": "2026-07-06",
+        "name": "City of Albany, NY",
+        "state": "NY",
+        "current_code_id": "336787"
+      },
+      "identity_binding": {
+        "jurisdiction_checked": true,
+        "state_source_verified": true,
+        "requested_state": "NY"
+      },
+      "counts": {
+        "inventory": 3253,
+        "resolved": 3253,
+        "owned": 3006,
+        "normalized": 3006,
+        "reserved_or_repealed_empty": 53,
+        "structural_empty": 194,
+        "missing": 0,
+        "unknown": 0,
+        "conflicting_bodies": 0,
+        "required_assets": 6,
+        "acquired_assets": 0,
+        "unresolved_links": 10,
+        "raw_artifacts": 401,
+        "raw_content_pages": 397,
+        "table_structures": 24,
+        "records_with_tables": 22,
+        "image_placeholders": 28,
+        "image_reference_urls": 26
+      },
+      "completion": {
+        "publication_text_complete": false,
+        "attachments_complete": false,
+        "edition_complete": false,
+        "jurisdiction_complete": false,
+        "complete": false
+      },
+      "access_stop": {
+        "status": 403,
+        "method": "HEAD",
+        "url": "https://ecode360.com/attachment/336787/AL0934-211a%20Appendix%20I.pdf",
+        "requested_url": "https://ecode360.com/attachment/336787/AL0934-211a Appendix I.pdf",
+        "retrieved_at": "2026-10-17T20:19:33.700288+00:00",
+        "raw_path": "albany-code-qualified-policy/raw/00400-asset-head.bin",
+        "raw_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "body_note": "HEAD response intentionally has no body; exact403 response headers retained, no follow-up GET.",
+        "retry_after": null,
+        "receipt": "ecode360-stop.json",
+        "no_further_network": true
+      },
+      "native_export": {
+        "root_raw_path": "albany-code-qualified-policy/raw/00001-root-start.bin",
+        "observed_pdf_login_required": true,
+        "observed_word_login_required": true,
+        "observed_export_permission": false,
+        "whole_export_attempted": false,
+        "status": "No qualified public whole-publication native export observed or acquired. No authentication attempted.",
+        "ordinary_html_acquisition": "397 public content pages plus retained start/discovery/resume receipts; parent pages supply multiple own-body records."
+      },
+      "verification": {
+        "command": "python -m collectors.ecode.cli verify --out \"$ECODE_EVIDENCE/albany-code-qualified-policy\"",
+        "expected_exit": 2,
+        "receipt": "albany-code-qualified-verify.json",
+        "verified": true,
+        "exit_code": 2,
+        "receipt_sha256": "cdab56b13e365c2b3f2bd74a4dbca52d0ebd0df3c12e695da9919bb4af45cfa2"
+      },
+      "proof_hashes": {
+        "coverage.json": "6d83bbc1cc4f7f3fdb56a5380a50515b191bbf51565b02304f36f91fd06fd35a",
+        "checkpoint.json": "e4dba655fc004be2aae3a15023a191facaa9c02b4e80ec29bcc50d9aa2245998"
+      },
+      "table_example": {
+        "id": "33429911",
+        "heading": "\u00a7 375-202: Summary Table of Zoning Districts.",
+        "validation": "Full normalized JSONL/CSV/table HTML compared to independent reparse of original raw by verifier. No separate rendered-image validation."
+      },
+      "missing_assets": [
+        "https://ecode360.com/33432651",
+        "https://ecode360.com/33433083",
+        "https://ecode360.com/attachment/336787/AL0934-211a Appendix I.pdf",
+        "https://ecode360.com/attachment/336787/AL0934-211b Appendix II.pdf",
+        "https://ecode360.com/attachment/336787/AL0934-211c Appendix III.pdf",
+        "https://ecode360.com/attachment/336787/AL0934-375a Table of Zoning Map Amendments.pdf"
+      ],
+      "fresh_transport_scope": {
+        "evidence_path": "albany-final-transport",
+        "source_url": "https://ecode360.com/7678194",
+        "inventory_nodes": 17,
+        "scope": "Chapter1 subtree only; source snapshots predate final media qualification changes; no whole-publication claim."
+      },
+      "provenance": "Initial26 pages acquired before image-policy migration; remaining traversal used image-policy revision. Exact original executed versions and migration ancestry preserved. Final frozen runtime performs offline full raw replay only. Final-revision fresh live opening/closing was not possible after403; absent closing consistency blocks publication_text_complete.",
+      "production_resume": "Shared family stop retained. No retry, alternate host/path, automatic stop clearing or live migration from stopped evidence."
+    }
+  ],
+  "attempt_ledger": "attempt-ledger.json",
+  "image_policy": "All separate images skipped; literal [IMAGE] with reference/occurrence metadata; original publisher documents can contain images. No OCR/rendering/image extraction.",
+  "production_resume": "Retain persistent access stops. Operator review is required after source service returns; never automatically clear or select another gate. Exact source resumes only; deliberate parser migration uses --adopt-from into a fresh folder.",
+  "commands": {
+    "synthetic_ecode": "python -m collectors.ecode.cli verify --out collectors/ecode/fixtures/synthetic-ecode",
+    "synthetic_municipal": "python -m collectors.ecode.cli verify --out collectors/ecode/fixtures/synthetic-municipal",
+    "offline_replay_fresh_directory": "python -m collectors.ecode.cli replay --source \"$ECODE_EVIDENCE/phoenix-charter-qualified-policy\" --out ./fresh/phoenix-replay",
+    "offline_replay_expected_exit": 2,
+    "albany_full_raw_verify": "python -m collectors.ecode.cli verify --out \"$ECODE_EVIDENCE/albany-code-qualified-policy\"",
+    "albany_verify_expected_exit": 2
+  },
+  "final_executed_revision_policy": "Collector runtime hashes frozen before current-parser final replay. Original acquired-version snapshots and migration chain retained. No final-revision fresh live closing proof after publisher stops.",
+  "operator_network_status": {
+    "municipal.codes": "HTTP429 persistent stop; no more requests",
+    "ecode360": "HTTP403 persistent stop; no more requests"
+  }
+}

@@ -8,13 +8,18 @@ from pathlib import Path
 
 def sha(path):return hashlib.sha256(Path(path).read_bytes()).hexdigest()
 def canonical(value):return hashlib.sha256(json.dumps(value,sort_keys=True,separators=(',',':')).encode()).hexdigest()
+def implementation_family(publication):
+ return publication.get('adapter_family',publication['publisher']) if isinstance(publication,dict) else publication
 def current_components(repo,publisher):
+ publisher=implementation_family(publisher)
  repo=Path(repo);family=repo/'collectors'/publisher;registry=repo/'collectors/registry';ops=repo/'collectors/ops'
  files=[registry/name for name in ('collect.py','dispatch.py','catalog.py') if (registry/name).is_file()]
  if (repo/'collect.py').is_file():files += [repo/'collect.py']
  files += [ops/name for name in ('launcher.py','browser_check.cjs','requirements.txt') if (ops/name).is_file()]
  files += [p for p in family.glob('*') if p.suffix in ('.py','.cjs')]
  files += [p for folder in ('configs','policies') for p in (family/folder).rglob('*.json')]
+ if publisher=='originals':
+  files += list(family.glob('*.json'))+list((family/'profiles').rglob('*.json'))
  files += [p for p in registry.glob('*.json') if p.name not in ('source-evidence-manifest.json','original-source-evidence-manifest.json','readiness-source-evidence-manifest.json')]
  return {str(p.relative_to(repo)):sha(p) for p in sorted(set(files))}
 def selected_configuration(repo,pub,target,plan):
@@ -28,8 +33,10 @@ def selected_configuration(repo,pub,target,plan):
  return {'sha256':canonical(value),'descriptor':value}
 
 def gate_qa_sources(repo,publisher,key):
+ publisher=implementation_family(publisher)
  names={'normalized_image_audit':['audit_normalized_images.py'],'acquired_bytes_image_audit':['audit_images.py'],'image_transport_regression':['test_image_policy.py','test_all_family_image_metadata.py']}[key]
  if key=='image_transport_regression':
+  if publisher=='originals':return {'collectors/qa/test_originals_image_transport.py':sha(Path(repo)/'collectors/qa/test_originals_image_transport.py')}
   family_test={'american-legal':'test_american_image_transport.py','official':'test_official_image_transport.py'}.get(publisher)
   if family_test:names=names+[family_test]
  return {str(Path('collectors/qa')/name):sha(Path(repo)/'collectors/qa'/name) for name in names}
@@ -70,6 +77,6 @@ def assess(row,repo,project,current_sources,config_sha256):
   try:
    report=json.loads(bound_file(audit['path'],audit['sha256']).read_text())
    if report.get('passed') is not True or report.get('component_sources')!=current_sources or report.get('proof_scope_id')!=scope_id:errors.append('unbound_or_failed_image_gate:'+key)
-   if report.get('executed_qa_sources')!=gate_qa_sources(repo,row.get('publisher'),key):errors.append('current_qa_revision_mismatch:'+key)
+   if report.get('executed_qa_sources')!=gate_qa_sources(repo,row,key):errors.append('current_qa_revision_mismatch:'+key)
   except (KeyError,ValueError,OSError,json.JSONDecodeError) as exc:errors.append(key+':'+str(exc))
  return {'accepted':not errors,'errors':errors,'scope_coherent':not errors,'proof_scope_id':scope_id}

@@ -1,0 +1,74 @@
+{
+  "passed": true,
+  "checks": {
+    "only_existing_pages_function_changed": true,
+    "six_actual_native_guard_tests_pass": true,
+    "selected_primary": true,
+    "native_flag_forwarded": true,
+    "exact_overland_config": true
+  },
+  "source_hashes": {
+    "collectors/encodeplus/bounded_decoder.py": "a579f2a79c15833e0c5a8c65bc4fa6024b2dbb6eafb408d1135f500c64c72770",
+    "collectors/encodeplus/pdf_structure.py": "5d0141e7712aae0637ec9a4b226cab00ff3326fbe54aa992dd511bb590cb8f02",
+    "collectors/encodeplus/test_bounded_decoder.py": "ee34d64ccced51a2ee6e9aaab03b03bebf62db51353987875e230f333e4c211e"
+  },
+  "config_sha256": "72aa8204763f453b2961931c8c8a656b582bb0ef627a3a015c45328a8cf4e0d3",
+  "actual_plan": {
+    "schema_version": 1,
+    "network_requests_sent": 0,
+    "action": "plan",
+    "cohort": "all",
+    "targets": 1,
+    "runnable_config_count": 1,
+    "plans": [
+      {
+        "argv": [
+          "/Users/oliverflint/My Drive/Claude/Projects/CompliSolv 2.00/github/local-jurisdiction-collection/.collection-runtime/venv/bin/python",
+          "-m",
+          "collectors.encodeplus.collect",
+          "overland",
+          "--out",
+          "/private/tmp/qa-plan-only-overland",
+          "--native-export"
+        ],
+        "staged_config": null,
+        "qualified_config_path": null,
+        "publication_id": "82-primary",
+        "publication_title": "Overland Park, Kansas Municipal Code",
+        "publication_expected_identity": {
+          "client_names": [
+            "Overland Park"
+          ],
+          "state": "KS"
+        },
+        "required_for_jurisdiction": true,
+        "jurisdiction_scope": null,
+        "edition_scope": null,
+        "required_publication_dependencies": [],
+        "configuration_alias_of": null,
+        "scope": "publication",
+        "image_policy": {
+          "mode": "literal_placeholder",
+          "placeholder": "[IMAGE]",
+          "download_images": false,
+          "source_id_heading_retained": true,
+          "native_originals_may_contain_images": true,
+          "scope_note": "Image-only units are retained. Intentional image omission is not an unresolved required nonimage attachment."
+        },
+        "jurisdiction_complete": false,
+        "target_id": "82",
+        "jurisdiction": "Overland Park",
+        "state": "KS",
+        "runnable": true,
+        "observed_access_advisories": []
+      }
+    ],
+    "validation_note": "Mapped/runnable configuration is not a full live publication pass. Primary scope is not jurisdiction scope."
+  },
+  "network_requests": 0,
+  "no_image_download_decode_render_extract_or_OCR": true,
+  "limits": [
+    "Exact native glyph alias comparison only. Original bounded/source cell strings retained. Does not qualify all table semantics or full native book.",
+    "Source-empty qualification remains pinned to six exact source/native hashes; drift refuses qualification."
+  ]
+}

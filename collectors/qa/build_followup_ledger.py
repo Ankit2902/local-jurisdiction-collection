@@ -1,27 +1,41 @@
 """Maintain post-checkpoint scope without rewriting the sealed requirement ledger."""
-import argparse,collections,copy,hashlib,json,sys
+import argparse,collections,copy,hashlib,json,sys,tempfile
 from pathlib import Path
 ROOT=Path(__file__).resolve().parents[2];PROJECT=ROOT.parents[1];HERE=Path(__file__).resolve().parent
 sys.path.insert(0,str(ROOT/'collectors/registry'))
 from catalog import load_catalog
 from dispatch import command,Unsupported
-from readiness_binding import assess,current_components,canonical,selected_configuration
+from readiness_binding import assess,current_components,canonical,selected_configuration,implementation_family
 
 def sha(p):return hashlib.sha256(p.read_bytes()).hexdigest()
-def build(proof_paths=()):
- priorpath=HERE/'readiness-requirements.json';prior=json.loads(priorpath.read_text());old={p['publication_id']:p for p in prior['publications']};catalog=load_catalog();targets={t['id']:t for t in catalog['targets']};rows=[];out=PROJECT/'outputs/collection-readiness-followup-2026-10-17/qa';descriptions={k:v['requirement'] for k,v in prior['publications'][0]['requirements'].items()};components={family:current_components(ROOT,family) for family in {p['publisher'] for p in catalog['publications']}}
+def build(proof_paths=(),source_scope_paths=()):
+ priorpath=HERE/'readiness-requirements.json';prior=json.loads(priorpath.read_text());old={p['publication_id']:p for p in prior['publications']};catalog=load_catalog();targets={t['id']:t for t in catalog['targets']};rows=[];out=PROJECT/'outputs/collection-readiness-followup-2026-10-17/qa';descriptions={k:v['requirement'] for k,v in prior['publications'][0]['requirements'].items()};components={implementation_family(p):current_components(ROOT,p) for p in catalog['publications']}
  active_proofs={}
  for path in proof_paths:
   value=json.loads(Path(path).read_text());ident=value['publication_id']
   if ident in active_proofs:raise ValueError('Duplicate active proof publication')
   active_proofs[ident]=value
+ scoped={}
+ for path in source_scope_paths:
+  from bind_flagstaff_source_scope import bind
+  saved=json.loads(Path(path).read_text());proof_path=PROJECT/saved['active_proof_path']
+  if sha(proof_path)!=saved['active_proof_sha256']:raise ValueError('Changed source-scope active proof')
+  with tempfile.TemporaryDirectory() as td:
+   current=bind(proof_path,Path(path).parent,Path(td)/'revalidated.json')
+  if current!=saved:raise ValueError('Changed source-scope/current revision evidence')
+  ident=current['publication_id']
+  if ident in scoped:raise ValueError('Duplicate source dimensions')
+  scoped[ident]=current
+  actual=json.loads(proof_path.read_text())
+  if ident in active_proofs and active_proofs[ident]!=actual:raise ValueError('Conflicting actual proof')
+  active_proofs[ident]=actual
  def evidence(name):
   p=out/name;return {'path':str(p.relative_to(PROJECT)),'sha256':sha(p)}
  def requirement(row,key,status,reason,names):row['requirements'][key]={'status':status,'requirement':descriptions[key],'reason':reason,'evidence':[evidence(n) for n in names]}
  for pub in catalog['publications']:
   ident=pub['id'];target=targets[pub['target_id']]
   row=copy.deepcopy(old.get(ident,{'publication_id':ident,'target_id':pub['target_id'],'cohort':'original' if pub['target_id'].startswith('original-') else 'expansion','jurisdiction':target['jurisdiction'],'state':target['state'],'requirements':{k:{'status':'not_established','requirement':v,'evidence':[]} for k,v in descriptions.items()},'jurisdiction_complete':False}))
-  row.update(title=pub['title'],role=pub['role'],required_for_jurisdiction=pub['required_for_jurisdiction'],active_source_url=pub['source_url'],publisher=pub['publisher'],source_family=pub['source_family'],configuration_qualified=pub['runnable'],unsupported_reason=pub.get('unsupported_reason'),expected_identity=pub.get('expected_identity'),required_publication_dependencies=pub.get('required_publication_dependencies',[]),observed_access_advisories=pub.get('observed_access_advisories',[]),followup_qualification=pub.get('qualification_evidence'),image_policy=pub['image_policy'])
+  row.update(title=pub['title'],role=pub['role'],required_for_jurisdiction=pub['required_for_jurisdiction'],active_source_url=pub['source_url'],publisher=pub['publisher'],adapter_family=implementation_family(pub),source_family=pub['source_family'],configuration_qualified=pub['runnable'],unsupported_reason=pub.get('unsupported_reason'),expected_identity=pub.get('expected_identity'),required_publication_dependencies=pub.get('required_publication_dependencies',[]),observed_access_advisories=pub.get('observed_access_advisories',[]),followup_qualification=pub.get('qualification_evidence'),image_policy=pub['image_policy'])
   row.setdefault('original_source_url',pub.get('original_source_url',pub['source_url']));row.setdefault('original_scope_kind',pub['scope_kind']);row['scope_narrowed_for_pass']=False
   try:row['dispatch_plan']=command(pub,target,'{OUT}')
   except Unsupported as error:row['dispatch_plan']={'runnable':False,'unsupported_reason':str(error)}
@@ -62,9 +76,17 @@ def build(proof_paths=()):
     row['native_capture_proof']={'status':'verified-native-capture-only','physical_pages':6,'family_verification_exit':proof['verification_exit'],'native_capture_verified':proof['acceptance']['native_capture_verified'],'publication_accepted':proof['acceptance']['publication_accepted'],'source_changed_during_run':proof['source_changed_during_run'],'evidence':evidence('solid-waste-common-readonly-verify.json')}
     row['followup_status_note']='Actual fresh common runtime acquisition and independent read-only verification pass native capture/pages; overall exit2 preserves explicit text/document/semantic/edition gaps. No strict publication readiness inferred.'
 
+  if pub['publisher']=='encodeplus' and pub['runnable'] and 'collectors.encodeplus.collect' in row['dispatch_plan'].get('argv',[]) and not row['dispatch_plan'].get('qualified_config_path') and not row['dispatch_plan'].get('staged_config'):
+   row['operational_input_binding_gap']={'status':'gap','input':'collectors/encodeplus/targets.json','reason':'Named enCodePlus config is captured in the family checkpoint but not in shared component/selected-config hashes. Actual frozen input has not changed; no proof invalidation or routing change inferred. Input-hash coverage fix deferred until active frozen jobs finish.','evidence_path':'outputs/collection-readiness-post-91f6c59-2026-10-17/qa/ep-named-config-binding-omission.json'}
+   row['requirements']['fresh_setup_cli']={'status':'gap','requirement':descriptions['fresh_setup_cli'],'reason':row['operational_input_binding_gap']['reason'],'evidence':[]}
+  if ident in scoped:
+   row['scoped_source_qualification']=scoped[ident]
+   row['followup_status_note']='Current common readonly verification accepts the retained Flagstaff primary under exact source/config/runtime/artifact tuple; six independently tested source/image dimensions bind that same tuple. Actual interrupted-resume, fresh live workflow and additional legal-structure/document dimensions are not inferred. Handbook is separate unresolved scope.'
+   for key,qualification in scoped[ident]['requirements'].items():
+    row['requirements'][key]={**qualification,'requirement':descriptions[key]}
   if ident in active_proofs:row['active_runtime_proof']=active_proofs[ident]
   row['selected_configuration_sha256']=selected_configuration(ROOT,pub,target,row['dispatch_plan'])['sha256']
-  row['active_readiness_binding']=assess(row,ROOT,PROJECT,components[pub['publisher']],row['selected_configuration_sha256'])
+  row['active_readiness_binding']=assess(row,ROOT,PROJECT,components[implementation_family(pub)],row['selected_configuration_sha256'])
   row['readiness_verified']=row['active_readiness_binding']['accepted']
   discovery=HERE/'followup-proof-receipts/overland-discovery-context.json'
   if pub['target_id']=='82' and discovery.exists():
@@ -74,9 +96,9 @@ def build(proof_paths=()):
   row['gaps']=[{'kind':'access_stop','reason':a['reason'],'evidence':a.get('raw_refusal_witness')} for a in row['observed_access_advisories']]+[{'kind':k,'status':v['status'],'reason':v.get('reason',v['requirement'])} for k,v in row['requirements'].items() if v['status']!='pass']
   if not row['active_readiness_binding']['accepted']:row['gaps'].append({'kind':'active_revision_coherence','reason':row['active_readiness_binding']['errors']})
   rows.append(row)
- summary={'targets':len(targets),'publication_entries':len(rows),'primary':sum(r['role']=='primary' for r in rows),'secondary':sum(r['role']=='secondary' for r in rows),'dispatchable':sum(r['configuration_qualified'] for r in rows),'unqualified':sum(not r['configuration_qualified'] for r in rows),'access_prohibited':sum(bool(r['observed_access_advisories']) for r in rows),'readiness_verified':sum(r['readiness_verified'] for r in rows),'requirements_candidate_passed':{key:sum(r['requirements'][key]['status']=='candidate_pass' for r in rows) for key in descriptions},'historical_or_unbound_requirement_passes':{key:sum(r['requirements'][key]['status']=='pass' for r in rows) for key in descriptions},'by_publisher':dict(collections.Counter(r['publisher'] for r in rows))}
- return {'schema_version':2,'stage':'post-817e353-followup-in-progress','purpose':'All original130governments and every current known publication/candidate; exact scope retained. Native capture/family tests/config qualification never confer another publication pass.','sealed_checkpoint_ledger':{'path':str(priorpath.relative_to(ROOT)),'sha256':sha(priorpath),'summary':prior['summary']},'active_catalog_sha256':hashlib.sha256(json.dumps(catalog,sort_keys=True,separators=(',',':')).encode()).hexdigest(),'summary':summary,'publications':rows,'unresolved_jurisdiction_scope':prior['unresolved_jurisdiction_scope'],'operational_gaps':[{'kind':'known-access-stops','reason':'Municode/eCode360/municipal.codes/Gridics observed workflow stops prohibit new acquisition until explicit operator review; no retry/reset. Exact event scope retained; no claim every public route is unavailable.'},{'kind':'actual-all-publication-proof','reason':'Most targets remain unverified at full source/body/structural/closing/resume scope; new terminal owner flags are independently audited before promotion.'}],'image_policy':{'literal':'[IMAGE]','no_separate_image_acquisition':True,'intentional_image_omission_is_not_completeness_failure':True,'native_originals_may_embed_images':True},'jurisdiction_complete':False,'sealed':False}
+ summary={'targets':len(targets),'publication_entries':len(rows),'primary':sum(r['role']=='primary' for r in rows),'secondary':sum(r['role']=='secondary' for r in rows),'dispatchable':sum(r['configuration_qualified'] for r in rows),'unqualified':sum(not r['configuration_qualified'] for r in rows),'access_prohibited':sum(bool(r['observed_access_advisories']) for r in rows),'readiness_verified':sum(r['readiness_verified'] for r in rows),'requirements_candidate_passed':{key:sum(r['requirements'][key]['status']=='candidate_pass' for r in rows) for key in descriptions},'active_bound_requirement_passes':{key:sum(r['requirements'][key]['status']=='pass' and r['requirements'][key].get('proof_scope_id')==r.get('active_runtime_proof',{}).get('scope_id') and bool(r.get('scoped_source_qualification')) for r in rows) for key in descriptions},'historical_or_unbound_requirement_passes':{key:sum(r['requirements'][key]['status']=='pass' and not (r['requirements'][key].get('proof_scope_id')==r.get('active_runtime_proof',{}).get('scope_id') and bool(r.get('scoped_source_qualification'))) for r in rows) for key in descriptions},'by_publisher':dict(collections.Counter(r['publisher'] for r in rows))}
+ return {'schema_version':2,'stage':'post-91f6c59-operational-source-validation','purpose':'All original130governments and every current known publication/candidate; exact scope retained. Native capture/family tests/config qualification never confer another publication pass.','sealed_checkpoint_ledger':{'path':str(priorpath.relative_to(ROOT)),'sha256':sha(priorpath),'summary':prior['summary']},'active_catalog_sha256':hashlib.sha256(json.dumps(catalog,sort_keys=True,separators=(',',':')).encode()).hexdigest(),'summary':summary,'publications':rows,'unresolved_jurisdiction_scope':prior['unresolved_jurisdiction_scope'],'additional_publication_discoveries':[{'target_id':'original-flagstaff-az','publication':'Employee Handbook','source_url':'https://www.codepublishing.com/AZ/Flagstaff/html/FlagstaffEmployeeHandbookNT.html','status':'separate_unqualified_discovery_outside_frozen225_catalog','required_scope_unresolved':True,'evidence_path':'outputs/collection-readiness-post-91f6c59-2026-10-17/qa/flagstaff-handbook-source-discovery-v1.json'}],'operational_gaps':[{'kind':'named-config-input-hash-coverage','reason':'Known named enCodePlus targets.json input omission in common component/selected-config hashes. Frozen actual file unchanged and checkpoint captures config; do not infer broad operational acceptance. Narrow coverage fix deferred until current immutable jobs reach boundary.','evidence_path':'outputs/collection-readiness-post-91f6c59-2026-10-17/qa/ep-named-config-binding-omission.json'},{'kind':'known-access-stops','reason':'Municode/eCode360/municipal.codes/Gridics observed workflow stops prohibit new acquisition until explicit operator review; no retry/reset. Exact event scope retained; no claim every public route is unavailable.'},{'kind':'actual-all-publication-proof','reason':'Most targets remain unverified at full source/body/structural/closing/resume scope; new terminal owner flags are independently audited before promotion.'}],'image_policy':{'literal':'[IMAGE]','no_separate_image_acquisition':True,'intentional_image_omission_is_not_completeness_failure':True,'native_originals_may_embed_images':True},'jurisdiction_complete':False,'sealed':False}
 if __name__=='__main__':
- p=argparse.ArgumentParser();p.add_argument('--out',type=Path,required=True);p.add_argument('--active-proof',type=Path,action='append',default=[]);a=p.parse_args()
+ p=argparse.ArgumentParser();p.add_argument('--out',type=Path,required=True);p.add_argument('--active-proof',type=Path,action='append',default=[]);p.add_argument('--source-scope',type=Path,action='append',default=[]);a=p.parse_args()
  if a.out.resolve()==(HERE/'readiness-requirements.json').resolve():raise SystemExit('Cannot rewrite sealed checkpoint ledger')
- data=build(a.active_proof);a.out.parent.mkdir(parents=True,exist_ok=True);a.out.write_text(json.dumps(data,indent=2)+'\n');print(json.dumps(data['summary'],indent=2))
+ data=build(a.active_proof,a.source_scope);a.out.parent.mkdir(parents=True,exist_ok=True);a.out.write_text(json.dumps(data,indent=2)+'\n');print(json.dumps(data['summary'],indent=2))

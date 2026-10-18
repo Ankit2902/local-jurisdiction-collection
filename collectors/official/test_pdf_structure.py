@@ -43,7 +43,7 @@ class Structure(unittest.TestCase):
   rows,_=pdf_structure.pages((BASE/'fixtures/cleveland-native-grid.pdf').read_bytes(),ITEM,CONFIG);self.assertEqual(len(rows),1);cells=[c for t in rows[0]['tables'] for c in t['cells']];self.assertEqual(len(cells),18)
   imagecells=[c for c in cells if c.get('image_placeholder_ids')];self.assertEqual(len(imagecells),9);self.assertTrue(all(c['text']=='[IMAGE]' and c['content_ordering']['qualified'] and c['source_extractable_text']=='' for c in imagecells));self.assertEqual(next(c for c in cells if c['row']==0 and c['column']==0)['text'],'Required Frontage Features')
   self.assertTrue(next(c for c in cells if c['row']==1 and c['column']==0)['text'].startswith('a. Common Yard:'))
-  self.assertEqual(sum(c['independent_character_agreement'] for c in cells),17);self.assertTrue(any('independent_cell_text_disagreement' in f for f in rows[0]['pdf_qualification']['review_conditions']))
+  self.assertEqual(sum(c['independent_character_agreement'] for c in cells),18);self.assertFalse(any('independent_cell_text_disagreement' in f for f in rows[0]['pdf_qualification']['review_conditions']));alias=cells[16];self.assertIn('\x02',alias['independent_pdfium_text']);self.assertIn('right-of-way',alias['qualified_pdfium_text']);self.assertTrue(alias['bounded_decoder_alias_resolutions'][0]['native_is_hyphen'])
  def test_missing_native_text_words_cannot_be_waived_as_image_policy(self):
   from unittest.mock import patch
   with patch('pdfplumber.page.Page.extract_words',return_value=[]):rows,_=pdf_structure.pages(native(text(40,700,'Actual legal words')),ITEM,CONFIG)

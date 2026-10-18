@@ -36,4 +36,14 @@ class Binding(unittest.TestCase):
   (self.root/'collectors/qa/audit_normalized_images.py').write_text('new stream coverage');self.assertFalse(self.check()['accepted'])
  def test_runtime_receipt_change_fails(self):self.write('runtime.json',{'pins':'changed'});self.assertFalse(self.check()['accepted'])
  def test_access_stop_is_not_released_by_green_proof(self):self.row['observed_access_advisories']=[{'status':403}];self.assertFalse(self.check()['accepted'])
+ def test_qualified_originals_selects_adapter_profiles_not_official_parser(self):
+  for name in ['collectors/originals/model.py','collectors/originals/source_character_dispositions.json','collectors/originals/profiles/exact.json','collectors/official/model.py']:
+   p=self.root/name;p.parent.mkdir(parents=True,exist_ok=True);p.write_text('source')
+  pub={'publisher':'official','adapter_family':'originals','runnable':True};before=current_components(self.root,pub)
+  self.assertIn('collectors/originals/model.py',before);self.assertIn('collectors/originals/source_character_dispositions.json',before);self.assertIn('collectors/originals/profiles/exact.json',before);self.assertNotIn('collectors/official/model.py',before)
+  (self.root/'collectors/originals/source_character_dispositions.json').write_text('changed');self.assertNotEqual(before,current_components(self.root,pub))
+ def test_originals_transport_gate_does_not_inherit_official_test(self):
+  p=self.root/'collectors/qa/test_originals_image_transport.py';p.write_text('originals transport revision')
+  gate=gate_qa_sources(self.root,{'publisher':'official','adapter_family':'originals'},'image_transport_regression')
+  self.assertEqual(list(gate),['collectors/qa/test_originals_image_transport.py'])
 if __name__=='__main__':unittest.main(verbosity=2)

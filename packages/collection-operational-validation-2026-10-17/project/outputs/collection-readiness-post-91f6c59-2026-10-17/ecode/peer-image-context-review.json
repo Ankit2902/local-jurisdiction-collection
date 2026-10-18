@@ -1,0 +1,31 @@
+{
+  "schema_version": 1,
+  "kind": "Bounded independent peer review of root eCode known-image context correction",
+  "at": "2026-10-18T00:15:01.414705+00:00",
+  "verdict": "PASS",
+  "source_files_sha256": {
+    "collectors/ecode/adapters.py": "9bbff157feb0850f012d15e9e9166991af4f73d39dee9d3f5f09a5f7de2d6a9c",
+    "collectors/ecode/tests/test_image_context.py": "9e90bab50743d7d4b08b84d61586574f3d0fde7d07bc2622a2cb026d392ede60"
+  },
+  "source_unchanged_during_review": true,
+  "reviewed_diff_sha256": "2441e3bf462fd75239ef87930fe4424acb6334c88db19f5ca2396f97db4cf478",
+  "python": "3.12.14 (main, Aug 25 2026, 13:50:33) [Clang 22.1.3 ]",
+  "platform": "macOS-26.6.2-arm64-arm-64bit",
+  "command": "python -m unittest collectors.ecode.tests.test_image_context -v (same two tests, with outer socket/PIL tripwires)",
+  "test_count": 2,
+  "test_output": "test_nonimage_reference_and_available_prose_remain_unchanged (collectors.ecode.tests.test_image_context.ImageContext.test_nonimage_reference_and_available_prose_remain_unchanged) ... ok\ntest_real_record_omits_opaque_image_payloads_without_decoding (collectors.ecode.tests.test_image_context.ImageContext.test_real_record_omits_opaque_image_payloads_without_decoding) ... ok\n\n----------------------------------------------------------------------\nRan 2 tests in 0.169s\n\nOK\n",
+  "network_calls": 0,
+  "PIL_Image_open_calls": 0,
+  "base64_decoder": "Image payload test itself mocks base64.b64decode and asserts_not_called; passed",
+  "observations": [
+    "Known image contexts now hash complete opaque data locators in assets, image occurrence attributes and image anchor link metadata.",
+    "Source inside picture is recognized as image context; declared image anchors are recognized consistently in normalization, assets, occurrences and links.",
+    "Real _record typed-image fixture retains no opaque base64 payload/data URI, preserves available caption/reference/cell text and emits [IMAGE].",
+    "Nonimage PDF data URI remains required and unchanged; ordinary legal alt prose remains unchanged."
+  ],
+  "limitations": [
+    "Only requested production diff and its two exact tests reviewed/run.",
+    "No new edge-case exploration, publisher traffic, pixels, OCR or production edits.",
+    "Caller-reported 55-case suite and Albany/Phoenix full-output equivalence were not independently rerun by this review."
+  ]
+}

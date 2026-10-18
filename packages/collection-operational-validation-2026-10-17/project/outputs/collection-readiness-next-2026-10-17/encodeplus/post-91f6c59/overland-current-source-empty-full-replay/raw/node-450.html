@@ -1,0 +1,1348 @@
+
+    <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+    <html>
+    <head>
+
+        <title>Title 3 - Revenue and Finance</title>
+        <link type="text/css" rel="Stylesheet" href="jqueryui/css/jqueryui.css" media="all" />
+        <link type="text/css" rel="Stylesheet" href="css/ui.css" media="all" />
+        <link type="text/css" rel="Stylesheet" href="css/customui.css" media="all" />
+        <link type="text/css" rel="Stylesheet" href="css/document.css" media="all" />
+        <link type="text/css" rel="Stylesheet" href="css/customdoc.css" media="all" />
+        <link type="text/css" rel="Stylesheet" href="tablestyles.aspx" media="all" />
+        <link rel="StyleSheet" type="text/css" href="/common/font-awesome/css/all.min.css">
+        <link type="text/css" rel="Stylesheet" href="css/docprint.css" media="print" />
+        <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+        <script type="text/javascript" src="jqueryui/js/jquery-ui-1.8.21.custom.min.js"></script>
+        <script type="text/javascript" src="js/doc-view.js?_t=290"></script>
+        <script type="text/javascript" src="js/tabletools.js"></script>
+        <script type="text/javascript" src="js/tabs.js"></script>
+        <script type="text/javascript">
+            var iframeReady = false;
+        </script>
+        
+    </head>
+    <body class='doc-view'>
+        <script type="text/javascript">
+            $(document).ready(function () {
+                ZP.DocView.InitDef();
+                ZP.DocView.OpenDefinitionPage = null;
+                ZP.DocView.OpenDefinitionMode = '_self';
+                ZP.DocView.OpenXRefPage = 'doc-viewer.aspx#$2-';
+                ZP.DocView.OpenXRefMode = '_blank';
+                $(window).bind('hashchange', ZP.DocView.HashChanged);
+        
+        if (typeof ZP.DocView.ZoomClasses == 'undefined') {
+            ZP.DocView.ZoomClasses = ["Unzoom1", "", "Zoom1", "Zoom2", "Zoom3", "Zoom4"];
+        }
+        ZP.DocView.InitializeZoom();
+        EC.SortedTable.Init(".ord-tbl, .stat-tbl", ".sortable");
+        EC.Tabs.PositionLeftTabs();
+    });
+
+
+        </script>
+
+
+    <div id="doc-viewer">
+        
+
+<div id="doc-view">
+    <div id="doc-view-content">
+        
+<div id="pageControls">
+<script type="text/javascript" >
+    function clearEffDate() {
+        jQuery.get("doc-view-helper.aspx?task=currentversion", function () {
+            window.location.reload();
+        });
+        return false;
+    }
+</script>
+     <div class="pageControls psuedoTable" role="navigation" aria-label="Document Navigation">  
+        <div class="psuedoTableBody" >     
+            <div class="psuedoTableRow">         
+                <div class="pageControls_outer" ></div>
+                <div class="pageControls_inner left">
+                    <a id='button1' onclick='ZP.DocView.PrintDoc("003",false);return false;' href="#" title="Print" role="button"> 
+                        <img alt="Print" src="resources/btn-print-white.png" /></a>
+                    <a id='Button2' onclick='ZP.DocView.OpenPDF("003",false);return false;' href="#" title="Export PDF" role="button">
+                        <img alt="Generate PDF" src="resources/btn-makepdf-white.png" /></a>
+                        <a class="popup" params="toobar=0,menubar=0,scrollbars=1,height=436,width=626" href="https://www.facebook.com/sharer/sharer.php?s=100&p[title]=Title+3+-+Revenue+and+Finance&p[summary]=Overland+Park%2c+Kansas+Municipal+Code&p[url]=https%3a%2f%2fcodes.opkansas.org%2fmunicipal-code%2fdoc-viewer.aspx%3fsecid%3d450" title="Click to Share this page" style="text-decoration:none;border:none;" ><img src="resources/share-icon-white.png" alt="Click to Share this page on facebook" /></a>     
+                </div>
+                <div  class="pageControls_inner breadCrumbs" title="Navigation 'breadcrumbs'">
+                     <div class='breadCrumbs'><a href='/municipal-code/doc-viewer.aspx?tocid=003' >Title 3 - Revenue and Finance</a></div>
+                </div>
+                 <div  class="pageControls_inner right">       
+                     <ul >  
+                         <li>
+                            <a id='button3' class="nav" onclick="ZP.DocView.LoadPrevDoc('003');return false;" href="#"  title="Previous Section" accesskey="," role="button"><img alt="Go to Previous Section" src="resources/btn-back-white.png" /></a>
+                         </li>  
+                         <li>
+                             <a id='Button4'  class="nav" onclick="ZP.DocView.LoadNextDoc('003');return false;" href="#"  title="Next Section" accesskey="." role="button"> <img alt="Go to Next Section" src="resources/btn-forward-white.png" /></a>
+                         </li>   
+                         <li>
+                             <a id="pageControls-overflow" onclick="ZP.DocView.PgCntrlOverflowClick(event);return false;" href="#" title="Click for more options" role="button" >
+                            <img src="resources/overflow-btn-white.png" alt="Click for more options" /></a>
+                               
+  <ul class="submenu" role="dialog">
+            <li><a href="/municipal-code/doc-viewer.aspx?secid=450" onclick="javascript:alert('Right click this icon and select \'add to favorites\' or \'Bookmark this Link\' to bookmark this page');return false;" title="Bookmark this page" >Bookmark</a></li>
+            <li>
+                                        
+                <a id="zoomMinus" onclick="ZP.DocView.DecreaseZoom();return false;" href="#" title="Decrease Zoom" class="zoomLink glyphicon" >&#x2212;</a>
+                <a onclick="ZP.DocView.DefaultZoom();return false;"  href="#" title="Default Zoom"  class="zoomLink" >100%</a>
+                <a id="zoomPlus" onclick="ZP.DocView.IncreaseZoom();return false;" href="#" title="Increase Zoom"  class="zoomLink glyphicon" > &#x2b; </a>
+            </li>
+           
+                           
+                
+                <li><a id="subscribe-btn" onclick="ZP.DocView.OpenSubscribeDlg();return false;" title="Subscribe to Notifications" href="subscribe.aspx" role="button">Subscribe</a></li>
+                <li><a id="unsubscribe-btn" onclick="ZP.DocView.OpenUnsubscribeDlg();return false;" title="Cancel Notifications Subscription" href="unsubscribe.aspx" role="button" >Unsubscribe</a></li>
+                
+</ul>
+                         </li>        
+                        
+                        </ul>   
+                </div>
+                <div class="pageControls_outer"></div>
+            </div>
+        </div>
+    </div> 
+    <div id="subscribe-dialog" title="" aria-live="polite" >
+        <div id="sub-message"></div>
+        <div id="sub-form-cntr"></div>
+    </div>
+</div>
+
+
+        <div id="thePage-outer" >
+            <div id="thePage-wrap" class="thePage-wrap ">
+                <div id="outer-doc-banner"></div>
+                <div id="thePage-border">
+                    <div id="thePage" class="textPage " tocid="003" secid="450" role="main" aria-label="Document">
+                        <img id="sectionBanner" title="Document text banner" src="resources/docbanner.png" width="720" valign="Top" alt="Document text banner">
+                        
+                        <section id='secid-450' class='secLvl1 _003' tabindex='-1' data-secid='450'> 
+<h1>
+	<strong>Title 3 - Revenue and Finance</strong></h1>
+<div class="mini-TOC" data-endlevel="2" data-id="mini-TOC" data-startlevel="2">
+	<div class="mini-TOC-label">
+		<strong>Contents:</strong></div>
+	<ul><li><a class="tocLink" href="doc-viewer.aspx#secid-460">3.10 Purchase of Supplies</a></li>
+<li><a class="tocLink" href="doc-viewer.aspx#secid-7730">3.12 Change Funds</a></li>
+<li><a class="tocLink" href="doc-viewer.aspx#secid-491">3.16 Petty Cash Funds</a></li>
+<li><a class="tocLink" href="doc-viewer.aspx#secid-516">3.20 Special Improvement Fund</a></li>
+<li><a class="tocLink" href="doc-viewer.aspx#secid-522">3.24 Public Interest Expenditures</a></li>
+<li><a class="tocLink" href="doc-viewer.aspx#secid-524">3.28 Investment of Idle Moneys</a></li>
+<li><a class="tocLink" href="doc-viewer.aspx#secid-536">3.40 Claims against Officers and Employees</a></li>
+<li><a class="tocLink" href="doc-viewer.aspx#secid-544">3.44 Sales Tax Exemption - Filing of Certificate</a></li>
+<li><a class="tocLink" href="doc-viewer.aspx#secid-7729">Repealed Sections of Title 3 Revenue and Finance</a></li>
+</ul>
+</div>
+
+
+</section> 
+<section id='secid-460' class='secLvl2 _003 _003-001' tabindex='-1' data-secid='460'> 
+<h2>
+	<strong>3.10</strong><strong> Purchase of Supplies</strong></h2>
+<div class="mini-TOC" data-endlevel="3" data-id="mini-TOC" data-startlevel="3">
+	<div class="mini-TOC-label">
+		<strong>Contents:</strong></div>
+	<ul><li><a class="tocLink" href="doc-viewer.aspx#secid-461">3.10.010  Purchase of Supplies, Equipment and Services - Records and Reports.</a></li>
+<li><a class="tocLink" href="doc-viewer.aspx#secid-462">3.10.020  Bid Requirements and Public Improvement Estimates</a></li>
+<li><a class="tocLink" href="doc-viewer.aspx#secid-463">3.10.030  Approval of Bills by Governing Body and Manager.</a></li>
+</ul>
+</div>
+
+
+</section> 
+<section id='secid-461' class='secLvl3 _003 _003-001 _003-001-001' tabindex='-1' data-secid='461'> 
+<h3>
+	<strong>3.10.010 Purchase of Supplies, Equipment and Services - Records and Reports.</strong></h3>
+<p>
+	The City Manager, by and in conjunction with the Governing Body of the City, shall purchase all supplies, equipment and services for the City for each and every department thereof, and shall keep true and accurate account of all purchases so made, and shall make a report biweekly to the Governing Body of all purchases.</p>
+<p>
+	(History: Ord. PS-1973 &sect;1, 96; PS-854 &sect;1, 75; PS-221 &sect;1, 68)</p>
+
+<p class='archiveNotice nullValue '>Effective on:&nbsp;1/1/1901</p>
+</section> 
+<section id='secid-462' class='secLvl3 _003 _003-001 _003-001-002' tabindex='-1' data-secid='462'> 
+<h3>3.10.020 Bid Requirements and Public Improvement Estimates</h3>
+
+<ol class="list-v2">
+	<li>
+	<div class="li-num">A.</div>
+
+	<div class="li-cont"><u>Bid Requirement</u>. The City shall advertise for formal bids for all purchases of supplies, equipment, services, and public improvements which exceed the sum of $75,000.</div>
+	</li>
+	<li>
+	<div class="li-num">B.</div>
+
+	<div class="li-cont"><u>Bid Exceptions</u>. The formal bidding process is not required where:&nbsp;
+
+	<ol class="list-v2" data-unlistid="32268420">
+		<li>
+		<div class="li-num">1.</div>
+
+		<div class="li-cont">The City Manager determines that an apparent emergency requires immediate purchase of items necessary for City operations;</div>
+		</li>
+		<li>
+		<div class="li-num">2.</div>
+
+		<div class="li-cont">The City Manager has established by City operating procedure the purchase of certain items without formal bids;</div>
+		</li>
+		<li>
+		<div class="li-num">3.</div>
+
+		<div class="li-cont">The City Council has established by ordinance or resolution the purchase of certain items without formal bids; or</div>
+		</li>
+		<li>
+		<div class="li-num">4.</div>
+
+		<div class="li-cont">The City Counil determines&nbsp;that it is in the best interest of the City to purchase the items without formal bids.</div>
+		</li>
+	</ol>
+	</div>
+	</li>
+	<li>
+	<div class="li-num">C.</div>
+
+	<div class="li-cont"><u>Public Improvement Cost Estimate</u>. Before the City Council or City Manager (when the amount of the bid is within the City Manager&#39;s approval authority) takes any action on a formal bid for the construction or reconstruction of a public improvement, a detailed cost estimate of the public improvement or a summary thereof shall be provided by the City Engineer, a City department director, or any competent person appointed by the City Council or the City Manager for such purpose. Examples of a public improvement include, but are not limited to sidewalks, curbs, gutters, sewers, bridges, pavement, streets, highways, public grounds, public buildings and public facilities. Provided, this requirement shall not apply to any of the following:
+
+	<ol class="list-v2" data-unlistid="57786090">
+		<li>
+		<div class="li-num">1.</div>
+
+		<div class="li-cont">Any repair or maintenance work not amounting to substantial alteration, addition or change in any public improvement.</div>
+		</li>
+		<li>
+		<div class="li-num">2.</div>
+
+		<div class="li-cont">The construction, reconstruction, repair or the maintenance of any public improvement by employees of the City.</div>
+		</li>
+		<li>
+		<div class="li-num">3.</div>
+
+		<div class="li-cont">Improvements financed by economic&nbsp;development revenue bonds issued pursuant to K.S.A. 12-1740, et seq.</div>
+		</li>
+	</ol>
+	</div>
+	</li>
+</ol>
+
+<p data-unlistid="57786090">&nbsp;</p>
+
+<p data-unlistid="57786090" style="margin-left:40px">When the City advertises for formal bids for public improvements, the City Council or the City Manager (when the amount of the bid is within the City Manager&#39;s approval authority) shall let all such work for public improvements by contract to the lowest and best responsible bidder; provided, the City Council or City Manager reserves the right to refuse all or any part of any bid when it is felt that such action is in the best interest of the City. If no&nbsp;qualified responsible bidder proposes to enter into the contract at a price at or below the cost estimate, all bids may be rejected and the process may be repeated. Alternatively, if all bids exceed the cost estimate, the City Council or City Manager (when the amount of the bid is within the City Manager&#39;s approval authority) may accept the bid and let the work by contract to the lowest and best responsible bidder; provided, however, if the bid cost is greater than seven&nbsp;percent (7%) over the cost estimate, the director (or designee) of the department letting&nbsp;the bid shall provide a full explanation of the reason for the discrepancy.</p>
+
+<p data-unlistid="57786090" style="margin-left:40px">&nbsp;</p>
+
+<ol class="list-v2" start="4">
+	<li>
+	<div class="li-num">D.</div>
+
+	<div class="li-cont"><u>Costs Beyond the Price of the Accepted Bid</u>. In no case shall the City be liable for any cost beyond the original contract price of the accepted bid or be required to advertise for bids if a change order to the original contract results in costs beyond the price of the accepted bid.</div>
+	</li>
+</ol>
+
+<p>&nbsp;</p>
+
+<p data-unlistid="98944368" style="margin-left:40px">&nbsp;</p>
+
+<p data-unlistid="98944368" style="margin-left:40px">&nbsp;</p>
+
+<p>(History: Ord. PS-3472 &sect;1, 2025; CM-3232 &sect;4, 2019; Ord. MC-2990 &sect;1, 2013; PS-2111 &sect;1, 98; PS-1973 &sect;2, 96; PS-1065 &sect;1, 80; PS-854 &sect;2, ; PS-717)&nbsp;</p>
+
+<p class='archiveNotice nullValue '>Effective on:&nbsp;1/1/1901</p>
+</section> 
+<section id='secid-463' class='secLvl3 _003 _003-001 _003-001-003' tabindex='-1' data-secid='463'> 
+<h3><strong>3.10.030 Approval of Bills by Governing Body and Manager.</strong></h3>
+
+<p>Except as otherwise authorized by ordinance or resolution, the City shall not pay any bills until after they have been approved by the Governing Body or City Manager or the City Manager&#39;s designee.</p>
+
+<p>&nbsp;</p>
+
+<p>(History: Ord. PS-3472&nbsp;&sect;2, 2025; PS-854 &sect;3, 75; PS-221 &sect;2, 63)</p>
+
+<p class='archiveNotice nullValue '>Effective on:&nbsp;1/1/1901</p>
+</section> 
+<section id='secid-7730' class='secLvl2 _003 _003-002' tabindex='-1' data-secid='7730'> 
+<h2>3.12 Change Funds</h2>
+
+<p>&nbsp;</p>
+
+
+</section> 
+<section id='secid-7319' class='secLvl3 _003 _003-002 _003-002-001' tabindex='-1' data-secid='7319'> 
+<h3><strong>3.12.005</strong> Administration.</h3>
+
+<p>The City Manager is authorized, within budgetary limitations, to establish change funds for any department, office or facility for the purpose of making change and receiving payments necessary in the operation of the business of that department, office or facility. All change funds shall be maintained at a balance&nbsp;established by the City Manager, but the aggregate amount authorized for all change funds shall not exceed $50,000. Change funds may be reimbursed from time to time by appropriation ordinance in order to maintain the maximum balance established by the City Manager. The City Manager is authorized to make and enforce such rules and regulations&nbsp;as may be necessary for maintenance and use of change funds.</p>
+
+<p>&nbsp;</p>
+
+<p>(History: Ord. CF-3167&sect;1, 2017)</p>
+
+<p class='archiveNotice  '>Effective on:&nbsp;7/18/2017</p>
+</section> 
+<section id='secid-491' class='secLvl2 _003 _003-003' tabindex='-1' data-secid='491'> 
+<h2>
+	<strong>3.16</strong><strong> Petty Cash Funds<sup>1</sup></strong><strong> </strong></h2>
+<ol start="1" style="list-style-type: decimal;" class="list-v2">
+	<li><div class='li-num'>1.</div><div class='li-cont'>
+		For statutory provisions concerning petty cash funds, see Chapter 42, 1972 Session Laws of Kansas.</div></li>
+</ol>
+<div class="mini-TOC" data-endlevel="3" data-id="mini-TOC" data-startlevel="3">
+	<div class="mini-TOC-label">
+		<strong>Contents:</strong></div>
+	<ul><li><a class="tocLink" href="doc-viewer.aspx#secid-493">3.16.010  For Use by City Hall Offices.</a></li>
+<li><a class="tocLink" href="doc-viewer.aspx#secid-494">3.16.015  For Use by the Department of Finance & Administration.</a></li>
+<li><a class="tocLink" href="doc-viewer.aspx#secid-496">3.16.030  For Use by Police Department.</a></li>
+<li><a class="tocLink" href="doc-viewer.aspx#secid-497">3.16.040  For Use by Department of Public Works.</a></li>
+<li><a class="tocLink" href="doc-viewer.aspx#secid-498">3.16.060  For Use by Municipal Court.</a></li>
+<li><a class="tocLink" href="doc-viewer.aspx#secid-505">3.16.120  For Use by the Department of the City Manager and the Mayor and City Council.</a></li>
+<li><a class="tocLink" href="doc-viewer.aspx#secid-506">3.16.130  For Use by the Law Department.</a></li>
+<li><a class="tocLink" href="doc-viewer.aspx#secid-507">3.16.140  For Use by the Department of Planning and Development Services.</a></li>
+<li><a class="tocLink" href="doc-viewer.aspx#secid-508">3.16.150  For Use by Leisure Services.</a></li>
+<li><a class="tocLink" href="doc-viewer.aspx#secid-509">3.16.160  For Use by Department of Human Resources.</a></li>
+<li><a class="tocLink" href="doc-viewer.aspx#secid-512">3.16.190  For Use by the Data Processing Division.</a></li>
+<li><a class="tocLink" href="doc-viewer.aspx#secid-513">3.16.200  For Use by Neighborhood Preservation Section.</a></li>
+<li><a class="tocLink" href="doc-viewer.aspx#secid-514">3.16.210  For Use by Fire Training Center.</a></li>
+<li><a class="tocLink" href="doc-viewer.aspx#secid-515">3.16.220  For Use by Fire Department Administrative Offices.</a></li>
+</ul>
+</div>
+
+
+</section> 
+<section id='secid-493' class='secLvl3 _003 _003-003 _003-003-001' tabindex='-1' data-secid='493'> 
+<h3>
+	<strong>3.16.010 For </strong><strong>U</strong><strong>se by City Hall </strong><strong>O</strong><strong>ffices. </strong></h3>
+<p>
+	There is hereby established a petty cash fund in the amount of $1,500.00 to be used by the City Hall offices in the purchase of miscellaneous small items of supplies or equipment. Such fund shall be reimbursed from time to time by appropriation ordinance in order to maintain a maximum balance of $1,500.00 therein. A complete record of such purchases and expenditures shall be kept and maintained.</p>
+<p>
+	(History: Ord. PCF-2810 &sect;1, 2009; PCF-1960 &sect;1, 95; PCF-1599 &sect;1, 89; PCF-1164 &sect;2, 82; PCF-257&sect;2, 64)</p>
+
+<p class='archiveNotice nullValue '>Effective on:&nbsp;1/1/1901</p>
+</section> 
+<section id='secid-494' class='secLvl3 _003 _003-003 _003-003-002' tabindex='-1' data-secid='494'> 
+<h3>
+	<strong>3.16.015 For </strong><strong>U</strong><strong>se by the Department of Finance &amp; Administration.</strong></h3>
+<p>
+	There is hereby established a petty cash fund in the amount of FIFTY DOLLARS to be used by the City Department of Finance &amp; Administration in the purchase of miscellaneous small items of supplies or equipment. Such fund shall be reimbursed from time to time by appropriation ordinance in order to maintain a maximum balance of FIFTY DOLLARS therein. A complete record of such purchases and expenditures shall be kept and maintained.</p>
+<p>
+	(History: Ord. PCF-1623 &sect;1, 90)<strong> </strong></p>
+
+<p class='archiveNotice nullValue '>Effective on:&nbsp;1/1/1901</p>
+</section> 
+<section id='secid-496' class='secLvl3 _003 _003-003 _003-003-003' tabindex='-1' data-secid='496'> 
+<h3>
+	<strong>3.16.030 For </strong><strong>U</strong><strong>se by Police Department.</strong></h3>
+<p>
+	There is established a petty cash fund in the amount of $500.00 dollars to be used in the purchase of miscellaneous small items of supplies or equipment for use by the department of police. The fund shall be reimbursed from time to time by appropriation ordinance in order to maintain a maximum balance of $500.00 dollars therein. A complete record of such purchases and expenditures shall be kept and maintained.</p>
+<p>
+	(History: Ord. PCF-1992 &sect;1, 96; PCF-976; PCF-373A)</p>
+
+<p class='archiveNotice nullValue '>Effective on:&nbsp;1/1/1901</p>
+</section> 
+<section id='secid-497' class='secLvl3 _003 _003-003 _003-003-004' tabindex='-1' data-secid='497'> 
+<h3>
+	<strong>3.16.040 For </strong><strong>U</strong><strong>se by Department of Public Works.</strong></h3>
+<p>
+	There is hereby established a petty cash fund in the amount of $500.00 to be used by the City Department of Public Works in the purchase of miscellaneous small items of supplies or equipment, payment of shipping charges, and reimbursement of employee expenses as follows: $100.00 for the use by Public Works at City Hall, $200.00 for use by the Shawnee Mission District Office and $200.00 for use by the Blue Valley District Office. Said fund shall be reimbursed from time to time by appropriation ordinance in order to maintain a maximum balance of $500.00 therein. A complete record of such purchases and expenditures shall be kept and maintained.</p>
+<p>
+	(History: Ord. PCF-2256 &sect;1, 2001; PCF-2163 &sect;1, 99; PCF-1931 &sect;1, 95; PCF-1331 &sect;1, 85; PCF-843 &sect;1, 75; PCF-722)</p>
+
+<p class='archiveNotice nullValue '>Effective on:&nbsp;1/1/1901</p>
+</section> 
+<section id='secid-498' class='secLvl3 _003 _003-003 _003-003-005' tabindex='-1' data-secid='498'> 
+<h3>
+	<strong>3.16.060 For </strong><strong>U</strong><strong>se by Municipal Court. </strong></h3>
+<p>
+	There is established a petty cash fund in the amount of $75.00 to be used in the purchase of miscellaneous small items of supplies or equipment for use by the municipal court of the City. The fund shall be reimbursed from time to time by appropriation ordinance in order to maintain a maximum balance of $75.00 therein. A complete record of such purchases and expenditures shall be kept and maintained.</p>
+<p>
+	(History: Ord. PCF-1721 &sect;1, 91; PCF-486 &sect;1, 67)</p>
+
+<p class='archiveNotice nullValue '>Effective on:&nbsp;1/1/1901</p>
+</section> 
+<section id='secid-505' class='secLvl3 _003 _003-003 _003-003-006' tabindex='-1' data-secid='505'> 
+<h3>
+	<strong>3.16.120 For </strong><strong>U</strong><strong>se by the Department of the City Manager and the Mayor and City Council.</strong></h3>
+<p>
+	There is established a petty cash fund in the amount of $150.00 to be used by the Department of the City Manager and the Mayor and City Council in the purchase of miscellaneous small items of supplies or equipment. Such fund shall be reimbursed from time to time by appropriation ordinance in order to maintain a maximum balance of $150.00 therein. A complete record of such purchases and expenditures shall be kept and maintained.</p>
+<p>
+	(History: Ord. PCF-2031 &sect;1, 97; PCF-985 &sect;1, 78)</p>
+
+<p class='archiveNotice nullValue '>Effective on:&nbsp;1/1/1901</p>
+</section> 
+<section id='secid-506' class='secLvl3 _003 _003-003 _003-003-007' tabindex='-1' data-secid='506'> 
+<h3>
+	<strong>3.16.130 For </strong><strong>U</strong><strong>se by the Law Department.</strong></h3>
+<p>
+	There is established a petty cash fund in the amount of $75.00 to be used in the purchase of miscellaneous small items of supplies or equipment for use by the Law Department. Such fund shall be reimbursed from time to time by appropriation ordinance in order to maintain a maximum balance of $75.00 therein. A complete record of such purchases and expenditures shall be kept and maintained.</p>
+<p>
+	(History: Ord. PCF-986 &sect;1, 78)</p>
+
+<p class='archiveNotice nullValue '>Effective on:&nbsp;1/1/1901</p>
+</section> 
+<section id='secid-507' class='secLvl3 _003 _003-003 _003-003-008' tabindex='-1' data-secid='507'> 
+<h3>
+	<strong>3.16.140 For </strong><strong>U</strong><strong>se by the Department of Planning and Development Services.</strong></h3>
+<p>
+	There is hereby established a petty cash fund in the amount of $250 to be used by the City Department of Planning and Development Services in the purchase of miscellaneous small items of supplies or equipment. Such fund shall be reimbursed from time to time by appropriation ordinance in order to maintain a maximum balance of $250 therein. A complete record of such purchases and expenditures shall be kept and maintained.</p>
+<p>
+	(History: Ord. PCF-2110 &sect;1, 98; PCF-CF-1994 &sect;2, 96; PCF-1374 &sect;1, 86)</p>
+
+<p class='archiveNotice nullValue '>Effective on:&nbsp;1/1/1901</p>
+</section> 
+<section id='secid-508' class='secLvl3 _003 _003-003 _003-003-009' tabindex='-1' data-secid='508'> 
+<h3>
+	<strong>3.16.150 For </strong><strong>U</strong><strong>se by Leisure Services.</strong></h3>
+<p>
+	There is hereby established a petty cash fund in the amount of $75.00 to be used by the Leisure Services offices in the purchase of miscellaneous small items of supplies or equipment. Such fund shall be reimbursed from time to time by appropriation ordinance in order to maintain a maximum balance of $75.00 therein. A complete record of such purchases and expenditures shall be kept and maintained.</p>
+<p>
+	(History: Ord. PCF-1638 &sect;1, 90)</p>
+
+<p class='archiveNotice nullValue '>Effective on:&nbsp;1/1/1901</p>
+</section> 
+<section id='secid-509' class='secLvl3 _003 _003-003 _003-003-010' tabindex='-1' data-secid='509'> 
+<h3>
+	<strong>3.16.160 For </strong><strong>U</strong><strong>se by Department of Human Resources.</strong></h3>
+<p>
+	There is hereby established a petty cash fund in the amount of $100.00 dollars to be used by the City Department of Human Resources for the purchase of miscellaneous small items of supplies or equipment. Such fund shall be reimbursed from time to time by appropriation ordinance in order to maintain a maximum balance of $100.00 dollars therein. A complete record of such purchases and expenditures shall be kept and maintained.</p>
+<p>
+	(History: Ord. PCF-1904 &sect;1, 94; PCF-1657 &sect;1, 90)</p>
+
+<p class='archiveNotice nullValue '>Effective on:&nbsp;1/1/1901</p>
+</section> 
+<section id='secid-512' class='secLvl3 _003 _003-003 _003-003-011' tabindex='-1' data-secid='512'> 
+<h3>
+	<strong>3.16.190 For </strong><strong>U</strong><strong>se by the Data Processing Division.</strong></h3>
+<p>
+	There is established a petty cash fund in the amount of $100.00 to be used in the purchase of miscellaneous small items of supplies or equipment for use by the Data Processing Division of the City Manager&#39;s Office. The fund shall be reimbursed from time to time by appropriation ordinance in order to maintain a maximum balance of $100.00 therein. A complete record of such purchases and expenditures shall be kept and maintained.</p>
+<p>
+	(History: Ord. PC-1924 &sect;1, 95)</p>
+
+<p class='archiveNotice nullValue '>Effective on:&nbsp;1/1/1901</p>
+</section> 
+<section id='secid-513' class='secLvl3 _003 _003-003 _003-003-012' tabindex='-1' data-secid='513'> 
+<h3>
+	<strong>3.16.200 For </strong><strong>U</strong><strong>se by Neighborhood Preservation Section.</strong></h3>
+<p>
+	There is hereby established a petty cash fund in the amount of $75.00 to be used by the Neighborhood Preservation section located at the Overland Park Community Center in the purchase of miscellaneous small items of supplies or equipment. Such fund shall be reimbursed from time to time by appropriation ordinance in order to maintain a maximum balance of $75.00 therein. A complete record of such purchases and expenditures shall be kept and maintained.</p>
+<p>
+	(History: Ord. PCF-2110 &sect;2, 98)</p>
+
+<p class='archiveNotice nullValue '>Effective on:&nbsp;1/1/1901</p>
+</section> 
+<section id='secid-514' class='secLvl3 _003 _003-003 _003-003-013' tabindex='-1' data-secid='514'> 
+<h3>
+	<strong>3.16.210 For </strong><strong>U</strong><strong>se by Fire Training Center.</strong></h3>
+<p>
+	There is hereby established a petty cash fund in the amount of $100.00 to be used by the Fire Training Center located at 12401 Hemlock in the purchase of miscellaneous small items of supplies or equipment. Such fund shall be reimbursed from time to time by appropriation ordinance in order to maintain a maximum balance of $100.00 therein. A complete record of such purchases and expenditures shall be kept and maintained.</p>
+<p>
+	(History: Ord. PCF-2455 &sect;1, 2003)</p>
+
+<p class='archiveNotice nullValue '>Effective on:&nbsp;1/1/1901</p>
+</section> 
+<section id='secid-515' class='secLvl3 _003 _003-003 _003-003-014' tabindex='-1' data-secid='515'> 
+<h3>
+	<strong>3.16.220 For </strong><strong>U</strong><strong>se by Fire Department Administrative Offices.</strong></h3>
+<p>
+	There is hereby established a petty cash fund in the amount of $200.00 to be used by the City Fire Department Administrative Offices located at 9550 West 95th Street in the purchase of miscellaneous small items of supplies or equipment. Such fund shall be reimbursed from time to time by appropriation ordinance in order to maintain a maximum balance of $200.00 therein. A complete record of such purchases and expenditures shall be kept and maintained.</p>
+<p>
+	(History: Ord. PCF-2455 &sect;2, 2003)</p>
+
+<p class='archiveNotice nullValue '>Effective on:&nbsp;1/1/1901</p>
+</section> 
+<section id='secid-516' class='secLvl2 _003 _003-004' tabindex='-1' data-secid='516'> 
+<h2>
+	<strong>3.20</strong><strong> Special Improvement Fund<sup>1</sup></strong><strong> </strong></h2>
+<ol start="1" style="list-style-type: decimal;" class="list-v2">
+	<li><div class='li-num'>1.</div><div class='li-cont'>
+		For statutory authority providing for the &quot;General Improvement and Assessment Law,&quot; see K.S.A. Chapter 12, Article 6a; for the provision authorizing the creation of a &quot;special improvement fund&quot; in the City treasury, see K.S.A. 12-6a13.</div></li>
+</ol>
+<div class="mini-TOC" data-endlevel="3" data-id="mini-TOC" data-startlevel="3">
+	<div class="mini-TOC-label">
+		<strong>Contents:</strong></div>
+	<ul><li><a class="tocLink" href="doc-viewer.aspx#secid-517">3.20.010  Established - Purpose.</a></li>
+<li><a class="tocLink" href="doc-viewer.aspx#secid-518">3.20.020  Annual Levy - Limits of fund.</a></li>
+<li><a class="tocLink" href="doc-viewer.aspx#secid-519">3.20.030  Grants.</a></li>
+<li><a class="tocLink" href="doc-viewer.aspx#secid-520">3.20.040  Reimbursement.</a></li>
+<li><a class="tocLink" href="doc-viewer.aspx#secid-521">3.20.050  Budget of Expenditures.</a></li>
+</ul>
+</div>
+
+<p>
+	&nbsp;</p>
+
+
+</section> 
+<section id='secid-517' class='secLvl3 _003 _003-004 _003-004-001' tabindex='-1' data-secid='517'> 
+<h3>
+	<strong>3.20.010 Established - Purpose.</strong></h3>
+<p>
+	There is established a &quot;special improvement fund&quot; in the City treasury as provided by Chapter 99, Laws of 1957, which may be used for the purpose of paying the cost of planning, preparing preliminary plans, studies and engineering reports preparatory to the consideration of the feasibility of, and to pay the initial cost of, any improvement made under the provisions of the act until temporary notes or improvement bonds have been issued and sold.</p>
+<p>
+	(History: Ord. SIF-259 &sect;1, 64)</p>
+
+<p class='archiveNotice nullValue '>Effective on:&nbsp;1/1/1901</p>
+</section> 
+<section id='secid-518' class='secLvl3 _003 _003-004 _003-004-002' tabindex='-1' data-secid='518'> 
+<h3>
+	<strong>3.20.020 Annual Levy - Limits of fund.</strong></h3>
+<p>
+	An annual levy of not to exceed one mill on the assessed taxable tangible property of the City may be made for the purposes of such fund: Provided, that such fund shall not exceed one percent of the total assessed tangible valuation of the City for the preceding year or one hundred thousand dollars, whichever amount is less.</p>
+<p>
+	(History: Ord. SIF-259 &sect;2, 64)</p>
+
+<p class='archiveNotice nullValue '>Effective on:&nbsp;1/1/1901</p>
+</section> 
+<section id='secid-519' class='secLvl3 _003 _003-004 _003-004-003' tabindex='-1' data-secid='519'> 
+<h3>
+	<strong>3.20.030 Grants.</strong></h3>
+<p>
+	All grants in aid or contributions made to the City for planning and preparation of plans for improvements made under the provisions of Chapter 99, Laws of 1957, may be credited to such special improvement fund and the amount of such aid or contributions shall be in addition to the amount of such fund otherwise limited by Section <a class="xref" target="_blank" href="doc-viewer.aspx#secid-518">3.20.020</a>.</p>
+<p>
+	(History: Ord. SIF-259 &sect;3, 64)</p>
+
+<p class='archiveNotice nullValue '>Effective on:&nbsp;1/1/1901</p>
+</section> 
+<section id='secid-520' class='secLvl3 _003 _003-004 _003-004-004' tabindex='-1' data-secid='520'> 
+<h3>
+	<strong>3.20.040 Reimbursement.</strong></h3>
+<p>
+	Such special improvement fund shall be reimbursed from the proceeds of bond funds of improvements for which expenditures are made from such fund.</p>
+<p>
+	(History: Ord. SIF-259 &sect;4, 64)</p>
+
+<p class='archiveNotice nullValue '>Effective on:&nbsp;1/1/1901</p>
+</section> 
+<section id='secid-521' class='secLvl3 _003 _003-004 _003-004-005' tabindex='-1' data-secid='521'> 
+<h3>
+	<strong>3.20.050 Budget of </strong><strong>E</strong><strong>xpenditures.</strong></h3>
+<p>
+	The special improvement fund need not be budgeted for expenditure during any year, but the amount thereof shall be stated in the published budget of expenditures.</p>
+<p>
+	(History: Ord. SIF-259 &sect;5, 64)</p>
+
+<p class='archiveNotice nullValue '>Effective on:&nbsp;1/1/1901</p>
+</section> 
+<section id='secid-522' class='secLvl2 _003 _003-005' tabindex='-1' data-secid='522'> 
+<h2>
+	<strong>3.24</strong><strong> Public Interest Expenditures</strong></h2>
+<div class="mini-TOC" data-endlevel="3" data-id="mini-TOC" data-startlevel="3">
+	<div class="mini-TOC-label">
+		<strong>Contents:</strong></div>
+	<ul><li><a class="tocLink" href="doc-viewer.aspx#secid-523">3.24.010  Authorized - Designated.</a></li>
+</ul>
+</div>
+
+
+</section> 
+<section id='secid-523' class='secLvl3 _003 _003-005 _003-005-001' tabindex='-1' data-secid='523'> 
+<h3>
+	<strong>3.24.010</strong> <strong>Authorized - Designated.</strong></h3>
+<p>
+	Expenditures are authorized to be made, as directed by the governing body from time to time, from such proper fund as directed, as follows: For the purpose of promoting the affairs of the City or commemorating events of public interest; for the purpose of advertising, promoting or supporting municipally related organizations and conventions; for the purpose of meetings, entertainment or advertising for the City; or for such other purposes as are directly or indirectly related to the public interest or public benefit.</p>
+<p>
+	(History: Ord. PIE-254 &sect;1, 64)</p>
+
+<p class='archiveNotice nullValue '>Effective on:&nbsp;1/1/1901</p>
+</section> 
+<section id='secid-524' class='secLvl2 _003 _003-006' tabindex='-1' data-secid='524'> 
+<h2><strong>3.28 Investment of Idle Moneys</strong></h2>
+
+<div class="mini-TOC" data-endlevel="3" data-id="mini-TOC" data-startlevel="3">
+<div class="mini-TOC-label"><strong>Contents:</strong></div>
+
+<ul><li><a class="tocLink" href="doc-viewer.aspx#secid-525">3.28.010  Authority to Invest Idle Monies.</a></li>
+<li><a class="tocLink" href="doc-viewer.aspx#secid-526">3.28.015  Authority to Invest Bond Proceeds.</a></li>
+<li><a class="tocLink" href="doc-viewer.aspx#secid-527">3.28.020  Procedure and Restrictions.</a></li>
+<li><a class="tocLink" href="doc-viewer.aspx#secid-528">3.28.030  Custody and Safekeeping.</a></li>
+<li><a class="tocLink" href="doc-viewer.aspx#secid-529">3.28.040  Sale or Transfer.</a></li>
+<li><a class="tocLink" href="doc-viewer.aspx#secid-530">3.28.050  Earnings and Records.</a></li>
+</ul>
+</div>
+
+
+</section> 
+<section id='secid-525' class='secLvl3 _003 _003-006 _003-006-001' tabindex='-1' data-secid='525'> 
+<h3>
+	<strong>3.28.010 Authority to Invest Idle Monies.</strong></h3>
+<p>
+	Temporarily idle monies of the City, not immediately required may be invested in accordance with the authority and procedure prescribed in K.S.A. 12-1675, and any amendments thereto.</p>
+<p>
+	(History: Ord. IIM-2292 &sect;1, 2001; IIM-1770 &sect;1, 92; IIM-1608 &sect;1, 89; IIM-1185 &sect;1, 82; IIM-858)</p>
+
+<p class='archiveNotice nullValue '>Effective on:&nbsp;1/1/1901</p>
+</section> 
+<section id='secid-526' class='secLvl3 _003 _003-006 _003-006-002' tabindex='-1' data-secid='526'> 
+<h3>
+	<strong>3.28.015 Authority to Invest Bond Proceeds.</strong></h3>
+<p>
+	Bond proceeds of the City which are not currently needed, may be invested in accordance with the authority and procedure prescribed in K.S.A. 10-131, and any amendments thereto.</p>
+<p>
+	(History: Ord. IIM-2292 &sect;2, 2001)</p>
+
+<p class='archiveNotice nullValue '>Effective on:&nbsp;1/1/1901</p>
+</section> 
+<section id='secid-527' class='secLvl3 _003 _003-006 _003-006-003' tabindex='-1' data-secid='527'> 
+<h3><strong>3.28.020 Procedure and Restrictions.</strong></h3>
+
+<p>The Chief Financial Officer shall periodically report to the Governing Body as to the amount of moneys available for investment and the period of time such amounts will be available for investment, and shall submit such recommendations as deemed necessary for the efficient and safe management of City finances. The recommendations of the Chief Financial Officer shall provide for an investment program which shall so limit the amounts invested and schedule the maturities of investments so that the City will at all times have sufficient moneys available on demand deposit to assure prompt payment of all City obligations. The Governing Body may determine by resolution or City Manager may determine by policy the amount, method and term of any investment and the type of investment made, subject to the provisions of this chapter.</p>
+
+<p>(History: Ord. No. IIM-3307&nbsp;&sect;1, 2020; Ord. IIM-1770 &sect;2, 92; IIM-115 &sect;2, 61)</p>
+
+<p class='archiveNotice nullValue '>Effective on:&nbsp;1/1/1901</p>
+</section> 
+<section id='secid-528' class='secLvl3 _003 _003-006 _003-006-004' tabindex='-1' data-secid='528'> 
+<h3><strong>3.28.030 Custody and Safekeeping.</strong></h3>
+
+<p>Securities purchased pursuant to this chapter shall be under the joint care of the Chief Financial Officer and any persons designated by the Chief Financial Officer or Governing Body, and shall be held in the custody of a state or national bank or trust company, or shall be kept with a safekeeping agent of the City in a bank or trust company. Securities shall be held in accordance with policies issued by the City Manager and as required by law.</p>
+
+<p>(History: Ord. No. IIM-3307&nbsp;&sect;2, 2020; Ord. IIM-1770 &sect;3, 92; IIM-115 &sect;3, 61)</p>
+
+<p class='archiveNotice nullValue '>Effective on:&nbsp;1/1/1901</p>
+</section> 
+<section id='secid-529' class='secLvl3 _003 _003-006 _003-006-005' tabindex='-1' data-secid='529'> 
+<h3><strong>3.28.040 Sale or Transfer.</strong></h3>
+
+<p>If, in order to maintain sufficient moneys on demand deposit in any fund, as provided in Section <a href="doc-viewer.aspx?ajax=0&amp;tocid=003.008.003">3.28.020</a>, it becomes necessary to transfer or sell any securities of such funds, securities may be transferred or sold in accordance with any resolutions adopted by the Governing Body or policies issued by the City Manager.</p>
+
+<p>(History: Ord. No. IIM-3307&nbsp;&sect;3, 2020; Ord. IIM-1770 &sect;4, 92; IIM-115 &sect;4, 61)</p>
+
+<p class='archiveNotice nullValue '>Effective on:&nbsp;1/1/1901</p>
+</section> 
+<section id='secid-530' class='secLvl3 _003 _003-006 _003-006-006' tabindex='-1' data-secid='530'> 
+<h3><strong>3.28.050 Earnings and Records.</strong></h3>
+
+<p>The Chief Financial Officer shall maintain a complete and detailed record at all times of all investments made pursuant to this chapter.</p>
+
+<p>(History: Ord. No. IIM-3307&nbsp;&sect;4, 2020; Ord. IIM-1770 &sect;5, 92; IIM-115 &sect;5, 61)</p>
+
+<p class='archiveNotice nullValue '>Effective on:&nbsp;1/1/1901</p>
+</section> 
+<section id='secid-536' class='secLvl2 _003 _003-007' tabindex='-1' data-secid='536'> 
+<h2>
+	<strong>3.40</strong><strong> </strong><strong>Claims against Officers and Employees<sup>1</sup></strong><strong> </strong></h2>
+<ol start="1" style="list-style-type: decimal;" class="list-v2">
+	<li><div class='li-num'>1.</div><div class='li-cont'>
+		For statutory provisions regarding claims against officers and employees, see Chapter 324, 1972 Session Laws of Kansas.</div></li>
+</ol>
+<div class="mini-TOC" data-endlevel="3" data-id="mini-TOC" data-startlevel="3">
+	<div class="mini-TOC-label">
+		<strong>Contents:</strong></div>
+	<ul><li><a class="tocLink" href="doc-viewer.aspx#secid-537">3.40.010  Legal Actions - Payments and Approval.</a></li>
+<li><a class="tocLink" href="doc-viewer.aspx#secid-538">3.40.020 Definitions.</a></li>
+<li><a class="tocLink" href="doc-viewer.aspx#secid-543">3.40.070  Claims Subject to Kansas Tort Claims Act.</a></li>
+</ul>
+</div>
+
+<p>
+	&nbsp;</p>
+
+
+</section> 
+<section id='secid-537' class='secLvl3 _003 _003-007 _003-007-001' tabindex='-1' data-secid='537'> 
+<h3>3.40.010 Legal Actions - Payments and Approval.</h3>
+
+<p>Except as otherwise addressed by ordinance or resolution, the Governing Body, City Manager, or City Attorney may approve on behalf of the City any action that the City is authorized to take pursuant to the Kansas Tort Claims Act (K.S.A. 75-6101 et seq., and amendments thereto), and any reasonable expense for such actions and for other claims against the City or its employees when the claim arises from actions that were within the scope of employment of the employee. The Governing Body, City Manager, or City Attorney may also initiate on behalf of the City appeals related to such actions or claims, and approve reasonable expenses for those appeals. Except as otherwise addressed by ordinance or resolution, the Governing Body, City Manager, or City Attorney may approve agreements with legal counsel and reasonable expenses for legal services within the limitations of the annual City budget. The payment of expenses shall be supplemental to any expense incurred by any insurance company under the company&#39;s contractual obligation to the City.</p>
+
+<p>(History: Ord. No. OES-3308 &sect;1, 2020; Ord. OES-679 &sect;1, 72)</p>
+
+<p class='archiveNotice nullValue '>Effective on:&nbsp;1/1/1901</p>
+</section> 
+<section id='secid-538' class='secLvl3 _003 _003-007 _003-007-002' tabindex='-1' data-secid='538'> 
+<h3><strong>3.40.020 Definitions.</strong></h3>
+
+<p>As used in this chapter:</p>
+
+<ol class="list-v2">
+	<li>
+	<div class="li-num">A.</div>
+
+	<div class="li-cont">&ldquo;Claim&rdquo; means a claim, action, suit, proceeding, or threat thereof, including those that are civil, criminal, administrative, or investigative.</div>
+	</li>
+	<li>
+	<div class="li-num">B.</div>
+
+	<div class="li-cont">&quot;Employee&rdquo; shall have the same meaning as defined in K.S.A. 75-6103, and amendments thereto.</div>
+	</li>
+	<li>
+	<div class="li-num">C.</div>
+
+	<div class="li-cont">&ldquo;Expense&quot; includes legal counsel fees&nbsp;and other disbursements made or to be made in assisting in the defense of the City or employees&nbsp;or for other legal services.</div>
+	</li>
+</ol>
+
+<p>(History: Ord. No. OES-3308 &sect;2, 2020; Ord. 0ES-736 &sect;1, 73; 0ES-679 &sect;2, 72)</p>
+
+<p class='archiveNotice nullValue '>Effective on:&nbsp;1/1/1901</p>
+</section> 
+<section id='secid-543' class='secLvl3 _003 _003-007 _003-007-003' tabindex='-1' data-secid='543'> 
+<h3>3.40.070 Claims Subject to Kansas Tort Claims Act.</h3>
+
+<p>The provisions of the Kansas Tort Claims Act, and amendments thereto, shall govern claims against officers and employees of the City.</p>
+
+<p>(History: Ord. No. OES-3308 &sect;3, 2020; Ord. OES-1034 &sect;1, 79; OES-679 &sect;7, 72)</p>
+
+<p class='archiveNotice nullValue '>Effective on:&nbsp;1/1/1901</p>
+</section> 
+<section id='secid-544' class='secLvl2 _003 _003-008' tabindex='-1' data-secid='544'> 
+<h2>
+	<strong>3.44</strong><strong> Sales Tax Exemption - Filing of</strong><strong> </strong><strong>Certificate<sup>1</sup></strong><strong> </strong></h2>
+<ol start="1" style="list-style-type: decimal;" class="list-v2">
+	<li><div class='li-num'>1.</div><div class='li-cont'>
+		For statutory provision regarding exemption from the Retailers&#39; Sales Tax Act when a contractor purchases materials for use in municipal projects, see K.S.A. 79-3606.</div></li>
+</ol>
+<div class="mini-TOC" data-endlevel="3" data-id="mini-TOC" data-startlevel="3">
+	<div class="mini-TOC-label">
+		<strong>Contents:</strong></div>
+	<ul><li><a class="tocLink" href="doc-viewer.aspx#secid-545">3.44.010   Invoices - Filing - Incorporation - Interpretation.</a></li>
+<li><a class="tocLink" href="doc-viewer.aspx#secid-546">3.44.020  Holding Invoices - Auditing.</a></li>
+</ul>
+</div>
+
+
+</section> 
+<section id='secid-545' class='secLvl3 _003 _003-008 _003-008-001' tabindex='-1' data-secid='545'> 
+<h3>
+	<strong>3.44.010 Invoices - Filing - Incorporation - Interpretation. </strong></h3>
+<p>
+	All invoices mentioned in the preamble to the ordinance codified herein shall be filed with the director of public works only, for the sole purpose of certification to the state as provided by 79-3606 K.S.A., Senate Bill 423, 1970 Session Laws, and subsequent amendments thereto, which are incorporated by reference as if set forth in full. The Director of Public Works may request technical aid and assistance from the City Manager and City Clerk in making such certification and interpreting such invoices.</p>
+<p>
+	(History: Ord. IF-608 &sect;1, 70).</p>
+
+<p class='archiveNotice nullValue '>Effective on:&nbsp;1/1/1901</p>
+</section> 
+<section id='secid-546' class='secLvl3 _003 _003-008 _003-008-002' tabindex='-1' data-secid='546'> 
+<h3>
+	<strong>3.44.020 Holding </strong><strong>I</strong><strong>nvoices - Auditing.</strong></h3>
+<p>
+	All such invoices shall be held by the City Clerk in her office for five years and shall be subject to audit by the director of revenue.</p>
+<p>
+	(History: Ord. IF-608 &sect;2, 70).</p>
+
+<p class='archiveNotice nullValue '>Effective on:&nbsp;1/1/1901</p>
+</section> 
+<section id='secid-7729' class='secLvl2 _003 _003-009' tabindex='-1' data-secid='7729'> 
+<p>
+	</p>
+<p>
+	Lorem ipsum dolor sit amet</p>
+
+
+</section> 
+<section id='secid-451' class='secLvl3 _003 _003-009 _003-009-001' tabindex='-1' data-secid='451'> 
+<h2>
+	<strong>3.04 Tax Levy (Repealed)</strong></h2>
+<p>
+	(This entire chapter has been repealed.)</p>
+<div class="mini-TOC" data-endlevel="3" data-id="mini-TOC" data-startlevel="3">
+	<div class="mini-TOC-label">
+		<strong>Contents:</strong></div>
+	<ul><li><a class="tocLink" href="doc-viewer.aspx#secid-451">3.04 Tax Levy (Repealed)</a></li>
+</ul>
+</div>
+
+<p>
+	&nbsp;</p>
+
+
+</section> 
+<section id='secid-452' class='secLvl4 _003 _003-009 _003-009-001 _003-009-001-001' tabindex='-1' data-secid='452'> 
+<h3>
+	<strong>3.04.010 Exemption from K.S.A.79-1950. (Repealed)</strong></h3>
+<p>
+	Repealed.</p>
+<p>
+	(History: Charter Ord. 21 &sect;1, 77; Charter Ord. 7 &sect;1, 67)</p>
+
+<p class='archiveNotice nullValue '>Effective on:&nbsp;1/1/1901</p>
+</section> 
+<section id='secid-453' class='secLvl4 _003 _003-009 _003-009-001 _003-009-001-002' tabindex='-1' data-secid='453'> 
+<h3>
+	<strong>3.04.020 Annual Consolidated Tax Authorized. (Repealed)</strong></h3>
+<p>
+	Repealed.</p>
+<p>
+	(History: Charter Ord. 21 &sect;1, 77; Charter Ord. 7 &sect;2, 67)</p>
+
+<p class='archiveNotice nullValue '>Effective on:&nbsp;1/1/1901</p>
+</section> 
+<section id='secid-454' class='secLvl4 _003 _003-009 _003-009-001 _003-009-001-003' tabindex='-1' data-secid='454'> 
+<h3>
+	<strong>3.04.030 Deposit of Moneys into General Operating Fund. (Repealed)</strong></h3>
+<p>
+	Repealed.</p>
+<p>
+	(History: Charter Ord. 21 &sect;1, 77; Charter Ord. 7 &sect;3, 67)</p>
+
+<p class='archiveNotice nullValue '>Effective on:&nbsp;1/1/1901</p>
+</section> 
+<section id='secid-455' class='secLvl4 _003 _003-009 _003-009-001 _003-009-001-004' tabindex='-1' data-secid='455'> 
+<h3>
+	<strong>3.04.040 Fire Protection Levy. (Repealed)</strong></h3>
+<p>
+	Repealed.</p>
+<p>
+	(History: Charter Ord. 21 &sect;1, 77; Charter Ord. 7 &sect;4, 67)</p>
+
+<p class='archiveNotice nullValue '>Effective on:&nbsp;1/1/1901</p>
+</section> 
+<section id='secid-456' class='secLvl4 _003 _003-009 _003-009-001 _003-009-001-005' tabindex='-1' data-secid='456'> 
+<h3>
+	<strong>3.04.050 Band Levy. (Repealed)</strong></h3>
+<p>
+	Repealed.</p>
+<p>
+	(History: Charter Ord. 21 &sect;1, 77; Charter Ord. 7 &sect;5, 67)</p>
+
+<p class='archiveNotice nullValue '>Effective on:&nbsp;1/1/1901</p>
+</section> 
+<section id='secid-457' class='secLvl4 _003 _003-009 _003-009-001 _003-009-001-006' tabindex='-1' data-secid='457'> 
+<h3>
+	<strong>3.04.060 Limitation of Consolidated Tax - Exception. (Repealed)</strong></h3>
+<p>
+	Repealed.</p>
+<p>
+	(History: Charter Ord. 21 &sect;1, 77; Charter Ord. 7 &sect;6, 67)<i><strong> </strong></i></p>
+
+<p class='archiveNotice nullValue '>Effective on:&nbsp;1/1/1901</p>
+</section> 
+<section id='secid-458' class='secLvl3 _003 _003-009 _003-009-002' tabindex='-1' data-secid='458'> 
+<h2>
+	<strong>3.08</strong><strong> Capital Improvement Fund (Repealed)</strong></h2>
+<div class="mini-TOC" data-endlevel="3" data-id="mini-TOC" data-startlevel="3">
+	<div class="mini-TOC-label">
+		<strong>Contents:</strong></div>
+	<ul><li><a class="tocLink" href="doc-viewer.aspx#secid-458">3.08 Capital Improvement Fund (Repealed)</a></li>
+</ul>
+</div>
+
+<p>
+	&nbsp;</p>
+
+
+</section> 
+<section id='secid-459' class='secLvl4 _003 _003-009 _003-009-002 _003-009-002-001' tabindex='-1' data-secid='459'> 
+<h3>
+	<strong>3.08.010 Purpose, </strong><strong>U</strong><strong>se and </strong><strong>A</strong><strong>uthority. (Repealed)</strong></h3>
+<p>
+	Repealed.</p>
+<p>
+	(History: Ord. CIF-1691, &sect;6, 91; CIF-113 &sect;1, 61)</p>
+
+<p class='archiveNotice nullValue '>Effective on:&nbsp;1/1/1901</p>
+</section> 
+<section id='secid-464' class='secLvl3 _003 _003-009 _003-009-003' tabindex='-1' data-secid='464'> 
+<h3>Repealed Sections of 3.12 Change Funds</h3>
+
+<div class="mini-TOC" data-endlevel="3" data-id="mini-TOC" data-startlevel="3">
+<div class="mini-TOC-label"><strong>Contents:</strong></div>
+
+<ul><li><a class="tocLink" href="doc-viewer.aspx#secid-464">Repealed Sections of 3.12 Change Funds</a></li>
+</ul>
+</div>
+
+
+</section> 
+<section id='secid-465' class='secLvl4 _003 _003-009 _003-009-003 _003-009-003-001' tabindex='-1' data-secid='465'> 
+<h3>
+	<strong>3.12.010 For Use by City Clerk&#39;s Office. (Repealed)</strong></h3>
+<p>
+	Repealed.</p>
+<p>
+	(History: Ord. CF-3167&sect;2, 2017; CF-2268 &sect;1, 2001; CF-1164 &sect;1, 82; PCF-257)</p>
+
+<p class='archiveNotice  '>Effective on:&nbsp;7/18/2017</p>
+</section> 
+<section id='secid-466' class='secLvl4 _003 _003-009 _003-009-003 _003-009-003-002' tabindex='-1' data-secid='466'> 
+<h3>
+	<strong>3.12.020 For </strong><strong>U</strong><strong>se by the Overland Park Municipal Golf Course. (Repealed)</strong></h3>
+<p>
+	Repealed.</p>
+<p>
+	(History: Ord. REP-1571 &sect;1, 88; CF-1206 &sect;1, 83; CF-615-A)</p>
+
+<p class='archiveNotice nullValue '>Effective on:&nbsp;1/1/1901</p>
+</section> 
+<section id='secid-467' class='secLvl4 _003 _003-009 _003-009-003 _003-009-003-003' tabindex='-1' data-secid='467'> 
+<h3>
+	<strong>3.12.030 For Use by the Roe Municipal Pool at 104th &amp; Roe. (Repealed)</strong></h3>
+<p>
+	Repealed.</p>
+<p>
+	(History: Ord. CF-3167&sect;2, 2017; CF-2798 &sect;1, 2009; CF-2706 &sect;1, 2007; CF-2371 &sect;1, 2002; CF-1487 &sect;1, 88; CF-631 &sect;1, 71)</p>
+
+<p class='archiveNotice  '>Effective on:&nbsp;7/18/2017</p>
+</section> 
+<section id='secid-468' class='secLvl4 _003 _003-009 _003-009-003 _003-009-003-004' tabindex='-1' data-secid='468'> 
+<h3>
+	<strong>3.12.032 For Use by Police Department - Technical Services. (Repealed)</strong></h3>
+<p>
+	Repealed.</p>
+<p>
+	(History: Ord. CF-3167&sect;2, 2017; CF-2040 &sect; 1, 97; CF-1917 &sect;1, 95; CF-1255 &sect;1, 84)</p>
+
+<p class='archiveNotice  '>Effective on:&nbsp;7/18/2017</p>
+</section> 
+<section id='secid-469' class='secLvl4 _003 _003-009 _003-009-003 _003-009-003-005' tabindex='-1' data-secid='469'> 
+<h3>
+	<strong>3.12.040 For </strong><strong>U</strong><strong>se by the Community Services Department.</strong> (Repealed)</h3>
+<p>
+	Repealed.</p>
+<p>
+	(History: Ord. PCF-CF-1994 &sect;3, 96; CF-1644 &sect;1, 90; CF-1299 &sect;1, 85; CF-1229 &sect;1, 84; CF-845; CF-690)</p>
+
+<p class='archiveNotice nullValue '>Effective on:&nbsp;1/1/1901</p>
+</section> 
+<section id='secid-470' class='secLvl4 _003 _003-009 _003-009-003 _003-009-003-006' tabindex='-1' data-secid='470'> 
+<h3>
+	<strong>3.12.050 For </strong><strong>U</strong><strong>se by the St. Andrews Municipal Golf Course. (Repealed)</strong></h3>
+<p>
+	Repealed.</p>
+<p>
+	(History: Ord. REP-1571 &sect;1, 88; CF-1206 &sect;2, 83; CF-721 &sect;1, 72)</p>
+
+<p class='archiveNotice nullValue '>Effective on:&nbsp;1/1/1901</p>
+</section> 
+<section id='secid-471' class='secLvl4 _003 _003-009 _003-009-003 _003-009-003-007' tabindex='-1' data-secid='471'> 
+<h3>
+	<strong>3.12.060 For Use by Municipal Court. (Repealed)</strong></h3>
+<p>
+	Repealed.</p>
+<p>
+	(History: Ord. CF-3167&sect;2, 2017; CF-1970 &sect;1, 96; CF-1780 &sect;1, 93; CF-1645 &sect;1, 90; CF-1221 &sect;1, 83; CF-916 &sect;1, 77; PCF-542)</p>
+
+<p class='archiveNotice  '>Effective on:&nbsp;7/18/2017</p>
+</section> 
+<section id='secid-472' class='secLvl4 _003 _003-009 _003-009-003 _003-009-003-008' tabindex='-1' data-secid='472'> 
+<h3>
+	<strong>3.12.062 For </strong><strong>U</strong><strong>se by Traffic Violation Bureau. (Repealed)</strong></h3>
+<p>
+	Repealed.</p>
+<p>
+	(History: Ord. CF-1970 &sect;2, 96; CF-1651 &sect;1, 90; CF-1162 &sect;1, 82)</p>
+
+<p class='archiveNotice nullValue '>Effective on:&nbsp;1/1/1901</p>
+</section> 
+<section id='secid-473' class='secLvl4 _003 _003-009 _003-009-003 _003-009-003-009' tabindex='-1' data-secid='473'> 
+<h3>
+	<strong>3.12.065 For Use by the Department of Transportation. (Repealed)</strong></h3>
+<p>
+	Repealed.</p>
+<p>
+	(History: Ord. CF-3167&sect;2, 2017; CF-927 &sect;1, 77)</p>
+
+<p class='archiveNotice  '>Effective on:&nbsp;7/18/2017</p>
+</section> 
+<section id='secid-474' class='secLvl4 _003 _003-009 _003-009-003 _003-009-003-010' tabindex='-1' data-secid='474'> 
+<h3>
+	<strong>3.12.070 For Use by the Young&rsquo;s Municipal Pool at 77th &amp; Antioch. (Repealed)</strong></h3>
+<p>
+	Repealed.</p>
+<p>
+	(History: Ord. CF-3167&sect;2, 2017; CF-3027 &sect;1, 2014; CF-2706 &sect;2, 2007; CF-2432 &sect;1, 2003; CF-2371 &sect;2, 2002; CF-1488 &sect;1, 88; Modified during codification in accordance with KSA 12-3015, as amended; Ord.CF-554 &sect;1, 69)</p>
+
+<p class='archiveNotice  '>Effective on:&nbsp;7/18/2017</p>
+</section> 
+<section id='secid-475' class='secLvl4 _003 _003-009 _003-009-003 _003-009-003-011' tabindex='-1' data-secid='475'> 
+<h3>
+	<strong>3.12.080 For </strong><strong>U</strong><strong>se by Municipal Pool - St. Andrews. (Repealed)</strong></h3>
+<p>
+	Repealed.</p>
+<p>
+	(History: Ord. CF-2706 &sect;7, 2007; P-CF-1489 &sect;1, 88; CF-752 &sect;1, 73)</p>
+
+<p class='archiveNotice nullValue '>Effective on:&nbsp;1/1/1901</p>
+</section> 
+<section id='secid-476' class='secLvl4 _003 _003-009 _003-009-003 _003-009-003-012' tabindex='-1' data-secid='476'> 
+<h3>
+	<strong>3.12.090 For Use by Bluejacket Municipal Pool at 101st &amp; Bond. (Repealed)</strong></h3>
+<p>
+	Repealed.</p>
+<p>
+	(History: Ord. CF-3167&sect;2, 2017; CF-3027 &sect;2, 2014; CF-2798 &sect;2, 2009; CF-2706 &sect;3, 2007; CF-2371 &sect;3, 2002; CF-1490 &sect;1, 88; PCF-756 &sect; 1, 73)</p>
+
+<p class='archiveNotice  '>Effective on:&nbsp;7/18/2017</p>
+</section> 
+<section id='secid-477' class='secLvl4 _003 _003-009 _003-009-003 _003-009-003-013' tabindex='-1' data-secid='477'> 
+<h3>
+	<strong>3.12.100 For </strong><strong>U</strong><strong>se by the Overland Park Community Center. (Repealed)</strong></h3>
+<p>
+	Repealed.</p>
+<p>
+	(History: Ord. CF-2706 &sect;7, 2007; CF-2317 &sect;1, 2001; CF-2210 &sect;1, 2000; CF-1887 &sect;1, 94; CF-991 &sect;1, 79)</p>
+
+<p class='archiveNotice nullValue '>Effective on:&nbsp;1/1/1901</p>
+</section> 
+<section id='secid-478' class='secLvl4 _003 _003-009 _003-009-003 _003-009-003-014' tabindex='-1' data-secid='478'> 
+<h3>
+	<strong>3.12.110 For </strong><strong>U</strong><strong>se by the Children&#39;s Farmstead. (Repealed)</strong></h3>
+<p>
+	Repealed.</p>
+<p>
+	(History: Ord. PCF-CF-1583 &sect;2, 89; CF-1012 &sect;1, 79)</p>
+
+<p class='archiveNotice nullValue '>Effective on:&nbsp;1/1/1901</p>
+</section> 
+<section id='secid-479' class='secLvl4 _003 _003-009 _003-009-003 _003-009-003-015' tabindex='-1' data-secid='479'> 
+<h3>
+	<strong>3.12.112 For Use by the Deanna Rose Farmstead. (Repealed)</strong></h3>
+<p>
+	Repealed.</p>
+<p>
+	(History: Ord. CF-3167&sect;2, 2017; CF-2912 &sect;1, 2011; CF-2871 &sect;1, 2010; CF-2863 &sect;1, 2010; CF-2658 &sect;1, 2007; CF-2542 &sect;1, 2005; CF-2312 &sect;1, 2001; CF-2232 &sect;1, 2000; CF-1863 &sect;1, 94; CF-1740 &sect;1, 92)</p>
+
+<p class='archiveNotice  '>Effective on:&nbsp;7/18/2017</p>
+</section> 
+<section id='secid-480' class='secLvl4 _003 _003-009 _003-009-003 _003-009-003-016' tabindex='-1' data-secid='480'> 
+<h3>
+	<strong>3.12.114 For Use by the Environmental Education Visitors Center and Admission Kiosk. (Repealed)</strong></h3>
+<p>
+	Repealed.</p>
+<p>
+	(History: Ord. CF-3167&sect;2, 2017; CF-3161&nbsp;<span style="font-size: 14.6667px;">&sect;1</span><span style="font-size: 11pt;">; CF-3056 &sect;1, 2014; CF-2991 &sect;1, 2013; CF-2204 &sect;1, 2000)</span></p>
+
+<p class='archiveNotice  '>Effective on:&nbsp;7/18/2017</p>
+</section> 
+<section id='secid-481' class='secLvl4 _003 _003-009 _003-009-003 _003-009-003-017' tabindex='-1' data-secid='481'> 
+<h3>
+	<strong>3.12.115 For </strong><strong>U</strong><strong>se by the Indian Creek Recreation Center. (Repealed)</strong></h3>
+<p>
+	Repealed.</p>
+<p>
+	(History: Ord. CF-2706 &sect;7, 2007; CF-1281 &sect;1, 84)</p>
+
+<p class='archiveNotice nullValue '>Effective on:&nbsp;1/1/1901</p>
+</section> 
+<section id='secid-482' class='secLvl4 _003 _003-009 _003-009-003 _003-009-003-018' tabindex='-1' data-secid='482'> 
+<h3>
+	<strong>3.12.120 For Use by the Stonegate Municipal Pool at 97th &amp; Antioch. (Repealed)</strong></h3>
+<p>
+	Repealed.</p>
+<p>
+	(History: Ord. CF-3167&sect;2, 2017; CF-3027 &sect;3, 2014; CF-2798 &sect;3, 2009; CF-2706 &sect;4, 2007; CF-2371 &sect;4, 2002; CF-1491 &sect;1, 88; CF-1020 &sect;1, 79)</p>
+
+<p class='archiveNotice  '>Effective on:&nbsp;7/18/2017</p>
+</section> 
+<section id='secid-483' class='secLvl4 _003 _003-009 _003-009-003 _003-009-003-019' tabindex='-1' data-secid='483'> 
+<h3>
+	<strong>3.12.125 For Use by the Marty Municipal Pool at 74th &amp; Conser. (Repealed)</strong></h3>
+<p>
+	Repealed.</p>
+<p>
+	(History: Ord. CF-3167&sect;2, 2017; CF-2798 &sect;4, 2009; CF-2706 &sect;5, 2007; CF-2371 &sect;5, 2002; CF-1875 &sect;1, 94; CF-1492 &sect;1, 88; CF-1115 &sect;1, 81)</p>
+
+<p class='archiveNotice  '>Effective on:&nbsp;7/18/2017</p>
+</section> 
+<section id='secid-484' class='secLvl4 _003 _003-009 _003-009-003 _003-009-003-020' tabindex='-1' data-secid='484'> 
+<h3>
+	<strong>3.12.130 For Use by the Tomahawk Ridge Community Center. (Repealed)</strong></h3>
+<p>
+	Repealed.</p>
+<p>
+	(History: Ord. CF-3167&sect;2, 2017; CF-2685 &sect;1, 2007; CF-1551 &sect;1, 88)</p>
+
+<p class='archiveNotice  '>Effective on:&nbsp;7/18/2017</p>
+</section> 
+<section id='secid-485' class='secLvl4 _003 _003-009 _003-009-003 _003-009-003-021' tabindex='-1' data-secid='485'> 
+<h3>
+	<strong>3.12.135 For Use by the Department of Planning and Development Services. (Repealed)</strong></h3>
+<p>
+	Repealed.</p>
+<p>
+	(History: Ord. CF-3167&sect;2, 2017; CF-2346 &sect;1, 2002; CF-2268 &sect;2, 2001; PCF-CF-1994 &sect;1, 96; PCF-CF-1583 &sect;1, 89; CF-1229 &sect;1,84)</p>
+
+<p class='archiveNotice  '>Effective on:&nbsp;7/18/2017</p>
+</section> 
+<section id='secid-486' class='secLvl4 _003 _003-009 _003-009-003 _003-009-003-022' tabindex='-1' data-secid='486'> 
+<h3>
+	<strong>3.12.140 For Use by Tomahawk Ridge Aquatic Center Municipal Pool at 119th &amp; Lowell. (Repealed)</strong></h3>
+<p>
+	Repealed.</p>
+<p>
+	(History: Ord. CF-3167&sect;2, 2017; CF-3027 &sect;4, 2014; CF-2706 &sect;6, 2007; CF-2371 &sect;6, 2002; CF-1752; PC-CF-1741 &sect;1, 92)</p>
+
+<p class='archiveNotice  '>Effective on:&nbsp;7/18/2017</p>
+</section> 
+<section id='secid-487' class='secLvl4 _003 _003-009 _003-009-003 _003-009-003-023' tabindex='-1' data-secid='487'> 
+<h3>
+	<strong>3.12.145 For </strong><strong>U</strong><strong>se by the Overland Park Community Park Softball Fields. (Repealed) </strong></h3>
+<p>
+	Repealed.</p>
+<p>
+	(History: Ord. CF-2706 &sect;7, 2007; CF-2371 &sect;7, 2002)</p>
+
+<p class='archiveNotice nullValue '>Effective on:&nbsp;1/1/1901</p>
+</section> 
+<section id='secid-488' class='secLvl4 _003 _003-009 _003-009-003 _003-009-003-024' tabindex='-1' data-secid='488'> 
+<h3>
+	<strong>3.12.150 For Use by the Matt Ross Community Center. (Repealed)</strong></h3>
+<p>
+	Repealed.</p>
+<p>
+	(History: Ord. CF-3167&sect;2, 2017; CF-2685 &sect;2, 2007)</p>
+
+<p class='archiveNotice  '>Effective on:&nbsp;7/18/2017</p>
+</section> 
+<section id='secid-489' class='secLvl4 _003 _003-009 _003-009-003 _003-009-003-025' tabindex='-1' data-secid='489'> 
+<h3>
+	<strong>3.12.155 For Use by the Community Planning and Services Division at the Myron E. Scafe Building. (Repealed)</strong></h3>
+<p>
+	Repealed.</p>
+<p>
+	(History: Ord. CF-3167&sect;2, 2017; CF-2776 &sect;1, 2008)</p>
+
+<p class='archiveNotice  '>Effective on:&nbsp;7/18/2017</p>
+</section> 
+<section id='secid-490' class='secLvl4 _003 _003-009 _003-009-003 _003-009-003-026' tabindex='-1' data-secid='490'> 
+<h3>
+	<strong>3.12.160 For Use by the Soccer Complex. (Repealed)</strong></h3>
+<p>
+	Repealed.</p>
+<p>
+	(History: Ord. CF-3167&sect;2, 2017; CF-2871 &sect;2, 2010; CF-2865 &sect;1, 2010)</p>
+
+<p class='archiveNotice  '>Effective on:&nbsp;7/18/2017</p>
+</section> 
+<section id='secid-7732' class='secLvl3 _003 _003-009 _003-009-004' tabindex='-1' data-secid='7732'> 
+<h3>Repealed Sections of 3.16 Petty Cash Funds</h3>
+
+<p><span style="color:#17196b"><span style="background-color:#e0e0e0">&nbsp;</span></span></p>
+
+
+</section> 
+<section id='secid-492' class='secLvl4 _003 _003-009 _003-009-004 _003-009-004-001' tabindex='-1' data-secid='492'> 
+<h3>
+	<strong>3.16.005 For </strong><strong>U</strong><strong>se by Youth Diversion Program. (Repealed)</strong></h3>
+<p>
+	Repealed.</p>
+<p>
+	(History: Ord. PCF-CF-1583 &sect;2, 89; PCF-1004 &sect;1, 79)</p>
+
+<p class='archiveNotice nullValue '>Effective on:&nbsp;1/1/1901</p>
+</section> 
+<section id='secid-495' class='secLvl4 _003 _003-009 _003-009-004 _003-009-004-002' tabindex='-1' data-secid='495'> 
+<h3>
+	<strong>3.16.020 For </strong><strong>U</strong><strong>se by Department of Community Development. (Repealed)</strong></h3>
+<p>
+	Repealed.</p>
+<p>
+	(History: Ord. PCF-CF-1994 &sect;3, 96; PCF-955; PCF-844; PCF-723)</p>
+
+<p class='archiveNotice nullValue '>Effective on:&nbsp;1/1/1901</p>
+</section> 
+<section id='secid-499' class='secLvl4 _003 _003-009 _003-009-004 _003-009-004-003' tabindex='-1' data-secid='499'> 
+<h3>
+	<strong>3.16.075 For </strong><strong>U</strong><strong>se by the Stonegate Municipal Pool. (Repealed)</strong></h3>
+<p>
+	Repealed.</p>
+<p>
+	(History: Ord. REP-2708 &sect;1, 2007; PCF-1021 &sect;1, 79)</p>
+
+<p class='archiveNotice nullValue '>Effective on:&nbsp;1/1/1901</p>
+</section> 
+<section id='secid-500' class='secLvl4 _003 _003-009 _003-009-004 _003-009-004-004' tabindex='-1' data-secid='500'> 
+<h3>
+	<strong>3.16.080 For </strong><strong>U</strong><strong>se by the 77th &amp; Antioch Municipal Pool. (Repealed)</strong></h3>
+<p>
+	Repealed.</p>
+<p>
+	(History: Ord. REP-2708 &sect;1, 2007; PCF-621 &sect;1, 71)</p>
+
+<p class='archiveNotice nullValue '>Effective on:&nbsp;1/1/1901</p>
+</section> 
+<section id='secid-501' class='secLvl4 _003 _003-009 _003-009-004 _003-009-004-005' tabindex='-1' data-secid='501'> 
+<h3>
+	<strong>3.16.090 For </strong><strong>U</strong><strong>se by the 104th &amp; Roe Municipal Pool. (Repealed)</strong></h3>
+<p>
+	Repealed.</p>
+<p>
+	(History: Ord. REP-2708 &sect;1, 2007; PCF-622 &sect;1, 71)</p>
+
+<p class='archiveNotice nullValue '>Effective on:&nbsp;1/1/1901</p>
+</section> 
+<section id='secid-502' class='secLvl4 _003 _003-009 _003-009-004 _003-009-004-006' tabindex='-1' data-secid='502'> 
+<h3>
+	<strong>3.16.095 For </strong><strong>U</strong><strong>se by the Marty Municipal Pool. (Repealed)</strong></h3>
+<p>
+	Repealed.</p>
+<p>
+	(History: Ord. REP-2708 &sect;1, 2007; PCF-1114 &sect;1, 81)</p>
+
+<p class='archiveNotice nullValue '>Effective on:&nbsp;1/1/1901</p>
+</section> 
+<section id='secid-503' class='secLvl4 _003 _003-009 _003-009-004 _003-009-004-007' tabindex='-1' data-secid='503'> 
+<h3>
+	<strong>3.16.100 For </strong><strong>U</strong><strong>se by </strong><strong>S</strong><strong>taff at St. Andrews Municipal Pool. (Repealed)</strong></h3>
+<p>
+	Repealed.</p>
+<p>
+	(History: Ord. REP-2708 &sect;1, 2007; P-CF-1489 &sect;2, 88; PCF-752 &sect;2, 73)</p>
+
+<p class='archiveNotice nullValue '>Effective on:&nbsp;1/1/1901</p>
+</section> 
+<section id='secid-504' class='secLvl4 _003 _003-009 _003-009-004 _003-009-004-008' tabindex='-1' data-secid='504'> 
+<h3>
+	<strong>3.16.110 For </strong><strong>U</strong><strong>se by Bluejacket Municipal Pool. (Repealed)</strong></h3>
+<p>
+	Repealed.</p>
+<p>
+	(History: Ord. REP-2708 &sect;1, 2007; PCF-756 &sect;2, 73)</p>
+
+<p class='archiveNotice nullValue '>Effective on:&nbsp;1/1/1901</p>
+</section> 
+<section id='secid-510' class='secLvl4 _003 _003-009 _003-009-004 _003-009-004-009' tabindex='-1' data-secid='510'> 
+<h3>
+	<strong>3.16.170 For </strong><strong>U</strong><strong>se by Staff at Tomahawk Ridge Aquatic Center. (Repealed)</strong></h3>
+<p>
+	Repealed.</p>
+<p>
+	(History: Ord. REP-2708 &sect;1, 2007; PC-CF-1741 &sect;2, 92)</p>
+
+<p class='archiveNotice nullValue '>Effective on:&nbsp;1/1/1901</p>
+</section> 
+<section id='secid-511' class='secLvl4 _003 _003-009 _003-009-004 _003-009-004-010' tabindex='-1' data-secid='511'> 
+<h3>
+	<strong>3.16.180 For </strong><strong>U</strong><strong>se by Public Works Traffic Services. (Repealed)</strong></h3>
+<p>
+	Repealed.</p>
+<p>
+	(History: Ord. PCF-2256 &sect;2, 2001; PCF-1783 &sect;1, 93)</p>
+
+<p class='archiveNotice nullValue '>Effective on:&nbsp;1/1/1901</p>
+</section> 
+<section id='secid-531' class='secLvl3 _003 _003-009 _003-009-005' tabindex='-1' data-secid='531'> 
+<h2>
+	<strong>3.32</strong><strong> Administrative Costs - Charges</strong></h2>
+<div class="mini-TOC" data-endlevel="3" data-id="mini-TOC" data-startlevel="3">
+	<div class="mini-TOC-label">
+		<strong>Contents:</strong></div>
+	<ul><li><a class="tocLink" href="doc-viewer.aspx#secid-531">3.32 Administrative Costs - Charges (Repealed)</a></li>
+</ul>
+</div>
+
+
+</section> 
+<section id='secid-532' class='secLvl4 _003 _003-009 _003-009-005 _003-009-005-001' tabindex='-1' data-secid='532'> 
+<h3><strong>3.32.010 Publication Costs.</strong></h3>
+
+<p>Repealed.&nbsp; See Ord. No. OES-3308.&nbsp;</p>
+
+<p>(History: Ord. No. OES-3308 &sect;4, 2020; Ord. AE-447-B &sect;1, 71; AE-447-A &sect;1, 70; AE-447 &sect;2, 67)</p>
+
+<p class='archiveNotice nullValue '>Effective on:&nbsp;1/1/1901</p>
+</section> 
+<section id='secid-533' class='secLvl4 _003 _003-009 _003-009-005 _003-009-005-002' tabindex='-1' data-secid='533'> 
+<h3>3.32.020 Failure to Pay Publication Costs Prior to Certification - Action - Interest (Repealed See Ord. No. OES-3308).</h3>
+
+<p>Repealed.&nbsp; See Ord. No. OES-3308.</p>
+
+<p>(History: Ord. No. OES-3308 &sect;4, 2020; Ord. AE-447-A &sect;2, 70; AE-447 &sect;3, 67)</p>
+
+<p class='archiveNotice nullValue '>Effective on:&nbsp;1/1/1901</p>
+</section> 
+<section id='secid-534' class='secLvl3 _003 _003-009 _003-009-006' tabindex='-1' data-secid='534'> 
+<h2>
+	<strong>3.36</strong><strong> Temporary Notes (Repealed)</strong></h2>
+<p>
+	(This entire chapter has been repealed.)</p>
+<div class="mini-TOC" data-endlevel="3" data-id="mini-TOC" data-startlevel="3">
+	<div class="mini-TOC-label">
+		<strong>Contents:</strong></div>
+	<ul><li><a class="tocLink" href="doc-viewer.aspx#secid-534">3.36 Temporary Notes (Repealed)</a></li>
+</ul>
+</div>
+
+<p>
+	&nbsp;</p>
+
+
+</section> 
+<section id='secid-535' class='secLvl4 _003 _003-009 _003-009-006 _003-009-006-001' tabindex='-1' data-secid='535'> 
+<h3>
+	<strong>3.36.010 Form. (Repealed)</strong></h3>
+<p>
+	Repealed.</p>
+<p>
+	(History: Ord. REP-TN-1743 &sect;1, 92; Modified during codification in accordance with K.S.A. 12-3015, as amended; TN-446 &sect;1, 67)</p>
+
+<p class='archiveNotice nullValue '>Effective on:&nbsp;1/1/1901</p>
+</section> 
+<section id='secid-7733' class='secLvl3 _003 _003-009 _003-009-007' tabindex='-1' data-secid='7733'> 
+<h3>Repealed Sections of 3.40 Claims against Officers and Employees</h3>
+
+<p>&nbsp;</p>
+
+
+</section> 
+<section id='secid-539' class='secLvl4 _003 _003-009 _003-009-007 _003-009-007-001' tabindex='-1' data-secid='539'> 
+<h3>3.40.030 Investigation - Findings-Determination (Repealed See Ord. No. OES-3308).</h3>
+
+<p>Repealed.&nbsp; See Ord. NO. OES-3308.</p>
+
+<p>(History: Ord. No. OES-3308 &sect;4, 2020; Ord. 0ES-679 &sect;3, 72)</p>
+
+<p class='archiveNotice nullValue '>Effective on:&nbsp;1/1/1901</p>
+</section> 
+<section id='secid-540' class='secLvl4 _003 _003-009 _003-009-007 _003-009-007-002' tabindex='-1' data-secid='540'> 
+<h3><strong>3.40.040 Criteria for Authorization to Pay.</strong></h3>
+
+<p>Repealed.&nbsp; See Ord. No. OES-3308.</p>
+
+<p>(History: Ord. No. OES-3308 &sect;4, 2020; Ord. 0ES-679 &sect;4, 72)</p>
+
+<p class='archiveNotice nullValue '>Effective on:&nbsp;1/1/1901</p>
+</section> 
+<section id='secid-541' class='secLvl4 _003 _003-009 _003-009-007 _003-009-007-003' tabindex='-1' data-secid='541'> 
+<h3>3.40.050 Termination of Previous Resolutions Authorizing Payment (Repealed See Ord. No. OES-3308).</h3>
+
+<p>Repealed.&nbsp; See Ord. No. OES-3308.</p>
+
+<p>(History: Ord. No. OES-3308 &sect;4, 2020; Ord. OES-679 &sect;5, 72)</p>
+
+<p class='archiveNotice nullValue '>Effective on:&nbsp;1/1/1901</p>
+</section> 
+<section id='secid-542' class='secLvl4 _003 _003-009 _003-009-007 _003-009-007-004' tabindex='-1' data-secid='542'> 
+<h3>3.40.060 Approval by Council and Mayor (Repealed See Ord. No. OES-3308).</h3>
+
+<p>Repealed.&nbsp; See Ord. No. OES-3308.</p>
+
+<p>(History: Ord. No. OES-3308 &sect;4, 2020; Ord. 0ES-679 &sect;6, 72)</p>
+
+<p class='archiveNotice nullValue '>Effective on:&nbsp;1/1/1901</p>
+</section> 
+
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<button id="commentsCTA" title="Add a Comment" aria-label="Add a Comment" role="button" tabindex="2">
+    COMMENTS
+</button>
+
+<!-- hidden div below is for definition popup -->
+<div id="defFrame">
+    <img alt='loading progress' src="resources/progress.gif" /></div>
+<!-- hidden div below is for ajax loading progress-->
+<div id='progress-template' style='display: none;'>
+    <div class="progress" style='padding: 100px;'>
+        <div style='margin: auto; display: block; width: 200px; border: 1px solid #ccc; background-color: #eee; padding: 10px;'>
+            <img alt='loading progress' src='resources/progress.gif' style='margin: auto; display: block;' />
+            <br />
+            <span style='margin: auto; display: block; width: 75px; padding-left: 10px;'>Loading...</span>
+        </div>
+    </div>
+</div>
+<iframe style="width: 1px; height: 1px" src="" id="printiframe" name="printiframe" onload="ZP.DocView.IFrameReady();" title="Print frame" aria-hidden="true" role="presentation"></iframe>
+
+    </div>
+
+
+    </body>
+</html>

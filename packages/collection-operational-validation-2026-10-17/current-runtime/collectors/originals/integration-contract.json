@@ -1,0 +1,28 @@
+{
+  "schema_version": 1,
+  "publisher": "official",
+  "adapter_family": "originals",
+  "entrypoint": "collectors/originals/cli.py",
+  "commands": {
+    "collect": ["python", "-B", "collectors/originals/cli.py", "collect", "--config", "<config>", "--out", "<fresh-or-explicit-resume-output>"],
+    "resume_suffix": ["--resume"],
+    "replay": ["python", "-B", "collectors/originals/cli.py", "replay", "--config", "<config>", "--source", "<whole-html-source>", "--out", "<fresh>"],
+    "king_replay_required_suffix": ["--native-source", "<whole-word-source>"],
+    "verify": ["python", "-B", "collectors/originals/cli.py", "verify", "--config", "<config>", "--out", "<collectionroot>"],
+    "normalize": ["python", "-B", "collectors/originals/cli.py", "normalize", "--config", "<config>", "--format", "html|word", "--source", "<whole-format-source>", "--out", "<fresh>"],
+    "doctor": ["python", "-B", "collectors/originals/cli.py", "doctor", "--config", "<config>"]
+  },
+  "configs": {"original-flagstaff-az": "collectors/originals/configs/flagstaff.json", "original-king-county-wa": "collectors/originals/configs/king-county.json"},
+  "config_fields": ["schema_version", "target_id", "profile", "jurisdiction", "state", "source_url", "publication", "required_formats"],
+  "checkpoint_schema": "originals-collection-checkpoint-1",
+  "checkpoint_config_binding": "checkpoint.json.config equals the full typed selected publication config; source_identity repeats target/government/source/profile/publication/required_formats",
+  "material_runtime_json": ["collectors/originals/configs.json", "collectors/originals/source_dispositions.json", "collectors/originals/source_character_dispositions.json", "collectors/originals/configs/flagstaff.json", "collectors/originals/configs/king-county.json"],
+  "coverage_receipt": "coverage.json",
+  "strong_coverage_fields": ["publication_text_complete", "attachments_complete", "legal_structure_qualified", "source_consistency_complete", "publication_accepted"],
+  "aggregate_king_formats": ["html", "word"],
+  "false_defaults": ["whole_jurisdiction_complete", "external_adopted_legal_dependency_closure_complete", "independent_final_review_complete"],
+  "exit_codes": {"0": "complete implemented primary gates, or operational doctor ready", "2": "sound source/coverage incomplete, or operational doctor blocked", "1": "configuration/runtime/refusal/verifier error"},
+  "gate": "Same official per-host OFFICIAL_GATE_DIR; never clear stops",
+  "dependencies": "requirements.txt; installed ordinary Chrome only for Flagstaff live acquisition; no Node",
+  "scope_note": "Full current wrapper operational proof uses explicit retained-source replay with zero network, never relabelled fresh acquisition. Independent source audits and historical live stage snapshots remain separately scoped."
+}

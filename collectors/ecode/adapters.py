@@ -94,7 +94,16 @@ KNOWN_STRUCTURAL={'publication','container','chapter','article','title','subtitl
 KNOWN_OPERATIVE={'section','appendixsection','chartersection','councilrule'}
 def image_source(el):
  u=el.get('src','')
- return el.name=='source' and bool(el.get('srcset') or el.get('type','').lower().startswith('image/') or u.lower().startswith('data:image/') or re.search(r'\.(png|jpe?g|gif|svg|webp|avif|bmp|ico|tiff?)(?:[?#]|$)',u,re.I))
+ return el.name=='source' and bool(el.find_parent('picture') or el.get('srcset') or el.get('type','').lower().startswith('image/') or u.lower().startswith('data:image/') or re.search(r'\.(png|jpe?g|gif|svg|webp|avif|bmp|ico|tiff?)(?:[?#]|$)',u,re.I))
+def image_anchor(el):
+ return el.get('type','').lower().startswith('image/') or el.get('href','').lower().startswith('data:image/') or bool(re.search(r'\.(png|jpe?g|gif|svg|webp|avif|tiff?)(?:[?#]|$)',el.get('href',''),re.I))
+def image_attribute(name,value):
+ # A known image locator remains image data even if its URI declares another
+ # MIME type. Hash the complete bounded attribute; preserve captions/prose.
+ text=str(value)
+ if 'data:image/' in text.lower() or (name in {'src','srcset','href','xlink:href','data','style','background','poster'} and re.search(r'data\s*:',text,re.I)):
+  return 'image-data-sha256:'+digest(text.encode())
+ return value
 def asset_refs(html,base,owner):
  s=BeautifulSoup(html,'html.parser');out={}
  def add(href,kind):
@@ -104,12 +113,12 @@ def asset_refs(html,base,owner):
   elif urlsplit(u).scheme not in ['http','https']:kind='unsupported_asset'
   else:u=u.split('#')[0]
   image=original_kind in ['img_asset','picture_asset','image_asset','use_asset','svg_asset','srcset','css_asset','poster_asset','background_asset'] or bool(re.search(r'\.(?:png|jpe?g|gif|svg|webp|avif|bmp|ico|tiff?)(?:[?#]|$)',u,re.I)) or u.lower().startswith('data:image/')
-  if image and 'data:image/' in u.lower():u='image-data-sha256:'+digest(u.encode())
+  if image and re.search(r'data\s*:',u,re.I):u='image-data-sha256:'+digest(u.encode())
   out[u]={'url':u,'owner_id':owner,'required':not image,'image':image,'kind':kind,'policy':'literal [IMAGE]; intentionally not acquired' if image else 'required nonimage asset'}
  for el in s.find_all(True):
   name=el.name.lower()
   for attr in ['src','poster','background','data','xlink:href']:
-   if el.get(attr) and (attr!='data' or name=='object'):add(el[attr],'image_asset' if name in ['object','embed'] and el.get('type','').lower().startswith('image/') else (attr+'_asset' if attr in ['poster','background'] else name+'_asset'))
+   if el.get(attr) and (attr!='data' or name=='object'):add(el[attr],'image_asset' if (name in ['object','embed'] and el.get('type','').lower().startswith('image/')) or image_source(el) else (attr+'_asset' if attr in ['poster','background'] else name+'_asset'))
   if name in ['image','use'] and el.get('href'):add(el['href'],'svg_asset')
   if el.get('srcset'):
    # A data URI srcset cannot be safely split on commas; retain an unresolved required ref.
@@ -118,7 +127,8 @@ def asset_refs(html,base,owner):
     for part in el['srcset'].split(','):add(part.strip().split()[0],'srcset')
   if name=='a' and el.get('href'):
    u=el['href']
-   if re.search(r'(?:^|[/_-])(attachment|download|document|exhibit|media)(?:[/_?=-]|$)',u,re.I) or re.search(r'\b(download|attachment|exhibit|figure|map)\b',el.get_text(' ',strip=True),re.I) or re.search(r'\.(pdf|docx?|xlsx?|csv|zip|tiff?|png|jpe?g|gif|svg)(?:[?#]|$)',u,re.I):add(u,'attachment')
+   if el.get('type','').lower().startswith('image/'):add(u,'image_asset')
+   elif re.search(r'(?:^|[/_-])(attachment|download|document|exhibit|media)(?:[/_?=-]|$)',u,re.I) or re.search(r'\b(download|attachment|exhibit|figure|map)\b',el.get_text(' ',strip=True),re.I) or re.search(r'\.(pdf|docx?|xlsx?|csv|zip|tiff?|png|jpe?g|gif|svg)(?:[?#]|$)',u,re.I):add(u,'attachment')
   for css in [el.get('style',''),el.get_text() if name=='style' else '']:
    for m in re.finditer(r'url\(\s*[\"\']?([^\)\"\']+)',css,re.I):add(m.group(1).strip(),'css_asset')
  return list(out.values())
@@ -140,8 +150,8 @@ def normalized_images(html):
   u=el.get('data') or el.get('src') or '';typ=el.get('type','')
   if typ.lower().startswith('image/') or u.lower().startswith('data:image/') or re.search(r'\.(png|jpe?g|gif|svg|webp|avif|tiff?)(?:[?#]|$)',u,re.I):el.replace_with(NavigableString('[IMAGE]'))
  for a in s.select('a[href]'):
-  if a['href'].lower().startswith('data:image/') or re.search(r'\.(png|jpe?g|gif|svg|webp|avif|tiff?)(?:[?#]|$)',a['href'],re.I):
-   if a['href'].lower().startswith('data:image/'):a['href']='#image-omitted'
+  if image_anchor(a):
+   a['href']='#image-omitted'
    a.append(NavigableString('[IMAGE]'))
  for el in list(s.find_all(True)):
   if el.get('background'):el.attrs.pop('background',None);el.insert(0,NavigableString('[IMAGE]'))
@@ -165,9 +175,9 @@ def image_occurrences(html,owner):
   visual=(el.name in ['img','picture','svg','image','canvas'] or image_source(el)) and not parent_image
   if el.name in ['object','embed']:
    u=el.get('data') or el.get('src') or '';visual=el.get('type','').lower().startswith('image/') or u.lower().startswith('data:image/') or bool(re.search(r'\.(png|jpe?g|gif|svg|webp|avif|tiff?)(?:[?#]|$)',u,re.I))
-  if el.name=='a' and el.get('href'):visual=el['href'].lower().startswith('data:image/') or bool(re.search(r'\.(png|jpe?g|gif|svg|webp|avif|tiff?)(?:[?#]|$)',el['href'],re.I))
+  if el.name=='a' and el.get('href'):visual=image_anchor(el)
   count=(1 if visual else 0)+(1 if el.get('poster') else 0)+(1 if el.get('background') else 0)+len(re.findall(r'url\(',el.get('style',''),re.I))+(len(re.findall(r'url\(',el.get_text(),re.I)) if el.name=='style' else 0)
-  for _ in range(count):items.append({'owner_id':owner,'ordinal':len(items)+1,'source_tag':el.name,'source_id':el.get('id'),'source_attributes':{k:('image-data-sha256:'+digest(str(v).encode()) if 'data:image/' in str(v).lower() else v) for k,v in el.attrs.items()},'policy':'literal [IMAGE]; no image bytes acquired'})
+  for _ in range(count):items.append({'owner_id':owner,'ordinal':len(items)+1,'source_tag':el.name,'source_id':el.get('id'),'source_attributes':{k:image_attribute(k,v) for k,v in el.attrs.items()},'policy':'literal [IMAGE]; no image bytes acquired'})
  return items
 
 def substantive(html):
@@ -178,7 +188,7 @@ def substantive(html):
  return bool(s.get_text(' ',strip=True))
 
 def link_refs(html,base,owner):
- s=BeautifulSoup(html,'html.parser');return [{'url':('image-data-sha256:'+digest(a['href'].encode()) if 'data:image/' in a['href'].lower() else urljoin(base,a['href'])),'label':a.get_text(' ',strip=True),'owner_id':owner} for a in s.select('a[href]') if a['href']]
+ s=BeautifulSoup(html,'html.parser');return [{'url':('image-data-sha256:'+digest(a['href'].encode()) if 'data:image/' in a['href'].lower() or (image_anchor(a) and re.search(r'data\s*:',a['href'],re.I)) else urljoin(base,a['href'])),'label':a.get_text(' ',strip=True),'owner_id':owner} for a in s.select('a[href]') if a['href']]
 
 def _record(nid,label,kind,body,url,parent=None):
  # Own body only. Nested independently identified content is never counted twice.

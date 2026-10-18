@@ -1,0 +1,28 @@
+{
+  "schema": 1,
+  "timestamp_utc": "2026-10-18T00:19:45.040985+00:00",
+  "frozen_current_source": "collectors/official",
+  "frozen_current_source_hashes": "frozen-official-source-hashes.json",
+  "compact_immutable_evidence": "outputs/collection-readiness-operational-2026-10-17/official/frozen-checkpoint-78",
+  "optional_immutable_terminal_fullproof": "outputs/collection-readiness-operational-2026-10-17/official/burlington-current-replay-v1",
+  "terminal_proof_runtime": "Historical72producer;157docs/1711records/24tables, expectedexit3 with two absentanchors; never label current78. Own executed verifier binds snapshot.",
+  "do_not_copy_mutable_trees": [
+    "rockland-current-replay-v1",
+    "spokane-current-replay-v1",
+    "burlington-current-replay-v2"
+  ],
+  "pending_receipts_not_in_frozen_claim": [
+    "context-applicability-candidate-v1.json",
+    "burlington-current-replay-v2/coverage.json"
+  ],
+  "running_replay_commands_preserve_runtime": "python -B RUN/executed/verify.py RUN after terminal; old72results stay historical72. Fresh78Burlington v2 canfinish outside repo; source remains frozen.",
+  "read_only_terminal_command": "python -B burlington-current-replay-v1/executed/verify.py burlington-current-replay-v1",
+  "test_command": "python -B -m unittest discover -s collectors/official -p 'test_*.py' -v",
+  "dependencies_unchanged": [
+    "beautifulsoup4==4.15.0",
+    "pypdf==6.21.1",
+    "pypdfium2==5.14.0",
+    "pdfplumber==0.11.8"
+  ],
+  "separate_image_policy": "No image requests/decoding/extraction/render/OCR. Literal[IMAGE] and source metadata; native originals allowed."
+}

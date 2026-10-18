@@ -1,0 +1,34 @@
+{
+  "recorded_at": "2026-10-18T00:17:36.589651+00:00",
+  "passed": true,
+  "scope": "Complete actual delivered-corpus applicability to exact two-check known-image URL casing change; prior exhaustive raw/native replay remains bound to3d987 and current equivalence is separately proven. Not a second live acquisition or re-executed full parser.",
+  "baseline_model_sha256": "3d987c6a7d535f25ffdc9a8c77753d7ef50f815b570ab072ac40e6cb342af4f7",
+  "current_model_sha256": "69f8fe1516cd388599b432eba67ab66e646bd1d6bb5c11e85601a35fdafca4e0",
+  "exact_source_delta": "Only two existing known-image url.startsWith(data:) tests become case-insensitive; all DOM/body behavior and other model/source bytes unchanged",
+  "necessary_condition_for_changed_output": "Old image_refs.url must contain non-lowercase data: at its beginning, because previously hashed values already have urlNone; all actual image_refs scanned. No such metadata exists in either corpus.",
+  "publications": [
+    {
+      "publication": "overland",
+      "nodes": 6279,
+      "image_reference_metadata_entries": 531,
+      "mixed_or_upper_data_address_exposures": 0,
+      "records_sha256": "bdb904cfc6aaebba1b91c4bd532c9e73b7a96aea573227c0e3c90d894c05f4cf",
+      "baseline_proof_sha256": "fc520202f70059f4870b41a6dc8ab045776c03f078b8194a717a9ab39bd8b201",
+      "case_delta_output_equivalent": true
+    },
+    {
+      "publication": "savannah",
+      "nodes": 5674,
+      "image_reference_metadata_entries": 517,
+      "mixed_or_upper_data_address_exposures": 0,
+      "records_sha256": "103baf79b41c7cb9a5bb90efec5f3711fc2597d1e410bf60550356807ac179ba",
+      "baseline_proof_sha256": "ace86f45ffe64cbcf754fdce139687d2fbdf15c43fff99dbfc8479d0aca40281",
+      "case_delta_output_equivalent": true
+    }
+  ],
+  "network_requests": 0,
+  "image_streams_or_pixels_decoded": 0,
+  "render_or_OCR_calls": 0,
+  "actual_source_unchanged": true,
+  "legacy_full_proofs_not_relabelled": true
+}

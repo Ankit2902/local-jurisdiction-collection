@@ -17,11 +17,20 @@
     "tests": "proofs/bounded-svg-37-tests.log; proofbounded-svg-actual-retained-differential.json",
     "image_operations": "No markup interpretation, pixel decoding, image extraction/render/OCR/network"
   },
-  "local_delta": {
+  "prior_local_delta": {
     "parent_sha256": "bb1232b6c0c04248ee91611683f578b17cd70098680a5113c9f0f551578ef152",
     "current_sha256": "6e9907649263fea71c8561709a80a305b6345a3e6981e25c7d18a7f8a5413e71",
     "change": "Typed annotation URI wholevalue image omission unchanged; genericliteralSVG requires plain unambiguous opening or standalone plain selfclose. Selfclosed+strayclosing, attributes/quoteddelimiters and mixedprose refuse. No PDFgeometry/table/word/image-bbox algorithm changes.",
     "tests": "proofs/svg-opening-37-tests.log; proofsvg-opening-actual-retained-differential.json",
     "image_operations": "No markup interpretation, pixel decoding, image extraction/render/OCR/network"
+  },
+  "local_delta": {
+    "parent_sha256": "6e9907649263fea71c8561709a80a305b6345a3e6981e25c7d18a7f8a5413e71",
+    "current_sha256": "5d0141e7712aae0637ec9a4b226cab00ff3326fbe54aa992dd511bb590cb8f02",
+    "helper_sha256": "a579f2a79c15833e0c5a8c65bc4fa6024b2dbb6eafb408d1135f500c64c72770",
+    "change": "Source-proven bounded U+0002 hyphen comparison alias with exact native/glyph/bbox guards; original source cell text and geometry preserved",
+    "scope": "Source-proven bounded hyphen alias only; original text/bboxes/words/ordering/remaining44gaps retained; all image boundary functions unchanged",
+    "proof": "proofs/bounded-hyphen-actual-full109.json",
+    "image_operations": "No images fetched/extracted/rendered/decoded/OCRed"
   }
 }

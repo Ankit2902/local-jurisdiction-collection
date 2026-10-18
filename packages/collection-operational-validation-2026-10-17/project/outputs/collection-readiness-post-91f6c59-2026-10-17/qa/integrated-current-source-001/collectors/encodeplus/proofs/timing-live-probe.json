@@ -1,0 +1,67 @@
+{
+  "scope": "Three known qualified public TOC responses for actual completion-gate timing only; not whole-publication acquisition proof",
+  "code_hashes": {
+    "__init__.py": "b694a5d9aaec3d14d60b33a1633fcc183ac03862b6226f4fd0d2fe62ff4354e3",
+    "collect.py": "b44bef1ec5e77449f8b3e839cb5e1daaae4061bb859648ce4dccc3390d594ac1",
+    "documents.py": "a5763102f8990f6dc9a5e135445a965b9a834512ad59de133d19fe7569e4bbe4",
+    "model.py": "53399541b48c63190ef1690a36c48a7874ef7aa8efb6737668abc117e898eeaf",
+    "native_document.py": "8a3043211a4f6d07d82fdb196c00639f5c7c08048836e95ec04203d594a3e3e0",
+    "pdf_structure.py": "8341b33f36dbc52a20a229f04816d21d358a9f25a2399cab5a4a4c1e28e49251",
+    "replay.py": "edd3c2f7a18881771e7ef8a27d08f5e5275d80c7bb72f8659c1170af0131b0fb",
+    "transport.py": "16b8db775d37f4017b1dc4168add01dc47b44b971b4a3bd5e8574cc97d625a25",
+    "util.py": "92e22d86d3304b80e9997466cbb0d3497e320f181ae5630fcfc64c30fa625a56",
+    "verify.py": "2563c8d1c257cbaaad640f1384d4677fe87cd3d56d287757b5430368dac9fa84",
+    "targets.json": "a49ef8ea245588ceb30a2e654295566ae3b4d6b6d0afd1a8900abd72bd094163",
+    "requirements.txt": "259e00783155c2d522e7c3db73908308f2a8efd1733284d76956ec698ef8ffe0"
+  },
+  "runtime": {
+    "python": "3.12.14",
+    "os": "macOS-26.6.2-arm64-arm-64bit",
+    "packages": {
+      "beautifulsoup4": "4.15.0",
+      "brotli": "1.2.0",
+      "pypdf": "6.21.1",
+      "fonttools": "4.67.0",
+      "pdfplumber": "0.11.8",
+      "pypdfium2": "5.14.0",
+      "pdfminer.six": "20251107"
+    }
+  },
+  "requests": [
+    {
+      "target": "lincoln",
+      "url": "https://online.encodeplus.com/regs/lincoln-ne/doc-view.aspx",
+      "started_at": "2026-10-17T22:06:02.749162+00:00",
+      "finished_at": "2026-10-17T22:06:04.039658+00:00",
+      "sha256": "c11e6eace7625f9fa22f0b693218207bea135c455e2a7dda80132d66c0308f8e",
+      "bytes": 1201299,
+      "receipt": "lincoln-toc.html.receipt.json",
+      "transport_sha256": "16b8db775d37f4017b1dc4168add01dc47b44b971b4a3bd5e8574cc97d625a25"
+    },
+    {
+      "target": "overland",
+      "url": "https://codes.opkansas.org/municipal-code/doc-view.aspx",
+      "started_at": "2026-10-17T22:06:08.057759+00:00",
+      "finished_at": "2026-10-17T22:06:09.001940+00:00",
+      "sha256": "90634ce5ff4293ee4a7be8cfb31c6b35683fa891019eecec38dc64111c111c9c",
+      "bytes": 1093812,
+      "receipt": "overland-toc.html.receipt.json",
+      "transport_sha256": "16b8db775d37f4017b1dc4168add01dc47b44b971b4a3bd5e8574cc97d625a25"
+    },
+    {
+      "target": "savannah",
+      "url": "https://online.encodeplus.com/regs/savannah-ga/doc-view.aspx",
+      "started_at": "2026-10-17T22:06:12.998119+00:00",
+      "finished_at": "2026-10-17T22:06:13.987533+00:00",
+      "sha256": "55379d77d603bb615ce66aa516d3f7b43af93f65b8c6ce741f022f8fc0c3ac98",
+      "bytes": 967039,
+      "receipt": "savannah-toc.html.receipt.json",
+      "transport_sha256": "16b8db775d37f4017b1dc4168add01dc47b44b971b4a3bd5e8574cc97d625a25"
+    }
+  ],
+  "actual_start_gaps_seconds": [
+    5.308597,
+    4.94036
+  ],
+  "all_measured_gaps_at_least_3_5_seconds": true
+}

@@ -333,14 +333,28 @@ def doctor(runtime, target=None, publication=None, browser=False, output=None):
 
 
 def code_binding(family):
+    if family not in FAMILIES + ('originals',):
+        raise OperationError('Unknown collector implementation: ' + str(family))
     files = [ROOT / 'collectors/registry' / name for name in ('collect.py', 'dispatch.py', 'catalog.py') if (ROOT / 'collectors/registry' / name).is_file()]
     files += [HERE / 'launcher.py', HERE / 'browser_check.cjs', HERE / 'requirements.txt']
     if (ROOT / 'collect.py').is_file():
         files += [ROOT / 'collect.py']
     files += [p for p in (ROOT / 'collectors' / family).glob('*') if p.suffix in ('.py', '.cjs')]
     files += [p for folder in ('configs', 'policies') for p in (ROOT / 'collectors' / family / folder).rglob('*.json')]
+    if family == 'originals':
+        # Source character/ownership profiles are parser inputs, not optional
+        # reports. Bind them alongside the original-source adapter modules.
+        files += list((ROOT / 'collectors' / family).glob('*.json'))
+        files += list((ROOT / 'collectors' / family / 'profiles').rglob('*.json'))
     files += [p for p in (ROOT / 'collectors/registry').glob('*.json') if p.name not in ('source-evidence-manifest.json', 'original-source-evidence-manifest.json', 'readiness-source-evidence-manifest.json')]
-    return {str(p.relative_to(ROOT)): sha(p) for p in sorted(files)}
+    return {str(p.relative_to(ROOT)): sha(p) for p in sorted(set(files))}
+
+
+def implementation_family(pub):
+    family = pub.get('adapter_family', pub['publisher'])
+    if family == 'originals' and pub['publisher'] != 'official':
+        raise OperationError('Original-source adapters require the official-source access gate')
+    return family
 
 
 def job_paths(out):
@@ -455,6 +469,11 @@ def publication_acceptance(pub, output, dependencies=None):
                   and not coverage.get('required_assets_unresolved')
                   and not coverage.get('required_components_unresolved'))
         semantic = coverage.get('legal_semantic_coverage_complete') is True
+    if pub.get('adapter_family') == 'originals':
+        text = coverage.get('publication_text_complete') is True
+        assets = coverage.get('attachments_complete') is True
+        semantic = (coverage.get('legal_structure_qualified') is True
+                    and coverage.get('source_consistency_complete') is True)
     native = any(coverage.get(key) is True for key in
                  ('native_document_complete', 'native_publication_files_complete',
                   'pdf_page_extraction_complete', 'publication_file_coverage_complete'))
@@ -509,13 +528,13 @@ def execute_job(runtime, target, publication, output, verify_only=False, depende
         log = Path(runtime) / 'verifications' / (stamp + '.log')
         log.parent.mkdir(parents=True, exist_ok=True)
         argv = [str(python), '-B', str(ROOT / 'collectors/registry/collect.py'), 'verify', '--target', str(target), '--publication', pub['id'], '--out', str(out), '--python', str(python)]
-        sources_before = code_binding(pub['publisher'])
+        sources_before = code_binding(implementation_family(pub))
         evidence_before = evidence_hashes(out)
         runtime_before = sha(Path(runtime) / 'runtime.json')
         with log.open('w') as stream:
             result = subprocess.run(argv, cwd=ROOT, env=env, stdout=stream, stderr=subprocess.STDOUT)
         dependencies = verify_dependencies(runtime, pub, dependency_proofs, ancestry)
-        sources_after = code_binding(pub['publisher'])
+        sources_after = code_binding(implementation_family(pub))
         runtime_changed = runtime_before != sha(Path(runtime) / 'runtime.json') or not doctor(runtime).get('runtime_ready')
         source_changed = sources_before != sources_after or runtime_changed
         acceptance = publication_acceptance(pub, out, dependencies)
@@ -541,7 +560,7 @@ def execute_job(runtime, target, publication, output, verify_only=False, depende
         runtime_identity = {key: runtime_receipt.get(key) for key in ('packages', 'requirements_sha256', 'browser_driver_sha256', 'shim_sha256')}
         prior_native = bool(job and job['binding'].get('collection_options', {}).get('native_export'))
         want_native = prior_native if native_export is None else native_export
-        binding = {'target_id': str(target), 'publication_id': pub['id'], 'out': str(out), 'publication': pub, 'collector_sources': code_binding(pub['publisher']), 'runtime_identity': runtime_identity, 'selected_config': read(ROOT / plan['qualified_config_path']) if plan.get('qualified_config_path') else plan.get('staged_config')}
+        binding = {'target_id': str(target), 'publication_id': pub['id'], 'out': str(out), 'publication': pub, 'collector_sources': code_binding(implementation_family(pub)), 'runtime_identity': runtime_identity, 'selected_config': read(ROOT / plan['qualified_config_path']) if plan.get('qualified_config_path') else plan.get('staged_config')}
         if want_native:
             binding['collection_options'] = {'native_export': True}
         if retry_native_export and (not job or not prior_native):
@@ -614,7 +633,7 @@ def execute_job(runtime, target, publication, output, verify_only=False, depende
             with (folder / (str(index) + '-verify.log')).open('w') as log:
                 verification_exit = subprocess.run(verify_argv, cwd=ROOT, env=env, stdout=log, stderr=subprocess.STDOUT).returncode
         dependencies = verify_dependencies(runtime, pub, dependency_proofs, ancestry)
-        sources_after = code_binding(pub['publisher'])
+        sources_after = code_binding(implementation_family(pub))
         runtime_changed = attempt['runtime_receipt_sha256'] != sha(Path(runtime) / 'runtime.json') or not doctor(runtime).get('runtime_ready')
         source_changed = binding['collector_sources'] != sources_after or runtime_changed
         acceptance = publication_acceptance(pub, out, dependencies)

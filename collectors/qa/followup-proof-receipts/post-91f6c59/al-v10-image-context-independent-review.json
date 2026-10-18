@@ -1,0 +1,25 @@
+{
+  "passed": true,
+  "candidate_model_sha256": "bfc95785b762d7ae020f354c052c92e361b5457371a466e9b3b9156bfa629667",
+  "test_sha256": "e41e9bc7e670d00b64fae805dd63ee77f0ceb9ebbece4fc6131b1e009d7edb26",
+  "test_result": {
+    "passed": true,
+    "count": 2,
+    "tests": [
+      {
+        "name": "declared_image_anchor_opaque_multiline_URI_payload_absent_label_ID_retained_no_transport_decode",
+        "passed": true
+      },
+      {
+        "name": "ordinary_nonimage_document_anchor_unchanged_and_required",
+        "passed": true
+      }
+    ],
+    "network_requests": 0,
+    "image_decode_calls": 0
+  },
+  "independent_review": "Exact diff only adds declared image MIME to a/link known-image classification, replaces opaque image locator, preserves available label+source/descendant IDs. Application/pdf control stays required and active nonimage document. No general URL/prose waiver.",
+  "runtime_python": "3.12.14 (main, Aug 25 2026, 13:50:33) [Clang 22.1.3 ]",
+  "candidate_only": true,
+  "live_acquisition_or_full_publication_claim": false
+}

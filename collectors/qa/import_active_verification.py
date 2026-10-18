@@ -9,18 +9,18 @@ ROOT=Path(__file__).resolve().parents[2];PROJECT=ROOT.parents[1]
 sys.path.insert(0,str(ROOT/'collectors/registry'))
 from catalog import load_catalog
 from dispatch import command
-from readiness_binding import canonical,current_components,selected_configuration,sha
+from readiness_binding import canonical,current_components,selected_configuration,sha,implementation_family
 
 def load_ops():
  spec=importlib.util.spec_from_file_location('qa_current_ops',ROOT/'collectors/ops/launcher.py');mod=importlib.util.module_from_spec(spec);sys.modules[spec.name]=mod;spec.loader.exec_module(mod);return mod
 
 def emit(runtime,target_id,publication_id,run,out):
  if out.exists():raise ValueError('Fresh proof directory required')
- catalog=load_catalog();pub=next(p for p in catalog['publications'] if p['id']==publication_id);target=next(t for t in catalog['targets'] if t['id']==str(target_id));assert pub['target_id']==target['id'];ops=load_ops();sources=current_components(ROOT,pub['publisher']);assert sources==ops.code_binding(pub['publisher'])
+ catalog=load_catalog();pub=next(p for p in catalog['publications'] if p['id']==publication_id);target=next(t for t in catalog['targets'] if t['id']==str(target_id));assert pub['target_id']==target['id'];ops=load_ops();sources=current_components(ROOT,pub);assert sources==ops.code_binding(implementation_family(pub))
  plan=command(pub,target,'{OUT}');selection=selected_configuration(ROOT,pub,target,plan)
  code,receipt=ops.execute_job(runtime,target['id'],pub['id'],run,verify_only=True)
  if receipt['publication_id']!=pub['id'] or receipt['publication']!=pub or receipt['selected_config']!=selection['descriptor']['qualified_config']:raise ValueError('Common verify publication/config identity mismatch')
- if receipt['collector_sources_before']!=sources or receipt['collector_sources_after']!=sources or current_components(ROOT,pub['publisher'])!=sources:raise ValueError('Current code changed while verifying')
+ if receipt['collector_sources_before']!=sources or receipt['collector_sources_after']!=sources or current_components(ROOT,pub)!=sources:raise ValueError('Current code changed while verifying')
  if receipt.get('evidence_read_only') is not True or receipt['evidence_sha256_before']!=receipt['evidence_sha256_after']:raise ValueError('Retained source changed during offline verification')
  if receipt['verification_exit'] not in (0,2):raise ValueError('Family evidence verification invalid, not an incomplete accepted input')
  out.mkdir(parents=True);project=PROJECT.resolve()

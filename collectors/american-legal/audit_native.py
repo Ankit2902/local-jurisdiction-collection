@@ -34,6 +34,13 @@ def audit(raw,records):
  for i,t in enumerate(alltables):
   carrier=next((p for p in [t,*t.parents] if getattr(p,'attrs',None) and p.get('id','').startswith('rid-')),None)
   owner=owners.get(carrier['id'][4:]) if carrier else None
+  if owner is None and 'footnote' in t.get('class',[]):
+   # Source-side section ownership is reconstructed without model imports.
+   headers=[e for e in t.parent.find_all(recursive=False) if e.get('id','').startswith('rid-') and 'toc-destination' in e.get('class',[])];previous=t.find_previous_sibling()
+   if len(headers)==1 and previous is not None and previous.name=='p' and cell_text(previous)=='Notes':
+    source_owner=owners.get(headers[0]['id'][4:]);fragments=byid.get(source_owner,{}).get('native_auxiliary_fragments',[]);hashvalue=hashlib.sha256(str(t).encode()).hexdigest()
+    matching=[a for a in fragments if a.get('kind')=='publisher-footnote-table' and a.get('source_fragment_sha256')==hashvalue and a.get('owner_document_id')==source_owner]
+    if len(matching)==1:owner=source_owner
   if owner is None:fail.append({'kind':'unowned_original_table','source_table_index':i});continue
   grouped[owner].append(t)
  for did,tables in grouped.items():

@@ -193,3 +193,84 @@ execution lineage. Their metadata exposure/differential receipt identifies wheth
 this policy-only revision affects those exact source bytes; that receipt is an
 offline compatibility check, not a fresh publisher acquisition. The remaining
 primary live queue continues its already frozen v7 source independently.
+
+
+### Native auxiliary notes and fresh-directory resume revision v9
+
+Revision v9 retains publisher footnote headings and tables that appear outside
+`rid-*` rich blocks. A fragment qualifies only with one independently inventoried
+section owner in its source wrapper, an immediately preceding `Notes` heading,
+and unique reciprocal section-local `text--n` / `foot--n` anchors. The original
+fragment, DOM path, marker labels, source hash and section owner remain in
+`native_auxiliary_fragments`. Original rich-block ownership is still reconciled
+exactly once. Other unowned text, ambiguous owners, missing reciprocal links and
+duplicated blocks fail closed. Note cells use the same HTML/image normalizer:
+images become exact `[IMAGE]`, without payload retention, transport or decoding.
+
+The first Dallas v7 live run downloaded a genuine44,379,988-byte whole-code native
+HTML export but stopped on two such source footnote tables. A separate v9 retained
+source normalization reconciles4,542 independently inventoried nodes,53,570 rich
+blocks,4 auxiliary fragments,583 tables and70,000 cells. The independent Python
+original-DOM audit passes all table text/tags/spans/nesting. Distinct inert-browser
+source QA is reported separately. This does **not** complete Dallas:339 unique
+required nonimage references and the independent closing inventory/edition check
+remain outstanding. The old failed run and its executed v7 source are preserved.
+The complete Cleveland HTML normalized JSONL and CSV remain byte-identical under
+this revision; its historical acquisition/PDF proofs keep their earlier revisions.
+
+To resume an old same-image-policy acquisition without modifying its directory,
+use the new standalone operator wrapper. The source must have intact raw hashes;
+output must be fresh and outside the original. It copies original evidence,
+retains an original-file manifest and execution history, invalidates PDF parser
+caches, records operator lineage, then invokes ordinary `collect.py --resume`.
+It rechecks live edition identity and obeys the same persistent publisher gate.
+It does not reset access stops, redownload valid cached native bytes, or acquire
+images. Source edition drift remains a failure requiring a fresh collection.
+
+```sh
+python collectors/american-legal/resume_copy.py \
+  --from /EVIDENCE/original-failed-or-acquired-run \
+  --out /FRESH/PATH/operator-resume
+python collectors/american-legal/verify.py /FRESH/PATH/operator-resume --offline
+```
+
+`--prepare-only` performs the copy/checks without starting a browser or publisher
+requests, prints the exact resume command, and leaves `operator-prepared` status,
+which the verifier rejects as incomplete. Run that printed command once ready;
+keep its source directory frozen during execution. `--upgrade-assets` may only
+strengthen an original `reference-only` policy to nonimage `download` in the fresh
+copy. `--retry-unavailable-assets` explicitly retries prior nonimage HTTP failures;
+it cannot bypass403/429/challenge stops. Wait for other American Legal batch work
+to finish before starting another publisher job. Current live queue remains its
+original immutable v7 revision and is never relabeled v9.
+
+Run `test_native_notes.py` and `test_resume_copy.py` in addition to the six existing
+suites. The new cases exercise omissions/ownership/reciprocal-link drift, original
+raw corruption, stale image policy, unsafe paths, fresh-copy preservation and
+incomplete-state rejection. v9 has129 passing cases including the auxiliary-note
+multiline image payload/no-transport/no-decoder regression. The precise retained
+source results, remaining gaps, original live queue status and frozen source hashes
+are recorded in the v9 section of `validation-summary.json`.
+
+
+### Declared-image anchor hardening revision v10
+
+A source anchor/link whose `type` declares an image now receives `[IMAGE]` even
+when its URL uses an opaque extension or a `data:application/octet-stream` URI.
+Normalization removes that known-image payload, retains available label text and
+source/descendant IDs, and keeps image references excluded from download. Ordinary
+nonimage document anchors remain required documents. This is a narrow HTML context
+fix; transport, browser/rate gate, PDF parsing and existing metadata redaction are
+unchanged. Run `test_image_context.py` for two direct `html_record` regressions
+with network/image-decoder tripwires and a nonimage control. All131 cases pass.
+
+A hash-bound scan of the complete retained Dallas and Cleveland native HTML files
+finds zero anchors/links with the changed declared-image predicate (24,168 and
+17,461 anchors/links inspected). The added branch therefore cannot change those
+exact normalized outputs. This is a source-exposure/equivalence proof, not a fresh
+acquisition or new full replay. Their original executed revisions remain intact.
+The independent inert Chrome Dallas audit also passes583 tables/70,000 cells with
+zero mismatches/resource requests;339 required nonimage references and the closing
+source checks still prevent Dallas completion. Frozen v9 and the live v7 queue
+are preserved separately. No new publisher traffic, image decoding, extraction,
+rendering or OCR was used for this revision.

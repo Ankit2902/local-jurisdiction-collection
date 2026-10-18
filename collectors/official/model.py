@@ -3,7 +3,7 @@ import copy,hashlib,json,pathlib,re,zipfile,io
 from urllib.parse import urljoin,urlsplit,urlunsplit,unquote
 from bs4 import BeautifulSoup
 import pypdfium2
-import legacy_html
+import legacy_html,publication_refs
 
 def sha(b):return hashlib.sha256(b).hexdigest()
 def encoded(v):return json.dumps(v,sort_keys=True,separators=(',',':'),ensure_ascii=False).encode()
@@ -52,6 +52,8 @@ def classify_asset(asset,config):
  asset=dict(asset);asset.setdefault('required',True)
  if asset.get('status')=='policy_omitted_image':return asset
  asset.setdefault('classification','owned_or_unresolved_attachment')
+ target=publication_refs.router_target(asset['url'],config)
+ if target:return dict(asset,classification='internal_legal_cross_reference',status='pending_internal_reference',internal_reference=target,reason='Resolve exact document and anchor against complete retained publication after traversal; never fetch the router shell as attachment')
  # External location or an HTTP failure never makes an asset optional.
  forced=re.search(r'incorporat|adopted? by reference|appendix|attachment|official map',asset.get('context',''),re.I)
  for rule in config.get('reference_rules',[]):
@@ -59,22 +61,51 @@ def classify_asset(asset,config):
    asset.update(required=False,classification='independent_legal_layer_reference',status='independent_legal_layer_reference',reason=rule['reason'])
  return asset
 
+def image_reference_attributes(attributes):
+ # This helper is used only inside a known image-reference attribute boundary.
+ # A misleading data MIME must not make image payload metadata safe to copy.
+ result=copy.deepcopy(dict(attributes))
+ for name,value in list(result.items()):
+  raw=value if isinstance(value,str) else json.dumps(value,ensure_ascii=False,sort_keys=True)
+  if re.search(r"\bdata:[^\s\"']*[,;]",raw,re.I):
+   result[name]='[IMAGE]';result['data-source-image-attribute-sha256-'+sha(str(name).encode())[:12]]=sha(raw.encode())
+ return result
+
+
+def normalized_links(node,url):
+ links=[]
+ for element in node.select('a[href]'):
+  target=element['href'];attributes=redact_image_metadata(element.attrs,attribute_boundary=True)
+  for name in ['style','srcset','background','poster']:
+   if name in element.attrs:attributes.update(image_reference_attributes({name:element[name]}))
+  image_context=image_asset({'url':target,'kind':'a','source_attribute':'href','media_type':str(element.get('type','')).lower()})
+  if target.lower().startswith('data:'):
+   digest=sha(target.encode());target=('inline-image-ref:sha256:' if image_context else 'unqualified-inline-document-ref:sha256:')+digest
+   if image_context:attributes=image_reference_attributes(element.attrs)
+   else:attributes['href']=target;attributes['data-source-inline-reference-sha256']=digest
+  else:target=urljoin(url,target)
+  links.append({'text':dom_text(element),'url':target,'attributes':attributes})
+ return redact_image_metadata(links)
+
+
 def source_assets(node,url):
- import base64
  output=[]
  def add(target,element,attribute,raw=None):
   if not target:return
-  target=urljoin(url,target.strip());asset={'url':target,'kind':element.name,'source_id':element.get('id'),'source_attribute':attribute,'required':True,'context':clean((element.parent or element).get_text(' ',strip=True))[:2500]}
+  target=urljoin(url,target.strip());asset={'url':target,'kind':element.name,'source_id':element.get('id'),'source_attribute':attribute,'required':True,'context':dom_text(element.parent or element)[:2500],'source_descriptive_attributes':redact_image_metadata({k:element[k] for k in ['alt','title','aria-label'] if element.get(k)},attribute_boundary=True)}
   if str(element.get('type','')).lower().startswith('image/') or element.name=='input' and element.get('type','').lower()=='image':asset['media_type']='image/*' if element.name=='input' else element.get('type','image/*').lower()
+  image_context=image_asset(asset) or element.find_parent('picture') is not None
+  if image_context:asset['source_descriptive_attributes']=image_reference_attributes(asset['source_descriptive_attributes'])
   if raw is not None:
-   asset['source_attribute_value']='[IMAGE]' if 'data:image/' in raw.lower() else raw
+   asset['source_attribute_value']='[IMAGE]' if 'data:image/' in raw.lower() or image_context and re.search(r"\bdata:[^\s\"']*[,;]",raw,re.I) else raw
    asset['source_attribute_sha256']=sha(raw.encode())
-  if target.lower().startswith('data:image/'):
-   header,payload=target.split(',',1);asset.update(url='inline-image-ref:sha256:'+sha(target.encode()),inline_image_reference=True,media_type=header[5:].split(';')[0].lower(),source_reference_sha256=sha(target.encode()),encoded_characters=len(payload),status='policy_omitted_image',required=False,reason='User image omission: base64 image data not decoded or extracted')
-  elif target.startswith('data:'):
-   try:
-    header,payload=target.split(',',1);content=base64.b64decode(payload,validate=True) if ';base64' in header else unquote(payload).encode();asset.update(url='data:sha256:'+sha(content),inline_data=True,sha256=sha(content),bytes=len(content),media_type=header[5:].split(';')[0].lower(),status='retained_inline',reason='Embedded native bytes retained in source HTML; semantic image interpretation not asserted')
-   except Exception:asset.update(url='unparsed-inline:'+sha(target.encode()),status='unresolved',requires_manual_review=True,reason='Malformed or unsupported inline-data reference; raw attribute retained in HTML')
+  if target.lower().startswith('data:'):
+   header,separator,payload=target.partition(',');declared=header[5:].split(';')[0].lower();digest=sha(target.encode())
+   if image_context:
+    asset.update(url='inline-image-ref:sha256:'+digest,inline_image_reference=True,media_type=declared if declared.startswith('image/') else 'image/*',source_reference_sha256=digest,encoded_characters=len(payload),status='policy_omitted_image',required=False,reason='Source context is an image: inline payload is not decoded, extracted or qualified by its claimed MIME')
+    if not declared.startswith('image/'):asset['source_declared_data_media_type']=declared
+   else:
+    asset.update(url='unqualified-inline-document-ref:sha256:'+digest,inline_data=True,source_reference_sha256=digest,encoded_characters=len(payload),media_type=declared,status='unqualified_inline_nonimage_document',required=True,format_qualified=False,reason='Nonimage inline document format is unsupported and unresolved; encoded reference retained by hash only, no payload decoding or format qualification')
   elif target.startswith(('http:','https:')) and urlsplit(target).fragment and target.split('#')[0]==url.split('#')[0]:
    anchor=urlsplit(target).fragment;root=node
    while getattr(root,'parent',None) is not None:root=root.parent
@@ -87,8 +118,8 @@ def source_assets(node,url):
   for attribute in (['src'] if element.name in ['img','source','video','audio','track','embed','iframe','input'] else [])+(['data'] if element.name=='object' else [])+(['poster'] if element.name=='video' else [])+(['href','xlink:href'] if element.name in ['image','use'] else []):
    if element.get(attribute):add(element[attribute],element,attribute)
   if element.name=='a' and element.get('href'):
-   explicit=re.search(r'incorporat|adopted? by reference|appendix|attachment|official map',clean((element.parent or element).get_text(' ',strip=True)),re.I)
-   if urlsplit(element['href']).path.lower().endswith(('.pdf','.svg','.png','.jpg','.jpeg','.gif','.webp','.zip','.docx')) or explicit:
+   explicit=re.search(r'incorporat|adopted? by reference|appendix|attachment|official map',dom_text(element.parent or element),re.I)
+   if element['href'].lower().startswith('data:') or urlsplit(element['href']).path.lower().endswith(('.pdf','.svg','.png','.jpg','.jpeg','.gif','.webp','.zip','.docx')) or explicit:
     add(element['href'],element,'href')
     if explicit:output[-1].update(classification='source_explicit_incorporation_or_attachment',required=True)
   if element.get('background'):add(element['background'],element,'background')
@@ -100,7 +131,7 @@ def source_assets(node,url):
      parts=candidate.strip().split()
      if parts:add(parts[0],element,'srcset',raw)
   css=element.get('style','')+(' '+element.get_text() if element.name=='style' else '')
-  for match in re.finditer(r"url\(\s*(['\"]?)(.*?)\1\s*\)",css,re.I):add(match[2],element,'css-url',css)
+  for match in re.finditer(r"url\(\s*(['\"]?)(.*?)\1\s*\)",css,re.I|re.S):add(match[2],element,'css-url',css)
  return redact_image_metadata(output)
 
 def image_asset(asset):
@@ -136,6 +167,10 @@ def sanitize_images(node):
    count=len(re.findall(r'url\(',css,re.I));marker(count)
    if tag.name=='style':tag.insert_before(NavigableString(' '.join('[IMAGE]' for _ in range(count))));tag.decompose()
    else:tag['style']=re.sub(r'url\([^)]*\)','none',tag.get('style',''),flags=re.I)
+ for element in clone.find_all(True):
+  for attribute in ['href','src','data']:
+   if str(element.get(attribute,'')).lower().startswith('data:'):
+    digest=sha(element[attribute].encode());element[attribute]='unqualified-inline-document-ref:sha256:'+digest;element['data-source-inline-reference-sha256-'+attribute]=digest
  for el in clone.find_all(True):
   el.attrs=redact_image_metadata(el.attrs,attribute_boundary=True)
  for text in list(clone.find_all(string=True)):
@@ -147,7 +182,7 @@ def semantics(node,url):
  for asset in refs:
   if image_asset(asset):asset.update(required=False,status='policy_omitted_image',classification='user_requested_image_omission',placeholder='[IMAGE]',reason='User explicitly requests no image acquisition and literal[IMAGE] replacement; reference/IDs retained, no pixels extracted')
  clean_node=sanitize_images(node)
- return {'html':str(clean_node),'text':dom_text(clean_node),'tables':table_data(clean_node),'links':redact_image_metadata([{'text':clean(a.get_text(' ',strip=True)),'url':('inline-image-ref:sha256:'+sha(a['href'].encode()) if a['href'].lower().startswith('data:image/') else urljoin(url,a['href'])),'attributes':redact_image_metadata(a.attrs,attribute_boundary=True)} for a in node.select('a[href]')]),'assets':refs,'image_placeholder_count':clean_node.get_text().count('[IMAGE]'),'notes':[str(sanitize_images(a)) for a in node.select('aside.annotations,[role="note"],.Footnote,.footnote')],'superscripts':[str(x) for x in clean_node.select('sup,sub')]}
+ return {'html':str(clean_node),'text':dom_text(clean_node),'tables':table_data(clean_node),'links':normalized_links(node,url),'assets':refs,'image_placeholder_count':clean_node.get_text().count('[IMAGE]'),'notes':[str(sanitize_images(a)) for a in node.select('aside.annotations,[role="note"],.Footnote,.footnote')],'superscripts':[str(x) for x in clean_node.select('sup,sub')]}
 
 def html_records(data,item,config):
  soup=BeautifulSoup(data,'html.parser');selector=config.get('content_selector','main');node=soup.select_one(selector)

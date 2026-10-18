@@ -103,3 +103,5 @@ python -m collectors.ecode.cli replay --source "$ECODE_EVIDENCE/albany-operator-
 ```
 
 This also returns exit 2 and uses no browser/network. Current 53-case tests, five complete synthetic fixture proofs, bounded genuine native-file inspection and legitimate operator-export/import recovery are detailed in [READINESS.md](READINESS.md). The two publisher access stops and full-live publication validation gaps remain separate from passing offline tests. Historical full-publication evidence folders and snapshots are immutable; current code must explicitly replay an older snapshot, or use the read-only approved frozen verifier, rather than silently verify it under a different runtime revision.
+
+Current image-context handling and its exact source-bound replay/verification evidence are described in [READINESS.md](READINESS.md#current-image-context-revision) and `image-context-revision.json`. All image download anchors are inert in normalized output; original source URLs remain provenance, and separate image bytes are never acquired.

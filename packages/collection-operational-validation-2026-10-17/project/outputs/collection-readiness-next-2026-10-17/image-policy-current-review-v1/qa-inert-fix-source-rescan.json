@@ -1,0 +1,23 @@
+{
+  "schema_version": 1,
+  "review": "Narrow owner QA inert-source fix rescan",
+  "source_hashes": {
+    "municode_raw_tables.cjs": "cfbeb7631717315f9bfec276812f007eb772a570de189eb8aa5541cc66650433",
+    "encodeplus_raw_tables.cjs": "1fd5fe3f49abd24c6bf009e9628bb68df726053b224cf3a6ded4b331df80c8d1",
+    "inert_browser_source.cjs": "050d4b6c0a294cb92c31a2037408269438ba846cfc6f3c10d31ba81f63fa8704",
+    "inert_browser_source.py": "6eb0e6d82dabd01fb415ad93dc58ebe0869ede4a9ea8b8f07b9e0fbd784ecdf9"
+  },
+  "checks": {
+    "both_raw_table_audits_call_attachInert_before_DOM_reads": true,
+    "neither_raw_table_audit_uses_setContent": true,
+    "bridge_uses_exact_reviewed_Python_JS_and_body_markup": true,
+    "template_sanitization_precedes_live_attachment": true,
+    "fail_closed_Python_bridge_errors": true,
+    "network_abort_and_CSP_retained": true
+  },
+  "source_review_passed": true,
+  "bounded_owner_execution_receipt_pending": true,
+  "network_requests_by_reviewer": 0,
+  "reviewer_repo_edits": 0,
+  "historical_limitation_preserved": "Earlier raw-table source attachment preceded image sanitization; old table results do not prove compliant inline-image handling."
+}

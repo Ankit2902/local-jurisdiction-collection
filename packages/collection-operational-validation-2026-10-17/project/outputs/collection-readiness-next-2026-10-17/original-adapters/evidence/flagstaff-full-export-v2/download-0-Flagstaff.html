@@ -1,0 +1,1072 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+  <html xmlns="http://www.w3.org/1999/xhtml">
+ <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta http-equiv="Content-Style-Type" content="text/css" />
+<style>
+.updated { color: #FF0000; background: yellow; padding: 2px; font-weight: normal; font-size: .75em; }
+.revised { color: blue; background: yellow; padding: 2px; font-weight: normal; font-size: .75em; }
+
+a:link:active { color: #003399;}
+a:link:hover { color: #6699FF;}
+a:link { color: #003399;}
+a:link:visited, a:visited { color: #6699FF;}
+/*Ensures that the document prints at the right font size and without nav buttons */
+
+@media print {
+	#mainContent, html, body { max-width:none !important;}
+	#navTop, #navBottom, .pdf	{display:none;}
+	html, body {border:0px  !important; }
+	#mainContent h3 a.addthis_button, #mainContent h3 img {
+		display:none !important;
+	}
+	thead { display:table-header-group !important; }
+	tbody {  display:table-row-group !important; }
+	td,   tr{   background:white; }
+	table.hovercraft {display:none !important;}
+	img, td, tr { page-break-inside: avoid !important; }
+}
+	table.hovercraft {
+		table-layout:fixed;
+		margin-top:0px !important;
+		margin-bottom:0px !important;
+	}
+	td,   tr{ background:white; }
+
+
+body {
+	padding:0em;
+	margin:0px;
+	font-size:12pt;
+}
+
+.pdf {
+	background-color: #eee;
+	border:1px solid #ccc;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size:0.9em;
+  padding:1em;
+  margin:0em 1em;
+float:left;
+}
+.pdf a { text-decoration:none; }
+
+
+/*Styles for NT page*/
+
+div.ntpage {
+float: left;
+width: 45%;
+margin-right: 5%;
+}
+
+h1#cityname, #codification, .codified, .cpc {
+   font-family: verdana, sans-serif;
+   color: #144191;
+   font-weight: bold;
+   text-align: left;
+	font-size: .9em;
+}
+h1#cityname {
+   margin-top: 3em;
+   font-size: 1.25em;
+}
+.cpc {  margin: 0;  padding-bottom: .5em; border-bottom:0px; }
+
+
+
+#navTop {
+	text-align: right;
+	float: none;
+	margin-top: .5em;
+	padding-bottom: 1em;
+	margin-right: 24px;
+	margin-left: 24px;
+}
+#navBottom {
+	margin-bottom: .5em;
+	margin-left: 24px;
+	margin-right: 24px;
+	padding-top: 1em;
+	text-align: right;
+
+}
+
+#navTop a:link:active, #navTop a:link:hover,
+#navTop a:link, #navTop a:visited,
+#navBottom a:link:active, #navBottom a:link:hover,
+#navBottom a:link, #navBottom a:visited  {
+	text-decoration: none;
+	}
+
+#mainContent {
+	clear:both;
+	border:solid #000;
+	border-width:1px 0px;
+	margin:0em 3em;
+	font-family: Arial, Sans-Serif;
+	max-width:750px;
+	padding-bottom:1em;
+}
+#navTop, #navBottom  {	max-width:750px;margin: 1em 3em;}
+iframe {
+	background: none repeat scroll 0 0 #F5F5F5;
+    border-bottom: 1px solid #C0C0C0;
+    border-top: 1px solid #C0C0C0;
+    clear: both;
+    display: block;
+    margin: 2em 0 1em;
+    width: 100%;
+}
+
+#mainContent img {
+	display: block;
+	margin: 1em auto;
+}
+
+#mainContent h3 img {
+border:0;vertical-align:bottom;float:right;margin:0px
+}
+#mainContent h2 img, #mainContent h1 img {
+border:0;vertical-align:top;float:right;margin:0px
+}
+
+ h1, h2 {
+	font-size: 1em;
+	text-align:center;
+	margin:1em auto;
+	color: #2a2a2a;
+	text-rendering: optimizeLegibility;
+}
+p, h3, h4 {
+	text-rendering: optimizeLegibility;
+	font-size: .8em;
+    font-family: Arial,sans-serif;
+	line-height:1.6em;
+	margin: 0em;
+	color: #000  ;
+	font-style: normal;
+	font-variant: normal;
+	text-transform: normal;
+	vertical-align: baseline;
+	font-weight: normal;
+	text-align: left;
+}
+p { /* add default bottom margin, which we don't want in h3 */
+	margin-bottom: 1em;
+}
+
+h3, h4 {
+	font-weight:bold;
+	font-size: .9em;
+	color: #2a2a2a;
+	border-bottom: 1px dotted #737373;
+	margin-top:1em;
+	margin-bottom:0.3em;
+	vertical-align: baseline;
+}
+
+.ArticleTOC, .digArticle, .digArt, .artdig,
+.Center, .center {
+	margin-top: 1em;
+	text-align: center;
+}
+
+.Article, .DivisionTOC, .art, .digDiv, .digdiv, .Divdig, .divdig,
+.Rxhead, .CHRepealed, .TitleRepealed,  .RxHead,
+.TitleReserved, .CHReserved, .ReservedC,
+.Division, .div, .divname, .DivisionName, .DivName, .ArticleName, .ArticleNameTOC, .ArticleTOC {
+  font-weight: bold;
+  margin: 1em 0;
+  text-align: center;
+}
+
+.CellBody, .QCellBody, .QTable {
+	/*Defaults OK*/
+}
+.CellBodyBold {
+	font-weight: bold;
+
+}
+
+.CellBodyBoldItal {
+	font-weight: bold;
+	font-style: italic;
+}
+.CellBodyItal {
+  font-style: italic;
+}
+
+.CellBodySubheader {
+	font-weight: bold;
+}
+.CellBodySubheaderCenter {
+	font-weight: bold;
+	text-align: center;
+}
+.CellBodyU {
+	text-decoration: underline;
+}
+.CellBodyWhite {
+	background-color: #000;
+	color: #fff;
+}
+.CellHeadingWhite {
+	background-color: #000;
+	color: #fff;
+	font-weight: bold;
+	text-align: center;
+}
+
+.CellBodyR, .cellbodyr {
+  text-align: right;
+}
+.CellBodyC, .cellbodyc, .QTableC, .QCellBodyC {
+  text-align: center;
+}
+.CellBodyCMiddle {
+  text-align: center;
+	vertical-align: middle;
+}
+.CellBodyIndent, .CellBodyP2 {
+	margin-left:1em;
+}
+.CellHeading, .QCellHeading, .CellHeadingU, .QTableHeadingC, .CellHeadingBI {
+  font-weight: bold;
+  text-align: center;
+}
+.CellHeadingBI {
+  font-style: italic;
+}
+.CellHeadingU {
+	text-decoration: underline;
+}
+.CellHeadingL, .QTableHeading {
+  font-weight: bold;
+}
+.CellHeadingR, .CellBodyRBold {
+  font-weight: bold;
+  text-align: right;
+}
+
+.CHTOC {
+  font-weight: bold;
+  font-size:0.85em;
+  margin: 0.5em 0 0.5em 7em;
+  text-indent: -3.3em;
+   color: #2a2a2a;
+   border-bottom: 1px dotted #ababab;
+}
+
+.CiteTOC {
+  margin-bottom: 0;
+  margin-left: 7em;
+  text-indent: -5.8em;
+}
+
+.digCH, .ctoc {
+  margin-top: 1em;
+  margin-bottom:0em;
+}
+
+.digTitle, .chtoc, .tocch {
+  font-weight: bold;
+  margin: 1em 0 0 4.5em;
+  text-indent: -2.5em;
+   color: #2a2a2a;
+}
+
+.Footnote, .footnote, .FootNote, .Note, .note, .QFootnote, .Q1List {
+  margin: 1em 0 0 .8em;
+  font-size: .75em;
+  text-align: left;
+  text-indent: -.8em;
+}
+
+.ordtab, .pOrdtab, td p.ordtab {
+  min-width:100px;
+  margin: 0;
+  margin-right: 0.9em;
+  text-align: left;
+}
+
+
+.P0, .P0block {
+	margin-left: 0em;
+}
+.P1, .P1block {
+	margin-left: 0em;
+}
+.P2, .P2block, .CellBody1 {
+  margin-left: 2.3em;
+}
+.P3, .P3block {
+  margin-left: 4.3em;
+}
+.P4, .P4block {
+  margin-left: 6.3em;
+}
+.P5, .P5block {
+  margin-left: 8.3em;
+}
+.P6, .P6block {
+  margin-left: 9.3em;
+}
+
+.Q1 {
+  font-size: .75em;
+  margin: 1em 2.3em;
+}
+
+.Q2 {
+  font-size: .75em;
+  margin-left: 4.3em;
+  margin-right: 2.3em;
+  margin-top: 1;
+ margin-bottom: 1em;
+}
+.Q3 {
+  font-size: .75em;
+  margin-left: 6.3em;
+  margin-right: 2.3em;
+  margin-top: 1;
+ margin-bottom: 1em;
+ }
+.Q4 {
+  font-size: .75em;
+  margin-left: 8.3em;
+  margin-right: 2.3em;
+  margin-top: 1;
+ margin-bottom: 1em;
+}
+.QC {
+  font-size: .75em;
+  margin: 1em 2.3em;
+  text-align:center;
+}
+
+.TableTitleL {
+  font-weight: bold;
+  margin:1em auto;
+}
+.TableTitle, .GraphicTitle, .Graphic, .graphic,
+.graphictitle, .graphicname, .QTableTitle, .GraphicCaption {
+  font-weight: bold;
+  text-align: center;
+  margin:1em auto;
+}
+
+.HistoryNote, .TableFootnote, .CellBodyNote, .CellBodyFootnote {
+  font-size: .75em;
+}
+
+.WAC {
+  margin-left: 5.5em;
+  text-align: left;
+  text-indent: -5.5em;
+  margin-bottom:0em;
+}
+
+.bold, .Bold {
+  font-weight: bold;
+}
+.italic, .Italic, .emphasis, .Emphasis {
+  font-style: italic;
+}
+.EquationVariables {
+  font-family: Times New Roman;
+  font-style: italic;
+}
+.sub, .subscript {
+  vertical-align: sub;
+}
+.super, .Superscript, .superscript, .Super {
+  vertical-align: super;
+  font-size:0.75em;
+  }
+
+
+div:after {
+	content: ".";
+	display: block;
+	height: 0;
+	clear: both;
+	visibility: hidden;
+}
+
+ /* ======== table CSS ======== */
+table {
+	border-collapse: collapse;
+	margin-left:auto;
+	margin-right:auto;
+	margin-top:1em;
+	margin-bottom:1em;
+}
+
+caption {
+	margin-left:auto;
+	margin-right:auto;
+	text-align:center;
+}
+
+td { padding:3pt; text-align:left; }
+
+td p, th p, caption p {
+	font-size: .8em;
+	margin-bottom:0em;
+}
+
+table.Ruled, table.Ruled td,
+table.RuledWithTitle, table.RuledWithTitle td,
+table.TitleRules, table.TitleRules td {
+  border:1px solid black;
+}
+
+/* ========  bookmark feature CSS ======== */
+#overlay {
+	position:fixed !important;
+	position:absolute;
+	top:110px;
+	left:0px;
+	width:100%;
+	display:none;
+	height:1px;
+}
+
+#contentWrap {
+	width:450px;
+	margin:0px auto;
+	background-color:#fff;
+	padding:15px;
+	text-align:center;
+	border:2px solid #333;
+	height:110px;
+	border-radius:6px;
+	-border-radius:6px;
+	-moz-border-radius:6px;
+	-webkit-border-radius:6px;
+	box-shadow: 0 0 50px #ccc;
+	-box-shadow: 0 0 50px #ccc;
+	-webkit-box-shadow: 0 0 50px #ccc;
+	-moz-box-shadow: 0 0 50px #ccc;
+}
+
+#contentWrap #addthis_button { float:right;}
+#contentWrap #addthis_button img{ border:0;}
+#contentWrap textarea { margin:.75em auto;}
+
+/* default close button positioned on upper right corner */
+#overlay a.close {
+	position:relative;
+	top:15px;
+	display:block;
+	background:url('close.png') no-repeat top right;
+	cursor:pointer;
+	margin:0px auto 0px auto;
+	height:35px;
+	width:515px;
+}
+
+/* ======== ClueTip CSS ======== */
+/* these are the only bits you'll need to change for custom interfaces */
+.cluetip-default *, #cluetip-inner *, #cluetip-outer *{
+	color: #000;
+}
+.cluetip-default #cluetip-outer {
+	background:url('../../images/toplessteal.jpg') top left repeat-x #fff;
+}
+
+/* these are the defaults */
+#cluetip-close img { border: 0; }
+#cluetip-title { overflow: hidden;}
+#cluetip-title #cluetip-close { float: right;  position: relative; }
+#cluetip-extra {  display: none; }
+.cluetip-default *, #cluetip-inner *{  text-align:left;}
+.cluetip-default #cluetip-outer {
+	background:url('../../images/toplessteal.jpg') top left repeat-x #fff;
+	position: relative;  margin: 0;
+}
+#cluetip-inner h3 { font-size: 0.9em; font-weight: bold; border-bottom:0px; }
+.cluetip-default #cluetip-inner {  font-size: 0.85em; padding: 10px; text-align:left; }
+</style>    <title>Flagstaff</title>
+</head> 
+<body>   
+    <div id="mainContent">
+    <a id="start" />
+    <h1 style="page-break-before:auto" class="Title">CHARTER</h1>
+            <p class="Article"><span class="bold">FOR THE</span></p>
+
+            <p class="Article"><span class="bold">CITY OF FLAGSTAFF, ARIZONA</span></p>
+
+            <p class="P0">The original Charter for the City of Flagstaff was prepared by the Board of Freeholders, as provided by law, and submitted to the qualified electors on September 12, 1958. Approval was granted for the Charter by Governor Ernest W. McFarland on October 3, 1958.</p>
+
+            <p class="P0">Amendments were proposed by the City Council and submitted to the qualified electors of the City on June 20, 1972. The amendments were approved on August 14, 1972, by Governor Jack Williams.</p>
+
+            <p class="P0">Amendments were again proposed by the City Council and submitted to the qualified electors of the City on March 2, 1982. The amendments were approved on June 7, 1982, by Governor Bruce Babbitt.</p>
+
+            <p class="P0">Amendments were again proposed by the City Council and submitted to the qualified electors of the City on March 6, 1984. The amendments were approved on April 10, 1984, by Governor Bruce Babbitt.</p>
+
+            <p class="P0">Amendments were again proposed by the City Council and submitted to the qualified electors of the City on March 1, 1988. The amendments were approved on May 4, 1988, by Governor Rose Mofford.</p>
+
+            <p class="P0">Amendments were again proposed by the City Council and submitted to the qualified electors of the City on May 19, 1998. The amendments were approved on June 29, 1998, by Governor Jane Dee Hull.</p>
+
+            <p class="P0">An amendment was again proposed by the City Council and submitted to the qualified electors of the City on May 18, 2008. The amendment was approved on June 19, 2008, by Governor Janice K. Brewer.</p>
+
+            <p class="P0">Amendments were proposed by the City Council and submitted to the qualified electors of the City on May 19, 2015; ten of the twelve amendments were approved. The amendments were then approved on July 14, 2015, by Governor Douglas A. Ducey.</p>
+
+            <p class="P0">Amendments were proposed by the City Council and submitted to the qualified electors of the City on November 3, 2015; four of the seven amendments were approved. The amendments were then approved on February 5, 2016, by Governor Douglas A. Ducey.</p>
+
+            <p class="P0">Amendments were proposed by the City Council and submitted to the qualified electors of the City on November 7, 2023; twelve of the nineteen amendments were approved. The amendments were then approved on January 31, 2024, by Governor Katie Hobbs.</p>
+
+      
+<h1 class="Title"><a id="a1" name="a1"></a>Title 1<br />ADMINISTRATIVE</h1>
+            <p class="digTitle">CHAPTERS:</p>
+
+            <p class="CHTOC">1-01&nbsp;&nbsp;&nbsp;&nbsp;OFFICIAL CITY CODE</p>
+
+            <p class="CHTOC">1-02&nbsp;&nbsp;&nbsp;&nbsp;SAVING CLAUSE</p>
+
+            <p class="CHTOC">1-03&nbsp;&nbsp;&nbsp;&nbsp;DEFINITIONS</p>
+
+            <p class="CHTOC">1-04&nbsp;&nbsp;&nbsp;&nbsp;GENERAL PENALTY</p>
+
+            <p class="CHTOC">1-05&nbsp;&nbsp;&nbsp;&nbsp;CORPORATE SEAL</p>
+
+            <p class="CHTOC">1-06&nbsp;&nbsp;&nbsp;&nbsp;CORPORATE LIMITS</p>
+
+            <p class="CHTOC">1-07&nbsp;&nbsp;&nbsp;&nbsp;MAYOR AND COUNCIL</p>
+
+            <p class="CHTOC">1-08&nbsp;&nbsp;&nbsp;&nbsp;CITY MANAGER</p>
+
+            <p class="CHTOC">1-09&nbsp;&nbsp;&nbsp;&nbsp;CITY CLERK</p>
+
+            <p class="CHTOC">1-10&nbsp;&nbsp;&nbsp;&nbsp;CITY TREASURER</p>
+
+            <p class="CHTOC">1-11&nbsp;&nbsp;&nbsp;&nbsp;CITY ATTORNEY</p>
+
+            <p class="CHTOC">1-12&nbsp;&nbsp;&nbsp;&nbsp;CONSIDERATION OF PETITION</p>
+
+            <p class="CHTOC">1-13&nbsp;&nbsp;&nbsp;&nbsp;HOUSING AUTHORITY</p>
+
+            <p class="CHTOC">1-14&nbsp;&nbsp;&nbsp;&nbsp;PERSONNEL SYSTEM</p>
+
+            <p class="CHTOC">1-15&nbsp;&nbsp;&nbsp;&nbsp;MUNICIPAL COURT</p>
+
+            <p class="CHTOC">1-16&nbsp;&nbsp;&nbsp;&nbsp;CITY ELECTIONS</p>
+
+            <p class="CHTOC">1-17&nbsp;&nbsp;&nbsp;&nbsp;CITY FINANCES</p>
+
+            <p class="CHTOC">1-18&nbsp;&nbsp;&nbsp;&nbsp;ADMINISTRATIVE DEPARTMENTS</p>
+
+            <p class="CHTOC">1-19&nbsp;&nbsp;&nbsp;&nbsp;REPEALED.</p>
+
+            <p class="CHTOC">1-20&nbsp;&nbsp;&nbsp;&nbsp;CONTRACTS AND PROPERTY TRANSACTIONS</p>
+
+            <p class="CHTOC">1-21&nbsp;&nbsp;&nbsp;&nbsp;FLAGSTAFF REGISTER OF HISTORIC PROPERTIES</p>
+
+            <p class="CHTOC">1-22&nbsp;&nbsp;&nbsp;&nbsp;FLAGSTAFF EMERGENCY SERVICES</p>
+
+            <p class="CHTOC">1-23&nbsp;&nbsp;&nbsp;&nbsp;CITY OFFICERS AND EMPLOYEES</p>
+
+            <p class="CHTOC">1-24&nbsp;&nbsp;&nbsp;&nbsp;INSURANCE</p>
+
+    
+<h1 class="Title"><a id="a2" name="a2"></a>Title 2<br />BOARDS AND COMMISSIONS</h1>
+            <p class="digTitle">CHAPTERS:</p>
+
+            <p class="CHTOC">2-01&nbsp;&nbsp;&nbsp;&nbsp;PLANNING AND ZONING COMMISSION</p>
+
+            <p class="CHTOC">2-02&nbsp;&nbsp;&nbsp;&nbsp;BUILDING AND FIRE CODE BOARD OF APPEALS</p>
+
+            <p class="CHTOC">2-03&nbsp;&nbsp;&nbsp;&nbsp;PARKS AND RECREATION COMMISSION</p>
+
+            <p class="CHTOC">2-04&nbsp;&nbsp;&nbsp;&nbsp;WATER COMMISSION</p>
+
+            <p class="CHTOC">2-05&nbsp;&nbsp;&nbsp;&nbsp;REPEALED</p>
+
+            <p class="CHTOC">2-06&nbsp;&nbsp;&nbsp;&nbsp;REPEALED</p>
+
+            <p class="CHTOC">2-07&nbsp;&nbsp;&nbsp;&nbsp;REPEALED</p>
+
+            <p class="CHTOC">2-08&nbsp;&nbsp;&nbsp;&nbsp;COMMISSION ON DIVERSITY AWARENESS</p>
+
+            <p class="CHTOC">2-09&nbsp;&nbsp;&nbsp;&nbsp;REPEALED</p>
+
+            <p class="CHTOC">2-10&nbsp;&nbsp;&nbsp;&nbsp;BOARD OF ADJUSTMENT</p>
+
+            <p class="CHTOC">2-11&nbsp;&nbsp;&nbsp;&nbsp;FLAGSTAFF AIRPORT COMMISSION</p>
+
+            <p class="CHTOC">2-12&nbsp;&nbsp;&nbsp;&nbsp;TRANSPORTATION COMMISSION</p>
+
+            <p class="CHTOC">2-13&nbsp;&nbsp;&nbsp;&nbsp;TOURISM COMMISSION</p>
+
+            <p class="CHTOC">2-14&nbsp;&nbsp;&nbsp;&nbsp;BEAUTIFICATION AND PUBLIC ART COMMISSION</p>
+
+            <p class="CHTOC">2-15&nbsp;&nbsp;&nbsp;&nbsp;REPEALED</p>
+
+            <p class="CHTOC">2-16&nbsp;&nbsp;&nbsp;&nbsp;REPEALED</p>
+
+            <p class="CHTOC">2-17&nbsp;&nbsp;&nbsp;&nbsp;SUSTAINABILITY COMMISSION</p>
+
+            <p class="CHTOC">2-18&nbsp;&nbsp;&nbsp;&nbsp;COMMISSION ON INCLUSION AND ADAPTIVE LIVING</p>
+
+            <p class="CHTOC">2-19&nbsp;&nbsp;&nbsp;&nbsp;HERITAGE PRESERVATION COMMISSION</p>
+
+            <p class="CHTOC">2-20&nbsp;&nbsp;&nbsp;&nbsp;OPEN SPACES COMMISSION</p>
+
+            <p class="CHTOC">2-21&nbsp;&nbsp;&nbsp;&nbsp;REPEALED</p>
+
+            <p class="CHTOC">2-22&nbsp;&nbsp;&nbsp;&nbsp;REPEALED</p>
+
+            <p class="CHTOC">2-23&nbsp;&nbsp;&nbsp;&nbsp;REPEALED</p>
+
+            <p class="CHTOC">2-24&nbsp;&nbsp;&nbsp;&nbsp;FLAGSTAFF CITIZENS&rsquo; TRANSPORTATION TAX COMMISSION</p>
+
+            <p class="CHTOC">2-25&nbsp;&nbsp;&nbsp;&nbsp;FLAGSTAFF HOUSING COMMISSION</p>
+
+            <p class="CHTOC">2-26&nbsp;&nbsp;&nbsp;&nbsp;INDIGENOUS COMMISSION</p>
+
+    
+<h1 class="Title"><a id="a3" name="a3"></a>Title 3<br />BUSINESS REGULATIONS</h1>
+            <p class="digTitle">CHAPTERS:</p>
+
+            <p class="CHTOC">3-01&nbsp;&nbsp;&nbsp;&nbsp;BUSINESS LICENSE REGULATIONS</p>
+
+            <p class="CHTOC">3-02&nbsp;&nbsp;&nbsp;&nbsp;PAWNBROKERS AND SECONDHAND/ANTIQUE DEALERS</p>
+
+            <p class="CHTOC">3-03&nbsp;&nbsp;&nbsp;&nbsp;REPEALED</p>
+
+            <p class="CHTOC">3-04&nbsp;&nbsp;&nbsp;&nbsp;MOTELS AND HOTELS</p>
+
+            <p class="CHTOC">3-05&nbsp;&nbsp;&nbsp;&nbsp;PRIVILEGE AND EXCISE TAXES</p>
+
+            <p class="CHTOC">3-06&nbsp;&nbsp;&nbsp;&nbsp;HOSPITALITY INDUSTRY TAX REVENUES</p>
+
+            <p class="CHTOC">3-07&nbsp;&nbsp;&nbsp;&nbsp;SPECIAL LICENSES</p>
+
+            <p class="CHTOC">3-08&nbsp;&nbsp;&nbsp;&nbsp;ADULT ORIENTED BUSINESSES</p>
+
+            <p class="CHTOC">3-09&nbsp;&nbsp;&nbsp;&nbsp;CABLE</p>
+
+            <p class="CHTOC">3-10&nbsp;&nbsp;&nbsp;&nbsp;USER FEES</p>
+
+            <p class="CHTOC">3-11&nbsp;&nbsp;&nbsp;&nbsp;DEVELOPMENT FEES</p>
+
+			            <p class="CHTOC">3-12&nbsp;&nbsp;&nbsp;&nbsp;SHORT-TERM RENTALS</p>
+    
+<h1 class="Title"><a id="a4" name="a4"></a>Title 4<br />BUILDING REGULATIONS</h1>
+            <p class="digTitle">CHAPTERS:</p>
+
+            <p class="CHTOC">4-01&nbsp;&nbsp;&nbsp;&nbsp;ADMINISTRATIVE ENACTMENTS</p>
+
+            <p class="CHTOC">4-02&nbsp;&nbsp;&nbsp;&nbsp;2018 INTERNATIONAL BUILDING CODE</p>
+
+            <p class="CHTOC">4-03&nbsp;&nbsp;&nbsp;&nbsp;2018 INTERNATIONAL RESIDENTIAL CODE</p>
+
+            <p class="CHTOC">4-04&nbsp;&nbsp;&nbsp;&nbsp;2018 INTERNATIONAL EXISTING BUILDING CODE</p>
+
+            <p class="CHTOC">4-05&nbsp;&nbsp;&nbsp;&nbsp;2018 INTERNATIONAL MECHANICAL CODE</p>
+
+            <p class="CHTOC">4-06&nbsp;&nbsp;&nbsp;&nbsp;2018 INTERNATIONAL PLUMBING CODE</p>
+
+            <p class="CHTOC">4-07&nbsp;&nbsp;&nbsp;&nbsp;2018 INTERNATIONAL FUEL GAS CODE</p>
+
+            <p class="CHTOC">4-08&nbsp;&nbsp;&nbsp;&nbsp;2018 INTERNATIONAL ENERGY CONSERVATION CODE</p>
+
+            <p class="CHTOC">4-09&nbsp;&nbsp;&nbsp;&nbsp;2018 INTERNATIONAL SOLAR ENERGY PROVISIONS</p>
+
+            <p class="CHTOC">4-10&nbsp;&nbsp;&nbsp;&nbsp;2018 INTERNATIONAL SWIMMING POOL AND SPA CODE</p>
+
+            <p class="CHTOC">4-11&nbsp;&nbsp;&nbsp;&nbsp;NATIONAL ELECTRICAL CODE</p>
+
+            <p class="Note">Prior legislation: Ords. 2007-47, 2007-48, 2008-12, 2009-06, 2011-12, 2011-31, 2013-12, 2013-19, 2014-08 and 2017-16.</p>
+
+    
+<h1 class="Title"><a id="a5" name="a5"></a>Title 5<br />FIRE CODE</h1>
+            <p class="digTitle">CHAPTERS:</p>
+
+            <p class="CHTOC">5-01&nbsp;&nbsp;&nbsp;&nbsp;FIRE LIMITS</p>
+
+            <p class="CHTOC">5-02&nbsp;&nbsp;&nbsp;&nbsp;FIRE CODE</p>
+
+            <p class="CHTOC">5-03&nbsp;&nbsp;&nbsp;&nbsp;FIRE DEPARTMENT</p>
+
+    
+<h1 class="Title"><a id="a6" name="a6"></a>Title 6<br />POLICE REGULATIONS</h1>
+            <p class="digTitle">CHAPTERS:</p>
+
+            <p class="CHTOC">6-01&nbsp;&nbsp;&nbsp;&nbsp;GENERAL OFFENSES</p>
+
+            <p class="CHTOC">6-02&nbsp;&nbsp;&nbsp;&nbsp;DOGS</p>
+
+            <p class="CHTOC">6-03&nbsp;&nbsp;&nbsp;&nbsp;ANIMAL KEEPING</p>
+
+            <p class="CHTOC">6-04&nbsp;&nbsp;&nbsp;&nbsp;NUISANCES</p>
+
+            <p class="CHTOC">6-05&nbsp;&nbsp;&nbsp;&nbsp;MINORS</p>
+
+            <p class="CHTOC">6-06&nbsp;&nbsp;&nbsp;&nbsp;LITTERING</p>
+
+            <p class="CHTOC">6-07&nbsp;&nbsp;&nbsp;&nbsp;INOPERABLE VEHICLES</p>
+
+            <p class="CHTOC">6-08&nbsp;&nbsp;&nbsp;&nbsp;NOISE CONTROL</p>
+
+            <p class="CHTOC">6-09&nbsp;&nbsp;&nbsp;&nbsp;ALARMS</p>
+
+            <p class="CHTOC">6-10&nbsp;&nbsp;&nbsp;&nbsp;REGULATION OF RECREATIONAL MARIJUANA</p>
+
+    
+<h1 class="Title"><a id="a7" name="a7"></a>Title 7<br />HEALTH AND SANITATION</h1>
+            <p class="digTitle">CHAPTERS:</p>
+
+            <p class="CHTOC">7-01&nbsp;&nbsp;&nbsp;&nbsp;WATER SERVICES</p>
+
+            <p class="CHTOC">7-02&nbsp;&nbsp;&nbsp;&nbsp;WASTEWATER REGULATIONS</p>
+
+            <p class="CHTOC">7-03&nbsp;&nbsp;&nbsp;&nbsp;CITY WATER SYSTEM REGULATIONS</p>
+
+            <p class="CHTOC">7-04&nbsp;&nbsp;&nbsp;&nbsp;MUNICIPAL REFUSE COLLECTION SERVICE</p>
+
+            <p class="CHTOC">7-05&nbsp;&nbsp;&nbsp;&nbsp;SMOKE-FREE AND TOBACCO-FREE AIR</p>
+
+            <p class="CHTOC">7-06&nbsp;&nbsp;&nbsp;&nbsp;BUILDING AND PROPERTY CARE STANDARDS&nbsp;&nbsp;&nbsp;&nbsp;</p>
+
+            <p class="CHTOC">7-07&nbsp;&nbsp;&nbsp;&nbsp;SOLID FUEL BURNING DEVICES</p>
+
+            <p class="CHTOC">7-08&nbsp;&nbsp;&nbsp;&nbsp;EXTENSION AND REIMBURSEMENT AGREEMENTS FOR THE CONSTRUCTION OF WATER AND SEWER LINES</p>
+
+            <p class="CHTOC">7-09&nbsp;&nbsp;&nbsp;&nbsp;TOBACCO PRODUCTS</p>
+
+            <p class="CHTOC">7-10&nbsp;&nbsp;&nbsp;&nbsp;GRAFFITI ABATEMENT</p>
+
+    
+<h1 class="Title"><a id="a8" name="a8"></a>Title 8<br />PUBLIC WAYS AND PROPERTY</h1>
+            <p class="digTitle">CHAPTERS:</p>
+
+            <p class="CHTOC">8-01&nbsp;&nbsp;&nbsp;&nbsp;SIDEWALKS</p>
+
+            <p class="CHTOC">8-02&nbsp;&nbsp;&nbsp;&nbsp;EXCAVATIONS</p>
+
+            <p class="CHTOC">8-03&nbsp;&nbsp;&nbsp;&nbsp;STREETS AND PUBLIC WAYS</p>
+
+            <p class="CHTOC">8-04&nbsp;&nbsp;&nbsp;&nbsp;TREES AND SHRUBBERY</p>
+
+            <p class="CHTOC">8-05&nbsp;&nbsp;&nbsp;&nbsp;REPEALED</p>
+
+            <p class="CHTOC">8-06&nbsp;&nbsp;&nbsp;&nbsp;AIRPORT RULES AND REGULATIONS</p>
+
+            <p class="CHTOC">8-07&nbsp;&nbsp;&nbsp;&nbsp;CEMETERY REGULATIONS</p>
+
+            <p class="CHTOC">8-08&nbsp;&nbsp;&nbsp;&nbsp;REPEALED</p>
+
+            <p class="CHTOC">8-09&nbsp;&nbsp;&nbsp;&nbsp;UTILITY POLES AND WIRES</p>
+
+            <p class="CHTOC">8-10&nbsp;&nbsp;&nbsp;&nbsp;REPEALED</p>
+
+            <p class="CHTOC">8-11&nbsp;&nbsp;&nbsp;&nbsp;POLICIES REGARDING USE OF MUNICIPAL PARKS</p>
+
+            <p class="CHTOC">8-12&nbsp;&nbsp;&nbsp;&nbsp;SPECIAL EVENTS</p>
+
+            <p class="CHTOC">8-13&nbsp;&nbsp;&nbsp;&nbsp;PROHIBITION ON USE OF RIGHT-OF-WAY</p>
+
+    
+<h1 class="Title"><a id="a9" name="a9"></a>Title 9<br />TRAFFIC</h1>
+            <p class="digTitle">CHAPTERS:</p>
+
+            <p class="CHTOC">9-01&nbsp;&nbsp;&nbsp;&nbsp;TRAFFIC CODE</p>
+
+            <p class="CHTOC">9-02&nbsp;&nbsp;&nbsp;&nbsp;REPEALED</p>
+
+            <p class="CHTOC">9-03&nbsp;&nbsp;&nbsp;&nbsp;LOADING ZONES</p>
+
+            <p class="CHTOC">9-04&nbsp;&nbsp;&nbsp;&nbsp;REPEALED</p>
+
+            <p class="CHTOC">9-05&nbsp;&nbsp;&nbsp;&nbsp;BICYCLES</p>
+
+    
+<h1 class="Title"><a id="a10" name="a10"></a>Title 10<br />FLAGSTAFF ZONING CODE</h1>
+            <p class="digTitle">Chapters:</p>
+
+            <p class="CHTOC">Chapter 10.00&nbsp;&nbsp;&nbsp;&nbsp;Preamble: A Place-Based Approach to Zoning</p>
+
+            <p class="CiteTOC">10-00.010&nbsp;&nbsp;&nbsp;&nbsp;Introduction</p>
+
+            <p class="CiteTOC">10-00.020&nbsp;&nbsp;&nbsp;&nbsp;How to Use the Zoning Code</p>
+
+            <p class="CiteTOC">10-00.030&nbsp;&nbsp;&nbsp;&nbsp;Steps for Using this Zoning Code</p>
+
+            <p class="CiteTOC">10-00.040&nbsp;&nbsp;&nbsp;&nbsp;Classifications of Different Types of Places in Flagstaff</p>
+
+            <p class="CiteTOC">10-00.050&nbsp;&nbsp;&nbsp;&nbsp;Form-Based Codes</p>
+
+            <p class="CiteTOC">10-00.060&nbsp;&nbsp;&nbsp;&nbsp;The Rural-to-Urban Transect</p>
+
+            <p class="CiteTOC">10-00.070&nbsp;&nbsp;&nbsp;&nbsp;The Flagstaff Transect</p>
+
+            <p class="CiteTOC">10-00.080&nbsp;&nbsp;&nbsp;&nbsp;The Flagstaff Transect Zones and Intents</p>
+
+            <p class="CiteTOC">10-00.090&nbsp;&nbsp;&nbsp;&nbsp;Using the Flagstaff Transect</p>
+
+            <p class="CiteTOC">10-00.100&nbsp;&nbsp;&nbsp;&nbsp;History of Zoning Regulations in Flagstaff</p>
+
+            <p class="CHTOC">Chapter 10.10&nbsp;&nbsp;&nbsp;&nbsp;Title, Purpose, and Jurisdiction</p>
+
+            <p class="CiteTOC">10-10.10&nbsp;&nbsp;&nbsp;&nbsp;Title</p>
+
+            <p class="CiteTOC">10-10.20&nbsp;&nbsp;&nbsp;&nbsp;Legislative Intent and Purpose</p>
+
+            <p class="CiteTOC">10-10.30&nbsp;&nbsp;&nbsp;&nbsp;Authority</p>
+
+            <p class="CiteTOC">10-10.40&nbsp;&nbsp;&nbsp;&nbsp;Severability</p>
+
+            <p class="CiteTOC">10-10.50&nbsp;&nbsp;&nbsp;&nbsp;Effective Date</p>
+
+            <p class="CHTOC">Chapter 10.20&nbsp;&nbsp;&nbsp;&nbsp;Administration, Procedures, and Enforcement</p>
+
+            <p class="CiteTOC">10-20.10&nbsp;&nbsp;&nbsp;&nbsp;Purpose</p>
+
+            <p class="CiteTOC">10-20.20&nbsp;&nbsp;&nbsp;&nbsp;Administration</p>
+
+            <p class="CiteTOC">10-20.30&nbsp;&nbsp;&nbsp;&nbsp;Common Procedures</p>
+
+            <p class="CiteTOC">10-20.40&nbsp;&nbsp;&nbsp;&nbsp;Permits and Approvals</p>
+
+            <p class="CiteTOC">10-20.50&nbsp;&nbsp;&nbsp;&nbsp;Amendments to the Zoning Code Text and the Zoning Map</p>
+
+            <p class="CiteTOC">10-20.60&nbsp;&nbsp;&nbsp;&nbsp;Nonconforming Provisions</p>
+
+            <p class="CiteTOC">10-20.70&nbsp;&nbsp;&nbsp;&nbsp;Variances</p>
+
+            <p class="CiteTOC">10-20.80&nbsp;&nbsp;&nbsp;&nbsp;Procedures for Appeals</p>
+
+            <p class="CiteTOC">10-20.90&nbsp;&nbsp;&nbsp;&nbsp;Annexations</p>
+
+            <p class="CiteTOC">10-20.100&nbsp;&nbsp;&nbsp;&nbsp;Assurance of Performance for Construction</p>
+
+            <p class="CiteTOC">10-20.110&nbsp;&nbsp;&nbsp;&nbsp;Enforcement</p>
+
+            <p class="CHTOC">Chapter 10.30&nbsp;&nbsp;&nbsp;&nbsp;General to All</p>
+
+            <p class="CiteTOC">10-30.10&nbsp;&nbsp;&nbsp;&nbsp;Purpose</p>
+
+            <p class="CiteTOC">10-30.20&nbsp;&nbsp;&nbsp;&nbsp;Affordable Housing Incentives</p>
+
+            <p class="CiteTOC">10-30.30&nbsp;&nbsp;&nbsp;&nbsp;Heritage Preservation</p>
+
+            <p class="CiteTOC">10-30.40&nbsp;&nbsp;&nbsp;&nbsp;Community Benefit Program</p>
+
+            <p class="CiteTOC">10-30.50&nbsp;&nbsp;&nbsp;&nbsp;Public Improvements</p>
+
+            <p class="CiteTOC">10-30.60&nbsp;&nbsp;&nbsp;&nbsp;Site Planning Design Standards</p>
+
+            <p class="CiteTOC">10-30.70&nbsp;&nbsp;&nbsp;&nbsp;Residential Sustainable Building Incentives</p>
+
+            <p class="CiteTOC">10-30.80&nbsp;&nbsp;&nbsp;&nbsp;Traditional Neighborhood Community Plans</p>
+
+            <p class="CHTOC">Chapter 10.40&nbsp;&nbsp;&nbsp;&nbsp;Specific to Zones</p>
+
+            <p class="CiteTOC">10-40.10&nbsp;&nbsp;&nbsp;&nbsp;Purpose</p>
+
+            <p class="CiteTOC">10-40.20&nbsp;&nbsp;&nbsp;&nbsp;Establishment of Zones</p>
+
+            <p class="CiteTOC">10-40.30&nbsp;&nbsp;&nbsp;&nbsp;Non-Transect Zones</p>
+
+            <p class="CiteTOC">10-40.40&nbsp;&nbsp;&nbsp;&nbsp;Transect Zones</p>
+
+            <p class="CiteTOC">10-40.50&nbsp;&nbsp;&nbsp;&nbsp;Overlay Zones</p>
+
+            <p class="CiteTOC">10-40.60&nbsp;&nbsp;&nbsp;&nbsp;Specific to Uses</p>
+
+            <p class="CHTOC">Chapter 10.50&nbsp;&nbsp;&nbsp;&nbsp;Supplemental to Zones</p>
+
+            <p class="CiteTOC">10-50.10&nbsp;&nbsp;&nbsp;&nbsp;Purpose</p>
+
+            <p class="CiteTOC">10-50.20&nbsp;&nbsp;&nbsp;&nbsp;Architectural Design Standards</p>
+
+            <p class="CiteTOC">10-50.25&nbsp;&nbsp;&nbsp;&nbsp;<span class="italic">Repealed</span></p>
+
+            <p class="CiteTOC">10-50.30&nbsp;&nbsp;&nbsp;&nbsp;Building Height</p>
+
+            <p class="CiteTOC">10-50.40&nbsp;&nbsp;&nbsp;&nbsp;Encroachments</p>
+
+            <p class="CiteTOC">10-50.50&nbsp;&nbsp;&nbsp;&nbsp;Fences and Screening</p>
+
+            <p class="CiteTOC">10-50.60&nbsp;&nbsp;&nbsp;&nbsp;Landscaping Standards</p>
+
+            <p class="CiteTOC">10-50.70&nbsp;&nbsp;&nbsp;&nbsp;Outdoor Lighting Standards</p>
+
+            <p class="CiteTOC">10-50.80&nbsp;&nbsp;&nbsp;&nbsp;Parking Standards</p>
+
+            <p class="CiteTOC">10-50.90&nbsp;&nbsp;&nbsp;&nbsp;Resource Protection Standards</p>
+
+            <p class="CiteTOC">10-50.100&nbsp;&nbsp;&nbsp;&nbsp;Sign Standards</p>
+
+            <p class="CiteTOC">10-50.110&nbsp;&nbsp;&nbsp;&nbsp;Specific to Building Types</p>
+
+            <p class="CiteTOC">10-50.120&nbsp;&nbsp;&nbsp;&nbsp;Specific to Private Frontages</p>
+
+            <p class="CHTOC">Chapter 10.60&nbsp;&nbsp;&nbsp;&nbsp;Specific to Thoroughfares</p>
+
+            <p class="CiteTOC">10-60.10&nbsp;&nbsp;&nbsp;&nbsp;Thoroughfare Types</p>
+
+            <p class="CHTOC">Chapter 10.70&nbsp;&nbsp;&nbsp;&nbsp;Specific to Civic Spaces</p>
+
+            <p class="CiteTOC">10-70.10&nbsp;&nbsp;&nbsp;&nbsp;Civic Space Types</p>
+
+            <p class="CHTOC">Chapter 10.80&nbsp;&nbsp;&nbsp;&nbsp;Definitions</p>
+
+            <p class="CiteTOC">10-80.10&nbsp;&nbsp;&nbsp;&nbsp;Purpose</p>
+
+            <p class="CiteTOC">10-80.20&nbsp;&nbsp;&nbsp;&nbsp;Definition of Specialized Terms, Phrases, and Building Functions</p>
+
+            <p class="CHTOC">Chapter 10.90&nbsp;&nbsp;&nbsp;&nbsp;Maps</p>
+
+            <p class="CiteTOC">10-90.10&nbsp;&nbsp;&nbsp;&nbsp;Purpose</p>
+
+            <p class="CiteTOC">10-90.20&nbsp;&nbsp;&nbsp;&nbsp;Cultural Resource Maps</p>
+
+            <p class="CiteTOC">10-90.30&nbsp;&nbsp;&nbsp;&nbsp;Rural Floodplain Map</p>
+
+            <p class="CiteTOC">10-90.40&nbsp;&nbsp;&nbsp;&nbsp;Overlay Maps</p>
+
+            <p class="CiteTOC">10-90.50&nbsp;&nbsp;&nbsp;&nbsp;Lighting Zone Map</p>
+
+            <p class="CiteTOC">10-90.60&nbsp;&nbsp;&nbsp;&nbsp;Reserved</p>
+
+            <p class="CiteTOC">10-90.70&nbsp;&nbsp;&nbsp;&nbsp;Zoning Map</p>
+
+            <p class="CHTOC">Appendices</p>
+
+            <p class="CHTOC">Appendix 1.1&nbsp;&nbsp;&nbsp;&nbsp;Design Guidelines</p>
+
+            <p class="CHTOC">Appendix 1.2&nbsp;&nbsp;&nbsp;&nbsp;Additional Information on Smart Growth and Traditional Neighborhood Developments</p>
+
+            <p class="CHTOC">Appendix 1.3&nbsp;&nbsp;&nbsp;&nbsp;Sustainability Guidelines</p>
+
+			<p class="CHTOC">Appendix 1.4&nbsp;&nbsp;&nbsp;&nbsp;Bicycle Parking Space Design Requirements</p>
+
+            <p class="CHTOC">Appendix 2&nbsp;&nbsp;&nbsp;&nbsp;Planning Fee Schedule</p>
+
+            <p class="CHTOC">Appendix 3&nbsp;&nbsp;&nbsp;&nbsp;City of Flagstaff Landscape Plant List</p>
+
+            <p class="CHTOC">Appendix 4&nbsp;&nbsp;&nbsp;&nbsp;Outdoor Lighting Reference Material</p>
+
+            <p class="CHTOC">Appendix 5&nbsp;&nbsp;&nbsp;&nbsp;Additional Information Applicable to Division 10-50.90, Resource Protection Standards</p>
+
+            <p class="CHTOC">Appendix 6&nbsp;&nbsp;&nbsp;&nbsp;Additional Information on Affordable Housing</p>
+
+            <p class="CHTOC">Appendix 7&nbsp;&nbsp;&nbsp;&nbsp;List of Major Arterial Streets</p>
+
+    
+<h1 class="Title"><a id="a11" name="a11"></a>Title 11<br />GENERAL PLANS AND SUBDIVISIONS</h1>
+            <p class="P0">This Title provides procedures and standards for the adoption, amendment and readoption of the City&rsquo;s General Plan in accordance with A.R.S. &sect; 9-461.01 et. seq., as well as procedures and standards for the subdivision of land in accordance with A.R.S. &sect; 9-463 et. seq.</p>
+
+            <p class="digTitle">CHAPTERS:</p>
+
+            <p class="CHTOC">11-10&nbsp;&nbsp;&nbsp;&nbsp;GENERAL PLANS</p>
+
+            <p class="CHTOC">11-20&nbsp;&nbsp;&nbsp;&nbsp;SUBDIVISION AND LAND SPLIT REGULATIONS</p>
+
+            <p class="CHTOC">11-30&nbsp;&nbsp;&nbsp;&nbsp;DEFINITIONS</p>
+
+    
+<h1 class="Title"><a id="a12" name="a12"></a>Title 12<br />FLOODPLAINS</h1>
+            <p class="digTitle">CHAPTERS:</p>
+
+            <p class="CHTOC">12-01&nbsp;&nbsp;&nbsp;&nbsp;FLOOD PLAIN REGULATIONS</p>
+
+            <p class="CHTOC">12-02&nbsp;&nbsp;&nbsp;&nbsp;STORMWATER MANAGEMENT UTILITY</p>
+
+            <p class="CHTOC">12-03&nbsp;&nbsp;&nbsp;&nbsp;ILLICIT DISCHARGE DETECTION AND ELIMINATION</p>
+
+    
+<h1 class="Title"><a id="a13" name="a13"></a>Title 13<br />ENGINEERING DESIGN STANDARDS AND SPECIFICATIONS FOR NEW INFRASTRUCTURE</h1>
+            <p class="digTitle">CHAPTERS:</p>
+
+            <p class="CHTOC">13-01&nbsp;&nbsp;&nbsp;&nbsp;Administrative Enactments, Agency Controls and Reviews, and Work in Public Rights-of-Way</p>
+
+            <p class="CHTOC">13-02&nbsp;&nbsp;&nbsp;&nbsp;Reserved</p>
+
+            <p class="CHTOC">13-03&nbsp;&nbsp;&nbsp;&nbsp;Survey</p>
+
+            <p class="CHTOC">13-04&nbsp;&nbsp;&nbsp;&nbsp;Easements and Rights-of-Way</p>
+
+            <p class="CHTOC">13-05&nbsp;&nbsp;&nbsp;&nbsp;Engineering Design Reports</p>
+
+            <p class="CHTOC">13-06&nbsp;&nbsp;&nbsp;&nbsp;Construction Plans</p>
+
+            <p class="CHTOC">13-07&nbsp;&nbsp;&nbsp;&nbsp;Grading</p>
+
+            <p class="CHTOC">13-08&nbsp;&nbsp;&nbsp;&nbsp;Stormwater Management</p>
+
+            <p class="CHTOC">13-09&nbsp;&nbsp;&nbsp;&nbsp;Water, Sewer, and Other Underground Utilities</p>
+
+            <p class="CHTOC">13-10&nbsp;&nbsp;&nbsp;&nbsp;Streets</p>
+
+            <p class="CHTOC">13-11&nbsp;&nbsp;&nbsp;&nbsp;Reserved</p>
+
+            <p class="CHTOC">13-12&nbsp;&nbsp;&nbsp;&nbsp;Street Lighting</p>
+
+            <p class="CHTOC">13-13&nbsp;&nbsp;&nbsp;&nbsp;Fire Safety Requirements</p>
+
+            <p class="CHTOC">13-14&nbsp;&nbsp;&nbsp;&nbsp;FUTS Trails, Pedestrian and Bicycle Facilities</p>
+
+            <p class="CHTOC">13-15&nbsp;&nbsp;&nbsp;&nbsp;Work in Public Rights-of-Way and Easements</p>
+
+            <p class="CHTOC">13-16&nbsp;&nbsp;&nbsp;&nbsp;Traffic Signals, Signing, and Pavement Markings</p>
+
+            <p class="CHTOC">13-17&nbsp;&nbsp;&nbsp;&nbsp;Erosion Control</p>
+
+            <p class="CHTOC">13-18&nbsp;&nbsp;&nbsp;&nbsp;Landscaping Standards for Rights-of-Way</p>
+
+            <p class="CHTOC">13-19&nbsp;&nbsp;&nbsp;&nbsp;Irrigation Systems</p>
+
+            <p class="CHTOC">13-20&nbsp;&nbsp;&nbsp;&nbsp;Reserved</p>
+
+            <p class="CHTOC">13-21&nbsp;&nbsp;&nbsp;&nbsp;Revisions to MAG Uniform Standards Specifications and MAG Uniform Standards Details</p>
+
+            <p class="CHTOC">13-22&nbsp;&nbsp;&nbsp;&nbsp;Glossary</p>
+
+            <p class="CHTOC">13-23&nbsp;&nbsp;&nbsp;&nbsp;Standard Drawings</p>
+
+    
+<h1 class="Title"><a id="a14" name="a14"></a>Title 14<br />HUMAN RELATIONS</h1>
+            <p class="digTitle">CHAPTERS:</p>
+
+            <p class="CHTOC">14-01&nbsp;&nbsp;&nbsp;&nbsp;Domestic Partnership Registry</p>
+
+            <p class="CHTOC">14-02&nbsp;&nbsp;&nbsp;&nbsp;Civil Rights</p>
+
+    
+<h1 class="Title"><a id="a15" name="a15"></a>Title 15<br />LABOR</h1>
+            <p class="digTitle">CHAPTERS:</p>
+
+            <p class="CHTOC">15-01&nbsp;&nbsp;&nbsp;&nbsp;Minimum Wage</p>
+
+    
+<h1 class="Title"><a id="aSR" name="aSR"></a>STATUTORY REFERENCES FOR ARIZONA CITIES AND TOWNS</h1>
+            <p class="P1">The statutory references listed below refer the code user to state statutes applicable to Arizona cities and towns. They are up to date through legislation adopted by the 55th Legislature, Second Regular Session (2022).</p>
+
+      
+<h1 class="Title"><a id="a20" name="a20"></a>TITLE 20<br />SPECIAL ORDINANCES</h1>
+      
+    </div>
+    <div id="pgFooter">
+    <!--BeginNoIndex-->
+<div class="left">
+<p id="current">The Flagstaff City Charter and City Code are current through Ordinance 2026-19, passed August 25, 2026.</p>
+<p id="disclaimer">Disclaimer: The City Clerk's Office has the official version of the Flagstaff City Code. Users should contact the City Clerk's Office for ordinances passed subsequent to the ordinance cited above.</p>
+</div>
+<div class="right">
+<p>City Website: <a href="https://www.flagstaff.az.gov" target="_top">https://www.flagstaff.az.gov</a><br />
+City Telephone: (928) 774-5281</p>
+<p>
+    <a href="https://www.generalcode.com/" target="top">General Code</a><br />
+
+</p>
+</div>
+    <!--EndNoIndex-->
+
+</div>
+</body></html>

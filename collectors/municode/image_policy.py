@@ -9,12 +9,14 @@ def image_url(value):
  return bool(value and (value.lower().startswith('data:image/') or IMAGE_EXT.search(urlparse(value).path)))
 def image_ref(ref,base,known=()):
  t=ref['tag'];a=ref.get('attributes',{});v=ref['value'];u=urljoin(base,v)
- return t in ('img','image','picture','svg') or (t=='source' and a.get('_in_picture')) or ref['attribute']=='style-url' or image_url(v) or u in known or (t in ('object','embed') and a.get('type','').lower().startswith('image/'))
-def safe_metadata(value,locator='metadata'):
+ return t in ('img','image','picture','svg') or (t=='source' and a.get('_in_picture')) or ref['attribute'] in ('style-url','poster','background') or image_url(v) or u in known or (t in ('object','embed') and a.get('type','').lower().startswith('image/'))
+IMAGE_LOCATOR_ATTRIBUTES=frozenset(('src','data','srcset','href','xlink:href','style','background','poster'))
+def safe_metadata(value,locator='metadata',image_locator=False):
+
  if isinstance(value,dict):return {k:safe_metadata(v,locator+'.'+str(k)) for k,v in value.items()}
  if isinstance(value,list):return [safe_metadata(v,locator+'['+str(i)+']') for i,v in enumerate(value)]
- if isinstance(value,str) and 'data:image/' in value.lower():
-  match=re.search(r'data:(image/[^;,\s)]+)',value,re.I)
+ if isinstance(value,str) and ('data:image/' in value.lower() or image_locator and re.search(r'data:',value,re.I)):
+  match=re.search(r'data:([^;,\s)]+)',value,re.I)
   return {'inline_image_omitted':True,'mime':match.group(1).lower() if match else 'image/unknown','source_locator':locator,'source_string_sha256':hashlib.sha256(value.encode()).hexdigest(),'source_string_character_count':len(value)}
  return value
 class ImageFreeHTML(HTMLParser):
@@ -69,4 +71,9 @@ class ImageFreeHTML(HTMLParser):
  def handle_charref(self,s):
   if not self.skip:self.out.append('&#'+s+';')
 def sanitize(html,base,known=()):
- p=ImageFreeHTML(base,known);p.feed(html or '');p.close();return ''.join(p.out),safe_metadata(p.omissions,'image_omissions')
+ p=ImageFreeHTML(base,known);p.feed(html or '');p.close()
+ # These are already-classified image omissions. Attribute names supply typed
+ # locator context; alt/text/prose and ordinary nonimage metadata stay intact.
+ for i,omission in enumerate(p.omissions):
+  omission['attributes']={k:safe_metadata(v,'image_omissions['+str(i)+'].attributes.'+k,image_locator=k.lower() in IMAGE_LOCATOR_ATTRIBUTES) for k,v in omission.get('attributes',{}).items()}
+ return ''.join(p.out),safe_metadata(p.omissions,'image_omissions')

@@ -1,6 +1,7 @@
 """Coordinate-aware PDF text/table normalization. Never renders or reads image pixels."""
 import collections,hashlib,io,json,math,re,unicodedata
 import pdfplumber,pypdfium2
+from .bounded_decoder import bounded_decoder_aliases
 
 def clean(s):return re.sub(r'\s+',' ',s or '').strip()
 def chars(s):return collections.Counter(c for c in unicodedata.normalize('NFKC',s or '') if not c.isspace() and c not in '\u200b\u00ad\ufeff')
@@ -131,7 +132,8 @@ def pages(data,item,config):
      for recovery in decoder_resolutions:
       b0=recovery['glyph_bbox_pdfium'];center=((b0[0]+b0[2])/2,(b0[1]+b0[3])/2)
       if b[0]<=center[0]<=b[2] and b[1]<=center[1]<=b[3]:qualified_bounded=qualified_bounded.replace(chr(recovery['pdfium_codepoint']),recovery['pdfminer_unicode'],1)
-     agree=chars(text)==chars(qualified_bounded);x0,x1=xs.index(round(b[0],3)),xs.index(round(b[2],3));y0,y1=ys.index(round(b[1],3)),ys.index(round(b[3],3));cells.append({'id':tid+'::cell:'+str(ci+1),'bbox':[round(v,3) for v in b],'row':y0,'column':x0,'rowspan':y1-y0,'colspan':x1-x0,'text':text,'word_ids':ids,'independent_pdfium_text':bounded,'qualified_pdfium_text':qualified_bounded,'independent_character_agreement':agree})
+     qualified_bounded,bounded_alias_proof=bounded_decoder_aliases(qualified_bounded,b,decoder_resolutions,tp,original,native_text)
+     agree=chars(text)==chars(qualified_bounded);x0,x1=xs.index(round(b[0],3)),xs.index(round(b[2],3));y0,y1=ys.index(round(b[1],3)),ys.index(round(b[3],3));cells.append({'id':tid+'::cell:'+str(ci+1),'bbox':[round(v,3) for v in b],'row':y0,'column':x0,'rowspan':y1-y0,'colspan':x1-x0,'text':text,'word_ids':ids,'independent_pdfium_text':bounded,'qualified_pdfium_text':qualified_bounded,'bounded_decoder_alias_resolutions':bounded_alias_proof,'independent_character_agreement':agree})
     if any(not c['independent_character_agreement'] for c in cells):review.append(tid+':independent_cell_text_disagreement')
     tabletext='\n'.join('\t'.join(c['text'] for c in cells if c['row']==r) for r in range(max((c['row'] for c in cells),default=-1)+1));tables.append({'id':tid,'bbox':[round(v,3) for v in table.bbox],'detection':method,'row_boundaries':ys,'column_boundaries':xs,'cells':cells});objects.append({'kind':'table','id':tid,'bbox':[round(v,3) for v in table.bbox],'text':tabletext,'word_ids':[i for c in cells for i in c['word_ids']]})
    images=[]

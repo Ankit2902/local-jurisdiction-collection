@@ -134,3 +134,9 @@ python collectors/municode/test_gate.py
 ```
 
 `qa-results.json` records current executed commands and hashes. `MANIFEST.json` covers this component's checkpoint files, excluding itself, runtime caches and local dependencies. External active run files are not sealed by that component manifest. The overall goal remains active until all configured publications have explicit final evidence and outstanding source/attachment gaps are resolved or candidly blocked.
+
+## Current typed-image metadata correction
+
+The operational validation checkpoint adds image-context redaction in `image_policy.py` and `model.py`. Opaque data URIs in already-classified image locators are replaced with omission metadata and hashes without decoding their payloads. The source reference and image omission streams follow the same rule; captions, legal prose, original source bytes and required nonimage documents remain available. `test_typed_image_locators.py` exercises the exact sanitizer and reconcile paths. The isolated 34-test regression/fault suite and three tests against the promoted production files passed.
+
+The earlier component `MANIFEST.json` and QA summaries retain their checkpoint scope. Current source integrity is bound by the repository `DELIVERY-MANIFEST.json`; the exact three-file delta, negative controls and current receipts are in [the frozen typed-image evidence](../../packages/collection-operational-validation-2026-10-17/project/outputs/collection-readiness-next-2026-10-17/municode-typed-image-locator-fix-v1/README.md). This correction does not clear the retained publisher access stop or establish a fresh full-publication acquisition.

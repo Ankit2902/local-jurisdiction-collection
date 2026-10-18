@@ -42,7 +42,7 @@ class References(HTMLParser):
   for k in ('src','poster','data','href','xlink:href'):
    if k in a and a[k] :self.refs.append({'tag':t,'attribute':k,'value':a[k],'attributes':a})
   if a.get('srcset'):
-   for part in ([a['srcset']] if 'data:image/' in a['srcset'].lower() else a['srcset'].split(',')):
+   for part in ([a['srcset']] if 'data:' in a['srcset'].lower() else a['srcset'].split(',')):
     self.refs.append({'tag':t,'attribute':'srcset','value':part.strip().split(' ')[0],'attributes':a})
   if a.get('style'):
    for u in re.findall(r'url\([\'\"]?([^\)\'\"]+)',a['style']):self.refs.append({'tag':t,'attribute':'style-url','value':u,'attributes':a})
@@ -74,7 +74,7 @@ def references(records,base,policy=None,known_images=()):
     decision=policy.get(u,{})
     if decision.get('kind') in ['external_family_boundary','reference_hyperlink'] and decision.get('reason') and (not decision.get('owner_ids') or record['node_id'] in decision['owner_ids']):kind=decision['kind'];required=False
     else:kind='unclassified_external_hyperlink';required=True
-   inline=safe_metadata(raw,'reference:'+record['node_id']+':'+ref['attribute']);public_url='inline-image:'+sha(raw.encode()) if isinstance(inline,dict) else u
+   inline=safe_metadata(raw,'reference:'+record['node_id']+':'+ref['attribute'],image_locator=kind=='image_omitted');public_url='inline-image:'+sha(raw.encode()) if isinstance(inline,dict) else u
    refs.append({'owner_id':record['node_id'],'url':public_url,'source_value':inline,'tag':ref['tag'],'attribute':ref['attribute'],'kind':kind,'required':required,**({'justification':policy[u]['reason']} if kind in ['external_family_boundary','reference_hyperlink'] else {})})
  return refs
 def asset_qualification(url,body,headers):

@@ -17,6 +17,14 @@ def qualified(pub,target):
   pid=pub.get('publisher_product_id') or pub.get('selector',{}).get('product_id')
   if not pid or not identity.get('client_names'):raise Unsupported('An observed product ID and explicit client identity are required; default all-publications selection is not used by this registry')
   detail['product_id']=int(pid)
+ elif family=='official' and pub.get('adapter_family')=='originals':
+  p=ROOT/pub.get('adapter_config_path','')
+  if p.parent!=ROOT/'collectors/originals/configs' or not p.is_file():raise Unsupported('Exact original-source adapter configuration required')
+  config=read(p)
+  if config.get('target_id')!=target['id'] or config.get('source_url')!=url or config.get('jurisdiction')!=target['jurisdiction'] or config.get('state')!=target['state']:raise Unsupported('Original-source configuration/publication/government mismatch')
+  expected_profile={'original-flagstaff-az':('flagstaff_html',['html']),'original-king-county-wa':('king_html_word',['html','word'])}.get(target['id'])
+  if expected_profile!=(config.get('profile'),config.get('required_formats')):raise Unsupported('Unqualified original-source profile or required formats')
+  detail.update(config=config,config_path=str(p.relative_to(ROOT)),adapter_family='originals')
  elif family=='official':
   configs=ROOT/'collectors/official/configs';match=None
   if pub.get('adapter_config_path'):
@@ -72,6 +80,9 @@ def command(pub,target,out,python='python3',resume=False,max_items=None,verify=F
    argv=[python,'collectors/municode/collect.py','--url',url,'--state',target['state'],'--product-id',str(q['product_id']),'--out',out]
    for name in identity['client_names']:argv+=['--client-name',name]
    if identity.get('publisher_client_id'):argv+=['--client-id',str(identity['publisher_client_id'])]
+ elif family=='official' and q.get('adapter_family')=='originals':
+  if max_items is not None:raise Unsupported('Original-source adapters require a complete declared publication, not a bounded sample')
+  argv=[python,'collectors/originals/cli.py','verify' if verify else 'collect','--config',q['config_path'],'--out',out]
  elif family=='official':argv=[python,'collectors/official/verify.py',out] if verify else [python,'collectors/official/collect.py','--config',q['config_path'] or '{CONFIG}','--out',out]
  elif family=='encodeplus':
   if q.get('native_document'):
@@ -111,7 +122,8 @@ def bind_run(pub,target,out):
  q=qualified(pub,target);out=Path(out);family=q['publisher'];identity=pub.get('expected_identity') or target['expected_identity'];url=pub['source_url']
  def require(ok,why):
   if not ok:raise Unsupported('Selected target/publication does not match retained run: '+why)
- if family=='official':require(read(out/'config.json')==q['config'],'exact official publication config')
+ if family=='official' and q.get('adapter_family')=='originals':require(read(out/'checkpoint.json')['config']==q['config'],'exact original-source publication config')
+ elif family=='official':require(read(out/'config.json')==q['config'],'exact official publication config')
  elif family=='encodeplus':require(read(out/'checkpoint.json')['config']==q['config'],'exact enCodePlus publication config')
  elif family=='municode':
   cp=read(out/'checkpoint.json');b=cp['binding'];require(normalized(cp['source_url'])==normalized(url),'Municode source route');require(b.get('state')==target['state'] and b.get('client_names')==identity['client_names'],'Municode expected client/state');require(b.get('product_ids')==[q['product_id']],'explicit Municode product scope')

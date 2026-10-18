@@ -1,0 +1,76 @@
+{
+  "schema": "king-native-alternatives-1",
+  "started_at": "2026-10-17T22:11:29.418361+00:00",
+  "source_inventory_sha256": "0bc08e1404d39b4d137ff5221ec408b61495d7990b689645df83611f20f1d182",
+  "provenance_source": "/Users/oliverflint/My Drive/Claude/Projects/CompliSolv 2.00/outputs/collection-readiness-next-2026-10-17/original-adapters/evidence/king-county-live-v2",
+  "artifacts": [
+    {
+      "role": "index-start",
+      "source_url": "https://kingcounty.gov/en/dept/council/governance-leadership/county-legislation-codes/king-county-code",
+      "path": "raw/0000-index-start.bin",
+      "url": "https://kingcounty.gov/en/dept/council/governance-leadership/county-legislation-codes/king-county-code",
+      "started_at": "2026-10-17T22:11:29.439525+00:00",
+      "transport": "stdlib urllib; public GET; no automatic retries",
+      "status": 200,
+      "final_url": "https://kingcounty.gov/en/dept/council/governance-leadership/county-legislation-codes/king-county-code",
+      "headers": {
+        "Date": "Sat, 17 Oct 2026 22:11:30 GMT",
+        "Content-Type": "text/html; charset=utf-8",
+        "Connection": "close",
+        "Cache-Control": "no-cache, no-store",
+        "Pragma": "no-cache",
+        "Expires": "-1",
+        "Set-Cookie": "kcgov#lang=en; path=/; secure; SameSite=None",
+        "Vary": "Accept-Encoding",
+        "Transfer-Encoding": "chunked"
+      },
+      "bytes": 64127,
+      "sha256": "b509c81b8b88e84bc7e29a19af06cbaae8f5ab104ab2440cf19f551f30ecc0e6",
+      "finished_at": "2026-10-17T22:11:30.305574+00:00"
+    },
+    {
+      "role": "native-word",
+      "source_url": "https://aqua.kingcounty.gov/council/clerk/code/02_Table_of_Contents.docx",
+      "path": "raw/0001-native-word.bin",
+      "url": "https://aqua.kingcounty.gov/council/clerk/code/02_Table_of_Contents.docx",
+      "started_at": "2026-10-17T22:11:30.547942+00:00",
+      "transport": "stdlib urllib; public GET; no automatic retries",
+      "status": 200,
+      "final_url": "https://aqua.kingcounty.gov/council/clerk/code/02_Table_of_Contents.docx",
+      "headers": {
+        "Date": "Sat, 17 Oct 2026 22:11:31 GMT",
+        "Content-Type": "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+        "Content-Length": "18243",
+        "Connection": "close",
+        "Last-Modified": "Wed, 30 Mar 2022 23:19:34 GMT",
+        "ETag": "\"0c7bd9d8c44d81:0\"",
+        "Set-Cookie": "TS0126a747=017eac84076ddfb64a88454fa24058c8aedc1fc82b35badae2914c6a3f5500fcad1cddc8fa75efb83ac7cc32c82f85358481dfe1d2; Path=/; Domain=.kingcounty.gov",
+        "x-azure-ref": "20261017T221130Z-17d5c4ffc57rn2cshC1CH126ks00000018hg000000002r4k",
+        "X-Cache": "CONFIG_NOCACHE",
+        "Accept-Ranges": "bytes"
+      },
+      "bytes": 18243,
+      "sha256": "1eb93f366d7f27b569018230bad06dcaa4195635d4cb4263f159cbcd48725cd2",
+      "finished_at": "2026-10-17T22:11:31.042224+00:00",
+      "document_id": "https://aqua.kingcounty.gov/council/clerk/code/02_Table_of_Contents.htm",
+      "index_updated": "3/30/2022",
+      "heading": "Table of contents"
+    }
+  ],
+  "errors": [
+    {
+      "type": "FeatureNotFound",
+      "message": "Couldn't find a tree builder with the features you requested: xml. Do you need to install a parser library?",
+      "at": "2026-10-17T22:11:31.062120+00:00"
+    }
+  ],
+  "code_fingerprint": {
+    "king_native.py": "4908cefd8143a51131cb6f587a595091632b86d0e60c05cb45650dc56d0906f6",
+    "king_acquire.py": "4cef17a302a3ddcff3ee6f506582758f4e3c3c839a6941d52dde3ed18e8d8469",
+    "source_common.py": "ac6fe779d628d50760dc0c00ab6663d2864f42b7f66572e6a1bae99ab4940be0",
+    "shared_transport.py": "db4d02b35ce7dc4285a2c0d67bb0dbc5d23c4bb2e2023bf6db83ef2fbdaf34ce"
+  },
+  "finished_at": "2026-10-17T22:11:31.062138+00:00",
+  "complete": false,
+  "scope": "Native publisher alternatives, independent HTML/body reconciliation still required"
+}

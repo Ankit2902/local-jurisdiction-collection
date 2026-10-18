@@ -1,0 +1,11 @@
+Traceback (most recent call last):
+  File "/Users/oliverflint/My Drive/Claude/Projects/CompliSolv 2.00/outputs/collection-readiness-next-2026-10-17/original-adapters/flagstaff_root_guard.py", line 71, in <module>
+    p=argparse.ArgumentParser();p.add_argument('--source',required=True);p.add_argument('--opening-source',required=True);a=p.parse_args();r=run(a.source,a.opening_source);print(json.dumps(r,indent=2));sys.exit(0 if r['complete'] and not r['blocked'] and not r['errors'] else 2)
+                                                                                                                                             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/oliverflint/My Drive/Claude/Projects/CompliSolv 2.00/outputs/collection-readiness-next-2026-10-17/original-adapters/flagstaff_root_guard.py", line 28, in run
+    if sha(opening_raw)!=opening['sha256'] or root_inventory(opening_raw)!=expected:raise ValueError('Original native opening roots corrupt/mismatched')
+                                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/oliverflint/My Drive/Claude/Projects/CompliSolv 2.00/outputs/collection-readiness-next-2026-10-17/original-adapters/flagstaff_root.py", line 17, in root_inventory
+    if len(roots)<10 or len({r['source_url'] for r in roots})!=len(roots) or any('Employee' in r['label'] for r in roots):raise ValueError('Primary root scope empty/truncated/duplicate/foreign publication')
+                                                                                                                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+ValueError: Primary root scope empty/truncated/duplicate/foreign publication

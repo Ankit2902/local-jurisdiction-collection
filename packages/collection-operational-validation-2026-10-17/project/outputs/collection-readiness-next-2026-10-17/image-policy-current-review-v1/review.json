@@ -1,0 +1,273 @@
+{
+  "schema_version": 1,
+  "review_kind": "Bounded current-code image policy review, existing lightweight regressions, prior evidence inspection",
+  "policy_sha256": "2467ec8982e5a9fdeb5c6876f902e8c132210d45958f59ec16bf9b4e56e12cfa",
+  "families": [
+    "municode",
+    "official",
+    "encodeplus",
+    "american-legal",
+    "gridics",
+    "ecode",
+    "originals"
+  ],
+  "shared_paths": [
+    "ops launcher",
+    "registry delegation",
+    "QA normalized/binary auditors and inert source DOM audits"
+  ],
+  "existing_lightweight_checks": 72,
+  "existing_check_groups": 12,
+  "all_correctly_invoked_checks_passed": true,
+  "results": [
+    {
+      "name": "four-family-policy",
+      "command": [
+        "python",
+        "-B",
+        "-m",
+        "unittest",
+        "-v",
+        "collectors/qa/test_image_policy.py"
+      ],
+      "exit_code": 0,
+      "tests": 4,
+      "seconds": 1.934,
+      "passed": true
+    },
+    {
+      "name": "six-family-recursive-metadata",
+      "command": [
+        "python",
+        "-B",
+        "-m",
+        "unittest",
+        "-v",
+        "collectors/qa/test_all_family_image_metadata.py"
+      ],
+      "exit_code": 0,
+      "tests": 7,
+      "seconds": 1.403,
+      "passed": true
+    },
+    {
+      "name": "official-transport",
+      "command": [
+        "python",
+        "-B",
+        "-m",
+        "unittest",
+        "-v",
+        "collectors/qa/test_official_image_transport.py"
+      ],
+      "exit_code": 0,
+      "tests": 1,
+      "seconds": 0.973,
+      "passed": true
+    },
+    {
+      "name": "american-transport",
+      "command": [
+        "python",
+        "-B",
+        "-m",
+        "unittest",
+        "-v",
+        "collectors/qa/test_american_image_transport.py"
+      ],
+      "exit_code": 0,
+      "tests": 1,
+      "seconds": 1.172,
+      "passed": true
+    },
+    {
+      "name": "originals-transport-word-html",
+      "command": [
+        "python",
+        "-B",
+        "-m",
+        "unittest",
+        "-v",
+        "collectors/qa/test_originals_image_transport.py"
+      ],
+      "exit_code": 0,
+      "tests": 3,
+      "seconds": 0.711,
+      "passed": true
+    },
+    {
+      "name": "ecode-multiline",
+      "command": [
+        "python",
+        "-B",
+        "-m",
+        "unittest",
+        "-v",
+        "collectors/qa/test_ecode_multiline_images.py"
+      ],
+      "exit_code": 0,
+      "tests": 2,
+      "seconds": 0.629,
+      "passed": true
+    },
+    {
+      "name": "normalized-output-auditor",
+      "argv": [
+        "/Users/oliverflint/My Drive/Claude/Projects/CompliSolv 2.00/github/local-jurisdiction-collection/.collection-runtime/venv/bin/python",
+        "-B",
+        "/Users/oliverflint/My Drive/Claude/Projects/CompliSolv 2.00/github/local-jurisdiction-collection/collectors/qa/test_normalized_image_audit.py"
+      ],
+      "passed": true,
+      "count": 5,
+      "exit_code": 0,
+      "seconds": 0.154,
+      "correction": "Direct existing test script invocation supplies local sibling imports; American metadata uses its main(), not unittest discovery."
+    },
+    {
+      "name": "image-byte-auditor",
+      "argv": [
+        "/Users/oliverflint/My Drive/Claude/Projects/CompliSolv 2.00/github/local-jurisdiction-collection/.collection-runtime/venv/bin/python",
+        "-B",
+        "/Users/oliverflint/My Drive/Claude/Projects/CompliSolv 2.00/github/local-jurisdiction-collection/collectors/qa/test_image_audit.py"
+      ],
+      "passed": true,
+      "count": 4,
+      "exit_code": 0,
+      "seconds": 0.073,
+      "correction": "Direct existing test script invocation supplies local sibling imports; American metadata uses its main(), not unittest discovery."
+    },
+    {
+      "name": "municode-note-boundaries",
+      "argv": [
+        "/Users/oliverflint/My Drive/Claude/Projects/CompliSolv 2.00/github/local-jurisdiction-collection/.collection-runtime/venv/bin/python",
+        "-B",
+        "/Users/oliverflint/My Drive/Claude/Projects/CompliSolv 2.00/github/local-jurisdiction-collection/collectors/municode/test_note_image_boundaries.py"
+      ],
+      "passed": true,
+      "count": 4,
+      "exit_code": 0,
+      "seconds": 0.272,
+      "correction": "Direct existing test script invocation supplies local sibling imports; American metadata uses its main(), not unittest discovery."
+    },
+    {
+      "name": "american-pdf-metadata",
+      "argv": [
+        "/Users/oliverflint/My Drive/Claude/Projects/CompliSolv 2.00/github/local-jurisdiction-collection/.collection-runtime/venv/bin/python",
+        "-B",
+        "/Users/oliverflint/My Drive/Claude/Projects/CompliSolv 2.00/github/local-jurisdiction-collection/collectors/american-legal/test_image_metadata.py"
+      ],
+      "passed": true,
+      "count": 25,
+      "exit_code": 0,
+      "seconds": 1.507,
+      "correction": "Direct existing test script invocation supplies local sibling imports; American metadata uses its main(), not unittest discovery."
+    },
+    {
+      "name": "gridics-image-prefix",
+      "command": [
+        "python",
+        "-B",
+        "-m",
+        "unittest",
+        "-v",
+        "collectors/gridics/tests/test_image_content.py"
+      ],
+      "exit_code": 0,
+      "tests": 3,
+      "seconds": 0.061,
+      "passed": true
+    },
+    {
+      "name": "gridics-stylesheet-guard",
+      "command": [
+        "python",
+        "-B",
+        "-m",
+        "unittest",
+        "-v",
+        "collectors/gridics/tests/test_lists_and_stylesheets.py"
+      ],
+      "exit_code": 0,
+      "tests": 13,
+      "seconds": 3.266,
+      "passed": true
+    }
+  ],
+  "initial_invocation_failures_retained": true,
+  "source_bound_files": 199,
+  "source_stable_during_checks": true,
+  "findings": [
+    {
+      "id": "qa-municode-raw-before-inert",
+      "path": "collectors/qa/municode_raw_tables.cjs",
+      "line": 11,
+      "sha256": "b4db54c5762160ba5af3f558fe530ddd5c2f131cb296abc70a9f3263d38397eb",
+      "status": "reported to root and QA owner for repair",
+      "finding": "Raw Docs.Content attached via setContent before img/inlineSVG/dataURI/CSS replacement. Network abort/JS disabled do not guarantee no inline image rendering.",
+      "requirement": "IMAGE-POLICY independent validation must prepare inert source before live attachment",
+      "scope": "Current source path, not proof that every historical audited document actually had inline rendered images."
+    },
+    {
+      "id": "qa-ep-raw-before-inert",
+      "path": "collectors/qa/encodeplus_raw_tables.cjs",
+      "line": 5,
+      "sha256": "fd9f04fb67c764e31aedd354608cab5dd432f84c71bf4b9721da9b866f5e4caf",
+      "status": "reported to root and QA owner for repair",
+      "finding": "Raw page setContent precedes clone/image sanitization; same inline image exposure.",
+      "scope": "Preserve historical receipts with stated limitation; do not relabel their table results as image-policy compliant."
+    },
+    {
+      "id": "qa-new-attachment-stream-scope",
+      "path": "collectors/qa/audit_normalized_images.py",
+      "sha256": "2d3938a928a637bbeb32d644b2d221c3ab80a2b150067c9f5e9b93cccbf6f9c9",
+      "status": "reported to root and QA owner for coverage update",
+      "finding": "New official attachment-pages.jsonl and selected normalized native-attachments JSON are outside recognized auditor stream names.",
+      "scope": "Concrete artifact-audit coverage omission; no actual native-helper payload leak found. Native helper applies final recursive redaction."
+    }
+  ],
+  "no_additional_concrete_collector_regression_found_in_reviewed_paths": true,
+  "network_connections_disabled_during_tests": true,
+  "new_publisher_requests": 0,
+  "heavy_PDF_replays": 0,
+  "image_pixels_render_OCR_extraction": 0,
+  "reviewer_repo_mutations": 0,
+  "prior_evidence": [
+    {
+      "path": "collectors/qa/followup-proof-receipts/actual-no-image-bytes.json",
+      "sha256": "7d0214b720d4f009439313161ed002900d922705d51f9a38c20a62db71e34dbd",
+      "scope": "Prior exact-scope evidence only; not promoted to fresh live proof or all-publication completeness"
+    },
+    {
+      "path": "collectors/qa/followup-proof-receipts/multiline-images-current-003.json",
+      "sha256": "6a214bde9b34080a137ce3263d7576b7d6418a65d8c88061daef91161a4c9664",
+      "scope": "Prior exact-scope evidence only; not promoted to fresh live proof or all-publication completeness"
+    },
+    {
+      "path": "collectors/qa/followup-proof-receipts/expanded-output-image-audit/summary.json",
+      "sha256": "164946f644b48519cf79787ca33b76dbbcb88a3970cb54488d338d4b0da9ec54",
+      "scope": "Prior exact-scope evidence only; not promoted to fresh live proof or all-publication completeness"
+    },
+    {
+      "path": "collectors/qa/followup-proof-receipts/ep-reference-image-independent-review.json",
+      "sha256": "3810e53d56cd52cff345937b99a9771f66ee99684ceef44acb286ba6cffe36c5",
+      "scope": "Prior exact-scope evidence only; not promoted to fresh live proof or all-publication completeness"
+    },
+    {
+      "path": "collectors/qa/proof-receipts/henderson-current-normalized-images.json",
+      "sha256": "ba5ad2074b642f288c7135d4fbdb8d9c4727e8f7e664507bbac352dfbaa980fd",
+      "scope": "Prior exact-scope evidence only; not promoted to fresh live proof or all-publication completeness"
+    },
+    {
+      "path": "collectors/gridics/proof-receipts/followup/v2-image-binaries.json",
+      "sha256": "de583cdb8e91c9e3a0f277f9ab2f4da61240d79c49340fd4c4e94ad7162774dc",
+      "scope": "Prior exact-scope evidence only; not promoted to fresh live proof or all-publication completeness"
+    }
+  ],
+  "limitations": [
+    "This is a bounded path/delta review and existing mock/fixture regression run, not universal live Chrome decoder instrumentation or full-publication fidelity proof.",
+    "Original native HTML/PDF/archives may embed images, which are source bytes rather than separately extracted image assets.",
+    "Security/challenge controls are deliberately left untouched; reviewed ordinary browser image resource blocking follows published policy.",
+    "Known QA source-before-inert findings and new-output audit scope need owner repair/requalification; this review is not an unconditional all-QA PASS.",
+    "Current access stops remain active; no network retry/reset or external acquisition was performed."
+  ]
+}

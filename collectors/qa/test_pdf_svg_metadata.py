@@ -1,12 +1,19 @@
 """Known bounded PDF metadata must not retain unescaped SVG image payloads."""
-import importlib.util,json,socket,unittest
+import importlib.util,json,socket,unittest,sys,types
 from pathlib import Path
 from unittest.mock import patch
 ROOT=Path(__file__).resolve().parents[2]
 URI='data:image/svg+xml,<svg><text>VECTOR_SENTINEL</text></svg>'
 def models():
  for family in ['official','encodeplus']:
-  path=ROOT/'collectors'/family/'pdf_structure.py';spec=importlib.util.spec_from_file_location('qa_svg_'+family,path);m=importlib.util.module_from_spec(spec);spec.loader.exec_module(m);yield family,m
+  directory=ROOT/'collectors'/family;name='qa_svg_'+family;package=types.ModuleType(name);package.__path__=[str(directory)];sys.modules[name]=package
+  path=directory/'pdf_structure.py';spec=importlib.util.spec_from_file_location(name+'.pdf_structure',path);m=importlib.util.module_from_spec(spec);sys.modules[spec.name]=m
+  prior=list(sys.path);old_helper=sys.modules.pop('bounded_decoder',None);sys.path.insert(0,str(directory))
+  try:spec.loader.exec_module(m)
+  finally:
+   sys.path[:]=prior;sys.modules.pop('bounded_decoder',None)
+   if old_helper is not None:sys.modules['bounded_decoder']=old_helper
+  yield family,m
 class PDFSVGMetadata(unittest.TestCase):
  def test_standalone_known_field_is_literal_placeholder(self):
   with patch.object(socket.socket,'connect',side_effect=AssertionError('NO_IMAGE_NETWORK')):

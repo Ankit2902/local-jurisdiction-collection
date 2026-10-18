@@ -70,7 +70,7 @@ def replace_images(body,base,known_image_urls=()):
  images=[]
  def remember(el,attr,value):
   url=urljoin(base,value) if value else None;inline='data:image/' in str(value or '').lower();alt=el.get('alt');alt_inline='data:image/' in str(alt or '').lower()
-  images.append({'tag':el.name,'attribute':attr,'url':url if not inline and not (url or '').startswith('data:') else None,'inline_data_sha256':digest(str(value).encode()) if inline or (url or '').startswith('data:') else None,'alt':'[IMAGE]' if alt_inline else alt,'alt_inline_data_sha256':digest(str(alt).encode()) if alt_inline else None,'placeholder':'[IMAGE]','disposition':'Intentional user-policy skip; no image request/extraction'})
+  images.append({'tag':el.name,'attribute':attr,'url':url if not inline and not (url or '').lower().startswith('data:') else None,'inline_data_sha256':digest(str(value).encode()) if inline or (url or '').lower().startswith('data:') else None,'alt':'[IMAGE]' if alt_inline else alt,'alt_inline_data_sha256':digest(str(alt).encode()) if alt_inline else None,'placeholder':'[IMAGE]','disposition':'Intentional user-policy skip; no image request/extraction'})
  for el in [body]+list(body.find_all(True)):
   if el is not body and (el.parent is None or not any(parent is body for parent in el.parents)):continue
   for attr_name,attr_value in list(el.attrs.items()):

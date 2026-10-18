@@ -1,0 +1,127 @@
+{
+  "schema_version": 1,
+  "review_kind": "Independent source-model and production-path review; synthetic/fault proof is separate from live publication proof",
+  "network_requests_sent_by_qa": 0,
+  "findings": [
+    {
+      "id": "QA-001",
+      "family": "municode",
+      "issue": "Heading-only operative leaves and unknown empty DocTypes could qualify complete.",
+      "resolution": "Non-heading substantive body or explicit reserved/repealed disposition required; unknown DocTypes fail closed. Only source-backed publication landing exclusion is allowed.",
+      "status": "fixed",
+      "regression": "test_municode_edges.py: heading_only_leaf, unknown_empty_container"
+    },
+    {
+      "id": "QA-002",
+      "family": "encodeplus",
+      "issue": "Empty leaves, unowned page content and flat sibling body hierarchy could be lost or misowned.",
+      "resolution": "Explicit container/status dispositions, unowned text/asset rejection and source class ancestry plus breadcrumbs; legitimate headless definitions retain exact source IDs.",
+      "status": "fixed",
+      "regression": "collectors/encodeplus/tests.py; test_image_policy.py"
+    },
+    {
+      "id": "QA-003",
+      "family": "ecode",
+      "issue": "Unknown empty types, heading-only content, unowned visual/notes and generic aria-hidden removal could cause false completeness.",
+      "resolution": "Unknown/operative empties unresolved; non-heading substantive test; unowned text/notes/visual guard on every page; remove generic aria-hidden stripping.",
+      "status": "fixed",
+      "regression": "test_cross_family_edges.py; collectors/ecode/tests/test_faults.py"
+    },
+    {
+      "id": "QA-004",
+      "family": "american-legal",
+      "issue": "A whole native export retaining top-level roots cannot independently prove middle branches.",
+      "resolution": "Verifier recursively reconstructs every retained section-toc branch and compares exact inventory/owners. Native export missing middle node fails even with all roots present.",
+      "status": "fixed",
+      "regression": "test_cross_family_edges.py:test_al_native_middle_branch_omission_rejected; collectors/american-legal/test_faults.py"
+    },
+    {
+      "id": "QA-005",
+      "family": "official",
+      "issue": "Generic heading-only HTML and nested table rows could be misclassified or duplicated.",
+      "resolution": "Qualified legal marker plus substantive body/image placeholder; nested tables retain nearest-table own rows and parent index.",
+      "status": "fixed",
+      "regression": "test_cross_family_edges.py; collectors/official/test_offline.py"
+    },
+    {
+      "id": "QA-006",
+      "family": "cross-family",
+      "issue": "Extensionless source-explicit incorporated nonimage documents could evade required attachment coverage.",
+      "resolution": "Explicit adopted/incorporated standard/document contexts remain required or unresolved. They are not made optional by external hosting or a refusal.",
+      "status": "fixed",
+      "regression": "test_image_policy.py:test_explicit_nonimage_incorporation_remains_required; family fault suites"
+    },
+    {
+      "id": "QA-007",
+      "family": "cross-family",
+      "issue": "Final user image policy requires placeholders, including image-only bodies, SVG/CSS/picture/dataURI/poster/object and nested table cells; early implementations left active image attributes.",
+      "resolution": "Normalized HTML/text uses literal[IMAGE], source identity retained, deliberate omission metadata, no active image tags/dataURI/CSS fetches in tested forms, no known-image acquisition calls. Earlier image-download expectations are superseded, and earlier raw evidence remains immutable.",
+      "status": "fixed",
+      "regression": "test_image_policy.py; test_municode_edges.py; test_official_image_transport.py; test_american_image_transport.py; family no-image tests"
+    },
+    {
+      "id": "QA-008",
+      "family": "registry",
+      "issue": "Verification selected a family verifier without binding the requested target/publication to retained run; relative output could change meaning under subprocess cwd.",
+      "resolution": "Resolve output before dispatch; exact expected run config/client/product/publication binding before verifier, then family raw reconstruction. Same-family wrong government and same-client wrong product are negative tests.",
+      "status": "fixed",
+      "regression": "collectors/registry/test_registry.py"
+    },
+    {
+      "id": "QA-009",
+      "family": "official",
+      "issue": "A same-byte PDF cache crosswire could point an item at another source URL while preserving plausible parsed pages.",
+      "resolution": "Exact cached item/inventory equality, request-name/raw path and receipt URL/hash binding; source-crosswire fault. Per-item closing content checks supplement root inventory projection.",
+      "status": "fixed",
+      "regression": "collectors/official/test_offline.py"
+    },
+    {
+      "id": "QA-010",
+      "family": "encodeplus",
+      "issue": "A same-ID body from another publication base could agree with a rewritten receipt/checkpoint.",
+      "resolution": "Verifier derives exact inventory/body/end URLs from configured publication base and requested source ID; final response origin/path stays pinned.",
+      "status": "fixed",
+      "regression": "collectors/encodeplus/tests.py wrong-base same-ID rehashed source fault"
+    },
+    {
+      "id": "QA-011",
+      "family": "registry",
+      "issue": "Known URLs were initially too broadly considered runnable; generic primary titles and duplicate publication labels inflated apparent qualified scope.",
+      "resolution": "Qualified config dispatch only, observed publication titles/slugs/client aliases, deduplicate same source/selector, corrected eCode roots and Reno Administrative Code. Unqualified candidates retain reasons. Raw compact identity bundle makes relocated audit independent of original packages.",
+      "status": "fixed",
+      "regression": "collectors/registry/verify.py; collectors/registry/test_registry.py"
+    },
+    {
+      "id": "QA-012",
+      "family": "qa",
+      "issue": "Municode independent probe script originally printed failed assertions with exit0.",
+      "resolution": "Exit2 for any failed probe,0 only when all pass; aggregate runner also parses machine-readable passed flag and disables socket networking.",
+      "status": "fixed",
+      "regression": "run_offline.py; test_municode_edges.py"
+    },
+    {
+      "id": "QA-013",
+      "family": "cross-family",
+      "issue": "HTTP200 empty or truncated required nonimage document bytes could satisfy attachment presence or PDF-prefix checks.",
+      "resolution": "Nonempty required bodies and concrete supported-format integrity checks are recomputed. Municode conservatively leaves PDFs/unknown formats unqualified without a format parser; eCode/enCodePlus/official PDF guards use their existing parsers. ZIP CRC/text-type checks remain byte-format outcomes, not legal semantic certification.",
+      "status": "fixed",
+      "regression": "test_document_formats.py; family required-document integrity faults"
+    },
+    {
+      "id": "QA-014",
+      "family": "municode",
+      "issue": "Normalized omission attributes copied full inline data:image payloads.",
+      "resolution": "Inline image strings become MIME/hash/source locator/character count metadata. Original raw source remains unchanged; normalized records and coverage do not copy pixels. Other four parsers already passed direct metadata inspection.",
+      "status": "fixed",
+      "regression": "test_municode_edges.py normalized records+coverage; test_image_policy.py:test_image_bytes_absent_from_normalized_metadata"
+    }
+  ],
+  "material_limits": [
+    "Publication completion is separate from jurisdiction completeness; no government is certified complete by a primary book.",
+    "A full PDF/native-file or page pass does not establish legal-section segmentation, table/reading-order/OCR equivalence, vector image detection or image transcription.",
+    "Image placeholders deliberately omit image content; they preserve source position/identity and do not transcribe graphics.",
+    "Required nonimage asset gaps remain incomplete: Lincoln Access Management Policy retains Syracuse PDF DNS failure/host stop; San Diego ordinance index retains unresolved ordinance PDFs.",
+    "municipal.codes returned429 on Phoenix Charter/XI and remains stopped; partial retained traversal is not full publication completion.",
+    "Family offline tests and one representative full live proof do not make all mapped targets full-live verified."
+  ]
+}

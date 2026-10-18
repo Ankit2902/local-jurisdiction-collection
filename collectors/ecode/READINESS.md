@@ -14,9 +14,15 @@ python -m venv .venv
 
 The complete package must include `collectors/registry/access-advisories.json`. Raw collection checks its known workflow stops before importing/starting Chrome, creating output or consulting a fresh temporary gate. `doctor` reports the shipped advisory separately from the physical gate and remains blocked when temporary/home state is absent. Missing or malformed advisory metadata fails closed. Offline replay, verification, file inspection and import do not consult acquisition advisories. There is no CLI reset or override.
 
-The final actual raw proofs and five compact fixtures retain the approved executed parser revision `d83f1c0d…`. The current revision adds the acquisition preflight above and fixes typed opaque image-object metadata. A hash-verified scan found no object/embed tags in any of the 401 Albany or 16 Phoenix artifacts; every other parser/import/verification function is unchanged. See `readiness-advisory-delta.json` and its exact patch. The final 53-case current suite includes the new MIME and startup-tripwire checks.
+The earlier actual raw proofs and five compact fixtures retain the approved executed parser revision `d83f1c0d…`. That sealed advisory revision added the acquisition preflight above and fixed typed opaque image-object metadata. A hash-verified scan found no object/embed tags in any of the 401 Albany or 16 Phoenix artifacts; every other parser/import/verification function is unchanged. See `readiness-advisory-delta.json` and its exact patch. Its 53-case suite included the new MIME and startup-tripwire checks.
 
 For these approved historical proofs, `python -m collectors.ecode.tests.verify_frozen --out RUN` validates the shipped approved source hashes, copies only that exact verifier into a temporary package, and disables socket/process operations in the verification child. It exposes verification only. It never runs historical collection or silently upgrades evidence. Ordinary current `cli verify` remains strict about exact source revision; current-source imports/replays use that verifier as usual.
+
+## Current image-context revision
+
+The operational checkpoint adds typed image-context redaction for opaque data URIs, picture/source alternatives, posters, CSS image locators and declared-image anchors. The complete encoded locator is hashed without decoding; captions, legal prose and ordinary nonimage document references remain available. Image download anchors become inert `[IMAGE]` links in normalized HTML, with their original URLs retained only as provenance/omission metadata. A real Albany image-link audit exposed the latter correction; the earlier failing audit is preserved.
+
+The current 56-case offline suite includes three direct record regressions with decoder tripwires. Exact current-source Albany and Phoenix replays, immutable earlier comparisons and independent read-only verification are recorded in `image-context-revision.json` and the operational checkpoint. These checks make no publisher requests and do not clear the retained 403/429 stops. Albany's missing nonimage attachments/closing sweep and Phoenix's missing content remain incomplete. Current parsing must never be inferred from an older fixture's successful verification.
 
 ## Legitimate export recovery
 
@@ -95,7 +101,7 @@ A whole PDF alone currently does not substitute for the structured HTML inventor
 ## Offline checks and honest scope
 
 ```sh
-python -m unittest collectors.ecode.tests.test_faults collectors.ecode.tests.test_operator collectors.ecode.tests.test_native_fixtures collectors.ecode.tests.test_access_advisories -q
+python -m unittest collectors.ecode.tests.test_faults collectors.ecode.tests.test_operator collectors.ecode.tests.test_native_fixtures collectors.ecode.tests.test_access_advisories collectors.ecode.tests.test_image_context -q
 python -m collectors.ecode.tests.verify_frozen --out collectors/ecode/fixtures/readiness-synthetic-ecode
 python -m collectors.ecode.tests.verify_frozen --out collectors/ecode/fixtures/readiness-synthetic-municipal
 python -m collectors.ecode.tests.verify_frozen --out collectors/ecode/fixtures/readiness-operator-ecode

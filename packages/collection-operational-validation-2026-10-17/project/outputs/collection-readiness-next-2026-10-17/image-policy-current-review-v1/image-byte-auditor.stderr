@@ -1,0 +1,19 @@
+test_image_audit (unittest.loader._FailedTest.test_image_audit) ... ERROR
+
+======================================================================
+ERROR: test_image_audit (unittest.loader._FailedTest.test_image_audit)
+----------------------------------------------------------------------
+ImportError: Failed to import test module: test_image_audit
+Traceback (most recent call last):
+  File "/Users/oliverflint/.cache/codex-runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/unittest/loader.py", line 137, in loadTestsFromName
+    module = __import__(module_name)
+             ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/oliverflint/My Drive/Claude/Projects/CompliSolv 2.00/github/local-jurisdiction-collection/collectors/qa/test_image_audit.py", line 4, in <module>
+    from audit_images import audit
+ModuleNotFoundError: No module named 'audit_images'
+
+
+----------------------------------------------------------------------
+Ran 1 test in 0.001s
+
+FAILED (errors=1)

@@ -12,6 +12,9 @@ def audit(catalog=None):
     if (HERE/'followup-qualified-configs.json').exists() or (HERE/'followup-additional-publications.json').exists():
         from followup_qualification import audit as audit_followup
         errors.extend(audit_followup(HERE,cat))
+    if (HERE/'original-adapter-qualified-configs.json').exists():
+        from original_adapter_qualification import audit as audit_original_adapters
+        errors.extend(audit_original_adapters(HERE,cat))
     def check(ok,message):
         if not ok:errors.append(message)
     expansion=audit_expansion();check(expansion['passed'],'Frozen expansion source audit: '+str(expansion['errors']))

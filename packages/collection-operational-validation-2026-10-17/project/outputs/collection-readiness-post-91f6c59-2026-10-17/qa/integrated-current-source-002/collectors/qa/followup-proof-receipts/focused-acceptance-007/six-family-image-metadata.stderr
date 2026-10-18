@@ -1,0 +1,47 @@
+test_background_image_survives_nested_cell_serialization (__main__.AllFamilyImageMetadata.test_background_image_survives_nested_cell_serialization) ... ok
+test_comment_never_becomes_operative_text (__main__.AllFamilyImageMetadata.test_comment_never_becomes_operative_text) ... ok
+test_inline_pixels_absent_from_all_normalized_metadata (__main__.AllFamilyImageMetadata.test_inline_pixels_absent_from_all_normalized_metadata) ... ok
+test_multiline_inline_image_payload_absent_from_all_fields (__main__.AllFamilyImageMetadata.test_multiline_inline_image_payload_absent_from_all_fields) ... ERROR
+test_source_and_untyped_image_object_placeholder (__main__.AllFamilyImageMetadata.test_source_and_untyped_image_object_placeholder) ... ok
+test_stylesheet_image_placeholder_not_silently_dropped (__main__.AllFamilyImageMetadata.test_stylesheet_image_placeholder_not_silently_dropped) ... ok
+test_uppercase_image_mime_and_data_uri_never_become_required_documents (__main__.AllFamilyImageMetadata.test_uppercase_image_mime_and_data_uri_never_become_required_documents) ... ok
+
+======================================================================
+ERROR: test_multiline_inline_image_payload_absent_from_all_fields (__main__.AllFamilyImageMetadata.test_multiline_inline_image_payload_absent_from_all_fields)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/private/tmp/collection-followup-qa-20261017-007/collectors/qa/test_all_family_image_metadata.py", line 42, in test_multiline_inline_image_payload_absent_from_all_fields
+    for family,(r,k) in self.rows(body).items():
+                        ^^^^^^^^^^^^^^^
+  File "/private/tmp/collection-followup-qa-20261017-007/collectors/qa/test_all_family_image_metadata.py", line 13, in rows
+    result={family:(r,key) for family,(r,key,idkey) in four_families.Tests().rows(body).items()}
+                                                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/private/tmp/collection-followup-qa-20261017-007/collectors/qa/test_image_policy.py", line 16, in rows
+    cfg={'mode':'html_single','id':'fixture','jurisdiction':'Fixture','state':'NV','publication':'Fixture code','content_selector':'main','legal_marker_regex':'§'};oi={'id':'fixture','heading':'§ 1 Map provision','url':BASE,'raw_ref':'raw/fixture.html'};orr=off.html_records(('<html><main><h2>§ 1 Map provision</h2>'+body+'</main></html>').encode(),oi,cfg)[0][0]
+                                                                                                                                                                                                                                                                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/private/tmp/collection-followup-qa-20261017-007/collectors/official/model.py", line 221, in html_records
+    s=semantics(node,item['url']);bodycheck=BeautifulSoup(str(node),'html.parser')
+      ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/private/tmp/collection-followup-qa-20261017-007/collectors/official/model.py", line 141, in semantics
+    clean_node=sanitize_images(node)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/private/tmp/collection-followup-qa-20261017-007/collectors/official/model.py", line 132, in sanitize_images
+    el.attrs=redact_image_metadata(el.attrs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/private/tmp/collection-followup-qa-20261017-007/collectors/official/model.py", line 21, in redact_image_metadata
+    if isinstance(value,dict):return {k:redact_image_metadata(v) for k,v in value.items()}
+                                        ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/private/tmp/collection-followup-qa-20261017-007/collectors/official/model.py", line 19, in redact_image_metadata
+    return re.sub(r'data:image/[^\"\'<>]*',replace,value,flags=re.I)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/oliverflint/.cache/codex-runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/re/__init__.py", line 186, in sub
+    return _compile(pattern, flags).sub(repl, string, count)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/private/tmp/collection-followup-qa-20261017-007/collectors/official/model.py", line 17, in replace
+    raise ValueError('Ambiguous unquoted image data URI followed by whitespace/text; cannot qualify image-payload/prose boundary')
+ValueError: Ambiguous unquoted image data URI followed by whitespace/text; cannot qualify image-payload/prose boundary
+
+----------------------------------------------------------------------
+Ran 7 tests in 0.242s
+
+FAILED (errors=1)

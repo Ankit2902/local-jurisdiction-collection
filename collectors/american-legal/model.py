@@ -224,29 +224,71 @@ def output_bytes(records,pages):
  data={'sections.jsonl':b''.join(json.dumps(r,ensure_ascii=False,sort_keys=True).encode()+b'\n' for r in records),'pdf-pages.jsonl':b''.join(json.dumps(r,ensure_ascii=False,sort_keys=True).encode()+b'\n' for r in pages)}
  out=io.StringIO(newline='');fields=['document_id','kind','heading','parent_id','text','source_url','source_sha256'];w=csv.DictWriter(out,fieldnames=fields,extrasaction='ignore');w.writeheader();w.writerows(records);data['sections.csv']=out.getvalue().encode();return data
 
+def native_note_fragments(body,wanted):
+ """Bind publisher footnote tables outside rich blocks to their exact source section.
+
+ Only typed footnote tables with reciprocal, section-local inline anchors qualify.
+ Every other non-rich-block text remains fail-closed. No source text is discarded.
+ """
+ result={}
+ def path(e):
+  indices=[]
+  while e is not body:
+   parent=e.parent;assert parent is not None,'Detached native note fragment'
+   indices.append(next(i for i,c in enumerate(parent.contents) if c is e));e=parent
+  return list(reversed(indices))
+ def rich_parent(e):return next((p for p in e.parents if getattr(p,'attrs',None) and p.get('id','').startswith('rid-')),None)
+ for table in body.select('table.footnote'):
+  if rich_parent(table) is not None:continue
+  group=table.parent;heads=[e for e in group.find_all(recursive=False) if e.get('id','').startswith('rid-') and 'toc-destination' in e.get('class',[])]
+  assert len(heads)==1 and heads[0]['id'][4:] in wanted,'Ambiguous native footnote section owner'
+  owner=heads[0]['id'][4:];headings=[e for e in group.select('.toc-destination[id^="rid-"]') if e['id'][4:] in wanted];assert len(headings)==1,'Native note group spans multiple inventory owners'
+  heading=table.find_previous_sibling();assert heading is not None and heading.name=='p' and dom_text(heading,' ')=='Notes' and rich_parent(heading) is None,'Native footnote Notes heading absent'
+  assert not table.select('[id^="rid-"]') and not heading.select('[id^="rid-"]'),'Native auxiliary note duplicates a rich block'
+  rows=table.find_all('tr');assert rows,'Empty unbound footnote table';markers=[]
+  for row in rows:
+   assert row.find_parent('table') is table,'Nested footnote table needs separate ownership profile'
+   cells=row.find_all(['td','th'],recursive=False);assert len(cells)==2 and 'marker' in cells[0].get('class',[]) and 'foot-text' in cells[1].get('class',[]),'Unknown publisher footnote row shape'
+   label=dom_text(cells[0],' ');assert re.fullmatch(r'[0-9]+',label),'Non-numeric publisher footnote marker'
+   anchors=cells[0].find_all('a',attrs={'name':'foot--'+label});back=cells[0].find_all('a',href='#text--'+label)
+   assert len(anchors)==1 and len(back)==1 and back[0].select_one('.cs-folk-footnote'),'Footnote marker/backlink binding absent'
+   targets=[e for e in group.find_all('a',attrs={'name':'text--'+label}) if rich_parent(e) is not None];links=[e for e in group.find_all('a',href='#foot--'+label) if rich_parent(e) is not None]
+   assert len(targets)==1 and links,'Footnote has no unique section-local inline target/reference';markers.append(label)
+  assert len(markers)==len(set(markers)),'Duplicate section-local footnote marker'
+  for element,kind in [(heading,'publisher-footnote-heading'),(table,'publisher-footnote-table')]:
+   assert id(element) not in result,'Duplicate native auxiliary fragment'
+   raw=str(element);location=path(element);metadata={'kind':kind,'owner_document_id':owner,'source_dom_path':location,'source_fragment_sha256':digest(raw.encode()),'source_fragment_id':'native-aux:'+digest(canonical([owner,location,digest(raw.encode())])),'source_text_sha256':digest(dom_text(element).encode()),'marker_labels':markers,'binding':'Immediate source section heading plus reciprocal section-local footnote anchors; original non-rich fragment retained once.'};result[id(element)]={'element':element,'owner':owner,'metadata':metadata}
+ return result
+
 def native_records(data,inventory,identity,url,sha,resolved_images=(),inventory_sources=None):
- """Partition flat publisher-native rich blocks by independently inventoried TOC owners."""
+ """Partition native rich blocks and source-bound auxiliary notes by independent TOC owners."""
  soup=BeautifulSoup(data,'html.parser');body=soup.body;assert body,'Native HTML body missing';wanted={n['document_id']:n for n in inventory['nodes']};allblocks=body.select('[id^="rid-"]');ids=[e['id'][4:] for e in allblocks];assert len(ids)==len(set(ids)),'Duplicate native source block IDs'
  raw_ids=set(ids);virtual={key:passthrough_record(n,inventory,identity,(inventory_sources or {}).get(key,{})) for key,n in wanted.items() if key not in raw_ids and n.get('passthru_doc_id')}
  assert set(wanted)-set(virtual)<=set(ids),'Native export omits independent TOC nodes: '+str(sorted(set(wanted)-set(virtual)-set(ids)))
  native_heads={e['id'][4:] for e in body.select('.toc-destination[id^="rid-"]')};assert not native_heads-set(wanted),'Uninventoried native section headings; full independent TOC required'
- unknown=[]
+ auxiliary=native_note_fragments(body,wanted);unknown=[]
  for text in body.find_all(string=True):
-  if text.strip() and not any(p.get('id','').startswith('rid-') for p in text.parents if getattr(p,'attrs',None)) and text.parent.name not in ['script','style']:unknown.append(str(text).strip())
+  if text.strip() and not any(p.get('id','').startswith('rid-') or id(p) in auxiliary for p in text.parents if getattr(p,'attrs',None) is not None) and text.parent.name not in ['script','style']:unknown.append(str(text).strip())
  assert not unknown,'Unowned native text outside source blocks: '+str(unknown[:3])
- parts={key:[] for key in wanted};owner=None
- for block in allblocks:
+ parts={key:[] for key in wanted};aux_owned={key:[] for key in wanted};owner=None;used_aux=[]
+ for block in body.find_all(True):
+  if id(block) in auxiliary:
+   item=auxiliary[id(block)];assert owner==item['owner'],'Native auxiliary source order/owner mismatch';parts[owner].append(str(block));aux_owned[owner].append(item['metadata']);used_aux.append(id(block));continue
+  if not block.get('id','').startswith('rid-'):continue
   nested=next((p for p in block.parents if getattr(p,'attrs',None) and p.get('id','').startswith('rid-')),None)
   if nested:
    assert block['id'][4:] not in wanted,'Nested independent TOC heading needs explicit ownership support';continue
   key=block['id'][4:]
   if key in wanted:owner=key
   assert owner,'Source block before any independent TOC owner';parts[owner].append(str(block))
+ assert len(used_aux)==len(set(used_aux)) and set(used_aux)==set(auxiliary),'Native auxiliary fragments not owned exactly once'
  result=[]
  for item in inventory['nodes']:
   did=item['document_id']
   if did in virtual:result.append(virtual[did]);continue
-  fragment=''.join(parts[did]);record=html_record({'doc_id':did,'id':item['internal_id'],'title':item['heading'],'html':fragment},item,identity,url,sha,resolved_images);record['kind']='publisher-native-html-owned-range';record['notes']['normalization_basis']='Independent TOC owners + every retained native rich block, exactly once';result.append(record)
+  fragment=''.join(parts[did]);record=html_record({'doc_id':did,'id':item['internal_id'],'title':item['heading'],'html':fragment},item,identity,url,sha,resolved_images);record['kind']='publisher-native-html-owned-range';record['notes']['normalization_basis']='Independent TOC owners + every retained native rich block, exactly once'
+  if aux_owned[did]:record['native_auxiliary_fragments']=aux_owned[did];record['notes']['auxiliary_ownership']='Publisher footnote heading/table fragments retain exact source position and section-local reciprocal anchor binding.'
+  result.append(record)
  owned=[v for r in result for v in r['body_block_ids']];assert len(owned)==len(set(owned)) and set(owned)==set(ids),'Native raw blocks not reconciled exactly once';return result
 
 def css_links(data):
@@ -291,10 +333,16 @@ def normalize_images(soup,base,extra=()):
   replaced.append({'tag':e.name,'source_id':e.get('id'),'source_markup_sha256':digest(str(e).encode())});e.replace_with(marker)
  for e in list(soup.find_all(['a','link'])):
   raw=e.get('href') or e.get('to') or '';m=re.search(r"pathname\s*:\s*['\"]([^'\"]+)",raw);u=urljoin(base,m.group(1) if m else raw).split('#')[0]
-  if raw and (image_url(u) or u in extra):
+  declared_image=e.get('type','').strip().lower().startswith('image/')
+  if raw and (image_url(u) or u in extra or declared_image):
+   available_label=dom_text(e,' ') if declared_image else ''
    marker=soup.new_tag('span');marker.string='[IMAGE]'
    if e.get('id'):marker['id']=e['id']
-   e.replace_with(marker);replaced.append({'tag':'image-link','source_markup_sha256':digest(raw.encode())})
+   if available_label:marker.append(NavigableString(' '+available_label))
+   if declared_image:
+    for child in e.select('[id]'):
+     if child['id']!=e.get('id'):marker.append(soup.new_tag('span',id=child['id']))
+   e.replace_with(marker);replaced.append({'tag':'image-link','source_markup_sha256':digest(raw.encode()),**({'declared_image_type':True,'available_label':available_label} if declared_image else {})})
  for e in list(soup.find_all(True)):
   if e.get('background'):
    e.attrs.pop('background',None);e.insert(0,NavigableString('[IMAGE]'));replaced.append({'tag':'background'})

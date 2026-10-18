@@ -394,4 +394,30 @@ class Tests(unittest.TestCase):
   self.assertEqual(redact_metadata({'uri':'data:image/svg+xml,<svg xmlns="urn:svg"><text>VECTOR_SENTINEL</text></svg>'}),{'uri':'[IMAGE]'})
   writer=PdfWriter();page=writer.add_blank_page(width=72,height=72);annotation=DictionaryObject({NameObject('/Type'):NameObject('/Annot'),NameObject('/Subtype'):NameObject('/Link'),NameObject('/Rect'):ArrayObject([FloatObject(0),FloatObject(0),FloatObject(30),FloatObject(30)]),NameObject('/Contents'):TextStringObject(svg),NameObject('/A'):DictionaryObject({NameObject('/S'):NameObject('/URI'),NameObject('/URI'):TextStringObject(svg)})});page[NameObject('/Annots')]=ArrayObject([writer._add_object(annotation)]);stream=io.BytesIO();writer.write(stream)
   records,_=pages(stream.getvalue(),{'id':'synthetic-svg','url':'https://example.gov/test.pdf','heading':'Test','raw_ref':'synthetic-annotation'}, {'publication':'Test','jurisdiction':'Test','state':'KS'});serialized=json.dumps(records);self.assertNotIn('VECTOR_SENTINEL',serialized);self.assertNotIn('<svg',serialized.lower());self.assertIn('[IMAGE]',serialized)
+ def test_source_empty_exact_native_hierarchy_witnesses_no_duplicate_body(self):
+  from .source_empty_qualifications import qualify,QUALIFICATIONS
+  f=read_json(HERE/'fixtures/overland-source-empty-records.json');rs=copy.deepcopy(f['records']);before=copy.deepcopy(rs)
+  with patch('socket.socket',side_effect=AssertionError('No network')):qualify(rs,f['config'])
+  self.assertEqual({i for i,r in rs.items() if r['kind']=='confirmed_source_empty'},set(QUALIFICATIONS))
+  for ident,q in QUALIFICATIONS.items():
+   self.assertEqual(rs[ident]['source_empty_qualification']['source_native_binding'],q)
+   for key in ['text','tables','html','body_html','links','assets','path','parent_id','canonical_body_key','body_sha256','raw_sha256']:self.assertEqual(rs[ident][key],before[ident][key])
+  self.assertEqual(rs['7942']['text'],'');self.assertEqual(rs['7941'],before['7941']);self.assertIn('a legal building permit',rs['7941']['text'])
+ def test_source_empty_wrong_config_source_hierarchy_and_native_fail_closed(self):
+  from . import source_empty_qualifications as empty
+  f=read_json(HERE/'fixtures/overland-source-empty-records.json')
+  for field,value in [('identity','Other edition'),('base','https://online.encodeplus.com/regs/other/')]:
+   rs=copy.deepcopy(f['records']);empty.qualify(rs,f['config']|{field:value});self.assertEqual(rs,f['records'])
+  for ident in empty.QUALIFICATIONS:
+   for field,value in [('body_sha256','changedsource'),('raw_sha256','changededition'),('heading','Other heading'),('path',[]),('parent_id','other'),('text','New actual provision')]:
+    rs=copy.deepcopy(f['records']);rs[ident][field]=value;empty.qualify(rs,f['config']);self.assertEqual(rs[ident]['kind'],'source_empty_unresolved')
+  rs=copy.deepcopy(f['records']);del rs['7941'];empty.qualify(rs,f['config']);self.assertEqual(rs['7942']['kind'],'source_empty_unresolved')
+  rs=copy.deepcopy(f['records']);rs['7941']['text']='Lost operative clause';empty.qualify(rs,f['config']);self.assertEqual(rs['7942']['kind'],'source_empty_unresolved')
+  with tempfile.TemporaryDirectory() as td:
+   root=pathlib.Path(td)
+   with patch.object(empty,'HERE',root):
+    rs=copy.deepcopy(f['records']);empty.qualify(rs,f['config']);self.assertTrue(all(rs[i]['kind']=='source_empty_unresolved' for i in empty.QUALIFICATIONS))
+  # Exact native SHA cannot stand in for real agreement of extractable body text.
+  with patch('pypdf.PdfReader') as reader:
+   page=reader.return_value.pages;page.__len__.return_value=1;page.__iter__.return_value=iter([type('Page',(),{'extract_text':lambda self:'Unmatched substantive provision'})()]);rs=copy.deepcopy(f['records']);empty.qualify(rs,f['config']);self.assertTrue(all(rs[i]['kind']=='source_empty_unresolved' for i in empty.QUALIFICATIONS))
 if __name__=='__main__':unittest.main(verbosity=2)

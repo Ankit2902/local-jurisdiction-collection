@@ -1,0 +1,27 @@
+Traceback (most recent call last):
+  File "/Users/oliverflint/My Drive/Claude/Projects/CompliSolv 2.00/outputs/collection-readiness-next-2026-10-17/original-adapters/king_symbol_audit.py", line 63, in <module>
+    p=argparse.ArgumentParser();p.add_argument('--html-source',required=True);p.add_argument('--word-source',required=True);p.add_argument('--normalized',required=True);p.add_argument('--out',required=True);a=p.parse_args();r=run(a.html_source,a.word_source,a.normalized,a.out);print(json.dumps({k:v for k,v in r.items() if k!='rows'},indent=2));sys.exit(2)
+                                                                                                                                                                                                                                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/oliverflint/My Drive/Claude/Projects/CompliSolv 2.00/outputs/collection-readiness-next-2026-10-17/original-adapters/king_symbol_audit.py", line 27, in run
+    bs=BeautifulSoup(decode(raw)[0],'html.parser');html_cache[doc]=(list(blocks(bs.body)),bs.body.find_all('table'))
+       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/oliverflint/My Drive/Claude/Projects/CompliSolv 2.00/outputs/full-publication-validation-2026-10-17/ecode/.venv/lib/python3.12/site-packages/bs4/__init__.py", line 476, in __init__
+    self._feed()
+  File "/Users/oliverflint/My Drive/Claude/Projects/CompliSolv 2.00/outputs/full-publication-validation-2026-10-17/ecode/.venv/lib/python3.12/site-packages/bs4/__init__.py", line 666, in _feed
+    self.builder.feed(self.markup)
+  File "/Users/oliverflint/My Drive/Claude/Projects/CompliSolv 2.00/outputs/full-publication-validation-2026-10-17/ecode/.venv/lib/python3.12/site-packages/bs4/builder/_htmlparser.py", line 510, in feed
+    parser.feed(markup)
+  File "/Users/oliverflint/.cache/codex-runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/html/parser.py", line 168, in feed
+    self.goahead(0)
+  File "/Users/oliverflint/.cache/codex-runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/html/parser.py", line 260, in goahead
+    k = self.parse_starttag(i)
+        ^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/oliverflint/.cache/codex-runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/html/parser.py", line 475, in parse_starttag
+    self.handle_starttag(tag, attrs)
+  File "/Users/oliverflint/My Drive/Claude/Projects/CompliSolv 2.00/outputs/full-publication-validation-2026-10-17/ecode/.venv/lib/python3.12/site-packages/bs4/builder/_htmlparser.py", line 188, in handle_starttag
+    tagObj = self.soup.handle_starttag(
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/oliverflint/My Drive/Claude/Projects/CompliSolv 2.00/outputs/full-publication-validation-2026-10-17/ecode/.venv/lib/python3.12/site-packages/bs4/__init__.py", line 995, in handle_starttag
+    def handle_starttag(
+
+KeyboardInterrupt

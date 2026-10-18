@@ -1,0 +1,15 @@
+# Independent finite Savannah qualification review
+
+PASS for the exact retained-source candidate under `encodeplus/post-91f6c59/final-primary-candidate`, not a whole-publication live or legal-semantic promotion. Candidate source hashes are in review.json. No production edits, discovery, network, rendering, OCR or image extraction/decoding were performed.
+
+The reviewer independently ran the existing five focused tests (PASS0.185s) and28 selected actual-source/native/config/owner/refusal checks. Actual native PDF parsing had image stream decode tripwires; no image stream was decoded. This did not repeat the owner's full5674body/707document replay or full50suite.
+
+For owner6459, the original parent response byteSHA4f531d2b… and exact LF-normalized decoded source row are checked. HTML ancestry places the row in source section6459. The literal malformed href, label4-12-2018(3), Section1Added, and codified8-3370—8-3379 match the required historical ordinance. The complete UUID URL is retained as an observed search result, and its actual HTTP200 receipt/native bytes are pinned. The four-page native49637afc… contains City of Savannah, ArticleQ, sections8-3370–3379, and completed ADOPTED AND APPROVED APRIL12,2018; allpage text pins match. The excluded draft is not substituted. The original6101byte404 body and receipt are still present and hash-match; no failed URL was retried or synthetically repaired in this review.
+
+For6451, full source ownership/hierarchy/bodySHAfd5f54af… matches the fresh selected body; sourcebefore/afterSHAa9936a6f… match; all29source/native fixture pins validate. Actual two-page nativef310c987… exactly matches every recorded page text: ancestor headings, Savannah publisher headers, pagination and ancestor [1] marker only. Qualification is limited to faithful source-empty collection of this exact node, retaining empty text and the complete hierarchy. It infers no repeal, structural exclusion, missing operative text, or absence of rules outside the retained source, and provides no generic heading/empty exception.
+
+Mutating owner ID/body/raw/hierarchy/config/native bytes and source fixtures refuses the corresponding qualification. Old links/source labels remain intact. Added dispositions are typed, exact and source-bound. No finite-delta blocker was found.
+
+The first independent source-row check used byte-preserved CRLF decoding with offsets that were recorded against LF-normalized decoded text. That review invocation failed safely; the initial script/logs are retained under attempt-raw-EOL-offset. The corrected check separately pins original source bytes and exact decoded row content/owner. This was a review offset interpretation error, not a source/candidate defect.
+
+Readonly package verification: `python -B verify_review.py`. The tested interpreter is project `github/local-jurisdiction-collection/.collection-runtime/venv/bin/python` (Python3.12.14). Actual-source review script uses the retained project evidence layout and current isolated candidate; routine verifier uses only this folder.

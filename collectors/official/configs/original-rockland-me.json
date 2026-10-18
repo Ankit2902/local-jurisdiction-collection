@@ -16,5 +16,18 @@
   "source_identity_tokens": [
     "Charter"
   ],
-  "scope_warning": "All currently index-posted native documents; independent page/text/table QA, no current legal consolidation or complete visual/section semantics inferred."
+  "scope_warning": "All currently index-posted native documents; independent page/text/table QA, no current legal consolidation or complete visual/section semantics inferred.",
+  "inventory_label_exclusions": [
+    {
+      "selector": "span.ae-compliance-indent",
+      "exact_text": " PDF",
+      "exact_attributes": {
+        "class": [
+          "ae-compliance-indent"
+        ],
+        "style": "display:none;"
+      },
+      "reason": "Actual initial source accessibility-only hidden PDF suffix; all21 closing source links omit this exact injected span. Only identical span attributes and text are ignored in inventory labels."
+    }
+  ]
 }
