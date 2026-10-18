@@ -14,6 +14,15 @@ def page_records(data,cfg,raw_ref='raw/start.pdf'):
  reader=PdfReader(io.BytesIO(data),strict=True)
  records,_=pages(data,{'id':cfg['id'],'heading':cfg['title'],'url':cfg['url'],'raw_ref':raw_ref},{'publication':cfg['title'],'jurisdiction':cfg['jurisdiction'],'state':cfg['state']})
  details={'metadata':{str(k):metadata_text(v) for k,v in (reader.metadata or {}).items()},'pages':len(records),'parser_sha256':digest((HERE/'pdf_structure.py').read_bytes()),'pdf_extractable_text_reconciled':all(r['pdf_qualification']['source_word_ownership_complete'] and r['pdf_qualification']['normalized_source_word_characters_agree'] and r['pdf_qualification']['independent_text_engine_characters_agree'] and r['pdf_qualification'].get('source_words_cover_deduplicated_glyph_characters') is True and r['pdf_qualification'].get('undecoded_cid_literals') == [] and not r['pdf_qualification']['unmapped_or_private_use_codepoints'] for r in records),'detected_table_cells_qualified':all(r['pdf_qualification']['detected_table_cells']==r['pdf_qualification']['independent_table_cells_agree'] for r in records),'detected_table_count':sum(r['pdf_qualification']['detected_table_count'] for r in records),'detected_table_cells':sum(r['pdf_qualification']['detected_table_cells'] for r in records),'pdf_table_semantics_complete':False,'reading_order_manual_review_required':True,'review_conditions':{str(r['physical_page']):r['pdf_qualification']['review_conditions'] for r in records if r['pdf_qualification']['review_conditions']}}
+ from .sto_physical_schedule import summary as physical_schedule_summary
+ scoped=physical_schedule_summary(records)
+ if scoped is not None:details['source_physical_schedule_dimensions']=scoped
+ from .upoc_printed_index import summary as printed_index_summary
+ indexes=printed_index_summary(records)
+ if indexes is not None:details['source_printed_index_dimensions']=indexes
+ from .sto_appendix_b import summary as appendix_b_summary
+ appendix=appendix_b_summary(records)
+ if appendix is not None:details['source_appendix_b_dimensions']=appendix
  return records,details
 def outputs(records):
  buf=io.StringIO(newline='');fields=['id','heading','physical_page','page_count','text','source_url','raw_sha256'];w=csv.DictWriter(buf,fieldnames=fields);w.writeheader();w.writerows({k:r[k] for k in fields} for r in records)

@@ -2,6 +2,9 @@
 import collections,hashlib,io,json,math,re,unicodedata
 import pdfplumber,pypdfium2
 from .bounded_decoder import bounded_decoder_aliases
+from .sto_physical_schedule import attach_record as attach_source_physical_schedule
+from .upoc_printed_index import attach_record as attach_source_printed_index
+from .sto_appendix_b import attach_record as attach_source_appendix_b
 
 def clean(s):return re.sub(r'\s+',' ',s or '').strip()
 def chars(s):return collections.Counter(c for c in unicodedata.normalize('NFKC',s or '') if not c.isspace() and c not in '\u200b\u00ad\ufeff')
@@ -165,6 +168,9 @@ def pages(data,item,config):
    if not clean(source_words):review.append('image_only_or_no_extractable_legal_text')
    if len(page.curves):review.append('vector_illustration_interpretation_not_established')
    output.append({'id':ident,'document_id':item['id'],'unit':'pdf_page','heading':item['heading'],'path':[config['publication'],item['heading']],'source_url':item['url']+'#page='+str(n+1),'text':text,'pdfium_stream_text':native_text,'pdfium_qualified_comparison_text':comparable_text,'ordered_blocks':blocks,'ordering':ordering,'physical_page':n+1,'page_count':len(pdf.pages),'width':float(page.width),'height':float(page.height),'tables':tables,'links':[{k:a.get(k) for k in ['uri','title','contents','x0','top','x1','bottom'] if a.get(k) is not None} for a in page.annots or []],'assets':[],'image_placeholder_count':len(images),'image_policy':'Metadata-only raster bboxes and detected map/blank vector-page placeholders; no image pixels, rendering or OCR. General vector illustration classification and legal interpretation remain explicit review.','raw_ref':item['raw_ref'],'raw_sha256':digest,'jurisdiction':config['jurisdiction'],'state':config['state'],'publication':config['publication'],'semantic_review_required':True,'pdf_qualification':{'source_word_count':len(words),'source_words_cover_deduplicated_glyph_characters':source_glyph_agree,'undecoded_cid_literals':cid_literals,'deduplicated_overprint_character_count':len(original.chars)-len(page.chars),'source_word_ownership_complete':not missing,'word_ownership_failures':missing,'normalized_source_word_characters_agree':owned_agree,'independent_text_engine_characters_agree':char_agree,'raw_independent_text_engine_characters_agree':raw_char_agree,'invalid_decoder_glyph_resolutions':decoder_resolutions,'unmapped_or_private_use_codepoints':bad,'detected_table_count':len(tables),'detected_table_cells':sum(len(t['cells']) for t in tables),'independent_table_cells_agree':sum(c['independent_character_agreement'] for t in tables for c in t['cells']),'vector_curve_count':len(page.curves),'review_conditions':review,'table_scope':'Ruled grids and qualifying aligned numeric/use-code schedules; arbitrary borderless/non-numeric layouts and all legal semantics are not universally established.'}})
+   attach_source_physical_schedule(output[-1],original,tp,item,digest)
+   attach_source_printed_index(output[-1],original,tp,item,digest)
+   attach_source_appendix_b(output[-1],original,tp,item,digest)
    tp.close();native.close();page.close();original.close()
  finally:pdf.close();stream.close()
  return redact_metadata(output),[]

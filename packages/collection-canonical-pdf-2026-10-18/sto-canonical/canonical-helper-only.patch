@@ -1,0 +1,73 @@
+--- /Users/oliverflint/My Drive/Claude/Projects/CompliSolv 2.00/outputs/collection-readiness-post1997ee1-2026-10-17/sto-canonical-correction-candidate-v1/baseline-sto_physical_schedule.py	2026-10-17 20:28:40
++++ /Users/oliverflint/My Drive/Claude/Projects/CompliSolv 2.00/outputs/collection-readiness-post1997ee1-2026-10-17/sto-canonical-correction-candidate-v1/candidate/collectors/encodeplus/sto_physical_schedule.py	2026-10-17 20:30:07
+@@ -3,7 +3,7 @@
+ Derived from independently reviewed finite source geometry; no file/network/image APIs.
+ All constants are bound by this module's runtime source hash.
+ """
+-import collections,hashlib,json,re,unicodedata
++import collections,copy,hashlib,json,re,unicodedata
+ 
+ SOURCE_SHA256='594128464bdc6c0dd1336aa00acb93c1ecbfdc5980e4265e63d6e134df98f127'
+ SOURCE_URLS=('https://codes.opkansas.org/municipal-code/doclibrary.aspx?id=8615d268-3650-47cb-a6fd-c1732367f1e4', 'https://online.encodeplus.com/regs/overlandpark-ks/doclibrary.aspx?id=8615d268-3650-47cb-a6fd-c1732367f1e4')
+@@ -107,6 +107,49 @@
+     return value
+ 
+ 
++def _canonical_projection(record,schedule):
++    """Select the verified printed grid; retain failed detector output as diagnostics.
++
++    Physical blanks remain independent cells. Neither this projection nor its
++    row/column order asserts a logical continuation or an intended legal meaning.
++    All checks finish before the caller mutates the delivered record.
++    """
++    assert 'canonical_structure_selection' not in record,'A canonical source representation is already selected'
++    assert 'superseded_detector_diagnostics' not in record,'Detector diagnostics already superseded'
++    assert record['image_placeholder_count']==0 and not schedule['image_placeholders'],'Unexpected image placeholder in pinned image-free STO region'
++    fields=['tables','ordered_blocks','text','ordering','pdf_qualification']
++    diagnostics={'schema_version':1,'reason':'Source-pinned physical four-column schedule supersedes inferred detector grids and their reading order; all original fields and false flags remain exact diagnostics.','raw_ref':record['raw_ref'],'raw_sha256':record['raw_sha256'],'original_record_fields':{k:copy.deepcopy(record[k]) for k in fields}}
++    words={w['id']:w for w in schedule['source_words']};glyphs={g['id']:g for g in schedule['source_glyphs']}
++    assert len(words)==len(schedule['source_words']) and len(glyphs)==len(schedule['source_glyphs']),'Duplicate source word/glyph identity'
++    cells=[];ordered_word_ids=[];ordered_glyph_ids=[]
++    for source in schedule['cells']:
++        ids=source['source_word_ids'];gids=source['source_glyph_ids']
++        assert all(i in words for i in ids) and all(i in glyphs for i in gids),'Canonical cell has unknown source owner'
++        assert source['role']==schedule['source_header_roles'][source['column']],'Canonical printed header role changed'
++        assert source['text']==' '.join(words[i]['text'] for i in ids),'Canonical cell source-word order changed'
++        assert compact(source['text'])==compact(''.join(glyphs[i]['text'] for i in gids)),'Canonical cell source-glyph order changed'
++        assert compact(source['text'])==compact(source['independent_native_text']),'Canonical cell differs from bounded original text'
++        assert source['independent_ordered_characters_agree'] is True,'Canonical cell lacks ordered source comparison'
++        ordered_word_ids.extend(ids);ordered_glyph_ids.extend(gids);b=source['extraction_bbox']
++        assert all(b[0]<=words[i]['x0']<=words[i]['x1']<=b[2] and b[1]<=words[i]['top']<=words[i]['bottom']<=b[3] for i in ids),'Canonical cell cuts a source word'
++        assert all(b[0]<=(glyphs[i]['bbox'][0]+glyphs[i]['bbox'][2])/2<=b[2] and b[1]<=(glyphs[i]['bbox'][1]+glyphs[i]['bbox'][3])/2<=b[3] for i in gids),'Canonical glyph lies outside its source cell'
++        if source['row']==0:assert source['kind']=='header' and source['text']==source['role'],'Canonical header text/role disagreement'
++        cells.append({'id':source['id'],'bbox':[round(v,3) for v in b],'extraction_bbox':copy.deepcopy(b),'row':source['row'],'column':source['column'],'rowspan':1,'colspan':1,'kind':source['kind'],'role':source['role'],'text':source['text'],'word_ids':copy.deepcopy(ids),'source_glyph_ids':copy.deepcopy(gids),'independent_pdfium_text':source['independent_native_text'],'qualified_pdfium_text':source['independent_native_text'],'independent_character_agreement':True,'independent_ordered_characters_agree':True,'source_empty_disposition':source['source_empty_disposition'],'source_styles':copy.deepcopy(source['source_styles'])})
++    assert collections.Counter(ordered_word_ids)==collections.Counter(words.keys()),'Canonical word ownership missing/duplicated'
++    assert collections.Counter(ordered_glyph_ids)==collections.Counter(glyphs.keys()),'Canonical glyph ownership missing/duplicated'
++    assert len(cells)==4*len(schedule['rows']) and [(c['row'],c['column']) for c in cells]==[(r,col) for r in range(len(schedule['rows'])) for col in range(4)],'Canonical printed cell order/shape changed'
++    text='\n'.join('\t'.join(c['text'] for c in cells if c['row']==ri) for ri in range(len(schedule['rows'])))
++    assert collections.Counter(compact(text))==collections.Counter(compact(''.join(w['text'] for w in schedule['source_words']))),'Canonical source characters lost/duplicated'
++    table_id=schedule['id']+'::canonical-table';bounds=[schedule['column_boundaries'][0],schedule['row_boundaries'][0],schedule['column_boundaries'][-1],schedule['row_boundaries'][-1]]
++    table={'id':table_id,'bbox':[round(v,3) for v in bounds],'extraction_bbox':bounds,'detection':'source-pinned-physical-four-column-schedule','row_boundaries':copy.deepcopy(schedule['row_boundaries']),'column_boundaries':copy.deepcopy(schedule['column_boundaries']),'header_rows':[0],'source_header_roles':copy.deepcopy(schedule['source_header_roles']),'cells':cells,'source_physical_rows':copy.deepcopy(schedule['rows']),'source_evidence_id':schedule['id'],'physical_cell_fidelity_complete':True,'logical_continuation_semantics_complete':schedule['logical_continuation_semantics_complete'],'reference_role_intent_complete':schedule['reference_role_intent_complete'],'logical_merge_performed':False}
++    block={'kind':'table','id':table_id,'bbox':table['bbox'],'text':text,'word_ids':ordered_word_ids,'source_glyph_ids':ordered_glyph_ids,'source_evidence_id':schedule['id'],'reading_order':'Exact printed physical row order, then the four source header columns; blanks retained, no continuation merge or value shift'}
++    q=copy.deepcopy(record['pdf_qualification']);detector_conditions={t['id']+':independent_cell_text_disagreement' for t in record['tables']}
++    q['review_conditions']=[s for s in q['review_conditions'] if s not in detector_conditions]
++    q.update({'detected_table_count':1,'detected_table_cells':len(cells),'independent_table_cells_agree':len(cells),'source_word_ownership_complete':True,'word_ownership_failures':[],'normalized_source_word_characters_agree':True,'source_physical_cell_fidelity_complete':True,'source_physical_logical_semantics_complete':False,'table_scope':'Authoritative source-pinned physical four-column STO grid only. Original inferred grids and all false flags remain under superseded_detector_diagnostics. Source blanks, continuation uncertainty and alignment anomaly are preserved; whole-PDF/legal semantics remain unqualified.'})
++    selection={'profile':'sto_physical_schedule','source_sha256':record['raw_sha256'],'source_url':record['source_url'],'physical_page':record['physical_page'],'source_evidence_id':schedule['id'],'canonical_table_ids':[table_id],'authoritative_fields':fields,'scope':'Printed physical headers, rows, columns, source words/glyphs and blanks only; no intended legal relationship or whole-PDF semantic qualification.'}
++    return {'tables':[table],'ordered_blocks':[block],'text':text,'ordering':{'method':'Source-pinned printed physical row order then four source columns; no logical row merge','gutter':None,'source_evidence_id':schedule['id'],'source_order_qualified':True,'logical_continuation_semantics_complete':schedule['logical_continuation_semantics_complete']},'pdf_qualification':q,'superseded_detector_diagnostics':diagnostics,'canonical_structure_selection':selection}
++
++
+ def attach_record(record,page,textpage,item,source_sha256):
+     """Add a source-exact alternative physical representation only on pinned pages.
+ 
+@@ -133,9 +176,9 @@
+     schedule['source_structure_tree']=SOURCE_STRUCTURE
+     schedule['printed_source_legend']=SOURCE_LEGEND
+     schedule['detector_evidence_disposition']='Original detector tables and all false cell flags remain diagnostics. New physical cells do not relabel the original detector cells.'
++    projection=_canonical_projection(record,schedule)
++    record.update(projection)
+     record['source_physical_schedules']=[schedule]
+-    record['pdf_qualification']['source_physical_cell_fidelity_complete']=True
+-    record['pdf_qualification']['source_physical_logical_semantics_complete']=False
+     return True
+ 
+ 

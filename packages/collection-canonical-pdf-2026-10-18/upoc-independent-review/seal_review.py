@@ -1,0 +1,12 @@
+import hashlib,json
+from pathlib import Path
+R=Path(__file__).resolve().parent
+P=Path('/Users/oliverflint/My Drive/Claude/Projects/CompliSolv 2.00/outputs/collection-readiness-next-2026-10-17/encodeplus/post-91f6c59/upoc-index-reconstruction-v1')
+sha=lambda p:hashlib.sha256(p.read_bytes()).hexdigest()
+read=lambda p:json.loads(p.read_text())
+x=read(R/'independent-checks.json');assert x['passed']
+a=read(R/'audit.stdout');assert a['passed']
+before=read(R/'before.json');assert before==read(R/'after.json')
+assert all(sha(P/n)==h for n,h in before.items())
+r={'status':'finite_review_passed_no_material_blocker','scope':'Only physical1+169 of two exact retained172pageUPOCs; no wholebook/636parse or semantic promotion','source_packet':str(P),'source_manifest_sha256':sha(P/'MANIFEST.json'),'source_program_sha256':sha(P/'reconstruct.py'),'independent_audit_program_sha256':sha(P/'audit.py'),'normalized_sha256':sha(P/'reconstructed.json'),'read_only_files':len(before),'all_source_files_unchanged':True,'own_independent_structure_checks':x,'actual_native_audit':a,'fault_suite':{'tests':4,'negative_subcases':15,'exit':0,'test_seconds':7.178,'wrapper_seconds':read(R/'fault-tests-terminal.json')['seconds'],'log_sha256':sha(R/'fault-tests.stderr')},'assessment':['Source-pinned printed reading units, glyph-index/geometry bijection and complete word/field ownership support finite reconstruction. Source-native scripts queried four selected pages only, not all344pages.','All417original false cell payloads/bounds/querystrings retained unchanged. No grid flag promoted.','Two source label/dot rectangle overlaps retain false rectangular qualification; independent character-index sequence and whole-entry query supply separate content evidence, without inventing disjoint cells.','Legacy(cid:57)/(cid:58) remain unqualified versus native9/:; no alphabeticalV/W inference.','Physical-index reconstruction does not bridge40th/42ndedition adoption conflict, resolve crossreferences or qualify fullbook semantics.','Selected source regions have zero imageobjects/prior markers; no new imageposition semantic claim. Exact[IMAGE] policy preserved; guarded native audit/test paths performed no image decode/extract/render/OCR/network.'],'writes':{'source':0,'production':0},'history':'Own initial stdlib review used Counter(dict) instead of Counter(dict.keys()); corrected only review harness, preserved initial source. Candidate runtime/output were unchanged.'}
+(R/'review.json').write_text(json.dumps(r,indent=2)+'\n')

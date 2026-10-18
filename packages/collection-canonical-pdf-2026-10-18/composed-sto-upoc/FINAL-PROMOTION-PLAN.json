@@ -1,0 +1,88 @@
+{
+  "status": "isolated_final76_passed_ready_for_independent_review",
+  "whitelist": [
+    {
+      "source": "candidate/collectors/encodeplus/pdf_structure.py",
+      "destination": "collectors/encodeplus/pdf_structure.py",
+      "candidate_sha256": "be7805a5bb3f1d474e42587f57ba258519b92ef96746b81a72c091660fbb5557",
+      "production_before_sha256": "b1d8b796b55002e2ba944751aa3d8bf801622387f7bbfd954ce1da616765a668",
+      "operation": "replace_exact_baseline"
+    },
+    {
+      "source": "candidate/collectors/encodeplus/native_document.py",
+      "destination": "collectors/encodeplus/native_document.py",
+      "candidate_sha256": "c1133e95924aa00723554867a75d6036653ef3ba3abe8be0a35e06600d765047",
+      "production_before_sha256": "b1d12b8636ebee9f15a6d53d0d152690e760368ed5cfb6dc317b2147a45e84e7",
+      "operation": "replace_exact_baseline"
+    },
+    {
+      "source": "candidate/collectors/encodeplus/upoc_printed_index.py",
+      "destination": "collectors/encodeplus/upoc_printed_index.py",
+      "candidate_sha256": "54633f21cff9f1fbca9e556125da9a13789e27ddc1e62f6936d7861a9df194b5",
+      "production_before_sha256": null,
+      "operation": "add_new_file"
+    },
+    {
+      "source": "candidate/collectors/encodeplus/test_upoc_printed_index.py",
+      "destination": "collectors/encodeplus/test_upoc_printed_index.py",
+      "candidate_sha256": "0e06b638779b80c62631f31db7006ec3e8dda0ec5880bbef1e830dab31b6669b",
+      "production_before_sha256": null,
+      "operation": "add_new_file"
+    },
+    {
+      "source": "candidate/collectors/encodeplus/fixtures/upoc-index/877c6e874d4de7873d22dd51443fd5c42169445ad2955db3836841a105a57102.pdf",
+      "destination": "collectors/encodeplus/fixtures/upoc-index/877c6e874d4de7873d22dd51443fd5c42169445ad2955db3836841a105a57102.pdf",
+      "candidate_sha256": "877c6e874d4de7873d22dd51443fd5c42169445ad2955db3836841a105a57102",
+      "production_before_sha256": null,
+      "operation": "add_new_file"
+    },
+    {
+      "source": "candidate/collectors/encodeplus/fixtures/upoc-index/baseline-four-regions.jsonl",
+      "destination": "collectors/encodeplus/fixtures/upoc-index/baseline-four-regions.jsonl",
+      "candidate_sha256": "60157a8b4099104b0ab5640e3ee7c31e9f57e998509c89912b34fe9f6b1d4514",
+      "production_before_sha256": null,
+      "operation": "add_new_file"
+    },
+    {
+      "source": "candidate/collectors/encodeplus/fixtures/upoc-index/bb91ec51cf00684233649d4375aaa30111e3a6908492b1a1b3d862271662f0b2.pdf",
+      "destination": "collectors/encodeplus/fixtures/upoc-index/bb91ec51cf00684233649d4375aaa30111e3a6908492b1a1b3d862271662f0b2.pdf",
+      "candidate_sha256": "bb91ec51cf00684233649d4375aaa30111e3a6908492b1a1b3d862271662f0b2",
+      "production_before_sha256": null,
+      "operation": "add_new_file"
+    },
+    {
+      "source": "candidate/collectors/encodeplus/fixtures/upoc-index/reconstructed.json.gz",
+      "destination": "collectors/encodeplus/fixtures/upoc-index/reconstructed.json.gz",
+      "candidate_sha256": "fe05ffdb8505f4c85dbeda1490e7d73046ad8aa43fa375866df43e62e9e84afa",
+      "production_before_sha256": null,
+      "operation": "add_new_file"
+    },
+    {
+      "source": "candidate/collectors/encodeplus/fixtures/upoc-index/source.json",
+      "destination": "collectors/encodeplus/fixtures/upoc-index/source.json",
+      "candidate_sha256": "517e90bd0c8d4c7692091c91c0fdfbcfc29b2c3a1b818c580a64378caa5dbceb",
+      "production_before_sha256": null,
+      "operation": "add_new_file"
+    }
+  ],
+  "deletions": [],
+  "prerequisite_STO": {
+    "helper_and_test": {
+      "sto_physical_schedule.py": "48ff23037f37b6fc78aff43d34e59043cf4e327d855261ad2f9b4be05726fba1",
+      "test_sto_physical_schedule.py": "e29d969cecbf4a35b6af932d4e16a94085430270575640d07c40e81c21e3668f"
+    },
+    "records_sha256": "36e39598a1e51c80b29ece3e5690b5039eff8c6f4c6348871cde0c76077a7efb",
+    "proof_sha256": "22635c5bbeb5086aa277962f9300e5f7656b81234ae0ae4bfd5429f5289235c1",
+    "provenance": "Exact frozen majorcanonicalSTO3nativeoutputs; no extraSTO nativeparse in UPOC derivative"
+  },
+  "source_revision_binding": {
+    "sto_candidate_manifest_sha256": "eea59e6437bd76c83cce28413db909166181502e47dedb6fdcf215893466068b",
+    "upoc_packet_manifest_sha256": "f8bf347a7315ad118a67c5b5823be27c1df95e85ac210bb5f2f43f9171c3ebe1",
+    "upoc_program_sha256": "827ac9e065e08ca572f17f0620f4e3c0e56308b8754b2d929faa97369729e09e",
+    "upoc_normalized_sha256": "6a26f06b0a773d3f1475582adaa6b277fe257b9093265bb5fc9d255733bafc7a",
+    "baseline_parser_sha256": "b1d8b796b55002e2ba944751aa3d8bf801622387f7bbfd954ce1da616765a668",
+    "baseline_native_sha256": "b1d12b8636ebee9f15a6d53d0d152690e760368ed5cfb6dc317b2147a45e84e7"
+  },
+  "no_production_writes": true,
+  "wholebook_semantic_promotion": false
+}

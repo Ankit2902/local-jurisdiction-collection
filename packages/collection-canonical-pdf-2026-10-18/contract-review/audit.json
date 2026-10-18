@@ -1,0 +1,243 @@
+{
+  "schema": "independent-output-contract-vs-PDF-acceptance-gates-1",
+  "read_only": true,
+  "production_edits": false,
+  "network_requests": 0,
+  "image_operations": 0,
+  "source_sha256_before": {
+    "packages/local-extraction-handoff-2026-10-15/OUTPUT-CONTRACT.md": "2d871ce3f10959468c12075c0c4192b2d51232f91322d959be67c3efcdcd92f6",
+    "collectors/IMAGE-POLICY.md": "65fc73af08da24eb7a2f04885946e0da7a75551fc9dd71ac8e82354340a6ae58",
+    "collectors/ops/launcher.py": "5e2e8544c224a357393c8892ea25961b35212f2a5c5c3d22e89ff18de3ec5c06",
+    "collectors/encodeplus/native_document.py": "b1d12b8636ebee9f15a6d53d0d152690e760368ed5cfb6dc317b2147a45e84e7",
+    "collectors/encodeplus/pdf_structure.py": "b1d8b796b55002e2ba944751aa3d8bf801622387f7bbfd954ce1da616765a668",
+    "collectors/encodeplus/sto_physical_schedule.py": "54a567ac14c3000870a29da51fcfdc76b9ea14e15e14eea78e85059dbf88356a",
+    "collectors/encodeplus/documents.py": "ad9a481cd7deca2e7ac262d42e39f2dcd6ab492f2905ac8c79976f7dc7601490",
+    "collectors/encodeplus/verify.py": "07434dc5a51054b8833e90d9f05247f368d5a4e3b01046282a1c51476fe84b7e",
+    "collectors/encodeplus/configs/native-82-4b983dc51ab6.json": "7b1c3bd6e8720897f373b1718895cda8b0cb7da81d9c66d8e86f2cf5d3142d39",
+    "collectors/encodeplus/configs/native-82-04514ddf4ea3.json": "75a0c196757b41e6370b54802e18ca8a6d3c0d98618737b17ec279b9ded5cac9",
+    "collectors/official/collect.py": "21e043bafebd9cf1e8676a6b08fb55c01661bfa6c153caa8f26bc51c862c7f59",
+    "collectors/official/verify.py": "3205bf0aa89c2c40fcf1b63697607d893f457c7df3d76ba71a7fe9b87e371989",
+    "collectors/official/native_labels.py": "dc2489d1d734f177bb1b15a9c73b1117cda37a51d0c57fe5c2f0fe45e96fb6de",
+    "collectors/american-legal/verify.py": "402d884053809e13e1818e36fa6b0409e0367ca84ac102fc60789c713ea6e71c",
+    "collectors/american-legal/model.py": "015dcba52e415f6e314bf4ed76c397447253221ae5697d20fa8b0a7f3b51c341",
+    "collectors/american-legal/pdf_tags.py": "0b160c44e83c82eca05b9754e2bbbbc3e9fd9e026a137e979c79bcfe4f6570ff",
+    "collectors/american-legal/pdf_grid.py": "e303b9bad425a6e2c5211314da547f4e35b9fe8dd4cbc5d0cb57d800a9544b73"
+  },
+  "findings": [
+    {
+      "id": "F1",
+      "kind": "actual_canonical_output_fidelity_gap",
+      "evidence": [
+        {
+          "file": "collectors/encodeplus/pdf_structure.py",
+          "lines": [
+            145,
+            151
+          ]
+        },
+        {
+          "file": "collectors/encodeplus/sto_physical_schedule.py",
+          "lines": [
+            135,
+            138
+          ]
+        },
+        {
+          "file": "collectors/encodeplus/native_document.py",
+          "lines": [
+            21,
+            23
+          ]
+        }
+      ],
+      "finding": "Source-exact308physicalSTOcells are an alternate representation. Known-bad inferred grids remain authoritative-looking top-level tables; page ordered_blocks/text and CSV remain old output. Free-text diagnostic notice is inside the added schedule, not an enforced consumer selection.",
+      "required_evidence_to_close": "Explicit canonical representation drives tables,ordered_blocks,text,andCSV; superseded original fields retain exactbytes/lineage and cannot be consumed as second authoritative table; raw/source pins and allword/glyph/order/header/span checks; outside-source fields unchanged."
+    },
+    {
+      "id": "F2",
+      "kind": "demonstrable_constant_false_capability_limit_not_current_false_acceptance",
+      "evidence": [
+        {
+          "file": "collectors/encodeplus/native_document.py",
+          "lines": [
+            16,
+            19
+          ]
+        },
+        {
+          "file": "collectors/encodeplus/native_document.py",
+          "lines": [
+            38,
+            41
+          ]
+        },
+        {
+          "file": "collectors/ops/launcher.py",
+          "lines": [
+            489,
+            492
+          ]
+        }
+      ],
+      "finding": "EP native PDF table semantics/text/attachments are constantfalse even after clean exact-source replay; launcher requires the constanttrue. Current file/page-onlyconfig explicitly states that limited scope, so no current fullpublication success is warranted. No source-specific verified-fidelity path exists yet.",
+      "required_evidence_to_close": "Actual per-source all-page/section/order/table/no-table+imageN/A proofs and canonicaloutput bindings; derive per-dimension measured acceptance rather than globalconstanttrue. Keep native bytecapture separate; never credit legal interpretation."
+    },
+    {
+      "id": "F3",
+      "kind": "demonstrable_PDF_family_capability_limit",
+      "evidence": [
+        {
+          "file": "collectors/official/collect.py",
+          "lines": [
+            408,
+            417
+          ]
+        },
+        {
+          "file": "collectors/official/verify.py",
+          "lines": [
+            22,
+            24
+          ]
+        },
+        {
+          "file": "collectors/ops/launcher.py",
+          "lines": [
+            493,
+            498
+          ]
+        }
+      ],
+      "finding": "Official body_complete explicitlyexcludes anyprimaryPDFpage_files, and PDFQA sets alltable/legal flagsfalse regardless measured pagechecks. All-PDFsource cannot reach commonpublicationacceptance through currentfamily. This is conservative unsupportedcapability, not evidence anycurrentPDFiscomplete.",
+      "required_evidence_to_close": "Sourcequalified primaryPDF logicalnode/paragraph/page ownership and authoritativecanonicalstructure; fullinventory/sourceclosing/glyph/table/layout proofs plus explicit dispositions for no-table/image-only pages."
+    },
+    {
+      "id": "F4",
+      "kind": "semantic_intent_not_required_but_source_structure_required",
+      "evidence": [
+        {
+          "file": "packages/local-extraction-handoff-2026-10-15/OUTPUT-CONTRACT.md",
+          "lines": [
+            46,
+            46
+          ]
+        },
+        {
+          "file": "packages/local-extraction-handoff-2026-10-15/OUTPUT-CONTRACT.md",
+          "lines": [
+            72,
+            89
+          ]
+        },
+        {
+          "file": "packages/local-extraction-handoff-2026-10-15/OUTPUT-CONTRACT.md",
+          "lines": [
+            95,
+            102
+          ]
+        },
+        {
+          "file": "collectors/encodeplus/sto_physical_schedule.py",
+          "lines": [
+            96,
+            96
+          ]
+        },
+        {
+          "file": "collectors/encodeplus/sto_physical_schedule.py",
+          "lines": [
+            135,
+            149
+          ]
+        }
+      ],
+      "finding": "Preserving exact printedblanks/citations/physicalplacement is required; inferring intendedlegalrelationship behind7statute-onlyrows or fixing knownp9sourcealignment is not in contract. Thoseintent flags must stayfalse, but should be separate from proven physicalfidelity. Cross-page sourceparagraph/section identity and actual readingorder remain required, not optionallegalopinion.",
+      "required_evidence_to_close": "Explicit source-defect disposition with exactoriginalcells/locators and no valuefill/reordering; independently show everytextunit/row/cell is owned and ordered as source; if logicalcontinuation is sourceproven, encodeit, otherwise retain ambiguousphysicalunits without claiming inferredrelation."
+    },
+    {
+      "id": "F5",
+      "kind": "potential_under_gate_for_full_corpus_logical_sections",
+      "evidence": [
+        {
+          "file": "collectors/american-legal/verify.py",
+          "lines": [
+            103,
+            108
+          ]
+        },
+        {
+          "file": "collectors/american-legal/model.py",
+          "lines": [
+            176,
+            195
+          ]
+        },
+        {
+          "file": "collectors/american-legal/pdf_tags.py",
+          "lines": [
+            235,
+            235
+          ]
+        },
+        {
+          "file": "packages/local-extraction-handoff-2026-10-15/OUTPUT-CONTRACT.md",
+          "lines": [
+            36,
+            46
+          ]
+        },
+        {
+          "file": "packages/local-extraction-handoff-2026-10-15/OUTPUT-CONTRACT.md",
+          "lines": [
+            87,
+            89
+          ]
+        }
+      ],
+      "finding": "AL can qualify source text/table/order while legal_provision_segmentation remainsfalse, and that segmentationflag is not part of its completionexpression. Fulltaggedlogicaltree maypreserve enoughsourceevidence, but page-recordsuccessalone doesnot establish contractcontinuousparagraph→logicalsection/corpusprovision mapping. No specific acceptedbookmisclassified is asserted.",
+      "required_evidence_to_close": "Per-source authoritative logicalnode/section mapping acrosspageboundaries with headings/lists/notes andcorpusprovision/export provenance, or explicit source-backed nonsection document disposition whereapplicable. Do not demand inferredlegalmeaning or blanketBluebooknormalization."
+    }
+  ],
+  "current_actual_blockers": [
+    "Top-levelinferredcelloutput still795disagreements across16regions;308STOalternatecellproofcovers3regions/60legacyfailuresbutnotcanonicalconsumerclosure.",
+    "Legacy40thUPOC102CID/font/enginepagesremainuncertain; finiteglyphdiagnostic3382recoverable/4447unknownisnotUnicodeclosure.",
+    "42nd/currentprimary label vslinked40thoriginalsourceversionconflictneedsexplicitboundsource/role disposition; cannot substitutea newerPDF.",
+    "All636canonicalreadingorder/logicalsection/table-or-no-table coverage notyetproven by wordcharbags/pagecounts.",
+    "Requiredattachedfiles need own normalizedsourcefidelity, not strictbyteintegrity alone."
+  ],
+  "criteria": [
+    "Exactpublicationidentity/scope/sourceversion+requiredreferences and ownerbinding.",
+    "Independentallsourceinventory/pages/nodes/assets+explicitdispositions, includingeditorialandimagepolicyN/A.",
+    "CompletecorrectUnicode/textglyphownership includingnotes/captions/labels, no unexplainedCID/privateglyphs.",
+    "Authoritativeorderedparagraph/list/footnote/tableoutput, exactheaders/cells/spans+sourceblank/ambiguitypreservation.",
+    "Source-backed logicalsection/provision continuity acrosspageboundaries and no header/date identities.",
+    "Canonicalconsumer/export contract and CSV/JSON/provenance equality; diagnostics explicitlysuperseded, not double-counted.",
+    "Sourceclosing+clean/interruptedreplay+immutablecode/config/runtime/artifactbinding+sourcecomparisoncoverage."
+  ],
+  "source_sha256_after": {
+    "packages/local-extraction-handoff-2026-10-15/OUTPUT-CONTRACT.md": "2d871ce3f10959468c12075c0c4192b2d51232f91322d959be67c3efcdcd92f6",
+    "collectors/IMAGE-POLICY.md": "65fc73af08da24eb7a2f04885946e0da7a75551fc9dd71ac8e82354340a6ae58",
+    "collectors/ops/launcher.py": "5e2e8544c224a357393c8892ea25961b35212f2a5c5c3d22e89ff18de3ec5c06",
+    "collectors/encodeplus/native_document.py": "b1d12b8636ebee9f15a6d53d0d152690e760368ed5cfb6dc317b2147a45e84e7",
+    "collectors/encodeplus/pdf_structure.py": "b1d8b796b55002e2ba944751aa3d8bf801622387f7bbfd954ce1da616765a668",
+    "collectors/encodeplus/sto_physical_schedule.py": "54a567ac14c3000870a29da51fcfdc76b9ea14e15e14eea78e85059dbf88356a",
+    "collectors/encodeplus/documents.py": "ad9a481cd7deca2e7ac262d42e39f2dcd6ab492f2905ac8c79976f7dc7601490",
+    "collectors/encodeplus/verify.py": "07434dc5a51054b8833e90d9f05247f368d5a4e3b01046282a1c51476fe84b7e",
+    "collectors/encodeplus/configs/native-82-4b983dc51ab6.json": "7b1c3bd6e8720897f373b1718895cda8b0cb7da81d9c66d8e86f2cf5d3142d39",
+    "collectors/encodeplus/configs/native-82-04514ddf4ea3.json": "75a0c196757b41e6370b54802e18ca8a6d3c0d98618737b17ec279b9ded5cac9",
+    "collectors/official/collect.py": "21e043bafebd9cf1e8676a6b08fb55c01661bfa6c153caa8f26bc51c862c7f59",
+    "collectors/official/verify.py": "3205bf0aa89c2c40fcf1b63697607d893f457c7df3d76ba71a7fe9b87e371989",
+    "collectors/official/native_labels.py": "dc2489d1d734f177bb1b15a9c73b1117cda37a51d0c57fe5c2f0fe45e96fb6de",
+    "collectors/american-legal/verify.py": "402d884053809e13e1818e36fa6b0409e0367ca84ac102fc60789c713ea6e71c",
+    "collectors/american-legal/model.py": "015dcba52e415f6e314bf4ed76c397447253221ae5697d20fa8b0a7f3b51c341",
+    "collectors/american-legal/pdf_tags.py": "0b160c44e83c82eca05b9754e2bbbbc3e9fd9e026a137e979c79bcfe4f6570ff",
+    "collectors/american-legal/pdf_grid.py": "e303b9bad425a6e2c5211314da547f4e35b9fe8dd4cbc5d0cb57d800a9544b73"
+  },
+  "no_gate_flags_changed": true,
+  "no_blanket_acceptance_proposed": true,
+  "limits": [
+    "Read-onlycode/contract/evidencereview; noall636PDFreparse ornewsourceacquisition.",
+    "Originalcontract callsitself proposed; latest explicituserimagepolicy controlsnoimageacquisition/decode/render/extract/OCR.",
+    "Noexceptionacceptanceorpublicationreadinessisgrantedbythisaudit."
+  ]
+}

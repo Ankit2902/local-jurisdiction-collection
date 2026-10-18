@@ -1,0 +1,35 @@
+# Isolated canonical STO Appendix B integration
+
+This candidate composes the independently reviewed STO Appendix B source proof with the frozen canonical STO four-column/UPOC-index family snapshot. It changes only source-pinned physical pages 198–203 of the exact retained STO PDF. No production source, prior packet, original acquisition, Git, database, publisher gate or stop was changed.
+
+The source-proof packet remains immutable at `../sto-three-column-reconstruction-v1` (manifest `87e14824c5949cf80702e093b5a84dae44eb0a3ddffda4e92850dd0706f1e51b`). Independent review `c758845281322ff4b2b9921b86a5e9710163801986f71069f04890c36cf64722` is retained by the parent under `outputs/collection-readiness-post1997ee1-2026-10-17/qa/sto-appendix-b-source-review-v1/`. `SOURCE-LINEAGE.json` and `COMPOSITION-COPY.json` bind the source packet, exact frozen core composition and unchanged source copy. The core base manifest is `fe3eb10a9317bb7a749407d0f859660868186b9dcf3a6844c0b052c8d9ad1d6c`.
+
+The new pure runtime helper is `candidate/collectors/encodeplus/sto_appendix_b.py`. It performs no file, transport, image, render or OCR operations. It recomputes the reviewed `page_ir` function from the actual page and text page; it does not load normalized fixture output at runtime. It requires the exact native source SHA, one of the actually observed publisher URLs, physical page, record owner/source binding, original detector-table fingerprint, native text, whole-word/font geometry, source glyph/native-character geometry, full cell/order/bounds fingerprint and exact original failed-cell count. The source is the original 224-page STO PDF SHA `594128464bdc6c0dd1336aa00acb93c1ecbfdc5980e4265e63d6e134df98f127`. Unknown source/URL/page profiles are unchanged; matching profiles with source or cache drift fail before record mutation.
+
+A two-line addition to `pdf_structure.py` imports/calls the helper. `native_document.py` adds the separate scoped summary; the actual JSONL/CSV serializer remains unchanged. No new dependencies are required. The exact copied family requirements are retained.
+
+The canonical output has 723 three-column table cells and nine context plus six folio text blocks: 738 complete physical cells in total. Those cells own all 1,318 source words and 7,515 glyphs (7,562 native characters, with original ligature grouping preserved). The verified source structure drives top-level `tables`, `ordered_blocks`, `text`, `ordering` and the scoped `pdf_qualification` fields. The original five fields are deep-copied without alteration into `superseded_detector_diagnostics.original_record_fields`. Every one of the 274 old inferred-grid false cells remains exact diagnostics; they are not relabeled as corrected cells.
+
+Source order is preserved: on pages 199–203 the first data line remains before the repeated two-line header. The source's context and printed folios remain separate blocks. The original page-198 title/introduction and its caveat—descriptions are for reference, not legal descriptions—remain in canonical text. Section 42 / statute 8-1518 ends page 198 `Passing on left with insufficient`, and page 199 starts `clearance`; the source-bound witness is retained without filling page-199 physical blanks or merging canonical text across pages. The two distinct printed section-62 / statute-8-1531 occurrences remain separate. Additional statute lines with blank section cells remain unfilled; no legal rowspan or legal-association guess is made. The next page's index header is retained as the source ending witness, without claiming the rest of page 204 was normalized here.
+
+`canonical_structure_selection` identifies the authoritative fields and source-specific scope. Physical cell fidelity does not grant intended legal relationships, edition/adoption acceptance, global table detection, whole-PDF semantics or whole-publication acceptance. Existing unrelated legacy-font, edition and document gaps remain explicit. The helper's scoped summary never sets whole-PDF table semantics true.
+
+`derived/records.jsonl` and `derived/records.csv` contain the 636-record composed IR derivative. Six records change; the other 630, including all seven earlier canonical STO/UPOC selections, remain exactly equal. All 201 image placeholders and their ownership remain identical. Only six actual original PDF pages were content-parsed: the family parser's page iteration was explicitly restricted to original indices 197–202. `finite-pages-source.py` preserves the exact executed function, with that sole loop instrumentation. There was no full 224-page or full 636-page content reparse. The full composed baseline IR is retained portably as `source/composed-base-636.jsonl.gz`, with uncompressed SHA `6b5c5212b047f69a6a941ab2ba2b2eb88af19bda9a40b88c36636d839a100547`. This is retained-IR equality evidence for the unchanged 630 records, not a claim that their original native files were freshly reread.
+
+Actual integration `CANONICAL-DERIVATIVE-REPORT.json` passed; the separate portable read-only replay reproduced the JSONL and CSV bytes. `full-suite.log` records all 81 tests passing in 95.934 seconds, including all prior image, source, native, resume and scoped-table/index tests plus five focused canonical tests. Tests cover wrong source/hash/URL/page, corrupted owner/cache tables, duplicate canonical selection, header reordering, dropped words/glyphs, invented text/images and supported namespace/observed-alias changes. Reconstruction, integration and replay run under image/network tripwires. The normalized six regions have zero source images; no separate images are downloaded, extracted or rendered. Literal `[IMAGE]` and existing image positions/ownership are preserved.
+
+Tested with Python 3.12.14 on macOS 26.6.2 arm64, using the existing pinned family environment. From this directory, the portable read-only command is:
+
+```sh
+python -B verify_canonical.py
+```
+
+The focused canonical tests, from `candidate/`, are:
+
+```sh
+python -B -m unittest collectors.encodeplus.test_sto_appendix_b -v
+```
+
+The full tested command is retained in `COMMANDS.json`. The verifier uses only relative retained inputs, rereads the original six native pages, verifies the unchanged baseline IR, checks all canonical JSONL/CSV bytes and source code/evidence remain unchanged, and writes only to stdout. Generation refuses to replace output. `derive_canonical.py` is preserved exactly as executed, including its original absolute baseline provenance path; use the portable verifier for replay. The two wrapper-only failure histories retain the missing owner-decoration precheck and Python tuple/JSON-array comparison correction. Neither changed scientific helper output or raw source bytes.
+
+The candidate is unpromoted. The source-only packet remains immutable and is independently reviewable; this later packet adds canonical selection and composition evidence. Parent review/promotion must use the exact new helper, test, parser hook and native-summary delta, preserving the earlier source and run revisions.

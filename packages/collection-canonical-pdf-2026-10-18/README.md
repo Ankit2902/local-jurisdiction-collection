@@ -1,0 +1,14 @@
+# Canonical PDF source and validation evidence
+
+This package records the reviewed source-specific STO and UPOC canonical export corrections and their exact promotion into the collector. Historical candidate descriptions and intermediate failures remain immutable. The terminal `composed-sto-upoc/validation-summary.json` and `FINAL-PROMOTION-PLAN.json` take precedence over intermediate preparation status files for that candidate.
+
+Run `python3 -B composed-sto-upoc/verify_candidate.py` from this directory for a standard-library, read-only check of its complete manifest, retained 636-record derivative, actual JSON/CSV serializers, unchanged records, diagnostic lineage and image positions. This verification passed after copying the packet into the repository. It makes no network requests or image operations.
+
+`root/consumer-review` contains the independent consumer audit, successful report and five corruption tests. `root/canonical-promotion.json` binds exact before/after hashes for the eleven promoted files. `sto-canonical` and `upoc-independent-review` retain the separate source reviews, while `contract-review` explains why corrected source structure must drive canonical output. Scripts in historical evidence may retain absolute execution paths; the composed verifier is relocatable.
+
+The package proves seven corrected records and 629 unchanged records. All 795 original failed-cell payloads remain available; 318 failures remain in canonical tables. The original 201 image placeholders are unchanged. No whole-book semantic, edition, current live-acquisition or all-jurisdiction acceptance is claimed. The no-image policy requires exact `[IMAGE]`; native originals may intrinsically embed publisher images, but separate image assets are neither acquired nor extracted.
+
+
+The subsequent `appendix-b-canonical` packet extends the same composed baseline by six further source pages. Its 81-test suite and independent `sto-appendix-b-canonical-review-v1` verify 723 canonical table cells, nine context lines, six folios, physical preheader order, source blanks, the section-42 carryover and both section-62 entries. The full retained derivative now contains 13 corrected records and 623 unchanged original records, with 44 remaining canonical inferred-cell failures. All 795 original failure payloads remain exact diagnostics and all 201 image placeholders are unchanged.
+
+`root/appendix-consumer-review` contains a separate serialized-output audit and four corruption cases. `root/appendix-canonical-promotion.json` binds the eight added/replaced files to the preceding composed source. The latest normalized-image audit is `root/thirteen-normalized-images.json`; the earlier seven-record-stage audit remains unchanged. No Infrastructure canonical correction is included in this checkpoint.

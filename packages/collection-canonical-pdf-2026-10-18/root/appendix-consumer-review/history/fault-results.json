@@ -1,0 +1,28 @@
+{
+  "passed": true,
+  "tests": [
+    {
+      "case": "move_header_before_original_preheader",
+      "rejected": true,
+      "reason": "physical headers reordered"
+    },
+    {
+      "case": "drop_canonical_source_cell",
+      "rejected": true,
+      "reason": "source cells/order"
+    },
+    {
+      "case": "alter_retained_detector_evidence",
+      "rejected": true,
+      "reason": "old fields changed"
+    },
+    {
+      "case": "stale_csv",
+      "rejected": true,
+      "reason": "CSV differs"
+    }
+  ],
+  "originals_unchanged": true,
+  "audit_sha256": "20e7d554cf403e5154542ae69b2df2354e638b65f9677fbbca3a08af4ca1a214",
+  "source_records_sha256": "7c2c63a067fc47ceff537266a152c6cef71d0f19c51ed238b6dac33cee4ec0c3"
+}

@@ -1,0 +1,38 @@
+{
+  "passed": true,
+  "cases": [
+    {
+      "fault": "old_detector_selected",
+      "exit_code": 1,
+      "rejection": "Canonical table selection differs",
+      "passed": true
+    },
+    {
+      "fault": "duplicate_canonical_word",
+      "exit_code": 1,
+      "rejection": "Canonical word ownership differs",
+      "passed": true
+    },
+    {
+      "fault": "changed_original_diagnostic",
+      "exit_code": 1,
+      "rejection": "Exact original fields were not preserved",
+      "passed": true
+    },
+    {
+      "fault": "wrong_source_binding",
+      "exit_code": 1,
+      "rejection": "Selection source binding mismatch",
+      "passed": true
+    },
+    {
+      "fault": "stale_csv",
+      "exit_code": 1,
+      "rejection": "CSV field differs",
+      "passed": true
+    }
+  ],
+  "input_scope": "One actual corrected STO record and its exact retained diagnostic original; no synthetic legal content or parser imports",
+  "image_or_network_operations": false,
+  "script_sha256": "d9c769c2dabc5605c01aa9aecccbebef5041e6f3b6a9e97bc1c4e033e57774fd"
+}

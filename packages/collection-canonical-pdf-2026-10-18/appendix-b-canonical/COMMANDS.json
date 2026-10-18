@@ -1,0 +1,55 @@
+{
+  "runtime_tested": {
+    "python": "3.12.14 (main, Aug 25 2026, 13:50:33) [Clang 22.1.3 ]",
+    "platform": "macOS-26.6.2-arm64-arm-64bit"
+  },
+  "portable_readonly": {
+    "cwd": ".",
+    "argv": [
+      "python",
+      "-B",
+      "verify_canonical.py"
+    ]
+  },
+  "focused_tests": {
+    "cwd": "candidate",
+    "argv": [
+      "python",
+      "-B",
+      "-m",
+      "unittest",
+      "collectors.encodeplus.test_sto_appendix_b",
+      "-v"
+    ]
+  },
+  "full_suite": {
+    "cwd": "candidate",
+    "argv": [
+      "python",
+      "-B",
+      "-m",
+      "unittest",
+      "collectors.encodeplus.tests",
+      "collectors.encodeplus.test_bounded_decoder",
+      "collectors.encodeplus.test_image_context_scheme",
+      "collectors.encodeplus.test_inline_image_identity",
+      "collectors.encodeplus.test_native_diagnostic_aggregate",
+      "collectors.encodeplus.test_savannah_empty",
+      "collectors.encodeplus.test_savannah_reference",
+      "collectors.encodeplus.test_sto_physical_schedule",
+      "collectors.encodeplus.test_upoc_printed_index",
+      "collectors.encodeplus.test_sto_appendix_b",
+      "-v"
+    ]
+  },
+  "actual_generation": {
+    "cwd": ".",
+    "argv": [
+      "python",
+      "-B",
+      "derive_canonical.py"
+    ],
+    "finite_loop_artifact": "finite-pages-source.py",
+    "refuses_overwrite": true
+  }
+}

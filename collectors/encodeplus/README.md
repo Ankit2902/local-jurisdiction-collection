@@ -1,5 +1,22 @@
 # enCodePlus full-publication collector
 
+## Current canonical PDF correction
+
+The current scripts make source-verified STO four-column schedules, UPOC printed indexes and STO Appendix B three-column schedules authoritative in `tables`, `ordered_blocks`, `text` and CSV. Prior inferred output remains exact under `superseded_detector_diagnostics.original_record_fields`. `canonical_structure_selection` binds the selected representation to the original source SHA, URL and physical page. Keep these diagnostic and source-evidence fields with the exported corpus.
+
+The composed family suite passes **81 tests**. Actual finite native-page queries and the 636-record retained derivative change 13 records, preserve the other 623 original records, retain all 795 original failed-cell payloads, and leave 44 inferred-cell disagreements in canonical output. These checks do not establish whole-book, legal edition or jurisdiction completeness. Earlier sections below describe historical revisions and their original validation scope; current hashes are in `validation-summary.json` under `canonical_pdf_revision`.
+
+All 201 source image placeholders retain their positions and ownership. The image policy is unchanged: exact `[IMAGE]`, no separate image fetching, decoding, extraction, rendering or OCR. Original publisher documents remain immutable and may intrinsically contain embedded graphics.
+
+Run the focused source-structure regressions from the repository root:
+
+```sh
+python -B -m unittest collectors.encodeplus.test_sto_physical_schedule collectors.encodeplus.test_upoc_printed_index collectors.encodeplus.test_sto_appendix_b -v
+```
+
+These 25 tests use the delivered original source fixtures, block network/image operations and exercise changed-source refusal. They are not 25 independently acquired publications. The [canonical source package](../../packages/collection-canonical-pdf-2026-10-18/README.md) includes native source witnesses, prior failures, exact manifests, actual JSON/CSV outputs, independent consumer checks and portable replay commands. Preserve the fixture directories when relocating the scripts.
+
+
 The current PDF revision preserves each whole source word exactly once in page text and records the exact native extraction rectangle for each detected cell. Glyph conservation and unresolved CID diagnostics now participate in the native document's text result. Inline-image identities are stable between processes; images remain exact `[IMAGE]`, with no pixel extraction. All 56 family tests pass. The [source-bound review](proofs/native-word-conservation-2026-10-18/validation-summary.json) covers 636 retained pages and 6,248 cells; 795 cell disagreements, 102 legacy font/CID pages, edition conflicts and legal reading-order/structure qualifications remain unresolved. Earlier revision-specific evidence below retains its original scope.
 
 The current revision passes 51 offline regressions. Exact source/native qualifications reconcile all 6,279 retained Overland body records. The terminal Savannah adopted-reference stage checks 5,674 records and 707 documents; its final combined6451qualification replay is separately reported and may still be running. These are current-parser derivatives of actual full live corpora; fresh common-launcher runs are separately recorded. Whole-publication native exports, global legal edition and jurisdiction completeness remain qualified separately. Earlier dated validation paragraphs below describe their original executed revisions; they do not relabel historical runs as current code.

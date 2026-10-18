@@ -1,0 +1,8 @@
+Traceback (most recent call last):
+  File "/Users/oliverflint/My Drive/Claude/Projects/CompliSolv 2.00/outputs/collection-readiness-post1997ee1-2026-10-17/root/canonical-consumer-review/audit.py", line 16, in <module>
+    for key in csvrow:demand(csvrow[key]==str(record.get(key,'')),'CSV field differs: '+ident+'/'+key)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/oliverflint/My Drive/Claude/Projects/CompliSolv 2.00/outputs/collection-readiness-post1997ee1-2026-10-17/root/canonical-consumer-review/audit.py", line 8, in demand
+    if not condition:raise AssertionError(message)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: CSV field differs: overland-required-57f6356897e1::page:5/text
