@@ -1,0 +1,48 @@
+{
+  "schema_version": 1,
+  "targets": {
+    "original-flagstaff-az": {
+      "adapter": "flagstaff-native-frameset",
+      "jurisdiction": "Flagstaff",
+      "state": "AZ",
+      "source_url": "https://www.codepublishing.com/AZ/Flagstaff/",
+      "primary_publication": "City Code including Charter",
+      "scope_selector": "#divmuni",
+      "excluded_separate_publications": [
+        "Employee Handbook"
+      ],
+      "complete_by_default": true,
+      "native_format": "HTML",
+      "independent_reference_rules": [
+        {
+          "url_regex": "^https://www\\.codepublishing\\.com/cgi-bin/ars\\.pl\\?cite=[0-9-]+$",
+          "context_regex": "A\\.R\\.S\\.|Arizona Revised Statutes",
+          "reason": "Source-labelled Arizona Revised Statutes citation is an independent state legal layer, not an attached City Code document; primary publisher capture does not include the state statutes."
+        },
+        {
+          "url_regex": "^https://www\\.ecfr\\.gov/(?:current/title-14/|cfr-reference\\?cfr\\[reference\\]=14\\+CFR\\+121)$",
+          "context_regex": "Federal Aviation Administration.*Appendix H, 14 Code of Federal Regulations Part 121",
+          "reason": "FAA simulator qualification cites an independent federal legal layer; no local attachment or copied appendix is offered by the publisher."
+        },
+        {
+          "url_regex": "^http://www\\.law\\.cornell\\.edu/cfr/text/36(?:/part-61)?$",
+          "context_regex": "Secretary of the Interior.s Standards and Guidelines for Archeology and Historic Preservation",
+          "reason": "Professional qualification citation to36CFR61 is an independent federal legal layer; not a native attachment to this primary publication."
+        }
+      ]
+    },
+    "original-king-county-wa": {
+      "adapter": "king-county-native-word-html",
+      "jurisdiction": "King County",
+      "state": "WA",
+      "source_url": "https://kingcounty.gov/en/dept/council/governance-leadership/county-legislation-codes/king-county-code",
+      "primary_publication": "King County Code and source-listed Charter/editorial materials",
+      "scope_selector": "main h3 links to aqua.kingcounty.gov/council/clerk/code/*.htm",
+      "excluded_separate_publications": [
+        "Board of Health Code"
+      ],
+      "complete_by_default": true,
+      "native_format": "DOCX plus HTML"
+    }
+  }
+}

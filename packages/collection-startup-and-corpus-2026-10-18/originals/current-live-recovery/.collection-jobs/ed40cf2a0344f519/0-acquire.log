@@ -1,0 +1,39 @@
+Error occurred in event listener
+Traceback (most recent call last):
+  File "/Users/oliverflint/My Drive/Claude/Projects/CompliSolv 2.00/github/local-jurisdiction-collection/collectors/originals/flagstaff_inventory.py", line 51, in run
+    r=page.goto(URL,wait_until='domcontentloaded',timeout=180000);guard_html(r.body(),URL,r.status,r.headers);page.wait_for_timeout(7000)
+                                                                             ^^^^^^^^
+  File "/Users/oliverflint/My Drive/Claude/Projects/CompliSolv 2.00/github/local-jurisdiction-collection/.collection-runtime/venv/lib/python3.12/site-packages/playwright/sync_api/_generated.py", line 22170, in body
+    return mapping.from_maybe_impl(self._sync(self._impl_obj.body()))
+                                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/oliverflint/My Drive/Claude/Projects/CompliSolv 2.00/github/local-jurisdiction-collection/.collection-runtime/venv/lib/python3.12/site-packages/playwright/_impl/_sync_base.py", line 110, in _sync
+    wait_for_future(self._loop, self._dispatcher_fiber, task)
+  File "/Users/oliverflint/My Drive/Claude/Projects/CompliSolv 2.00/github/local-jurisdiction-collection/.collection-runtime/venv/lib/python3.12/site-packages/playwright/_impl/_greenlets.py", line 84, in wait_for_future
+    dispatcher_fiber.switch()
+KeyboardInterrupt
+Traceback (most recent call last):
+  File "/Users/oliverflint/My Drive/Claude/Projects/CompliSolv 2.00/github/local-jurisdiction-collection/collectors/originals/cli.py", line 80, in <module>
+    if __name__=='__main__':sys.exit(main())
+                                     ^^^^^^
+  File "/Users/oliverflint/My Drive/Claude/Projects/CompliSolv 2.00/github/local-jurisdiction-collection/collectors/originals/cli.py", line 61, in main
+    result=collect(cfg.id,args.out,args.resume,publication_config=cfg.binding())
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/oliverflint/My Drive/Claude/Projects/CompliSolv 2.00/github/local-jurisdiction-collection/collectors/originals/collect.py", line 49, in main
+    a=run(out/'source',resume=resume and ((out/'source/checkpoint.json').is_file() or (out/'source/inventory-initialization.json').is_file()))
+      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/oliverflint/My Drive/Claude/Projects/CompliSolv 2.00/github/local-jurisdiction-collection/collectors/originals/flagstaff_html.py", line 57, in collect
+    inventory_source=initialize(out,FILES,roots_and_readers,resume=resume)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/oliverflint/My Drive/Claude/Projects/CompliSolv 2.00/github/local-jurisdiction-collection/collectors/originals/flagstaff_initialization.py", line 97, in initialize
+    run(out/attempt['path']);meta=checked_receipt(out/attempt['path'])
+    ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/oliverflint/My Drive/Claude/Projects/CompliSolv 2.00/github/local-jurisdiction-collection/collectors/originals/flagstaff_inventory.py", line 81, in run
+    meta.update(finished_at=stamp(),blocked=blocked,source_native_response_count=len(bodies));save(out/'network-events.json',events);save(out/'network-bodies.json',bodies);save(out/'receipt.json',meta);context.close()
+                                                                                                                                                                                                          ^^^^^^^^^^^^^^^
+  File "/Users/oliverflint/My Drive/Claude/Projects/CompliSolv 2.00/github/local-jurisdiction-collection/.collection-runtime/venv/lib/python3.12/site-packages/playwright/sync_api/_generated.py", line 2201, in close
+    self._sync(self._impl_obj.close(reason=reason))
+  File "/Users/oliverflint/My Drive/Claude/Projects/CompliSolv 2.00/github/local-jurisdiction-collection/.collection-runtime/venv/lib/python3.12/site-packages/playwright/_impl/_sync_base.py", line 110, in _sync
+    wait_for_future(self._loop, self._dispatcher_fiber, task)
+  File "/Users/oliverflint/My Drive/Claude/Projects/CompliSolv 2.00/github/local-jurisdiction-collection/.collection-runtime/venv/lib/python3.12/site-packages/playwright/_impl/_greenlets.py", line 84, in wait_for_future
+    dispatcher_fiber.switch()
+KeyboardInterrupt

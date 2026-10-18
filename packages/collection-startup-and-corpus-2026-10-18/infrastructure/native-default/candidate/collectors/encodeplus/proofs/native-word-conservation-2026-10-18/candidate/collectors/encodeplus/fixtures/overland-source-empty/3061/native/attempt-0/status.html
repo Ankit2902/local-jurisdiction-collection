@@ -1,0 +1,44 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head lang="en"><title>
+	Export PDF
+</title>
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+</head>
+<body style="text-align:center;"><div id="main-body">
+<img style="margin:auto" src="maintain/resources/progress-2.gif" />
+<p></p>
+<h1 id="msg">Exporting the document...</h1>
+</div>
+<script type="text/javascript">
+    var polingTimer;
+    $(document).ready(function () {
+		var thisPage = window.location.href;
+        if (thisPage.indexOf("file=") < 1) polingTimer = setTimeout(PoleExport, 1000 * 4);
+        //polingTimer = setInterval(PoleExport, 1000 * 9);
+    });
+
+    function PoleExport() {
+        $.get('component.aspx?name=export2doc&doctype=p&pid=591&tocid=012.002.004&catid=0', function (response) {
+            var result = JSON.parse(response);
+            if (result == null) { clearInterval(polingTimer); alert('Error processing export request'); return; }
+            if (result.Failed) { clearInterval(polingTimer); $("#msg").text(result.Msg); return; }
+
+            if (!result.Ready) return;
+            clearInterval(polingTimer);
+            $("#main-body").empty().append("<h1 id='msg'>Export Complete.</h1><p>The exported document may have opened in another window. You may close this windows at any time.</p>");
+            var thisPage = window.location.href;
+            var x = "?";
+            var f = "";
+            if (thisPage.indexOf("?") > 0) x = "&";
+            if (thisPage.indexOf("file=") < 1) f = x + "file=" + encodeURIComponent(result.File);
+            if (thisPage.indexOf("nocache=") > 1) thisPage = thisPage.replace(/([\?&])nocache=.+?/, '$1nc=0');
+            window.location.href = thisPage + f
+        });
+    }
+</script>
+</body>
+</html>

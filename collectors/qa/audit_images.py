@@ -32,7 +32,7 @@ def audit(root):
     for n,x in enumerate(value):walk(x,locator+'/'+str(n))
    if not isinstance(value,dict):return
    h=value.get('headers') or value.get('response',{}).get('headers') or {};mime=next((str(v) for k,v in h.items() if k.lower()=='content-type'),'')
-   if mime.lower().startswith('image/'):
+   if mime.strip().lower().startswith('image/'):
     refs=[value.get(k) for k in ['body_file','raw_ref','file','path'] if isinstance(value.get(k),str)];actual=[]
     for ref in refs:
      candidate=(root/ref).resolve()

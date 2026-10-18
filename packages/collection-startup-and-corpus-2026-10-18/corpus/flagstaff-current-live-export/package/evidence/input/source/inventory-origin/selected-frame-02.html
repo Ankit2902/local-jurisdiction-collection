@@ -1,0 +1,41 @@
+<!DOCTYPE html><html lang="en" xml:lang="en"><head>
+    <meta charset="utf-8">
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.4.4/jquery.min.js"></script>
+    <script src="navigation.js"></script>
+  <script>	
+        $(function() {    versionsInit('html', '', 'mainContent');   });
+	var archive = 'html';
+	var dateName = 'Current';
+    </script>
+    <link rel="stylesheet" href="../css/browse.css">
+    <base target="doc">
+</head>
+
+<body id="crumbs">
+<div id="version" class="compare">
+<h2>Code Version: </h2>
+
+<form id="oldCodes" action="versionMenu.pl" target="crumbular"><select name="archive" id="chooseCode" onchange="this.form.submit();">  <option name="archive" value="html">Current</option>  <option name="archive" value="html0726">Jul  2026</option>  <option name="archive" value="html0725">Jul  2025</option>  <option name="archive" value="html0824">Aug  2024</option>  <option name="archive" value="html0823">Aug  2023</option>  <option name="archive" value="html0822">Aug  2022</option>  <option name="archive" value="html0821">Aug  2021</option>  <option name="archive" value="html0820">Aug  2020</option>  <option name="archive" value="html0819">Aug  2019</option>  <option name="archive" value="html0818">Aug  2018</option>  <option name="archive" value="html0617">Jun  2017</option>  <option name="archive" value="html0516">May  2016</option>  <option name="archive" value="html0715">Jul  2015</option>  <option name="archive" value="html0514">May  2014</option>  <option name="archive" value="html0113">Jan  2013</option></select></form>
+</div>
+
+
+<div id="compareMe"><div id="compare" class="compare">
+<p>Compare with<br>another version:</p>
+	<form style="padding:3px; margin:5px;" action="/AZ/Flagstaff/cgi/menuCompile.pl" method="post" target="formtarget" onsubmit="openWindow('', 'formtarget', '600', '700'); ">  
+	<input type="submit" name="type " value="Compare"> 
+
+	<select name="code" style="float:left; margin-right:1em"><option name="code" value="../html0726/FlagstaffNT.html">Jul  2026</option><option name="code" value="../html0725/FlagstaffNT.html">Jul  2025</option><option name="code" value="../html0824/FlagstaffNT.html">Aug  2024</option><option name="code" value="../html0823/FlagstaffNT.html">Aug  2023</option><option name="code" value="../html0822/FlagstaffNT.html">Aug  2022</option><option name="code" value="../html0821/FlagstaffNT.html">Aug  2021</option><option name="code" value="../html0820/FlagstaffNT.html">Aug  2020</option><option name="code" value="../html0819/FlagstaffNT.html">Aug  2019</option><option name="code" value="../html0818/FlagstaffNT.html">Aug  2018</option><option name="code" value="../html0617/FlagstaffNT.html">Jun  2017</option><option name="code" value="../html0516/FlagstaffNT.html">May  2016</option><option name="code" value="../html0715/FlagstaffNT.html">Jul  2015</option><option name="code" value="../html0514/FlagstaffNT.html">May  2014</option><option name="code" value="../html0113/FlagstaffNT.html">Jan  2013</option></select>
+	<input type="hidden" name="code " value="../html/FlagstaffNT.html"> 
+	
+</form>
+</div>
+</div>
+<p id="crepuscular"><b style="color:yellow;font-size:14px;">Current</b> &gt; Flagstaff City Charter</p>
+
+
+
+<script type="module" src="https://static.cloudflareinsights.com/beacon.min.js/vce701823e78c4301a35b7e07294d87301792088814092" integrity="sha512-UKNk8GbxkABxKcXYuLkO16EleLGUkcvJWtpSNmExE0Too3ZaFAxTscNWEc1OdAv5/BikHawapSCaiD2XCmp+Bw==" data-cf-beacon="{&quot;version&quot;:&quot;2024.11.0&quot;,&quot;token&quot;:&quot;c60ba34ac0fe48c1acf405bbc7e1a7c6&quot;,&quot;r&quot;:1,&quot;spa&quot;:2}" crossorigin="anonymous"></script>
+
+
+
+</body></html>

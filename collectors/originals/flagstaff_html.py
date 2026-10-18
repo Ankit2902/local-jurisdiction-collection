@@ -7,7 +7,7 @@ from source_common import *
 from browser_safety import guard_html
 from flagstaff_root import root_inventory,ROOT_TOC_URL
 URL='https://www.codepublishing.com/AZ/Flagstaff/';NT=URL+'html/FlagstaffNT.html';CURRENCY_URL=URL+'html/disclaimer.html'
-FILES=['flagstaff_html.py','flagstaff_inventory.py','flagstaff_root.py','source_common.py','shared_transport.py','browser_safety.py']
+FILES=['flagstaff_html.py','flagstaff_inventory.py','flagstaff_root.py','source_common.py','shared_transport.py','browser_safety.py','flagstaff_initialization.py']
 def roots_and_readers(source):
  source=Path(source);frames=load(source/'selected-frames.json');f=next(f for f in frames if 'FlagstaffTOC.pl' in f['url']);raw=(source/f['path']).read_bytes()
  if sha(raw)!=f['sha256']:raise ValueError('Corrupt retained expanded TOC')
@@ -42,7 +42,7 @@ def inventory(reader_records):
 FETCH="""async u=>{let r=await fetch(u,{credentials:'same-origin',redirect:'follow'});let h=Object.fromEntries(r.headers.entries());if((h['content-type']||'').toLowerCase().startsWith('image/')){if(r.body)await r.body.cancel();return {status:r.status,url:r.url,headers:h,image_omitted:true};}let a=new Uint8Array(await r.arrayBuffer()),s='';for(let i=0;i<a.length;i+=16384)s+=String.fromCharCode(...a.subarray(i,i+16384));return {status:r.status,url:r.url,headers:h,data:btoa(s)};}"""
 def collect(out,inventory_source=None,resume=False,import_inventory_capture=None):
  out=Path(out).resolve();out.mkdir(parents=True,exist_ok=True)
- if resume:
+ if resume and (out/'checkpoint.json').is_file():
   state=load(out/'checkpoint.json')
   if state['errors'] or state.get('blocked'):raise ValueError('Retained failure/access stop: no automatic retry')
   for n,h in state['code_fingerprint'].items():
@@ -52,13 +52,11 @@ def collect(out,inventory_source=None,resume=False,import_inventory_capture=None
   readers=state['observed_readers']
   if state.get('closing_inventory_equal') and state.get('closing_currency_equal') and state.get('closing_roots_equal'):return state
  else:
-  if any(out.iterdir()):raise ValueError('Fresh output required')
   if inventory_source is None:
-   from flagstaff_inventory import run
-   result=run(out/'inventory-origin')
-   if result.get('error') or result.get('blocked'):raise ValueError('Native inventory acquisition failed')
-   inventory_source=out/'inventory-origin'
-  readers,provenance=roots_and_readers(inventory_source);state={'schema':'flagstaff-full-html-1','source_url':URL,'started_at':stamp(),'code_fingerprint':source_snapshot(out,FILES),'observed_readers':readers,'inventory_provenance':provenance,'artifacts':[],'errors':[],'blocked':[],'images_downloaded':False,'image_requests_blocked':[],'complete':False};save(out/'checkpoint.json',state)
+   from flagstaff_initialization import initialize
+   inventory_source=initialize(out,FILES,roots_and_readers,resume=resume)
+  elif any(out.iterdir()):raise ValueError('Fresh output required')
+  readers,provenance=roots_and_readers(inventory_source);state={'schema':'flagstaff-full-html-1','source_url':URL,'started_at':stamp(),'code_fingerprint':load(out/'inventory-initialization.json')['code_fingerprint'] if (out/'inventory-initialization.json').exists() else source_snapshot(out,FILES),'observed_readers':readers,'inventory_provenance':provenance,'artifacts':[],'errors':[],'blocked':[],'images_downloaded':False,'image_requests_blocked':[],'complete':False};save(out/'checkpoint.json',state)
  if import_inventory_capture:
   original=Path(import_inventory_capture).resolve();old=load(original/'checkpoint.json')
   if resume or state['artifacts'] or old.get('blocked') or any(e.get('message')!='Current publication edition marker absent' for e in old.get('errors',[])):raise ValueError('Only explicit parser-only inventory import accepted; source failures never migrated')

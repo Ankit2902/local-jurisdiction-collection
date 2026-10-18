@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html lang="en" xml:lang="en">
+<head>
+    <meta charset="utf-8" />
+
+    <title>Search Navigation Bar</title>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.4.4/jquery.min.js"></script>
+    <script src="/cgi-bin/jquery/jquery.cookie.min.js"></script>
+    <script type="text/javascript" src="//www.codepublishing.com/cgi-bin/addthis.js?/js/250/addthis_widget.js?pub=codepublishing"></script>
+    <script src="cgi/navigation.js"></script>
+    <script>	
+    var isTransfer = 0;
+    $(function() { navInit();  }); 
+    </script>
+    <link rel="stylesheet" href="css/browse.css" />
+</head>
+
+<body id="nav">
+
+
+<div id="CodeName">
+	<h1><a href="http://www.flagstaff.az.gov" target="_top">
+		<img src="images/banner.jpg" alt="City of Flagstaff" border="0" />
+	</a></h1>
+	
+</div>
+
+
+<!-- for custom interfaces, you might want to move this down into #navBar -->
+<form name="QuickSearch" action="/search/" method="POST"
+	class="SearchControl" target="toc" id="QuickSearch">
+    <input type="hidden" name="SearchForm" value="D:\inetpub\wwwroot\public_html\AZ\Flagstaff\Flagstaff_form.html">
+    <input type="hidden" name="OrigSearchForm" value="D:\inetpub\wwwroot\public_html\AZ\Flagstaff\Flagstaff_form.html">
+    <input type="hidden" name="cmd" value="search">
+    <input type="hidden" name="autoStopLimit" value="5000">
+    <input type="hidden" name="stemming" value="Yes">
+    <input type="hidden" name="autoTermWeight" value="yes">
+    <input type="hidden" name="fuzziness" value="3">
+    <input type="hidden" name="pageSize" value="10">
+    <input type="hidden" name="index" value="D:\Program Files\dtSearch\UserData\AZ\Flagstaff_index">
+    <input type="hidden" name="searchType" value="allwords"> 
+    <input type="hidden" name="stemming" value="yes">
+    <input type="hidden" name="maxFiles" value=10>
+
+    <input type="hidden" name="fileConditions" value="ext &quot;*.html&quot;">
+    <input type="hidden" name="fileConditions" value="excl &quot;*nt.html&quot;">
+    <input type="hidden" name="fileConditions" value="excl &quot;*\cgi\*.html&quot;">
+    <input type="hidden" name="fileConditions" value="excl &quot;disclaimer.html&quot;">
+    <input type="hidden" name="fileConditions" value="excl &quot;index.html&quot;">
+    <input type="hidden" name="fileConditions" value="excl &quot;*_*.html&quot;">
+    <input type="hidden" name="fileConditions" value="excl &quot;*\html????\*&quot;">
+
+    <input type="image" src="images/go.png"  value="Go" name="Search" alt="Search" class="submit"/>
+    <input type="search" name="request" size="20" maxlength="200"  value="Search Code" id="request">
+    
+</form>
+
+
+
+<div id="navBar">
+
+<div id="searchtabs" style="display:none;">
+    <span><a target="_blank" href="/help.html">Help</a></span>
+    <span><a href="#" onclick="bookmark();" id="getLink">Bookmark</a></span>
+    <span><a href="#" onClick="parent.toc.prevDoc()">Prev Doc</a></span>
+    <span><a href="#" onClick="parent.toc.nextDoc()">Next Doc</a></span>
+    <span><a href="#" onClick="firstHit()">First Hit</a></span>
+    <span><a href="#" onClick="prevHit()" accesskey="p"><u>P</u>rev Hit</a></span>
+    <span><a href="#" onClick="nextHit();" accesskey="n"><u>N</u>ext Hit</a></span>
+    <span><a href="#" onClick="swapHits();" id="swap">Hide Hits</a></span>	
+    <span><a href="#" onClick="printDoc()">Print Doc</a></span>
+</div>
+
+<div id="codetabs">
+   <span><a target="_blank" href="/help.html">Help</a></span>
+   <span><a href="#" onclick="bookmark();" id="getLink">Bookmark</a></span>
+    <span style="width:170px">Text Size:  <a href="#" onclick="decreaseFont()" style="font-size:0.75em">-A</a> <a href="#" onclick="increaseFont()">+A</a></span>
+    <span><a href="#" onclick="toggleTOC()" id="toggleTOC">Hide TOC</a></span>
+    <span><a href="#" onClick="printDoc()">Print Doc</a></span>
+</div>
+
+
+<script type="module" src="https://static.cloudflareinsights.com/beacon.min.js/vce701823e78c4301a35b7e07294d87301792088814092" integrity="sha512-UKNk8GbxkABxKcXYuLkO16EleLGUkcvJWtpSNmExE0Too3ZaFAxTscNWEc1OdAv5/BikHawapSCaiD2XCmp+Bw==" data-cf-beacon='{"version":"2024.11.0","token":"c60ba34ac0fe48c1acf405bbc7e1a7c6","r":1,"spa":2}' crossorigin="anonymous"></script>
+</body>
+</html>

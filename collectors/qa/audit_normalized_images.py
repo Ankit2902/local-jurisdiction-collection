@@ -29,12 +29,14 @@ def audit(root):
      if not re.search(r'<[a-z][^>]*>',value,re.I):return
      soup=BeautifulSoup(value,'html.parser')
      for e in soup.find_all(True):
-      attrs=e.attrs;tag=e.name.lower();reason=None
+      attrs=e.attrs;tag=e.name.lower().rsplit(':',1)[-1];reason=None
+      declared_image=str(attrs.get('type','')).strip().lower().startswith('image/')
       if tag in ('img','picture','svg','image') or tag=='input' and str(attrs.get('type','')).lower()=='image':reason='active-image-element'
-      if any(a in attrs for a in ('background','poster')):reason='active-image-attribute'
+      if any(a in attrs for a in ('background','poster','srcset')):reason='active-image-attribute'
       if re.search(r'url\s*\(',str(attrs.get('style','')),re.I) or tag=='style' and re.search(r'url\s*\(',e.get_text(),re.I):reason='active-CSS-image-url'
-      if tag in ('object','embed','source') and (str(attrs.get('type','')).lower().startswith('image/') or IMAGE.search(str(attrs.get('data',attrs.get('src',''))))):reason='active-object-source-image'
-      if tag=='a' and IMAGE.search(str(attrs.get('href',''))):reason='active-image-link'
+      if tag in ('object','embed','source') and (declared_image or IMAGE.search(str(attrs.get('data',attrs.get('src',''))))):reason='active-object-source-image'
+      if tag=='a' and (declared_image or IMAGE.search(str(attrs.get('href','')))):reason='active-image-link'
+      if tag=='link' and (declared_image or str(attrs.get('as','')).strip().lower()=='image' or any(str(x).lower() in ('icon','apple-touch-icon','apple-touch-icon-precomposed','mask-icon') for x in attrs.get('rel',[])) or IMAGE.search(str(attrs.get('href','')))):reason='active-image-resource-link'
       if reason:errors.append({'record':ident,'field':loc,'tag':tag,'kind':reason})
    walk(record)
   item={'path':str(path.relative_to(root)),'sha256':hashlib.sha256(raw).hexdigest(),'records':count}

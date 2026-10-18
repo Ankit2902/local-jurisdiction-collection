@@ -1,0 +1,20 @@
+Traceback (most recent call last):
+  File "/Users/oliverflint/My Drive/Claude/Projects/CompliSolv 2.00/outputs/collection-readiness-next-2026-10-17/originals-integration/early-inventory-candidate-v4/recorded-harness.py", line 80, in <module>
+    sys.exit(cli.main(sys.argv[1:]))
+             ^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/oliverflint/My Drive/Claude/Projects/CompliSolv 2.00/outputs/collection-readiness-next-2026-10-17/originals-integration/early-inventory-candidate-v4/source/cli.py", line 61, in main
+    result=collect(cfg.id,args.out,args.resume,publication_config=cfg.binding())
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/oliverflint/My Drive/Claude/Projects/CompliSolv 2.00/outputs/collection-readiness-next-2026-10-17/originals-integration/early-inventory-candidate-v4/source/collect.py", line 49, in main
+    a=run(out/'source',resume=resume and ((out/'source/checkpoint.json').is_file() or (out/'source/inventory-initialization.json').is_file()))
+      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/oliverflint/My Drive/Claude/Projects/CompliSolv 2.00/outputs/collection-readiness-next-2026-10-17/originals-integration/early-inventory-candidate-v4/source/flagstaff_html.py", line 57, in collect
+    inventory_source=initialize(out,FILES,roots_and_readers,resume=resume)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/oliverflint/My Drive/Claude/Projects/CompliSolv 2.00/outputs/collection-readiness-next-2026-10-17/originals-integration/early-inventory-candidate-v4/source/flagstaff_initialization.py", line 97, in initialize
+    run(out/attempt['path']);meta=checked_receipt(out/attempt['path'])
+    ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/oliverflint/My Drive/Claude/Projects/CompliSolv 2.00/outputs/collection-readiness-next-2026-10-17/originals-integration/early-inventory-candidate-v4/recorded-harness.py", line 69, in inventory
+    while True:time.sleep(.1)
+               ^^^^^^^^^^^^^^
+KeyboardInterrupt

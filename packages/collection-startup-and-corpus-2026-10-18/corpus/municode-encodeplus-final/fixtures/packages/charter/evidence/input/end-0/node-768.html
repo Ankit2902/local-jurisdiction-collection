@@ -1,0 +1,229 @@
+
+    <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+    <html>
+    <head>
+
+        <title>ARTICLE II GENERAL POWERS OF THE CITY</title>
+        <link type="text/css" rel="Stylesheet" href="jqueryui/css/jqueryui.css" media="all" />
+        <link type="text/css" rel="Stylesheet" href="css/ui.css" media="all" />
+        <link type="text/css" rel="Stylesheet" href="css/customui.css" media="all" />
+        <link type="text/css" rel="Stylesheet" href="css/document.css" media="all" />
+        <link type="text/css" rel="Stylesheet" href="css/customdoc.css" media="all" />
+        <link type="text/css" rel="Stylesheet" href="tablestyles.aspx" media="all" />
+        <link rel="StyleSheet" type="text/css" href="/common/font-awesome/css/all.min.css">
+        <link type="text/css" rel="Stylesheet" href="css/docprint.css" media="print" />
+        <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+        <script type="text/javascript" src="jqueryui/js/jquery-ui-1.8.21.custom.min.js"></script>
+        <script type="text/javascript" src="js/doc-view.js?_t=290"></script>
+        <script type="text/javascript" src="js/tabletools.js"></script>
+        <script type="text/javascript" src="js/tabs.js"></script>
+        <script type="text/javascript">
+            var iframeReady = false;
+        </script>
+        
+    </head>
+    <body class='doc-view'>
+        <script type="text/javascript">
+            $(document).ready(function () {
+                ZP.DocView.InitDef();
+                ZP.DocView.OpenDefinitionPage = null;
+                ZP.DocView.OpenDefinitionMode = '_self';
+                ZP.DocView.OpenXRefPage = 'doc-viewer.aspx#$2-';
+                ZP.DocView.OpenXRefMode = '_blank';
+                $(window).bind('hashchange', ZP.DocView.HashChanged);
+        
+        if (typeof ZP.DocView.ZoomClasses == 'undefined') {
+            ZP.DocView.ZoomClasses = ["Unzoom1", "", "Zoom1", "Zoom2", "Zoom3", "Zoom4"];
+        }
+        ZP.DocView.InitializeZoom();
+        EC.SortedTable.Init(".ord-tbl, .stat-tbl", ".sortable");
+        EC.Tabs.PositionLeftTabs();
+    });
+
+
+        </script>
+
+
+    <div id="doc-viewer">
+        
+
+<div id="doc-view">
+    <div id="doc-view-content">
+        
+<div id="pageControls">
+<script type="text/javascript" >
+    function clearEffDate() {
+        jQuery.get("doc-view-helper.aspx?task=currentversion", function () {
+            window.location.reload();
+        });
+        return false;
+    }
+</script>
+     <div class="pageControls psuedoTable" role="navigation" aria-label="Document Navigation">  
+        <div class="psuedoTableBody" >     
+            <div class="psuedoTableRow">         
+                <div class="pageControls_outer" ></div>
+                <div class="pageControls_inner left">
+                    <a id='button1' onclick='ZP.DocView.PrintDoc("003",false);return false;' href="#" title="Print" role="button"> 
+                        <img alt="Print" src="resources/btn-print-white.png" /></a>
+                    <a id='Button2' onclick='ZP.DocView.OpenPDF("003",false);return false;' href="#" title="Export PDF" role="button">
+                        <img alt="Generate PDF" src="resources/btn-makepdf-white.png" /></a>
+                        <a class="email-popup" href="mailto:?subject=ARTICLE%20II%20GENERAL%20POWERS%20OF%20THE%20CITY&amp;body=Lincoln%20NE%20City%20Charter https://online.encodeplus.com/regs/lincoln-ne-cc/doc-viewer.aspx?secid=768"><img src="resources/email-white.png" alt="Click to Share By Email" /></a>     
+                </div>
+                <div  class="pageControls_inner breadCrumbs" title="Navigation 'breadcrumbs'">
+                     <div class='breadCrumbs'><a href='/regs/lincoln-ne-cc/doc-viewer.aspx?tocid=003' >ARTICLE II GENERAL POWERS OF THE CITY</a></div>
+                </div>
+                 <div  class="pageControls_inner right">       
+                     <ul >  
+                         <li>
+                            <a id='button3' class="nav" onclick="ZP.DocView.LoadPrevDoc('003');return false;" href="#"  title="Previous Section" accesskey="," role="button"><img alt="Go to Previous Section" src="resources/btn-back-white.png" /></a>
+                         </li>  
+                         <li>
+                             <a id='Button4'  class="nav" onclick="ZP.DocView.LoadNextDoc('003');return false;" href="#"  title="Next Section" accesskey="." role="button"> <img alt="Go to Next Section" src="resources/btn-forward-white.png" /></a>
+                         </li>   
+                         <li>
+                             <a id="pageControls-overflow" onclick="ZP.DocView.PgCntrlOverflowClick(event);return false;" href="#" title="Click for more options" role="button" >
+                            <img src="resources/overflow-btn-white.png" alt="Click for more options" /></a>
+                               
+  <ul class="submenu" role="dialog">
+            <li><a href="/regs/lincoln-ne-cc/doc-viewer.aspx?secid=768" onclick="javascript:alert('Right click this icon and select \'add to favorites\' or \'Bookmark this Link\' to bookmark this page');return false;" title="Bookmark this page" >Bookmark</a></li>
+            <li>
+                                        
+                <a id="zoomMinus" onclick="ZP.DocView.DecreaseZoom();return false;" href="#" title="Decrease Zoom" class="zoomLink glyphicon" >&#x2212;</a>
+                <a onclick="ZP.DocView.DefaultZoom();return false;"  href="#" title="Default Zoom"  class="zoomLink" >100%</a>
+                <a id="zoomPlus" onclick="ZP.DocView.IncreaseZoom();return false;" href="#" title="Increase Zoom"  class="zoomLink glyphicon" > &#x2b; </a>
+            </li>
+           
+                           
+                
+                <li><a id="subscribe-btn" onclick="ZP.DocView.OpenSubscribeDlg();return false;" title="Subscribe to Notifications" href="subscribe.aspx" role="button">Subscribe</a></li>
+                <li><a id="unsubscribe-btn" onclick="ZP.DocView.OpenUnsubscribeDlg();return false;" title="Cancel Notifications Subscription" href="unsubscribe.aspx" role="button" >Unsubscribe</a></li>
+                
+</ul>
+                         </li>        
+                        
+                        </ul>   
+                </div>
+                <div class="pageControls_outer"></div>
+            </div>
+        </div>
+    </div> 
+    <div id="subscribe-dialog" title="" aria-live="polite" >
+        <div id="sub-message"></div>
+        <div id="sub-form-cntr"></div>
+    </div>
+</div>
+
+
+        <div id="thePage-outer" >
+            <div id="thePage-wrap" class="thePage-wrap ">
+                <div id="outer-doc-banner"></div>
+                <div id="thePage-border">
+                    <div id="thePage" class="textPage " tocid="003" secid="768" role="main" aria-label="Document">
+                        <img id="sectionBanner" title="Document text banner" src="resources/docbanner.png" width="720" valign="Top" alt="Document text banner">
+                        
+                        <section id='secid-768' class='secLvl1 _003' tabindex='-1' data-secid='768'> 
+<h2>ARTICLE II GENERAL POWERS OF THE CITY</h2>
+
+<div class="mini-TOC" data-endlevel="2" data-id="mini-TOC" data-startlevel="2">
+<div class="mini-TOC-label"><strong>Contents:</strong></div>
+
+<ul><li><a class="tocLink" href="doc-viewer.aspx#secid-769">	Sec. 1. General Powers of City; Exercise Thereof.</a></li>
+<li><a class="tocLink" href="doc-viewer.aspx#secid-770">	Sec. 2. Sale of City Property.</a></li>
+<li><a class="tocLink" href="doc-viewer.aspx#secid-771">	Sec. 3. Pension and Retirement System.</a></li>
+<li><a class="tocLink" href="doc-viewer.aspx#secid-772">	Sec. 4. Code of Ethics.</a></li>
+<li><a class="tocLink" href="doc-viewer.aspx#secid-773">	Sec. 5. Join Other Political Subdivisions.</a></li>
+</ul>
+</div>
+
+
+</section> 
+<section id='secid-769' class='secLvl2 _003 _003-001' tabindex='-1' data-secid='769'> 
+<h3>Sec. 1. General Powers of City; Exercise Thereof.</h3>
+
+<p>The City of Lincoln shall have the right and power to exercise all municipal powers, functions, rights, privileges, and immunities of every name and nature whatsoever that it is possible for it to have at the present and in the future under the constitution of the State of Nebraska, except as prohibited by the state constitution or restricted by this charter, and to exercise any powers which may be implied thereby, incidental thereto, or appropriate to the exercise of such powers. The city shall also have the right and power to exercise all municipal powers, functions, rights, privileges, and immunities of every name and nature whatsoever that now are, or hereafter may be, granted by the laws of the State of Nebraska to all cities and villages or applicable to cities of the primary class, provided that such laws are not inconsistent with this charter.</p>
+
+<p>The city shall have the right and power to make such ordinances, by-laws, rules, and regulations, except as prohibited by the state constitution or restricted by this charter, as may be necessary or expedient for maintaining the peace, good government, and welfare of the city, its trade, commerce, and manufacturing, and for preserving order, securing persons or property from violence, danger, and destruction, for protecting public and private property, for promoting the public health, safety, convenience, comfort, morals, and general interests and welfare of the inhabitants of the city and to enforce all such ordinances by providing for the fine or imprisonment, or both the fine and imprisonment, of those convicted of violations thereof.</p>
+
+<p>All powers shall be exercised in the manner prescribed in this charter, or if not prescribed herein, in such manner as shall be provided by ordinance.</p>
+
+<p>Notwithstanding any other provisions of this charter, all powers may now and in the future be exercised outside the limits of the city to the extent permitted by law.</p>
+
+<p class='archiveNotice nullValue '></p>
+</section> 
+<section id='secid-770' class='secLvl2 _003 _003-002' tabindex='-1' data-secid='770'> 
+<h3>Sec. 2. Sale of City Property.</h3>
+
+<p>The City of Lincoln shall have the right to sell, convey, exchange, or lease real or personal property owned by the city, in such manner and upon such terms and conditions as shall be deemed in the best interest of the city; provided, no real property owned by the city having a market value in excess of $10,000.00 shall be sold, conveyed, or exchanged unless authorized by ordinance of the council.</p>
+
+<p class='archiveNotice nullValue '></p>
+</section> 
+<section id='secid-771' class='secLvl2 _003 _003-003' tabindex='-1' data-secid='771'> 
+<h3>Sec. 3. Pension and Retirement System.</h3>
+
+<p>The council shall have the power to establish by ordinance a pension and retirement system or systems for any or all groups of officers and employees in the paid service of the city and for any or all groups of employees of any other agencies which now, or in the future, spend money appropriated or borrowed by the council or city, or over which the council or city exercises administrative control. The council may require that officers and employees covered by any such system, except elected officials, shall become members of the system as a condition of employment.</p>
+
+<p>Each such pension and retirement system shall be financed on an actuarially sound basis. The city may bear all or any part of the cost of the plan, including the cost of prior service credit for officers and employees in the city service prior to the establishment of the system. In order to equalize the tax burden over a period of years, the city may levy and collect taxes in each fiscal year sufficient to meet current needs and equalize future payments. Said tax shall be in excess of and in addition to all other taxes now or hereafter authorized by the city. The portion of such appropriations allocable to each activity, project, or other budget unit shall be shown as a part of the budget appropriations for that activity, project or budget unit.</p>
+
+<p>The council may provide that the city will itself trustee all, none, or part of any pension and retirement plan established pursuant to this section, that it will trustee all, none, or part of such plan with a corporate trustee in Nebraska, or that it will purchase all, none or part of such plan from a life insurance company licensed to do business in the State of Nebraska.</p>
+
+<p>Coordination or supplementation of the city system or systems with the old age and survivors insurance provisions of the Federal Social Security Act may be provided. Provisions for vesting may also be included.</p>
+
+<p>Ordinances establishing pension and retirement systems shall prescribe the terms and conditions under which assets and reserves may be invested.</p>
+
+<p class='archiveNotice nullValue '></p>
+</section> 
+<section id='secid-772' class='secLvl2 _003 _003-004' tabindex='-1' data-secid='772'> 
+<h3>Sec. 4. Code of Ethics.</h3>
+
+<p>The council shall adopt and promulgate a code of ethics for employees, elected officials, and members of boards and commissions, and provide penalties for the violation of said code.</p>
+
+<p class='archiveNotice nullValue '></p>
+</section> 
+<section id='secid-773' class='secLvl2 _003 _003-005' tabindex='-1' data-secid='773'> 
+<h3>Sec. 5. Join Other Political Subdivisions.</h3>
+
+<p>The city shall have the power to join with other political or governmental subdivisions, agencies, or public corporations, whether federal, state or local, or with any number or combination thereof, by contract or otherwise, as may be permitted by the laws of the State of Nebraska, in the joint ownership, operation, or performance of any property, facility, power or function, or in agreements containing provisions that one or more thereof operate or perform for the other or others.</p>
+
+<p>The city shall also have the power to authorize and undertake research, formulate plans, draft and seek the enactment of legislation, and take other actions concerning improvement of the relationships between the city and other political or government subdivisions, agencies, or public corporations, whether federal, state or local, or the attainment of voluntary cooperation agreements, annexations, transfers of functions to or from the city, city-county consolidation or separation, or any other means of accomplishing changes in governmental organization in which the City of Lincoln has an interest. The city may undertake such efforts alone or in concert with other political or governmental subdivisions, agencies or public corporations, whether federal, state or local, or with public or private research or professional organization, and it may appropriate and spend money for such purposes.</p>
+
+<p>Whenever the city shall exercise the power to enter into the joint ownership, operation or performance of any property, facility, power or function, or to join in agreements containing provisions set forth above, it shall not be required that the officers performing the duties required by the exercise of said power shall be residents of the city and qualified electors therein.</p>
+
+<p>The provisions of this section shall govern and apply notwithstanding any existing provisions of this charter to the contrary.</p>
+
+<p>&nbsp;</p>
+
+<p>*Previous Article II repealed and current&nbsp;<a class="xref" target="_blank" href="doc-viewer.aspx#secid-768">ARTICLE II</a> approved by voters on May 12, 1992.</p>
+
+<p class='archiveNotice nullValue '></p>
+</section> 
+
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- hidden div below is for definition popup -->
+<div id="defFrame">
+    <img alt='loading progress' src="resources/progress.gif" /></div>
+<!-- hidden div below is for ajax loading progress-->
+<div id='progress-template' style='display: none;'>
+    <div class="progress" style='padding: 100px;'>
+        <div style='margin: auto; display: block; width: 200px; border: 1px solid #ccc; background-color: #eee; padding: 10px;'>
+            <img alt='loading progress' src='resources/progress.gif' style='margin: auto; display: block;' />
+            <br />
+            <span style='margin: auto; display: block; width: 75px; padding-left: 10px;'>Loading...</span>
+        </div>
+    </div>
+</div>
+<iframe style="width: 1px; height: 1px" src="" id="printiframe" name="printiframe" onload="ZP.DocView.IFrameReady();" title="Print frame" aria-hidden="true" role="presentation"></iframe>
+
+    </div>
+
+
+    </body>
+</html>

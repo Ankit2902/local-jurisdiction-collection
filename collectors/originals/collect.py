@@ -46,7 +46,7 @@ def main(target,out,resume=False,publication_config=None):
   n.update(raw_w_t_diagnostic=q['complete'],raw_w_t_diagnostic_scope='Supplemental literal XML/HTML string diagnostic; layout, symbols and notes differ between formats. Not a semantic completeness gate.',native_word_complete=word['complete'],complete=n['complete'] and word['complete']);save(out/'collection-result.json',n);return n
  from flagstaff_html import collect as run
  from flagstaff_html_normalize import run as normalize
- a=run(out/'source',resume=resume and (out/'source/checkpoint.json').is_file())
+ a=run(out/'source',resume=resume and ((out/'source/checkpoint.json').is_file() or (out/'source/inventory-initialization.json').is_file()))
  if a.get('errors') or a.get('blocked'):return {'complete':False,'stage':'full-html-acquisition','errors':[a.get('errors'),a.get('blocked')]}
  validate('flagstaff-html',out/'source')
  n=normalized('flagstaff-html',out/'source',out/'normalized',normalize);save(out/'collection-result.json',n);return n

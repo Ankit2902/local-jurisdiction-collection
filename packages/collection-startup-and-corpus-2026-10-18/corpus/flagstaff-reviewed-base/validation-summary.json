@@ -1,0 +1,65 @@
+{
+  "schema_version": 1,
+  "frozen": true,
+  "production_modified": false,
+  "scope": "Isolated pure offline corpus writer/verifier, qualified Flagstaff HTML reader only. Other family readers remain separate candidates.",
+  "runtime": "runtime.json",
+  "tests": {
+    "count": 26,
+    "python312": "logs/tests-final2-python312.log",
+    "python39": "logs/tests-final2-python39.log",
+    "both_passed": true
+  },
+  "actual_package": "actual/flagstaff-package-v2",
+  "actual_run_manifest_sha256": "2d344503a188d131cd9bcc69742f13ba1eb6b0a2e7bd71fa29f6b73c6b4ba6c5",
+  "source_checkpoint_sha256": "6e3d638702f24570470554817ad27e301010ccea35058b4c41e4dd845d7e4d8f",
+  "source_records_sha256": "1344484a99e9dce522f72d2254b713e9b725d552bb28d174c3fb66884a7fae5b",
+  "all_row_consumer": "logs/final-all-row-consumer.json",
+  "lineage": "logs/final-lineage-v2.json",
+  "ordinary_and_B_relocated_cli": "logs/final-relocation.json",
+  "rehashed_actual_image_faults": "logs/final-rehashed-image-faults.json",
+  "publisher_requests": 0,
+  "raw_source_reparse": false,
+  "image_decode_render_extraction_calls": 0,
+  "canonical_html_rows_unchanged": 2661,
+  "copied_original_files": 544,
+  "source_toc_nodes": 2658,
+  "source_body_only_nodes": 3,
+  "source_dispositions": 2661,
+  "source_parents": {
+    "toc_nonroots": 2640,
+    "toc_roots": 18,
+    "body_only_contextual_parents": 3
+  },
+  "populated_fields": {
+    "title": 2661,
+    "chapter": 2456,
+    "division": 1311,
+    "article": 114,
+    "section_number": 2271
+  },
+  "preserved_structures": {
+    "tables": 377,
+    "cells": 27167,
+    "image_markers": 882,
+    "notes_metadata": 800,
+    "source_list_groups": 11
+  },
+  "source_consistency_complete": false,
+  "publication_accepted": false,
+  "package_complete": false,
+  "downstream_ready": false,
+  "limitations": [
+    "Original three literal source-anchor defects and original false publication/jurisdiction/dependency/independent-final-review gates preserved. No later V9 qualification borrowed.",
+    "Only one explicitly qualified HTML source reader; no native/PDF/Word grouping or all-family readiness asserted.",
+    "Fulltext is exact canonical semantic HTML, not flattened convenience text. Unknown hierarchy roles qualified blank; no dates/IDs/section numbers invented.",
+    "Hash-bound proof is existing verifier-result trust, not authentication of arbitrary forged receipts.",
+    "No automatic receipt-log lookup; --family-verification accepts actual JSON family log directly."
+  ],
+  "prior_frozen_lineage": {
+    "baseline_manifest": "609f756c58f805c4f1c48713e3c13a08060bc61a8d0078b4b405abf8d46c3be5",
+    "no_bytecode_manifest": "84056045b3417a2dbe5102d3728732171497d0015670836a0c6acef4afef6a47",
+    "no_bytecode_actual_manifest": "fcc86db96ad7d54c61603ec2abb98016290dad4c797d634b915be441d2491546"
+  },
+  "transitional_proofs": "Prior first fidelity package actual/flagstaff-package-v1 remains local unchanged; not selected or final. history/pre-extra-image-contexts-v1 preserves exact25-test runtime. Initial lineage-audit failure was old parentage_status removal not included in its allowed-field comparison; script/report preserved under history/lineage-audit-v1, corrected all-field comparison passes."
+}

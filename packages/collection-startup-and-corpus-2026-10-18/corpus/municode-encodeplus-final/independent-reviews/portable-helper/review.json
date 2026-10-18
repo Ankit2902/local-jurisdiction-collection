@@ -1,0 +1,191 @@
+{
+  "passed": true,
+  "scope": "Portable verification orchestration, report-path CLI and raw Notes fail-closed control; source-reader semantic review remains separate",
+  "source_freeze_sha256": "58b7008a59162396be5a7d8adb9c69dd53347be559b562aecf8e7a475d2e9f9e",
+  "candidate_source_sha256": {
+    "common.py": "759167b11e77a8e2264aab7449c4d8bcdbf0f243a76fd8ba7e05c003fd5c0d13",
+    "encodeplus_html.py": "dd944f0073abd8a2555a1681afe5f014c1062eb55984b537d267279ef068a184",
+    "flagstaff.py": "f933cbf5a7ce94b887840caaf45a26800da812b2dbd2fdb134cf09f59ec82bad",
+    "flagstaff_hierarchy.py": "534a7a2a2f4ca6776278752f215c61d53463894142714cb09abc4c427b24dda2",
+    "municode_html.py": "3a8e4bf93fc4884eda0f6311311eca1467e248b1bf27f287b28941b9909c6a5f",
+    "package.py": "119a9e45577047c4ca78afa40b3645e3ee899bf853009318363fb7793ce78128",
+    "reader_utils.py": "a8773ddc7394ba40c0d9451c8559baea07af669ffff180bdff54be56a2a4fe2f",
+    "readers.py": "b76afadaebd71f8bc80a800bacfbcd04df320600dec0b2bd5a95b7304a0d0c74",
+    "test_html_readers.py": "825ce4b07366547de0984317070ec324a9aa7adbe8766e92e4d1bb40fc271696",
+    "test_package.py": "b6b69292b0d2e24356dd6d006d5d116eb98d8649aa7d73e857c37c0d059fffae",
+    "test_verify_input_interface.py": "e749acc4eb652ef20d317e08ff9838e00cdbcdbdc7e12d074c21aee8d7886b4d",
+    "verify_input.py": "47bb58c5434ca8c7ef15723fb027811badb15852cd2161086106fef41d6f2d35"
+  },
+  "selected_interface_and_raw_note_tests": 8,
+  "actual_historical_proofs": [
+    {
+      "name": "henderson",
+      "input_files": 39,
+      "collector_files": 35,
+      "proof_sha256": "9529d71fae57adca2674eb0b86fd231c5b488d2b1a16a4019de46ec62c6d2770",
+      "family_report_sha256": "0bb053dcaaabc3609a87e64e425a6e6891f31e7c186d0ce77a52338dbe088f05",
+      "module_sha256": "9c7e6016f82827ab5f07c6627e60a61890c746dcd1e80afa432c20f5592234a1",
+      "runtime_python_sha256": "8506f337a83611246ffcff62d6e96c6d2269e5db48508ca3ac2553d56c962aee",
+      "runtime_packages": {
+        "PyMuPDF": "1.26.5",
+        "beautifulsoup4": "4.15.0",
+        "brotli": "1.2.0",
+        "certifi": "2026.7.22",
+        "cffi": "2.1.1",
+        "charset-normalizer": "3.5.2",
+        "cryptography": "50.0.2",
+        "fonttools": "4.67.0",
+        "greenlet": "3.5.6",
+        "idna": "3.20",
+        "pdfminer.six": "20251107",
+        "pdfplumber": "0.11.8",
+        "pillow": "11.3.0",
+        "pip": "25.0.1",
+        "playwright": "1.64.0",
+        "pycparser": "3.11",
+        "pyee": "14.0.0",
+        "pypdf": "6.21.1",
+        "pypdfium2": "5.14.0",
+        "requests": "2.34.2",
+        "soupsieve": "3.0.3",
+        "typing_extensions": "4.16.0",
+        "urllib3": "2.8.0"
+      },
+      "family_status": true,
+      "explicit_historical_source_no_current_equivalence": "Explicit caller source tree; no current/acquisition-runtime equivalence inferred",
+      "complete_before_after_maps_recomputed": true
+    },
+    {
+      "name": "charter",
+      "input_files": 89,
+      "collector_files": 30,
+      "proof_sha256": "e00633aea945ea15ffb8673afb76ea29fcc800fc8b74998a8dc002e75dbd9a60",
+      "family_report_sha256": "6d8755d79e7c580806c67c14476f9cfb2e4a26f0a16921fc4d8965b46f3f3ef3",
+      "module_sha256": "2563c8d1c257cbaaad640f1384d4677fe87cd3d56d287757b5430368dac9fa84",
+      "runtime_python_sha256": "8506f337a83611246ffcff62d6e96c6d2269e5db48508ca3ac2553d56c962aee",
+      "runtime_packages": {
+        "PyMuPDF": "1.26.5",
+        "beautifulsoup4": "4.15.0",
+        "brotli": "1.2.0",
+        "certifi": "2026.7.22",
+        "cffi": "2.1.1",
+        "charset-normalizer": "3.5.2",
+        "cryptography": "50.0.2",
+        "fonttools": "4.67.0",
+        "greenlet": "3.5.6",
+        "idna": "3.20",
+        "pdfminer.six": "20251107",
+        "pdfplumber": "0.11.8",
+        "pillow": "11.3.0",
+        "pip": "25.0.1",
+        "playwright": "1.64.0",
+        "pycparser": "3.11",
+        "pyee": "14.0.0",
+        "pypdf": "6.21.1",
+        "pypdfium2": "5.14.0",
+        "requests": "2.34.2",
+        "soupsieve": "3.0.3",
+        "typing_extensions": "4.16.0",
+        "urllib3": "2.8.0"
+      },
+      "family_status": "complete_publication",
+      "explicit_historical_source_no_current_equivalence": "Explicit caller source tree; no current/acquisition-runtime equivalence inferred",
+      "complete_before_after_maps_recomputed": true
+    }
+  ],
+  "all_actual_before_after_input_source_runtime_maps_equal_recomputed": true,
+  "all_recorded_python_and_dependency_identities_equal_current_review_runtime": true,
+  "direct_ordinary_relocated_controls": [
+    {
+      "case": "ordinary_success",
+      "returncode": 0,
+      "result": {
+        "verification_adapter_complete": true,
+        "family_report_status": "synthetic only, not raw-replay proof",
+        "publication_acceptance_added": false,
+        "family": "encodeplus",
+        "publication_id": "synthetic-control",
+        "input_files": 2,
+        "collector_files": 2,
+        "forbidden_calls": []
+      }
+    },
+    {
+      "case": "input_mutation",
+      "returncode": 1,
+      "result": {
+        "verified": false,
+        "error": "ValueError: Input/source/runtime changed or forbidden operation attempted",
+        "forbidden_calls": [],
+        "evidence_unchanged": false,
+        "collector_sources_unchanged": true,
+        "runtime_unchanged": true
+      }
+    },
+    {
+      "case": "source_mutation",
+      "returncode": 1,
+      "result": {
+        "verified": false,
+        "error": "ValueError: Input/source/runtime changed or forbidden operation attempted",
+        "forbidden_calls": [],
+        "evidence_unchanged": true,
+        "collector_sources_unchanged": false,
+        "runtime_unchanged": true
+      }
+    },
+    {
+      "case": "runtime_identity_mutation",
+      "returncode": 1,
+      "result": {
+        "verified": false,
+        "error": "ValueError: Input/source/runtime changed or forbidden operation attempted",
+        "forbidden_calls": [],
+        "evidence_unchanged": true,
+        "collector_sources_unchanged": true,
+        "runtime_unchanged": false
+      }
+    },
+    {
+      "case": "network_tripwire",
+      "returncode": 1,
+      "result": {
+        "verified": false,
+        "error": "AssertionError: Offline corpus verification forbids network/image operations",
+        "forbidden_calls": [
+          "forbidden_network_or_image"
+        ],
+        "evidence_unchanged": true,
+        "collector_sources_unchanged": true,
+        "runtime_unchanged": true
+      }
+    },
+    {
+      "case": "image_decoder_tripwire",
+      "returncode": 1,
+      "result": {
+        "verified": false,
+        "error": "AssertionError: Offline corpus verification forbids network/image operations",
+        "forbidden_calls": [
+          "forbidden_network_or_image"
+        ],
+        "evidence_unchanged": true,
+        "collector_sources_unchanged": true,
+        "runtime_unchanged": true
+      }
+    }
+  ],
+  "historical_absolute_log_not_implicitly_followed": true,
+  "safe_relative_report_and_explicit_report_controls_passed": true,
+  "raw_Notes_and_Footnotes_present_with_old_empty_IR_refused": true,
+  "no_repeated_actual_source_normalization_or_native_parse": true,
+  "candidate_sources_unchanged": true,
+  "forbidden_calls_during_actual_map_and_interface_review": [],
+  "seconds": 10.560411667043809,
+  "limitations": [
+    "Actual family raw replay execution was performed by owner; this review independently recomputed its complete byte maps and source/runtime identities without executing it again.",
+    "Six controlled verifier sources are orchestration fault probes, not acquisition or semantic qualification.",
+    "Adapter success means a report was generated under recorded explicit code; family/source/publication acceptance must still be checked by the selected reader.",
+    "Historical explicitly chosen collector code is not relabelled as current production."
+  ]
+}

@@ -34,6 +34,14 @@ Raw publisher HTML/PDF/ZIP files remain original source evidence and may inheren
 python3 -B collectors/qa/audit_images.py /retained/current-policy-run
 ```
 
+Check the normalized records and their recursive metadata separately, using the installed collector runtime or the QA environment above:
+
+```sh
+.collection-runtime/venv/bin/python -B collectors/qa/audit_normalized_images.py /retained/current-policy-run
+```
+
+Both commands are read-only and require a zero exit plus `passed: true`. The normalized audit refuses an empty scope with no recognized record streams. Its placeholder total counts repeated serializations; use the family source-ownership report for the number of distinct source image positions. Run these commands against the selected current output, not a parent directory containing historical or experimental collections. The corpus package verifier also checks its exported HTML and metadata; it preserves the source collection's completeness qualifications.
+
 That read-only audit does not extract native-file internals or render pages. A PDF placeholder count records detected raster image objects without saving pixels. It cannot establish vector illustration coverage, exact reading order, OCR, table fidelity or graphic transcription. These remain format-specific limits.
 
 ## Interpretation and limits

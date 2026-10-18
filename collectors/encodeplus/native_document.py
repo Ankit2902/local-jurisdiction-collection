@@ -13,6 +13,8 @@ def page_records(data,cfg,raw_ref='raw/start.pdf'):
  from .pdf_structure import pages
  from .solid_waste_logical import matches,build_records
  if matches(data,cfg):return build_records(data,cfg,raw_ref,pages)
+ from .infrastructure_logical import matches as infrastructure_matches,build_records as infrastructure_build_records
+ if infrastructure_matches(data,cfg):return infrastructure_build_records(data,cfg,raw_ref,pages)
  reader=PdfReader(io.BytesIO(data),strict=True)
  records,_=pages(data,{'id':cfg['id'],'heading':cfg['title'],'url':cfg['url'],'raw_ref':raw_ref},{'publication':cfg['title'],'jurisdiction':cfg['jurisdiction'],'state':cfg['state']})
  details={'metadata':{str(k):metadata_text(v) for k,v in (reader.metadata or {}).items()},'pages':len(records),'parser_sha256':digest((HERE/'pdf_structure.py').read_bytes()),'pdf_extractable_text_reconciled':all(r['pdf_qualification']['source_word_ownership_complete'] and r['pdf_qualification']['normalized_source_word_characters_agree'] and r['pdf_qualification']['independent_text_engine_characters_agree'] and r['pdf_qualification'].get('source_words_cover_deduplicated_glyph_characters') is True and r['pdf_qualification'].get('undecoded_cid_literals') == [] and not r['pdf_qualification']['unmapped_or_private_use_codepoints'] for r in records),'detected_table_cells_qualified':all(r['pdf_qualification']['detected_table_cells']==r['pdf_qualification']['independent_table_cells_agree'] for r in records),'detected_table_count':sum(r['pdf_qualification']['detected_table_count'] for r in records),'detected_table_cells':sum(r['pdf_qualification']['detected_table_cells'] for r in records),'pdf_table_semantics_complete':False,'reading_order_manual_review_required':True,'review_conditions':{str(r['physical_page']):r['pdf_qualification']['review_conditions'] for r in records if r['pdf_qualification']['review_conditions']}}
@@ -30,6 +32,9 @@ def page_records(data,cfg,raw_ref='raw/start.pdf'):
  if infrastructure is not None:details['source_infrastructure_dimensions']=infrastructure
  return records,details
 def outputs(records):
+ if any(r.get('unit')=='pdf_source_printed_unit' for r in records):
+  from .infrastructure_logical import outputs as infrastructure_outputs
+  return infrastructure_outputs(records)
  if any(r.get('unit')=='pdf_logical_unit' for r in records):
   from .solid_waste_logical import outputs as logical_outputs
   return logical_outputs(records)
@@ -37,7 +42,11 @@ def outputs(records):
  return {'records.jsonl':''.join(json.dumps(r,ensure_ascii=False,sort_keys=True)+'\n' for r in records).encode(),'records.csv':buf.getvalue().encode()}
 def validate_record_identity(records,details,cfg):
  assert details['pages']==cfg['expected_pages'],'Native physical-page pin mismatch'
- if details.get('canonical_record_unit')=='pdf_logical_unit':
+ if details.get('canonical_record_unit')=='pdf_source_printed_unit':
+  from .infrastructure_logical import validate_records as infrastructure_validate_records
+  infrastructure_validate_records(records,cfg)
+  assert details['normalized_record_count']==len(records)==172 and details['physical_page_count']==62,'Infrastructure printed units and physical pages must remain distinct'
+ elif details.get('canonical_record_unit')=='pdf_logical_unit':
   from .solid_waste_logical import validate_records
   validate_records(records,cfg)
   assert details['normalized_record_count']==len(records)==88 and details['physical_page_count']==6,'Logical units and physical pages must remain distinct'
@@ -48,6 +57,8 @@ def validate_config(cfg):
  assert cfg['mode']=='native_document' and cfg['url'].startswith('https://'),'Wrong native-document mode/URL'
  assert set(['id','title','jurisdiction','state','url','expected_sha256','expected_pages','qualification']).issubset(cfg),'Native config requires qualified exact identity/source/hash/page pin'
  assert len(cfg['expected_sha256'])==64 and cfg['expected_pages']>0,'Invalid source pin'
+ from .infrastructure_logical import validate_selected_config
+ validate_selected_config(cfg)
 def verify(out):
  out=pathlib.Path(out);errors=[]
  try:

@@ -1,0 +1,20 @@
+--- frozen-common759167
++++ candidate-commonb522283f
+@@ -62,7 +62,7 @@
+         require(tag not in {'img','picture','svg','image','script','style'} and not (':' in tag and tag.rsplit(':',1)[-1] in {'svg','image'}),'Active image/script markup in canonical HTML')
+         require(not any(k in attrs for k in ['background','poster','srcset']),'Active image attribute in canonical HTML')
+         require(not re.search(r'\burl\s*\(',attrs.get('style',''),re.I),'Active image CSS in canonical HTML')
+-        require(not attrs.get('type','').lower().startswith('image/'),'Active image MIME in canonical HTML')
++        require(not attrs.get('type','').strip().lower().startswith('image/'),'Active image MIME in canonical HTML')
+         require(not (tag=='input' and attrs.get('type','').strip().lower()=='image'),'Active image input in canonical HTML')
+         if tag=='link':
+             require(attrs.get('as','').strip().lower()!='image' and not any(x in {'icon','apple-touch-icon','apple-touch-icon-precomposed','mask-icon'} for x in attrs.get('rel','').lower().split()),'Active image link resource in canonical HTML')
+@@ -86,7 +86,7 @@
+     Image URL references may remain as references, but data payloads never do.
+     """
+     if isinstance(value,dict):
+-        typed=any(str(value.get(k,'')).lower().startswith('image/') or str(value.get(k,'')).lower() in ['image','img','picture','svg'] for k in ['type','mime','media_type','content_type','tag','kind'])
++        typed=any(str(value.get(k,'')).strip().lower().startswith('image/') or str(value.get(k,'')).strip().lower() in ['image','img','picture','svg'] for k in ['type','mime','media_type','content_type','tag','kind'])
+         for key,item in value.items():
+             check_metadata(str(key));check_metadata(item,image_context or typed or 'image' in str(key).lower())
+     elif isinstance(value,(list,tuple)):

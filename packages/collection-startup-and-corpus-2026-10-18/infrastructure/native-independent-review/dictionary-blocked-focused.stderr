@@ -1,0 +1,54 @@
+test_actual172_units62_pages_5grids79cells_and_diagnostics (collectors.encodeplus.test_infrastructure_logical.InfrastructurePrintedWorkflow.test_actual172_units62_pages_5grids79cells_and_diagnostics) ... ok
+test_all_canonical_source_field_mutations_refuse (collectors.encodeplus.test_infrastructure_logical.InfrastructurePrintedWorkflow.test_all_canonical_source_field_mutations_refuse) ... ok
+test_changed_real_bytes_refuse_before_native_access (collectors.encodeplus.test_infrastructure_logical.InfrastructurePrintedWorkflow.test_changed_real_bytes_refuse_before_native_access) ... ok
+test_changed_selected_config_refuses_before_transport_or_output (collectors.encodeplus.test_infrastructure_logical.InfrastructurePrintedWorkflow.test_changed_selected_config_refuses_before_transport_or_output) ... ok
+test_exact_identity_and_route_refusals_with_source_digest_fixture (collectors.encodeplus.test_infrastructure_logical.InfrastructurePrintedWorkflow.test_exact_identity_and_route_refusals_with_source_digest_fixture) ... ok
+test_exact_native_metadata_is_preserved_and_cannot_mutate (collectors.encodeplus.test_infrastructure_logical.InfrastructurePrintedWorkflow.test_exact_native_metadata_is_preserved_and_cannot_mutate) ... ok
+test_ordinary_generic_profile_and_csv_are_unchanged (collectors.encodeplus.test_infrastructure_logical.InfrastructurePrintedWorkflow.test_ordinary_generic_profile_and_csv_are_unchanged) ... ERROR
+test_original_inventory_page_diagnostics_and_false_gates_cannot_drift (collectors.encodeplus.test_infrastructure_logical.InfrastructurePrintedWorkflow.test_original_inventory_page_diagnostics_and_false_gates_cannot_drift) ... ok
+test_physical_page_identity_or_count_cannot_replace_units (collectors.encodeplus.test_infrastructure_logical.InfrastructurePrintedWorkflow.test_physical_page_identity_or_count_cannot_replace_units) ... ok
+test_primary_and_sidecars_csv_json_export172not62 (collectors.encodeplus.test_infrastructure_logical.InfrastructurePrintedWorkflow.test_primary_and_sidecars_csv_json_export172not62) ... ok
+test_serialization_rejects_corrupt_source_unit_before_output (collectors.encodeplus.test_infrastructure_logical.InfrastructurePrintedWorkflow.test_serialization_rejects_corrupt_source_unit_before_output) ... ok
+
+======================================================================
+ERROR: test_ordinary_generic_profile_and_csv_are_unchanged (collectors.encodeplus.test_infrastructure_logical.InfrastructurePrintedWorkflow.test_ordinary_generic_profile_and_csv_are_unchanged)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/oliverflint/My Drive/Claude/Projects/CompliSolv 2.00/github/local-jurisdiction-collection/.collection-runtime/venv/lib/python3.12/site-packages/pypdf/_reader.py", line 1138, in _read_xref_tables_and_trailers
+    xrefstream = self._read_pdf15_xref_stream(stream)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/oliverflint/My Drive/Claude/Projects/CompliSolv 2.00/github/local-jurisdiction-collection/.collection-runtime/venv/lib/python3.12/site-packages/pypdf/_reader.py", line 1304, in _read_pdf15_xref_stream
+    index_pairs = self._sanitize_pdf15_xref_stream_index_pairs(
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/oliverflint/My Drive/Claude/Projects/CompliSolv 2.00/github/local-jurisdiction-collection/.collection-runtime/venv/lib/python3.12/site-packages/pypdf/_reader.py", line 1253, in _sanitize_pdf15_xref_stream_index_pairs
+    max_entries = len(xref_stream.get_data()) // min_entry_bytes + 1
+                      ^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/oliverflint/My Drive/Claude/Projects/CompliSolv 2.00/outputs/collection-readiness-post1997ee1-2026-10-17/official/infrastructure-native-integration-independent-review-v1/run_focused.py", line 10, in f
+    def f(*a,**k):calls.append(name);raise AssertionError('Review forbiddenAPI:'+name)
+                                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: Review forbiddenAPI:get_data
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/oliverflint/My Drive/Claude/Projects/CompliSolv 2.00/outputs/collection-readiness-post1997ee1-2026-10-17/infrastructure-native-default-integration-candidate-v1/candidate/collectors/encodeplus/test_infrastructure_logical.py", line 59, in test_ordinary_generic_profile_and_csv_are_unchanged
+    rows,details=native.page_records(body,cfg)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/oliverflint/My Drive/Claude/Projects/CompliSolv 2.00/outputs/collection-readiness-post1997ee1-2026-10-17/infrastructure-native-default-integration-candidate-v1/candidate/collectors/encodeplus/native_document.py", line 18, in page_records
+    reader=PdfReader(io.BytesIO(data),strict=True)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/oliverflint/My Drive/Claude/Projects/CompliSolv 2.00/github/local-jurisdiction-collection/.collection-runtime/venv/lib/python3.12/site-packages/pypdf/_reader.py", line 154, in __init__
+    self._initialize_stream(stream)
+  File "/Users/oliverflint/My Drive/Claude/Projects/CompliSolv 2.00/github/local-jurisdiction-collection/.collection-runtime/venv/lib/python3.12/site-packages/pypdf/_reader.py", line 179, in _initialize_stream
+    self.read(stream)
+  File "/Users/oliverflint/My Drive/Claude/Projects/CompliSolv 2.00/github/local-jurisdiction-collection/.collection-runtime/venv/lib/python3.12/site-packages/pypdf/_reader.py", line 738, in read
+    self._read_xref_tables_and_trailers(stream, startxref, xref_issue_nr)
+  File "/Users/oliverflint/My Drive/Claude/Projects/CompliSolv 2.00/github/local-jurisdiction-collection/.collection-runtime/venv/lib/python3.12/site-packages/pypdf/_reader.py", line 1147, in _read_xref_tables_and_trailers
+    raise PdfReadError(f"Trailer cannot be read: {exception!s}") from exception  # pragma: no cover
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+pypdf.errors.PdfReadError: Trailer cannot be read: Review forbiddenAPI:get_data
+
+----------------------------------------------------------------------
+Ran 11 tests in 10.607s
+
+FAILED (errors=1)

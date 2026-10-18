@@ -1,0 +1,13 @@
+{
+  "kind": "harness_invocation_failure",
+  "raw_log_preserved": false,
+  "source": "Observed tool output from failed command and tail; this receipt is not a reconstruction of the full raw log",
+  "cause": "Preparation used review-root-relative paths while the shell working directory was candidate/. Copy/edit/testfile creation failed before runtime changes; the subsequent unittest invocation reported missing test_native_diagnostic_aggregate.",
+  "observed_exit": 1,
+  "observed_summary": "Ran 6 tests in 28.811s; FAILED (errors=1)",
+  "observed_error": "ModuleNotFoundError: No module named 'collectors.encodeplus.test_native_diagnostic_aggregate'",
+  "correction": "Preparation was rerun from review root. The final current-source 7-test command is a separate invocation. A later archive command used the same incorrect directory and did not move the prior log; the subsequent final test redirection replaced it. Tool-observed failure is preserved here candidly.",
+  "publisher_requests": 0,
+  "production_modified": false,
+  "not_a_runtime_parser_failure": true
+}

@@ -1,0 +1,51 @@
+test_actual_complete_inventory_body_disposition (test_html_readers.Readers.test_actual_complete_inventory_body_disposition) ... ok
+test_actual_input_map_mutation_refused (test_html_readers.Readers.test_actual_input_map_mutation_refused) ... ok
+test_available_source_hierarchy_not_blank (test_html_readers.Readers.test_available_source_hierarchy_not_blank) ... ok
+test_charter_observed_order_not_numeric_export_sort (test_html_readers.Readers.test_charter_observed_order_not_numeric_export_sort) ... ok
+test_duplicate_body_refused (test_html_readers.Readers.test_duplicate_body_refused) ... ok
+test_exact_canonical_html_and_parent_owned_bodies (test_html_readers.Readers.test_exact_canonical_html_and_parent_owned_bodies) ... ok
+test_false_gates_and_source_version_unchanged (test_html_readers.Readers.test_false_gates_and_source_version_unchanged) ... ok
+test_lf_jsonl_preserves_unicode_legal_separators (test_html_readers.Readers.test_lf_jsonl_preserves_unicode_legal_separators) ... ok
+test_literal_image_and_html_structure_preserved (test_html_readers.Readers.test_literal_image_and_html_structure_preserved) ... ok
+test_missing_body_refused (test_html_readers.Readers.test_missing_body_refused) ... ok
+test_municode_separate_notes_fail_closed_instead_of_omitted (test_html_readers.Readers.test_municode_separate_notes_fail_closed_instead_of_omitted) ... ok
+test_proof_identity_and_code_drift_refused (test_html_readers.Readers.test_proof_identity_and_code_drift_refused) ... ok
+test_raw_body_hash_corruption_refused (test_html_readers.Readers.test_raw_body_hash_corruption_refused) ... ok
+test_raw_separate_notes_present_but_old_ir_empty_refused (test_html_readers.Readers.test_raw_separate_notes_present_but_old_ir_empty_refused) ... 
+  test_raw_separate_notes_present_but_old_ir_empty_refused (test_html_readers.Readers.test_raw_separate_notes_present_but_old_ir_empty_refused) (raw_field='Notes') ... FAIL
+  test_raw_separate_notes_present_but_old_ir_empty_refused (test_html_readers.Readers.test_raw_separate_notes_present_but_old_ir_empty_refused) (raw_field='Footnotes') ... FAIL
+test_repeated_hierarchy_retains_conflict_instead_of_guess (test_html_readers.Readers.test_repeated_hierarchy_retains_conflict_instead_of_guess) ... ok
+test_unknown_native_or_body_format_refused (test_html_readers.Readers.test_unknown_native_or_body_format_refused) ... ok
+test_wrong_parent_or_hierarchy_refused (test_html_readers.Readers.test_wrong_parent_or_hierarchy_refused) ... ok
+test_wrong_source_version_refused (test_html_readers.Readers.test_wrong_source_version_refused) ... ok
+
+======================================================================
+FAIL: test_raw_separate_notes_present_but_old_ir_empty_refused (test_html_readers.Readers.test_raw_separate_notes_present_but_old_ir_empty_refused) (raw_field='Notes')
+----------------------------------------------------------------------
+ValueError: '/private/var/folders/vx/krkxgc9x7k77rg6grgbvx1pm0000gv/T/tmptsd_4z__/input/raw/9e8f2d44f8be40e68aa477c3ce7f9bb0.body' is not in the subpath of '/var/folders/vx/krkxgc9x7k77rg6grgbvx1pm0000gv/T/tmptsd_4z__/input'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/oliverflint/My Drive/Claude/Projects/CompliSolv 2.00/outputs/collection-readiness-post1997ee1-2026-10-17/qa/corpus-readers-municode-encodeplus-v1/candidate/test_html_readers.py", line 82, in test_raw_separate_notes_present_but_old_ir_empty_refused
+    with self.subTest(raw_field=key),self.assertRaisesRegex(ValueError,'separate Notes/Footnotes'):
+                                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: "separate Notes/Footnotes" does not match "'/private/var/folders/vx/krkxgc9x7k77rg6grgbvx1pm0000gv/T/tmptsd_4z__/input/raw/9e8f2d44f8be40e68aa477c3ce7f9bb0.body' is not in the subpath of '/var/folders/vx/krkxgc9x7k77rg6grgbvx1pm0000gv/T/tmptsd_4z__/input'"
+
+======================================================================
+FAIL: test_raw_separate_notes_present_but_old_ir_empty_refused (test_html_readers.Readers.test_raw_separate_notes_present_but_old_ir_empty_refused) (raw_field='Footnotes')
+----------------------------------------------------------------------
+ValueError: '/private/var/folders/vx/krkxgc9x7k77rg6grgbvx1pm0000gv/T/tmptsd_4z__/input/raw/9e8f2d44f8be40e68aa477c3ce7f9bb0.body' is not in the subpath of '/var/folders/vx/krkxgc9x7k77rg6grgbvx1pm0000gv/T/tmptsd_4z__/input'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/oliverflint/My Drive/Claude/Projects/CompliSolv 2.00/outputs/collection-readiness-post1997ee1-2026-10-17/qa/corpus-readers-municode-encodeplus-v1/candidate/test_html_readers.py", line 82, in test_raw_separate_notes_present_but_old_ir_empty_refused
+    with self.subTest(raw_field=key),self.assertRaisesRegex(ValueError,'separate Notes/Footnotes'):
+                                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: "separate Notes/Footnotes" does not match "'/private/var/folders/vx/krkxgc9x7k77rg6grgbvx1pm0000gv/T/tmptsd_4z__/input/raw/9e8f2d44f8be40e68aa477c3ce7f9bb0.body' is not in the subpath of '/var/folders/vx/krkxgc9x7k77rg6grgbvx1pm0000gv/T/tmptsd_4z__/input'"
+
+----------------------------------------------------------------------
+Ran 18 tests in 12.706s
+
+FAILED (failures=2)

@@ -1,0 +1,61 @@
+--- frozen-v3/flagstaff_initialization.py
++++ v4/flagstaff_initialization.py
+@@ -2,6 +2,8 @@
+ from pathlib import Path
+ from source_common import load,save,sha,stamp
+ import shared_transport as transport
++import re
++from bs4 import BeautifulSoup
+ URL='https://www.codepublishing.com/AZ/Flagstaff/'
+ NAME='inventory-initialization.json'
+ def fingerprint(files):
+@@ -30,15 +32,24 @@
+ 
+ def checked_receipt(path):
+  receipt=path/'receipt.json'
+- if not receipt.exists():return None
+- meta=load(receipt)
+- if meta.get('source_url')!=URL or meta.get('error') or meta.get('blocked'):raise ValueError('Native inventory generation failed or stopped; retain evidence for operator review, no automatic retry')
+- # A prior refusal must never disappear behind a partial generation restart.
++ # Inspect durable response ledgers even if interruption prevented the final receipt.
++ # No image body is opened, no live gate is changed, and no requests are made here.
+  for name in ['network-events.json','network-bodies.json']:
+   if (path/name).exists():
+    for event in load(path/name):
+     headers={str(k).lower():str(v).lower() for k,v in event.get('headers',{}).items()}
+     if event.get('status') in [403,429] or headers.get('cf-mitigated')=='challenge' or headers.get('retry-after'):raise ValueError('Native inventory refusal retained; no automatic retry')
++    if name=='network-bodies.json' and event.get('path'):
++     mime=headers.get('content-type','')
++     if mime.startswith('image/'):raise ValueError('Unexpected separate image body in native inventory ledger; operator review required')
++     if 'html' in mime or mime.startswith('text/'):
++      raw=(path/event['path']).read_bytes()
++      if sha(raw)!=event.get('sha256'):raise ValueError('Corrupt retained native response; no automatic retry')
++      match=re.search(br'<title\b[^>]*>(.*?)</title\s*>',raw[:100000],re.I|re.S);title=BeautifulSoup(match.group(1),'html.parser').get_text(' ',strip=True) if match else ''
++      if re.search(r'^(?:just a moment|attention required|access denied|verify (?:you are|that you)|checking your browser|security verification|human verification|captcha)',' '.join(title.split()),re.I) or b'/cdn-cgi/challenge-platform/' in raw[:100000].lower():raise ValueError('Retained native challenge body; no automatic retry')
++ if not receipt.exists():return None
++ meta=load(receipt)
++ if meta.get('source_url')!=URL or meta.get('error') or meta.get('blocked'):raise ValueError('Native inventory generation failed or stopped; retain evidence for operator review, no automatic retry')
+  return meta
+ 
+ def initialize(out,files,validate,resume=False):
+@@ -59,7 +70,7 @@
+  for attempt in state['attempts']:
+   if attempt.get('status')=='interrupted_preserved':
+    folder=out/attempt['path']
+-   if not folder.is_dir() or digest_tree(folder)!=attempt['manifest']:raise ValueError('Interrupted inventory generation changed; preserve evidence and review')
++   if folder.exists()!=attempt['directory_exists'] or (folder.exists() and not folder.is_dir()) or digest_tree(folder)!=attempt['manifest']:raise ValueError('Interrupted inventory generation changed; preserve evidence and review')
+  if selected.exists():
+   if state.get('selected_manifest') and digest_tree(selected)!=state['selected_manifest']:raise ValueError('Selected native inventory generation changed')
+   meta=checked_receipt(selected)
+@@ -77,9 +88,9 @@
+    meta=checked_receipt(folder)
+    if meta and meta.get('whole_publication_selected_values') and meta.get('checked_values')==meta.get('whole_publication_selected_values'):
+     validate(folder);folder.rename(selected);attempt.update(status='selected',path='inventory-origin',finished_at=stamp());state.update(stage='inventory_ready',selected='inventory-origin',selected_manifest=digest_tree(selected));save(marker,state);return selected
+-   attempt.update(status='interrupted_preserved',observed_at=stamp(),manifest=digest_tree(folder));save(marker,state)
++   attempt.update(status='interrupted_preserved',directory_exists=folder.exists(),observed_at=stamp(),manifest=digest_tree(folder));save(marker,state)
+   elif attempt.get('status')=='interrupted_preserved':
+-   if not folder.is_dir() or digest_tree(folder)!=attempt['manifest']:raise ValueError('Interrupted inventory generation changed; preserve evidence and review')
++   if folder.exists()!=attempt['directory_exists'] or (folder.exists() and not folder.is_dir()) or digest_tree(folder)!=attempt['manifest']:raise ValueError('Interrupted inventory generation changed; preserve evidence and review')
+  attempt={'path':'inventory-attempt-'+str(len(state['attempts'])+1).zfill(4),'status':'running','started_at':stamp()};state['attempts'].append(attempt);save(marker,state)
+  from flagstaff_inventory import run
+  try:

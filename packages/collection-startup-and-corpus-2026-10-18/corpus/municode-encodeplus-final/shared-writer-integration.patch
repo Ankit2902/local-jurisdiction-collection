@@ -1,0 +1,56 @@
+--- current/package.py
++++ composed/package.py
+@@ -8,7 +8,7 @@
+ from readers import reader,READERS
+ 
+ HERE=Path(__file__).resolve().parent
+-MODULES=['common.py','readers.py','flagstaff.py','flagstaff_hierarchy.py','package.py']
++MODULES=['common.py','readers.py','flagstaff.py','flagstaff_hierarchy.py','package.py','reader_utils.py','municode_html.py','encodeplus_html.py']
+ IMAGE_SUFFIXES={'.png','.jpg','.jpeg','.gif','.webp','.svg','.bmp','.avif','.tif','.tiff','.ico'}
+ def code():return {n:sha((HERE/n).read_bytes()) for n in MODULES}
+ def validate_input(root,proof,family):
+@@ -51,7 +51,15 @@
+     root=Path(root).resolve();out=Path(out).resolve()
+     require(not out.is_relative_to(root) and not root.is_relative_to(out),'Input/output trees must be disjoint')
+     require(interrupt_after is None or interrupt_after>0,'Interrupt boundary must be positive')
+-    proof_bytes=Path(proof_path).read_bytes();family_bytes=Path(family_path).read_bytes()
++    proof_path=Path(proof_path).resolve();proof_bytes=proof_path.read_bytes();proof_meta=json.loads(proof_bytes)
++    # Only an explicit relative JSON report path in the actual proof supplies a
++    # default. Historical absolute log locations are never followed implicitly.
++    if family_path is None:
++        name=proof_meta.get('family_verification_path');require(isinstance(name,str) and name,'Explicit --family-verification or proof-relative family_verification_path required')
++        family_path=safe(proof_path.parent,name)
++    family_bytes=Path(family_path).read_bytes();json.loads(family_bytes)
++    expected=proof_meta.get('family_verification_sha256') or proof_meta.get('verification',{}).get('family_report_sha256')
++    require(expected is None or expected==sha(family_bytes),'Family report differs from proof hash')
+     b,proof,family,p=binding(root,proof_bytes,family_bytes,mode);generated=artifacts(p)
+     # Serialize writers for one destination without adding verifier lockfiles.
+     lockpath=Path(tempfile.gettempdir())/('corpus-package-'+sha(str(out).encode())+'.lock')
+@@ -105,7 +113,7 @@
+ 
+ def main(argv=None):
+     parser=argparse.ArgumentParser(description=__doc__);sub=parser.add_subparsers(dest='action',required=True)
+-    r=sub.add_parser('package');r.add_argument('--input',required=True);r.add_argument('--proof',required=True);r.add_argument('--family-verification',required=True);r.add_argument('--reader',choices=list(READERS),required=True);r.add_argument('--out',required=True);r.add_argument('--resume',action='store_true');r.add_argument('--interrupt-after',type=int)
++    r=sub.add_parser('package');r.add_argument('--input',required=True);r.add_argument('--proof',required=True);r.add_argument('--family-verification');r.add_argument('--reader',choices=list(READERS),required=True);r.add_argument('--out',required=True);r.add_argument('--resume',action='store_true');r.add_argument('--interrupt-after',type=int)
+     v=sub.add_parser('verify');v.add_argument('--out',required=True)
+     a=parser.parse_args(argv)
+     try:
+--- current/readers.py
++++ composed/readers.py
+@@ -1,10 +1,12 @@
+-"""Explicit family reader registry; unsupported formats fail closed.
++"""Explicit readers for qualified Flagstaff, Municode and enCodePlus HTML IR.
+ 
+-Only Flagstaff's verified operational HTML IR is currently implemented. A new
+-reader must produce Projection without inferring hierarchy or native sections.
++Each reader preserves its verified source inventory, ownership, order and limits.
++Native/page/unknown modes fail closed; no hierarchy or sections are invented.
+ """
+ from flagstaff import read_projection
+-READERS={'originals-flagstaff-html-v1':read_projection}
++from municode_html import read_projection as municode
++from encodeplus_html import read_projection as encodeplus
++READERS={'originals-flagstaff-html-v1':read_projection,'municode-html-publication-v1':municode,'encodeplus-html-publication-v1':encodeplus}
+ def reader(name):
+     if name not in READERS:raise ValueError('Unsupported reader; no speculative family mapping: '+name)
+     return READERS[name]

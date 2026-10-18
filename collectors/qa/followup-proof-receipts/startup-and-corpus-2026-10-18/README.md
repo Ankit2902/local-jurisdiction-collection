@@ -1,0 +1,13 @@
+# Startup, corpus export and image-policy checkpoint
+
+All **45 integrated check programs and 415 unittest cases passed**, with network calls disabled. The active source, isolated snapshot and runtime remained unchanged during execution. An additional **19 actual-source reader tests** passed against the copied Henderson and Lincoln Charter evidence. Afterward, the readiness ledger was regenerated and a requirements-file comment clarified the tested Python versions. Both metadata-only deltas are hash-bound; executable collector sources remain unchanged.
+
+The final corpus writer supports three explicit HTML readers. Whole-publication and relocation checks preserve all 2,661 Flagstaff rows and 882 image placeholders, 2,122 Henderson rows and ten placeholders, and 188 Lincoln Charter rows. Canonical HTML, source order, hierarchy witnesses, all 16 JSON/CSV fields, source-node dispositions and inherited coverage remain source-bound. Packaging success does not waive incomplete source, dependency, edition or jurisdiction gates.
+
+Normal Infrastructure native collection emits 172 source-printed units from 62 physical pages. The 828-record mixed export preserves all 201 source image positions and all 656 unrelated records. Five image identifiers have explicit namespace aliases, with original IDs retained. Legal-semantic and dependency qualifications remain separate.
+
+Images are exact `[IMAGE]`. No separate image acquisition, extraction, decoding, rendering or OCR is permitted. Original publisher documents remain immutable and may intrinsically embed images. Normalized-output checks reject image markup and payloads recursively, including padded image MIME values, opaque locators, srcset, preloads/icons and namespaced SVG images. Ordinary PDF references and inert omission provenance remain allowed.
+
+See the [source and independent review package](../../../../packages/collection-startup-and-corpus-2026-10-18/README.md), [corpus exporter runbook](../../../corpus_package/README.md), [original-source runbook](../../../originals/README.md), and [image policy](../../../IMAGE-POLICY.md). `summary.json` records the final checkpoint scope; individual frozen proofs identify exact executed revisions and any remaining gaps.
+
+The actual current Flagstaff early-inventory live run and its separate current common read-only verification both exited 0. The primary publication is operationally accepted, with all 361 source documents, 377 tables and 882 placeholders retained. All 455 raw/native bodies and nine normalized streams passed the final image checks. This does not confer whole-jurisdiction or external adopted-law completeness.

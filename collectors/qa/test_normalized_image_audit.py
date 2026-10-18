@@ -42,6 +42,29 @@ class NormalizedImageAuditTests(unittest.TestCase):
         self.assertTrue(result['passed'])
         self.assertEqual(result['placeholder_occurrences_across_serializations'], 1)
 
+    def test_declared_image_context_cannot_hide_behind_opaque_locator(self):
+        for markup in (
+            '<a type="image/png" href="data:application/octet-stream;base64,AAAA">Figure</a>',
+            '<link rel="preload" as="image" href="/opaque-resource">',
+            '<link rel="shortcut icon" href="/opaque-resource">',
+            '<source srcset="/opaque-one 1x, /opaque-two 2x">',
+            '<svg:image href="/opaque-resource"/>',
+        ):
+            with self.subTest(markup=markup):
+                result = self.check_record('records.jsonl', {
+                    'id': 'image-context', 'text': '[IMAGE] Figure',
+                    'notes': [{'nested_markup': markup}],
+                })
+                self.assertFalse(result['passed'])
+
+    def test_nonimage_document_links_and_omission_provenance_remain_legal(self):
+        result = self.check_record('records.jsonl', {
+            'id': 'legal-reference',
+            'html': '<a type="application/pdf" href="/adopted-code.pdf">Adopted code</a> [IMAGE] Caption',
+            'image_omissions': [{'source_url': 'https://publisher.example/figure.png', 'omitted': True}],
+        })
+        self.assertTrue(result['passed'])
+
     def test_missing_normalized_output_fails_closed(self):
         with tempfile.TemporaryDirectory() as td:
             self.assertFalse(audit(Path(td))['passed'])

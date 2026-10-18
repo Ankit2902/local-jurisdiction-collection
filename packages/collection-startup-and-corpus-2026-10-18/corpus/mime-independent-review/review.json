@@ -1,0 +1,20 @@
+{
+  "passed": true,
+  "scope": "Only padded MIME classification delta; original data/output applicability is separately measured by owner",
+  "old_common_sha256": "759167b11e77a8e2264aab7449c4d8bcdbf0f243a76fd8ba7e05c003fd5c0d13",
+  "common_sha256": "b522283ffaa16e8d8291357dc7de437b4b0dcab82ea800c6b5ce050999b70308",
+  "exact_delta_only_strip_before_existing_lower_classification": true,
+  "tests_independently_passed": 27,
+  "known_image_contexts_refused": [
+    "<object type=\" IMAGE/PNG\" data=\"https://example.test/123\"></object>",
+    "<embed type=\" IMAGE/PNG\" src=\"https://example.test/123\">",
+    "recursive padded MIME known image opaque data payload"
+  ],
+  "ordinary_nonimage_PDF_link_and_metadata_unchanged": true,
+  "omitted_image_locator_and_available_label_metadata_preserved": true,
+  "synthetic_metadata_not_mutated": true,
+  "forbidden_calls": [],
+  "source_unchanged": true,
+  "source_normalization_native_parse_or_network": false,
+  "actual_source_exposure_claim": false
+}
