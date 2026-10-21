@@ -1,7 +1,14 @@
 """Serial host-family HTTP/browser rate gate with persisted access stops, never a bypass."""
+import sys
+from pathlib import Path as _Path
+_root = _Path(__file__).resolve().parents[2]
+if str(_root) not in sys.path:
+    sys.path.insert(0, str(_root))
+from collectors.winboot import ensure_fcntl, gate_dir
+ensure_fcntl()
 import datetime,fcntl,hashlib,json,os,pathlib,time,urllib.request,urllib.error,urllib.parse
 from email.utils import parsedate_to_datetime
-ROOT=pathlib.Path(os.environ.get('OFFICIAL_GATE_DIR','/tmp/compliSolv-official-publication-gate'))
+ROOT=gate_dir('OFFICIAL_GATE_DIR','/tmp/compliSolv-official-publication-gate')
 def now():return datetime.datetime.now(datetime.timezone.utc).isoformat()
 def atomic(path,b):
  path=pathlib.Path(path);path.parent.mkdir(parents=True,exist_ok=True);tmp=path.with_name(path.name+'.tmp-'+str(os.getpid()));tmp.write_bytes(b);os.replace(tmp,path)

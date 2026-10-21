@@ -1,6 +1,12 @@
 """Pure offline16-column corpus packaging; verified source IR remains immutable."""
 from __future__ import annotations
 import sys
+from pathlib import Path as _Path
+_root = _Path(__file__).resolve().parents[2]
+if str(_root) not in sys.path:
+    sys.path.insert(0, str(_root))
+from collectors.winboot import ensure_fcntl
+ensure_fcntl()
 sys.dont_write_bytecode=True
 import argparse,csv,fcntl,io,json,tempfile
 from pathlib import Path

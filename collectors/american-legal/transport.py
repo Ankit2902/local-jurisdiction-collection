@@ -1,6 +1,12 @@
 """Durable response cache and ordinary headed browser transport."""
-import base64,datetime,json,os,subprocess,sys,fcntl
+import sys
 from pathlib import Path
+_root = Path(__file__).resolve().parents[2]
+if str(_root) not in sys.path:
+    sys.path.insert(0, str(_root))
+from collectors.winboot import ensure_fcntl
+ensure_fcntl()
+import base64,datetime,json,os,subprocess,fcntl
 from model import digest,canonical
 BASE=Path(__file__).resolve().parent
 class AccessStop(RuntimeError):pass

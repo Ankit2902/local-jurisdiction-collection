@@ -1,6 +1,12 @@
 """Serial public HTTP and persistent exact-host stops. No automatic network retry or challenge handling."""
-import fcntl,json,os,time,platform,urllib.request,urllib.error,urllib.parse
+import sys
 from pathlib import Path
+_root = Path(__file__).resolve().parents[2]
+if str(_root) not in sys.path:
+    sys.path.insert(0, str(_root))
+from collectors.winboot import ensure_fcntl, gate_dir
+ensure_fcntl()
+import fcntl,json,os,time,platform,urllib.request,urllib.error,urllib.parse
 from datetime import datetime,timezone
 from email.utils import parsedate_to_datetime
 from .util import atomic_bytes,atomic_json,digest
@@ -20,7 +26,7 @@ class NoRedirect(urllib.request.HTTPRedirectHandler):
 def now():return datetime.now(timezone.utc).isoformat()
 def fetch(url,out,timeout=120):
  out=Path(out);assert not out.exists() and not out.with_name(out.name+'.receipt.json').exists(),'Refusing existing request output'
- gate=Path(os.environ.get('ENCODEPLUS_GATE_DIR','/tmp/compliSolv-encodeplus-rate-gate'));gate.mkdir(parents=True,exist_ok=True);original=url;redirects=[];visited=set()
+ gate=gate_dir('ENCODEPLUS_GATE_DIR','/tmp/compliSolv-encodeplus-rate-gate');gate.mkdir(parents=True,exist_ok=True);original=url;redirects=[];visited=set()
  def save(body,status,headers,started,error=None,image_skip=False,challenge=False,attempted=True,**extra):
   receipt={'url':original,'final_url':url,'started_at':started,'finished_at':now(),'http_status':status,'headers':headers,'sha256':digest(body),'bytes':len(body),'redirects':redirects,'runtime':platform.python_version(),'transport_sha256':TRANSPORT_SHA256,'error':error,'challenge':bool(challenge),'image_body_intentionally_skipped':image_skip,'request_attempted':attempted}|extra
   atomic_bytes(out,body);atomic_json(out.with_name(out.name+'.receipt.json'),receipt);return body,receipt

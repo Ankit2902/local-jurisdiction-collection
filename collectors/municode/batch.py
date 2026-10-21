@@ -1,5 +1,14 @@
 """Serial full-publication readiness jobs. Source-bound resume/revision reuse; never sample fallback."""
 import sys
+from pathlib import Path
+_root = Path(__file__).resolve().parents[2]
+if str(_root) not in sys.path:
+    sys.path.insert(0, str(_root))
+from collectors.winboot import boot, gate_dir, ensure_fcntl
+if __name__ == '__main__':
+    boot()
+else:
+    ensure_fcntl()
 sys.dont_write_bytecode=True
 import argparse,hashlib,json,os,re,subprocess,time,fcntl
 from pathlib import Path
@@ -50,7 +59,7 @@ def execute(a,runtime,rows):
      result=dict(prior);result.update(run_path=os.path.relpath((previous.parent/prior['run_path']).resolve(),a.out),full_publication_live_verified=False,evidence_origin='earlier-readiness-batch-incomplete-attempt');status['jobs'][row['id']]=result
     else:job['prior_attempts']=[{'run_path':os.path.relpath((previous.parent/prior['run_path']).resolve(),a.out),'status':prior['status']}]
   atomic(a.out/'executed-batch'/binding['batch_sha256']/'batch.py',Path(__file__).read_bytes());atomic(index,status)
- gate=Path(os.environ.get('MUNICODE_GATE_DIR','/tmp/compliSolv-municode-rate-gate'))
+ gate=gate_dir('MUNICODE_GATE_DIR','/tmp/compliSolv-municode-rate-gate')
  for row in rows:
   if implementation()!=binding['implementation'] or policy_hashes()!=binding['policy_hashes']:status['phase']='implementation_changed';atomic(index,status);break
   job=status['jobs'][row['id']]

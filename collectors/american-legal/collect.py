@@ -1,7 +1,16 @@
 #!/usr/bin/env python3
 """Dynamic full-publication American Legal traversal. Defaults to all nodes and required assets."""
-import argparse,datetime,json,os,re,sys,traceback
+import sys
 from pathlib import Path
+_root = Path(__file__).resolve().parents[2]
+if str(_root) not in sys.path:
+    sys.path.insert(0, str(_root))
+from collectors.winboot import boot, ensure_fcntl
+if __name__ == '__main__':
+    boot()
+else:
+    ensure_fcntl()
+import argparse,datetime,json,os,re,traceback
 from urllib.parse import quote,urlparse,urljoin
 from model import *
 from transport import Browser,Cache,AccessStop,HTTPError,RunLock,atomic,save,BASE

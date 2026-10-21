@@ -1,5 +1,15 @@
 """python -m collectors.ecode.cli collect|verify --help"""
-import argparse,json,sys
+import sys
+from pathlib import Path
+_root = Path(__file__).resolve().parents[2]
+if str(_root) not in sys.path:
+    sys.path.insert(0, str(_root))
+from collectors.winboot import boot, ensure_fcntl
+if __name__ == '__main__':
+    boot('collectors.ecode.cli')
+else:
+    ensure_fcntl()
+import argparse,json
 from .adapters import family_of
 from .common import read
 from pathlib import Path

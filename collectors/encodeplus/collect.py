@@ -1,6 +1,16 @@
 #!/usr/bin/env python3
 """Full dynamic publication traversal by default. Limits always force incomplete."""
-import argparse,base64,datetime,importlib.metadata,json,pathlib,platform,re,shutil,sys,time,urllib.parse
+import sys
+from pathlib import Path
+_root = Path(__file__).resolve().parents[2]
+if str(_root) not in sys.path:
+    sys.path.insert(0, str(_root))
+from collectors.winboot import boot, ensure_fcntl
+if __name__ == '__main__':
+    boot('collectors.encodeplus.collect')
+else:
+    ensure_fcntl()
+import argparse,base64,datetime,importlib.metadata,json,pathlib,platform,re,shutil,time,urllib.parse
 from bs4 import BeautifulSoup
 from .util import atomic_bytes,atomic_json,digest,hash_json,read_json,validate_file
 from .model import inventory,decode,parse_document,outputs

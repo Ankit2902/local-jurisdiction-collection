@@ -1,12 +1,26 @@
 #!/usr/bin/env python3
 """Safe portable plans and explicit single-publication dispatch; no collection by default."""
 import sys
+from pathlib import Path
+_root = Path(__file__).resolve().parents[2]
+if str(_root) not in sys.path:
+    sys.path.insert(0, str(_root))
+from collectors.winboot import boot, ensure_fcntl
+if __name__ == '__main__':
+    boot()
+else:
+    ensure_fcntl()
 sys.dont_write_bytecode=True
-import argparse,json,subprocess,tempfile
+import argparse,json,re,subprocess,tempfile
 from pathlib import Path
 from dispatch import ROOT,Unsupported,command,qualified,read,bind_run
 from catalog import load_catalog
 HERE=Path(__file__).resolve().parent
+
+def jurisdiction_output(target):
+ """Repo folder for one government: jurisdictions/<name-state>."""
+ slug=re.sub(r'[^a-z0-9]+','-',(target['jurisdiction']+'-'+target['state']).lower()).strip('-')
+ return ROOT/'jurisdictions'/slug
 
 def main():
  p=argparse.ArgumentParser(description=__doc__);p.add_argument('action',nargs='?',default='status',choices=['plan','status','collect','verify']);p.add_argument('--cohort',choices=['expansion','original','all'],default='all');p.add_argument('--target');p.add_argument('--publication');p.add_argument('--all',action='store_true');p.add_argument('--all-publications',action='store_true',help='Plan every inventoried publication, including secondary and unqualified entries; never executes collection');p.add_argument('--out');p.add_argument('--resume',action='store_true');p.add_argument('--upgrade-code',action='store_true');p.add_argument('--native-export',action='store_true');p.add_argument('--retry-native-export',action='store_true');p.add_argument('--max-items',type=int);p.add_argument('--python',default=sys.executable);a=p.parse_args()
@@ -14,7 +28,10 @@ def main():
  if a.all_publications and (a.all or a.publication):p.error('Choose --all-publications OR --all/--publication; selectors cannot be combined')
  catalog=load_catalog(getattr(a,'cohort','all'));targets=catalog['targets'];pubs={x['id']:x for x in catalog['publications']};matches=[t for t in targets if not a.target or t['id']==a.target]
  if a.target and len(matches)!=1:p.error('Unknown target ID')
- if a.action in ['collect','verify'] and (not a.target or not a.out or a.all):p.error('Explicit single --target and --out required; no all-target execution is provided')
+ if a.action in ['collect','verify'] and (not a.target or a.all):p.error('Explicit single --target required; no all-target execution is provided')
+ if a.action in ['collect','verify'] and not a.out:
+  if len(matches)!=1:p.error('Explicit single --target required')
+  a.out=str(jurisdiction_output(matches[0]))
  if a.action=='plan' and not(a.target or a.all or a.all_publications or a.publication):p.error('Plan requires --target or --all')
  if a.out:a.out=str(Path(a.out).resolve())
  selected=[]
@@ -39,7 +56,7 @@ def main():
  plan=selected[0]
  if not plan['runnable']:raise SystemExit(json.dumps(plan))
  if a.action=='collect' and plan.get('observed_access_advisories'):p.error('Observed publisher workflow access stop requires operator review; no automatic retry. Planning and offline verification remain available. See observed_access_advisories in plan.')
- out=Path(a.out).resolve()
+ out=Path(a.out).resolve();print('Jurisdiction output: '+str(out),flush=True)
  if a.action=='verify':
   try:bind_run(pubs[a.publication or matches[0]['primary_publication_id']],matches[0],out)
   except (Unsupported,KeyError,ValueError,OSError) as exc:p.error(str(exc))

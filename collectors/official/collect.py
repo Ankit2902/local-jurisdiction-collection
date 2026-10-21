@@ -1,6 +1,16 @@
 #!/usr/bin/env python3
 """Full selected-publication collection. Explicit limits are incomplete; no whole-jurisdiction claims."""
-import argparse,csv,hashlib,json,os,pathlib,re,shutil,subprocess,sys,traceback,platform
+import sys
+from pathlib import Path as _Path
+_root = _Path(__file__).resolve().parents[2]
+if str(_root) not in sys.path:
+    sys.path.insert(0, str(_root))
+from collectors.winboot import boot, ensure_fcntl
+if __name__ == '__main__':
+    boot()
+else:
+    ensure_fcntl()
+import argparse,csv,hashlib,json,os,pathlib,re,shutil,subprocess,traceback,platform
 from urllib.parse import urljoin,urlsplit,quote,unquote
 from bs4 import BeautifulSoup
 import model,transport,post_transport,spokane_bulk

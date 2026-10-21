@@ -1,7 +1,13 @@
 """Atomic, hash-bound source artifacts and conservative shared ICC-family gate."""
 from __future__ import annotations
-import datetime,fcntl,hashlib,json,os,time
+import sys
 from pathlib import Path
+_root = Path(__file__).resolve().parents[2]
+if str(_root) not in sys.path:
+    sys.path.insert(0, str(_root))
+from collectors.winboot import ensure_fcntl, gate_dir
+ensure_fcntl()
+import datetime,fcntl,hashlib,json,os,time
 from email.utils import parsedate_to_datetime
 
 def now():return datetime.datetime.now(datetime.timezone.utc).isoformat()
@@ -12,14 +18,15 @@ def atomic(p,data):
  p=Path(p);p.parent.mkdir(parents=True,exist_ok=True);tmp=p.with_name(p.name+'.tmp-'+str(os.getpid()));
  with tmp.open('wb') as f:f.write(data);f.flush();os.fsync(f.fileno())
  os.replace(tmp,p)
- fd=os.open(p.parent,os.O_RDONLY)
- try:os.fsync(fd)
- finally:os.close(fd)
+ if os.name != 'nt':
+  fd=os.open(p.parent,os.O_RDONLY)
+  try:os.fsync(fd)
+  finally:os.close(fd)
 def save(p,x):atomic(p,json.dumps(x,ensure_ascii=False,indent=2).encode()+b'\n')
 class QualificationError(ValueError):pass
 class AccessStop(RuntimeError):pass
 class Gate:
- def __init__(self,family,root=None,spacing=3.5):self.root=Path(root or os.environ.get('ICC_GATE_DIR','/tmp/complisolv-icc-full-gate'))/family;self.root.mkdir(parents=True,exist_ok=True);self.spacing=max(3.5,spacing)
+ def __init__(self,family,root=None,spacing=3.5):self.root=Path(root or gate_dir('ICC_GATE_DIR','/tmp/complisolv-icc-full-gate'))/family;self.root.mkdir(parents=True,exist_ok=True);self.spacing=max(3.5,spacing)
  def check(self):
   if (self.root/'STOP.json').exists():raise AccessStop('Shared family access stop retained: '+str(self.root/'STOP.json'))
  def reserve(self,url):

@@ -14,6 +14,10 @@ from urllib.parse import urlsplit
 
 ROOT = Path(__file__).resolve().parents[2]
 HERE = Path(__file__).resolve().parent
+if str(ROOT) not in sys.path:
+    sys.path.insert(0, str(ROOT))
+from collectors.winboot import ensure_fcntl, gate_dir
+ensure_fcntl()
 DEFAULT_RUNTIME = ROOT / '.collection-runtime'
 MARKER = 'local-jurisdiction-collection-runtime-v1'
 FAMILIES = ('municode', 'american-legal', 'ecode', 'encodeplus', 'official', 'gridics')
@@ -111,8 +115,6 @@ def interpreter_version(python):
 
 
 def setup(runtime, python_command):
-    if os.name != 'posix':
-        raise OperationError('Current publisher gates require POSIX file locks. Use a macOS or Linux graphical host; Windows is not yet qualified.')
     runtime, python = runtime_paths(runtime)
     version = interpreter_version(python_command)
     if version[:2] != [3, 12]:
@@ -221,22 +223,22 @@ def access_state(pub, env, output=None):
     host_by_path = {}
     hosts = referenced_hosts(pub, output)
     if family == 'municode':
-        gate = Path(env.get('MUNICODE_GATE_DIR', '/tmp/compliSolv-municode-rate-gate'))
+        gate = gate_dir('MUNICODE_GATE_DIR', '/tmp/compliSolv-municode-rate-gate', env)
         paths = [gate / 'browser-stop.json', gate / 'state.json']
         paths += [gate / ('external-stop-' + hashlib.sha256(host.encode()).hexdigest() + '.json') for host in hosts]
     elif family == 'american-legal':
-        paths = [Path(env.get('AMLEGAL_GATE_DIR', '/tmp/compliSolv-american-legal-full-gate')) / 'browser-stop.json']
+        paths = [gate_dir('AMLEGAL_GATE_DIR', '/tmp/compliSolv-american-legal-full-gate', env) / 'browser-stop.json']
     elif family == 'ecode':
-        paths = [Path(env.get('ICC_GATE_DIR', '/tmp/complisolv-icc-full-gate')) / pub['source_family'] / 'STOP.json']
+        paths = [gate_dir('ICC_GATE_DIR', '/tmp/complisolv-icc-full-gate', env) / pub['source_family'] / 'STOP.json']
     elif family == 'encodeplus':
-        gate = Path(env.get('ENCODEPLUS_GATE_DIR', '/tmp/compliSolv-encodeplus-rate-gate'))
+        gate = gate_dir('ENCODEPLUS_GATE_DIR', '/tmp/compliSolv-encodeplus-rate-gate', env)
         paths = [gate / 'state.json']
         for host in hosts:
             path = gate / 'hosts' / hashlib.sha256(host.encode()).hexdigest() / 'state.json'
             paths.append(path)
             host_by_path[path] = host
     elif family == 'official':
-        paths = [Path(env.get('OFFICIAL_GATE_DIR', '/tmp/compliSolv-official-publication-gate')) / hashlib.sha256(host.encode()).hexdigest()[:20] / 'state.json' for host in hosts]
+        paths = [gate_dir('OFFICIAL_GATE_DIR', '/tmp/compliSolv-official-publication-gate', env) / hashlib.sha256(host.encode()).hexdigest()[:20] / 'state.json' for host in hosts]
     elif family == 'gridics':
         paths = [Path.home() / '.local/state/local-jurisdiction-collection/gridics/STOP.json']
     stops = []

@@ -1,12 +1,21 @@
 """Browser-only shared rate gate. Direct HTTP remains stopped after wave3 challenges.
 A fresh browser challenge/429 writes an atomic stop flag before waiting for the lock.
 """
-import sys,fcntl,json,os,time,hashlib
+import sys
 from pathlib import Path
+_root = Path(__file__).resolve().parents[2]
+if str(_root) not in sys.path:
+    sys.path.insert(0, str(_root))
+from collectors.winboot import boot, gate_dir, ensure_fcntl
+if __name__ == '__main__':
+    boot()
+else:
+    ensure_fcntl()
+import fcntl,json,os,time,hashlib
 from urllib.parse import urlparse
 from datetime import datetime,timezone
 from email.utils import parsedate_to_datetime
-root=Path(os.environ.get('MUNICODE_GATE_DIR','/tmp/compliSolv-municode-rate-gate'));root.mkdir(parents=True,exist_ok=True);stop=root/'browser-stop.json';action=sys.argv[1]
+root=gate_dir('MUNICODE_GATE_DIR','/tmp/compliSolv-municode-rate-gate');root.mkdir(parents=True,exist_ok=True);stop=root/'browser-stop.json';action=sys.argv[1]
 external_host=urlparse(sys.argv[2]).hostname if len(sys.argv)>2 else None
 external_stop=root/('external-stop-'+hashlib.sha256((external_host or '').encode()).hexdigest()+'.json')
 if action=='stop-external':

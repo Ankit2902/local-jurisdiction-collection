@@ -1,6 +1,15 @@
-"""Publisher-wide conservative POSIX gate. Stops persist until operator investigation; no reset CLI."""
-import argparse,datetime,fcntl,json,os,tempfile,time
+"""Publisher-wide conservative gate. Stops persist until operator investigation; no reset CLI."""
+import sys
 from pathlib import Path
+_root = Path(__file__).resolve().parents[2]
+if str(_root) not in sys.path:
+    sys.path.insert(0, str(_root))
+from collectors.winboot import boot, gate_dir, ensure_fcntl
+if __name__ == '__main__':
+    boot()
+else:
+    ensure_fcntl()
+import argparse,datetime,fcntl,json,os,tempfile,time
 from email.utils import parsedate_to_datetime
 p=argparse.ArgumentParser();p.add_argument('action',choices=['reserve','stop']);p.add_argument('url');p.add_argument('--reason');p.add_argument('--retry-after');a=p.parse_args()
 # This observed workflow stop is intentionally anchored in source as well as data.
@@ -25,7 +34,7 @@ def portable_stop():
  return 'AmericanLegal portable workflow access stop; no automatic retry. Other route availability after the observed stop is untested. '+detail
 # Refuse before creating custom/default gate directories, locks, state or requests.
 if a.action=='reserve':raise SystemExit(portable_stop())
-r=Path(os.environ.get('AMLEGAL_GATE_DIR','/tmp/compliSolv-american-legal-full-gate'));r.mkdir(parents=True,exist_ok=True);stop=r/'browser-stop.json'
+r=gate_dir('AMLEGAL_GATE_DIR','/tmp/compliSolv-american-legal-full-gate');r.mkdir(parents=True,exist_ok=True);stop=r/'browser-stop.json'
 def atom(p,v):
  t=p.with_name(p.name+'.'+str(os.getpid())+'.tmp');t.write_text(json.dumps(v,indent=2));os.replace(t,p)
 if a.action=='stop':

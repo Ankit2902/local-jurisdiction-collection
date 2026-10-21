@@ -4,6 +4,7 @@ import datetime, io, json, platform, re, shutil, sys
 from pathlib import Path
 from urllib.parse import unquote, urlsplit
 from .common import *
+from collectors.winboot import gate_dir as default_gate
 from .adapters import edition, clean_url, family_of
 from .media import qualify_asset
 
@@ -19,7 +20,7 @@ def doctor(url,source=None,gate_dir=None):
  family=family_of(url);state=read(Path(source)/'checkpoint.json') if source else None
  if state and state['config']['family']!=family:raise QualificationError('Doctor source/family mismatch')
  if state and clean_url(url) not in {clean_url(state['config']['url']),clean_url(state.get('publication_url') or state['config']['url'])}:raise QualificationError('Doctor URL does not match retained source configuration/publication')
- gate=Path(gate_dir or (state or {}).get('config',{}).get('gate_dir') or os.environ.get('ICC_GATE_DIR','/tmp/complisolv-icc-full-gate'))/family
+ gate=Path(gate_dir or (state or {}).get('config',{}).get('gate_dir') or default_gate('ICC_GATE_DIR','/tmp/complisolv-icc-full-gate'))/family
  stop=read(gate/'STOP.json') if (gate/'STOP.json').exists() else None
  from .engine import published_access_advisories
  advisories=published_access_advisories(family)

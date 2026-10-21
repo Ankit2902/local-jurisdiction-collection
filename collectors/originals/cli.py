@@ -1,6 +1,15 @@
 """Point-and-shoot collect/normalize/verify. Works as a script or Python module."""
-import argparse,json,sys
+import sys
 from pathlib import Path
+_root = Path(__file__).resolve().parents[2]
+if str(_root) not in sys.path:
+    sys.path.insert(0, str(_root))
+from collectors.winboot import boot, ensure_fcntl
+if __name__ == '__main__':
+    boot('collectors.originals.cli')
+else:
+    ensure_fcntl()
+import argparse,json
 HERE=Path(__file__).resolve().parent
 # Direct script invocation and python -m use the same self-contained sibling modules.
 if str(HERE) not in sys.path:sys.path.insert(0,str(HERE))

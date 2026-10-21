@@ -1,12 +1,20 @@
 """Full native Gridics publication acquisition in ordinary headed Chrome."""
+import sys
+from pathlib import Path
+_root = Path(__file__).resolve().parents[2]
+if str(_root) not in sys.path:
+    sys.path.insert(0, str(_root))
+from collectors.winboot import boot, ensure_fcntl
+if __name__ == '__main__':
+    boot('collectors.gridics.collect')
+else:
+    ensure_fcntl()
+import fcntl
 import argparse
 import datetime
-import fcntl
 import json
 import os
-from pathlib import Path
 import shutil
-import sys
 import time
 from urllib.parse import urlsplit, parse_qs, urlencode
 from .model import Invalid, analyze, checked, digest, read, save
